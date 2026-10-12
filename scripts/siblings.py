@@ -30,6 +30,9 @@ def main() -> int:
                 print(f"siblings: clone of {lock['url']} failed", file=sys.stderr)
                 failed = True
                 continue
+        if git("rev-parse", "HEAD", cwd=path).stdout.strip() == lock["commit"]:
+            print(f"siblings: {name} at {lock['commit']}")
+            continue
         if git("status", "--porcelain", cwd=path).stdout.strip():
             print(f"siblings: {name} has uncommitted changes; not touched", file=sys.stderr)
             failed = True

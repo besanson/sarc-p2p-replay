@@ -7,6 +7,8 @@
 
 PYTHON ?= python3
 VENV   ?= .venv
+# test and lint run in the venv once `make venv` has made it
+RUN    := $(if $(wildcard $(VENV)/bin/python),$(VENV)/bin/python,$(PYTHON))
 
 help:
 	@echo "bootstrap        siblings at pin, venv, data fetch with SHA-256 check, preflight"
@@ -44,10 +46,10 @@ bootstrap-paper:
 	@echo "bootstrap-paper: paper-tex/ has no sources before Phase D; nothing to build"
 
 test:
-	$(PYTHON) -m pytest
+	$(RUN) -m pytest
 
 lint:
-	$(PYTHON) -m lint.terminology
+	$(RUN) -m lint.terminology
 
 clean:
 	rm -rf out .pytest_cache build dist *.egg-info
