@@ -1,0 +1,48 @@
+# prereg/erp-view-template.txt: registered serialisation of the ERP view for E4.
+# Everything above the line "=== REQUEST ===" is documentation and is never sent.
+# The request is the block between "=== REQUEST ===" and "=== END ===", sent
+# verbatim as the single user message after substituting each {placeholder}.
+#
+# The view is the state of the line at the decision point t* (prereg/p7-v1.md
+# section 7), built only from events at or before t*. It carries no event
+# timeline, no company, no vendor, no actor name and no line id.
+#
+# Placeholders:
+#   {category}            one of: 3-way match, invoice after goods receipt |
+#                         3-way match, invoice before goods receipt | 2-way match
+#   {gr_based_iv}         yes | no
+#   {gr_required}         yes | no
+#   {approved_price}      value on the last approval-bearing event (fallback: line value),
+#                         anonymised EUR, 2 decimals
+#   {approved_quantity}   the quantity field if the column mapping names one; the registered
+#                         mapping names none, so the literal "not recorded in this system"
+#   {invoice_received}    yes | no
+#   {invoice_date}        YYYY-MM-DD of the latest Record Invoice Receipt, or "none"
+#   {invoice_value}       value on that event, anonymised EUR, 2 decimals, or "none"
+#   {gr_recorded}         yes | no   (uncancelled goods receipt count > 0)
+#   {gr_date}             YYYY-MM-DD of the latest uncancelled Record Goods Receipt, or "none"
+#   {changes}             "none", or a comma-separated list in time order of
+#                         "price changed on YYYY-MM-DD" / "quantity changed on YYYY-MM-DD"
+#                         for changes after the last approval-bearing event
+#   {payment_block}       set | not set
+#   {decision_date}       YYYY-MM-DD of t*
+#
+# The model's reply is parsed as paper 6 jev-v3 section 3b, with the prefill "{".
+# Fields: decision in {"clear", "hold"}; p_hold a number in [0, 1].
+=== REQUEST ===
+You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {"decision": "clear" or "hold", "p_hold": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.
+
+ERP record as of {decision_date}
+Item category: {category}
+GR-based invoice verification: {gr_based_iv}
+Goods receipt required: {gr_required}
+Approved price (EUR): {approved_price}
+Approved quantity: {approved_quantity}
+Invoice received: {invoice_received}
+Invoice date: {invoice_date}
+Invoice value (EUR): {invoice_value}
+Goods receipt recorded: {gr_recorded}
+Goods receipt date: {gr_date}
+Changes since approval: {changes}
+Payment block: {payment_block}
+=== END ===

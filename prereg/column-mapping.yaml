@@ -1,0 +1,69 @@
+# prereg/column-mapping.yaml: XES (or CSV) attribute names -> replay engine field names.
+# Any event log with these fields, under its own names, runs through the replay
+# (C13). For a CSV log, `case_id`, `activity` and `timestamp` name columns; case
+# attributes are read from the first row of each case.
+#
+# Source of the BPI 2019 names: case attributes as the 4TU record page lists
+# them; event attributes from the IEEE XES standard extensions (concept, time,
+# org) and the record's "user field" and per-event monetary value. Marked
+# `unverified`: not read from the log before the tag. The C0 reader reports the
+# attribute inventory; a mapped attribute absent from the log is a stop condition
+# (prereg/p7-v1.md section 2.2). Any edit after the tag is a deviation.
+
+version: p7-v1
+
+bpi2019:
+  format: xes
+  case:
+    case_id: "concept:name"                        # purchase document + item
+    purchase_document: "Purchasing Document"       # cluster for the bootstrap
+    item: "Item"
+    item_type: "Item Type"
+    gr_based_iv: "GR-Based Inv. Verif."            # flag
+    goods_receipt_required: "Goods Receipt"        # flag
+    item_category: "Item Category"                 # cross-check only
+    source: "Source"
+    doc_category: "Doc. Category name"
+    document_type: "Document Type"
+    company: "Company"                             # stratum label only
+    spend_class: "Spend classification text"
+    spend_area: "Spend area text"                  # stratum
+    sub_spend_area: "Sub spend area text"
+    vendor: "Vendor"                               # stratum label only
+    vendor_name: "Name"                            # never read by the replay
+  event:
+    activity: "concept:name"
+    timestamp: "time:timestamp"
+    actor: "org:resource"                          # unverified; fallback below
+    actor_fallback: "User"                         # unverified
+    value_eur: "Cumulative net worth (EUR)"        # unverified
+  flag_true: ["true", "True", "TRUE", "1"]
+
+bpi2020:
+  format: xes
+  case:
+    case_id: "concept:name"
+  event:
+    activity: "concept:name"
+    timestamp: "time:timestamp"
+    actor: "org:resource"                          # unverified
+    role: "org:role"                               # unverified
+
+# Field names the engine reads and nothing else. A field not listed here is
+# never read, so vendor names and free text never reach the gate or E4.
+engine_fields:
+  - case_id
+  - purchase_document
+  - item_type
+  - gr_based_iv
+  - goods_receipt_required
+  - item_category
+  - company
+  - spend_area
+  - vendor
+  - activity
+  - timestamp
+  - actor
+  - actor_fallback
+  - value_eur
+  - role

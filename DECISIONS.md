@@ -69,3 +69,44 @@ absent. `preflight.py` therefore reports each item (keys, data, siblings) as
 present or absent and exits 0; `--require keys,data,siblings` turns any named
 item into a hard failure for Phases C and later. It never prints a key and never
 raises.
+
+## D-A0-5 Registration choices the brief left open (2026-10-12)
+
+Each is registered in `prereg/p7-v1.md`; listed here with the reason.
+
+- **Window = calendar 2018.** The 4TU record states time coverage 2018. E0 stops
+  the run if fewer than half of the creation events fall in it (section 2.2).
+- **T_end = latest timestamp in the log**, with a stop if it lies after 2019:
+  the rule is fixed before the data are read, and outliers trigger
+  re-registration rather than a silent trim.
+- **K = 12 clearings** for the framework-agreement exclusion: the record's own
+  ordinary recurring example (rent) has twelve.
+- **Category from the two flags** (plus consignment by item type), as the record
+  states the rules; the `Item Category` string is a cross-check.
+- **Unknown predicate values** (missing actor) make the gate hold but are not
+  defects; H3 excludes them and reports the count. This keeps D5 failures from
+  being inflated by missing data.
+- **D1 and D2 coincide at t_c.** Both fail iff no uncancelled receipt precedes
+  t_c. The brief's split into absent and stale receipt is kept as a reporting
+  class assigned from what the log records after t_c, never as gate input.
+- **Counts, not event order, for cancellations, blocks and deletions,** so the
+  verdict is invariant under reordering of equal-timestamp events, as the
+  property test requires.
+- **H1 comparison restricted to 3-way categories,** where D1 and D2 apply to both
+  groups; the all-category comparison is reported beside it.
+- **Clustered bootstrap z-test** for H1 to H3 and **TOST** with unpooled standard
+  error for H4; Holm over five tests (H4 once per family).
+- **E4 decision point t*:** the first clearing if the human cleared within W of
+  the first invoice receipt, else the end of that window; the view is the
+  evidence as it stood when the human decision was made. At most one line per
+  purchase document.
+- **E4 families as paper 6:** TypeSafe System One (Jev) and Claude Haiku 4.5
+  pinned `claude-haiku-4-5-20251001`, request and parser shape of jev-v3, arm
+  health rule with a second check after 200 lines, before the full sample.
+- **Activity and attribute names not read from the log.** Names the brief gives
+  are used verbatim. Other names (approval-bearing events, line block and
+  reactivation, every BPI 2020 activity, the event attribute keys) come from the
+  record and challenge documentation and are marked `unverified` in the YAML
+  files. Reading them from the log before the tag would be parsing beyond the
+  published counts. C0 reports frequencies; a missing mapped attribute stops the
+  run for re-registration; a missing activity is reported with a zero count.

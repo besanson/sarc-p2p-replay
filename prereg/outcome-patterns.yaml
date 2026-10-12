@@ -1,0 +1,93 @@
+# prereg/outcome-patterns.yaml: registered activity lists for p7-v1.
+# Exact activity names, matched on concept:name, case-sensitive, whole string.
+# Activities named in the brief (section 3) are taken verbatim from it. Names
+# marked `unverified` come from the challenge documentation and were not read
+# from the log before the tag (no parse beyond counts). At C0 the reader
+# reports each name's frequency; a name with zero occurrences is reported and
+# stays in the list (prereg/p7-v1.md section 2.2). Any edit after the tag is a
+# deviation.
+
+version: p7-v1
+
+bpi2019:
+  clearing: "Clear Invoice"
+
+  creation: "Create Purchase Order Item"
+
+  # D1/D2 and lag bands
+  goods_receipt: "Record Goods Receipt"
+  goods_receipt_cancel: "Cancel Goods Receipt"
+
+  # D3
+  invoice_receipt: "Record Invoice Receipt"
+
+  # D4: changes, and the events after which a change counts
+  changes:
+    - "Change Price"
+    - "Change Quantity"
+  approval_bearing:
+    - "Create Purchase Order Item"
+    - "Change Approval for Purchase Order"   # unverified
+    - "Release Purchase Order"               # unverified
+    - "Release Purchase Requisition"         # unverified
+    - "SRM: Document Completed"              # unverified
+
+  # D6
+  payment_block_set: "Set Payment Block"
+  payment_block_remove: "Remove Payment Block"
+
+  # D7
+  line_closed:
+    - "Delete Purchase Order Item"
+    - "Block Purchase Order Item"            # unverified
+  line_reopened:
+    - "Reactivate Purchase Order Item"       # unverified
+
+  # Outcome proxy O, within (t_c, t_c + W]; W = 60 days, sensitivity 30
+  outcome:
+    - "Cancel Invoice Receipt"
+    - "Cancel Goods Receipt"
+    - "Change Price"
+    - "Change Quantity"
+    - "Delete Purchase Order Item"
+    - "Vendor creates debit memo"
+    - "Record Subsequent Invoice"
+  window_days: 60
+  sensitivity_window_days: 30
+
+  lag_bands_days:
+    - {label: "0-1", low_exclusive: null, high_inclusive: 1}
+    - {label: "1-7", low_exclusive: 1, high_inclusive: 7}
+    - {label: "7-30", low_exclusive: 7, high_inclusive: 30}
+    - {label: "over 30", low_exclusive: 30, high_inclusive: null}
+    - {label: "never", low_exclusive: null, high_inclusive: null}
+
+  # Actor values that make D5 unknown
+  actor_missing: ["", "NONE"]
+  # Batch users are indicated by their name (record page); prefix match, case-insensitive
+  batch_actor_prefix: "batch"
+
+bpi2020:                                     # all names unverified (challenge documentation)
+  payment:
+    - "Payment Handled"
+  approval:
+    - "Declaration APPROVED by ADMINISTRATION"
+    - "Declaration APPROVED by BUDGET OWNER"
+    - "Declaration APPROVED by PRE_APPROVER"
+    - "Declaration FINAL_APPROVED by SUPERVISOR"
+    - "Declaration FINAL_APPROVED by DIRECTOR"
+  final_approval_required_role:
+    - "Declaration FINAL_APPROVED by SUPERVISOR"
+    - "Declaration FINAL_APPROVED by DIRECTOR"
+  resubmission:
+    - "Declaration SUBMITTED by EMPLOYEE"
+  outcome_prime:
+    - "Declaration REJECTED by ADMINISTRATION"
+    - "Declaration REJECTED by BUDGET OWNER"
+    - "Declaration REJECTED by PRE_APPROVER"
+    - "Declaration REJECTED by SUPERVISOR"
+    - "Declaration REJECTED by DIRECTOR"
+    - "Declaration REJECTED by EMPLOYEE"
+    - "Declaration REJECTED by MISSING"
+    - "Declaration SUBMITTED by EMPLOYEE"
+  window_days: 60
