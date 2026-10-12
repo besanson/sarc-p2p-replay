@@ -1,0 +1,28 @@
+# Secrets: never committed
+.env
+.env.*
+!.env.example
+*.key
+
+# Event logs: fetched by `make bootstrap`, committed by SHA-256 only (prereg/data.lock)
+data/*
+!data/README.md
+
+# Python environments and build output
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Tool caches
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+htmlcov/
+out/
