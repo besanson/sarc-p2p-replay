@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sarc-p2p-replay"
+version = "0.0.1"
+description = "Registered replay of a real purchase-to-pay event log through a deterministic min() evidence gate (SARC paper 7)"
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Gaston Besanson" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pyyaml>=6"]
+# E4 only (Phase C). Pins as paper 6 (gigo-jev-probe, engines.lock).
+live = ["typesafe-sdk==0.7.2", "anthropic==1.9.0"]
+
+[tool.setuptools]
+py-modules = ["preflight"]
+packages = ["p2p_replay", "lint"]
+package-dir = { "p2p_replay" = "src/p2p_replay", "lint" = "lint" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "src"]
+addopts = "-q"

@@ -1,0 +1,25 @@
+# engines.lock: pinned sibling engines for sarc-p2p-replay (paper 7).
+# Each sibling is cloned beside this repository (../<name>) and must be checked
+# out at exactly this commit. preflight.py reports a sibling that is missing or
+# off its pin; `make bootstrap` clones and checks out each one at its pin.
+
+[dqSarc]
+url = "https://github.com/besanson/dqSarc.git"
+path = "../dqSarc"
+commit = "db6c396128a4df7fe12d13be163b1e7d32087177"
+pinned_on = "2026-10-12"
+# Predicate vocabulary (SARC-DQ dimensions), coverage matrix format, GIGO harness conventions.
+
+[sarc-authority-derivation]
+url = "https://github.com/besanson/sarc-authority-derivation.git"
+path = "../sarc-authority-derivation"
+commit = "cfb321ec220e83e81a771a048276571f6edf08fb"
+pinned_on = "2026-10-12"
+# Paper 5 compiler, for E5 (derivation of the matching rule from three declared losses).
+
+[gigo-jev-probe]
+url = "https://github.com/besanson/gigo-jev-probe.git"
+path = "../gigo-jev-probe"
+commit = "e1fc75b6686beecd3f4abdd57241ffc46c96e019"
+pinned_on = "2026-10-12"
+# Paper 6: two-sensor discipline, arm health rule, admission record, request and parser shape for E4.

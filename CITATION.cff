@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: >-
+  If you use this artifact (the replay, the registration, or the paper draft),
+  please cite it using the metadata below. Cite the event logs separately, by
+  their 4TU.ResearchData DOIs (prereg/p7-v1.md, section Data).
+title: >-
+  Silent Evidence Defects in the Wild: A Registered Replay of a Real
+  Purchase-to-Pay Process
+authors:
+  - family-names: Besanson
+    given-names: Gaston
+    affiliation: Universidad Torcuato Di Tella
+repository-code: https://github.com/besanson/sarc-p2p-replay
+license: Apache-2.0
+references:
+  - type: data
+    title: BPI Challenge 2019
+    doi: 10.4121/uuid:d06aff4b-79f0-45e6-8ec8-e19730c248f1
+    publisher:
+      name: 4TU.ResearchData
+    license: CC-BY-4.0
+    year: 2019
+    authors:
+      - family-names: van Dongen
+        given-names: Boudewijn
+  - type: data
+    title: "BPI Challenge 2020: International Declarations"
+    doi: 10.4121/uuid:2bbf8f6a-fc50-48eb-aa9e-c4ea5ef7e8c5
+    publisher:
+      name: 4TU.ResearchData
+    license: CC-BY-NC-4.0
+    year: 2020
+    authors:
+      - family-names: van Dongen
+        given-names: Boudewijn
+  - type: data
+    title: "BPI Challenge 2020: Domestic Declarations"
+    doi: 10.4121/uuid:3f422315-ed9d-4882-891f-e180b5b4feb5
+    publisher:
+      name: 4TU.ResearchData
+    license: CC-BY-NC-4.0
+    year: 2020
+    authors:
+      - family-names: van Dongen
+        given-names: Boudewijn
