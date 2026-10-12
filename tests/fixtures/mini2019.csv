@@ -1,0 +1,40 @@
+case:concept:name,Purchasing Document,Item Type,GR-Based Inv. Verif.,Goods Receipt,Item Category,Company,Spend area text,Vendor,Name,concept:name,time:timestamp,org:resource,Cumulative net worth (EUR)
+A_clean_3way_after,P1,Standard,true,true,"3-way match, invoice after GR",c1,s1,v1,vendor name 1,Create Purchase Order Item,2018-02-01T09:00:00+01:00,user_001,100.0
+B_stale_receipt_3way_before,P2,Standard,false,true,"3-way match, invoice before GR",c1,s2,v2,vendor name 2,Create Purchase Order Item,2018-03-01T09:00:00+00:00,user_001,200.0
+C_same_actor_changed_2way,P3,Service,false,false,2-way match,c2,s1,v1,vendor name 1,Create Purchase Order Item,2018-04-01T09:00:00+00:00,user_003,50.0
+D_consignment,P4,Consignment,false,true,Consignment,c1,s1,v3,vendor name 3,Create Purchase Order Item,2018-04-01T09:00:00+00:00,user_001,10.0
+E_no_creation,P5,Standard,false,false,2-way match,c1,s1,v1,vendor name 1,Record Invoice Receipt,2018-05-01T09:00:00+00:00,user_006,30.0
+F_open_block_unknown_creator,P6,Standard,true,true,"3-way match, invoice after GR",c2,s2,v2,vendor name 2,Create Purchase Order Item,2018-05-01T09:00:00+00:00,NONE,80.0
+G_outside_window,P7,Standard,false,false,2-way match,c1,s1,v1,vendor name 1,Create Purchase Order Item,2017-06-01T09:00:00+00:00,user_001,40.0
+H_incomplete_window,P8,Standard,false,true,"3-way match, invoice before GR",c1,s1,v1,vendor name 1,Create Purchase Order Item,2018-12-01T09:00:00+00:00,user_001,60.0
+I_zero_value,P9,Standard,false,false,2-way match,c1,s1,v1,vendor name 1,Create Purchase Order Item,2018-06-01T09:00:00+00:00,user_001,0.0
+K_absent_receipt,P10,Standard,true,true,"3-way match, invoice after GR",c2,s1,v3,vendor name 3,Create Purchase Order Item,2018-06-01T09:00:00+00:00,user_001,10.0
+L_deleted_2way,P11,Standard,false,false,2-way match,c1,s2,v2,vendor name 2,Create Purchase Order Item,2018-07-01T09:00:00+00:00,user_001,30.0
+A_clean_3way_after,P1,Standard,true,true,"3-way match, invoice after GR",c1,s1,v1,vendor name 1,Record Goods Receipt,2018-02-10T09:00:00+01:00,user_005,100.0
+B_stale_receipt_3way_before,P2,Standard,false,true,"3-way match, invoice before GR",c1,s2,v2,vendor name 2,Record Invoice Receipt,2018-03-05T09:00:00+00:00,user_006,200.0
+C_same_actor_changed_2way,P3,Service,false,false,2-way match,c2,s1,v1,vendor name 1,Change Price,2018-04-02T09:00:00+00:00,user_003,55.0
+D_consignment,P4,Consignment,false,true,Consignment,c1,s1,v3,vendor name 3,Record Goods Receipt,2018-04-02T09:00:00+00:00,user_005,10.0
+E_no_creation,P5,Standard,false,false,2-way match,c1,s1,v1,vendor name 1,Clear Invoice,2018-05-02T09:00:00+00:00,user_002,30.0
+F_open_block_unknown_creator,P6,Standard,true,true,"3-way match, invoice after GR",c2,s2,v2,vendor name 2,Record Goods Receipt,2018-05-02T09:00:00+00:00,user_005,80.0
+G_outside_window,P7,Standard,false,false,2-way match,c1,s1,v1,vendor name 1,Record Invoice Receipt,2017-06-02T09:00:00+00:00,user_006,40.0
+H_incomplete_window,P8,Standard,false,true,"3-way match, invoice before GR",c1,s1,v1,vendor name 1,Record Invoice Receipt,2019-05-20T09:00:00+00:00,user_006,60.0
+I_zero_value,P9,Standard,false,false,2-way match,c1,s1,v1,vendor name 1,Record Invoice Receipt,2018-06-02T09:00:00+00:00,user_006,0.0
+K_absent_receipt,P10,Standard,true,true,"3-way match, invoice after GR",c2,s1,v3,vendor name 3,Record Invoice Receipt,2018-06-02T09:00:00+00:00,user_006,10.0
+L_deleted_2way,P11,Standard,false,false,2-way match,c1,s2,v2,vendor name 2,Delete Purchase Order Item,2018-07-02T09:00:00+00:00,user_001,
+A_clean_3way_after,P1,Standard,true,true,"3-way match, invoice after GR",c1,s1,v1,vendor name 1,Record Invoice Receipt,2018-02-12T09:00:00+01:00,user_006,100.0
+B_stale_receipt_3way_before,P2,Standard,false,true,"3-way match, invoice before GR",c1,s2,v2,vendor name 2,Clear Invoice,2018-03-10T09:00:00+00:00,user_002,200.0
+C_same_actor_changed_2way,P3,Service,false,false,2-way match,c2,s1,v1,vendor name 1,Record Invoice Receipt,2018-04-03T09:00:00+00:00,user_006,55.0
+F_open_block_unknown_creator,P6,Standard,true,true,"3-way match, invoice after GR",c2,s2,v2,vendor name 2,Record Invoice Receipt,2018-05-03T09:00:00+00:00,user_006,80.0
+G_outside_window,P7,Standard,false,false,2-way match,c1,s1,v1,vendor name 1,Clear Invoice,2017-06-03T09:00:00+00:00,user_002,40.0
+H_incomplete_window,P8,Standard,false,true,"3-way match, invoice before GR",c1,s1,v1,vendor name 1,Clear Invoice,2019-06-01T09:00:00+00:00,user_002,60.0
+I_zero_value,P9,Standard,false,false,2-way match,c1,s1,v1,vendor name 1,Clear Invoice,2018-06-03T09:00:00+00:00,user_002,0.0
+K_absent_receipt,P10,Standard,true,true,"3-way match, invoice after GR",c2,s1,v3,vendor name 3,Clear Invoice,2018-06-03T09:00:00+00:00,user_002,
+L_deleted_2way,P11,Standard,false,false,2-way match,c1,s2,v2,vendor name 2,Record Invoice Receipt,2018-07-03T09:00:00+00:00,user_006,30.0
+A_clean_3way_after,P1,Standard,true,true,"3-way match, invoice after GR",c1,s1,v1,vendor name 1,Clear Invoice,2018-02-20T09:00:00+01:00,user_002,100.0
+B_stale_receipt_3way_before,P2,Standard,false,true,"3-way match, invoice before GR",c1,s2,v2,vendor name 2,Record Goods Receipt,2018-03-12T09:00:00+00:00,user_005,200.0
+C_same_actor_changed_2way,P3,Service,false,false,2-way match,c2,s1,v1,vendor name 1,Clear Invoice,2018-04-05T09:00:00+00:00,user_003,55.0
+F_open_block_unknown_creator,P6,Standard,true,true,"3-way match, invoice after GR",c2,s2,v2,vendor name 2,Set Payment Block,2018-05-04T09:00:00+00:00,user_006,
+H_incomplete_window,P8,Standard,false,true,"3-way match, invoice before GR",c1,s1,v1,vendor name 1,Record Goods Receipt,2019-06-30T09:00:00+00:00,user_005,60.0
+L_deleted_2way,P11,Standard,false,false,2-way match,c1,s2,v2,vendor name 2,Clear Invoice,2018-07-04T09:00:00+00:00,user_002,30.0
+B_stale_receipt_3way_before,P2,Standard,false,true,"3-way match, invoice before GR",c1,s2,v2,vendor name 2,Change Price,2018-03-20T09:00:00+00:00,user_001,210.0
+F_open_block_unknown_creator,P6,Standard,true,true,"3-way match, invoice after GR",c2,s2,v2,vendor name 2,Clear Invoice,2018-05-06T09:00:00+00:00,user_004,80.0
