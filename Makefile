@@ -1,4 +1,4 @@
-.PHONY: help bootstrap siblings venv fetch-data check-data preflight bootstrap-paper test lint clean
+.PHONY: help bootstrap siblings venv fetch-data check-data preflight bootstrap-paper test lint mutate clean
 
 # Paper 7: sarc-p2p-replay. Apache License 2.0.
 # Target layout as paper 6 (gigo-jev-probe) and paper 5 (sarc-authority-derivation):
@@ -19,7 +19,8 @@ help:
 	@echo "preflight        report keys, data and sibling pins (never prints a key)"
 	@echo "bootstrap-paper  check the LaTeX toolchain for paper-tex/ (separate from bootstrap)"
 	@echo "test             pytest"
-	@echo "lint             terminology lint over live prose"
+	@echo "lint             terminology and proof-status lints"
+	@echo "mutate           mutation gate on src/ (kill score >= 0.85, no uncovered mutant)"
 
 bootstrap: siblings venv fetch-data preflight
 	@echo "bootstrap: done"
@@ -50,6 +51,13 @@ test:
 
 lint:
 	$(RUN) -m lint.terminology
+	$(RUN) -m lint.proof_status
+
+mutate:
+	rm -rf mutants
+	$(VENV)/bin/mutmut run
+	$(VENV)/bin/mutmut export-cicd-stats
+	$(RUN) scripts/mutation_check.py
 
 clean:
-	rm -rf out .pytest_cache build dist *.egg-info
+	rm -rf out mutants .pytest_cache build dist *.egg-info

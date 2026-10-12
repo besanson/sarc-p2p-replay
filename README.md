@@ -5,9 +5,10 @@ Wild: A Registered Replay of a Real Purchase-to-Pay Process**. Author: Gaston
 Besanson, Universidad Torcuato Di Tella. Sole author; AI tools are support,
 disclosed in the acknowledgements only.
 
-**Status: Phase A0.** Skeleton, documents and the draft preregistration
-`prereg/p7-v1.md`. No analysis, no model call and no result exist in this
-tree. Nothing is binding until the author tags `prereg-p7-v1`.
+**Status: Phase B.** The registration `prereg/p7-v1.md` is tagged
+`prereg-p7-v1` (commit `e239864`). The replay engine is built and tested on
+synthetic fixtures only. No analysis, no model call and no result on the
+registered logs exist in this tree.
 
 ## What the paper does
 
@@ -35,8 +36,9 @@ What it does not claim: see `CLAIMS.md` (non-claims) and `COVERAGE.md`
 | `DECISIONS.md` `FINAL-AUDIT.md` | decision log; release audit (all items open) |
 | `engines.lock` | pinned siblings: dqSarc, sarc-authority-derivation, gigo-jev-probe |
 | `preflight.py` | reports keys, data and sibling pins; never prints a key |
-| `lint/` | terminology lint |
-| `src/p2p_replay/` | replay engine (Phase B; empty at A0) |
+| `lint/` | terminology and proof-status lints |
+| `src/p2p_replay/` | replay engine: XES/CSV reader, evidence at clearing time, predicates D1 to D7, contract per category, outcome proxy, evidence set, ERP view, E7 predicates, CLI |
+| `tests/` | unit, fixture, CLI and property tests; synthetic fixtures in `tests/fixtures/` |
 | `experiments/` `responses/` `results/` | E0 to E7 runners, E4 caches, slots (Phases C and later) |
 | `paper/` `paper-tex/` `review-secondary/` | draft, gates, external reviews (Phases D and later) |
 | `data/` | gitignored; fetched by `make bootstrap` |
@@ -46,9 +48,20 @@ What it does not claim: see `CLAIMS.md` (non-claims) and `COVERAGE.md`
 ```
 make bootstrap        # siblings at pin, .venv, data fetch with SHA-256 check, preflight
 make test             # pytest
-make lint             # terminology lint
+make lint             # terminology and proof-status lints
+make mutate           # mutation gate on src/ (kill score >= 0.85)
 make bootstrap-paper  # LaTeX toolchain for the paper (separate; not needed for the replay)
 ```
+
+Replay any event log (XES or CSV, plain or gzip) with a column mapping in the
+registered shape (`prereg/column-mapping.yaml`):
+
+```
+python -m p2p_replay replay LOG --out evidence.jsonl --frame-counts frame.json
+```
+
+It writes one evidence set per analysed clearing and the frame counts; it
+computes no rate, interval or test.
 
 Keys, when Phase C needs them, live only in `.env` (see `.env.example`). They
 are never committed, printed or copied.

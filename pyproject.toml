@@ -10,10 +10,10 @@ requires-python = ">=3.11"
 readme = "README.md"
 license = { text = "Apache-2.0" }
 authors = [{ name = "Gaston Besanson" }]
-dependencies = []
+dependencies = ["pyyaml>=6"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "pyyaml>=6"]
+dev = ["pytest>=8", "hypothesis>=6", "mutmut==3.7.0"]
 # E4 only (Phase C). Pins as paper 6 (gigo-jev-probe, engines.lock).
 live = ["typesafe-sdk==0.7.2", "anthropic==1.9.0"]
 
@@ -26,3 +26,12 @@ package-dir = { "p2p_replay" = "src/p2p_replay", "lint" = "lint" }
 testpaths = ["tests"]
 pythonpath = [".", "src"]
 addopts = "-q"
+
+# Mutation gate (as paper 5, ADR-003 there): kill score >= 0.85 on src/, no
+# mutant without a covering test. `make mutate` runs it; scripts/mutation_check.py
+# reads mutmut's exported stats and fails the gate. Only the engine's own tests
+# are selected; preflight and lint tests do not exercise src/.
+[tool.mutmut]
+source_paths = ["src/p2p_replay"]
+also_copy = ["prereg/", "lint/", "README.md"]
+pytest_add_cli_args_test_selection = ["tests/test_engine_units.py", "tests/test_pipeline.py", "tests/test_properties.py"]
