@@ -167,3 +167,23 @@ remaining survivors are equivalent or cosmetic: error-message and help strings,
 `encoding="UTF-8"` against `"utf-8"`, `Z` suffix handling that
 `datetime.fromisoformat` already does, and `>=` against `>` where the two
 branches return the same value.
+
+## D-A1-0 A1 begins after Phase B (2026-10-13)
+
+Phase B (replay engine on fixtures, commits `2da2586` and `e97fab8`) ran before
+A1. B changed no registered file: at the start of this session,
+`git diff prereg-p7-v1..HEAD -- prereg/ CLAIMS.md COVERAGE.md NOVELTY.md engines.lock`
+at HEAD `e97fab8` was empty (exit status 0, no output). A1 preparation then
+edited only the "Not claimed as new" citations of `NOVELTY.md` and the one intro
+sentence on verification (commit `03027f9`); `prereg/`, `CLAIMS.md`,
+`COVERAGE.md` and `engines.lock` are unchanged.
+
+`prereg/p7-v1.md` section 12 reads "A1 fence review, then this tag (or v1.1 if
+section 6 changes)", while the brief and README place the tag at A0. The tag
+stands as made by the author: `prereg-p7-v1` on `e239864`. Section 12 is read as
+"then v1.1, if the review requires it". No file under `prereg/` is edited.
+
+The fence packet is `review-secondary/A1-fence-packet.md`. No reviewer has been
+chosen.
+
+D-A1-1 is reserved for the adjudication of the review and is not written now.
