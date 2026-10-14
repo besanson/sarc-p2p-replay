@@ -1,0 +1,5 @@
+# Attestation: A1 second machine prior-art sweep
+
+Second machine prior-art sweep, not the external review. Model: DeepSeek, [VERSION], web search on. Run by the author on 2026-10-14 on the packet at commit fc6447e, with a prompt that asked for what the first sweep (D-A1-0b) missed, in priority order: Claimed item 4, Claimed item 3, the uncited deviation-to-outcome paragraph, then items 1, 2, 5 and 6; every source with a resolving URL and a quoted line. Committed unedited; SHA-256 eba8dc4dd37a4055885e56b7ef3e1497b3e1e32893280565f3991d2a1da2e885.
+
+The author's file was named A1-fence-review.md; that name is reserved for the external review and is not used here.
