@@ -275,3 +275,76 @@ that the component precedents should delimit the contribution.
 cited in NOVELTY.md.
 
 This sweep is AI support, to be disclosed in the acknowledgements; it is not the external fence review.
+
+## D-A1-0c Second machine prior-art sweep (2026-10-14)
+
+**What was run.** The author ran a second prior-art sweep with DeepSeek
+([VERSION]; web search on) on the packet at commit `fc6447e`, asking for what the
+first sweep (D-A1-0b) missed, in priority order: Claimed item 4, Claimed item 3,
+the uncited deviation-to-outcome paragraph, then items 1, 2, 5 and 6, with a
+resolving URL and a quoted line for every source. Committed unedited (commit
+`f7593df`) as `review-secondary/A1-fence-sweep-deepseek.md`, SHA-256
+`eba8dc4dd37a4055885e56b7ef3e1497b3e1e32893280565f3991d2a1da2e885`, with
+`review-secondary/A1-fence-sweep-deepseek.attestation.md`. The author's file
+name, A1-fence-review.md, is reserved for the external review.
+
+**Verification on 2026-10-14.** Each URL fetched from this session. No host was
+blocked by the network policy; dl.acm.org and sciencedirect.com refused pages
+(403). Records in `verified-citations.json`.
+
+| source (record id) | status | where checked |
+|---|---|---|
+| Palma et al. 2026, "Business Compromise Detection with Agentic AI and LLM-driven Knowledge Discovery", arXiv:2609.32643 (`palma-business-compromise-2026`) | **mismatch** | HTML and PDF; section 4.3, Tables 1 and 2 |
+| Kadir et al. 2025, "AuditCopilot", arXiv:2512.02726 (`kadir-auditcopilot-2025`) | verified | arXiv abstract |
+| Harding and Vasconcelos 2022, "Managers versus Machines", arXiv:2202.04218 (`harding-managers-machines-2022`) | verified | arXiv abstract (the sweep's ellipsis drops one clause) |
+| Teinemaa, Dumas, La Rosa, Maggi 2019, "Outcome-Oriented Predictive Process Monitoring", ACM TKDD 13(2), doi:10.1145/3301300 (`teinemaa-outcome-ppm-2019`) | verified | ACM page 403; DOI registered (doi.org handle API); quote found in the publisher-deposited abstract in the Crossref record |
+| Nguyen, Dumas, La Rosa, Maggi, Suriadi 2016, "Business Process Deviance Mining: Review and Evaluation", arXiv:1608.08252 (`nguyen-deviance-mining-2016`) | verified | arXiv abstract |
+| Peleg, Soffer, Ghattas 2008, LNCS 4928, pp. 395-400 (`peleg-mining-outcomes-2008`) | verified (was "reached, quote not checked") | Springer abstract, sentence checked character for character |
+| Ghattas, Soffer, Peleg 2014, Decision Support Systems 59 (`ghattas-decision-making-2014`) | unreachable | no URL or quote given; ScienceDirect search and volume page 403; existence not confirmed; not evidence |
+
+**Mismatch.** The sweep says of Palma et al. 2026: "No deterministic rule is one
+of the side-by-side deciders." The paper's Table 1 ("Comparison of different
+approaches to ground truth (SME)", the same 397 accounts) lists Human Reviewer
+(MCC 0.422), Agent Only (0.295), Gradient Boosting (0.338), Random Forest
+(0.386), and rule-based deciders: FOIL-IE (L1, symbolic rules learned by
+Inductive Logic Programming, 0.425) and the full neuro-symbolic stage
+(L1+L2+L3, 0.435); Table 2 gives full stage minus Human Reviewer dMCC +0.012,
+p = 0.881. The quoted sentence continues: "...replacing only who decides, the
+agent's own verdict versus the knowledge stage, raises MCC from 0.295 to 0.435".
+The MCC values the sweep quotes are correct. So the paper puts a human, an LLM
+agent, tree ensembles and learned symbolic rules on the same cases; the rules are
+learned, not a declared contract. This makes it a closer component precedent for
+Claimed item 4 than the sweep reports.
+
+**The sweep's verdict per Claimed item.** Item 4: complete combination not found
+(c). Item 3: complete combination not found (c). Items 1, 2, 5, 6: nothing new
+beyond the first sweep's component precedents (D-A1-0b).
+
+**Candidates: candidate, awaiting the author's adjudication at D-A1-1.**
+
+| Claimed item | candidate (record id) | status | quoted line |
+|---|---|---|---|
+| 4 | Palma et al. 2026 (`palma-business-compromise-2026`) | mismatch (see above) | Table 1: Human Reviewer 0.422, Agent Only 0.295, Gradient Boosting 0.338, Random Forest 0.386, FOIL-IE 0.425, Full 0.435 (397 accounts) |
+| 4 | Kadir et al. 2025 (`kadir-auditcopilot-2025`) | verified | "Benchmarking SoTA LLMs such as LLaMA and Gemma on both synthetic and real-world anonymized ledgers, we compare them against JETs and machine learning baselines." |
+| 4 | Harding and Vasconcelos 2022 (`harding-managers-machines-2022`) | verified | "Even though a typical bank already relies on an algorithmic scorecard process to evaluate risk, bank managers are given significant latitude in adjusting the risk score ... We show that it is possible to find machine learning algorithms that can replicate the behavior of the bank managers." |
+| 3 | Teinemaa et al. 2019 (`teinemaa-outcome-ppm-2019`) | verified | "outcome-oriented predictive process monitoring, which refers to classifying each ongoing case of a process according to a given set of possible categorical outcomes" |
+| 3 | Nguyen et al. 2016 (`nguyen-deviance-mining-2016`) | verified | "Business process deviance refers to the phenomenon whereby a subset of the executions of a business process deviate, in a negative or positive way, with respect to its expected or desirable outcomes." |
+
+**Source for the deviation-to-outcome paragraph: to be cited at D-A1-1 if
+verified.** Peleg, Soffer and Ghattas 2008 (`peleg-mining-outcomes-2008`), now
+verified on its abstract: "This position paper motivates the extension of
+process mining in order to capture not only deviations from the process model,
+but also the outcomes associated with them (e.g., patient improving or
+deteriorating)." NOVELTY.md is not changed now; the paragraph keeps its marker
+until D-A1-1.
+
+**Sentence rewording (same as the first sweep's, not applied).** Replace "the
+evidence it relied on" with "the evidence reconstructed from the event log at
+clearing time", because the design "does not establish which information the
+original human approver actually consulted". The sweep otherwise finds that the
+sentence holds and that "puts people, models and the gate on the same lines can
+stand as the contribution".
+
+The packet at fc6447e was not changed: it is with the external reviewer.
+
+This sweep is AI support, to be disclosed in the acknowledgements; it is not the external fence review.

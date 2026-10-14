@@ -1,5 +1,5 @@
 {
-  "_schema_note": "As paper 5 (sarc-authority-derivation, verified-citations.json at its pin): a citation enters the paper only after its source page is fetched and url, title, first_author, year recorded here; verified_via records how and when. Paper 7 adds citation_as_written (the text in NOVELTY.md, or null for a source found in A1 and not yet cited), http_status, title_as_page_states, reached_on, status ('verified', 'unreachable', 'not found') and note. A source counts as verified only if fetched in the session that recorded it. A1 sweep (2026-10-14): records already present carry a sweep_check object (url fetched, http status, status, location, quote) for the sweep's quoted evidence; status values for sweep checks are 'verified', 'reached, quote not checked', 'mismatch', 'unreachable', 'not found'.",
+  "_schema_note": "As paper 5 (sarc-authority-derivation, verified-citations.json at its pin): a citation enters the paper only after its source page is fetched and url, title, first_author, year recorded here; verified_via records how and when. Paper 7 adds citation_as_written (the text in NOVELTY.md, or null for a source found in A1 and not yet cited), http_status, title_as_page_states, reached_on, status ('verified', 'unreachable', 'not found') and note. A source counts as verified only if fetched in the session that recorded it. A1 sweep (2026-10-14): records already present carry a sweep_check object (url fetched, http status, status, location, quote) for the sweep's quoted evidence; status values for sweep checks are 'verified', 'reached, quote not checked', 'mismatch', 'unreachable', 'not found'. The A1 second sweep (2026-10-14) adds records and a sweep_check on peleg-mining-outcomes-2008.",
   "citations": [
     {
       "id": "vanderaalst-process-mining-2016",
@@ -715,9 +715,19 @@
       "http_status": 200,
       "title_as_page_states": "Mining Process Execution and Outcomes – Position Paper",
       "reached_on": "2026-10-14",
-      "status": "reached, quote not checked",
-      "verified_via": "2026-10-14: Springer chapter page via WebFetch after its cookie redirect; Crossref record 200 (title, authors, pages 395-400). The page carries the abstract, not the body; it does not contain the sweep's quoted 'Objective 2: ...' sentence (section 3, p. 397). The ResearchGate copy the sweep read returned 403. The abstract excerpt the fetch returned: the authors argue for extending process mining to 'capture not only deviations from the process model, but also the outcomes associated with them.'",
-      "note": "Publisher page is the citation; the quotation location (ResearchGate copy) is recorded as peleg-mining-outcomes-2008-researchgate. Quote not checked, so not cited in NOVELTY.md; the deviation-to-outcome paragraph keeps its marker."
+      "status": "verified",
+      "verified_via": "2026-10-14: Springer chapter page via WebFetch after its cookie redirect; Crossref record 200 (title, authors, pages 395-400). The page carries the abstract, not the body; it does not contain the sweep's quoted 'Objective 2: ...' sentence (section 3, p. 397). The ResearchGate copy the sweep read returned 403. The abstract excerpt the fetch returned: the authors argue for extending process mining to 'capture not only deviations from the process model, but also the outcomes associated with them.' | 2026-10-14 (second sweep check): WebFetch of the Springer chapter page after its cookie redirect; the abstract's sentence checked in two halves, character for character: 'This position paper motivates the extension of process mining in order to capture not only deviations from the process model, but also the outcomes associated with them (e.g., patient improving or deteriorating).'",
+      "note": "Verified on its abstract (the second sweep's quote). The first sweep's 'Objective 2' quote (body, p. 397) remains unchecked; the ResearchGate copy stays unreachable. Source for the deviation-to-outcome paragraph, to be cited at D-A1-1.",
+      "sweep_check": {
+        "source": "A1 second machine sweep (review-secondary/A1-fence-sweep-deepseek.md)",
+        "url_fetched": "https://link.springer.com/chapter/10.1007/978-3-540-78238-4_40",
+        "http_status": 200,
+        "reached_on": "2026-10-14",
+        "status": "verified",
+        "location_checked": "abstract (Springer chapter page)",
+        "quote": "This position paper motivates the extension of process mining in order to capture not only deviations from the process model, but also the outcomes associated with them (e.g., patient improving or deteriorating).",
+        "note": null
+      }
     },
     {
       "id": "peleg-mining-outcomes-2008-researchgate",
@@ -801,6 +811,143 @@
       "status": "unreachable",
       "verified_via": "2026-10-14: one fetch, 403 from the site (tunnel established).",
       "note": "Named by the sweep, not used as evidence (D-A1-0b)."
+    },
+    {
+      "id": "palma-business-compromise-2026",
+      "entry_type": "misc",
+      "authors": [
+        "Diego Palma",
+        "Kyu Bin Kim",
+        "Zhen Han",
+        "Allbright Dsouza",
+        "Zhiyuan Liu"
+      ],
+      "first_author": "Diego Palma",
+      "title": "Business Compromise Detection with Agentic AI and LLM-driven Knowledge Discovery",
+      "year": 2026,
+      "venue": "arXiv:2609.32643 (submitted 2026-09-26)",
+      "doi": null,
+      "url": "https://arxiv.org/html/2609.32643",
+      "citation_as_written": null,
+      "http_status": 200,
+      "title_as_page_states": "Business Compromise Detection with Agentic AI and LLM-driven Knowledge Discovery",
+      "reached_on": "2026-10-14",
+      "status": "mismatch",
+      "verified_via": "2026-10-14: arXiv abstract page, HTML (200) and PDF (200) read. The quoted words are there but cut short: 'Holding the agent's evidence fixed and replacing only who decides, the agent's own verdict versus the knowledge stage, raises MCC from 0.295 to 0.435' (section 4.3). Table 1 ('Comparison of different approaches to ground truth (SME)', 397 accounts) carries the cited MCCs: Human Reviewer 0.422, Agent Only 0.295, Gradient Boosting 0.338, Random Forest 0.386. The same table also lists rule-based deciders on the same accounts: FOIL-IE (L1, symbolic rules learned by Inductive Logic Programming) 0.425 and the full neuro-symbolic stage (L1+L2+L3) 0.435; Table 2: full stage minus Human Reviewer dMCC +0.012, p = 0.881.",
+      "note": "Mismatch with the sweep's characterisation: the sweep says 'No deterministic rule is one of the side-by-side deciders'; the page compares a human reviewer, an LLM agent, tree ensembles and learned symbolic-rule stages on the same 397 accounts. The rules are learned (ILP), not a declared gate. The numbers the sweep quotes are correct ('LLM agent alone' is 'Agent Only' in the table). Candidate against Claimed item 4 (D-A1-0c)."
+    },
+    {
+      "id": "kadir-auditcopilot-2025",
+      "entry_type": "misc",
+      "authors": [
+        "Md Abdul Kadir",
+        "Sai Suresh Macharla Vasu",
+        "Sidharth S. Nair",
+        "Daniel Sonntag"
+      ],
+      "first_author": "Md Abdul Kadir",
+      "title": "AuditCopilot: Leveraging LLMs for Fraud Detection in Double-Entry Bookkeeping",
+      "year": 2025,
+      "venue": "arXiv:2512.02726 (submitted 2025-12-02)",
+      "doi": null,
+      "url": "https://arxiv.org/abs/2512.02726",
+      "citation_as_written": null,
+      "http_status": 200,
+      "title_as_page_states": "AuditCopilot: Leveraging LLMs for Fraud Detection in Double-Entry Bookkeeping",
+      "reached_on": "2026-10-14",
+      "status": "verified",
+      "verified_via": "2026-10-14: arXiv abstract page (200). Abstract: 'Benchmarking SoTA LLMs such as LLaMA and Gemma on both synthetic and real-world anonymized ledgers, we compare them against JETs and machine learning baselines.'",
+      "note": "Candidate against Claimed item 4 (D-A1-0c)."
+    },
+    {
+      "id": "harding-managers-machines-2022",
+      "entry_type": "misc",
+      "authors": [
+        "Matthew Harding",
+        "Gabriel F. R. Vasconcelos"
+      ],
+      "first_author": "Matthew Harding",
+      "title": "Managers versus Machines: Do Algorithms Replicate Human Intuition in Credit Ratings?",
+      "year": 2022,
+      "venue": "arXiv:2202.04218 (submitted 2022-02-09)",
+      "doi": null,
+      "url": "https://arxiv.org/abs/2202.04218",
+      "citation_as_written": null,
+      "http_status": 200,
+      "title_as_page_states": "Managers versus Machines: Do Algorithms Replicate Human Intuition in Credit Ratings?",
+      "reached_on": "2026-10-14",
+      "status": "verified",
+      "verified_via": "2026-10-14: arXiv abstract page (200). Abstract: 'Even though a typical bank already relies on an algorithmic scorecard process to evaluate risk, bank managers are given significant latitude in adjusting the risk score in order to account for other holistic factors based on their intuition and experience. We show that it is possible to find machine learning algorithms that can replicate the behavior of the bank managers.' The sweep's ellipsis stands for the omitted clause.",
+      "note": "Candidate against Claimed item 4 (D-A1-0c)."
+    },
+    {
+      "id": "teinemaa-outcome-ppm-2019",
+      "entry_type": "article",
+      "authors": [
+        "Irene Teinemaa",
+        "Marlon Dumas",
+        "Marcello La Rosa",
+        "Fabrizio Maria Maggi"
+      ],
+      "first_author": "Irene Teinemaa",
+      "title": "Outcome-Oriented Predictive Process Monitoring",
+      "year": 2019,
+      "venue": "ACM Transactions on Knowledge Discovery from Data 13(2), 2019",
+      "doi": "10.1145/3301300",
+      "url": "https://dl.acm.org/doi/10.1145/3301300",
+      "citation_as_written": null,
+      "http_status": 403,
+      "title_as_page_states": "Outcome-Oriented Predictive Process Monitoring (Crossref record)",
+      "reached_on": "2026-10-14",
+      "status": "verified",
+      "verified_via": "2026-10-14: ACM page 403 (curl and WebFetch). doi.org handle API: DOI registered, resolves to the ACM page. Crossref /works/10.1145/3301300 (200) carries the publisher-deposited abstract, which contains: 'outcome-oriented predictive process monitoring, which refers to classifying each ongoing case of a process according to a given set of possible categorical outcomes'.",
+      "note": "Verified from the DOI registry record; the publisher page refused. Crossref splits one author as given 'Marcello La', family 'Rosa'; recorded here as Marcello La Rosa. Candidate against Claimed item 3 (D-A1-0c)."
+    },
+    {
+      "id": "nguyen-deviance-mining-2016",
+      "entry_type": "misc",
+      "authors": [
+        "Hoang Nguyen",
+        "Marlon Dumas",
+        "Marcello La Rosa",
+        "Fabrizio Maria Maggi",
+        "Suriadi Suriadi"
+      ],
+      "first_author": "Hoang Nguyen",
+      "title": "Business Process Deviance Mining: Review and Evaluation",
+      "year": 2016,
+      "venue": "arXiv:1608.08252 (submitted 2016-08-29)",
+      "doi": null,
+      "url": "https://arxiv.org/abs/1608.08252",
+      "citation_as_written": null,
+      "http_status": 200,
+      "title_as_page_states": "Business Process Deviance Mining: Review and Evaluation",
+      "reached_on": "2026-10-14",
+      "status": "verified",
+      "verified_via": "2026-10-14: arXiv abstract page (200). Abstract: 'Business process deviance refers to the phenomenon whereby a subset of the executions of a business process deviate, in a negative or positive way, with respect to its expected or desirable outcomes.'",
+      "note": "Candidate against Claimed item 3 (D-A1-0c)."
+    },
+    {
+      "id": "ghattas-decision-making-2014",
+      "entry_type": "article",
+      "authors": [
+        "Ghattas",
+        "Soffer",
+        "Peleg"
+      ],
+      "first_author": "Ghattas",
+      "title": "Improving business process decision making based on past experience (as the sweep names it)",
+      "year": 2014,
+      "venue": "Decision Support Systems 59 (as the sweep names it)",
+      "doi": null,
+      "url": null,
+      "citation_as_written": null,
+      "http_status": 403,
+      "title_as_page_states": null,
+      "reached_on": "2026-10-14",
+      "status": "unreachable",
+      "verified_via": "2026-10-14: the sweep gives no URL and no quote. ScienceDirect title search and the Decision Support Systems vol. 59 page both returned 403 from the site (tunnel established; curl and WebFetch); doi.org offers no title search. Existence not confirmed.",
+      "note": "Not evidence; named by the sweep only as corroboration."
     }
   ]
 }
