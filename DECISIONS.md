@@ -190,7 +190,7 @@ D-A1-1 is reserved for the adjudication of the review and is not written now.
 
 ## D-A1-0b Machine prior-art sweep (2026-10-14)
 
-**What was run.** The author ran a prior-art sweep with OpenAI ChatGPT ([MODEL];
+**What was run.** The author ran a prior-art sweep with OpenAI ChatGPT (Astra 6, as stated by the author;
 web search on) on `review-secondary/A1-fence-packet.md` (commit `f0e6b90`), with
 the packet's own reviewer instructions plus a rule that every source carries a
 resolving URL and a quoted line. Hyperlinks were lost when the text was copied
