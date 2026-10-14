@@ -5,7 +5,7 @@
 | paper (working title) | Silent Evidence Defects in the Wild: A Registered Replay of a Real Purchase-to-Pay Process |
 | author | Gaston Besanson, Universidad Torcuato Di Tella |
 | registration | `p7-v1`, tag `prereg-p7-v1` on commit `e239864` |
-| packet date | 2026-10-13 |
+| packet date | 2026-10-14 (rebuilt; first version 2026-10-13 at commit `f0e6b90`) |
 | repository | https://github.com/besanson/sarc-p2p-replay |
 
 This packet is sent to an external reviewer with no hand in SARC papers 1 to 6. The reply is committed to the repository unedited.
@@ -16,7 +16,7 @@ For each item under 'Claimed' in the Novelty section, say one of: (a) already in
 
 ## Part 1. Novelty section (NOVELTY.md)
 
-Source: `NOVELTY.md` at commit `03027f9` (citations verified 2026-10-13; records in `verified-citations.json` at the same commit). Copied verbatim between the rules.
+Source: `NOVELTY.md` as committed together with this packet (the commit after `6d1248c`), SHA-256 of the file `c8646a0aa8c296e0e64e2c495ab37959d61361f313e52a866270f4ff7398b1fd` (citations verified 2026-10-13 and 2026-10-14; records in `verified-citations.json` in the same commit). Copied verbatim between the rules.
 
 ---
 
@@ -47,7 +47,11 @@ Our predicates D1 to D7 are compliance rules in this sense.
 
 **Four-eyes and segregation-of-duties detection in event logs.** Detecting
 that the same resource performed two activities that must be separated is a
-standard conformance check. D5 is that check. (No source cited yet.)
+standard conformance check. D5 is that check. Ly et al. (2015, above) list it
+among compliance monitoring functionalities: CMF 3, "Every closed project must
+be validated by a person who did not participate in the project. (4-eyes
+principle, also called Separation of Duties (SoD).)" (section 4.1, p. 15 of the
+author-hosted PDF; quote verified 2026-10-14, `ly-compliance-monitoring-2015`).
 
 **The BPI Challenge 2019 reports.** The challenge posed the process owner's
 compliance questions, including clearing before goods receipt and the
@@ -56,8 +60,8 @@ violation rates on this very log. They are prior art for every basic rate this
 paper reports. Reports listed on the challenge page
 (https://icpmconference.org/2019/bpi-challenge/; verified,
 `icpm-bpi-challenge-2019-page`), among them (titles and author lists as the
-page states them, each PDF link reached; report contents not read in A1
-preparation):
+page states them, each PDF link reached; report contents read only where a
+passage is cited below):
 
 - Diba, Remy and Pufahl, "BPI Challenge 2019: Performance and Compliance
   Analysis of Procurement Processes Using Process Mining" (overall winner).
@@ -75,6 +79,14 @@ preparation):
   `verified-citations.json` under `bpi2019-student-*` and
   `bpi2019-nonstudent-*`.
 
+Porter et al. report compliance per item category both by number and by EUR
+value (Table 3, p. 8; for 3-way after receipt, 80.5% by number and 80.2% by EUR
+value; `bpi2019-nonstudent-8-porter`), and Diba et al. quantify
+receipt-before-clearing violations with their value (Table 2, p. 15: rule
+"Record Goods Receipt -> Clear Invoice", 31 violations, 5.80% of traces;
+section 4.1: average amount 130,322.85 EUR; `bpi2019-nonstudent-6-diba`). Both
+passages verified 2026-10-14.
+
 **The BPI Challenge 2020 reports.** The 2020 challenge posed questions on the
 travel-declaration approval chain, including approvals by role and rejection
 and resubmission. The reports are prior art for the basic rates in E7.
@@ -84,19 +96,28 @@ The ICPM 2020 awards page (https://icpmconference.org/2020/awards/; verified,
 `icpm-2020-awards-page`) names two BPI Challenge reports given awards at
 ICPM 2020:
 
-- Hobeck, Pufahl, Binetruy, Chada, Digtiar, Gülle, Slarzynska, Stiehle and
+- Pufahl, Hobeck, Binetruy, Chada, Digtiar, Gülle, Slarzynska, Stiehle and
   Weber, "Performance, Variant, and Conformance Analysis of an Academic Travel
-  Reimbursement Process" (BPI Challenge Award; `bpi2020-award-hobeck`).
+  Reimbursement Process" (BPI Challenge Award; author order as the report's
+  title page states it, the awards page lists Hobeck first; text:
+  https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM_2020_paper_148.pdf;
+  `bpi2020-award-hobeck`).
 - Kas, Post and Wiewel, "Automated Machine Learning in a Process Mining
-  Context" (BPI Student Challenge Award; `bpi2020-student-award-kas`).
+  Context" (BPI Student Challenge Award; text:
+  https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM_2020_paper_44.pdf;
+  `bpi2020-student-award-kas`).
 
-No link to either report's text was found, and no list of the other submitted
-reports was found (`bpi2020-report-list`, status "not found").
+Both texts reached 2026-10-14. No list of the other submitted reports was found
+(`bpi2020-report-list`, status "not found").
 
 **Three-way match as an audit control.** Matching purchase order, goods receipt
 and invoice before payment is a textbook internal control. The paper does not
 propose it; E5 asks whether paper 5's compiler re-derives it from declared
-losses. (No source cited yet.)
+losses. PCAOB Release No. 2004-001 (March 9, 2004), Appendix B, Example B-4,
+gives it as an example application control: "An invoice will not be paid
+unless the system can match the receipt and vendor invoice to an approved
+purchase order." (printed page A-131; quote verified 2026-10-14,
+`pcaob-release-2004-001`).
 
 **Deviation-to-outcome studies in process mining.** Relating a deviation to a
 later outcome in the same case is established. H1 to H3 are studies of this
@@ -104,7 +125,13 @@ shape. (No source cited yet.)
 
 **Revert and rework analysis.** Corrective events (cancellations, changes,
 deletions, debit memos, subsequent invoices) as rework signals are
-established. The outcome proxy O is a rework signal. (No source cited yet.)
+established. The outcome proxy O is a rework signal. On this log, Meyer zu
+Wickern et al. count rework activities as those that "generally include
+'change,' 'cancel,' or 'delete' keywords in their activity names" (section 5.1,
+p. 17; `bpi2019-student-4-meyerzuwickern`), and Badakhshan et al. list "Vendor
+Creates Debit Memo" among rework activities (Table 5, p. 22: 4,680 cases, 4,801
+occurrences; `bpi2019-nonstudent-4-badakhshan`). Both quotes verified
+2026-10-14; neither covers every activity in the registered outcome list.
 
 ## Claimed
 
@@ -142,7 +169,7 @@ Sentence for the related-work section:
 
 ## Part 2. Claims (CLAIMS.md)
 
-Source: `CLAIMS.md` at commit `e239864` (the tagged registration; unchanged at `03027f9`). Copied verbatim between the rules.
+Source: `CLAIMS.md` at commit `e239864` (the tagged registration; unchanged since). Copied verbatim between the rules.
 
 ---
 
@@ -186,7 +213,7 @@ only with a slot in `results/` behind it.
 
 ## Part 3. Registration section 3: Evidence, predicates and contract
 
-Source: `prereg/p7-v1.md` section 3 at commit `e239864` (the tagged registration; unchanged at `03027f9`). Copied verbatim between the rules.
+Source: `prereg/p7-v1.md` section 3 at commit `e239864` (the tagged registration; unchanged since). Copied verbatim between the rules.
 
 ---
 
@@ -294,6 +321,25 @@ serialisation of the source events on L up to t_c. A 1,000-record sample
 (seeded) is exported to `results/`.
 
 ---
+
+## Candidate prior art from a machine sweep
+
+The author ran a prior-art sweep with a language model (OpenAI ChatGPT, web search on) on the previous version of this packet. It is AI support, not this review. Its text is committed unedited in `review-secondary/A1-fence-sweep-gpt.md` with its URL list and an attestation; each source below was fetched and its quoted line checked on 2026-10-14 (`DECISIONS.md` D-A1-0b, `verified-citations.json`). Sources it supplied for the "Not claimed as new" paragraphs are already cited in Part 1. The items below concern the "Claimed" section and were **not** applied; the author adjudicates them after your review (D-A1-1). You may use, dispute or ignore them.
+
+| Claimed item | candidate prior art | check | quoted line |
+|---|---|---|---|
+| 1 | Pesic, Schonenberg and van der Aalst (2007), "DECLARE: Full Support for Loosely-Structured Processes", EDOC 2007, doi:10.1109/EDOC.2007.14 | quote verified, PDF p. 5, section II-B | "A process model containing multiple constraints is defined as a conjunction of the constraints, i.e., actions of users during execution must fulfill all the constraints." |
+| 2 | Porter et al. (2019), "Balancing Efficiency and Risk in Procure to Pay", BPI Challenge 2019 report | quote verified, Table 3, p. 8 | 3-Way After: "Compliance by number" 80.5%; "Compliance by EUR value" 80.2% |
+| 3 | Porter et al. (2019), same report | quote verified, p. 10, section 3.3 | "We identify a number of cases where a 'Cancel Invoice Receipt' event occurs over 120 days after the initial 'Clear Invoice' event, which would conclude a compliant cycle." |
+| 4 | Gutermuth et al. (2019), "Efficient and Compliant Purchase Order Handling", BPI Challenge 2019 report | quote verified, p. 22, section 6 | "The results show that the presented approach can distinguish between normal and anomalous cases and confirms the anomalies from sections 6.1 and 6.2." |
+| 1 and 5 | Besanson (2026), "Compiling Sufficient Governance Context from Declared Losses and Reachable States", arXiv:2609.26016 (paper 5 of this programme) | quote verified, PDF p. 7, section 8, claim C3 | "The implementation selects minimum-cardinality or minimum-cost sufficient contracts using distinct objectives." |
+| 6 | Outmazgin and Soffer (2013), "Business Process Workarounds: What Can and Cannot Be Detected by Process Mining", LNBIP 147, pp. 48-62, doi:10.1007/978-3-642-38484-4_5 | quote verified, abstract | "The remaining two types are not reflected in events logs and cannot be detected by process mining." |
+
+The sweep's own verdict: for each of the six items taken as a complete combination it found no antecedent; the rows above are component precedents.
+
+**Proposed rewording of the related-work sentence (not applied).** The sweep judges that the sentence "does not hold unqualified as written" and proposes replacing "the evidence it relied on" with "the evidence reconstructed from the event log at clearing time", because "the packet establishes a reconstruction, not which information the original decision-maker actually consulted". It also suggests that the component precedents above should delimit the contribution.
+
+Named by the sweep but not used as evidence (could not be opened from here): Chiu and Jans (2019); ISACA (2010); Leonardi et al. (2025). The sweep also cites Peleg, Soffer and Ghattas (2008), "Mining Process Execution and Outcomes – Position Paper", for the deviation-to-outcome paragraph; its quotation could not be checked here, so that paragraph still carries no source.
 
 ## What the reviewer is not asked
 

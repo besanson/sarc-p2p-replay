@@ -1,5 +1,5 @@
 {
-  "_schema_note": "As paper 5 (sarc-authority-derivation, verified-citations.json at its pin): a citation enters the paper only after its source page is fetched and url, title, first_author, year recorded here; verified_via records how and when. Paper 7 adds citation_as_written (the text in NOVELTY.md, or null for a source found in A1 and not yet cited), http_status, title_as_page_states, reached_on, status ('verified', 'unreachable', 'not found') and note. A source counts as verified only if fetched in the session that recorded it.",
+  "_schema_note": "As paper 5 (sarc-authority-derivation, verified-citations.json at its pin): a citation enters the paper only after its source page is fetched and url, title, first_author, year recorded here; verified_via records how and when. Paper 7 adds citation_as_written (the text in NOVELTY.md, or null for a source found in A1 and not yet cited), http_status, title_as_page_states, reached_on, status ('verified', 'unreachable', 'not found') and note. A source counts as verified only if fetched in the session that recorded it. A1 sweep (2026-10-14): records already present carry a sweep_check object (url fetched, http status, status, location, quote) for the sweep's quoted evidence; status values for sweep checks are 'verified', 'reached, quote not checked', 'mismatch', 'unreachable', 'not found'.",
   "citations": [
     {
       "id": "vanderaalst-process-mining-2016",
@@ -19,7 +19,17 @@
       "reached_on": "2026-10-13",
       "status": "verified",
       "verified_via": "2026-10-13: https://doi.org/10.1007/978-3-662-49851-4 -> 302 to link.springer.com; Crossref API /works/10.1007/978-3-662-49851-4 200 (title 'Process Mining', author Wil van der Aalst, 2016, Springer Berlin Heidelberg); WebFetch of the Springer book page (after its cookie redirect) 200: title 'Process Mining', subtitle 'Data Science in Action', edition number 2, author Wil van der Aalst, (c) 2016, DOI as above.",
-      "note": "Book; entry_type misc as paper 5 uses for works without an article/proceedings venue. A direct curl of the Springer page returned a bot challenge; WebFetch reached it."
+      "note": "Book; entry_type misc as paper 5 uses for works without an article/proceedings venue. A direct curl of the Springer page returned a bot challenge; WebFetch reached it.",
+      "sweep_check": {
+        "source": "A1 machine sweep (review-secondary/A1-fence-sweep-gpt.md)",
+        "url_fetched": "https://link.springer.com/book/10.1007/978-3-662-49851-4",
+        "http_status": 200,
+        "reached_on": "2026-10-14",
+        "status": "reached, quote not checked",
+        "location_checked": "publisher page (bot challenge to curl; record verified 2026-10-13 through WebFetch and Crossref)",
+        "quote": null,
+        "note": "The sweep quoted nothing from this book; full text not available here."
+      }
     },
     {
       "id": "ly-compliance-monitoring-2015",
@@ -43,7 +53,17 @@
       "reached_on": "2026-10-13",
       "status": "verified",
       "verified_via": "2026-10-13: https://doi.org/10.1016/j.is.2015.02.007 -> 302 to linkinghub.elsevier.com (DOI resolves); Crossref API /works/10.1016/j.is.2015.02.007 200 (title, five authors, Information Systems vol 54 pp 209-234, issued 2015-12). The ScienceDirect page itself returned 403 to an automated request.",
-      "note": "Verified from the DOI registry record; the publisher page refused automated access. Title capitalisation in NOVELTY.md corrected to the registry's ('Functionalities')."
+      "note": "Verified from the DOI registry record; the publisher page refused automated access. Title capitalisation in NOVELTY.md corrected to the registry's ('Functionalities').",
+      "sweep_check": {
+        "source": "A1 machine sweep (review-secondary/A1-fence-sweep-gpt.md)",
+        "url_fetched": "https://www.vdaalst.com/publications/p827.pdf",
+        "http_status": 200,
+        "reached_on": "2026-10-14",
+        "status": "verified",
+        "location_checked": "author-hosted PDF p. 15, section 4.1 (Modeling Requirements), CMF 3 (Constraints referring to resources)",
+        "quote": "(Extended resource condition) Every closed project must be validated by a person who did not participate in the project. (4-eyes principle, also called Separation of Duties (SoD).)",
+        "note": "Cited in NOVELTY.md for the four-eyes paragraph."
+      }
     },
     {
       "id": "pesic-declare-2007",
@@ -65,7 +85,17 @@
       "reached_on": "2026-10-13",
       "status": "verified",
       "verified_via": "2026-10-13: https://doi.org/10.1109/EDOC.2007.14 -> 302 to ieeexplore.ieee.org/document/4384001 (DOI resolves); Crossref API /works/10.1109/EDOC.2007.14 200 (title, three authors, EDOC 2007, page 287, issued 2007-10). The IEEE Xplore page returned 202 with no content to an automated request.",
-      "note": "Verified from the DOI registry record. Crossref gives the page range as '287-287'. Title capitalisation in NOVELTY.md corrected to the registry's."
+      "note": "Verified from the DOI registry record. Crossref gives the page range as '287-287'. Title capitalisation in NOVELTY.md corrected to the registry's.",
+      "sweep_check": {
+        "source": "A1 machine sweep (review-secondary/A1-fence-sweep-gpt.md)",
+        "url_fetched": "https://ais.win.tue.nl/declare/wp-content/papercite-data/pdf/full_support.pdf",
+        "http_status": 200,
+        "reached_on": "2026-10-14",
+        "status": "verified",
+        "location_checked": "PDF p. 5, section II (Constraint based approach), subsection B (Process Modeling)",
+        "quote": "A process model containing multiple constraints is defined as a conjunction of the constraints, i.e., actions of users during execution must fulfill all the constraints.",
+        "note": "Candidate against Claimed item 1 (D-A1-0b); not applied."
+      }
     },
     {
       "id": "icpm-bpi-challenge-2019-page",
@@ -174,7 +204,17 @@
       "reached_on": "2026-10-13",
       "status": "verified",
       "verified_via": "2026-10-13: title and authors as listed on https://icpmconference.org/2019/bpi-challenge/ (200); PDF link 200, application/pdf.",
-      "note": "Report contents not read in A1 preparation; only title, authors and link verified."
+      "note": "Report contents not read in A1 preparation; only title, authors and link verified.",
+      "sweep_check": {
+        "source": "A1 machine sweep (review-secondary/A1-fence-sweep-gpt.md)",
+        "url_fetched": "https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Student-Submission-4.pdf",
+        "http_status": 200,
+        "reached_on": "2026-10-14",
+        "status": "verified",
+        "location_checked": "PDF p. 17, section 5.1 (Additional dimensions), item 'Count of rework activities'",
+        "quote": "These activities generally include 'change,' 'cancel,' or 'delete' keywords in their activity names.",
+        "note": "Quotation marks are font glyphs in the PDF; the words match. Cited in NOVELTY.md for the rework paragraph."
+      }
     },
     {
       "id": "bpi2019-student-5-guschl",
@@ -312,7 +352,17 @@
       "reached_on": "2026-10-13",
       "status": "verified",
       "verified_via": "2026-10-13: title and authors as listed on https://icpmconference.org/2019/bpi-challenge/ (200); PDF link 200, application/pdf.",
-      "note": "Report contents not read in A1 preparation; only title, authors and link verified."
+      "note": "Report contents not read in A1 preparation; only title, authors and link verified.",
+      "sweep_check": {
+        "source": "A1 machine sweep (review-secondary/A1-fence-sweep-gpt.md)",
+        "url_fetched": "https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-4.pdf",
+        "http_status": 200,
+        "reached_on": "2026-10-14",
+        "status": "verified",
+        "location_checked": "PDF p. 22, Table 5 (Rework activity metrics)",
+        "quote": "Row 'Vendor Creates Debit Memo': case count 4680, % of cases (Not-FTR) 18.7%, rework activity count 4801.",
+        "note": "Cited in NOVELTY.md for the rework paragraph."
+      }
     },
     {
       "id": "bpi2019-nonstudent-5-jessen",
@@ -354,7 +404,17 @@
       "reached_on": "2026-10-13",
       "status": "verified",
       "verified_via": "2026-10-13: title and authors as listed on https://icpmconference.org/2019/bpi-challenge/ (200); PDF link 200, application/pdf.",
-      "note": "Report contents not read in A1 preparation; only title, authors and link verified."
+      "note": "Report contents not read in A1 preparation; only title, authors and link verified.",
+      "sweep_check": {
+        "source": "A1 machine sweep (review-secondary/A1-fence-sweep-gpt.md)",
+        "url_fetched": "https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-6.pdf",
+        "http_status": 200,
+        "reached_on": "2026-10-14",
+        "status": "verified",
+        "location_checked": "PDF p. 15, Table 2 rule 1 and section 4.1",
+        "quote": "Table 2 rule 1: 'Record Goods Receipt -> Clear Invoice', 31 violations, 5.80 % of traces (3-way match, Invoice after Goods Receipt with EC). Section 4.1: 'The average amount of these items is 130,322.85' (euro sign).",
+        "note": "The PDF's own title page reads 'Compliance and Performance Analysis of Procurement Processes Using Process Mining'; the challenge page and the running header read 'BPI Challenge 2019: Performance and Compliance Analysis ...'. The sweep used the title-page form."
+      }
     },
     {
       "id": "bpi2019-nonstudent-7-gutermuth",
@@ -380,7 +440,17 @@
       "reached_on": "2026-10-13",
       "status": "verified",
       "verified_via": "2026-10-13: title and authors as listed on https://icpmconference.org/2019/bpi-challenge/ (200); PDF link 200, application/pdf.",
-      "note": "Report contents not read in A1 preparation; only title, authors and link verified."
+      "note": "Report contents not read in A1 preparation; only title, authors and link verified.",
+      "sweep_check": {
+        "source": "A1 machine sweep (review-secondary/A1-fence-sweep-gpt.md)",
+        "url_fetched": "https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-7.pdf",
+        "http_status": 200,
+        "reached_on": "2026-10-14",
+        "status": "verified",
+        "location_checked": "PDF p. 22, section 6 (Challenge 3: Anomaly Detection), subsection 'Language model encoding and anomaly classification'",
+        "quote": "The results show that the presented approach can distinguish between normal and anomalous cases and confirms the anomalies from sections 6.1 and 6.2.",
+        "note": "The sweep labels the subsection 6.3; the extracted text shows the subsection heading without a number. Candidate against Claimed item 4 (D-A1-0b); not applied."
+      }
     },
     {
       "id": "bpi2019-nonstudent-8-porter",
@@ -405,7 +475,17 @@
       "reached_on": "2026-10-13",
       "status": "verified",
       "verified_via": "2026-10-13: title and authors as listed on https://icpmconference.org/2019/bpi-challenge/ (200); PDF link 200, application/pdf.",
-      "note": "Report contents not read in A1 preparation; only title, authors and link verified."
+      "note": "Report contents not read in A1 preparation; only title, authors and link verified.",
+      "sweep_check": {
+        "source": "A1 machine sweep (review-secondary/A1-fence-sweep-gpt.md)",
+        "url_fetched": "https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-8.pdf",
+        "http_status": 200,
+        "reached_on": "2026-10-14",
+        "status": "verified",
+        "location_checked": "PDF p. 8, Table 3 (Compliance for the four archetypal processes and Service sub-process); PDF p. 10, within section 3.3 (heading on p. 9)",
+        "quote": "Table 3, 3-Way After: 'Compliance by number' 80.5%, 'Compliance by EUR value' 80.2%. p. 10: 'We identify a number of cases where a \"Cancel Invoice Receipt\" event occurs over 120 days after the initial \"Clear Invoice\" event, which would conclude a compliant cycle.'",
+        "note": "Table 3 is cited in NOVELTY.md (count-and-value). Count-and-value and the 120-day passage are also candidates against Claimed items 2 and 3 (D-A1-0b); not applied there."
+      }
     },
     {
       "id": "bpi2019-nonstudent-9-kisjes",
@@ -472,8 +552,8 @@
       "id": "bpi2020-award-hobeck",
       "entry_type": "misc",
       "authors": [
-        "Richard Hobeck",
         "Luise Pufahl",
+        "Richard Hobeck",
         "Paul Binetruy",
         "Wepan Chada",
         "Mykola Digtiar",
@@ -482,19 +562,29 @@
         "Fabian Stiehle",
         "Ingo Weber"
       ],
-      "first_author": "Richard Hobeck",
+      "first_author": "Luise Pufahl",
       "title": "Performance, Variant, and Conformance Analysis of an Academic Travel Reimbursement Process",
       "year": 2020,
       "venue": "BPI Challenge Award, ICPM 2020",
       "doi": null,
-      "url": "https://icpmconference.org/2020/awards/",
+      "url": "https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM_2020_paper_148.pdf",
       "citation_as_written": null,
       "http_status": 200,
       "title_as_page_states": "Performance, Variant, and Conformance Analysis of an Academic Travel Reimbursement Process",
       "reached_on": "2026-10-13",
       "status": "verified",
       "verified_via": "2026-10-13: title and authors as stated on https://icpmconference.org/2020/awards/ under 'BPI Challenge Award'.",
-      "note": "The awards page names ICPM 2020, whose challenge page is the BPI Challenge 2020; it does not print the edition next to the award. No link to the report text was found."
+      "note": "Author order as the report's title page states it (Pufahl first); the ICPM 2020 awards page lists Hobeck first. Report text: ICPM_2020_paper_148.pdf (200, 2026-10-14).",
+      "sweep_check": {
+        "source": "A1 machine sweep (review-secondary/A1-fence-sweep-gpt.md)",
+        "url_fetched": "https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM_2020_paper_148.pdf",
+        "http_status": 200,
+        "reached_on": "2026-10-14",
+        "status": "verified",
+        "location_checked": "PDF p. 1 (title page), p. 20 Table 7, p. 21 Table 8",
+        "quote": "Table 7 row 'Prepaid payment without a Permit': 243 (218). Table 8 caption: 'Non-conforming cases of the resubmission flow (2018 onwards) and the additional delay caused.'",
+        "note": "Report text located in A1 sweep verification; NOVELTY.md now links it."
+      }
     },
     {
       "id": "bpi2020-student-award-kas",
@@ -509,14 +599,24 @@
       "year": 2020,
       "venue": "BPI Student Challenge Award, ICPM 2020",
       "doi": null,
-      "url": "https://icpmconference.org/2020/awards/",
+      "url": "https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM_2020_paper_44.pdf",
       "citation_as_written": null,
       "http_status": 200,
       "title_as_page_states": "Automated Machine Learning in a Process Mining Context",
       "reached_on": "2026-10-13",
       "status": "verified",
       "verified_via": "2026-10-13: title and authors as stated on https://icpmconference.org/2020/awards/ under 'BPI Student Challenge Award'.",
-      "note": "As above: ICPM 2020 award; no link to the report text was found."
+      "note": "Report text: ICPM_2020_paper_44.pdf (200, 2026-10-14); title and authors match the title page.",
+      "sweep_check": {
+        "source": "A1 machine sweep (review-secondary/A1-fence-sweep-gpt.md)",
+        "url_fetched": "https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM_2020_paper_44.pdf",
+        "http_status": 200,
+        "reached_on": "2026-10-14",
+        "status": "verified",
+        "location_checked": "PDF p. 1 (title page), p. 10 question 9",
+        "quote": "Out of the 1.576 cases that are rejected at one point in time, 1.312 are eventually accepted and paid.",
+        "note": "Report text located in A1 sweep verification; NOVELTY.md now links it."
+      }
     },
     {
       "id": "bpi2020-report-list",
@@ -534,7 +634,173 @@
       "reached_on": "2026-10-13",
       "status": "not found",
       "verified_via": "2026-10-13: searched https://icpmconference.org/2020/bpi-challenge/, /2020/awards/, /2020/program/ (WebFetch, 200 each) and a web search for a BPI Challenge 2020 report list; no list of submitted reports found.",
-      "note": "Only the two award-winning reports above are located."
+      "note": "Only the two award-winning reports above are located. The A1 sweep located the two award reports' PDFs; no list of the other submissions was located."
+    },
+    {
+      "id": "besanson-paper5-2026",
+      "entry_type": "misc",
+      "authors": [
+        "Gaston Besanson"
+      ],
+      "first_author": "Gaston Besanson",
+      "title": "Compiling Sufficient Governance Context from Declared Losses and Reachable States: Exact Observation-Contract Synthesis with Cardinality and Cost Objectives",
+      "year": 2026,
+      "venue": "arXiv:2609.26016 (paper 5 of this programme; CITATION.cff of sarc-authority-derivation)",
+      "doi": null,
+      "url": "https://arxiv.org/pdf/2609.26016",
+      "citation_as_written": null,
+      "http_status": 200,
+      "title_as_page_states": null,
+      "reached_on": "2026-10-14",
+      "status": "verified",
+      "verified_via": "2026-10-14: arXiv PDF 200, 19 pages; PDF p. 7, section 8 (Claim-by-Claim Evidence, heading on p. 6), claim C3: 'The implementation selects minimum-cardinality or minimum-cost sufficient contracts using distinct objectives.'",
+      "note": "Named by the A1 sweep as a candidate against Claimed items 1 and 5 (D-A1-0b); not cited in NOVELTY.md."
+    },
+    {
+      "id": "outmazgin-workarounds-2013",
+      "entry_type": "incollection",
+      "authors": [
+        "Nesi Outmazgin",
+        "Pnina Soffer"
+      ],
+      "first_author": "Nesi Outmazgin",
+      "title": "Business Process Workarounds: What Can and Cannot Be Detected by Process Mining",
+      "year": 2013,
+      "venue": "Enterprise, Business-Process and Information Systems Modeling (BPMDS 2013, EMMSAD 2013), LNBIP vol. 147, pp. 48-62, Springer",
+      "doi": "10.1007/978-3-642-38484-4_5",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-642-38484-4_5",
+      "citation_as_written": null,
+      "http_status": 200,
+      "title_as_page_states": "Business Process Workarounds: What Can and Cannot Be Detected by Process Mining",
+      "reached_on": "2026-10-14",
+      "status": "verified",
+      "verified_via": "2026-10-14: Springer chapter page via WebFetch after its cookie redirect (curl gets a bot challenge); Crossref record 200 (title, authors, pages 48-62). Last sentence of the abstract, checked character for character: 'The remaining two types are not reflected in events logs and cannot be detected by process mining.'",
+      "note": "Named by the A1 sweep as a candidate against Claimed item 6 (D-A1-0b); not cited in NOVELTY.md."
+    },
+    {
+      "id": "pcaob-release-2004-001",
+      "entry_type": "misc",
+      "authors": [
+        "Public Company Accounting Oversight Board"
+      ],
+      "first_author": "Public Company Accounting Oversight Board",
+      "title": "An Audit of Internal Control Over Financial Reporting Performed in Conjunction with an Audit of Financial Statements (PCAOB Release No. 2004-001)",
+      "year": 2004,
+      "venue": "PCAOB Release 2004-001, March 9, 2004",
+      "doi": null,
+      "url": "https://pcaobus.org/Rulemaking/Docket008/2004-03-09_Release_2004-001-all.pdf",
+      "citation_as_written": "cited in NOVELTY.md for the three-way match paragraph",
+      "http_status": 200,
+      "title_as_page_states": "PCAOB Release No. 2004-001; An Audit of Internal Control Over Financial Reporting Performed in Conjunction with an Audit of Financial Statements",
+      "reached_on": "2026-10-14",
+      "status": "verified",
+      "verified_via": "2026-10-14: PDF 200, 211 pages. Example B-4 begins on printed page A-129 (PDF p. 155); on printed page A-131 (PDF p. 157), item b: 'An invoice will not be paid unless the system can match the receipt and vendor invoice to an approved purchase order.'",
+      "note": "Cited in NOVELTY.md (three-way match as an audit control)."
+    },
+    {
+      "id": "peleg-mining-outcomes-2008",
+      "entry_type": "incollection",
+      "authors": [
+        "Mor Peleg",
+        "Pnina Soffer",
+        "Johny Ghattas"
+      ],
+      "first_author": "Mor Peleg",
+      "title": "Mining Process Execution and Outcomes – Position Paper",
+      "year": 2008,
+      "venue": "Business Process Management Workshops (BPM 2007), LNCS vol. 4928, pp. 395-400, Springer",
+      "doi": "10.1007/978-3-540-78238-4_40",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-540-78238-4_40",
+      "citation_as_written": null,
+      "http_status": 200,
+      "title_as_page_states": "Mining Process Execution and Outcomes – Position Paper",
+      "reached_on": "2026-10-14",
+      "status": "reached, quote not checked",
+      "verified_via": "2026-10-14: Springer chapter page via WebFetch after its cookie redirect; Crossref record 200 (title, authors, pages 395-400). The page carries the abstract, not the body; it does not contain the sweep's quoted 'Objective 2: ...' sentence (section 3, p. 397). The ResearchGate copy the sweep read returned 403. The abstract excerpt the fetch returned: the authors argue for extending process mining to 'capture not only deviations from the process model, but also the outcomes associated with them.'",
+      "note": "Publisher page is the citation; the quotation location (ResearchGate copy) is recorded as peleg-mining-outcomes-2008-researchgate. Quote not checked, so not cited in NOVELTY.md; the deviation-to-outcome paragraph keeps its marker."
+    },
+    {
+      "id": "peleg-mining-outcomes-2008-researchgate",
+      "entry_type": "misc",
+      "authors": [
+        "Mor Peleg",
+        "Pnina Soffer",
+        "Johny Ghattas"
+      ],
+      "first_author": "Mor Peleg",
+      "title": "Mining Process Execution and Outcomes – Position Paper (ResearchGate copy)",
+      "year": 2008,
+      "venue": null,
+      "doi": null,
+      "url": "https://www.researchgate.net/publication/221586257_Mining_Process_Execution_and_Outcomes_-_Position_Paper",
+      "citation_as_written": null,
+      "http_status": 403,
+      "title_as_page_states": null,
+      "reached_on": "2026-10-14",
+      "status": "unreachable",
+      "verified_via": "2026-10-14: curl 403 from the site (tunnel established); WebFetch 403.",
+      "note": "Where the sweep says it read the quotation; not a separate work."
+    },
+    {
+      "id": "chiu-jans-2019",
+      "entry_type": "article",
+      "authors": [
+        "Chiu",
+        "Jans"
+      ],
+      "first_author": "Chiu",
+      "title": "Process Mining of Event Logs: A Case Study Evaluating Internal Control Effectiveness (as the sweep names it)",
+      "year": 2019,
+      "venue": null,
+      "doi": null,
+      "url": "https://publications.aaahq.org/accounting-horizons/article/33/3/141/2393/Process-Mining-of-Event-Logs-A-Case-Study",
+      "citation_as_written": null,
+      "http_status": 403,
+      "title_as_page_states": null,
+      "reached_on": "2026-10-14",
+      "status": "unreachable",
+      "verified_via": "2026-10-14: one fetch, 403 from the site (tunnel established). Title and authors as the sweep's URL list names them; not checked against the page.",
+      "note": "Named by the sweep, not used as evidence (D-A1-0b)."
+    },
+    {
+      "id": "isaca-2010",
+      "entry_type": "misc",
+      "authors": [
+        "ISACA"
+      ],
+      "first_author": "ISACA",
+      "title": "Monitoring Internal Control Systems and IT (as the sweep names it)",
+      "year": 2010,
+      "venue": null,
+      "doi": null,
+      "url": "https://community.mis.temple.edu/mis5121beaver/files/2015/03/Monitoring-Internal-Control-Systems-and-IT_res_Eng_0910.pdf",
+      "citation_as_written": null,
+      "http_status": 404,
+      "title_as_page_states": null,
+      "reached_on": "2026-10-14",
+      "status": "not found",
+      "verified_via": "2026-10-14: one fetch, 404 from the site (tunnel established).",
+      "note": "Named by the sweep, not used as evidence (D-A1-0b)."
+    },
+    {
+      "id": "leonardi-2025",
+      "entry_type": "article",
+      "authors": [
+        "Leonardi"
+      ],
+      "first_author": "Leonardi",
+      "title": "Checking Medical Process Conformance by Exploiting LLMs (as the sweep names it)",
+      "year": 2025,
+      "venue": null,
+      "doi": null,
+      "url": "https://www.mdpi.com/2076-3417/15/18/10184",
+      "citation_as_written": null,
+      "http_status": 403,
+      "title_as_page_states": null,
+      "reached_on": "2026-10-14",
+      "status": "unreachable",
+      "verified_via": "2026-10-14: one fetch, 403 from the site (tunnel established).",
+      "note": "Named by the sweep, not used as evidence (D-A1-0b)."
     }
   ]
 }

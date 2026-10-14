@@ -187,3 +187,91 @@ The fence packet is `review-secondary/A1-fence-packet.md`. No reviewer has been
 chosen.
 
 D-A1-1 is reserved for the adjudication of the review and is not written now.
+
+## D-A1-0b Machine prior-art sweep (2026-10-14)
+
+**What was run.** The author ran a prior-art sweep with OpenAI ChatGPT ([MODEL];
+web search on) on `review-secondary/A1-fence-packet.md` (commit `f0e6b90`), with
+the packet's own reviewer instructions plus a rule that every source carries a
+resolving URL and a quoted line. Hyperlinks were lost when the text was copied
+from a tablet; the model's plain-text URL list was requested afterwards. Both
+were committed unedited (commit `6d1248c`):
+
+| file | SHA-256 |
+|---|---|
+| `review-secondary/A1-fence-sweep-gpt.md` | `aa007a0379381926060a9cd75861a02a5708f0eb85448e112d85a24729331600` |
+| `review-secondary/A1-fence-sweep-gpt-urls.md` | `b9c2cf2e0d1f3efa0204622bfdb297d9dec33fd6a1c08dd9455daeceee6ca0b5` |
+| `review-secondary/A1-fence-sweep-gpt.attestation.md` | attestation (model, date, prompt, both hashes) |
+
+**Verification on 2026-10-14.** Every URL in the list was fetched from this
+session; the sweep's quoted line was searched in the PDF text page by page, or
+read on the page. No host was blocked by the network policy; four sites
+refused the page (403 or 404). Records: `verified-citations.json` (new records,
+or a `sweep_check` object on existing ones).
+
+| source (record id) | status | where checked |
+|---|---|---|
+| Pesic, Schonenberg, van der Aalst 2007 (`pesic-declare-2007`) | verified | PDF p. 5, section II-B |
+| Diba, Remy, Pufahl 2019 (`bpi2019-nonstudent-6-diba`) | verified | PDF p. 15, Table 2 rule 1 and section 4.1 |
+| Porter et al. 2019, Table 3 (`bpi2019-nonstudent-8-porter`) | verified | PDF p. 8 |
+| Porter et al. 2019, 120-day passage (same record) | verified | PDF p. 10, section 3.3 |
+| Gutermuth et al. 2019 (`bpi2019-nonstudent-7-gutermuth`) | verified | PDF p. 22, section 6; the "6.3" label is not in the extracted text |
+| Besanson 2026, paper 5 (`besanson-paper5-2026`) | verified | arXiv PDF p. 7, section 8, claim C3 |
+| Outmazgin and Soffer 2013 (`outmazgin-workarounds-2013`) | verified | Springer abstract, last sentence, checked character for character |
+| Ly et al. 2015 (`ly-compliance-monitoring-2015`) | verified | author-hosted PDF p. 15, section 4.1, CMF 3 |
+| PCAOB Release 2004-001 (`pcaob-release-2004-001`) | verified | Appendix B, Example B-4, printed p. A-131 |
+| Peleg, Soffer, Ghattas 2008, publisher page (`peleg-mining-outcomes-2008`) | reached, quote not checked | the page carries the abstract only; the "Objective 2" sentence is body text |
+| Peleg et al. 2008, ResearchGate copy (`peleg-mining-outcomes-2008-researchgate`) | unreachable | 403 |
+| Meyer zu Wickern et al. 2019 (`bpi2019-student-4-meyerzuwickern`) | verified | PDF p. 17, section 5.1 |
+| Badakhshan et al. 2019 (`bpi2019-nonstudent-4-badakhshan`) | verified | PDF p. 22, Table 5 |
+| Pufahl, Hobeck et al. 2020 (`bpi2020-award-hobeck`) | verified | PDF p. 20 Table 7, p. 21 Table 8 |
+| Kas, Post, Wiewel 2020 (`bpi2020-student-award-kas`) | verified | PDF p. 10, question 9 |
+| Chiu and Jans 2019 (`chiu-jans-2019`) | unreachable | 403 |
+| ISACA 2010 (`isaca-2010`) | not found | 404 |
+| Leonardi et al. 2025 (`leonardi-2025`) | unreachable | 403 |
+| van der Aalst 2016 (`vanderaalst-process-mining-2016`) | reached, quote not checked | publisher page; the sweep quotes nothing from it |
+
+No mismatch was found: every quote that could be read is where the sweep says
+it is. Two small differences, recorded and not acted on: Diba et al.'s own title
+page reads "Compliance and Performance Analysis of Procurement Processes Using
+Process Mining" (the challenge page and NOVELTY.md use "BPI Challenge 2019:
+Performance and Compliance Analysis ..."); the Pufahl, Hobeck et al. title page
+lists Pufahl first, the ICPM 2020 awards page Hobeck first (NOVELTY.md now
+follows the title page).
+
+**Paragraphs of "Not claimed as new" that gained a source** (NOVELTY.md):
+four-eyes (Ly et al. 2015, CMF 3); three-way match (PCAOB 2004-001, Example
+B-4); rework (Meyer zu Wickern et al. 2019 section 5.1; Badakhshan et al. 2019
+Table 5). The BPI 2019 paragraph gained one sentence on Porter et al. Table 3
+and Diba et al. Table 2 and section 4.1. The BPI 2020 paragraph now links both
+award reports' texts. **Deviation-to-outcome keeps "(No source cited yet.)"**:
+Peleg et al.'s quotation could not be checked from here.
+
+**Candidates against "Claimed" items: candidate, awaiting the author's
+adjudication at D-A1-1.** None is applied to NOVELTY.md.
+
+| Claimed item | candidate | status | quoted line |
+|---|---|---|---|
+| 1 (min() contract) | Pesic, Schonenberg, van der Aalst 2007, conjunction of constraints | verified | "A process model containing multiple constraints is defined as a conjunction of the constraints, i.e., actions of users during execution must fulfill all the constraints." (p. 5, II-B) |
+| 2 (exposure in count and value) | Porter et al. 2019, Table 3 | verified | "Compliance by number" 80.5%, "Compliance by EUR value" 80.2% (3-Way After, p. 8) |
+| 3 (consequence conditional on the defect) | Porter et al. 2019, section 3.3 | verified | "We identify a number of cases where a 'Cancel Invoice Receipt' event occurs over 120 days after the initial 'Clear Invoice' event, which would conclude a compliant cycle." (p. 10) |
+| 4 (humans, models and gate on the same lines) | Gutermuth et al. 2019, anomaly classification | verified | "The results show that the presented approach can distinguish between normal and anomalous cases and confirms the anomalies from sections 6.1 and 6.2." (p. 22) |
+| 1 and 5 (contract synthesis, fewest fields) | Besanson 2026, paper 5, claim C3 | verified | "The implementation selects minimum-cardinality or minimum-cost sufficient contracts using distinct objectives." (p. 7) |
+| 6 (coverage matrix) | Outmazgin and Soffer 2013 | verified | "The remaining two types are not reflected in events logs and cannot be detected by process mining." (abstract) |
+
+The sweep's own verdict: for each of the six Claimed items as a complete
+combination it found no antecedent ("c"); every candidate above is a component
+precedent. It adds that "c does not establish novelty".
+
+**Proposed rewording of the related-work sentence (not applied).** The sweep
+judges that the sentence "does not hold unqualified as written" and proposes
+that "the evidence it relied on" become "the evidence reconstructed from the
+event log at clearing time", because "the packet establishes a reconstruction,
+not which information the original decision-maker actually consulted"; it adds
+that the component precedents should delimit the contribution.
+
+**Named by the sweep, not used as evidence.** Chiu and Jans 2019 (unreachable,
+403), ISACA 2010 (not found, 404), Leonardi et al. 2025 (unreachable, 403). Not
+cited in NOVELTY.md.
+
+This sweep is AI support, to be disclosed in the acknowledgements; it is not the external fence review.
