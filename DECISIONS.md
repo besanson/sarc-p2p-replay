@@ -279,7 +279,7 @@ This sweep is AI support, to be disclosed in the acknowledgements; it is not the
 ## D-A1-0c Second machine prior-art sweep (2026-10-14)
 
 **What was run.** The author ran a second prior-art sweep with DeepSeek
-([VERSION]; web search on) on the packet at commit `fc6447e`, asking for what the
+(DeepSeek 4.0 Pro, as stated by the author; web search on) on the packet at commit `fc6447e`, asking for what the
 first sweep (D-A1-0b) missed, in priority order: Claimed item 4, Claimed item 3,
 the uncited deviation-to-outcome paragraph, then items 1, 2, 5 and 6, with a
 resolving URL and a quoted line for every source. Committed unedited (commit
