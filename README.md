@@ -5,10 +5,10 @@ Wild: A Registered Replay of a Real Purchase-to-Pay Process**. Author: Gaston
 Besanson, Universidad Torcuato Di Tella. Sole author; AI tools are support,
 disclosed in the acknowledgements only.
 
-**Status: Phase B.** The registration `prereg/p7-v1.md` is tagged
-`prereg-p7-v1` (commit `e239864`). The replay engine is built and tested on
-synthetic fixtures only. No analysis, no model call and no result on the
-registered logs exist in this tree.
+**Status: Phase C0, stopped.** The registration `prereg/p7-v1.md` is tagged
+`prereg-p7-v1` (commit `e239864`); the A1 fence review is closed (D-A1-1). E0
+run 1 fired two registered stop conditions (D-C0-1), so E1 waits for an
+amendment p7-v1.1. No analysis and no model call exist in this tree.
 
 ## What the paper does
 

@@ -390,3 +390,48 @@ Unchanged: `prereg/p7-v1.md`, `prereg/outcome-patterns.yaml`,
 `prereg/data.lock`, `COVERAGE.md`, `engines.lock`.
 
 Phase A1 is closed.
+
+## D-C0-1 E0 run 1: two stop conditions fire; E1 blocked (2026-10-18)
+
+The author started C0. `experiments/e0.py` (tested on the fixture,
+`tests/test_e0.py`) ran on `data/BPI_Challenge_2019.xes` (SHA-256 as
+registered) in 1 min 50 s, with no pipeline error. Outputs, committed as run 1:
+`results/e0/run-1/e0-report.json`, `e0-lines.txt` (the 500 lines drawn),
+`e0-timing.json`, and `e0-timestamp-tail.json` (event counts past a few
+dates, taken after the stop to inform the amendment).
+
+**Stop conditions (prereg/p7-v1.md section 2.2):**
+
+| condition | registered rule | E0 value | result |
+|---|---|---|---|
+| creation events in window | at least 50% in 2018 | 251,352 of 251,734 (99.85%) | clear |
+| T_end | not after 2019-12-31T23:59:59Z | 2020-04-09T21:59:00Z | **fires** |
+| mapped attributes present | every attribute in the mapping in the log | case attribute `Doc. Category name` absent; the log has `Purch. Doc. Category name` | **fires** |
+| undefined category | at most 1% of lines | 0 of 251,734 | clear |
+
+**What the log shows behind the two stops.** Timestamps: 45,128 events in
+January 2019, then 9 events on or after 2019-02-01 (2 in February, 2 in April,
+1 in October and 2 in December 2019, 2 in April 2020); 319 events before 2018.
+The latest timestamp is set by two outlying events; with it, no framed line
+has an incomplete outcome window (frame status count 0), which is the failure
+the stop guards against. Attribute: the 4TU record page names the case
+attribute `Doc. Category name`; the log names it `Purch. Doc. Category name`.
+The engine never reads this field (`engine_fields` in the mapping).
+
+**Other C0 observations, reported as registered (not stops):** every activity
+name in `prereg/outcome-patterns.yaml` occurs in the log, including those
+marked `unverified`; the flag-derived category agrees with the `Item Category`
+string on every line (2-way 1,044; 3-way after receipt 15,182; 3-way before
+receipt 221,010; consignment 14,498); every mapped event attribute is present;
+on the 500 E0 lines (398 analysed clearings) the pipeline completes, and
+`Delete Purchase Order Item`, `Change Quantity`, `Cancel Goods Receipt`,
+`Vendor creates debit memo` and `Record Subsequent Invoice` do not follow any
+of these 398 clearings within W, which E0's metric asks to report. Activities in
+the log that no registered list names are listed in the report (among them
+`Record Service Entry Sheet`, 164,975, and `Vendor creates invoice`, 219,919).
+
+**Consequence.** As registered, E1 does not start. The registration must be
+amended and re-tagged as p7-v1.1 by the author, then E0 drawn again under the
+amended frame (run 1's draw used the out-of-range T_end, so its framed set is
+not the v1.1 frame). Nothing under `prereg/` was changed. The amendment's
+content is the author's decision; no fix is applied here.
