@@ -348,3 +348,45 @@ stand as the contribution".
 The packet at fc6447e was not changed: it is with the external reviewer.
 
 This sweep is AI support, to be disclosed in the acknowledgements; it is not the external fence review.
+
+## D-A1-1 A1 adjudication (2026-10-18)
+
+**Inputs.** The external fence review by Eduardo Arana, dated 2026-10-16, on the
+packet at `fc6447e`, committed unedited as `review-secondary/A1-fence-review.md`
+(commit `186cad3`, SHA-256
+`75e42682837a377f735ba8176cbb1176244cefb52570f645faf7907f280b0673`, attestation
+beside it); the first machine sweep (D-A1-0b); the second machine sweep
+(D-A1-0c). The decisions below are the author's.
+
+| finding | origin | class | decision | reason |
+|---|---|---|---|---|
+| Item 1, min() contract on reconstructed clearing-time evidence | review; sweep 1 (Declare, paper 5) | (c); components (a) | **Kept as claimed.** Declare (conjunction of constraints) and paper 5 (compiler, minimum-cardinality contracts) cited as components in "Not claimed as new". | The per-clearing gate verdict at t_c over a reconstructed evidence set with pass/fail/unknown is not found; the components are. |
+| Item 2, exposure in count and value | review; sweep 1 (Porter et al. Table 3) | (a) | **Accepted.** The count-and-value measure moves to "Not claimed as new" (new paragraph "Compliance measured by count and by value"); item 2 reworded to the per-clearing, per-defect-class tabulation with purchase-order-clustered intervals. | Porter et al. 2019 Table 3 reports compliance by number and by EUR value on this log. |
+| Item 3, consequence conditional on the defect, W and lag bands | review; sweep 1 (Porter 3.3); sweep 2 (Teinemaa, Nguyen) | (c) | **Kept.** Peleg, Soffer and Ghattas 2008 cited as the deviation-to-outcome precedent; Teinemaa et al. 2019 and Nguyen et al. 2016 as framing precedents; Porter et al. section 3.3 as a case-study observation on this log. | No registered conditional-consequence design with window and lag bands found. |
+| Item 4, Gutermuth et al. as component | sweep 1 | rejected by review | **Withdrawn** (the D-A1-0b row for item 4). | The review: distinguishing normal from anomalous cases is not a three-way decision comparison on the same instances; accepted. |
+| Item 4, humans, two model families and the gate on the same lines | review; sweep 2 (Palma, Kadir, Harding) | (c); components (b) | **Kept and sharpened.** Item 4 now states that the gate is declared before the data are read; comparing deciders on the same cases moves to "Not claimed as new" (new paragraph "Comparing deciders on the same cases"), citing Palma et al. 2026, Kadir et al. 2025 and Harding and Vasconcelos 2022. | Palma et al. surfaced after the packet was sent and was not seen by the reviewer; on its Table 1 it compares a human reviewer, an LLM agent, tree ensembles and learned symbolic rules on the same cases. None of the three uses a deterministic contract declared before the data are read, or a human arm read from a process event log. This is the author's adjudication; a follow-up to the reviewer on Palma et al. is pending and will be committed as an addendum if it arrives. |
+| Item 5, control derived from declared losses | review; sweep 1 (paper 5) | (c) as empirical result | **Kept** as an empirical result on this log; the compiler is paper 5's and is not claimed (cited as a component). | No run of the compiler on this log re-deriving the per-category rule found. |
+| Item 6, coverage matrix | review; sweep 1 (Outmazgin and Soffer) | (c) as artifact; (b) concept | **Accepted.** The detectability principle moves to "Not claimed as new" (new paragraph "Detectability limits of event logs"); item 6 reworded to the registered per-defect-class matrix. | Outmazgin and Soffer 2013 establish that some workaround types leave no trace in event logs. |
+| Related-work sentence | review; sweeps 1 and 2 | rewording endorsed by all three | **Accepted.** "the evidence it relied on" becomes "the evidence reconstructed from the event log at clearing time". | The design reconstructs evidence; it does not establish what the original decision-maker consulted. |
+| Deviation-to-outcome paragraph, missing source | review; sweep 2 | source supplied | **Applied.** Peleg, Soffer and Ghattas 2008 cited with its verified abstract sentence; "(No source cited yet.)" removed. | The review checked the quote; the builder verified it on 2026-10-14 (D-A1-0c). |
+| Remaining sweep candidates (Declare for item 1; paper 5 for items 1 and 5) | sweep 1 | components | **Cited as components; no change to the claims.** | As item 1 and item 5. |
+
+**Re-registration: none required.** No finding changes the claim text of
+CLAIMS.md, `prereg/p7-v1.md` (section 5 or any other), a predicate, a pattern,
+the ERP view template or the column mapping. The registration stays `p7-v1`,
+tag `prereg-p7-v1` on `e239864`.
+
+**Files changed in this session:**
+- `review-secondary/A1-fence-review.md` and `review-secondary/A1-fence-review.attestation.md` (new; the review, unedited).
+- `NOVELTY.md`: intro; "Not claimed as new" (four new paragraphs, the Porter sentence moved, the deviation-to-outcome paragraph cited); Claimed items 2, 4 and 6 replaced as above; the related-work sentence; the Fence status table. Items 1, 3 and 5 unchanged.
+- `CLAIMS.md`: status column only, C1 to C13 from `unregistered` to `registered`, per the file's own vocabulary (the tag exists). No claim text changed.
+- `prereg/DEVIATIONS.md`: its last line, a log update ("p7-v1: tagged `prereg-p7-v1` on e239864. No deviations."), not a registered item.
+- `verified-citations.json`: the record `palma-business-compromise-2026` now carries status "verified" for the paper's own content, read on 2026-10-14; the "mismatch" with the second sweep's description is kept in its `sweep_check`, as for the other records. NOVELTY.md cites only records with status "verified".
+- `review-secondary/A1-fence-packet.md`: rebuilt from the updated NOVELTY.md, with a note that the review is complete.
+- `DECISIONS.md`: this entry.
+
+Unchanged: `prereg/p7-v1.md`, `prereg/outcome-patterns.yaml`,
+`prereg/erp-view-template.txt`, `prereg/column-mapping.yaml`,
+`prereg/data.lock`, `COVERAGE.md`, `engines.lock`.
+
+Phase A1 is closed.

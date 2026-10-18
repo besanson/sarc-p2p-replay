@@ -832,9 +832,19 @@
       "http_status": 200,
       "title_as_page_states": "Business Compromise Detection with Agentic AI and LLM-driven Knowledge Discovery",
       "reached_on": "2026-10-14",
-      "status": "mismatch",
+      "status": "verified",
       "verified_via": "2026-10-14: arXiv abstract page, HTML (200) and PDF (200) read. The quoted words are there but cut short: 'Holding the agent's evidence fixed and replacing only who decides, the agent's own verdict versus the knowledge stage, raises MCC from 0.295 to 0.435' (section 4.3). Table 1 ('Comparison of different approaches to ground truth (SME)', 397 accounts) carries the cited MCCs: Human Reviewer 0.422, Agent Only 0.295, Gradient Boosting 0.338, Random Forest 0.386. The same table also lists rule-based deciders on the same accounts: FOIL-IE (L1, symbolic rules learned by Inductive Logic Programming) 0.425 and the full neuro-symbolic stage (L1+L2+L3) 0.435; Table 2: full stage minus Human Reviewer dMCC +0.012, p = 0.881.",
-      "note": "Mismatch with the sweep's characterisation: the sweep says 'No deterministic rule is one of the side-by-side deciders'; the page compares a human reviewer, an LLM agent, tree ensembles and learned symbolic-rule stages on the same 397 accounts. The rules are learned (ILP), not a declared gate. The numbers the sweep quotes are correct ('LLM agent alone' is 'Agent Only' in the table). Candidate against Claimed item 4 (D-A1-0c)."
+      "note": "Record status re-expressed at D-A1-1 (2026-10-18): the paper itself was read on 2026-10-14 and its Table 1 content is verified as stated in verified_via; the 'mismatch' concerns the second sweep's description and is kept in sweep_check, as for the other records. Cited in NOVELTY.md as a component precedent for comparing deciders on the same cases (D-A1-1).",
+      "sweep_check": {
+        "source": "A1 second machine sweep (review-secondary/A1-fence-sweep-deepseek.md)",
+        "url_fetched": "https://arxiv.org/html/2609.32643",
+        "http_status": 200,
+        "reached_on": "2026-10-14",
+        "status": "mismatch",
+        "location_checked": "section 4.3, Tables 1 and 2 (HTML and PDF)",
+        "quote": "Sweep's claim: 'No deterministic rule is one of the side-by-side deciders.' The paper's Table 1 lists FOIL-IE (learned symbolic rules, MCC 0.425) and the full neuro-symbolic stage (0.435) beside the human reviewer, the LLM agent and tree ensembles on the same 397 accounts.",
+        "note": "Mismatch recorded 2026-10-14 (D-A1-0c)."
+      }
     },
     {
       "id": "kadir-auditcopilot-2025",

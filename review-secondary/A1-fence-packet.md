@@ -1,3 +1,5 @@
+Fence review completed 2026-10-16; this version reflects the adjudication D-A1-1. Kept for the record and for any addendum.
+
 # A1 fence packet: paper 7
 
 | field | value |
@@ -5,7 +7,7 @@
 | paper (working title) | Silent Evidence Defects in the Wild: A Registered Replay of a Real Purchase-to-Pay Process |
 | author | Gaston Besanson, Universidad Torcuato Di Tella |
 | registration | `p7-v1`, tag `prereg-p7-v1` on commit `e239864` |
-| packet date | 2026-10-14 (rebuilt; first version 2026-10-13 at commit `f0e6b90`) |
+| packet date | 2026-10-18 (post-adjudication; versions of 2026-10-13 at `f0e6b90` and 2026-10-14 at `fc6447e`, the one reviewed) |
 | repository | https://github.com/besanson/sarc-p2p-replay |
 
 This packet is sent to an external reviewer with no hand in SARC papers 1 to 6. The reply is committed to the repository unedited.
@@ -16,19 +18,18 @@ For each item under 'Claimed' in the Novelty section, say one of: (a) already in
 
 ## Part 1. Novelty section (NOVELTY.md)
 
-Source: `NOVELTY.md` as committed together with this packet (the commit after `6d1248c`), SHA-256 of the file `c8646a0aa8c296e0e64e2c495ab37959d61361f313e52a866270f4ff7398b1fd` (citations verified 2026-10-13 and 2026-10-14; records in `verified-citations.json` in the same commit). Copied verbatim between the rules.
+Source: `NOVELTY.md` as committed together with this packet (the commit after `186cad3`), SHA-256 of the file `94d044037b6a6ed7ba87db763e9beacbb17d3336ff84a1eb8164619b29495cdc` (after D-A1-1; records in `verified-citations.json` in the same commit). Copied verbatim between the rules.
 
 ---
 
 # Novelty: prior-art fence
 
-Written before the preregistration (brief section 4). An external reviewer runs
-this fence before the registration is public (Phase A1); the review is
-committed unedited to `review-secondary/` and adjudicated in `DECISIONS.md`.
-Every source below was fetched on 2026-10-13 (A1 preparation) and recorded in
-`verified-citations.json`, as in paper 5; each citation carries its status and
-record id. Paragraphs with no source name none yet; the A1 reviewer may supply
-one.
+Written before the preregistration (brief section 4). The external fence review
+(Eduardo Arana, 2026-10-16) is committed unedited in
+`review-secondary/A1-fence-review.md` and adjudicated in `DECISIONS.md`
+D-A1-1; two machine sweeps preceded it (D-A1-0b, D-A1-0c). Every source below
+was fetched (2026-10-13 and 2026-10-14) and recorded in
+`verified-citations.json`, as in paper 5; each citation carries its record id.
 
 ## Not claimed as new
 
@@ -44,6 +45,18 @@ constraints in the Declare family (Pesic, Schonenberg and van der Aalst,
 "DECLARE: Full Support for Loosely-Structured Processes", EDOC 2007,
 doi:10.1109/EDOC.2007.14; verified from the DOI record, `pesic-declare-2007`).
 Our predicates D1 to D7 are compliance rules in this sense.
+
+**Conjunction of constraints and sufficient-contract synthesis.** Taking a
+decision as the conjunction of its rules is Declare's: "A process model
+containing multiple constraints is defined as a conjunction of the constraints,
+i.e., actions of users during execution must fulfill all the constraints."
+(Pesic, Schonenberg and van der Aalst 2007, section II-B, p. 5;
+`pesic-declare-2007`). Synthesising a sufficient contract from declared losses,
+with minimum-cardinality and minimum-cost objectives, is paper 5 of this
+programme: "The implementation selects minimum-cardinality or minimum-cost
+sufficient contracts using distinct objectives." (Besanson 2026,
+arXiv:2609.26016, section 8, claim C3, p. 7; `besanson-paper5-2026`). The
+compiler E5 runs is paper 5's and is not claimed here.
 
 **Four-eyes and segregation-of-duties detection in event logs.** Detecting
 that the same resource performed two activities that must be separated is a
@@ -79,13 +92,18 @@ passage is cited below):
   `verified-citations.json` under `bpi2019-student-*` and
   `bpi2019-nonstudent-*`.
 
-Porter et al. report compliance per item category both by number and by EUR
-value (Table 3, p. 8; for 3-way after receipt, 80.5% by number and 80.2% by EUR
-value; `bpi2019-nonstudent-8-porter`), and Diba et al. quantify
-receipt-before-clearing violations with their value (Table 2, p. 15: rule
-"Record Goods Receipt -> Clear Invoice", 31 violations, 5.80% of traces;
-section 4.1: average amount 130,322.85 EUR; `bpi2019-nonstudent-6-diba`). Both
-passages verified 2026-10-14.
+Diba et al. quantify receipt-before-clearing violations with their value
+(Table 2, p. 15: rule "Record Goods Receipt -> Clear Invoice", 31 violations,
+5.80% of traces; section 4.1: average amount 130,322.85 EUR;
+`bpi2019-nonstudent-6-diba`; verified 2026-10-14).
+
+**Compliance measured by count and by value.** Measuring compliance both by the
+number of cases and by their value is established on this very log: Porter et
+al. report compliance per item category "by number" and "by EUR value" (Table 3,
+p. 8; for 3-way after receipt, 80.5% by number and 80.2% by EUR value;
+`bpi2019-nonstudent-8-porter`; verified 2026-10-14). The count-and-value
+measure is not claimed; Claimed item 2 is the per-clearing, per-defect-class
+tabulation.
 
 **The BPI Challenge 2020 reports.** The 2020 challenge posed questions on the
 travel-declaration approval chain, including approvals by role and rejection
@@ -120,8 +138,23 @@ purchase order." (printed page A-131; quote verified 2026-10-14,
 `pcaob-release-2004-001`).
 
 **Deviation-to-outcome studies in process mining.** Relating a deviation to a
-later outcome in the same case is established. H1 to H3 are studies of this
-shape. (No source cited yet.)
+later outcome in the same case is established. Peleg, Soffer and Ghattas
+(2008), LNCS 4928, pp. 395-400, doi:10.1007/978-3-540-78238-4_40: "This
+position paper motivates the extension of process mining in order to capture
+not only deviations from the process model, but also the outcomes associated
+with them (e.g., patient improving or deteriorating)." (abstract;
+`peleg-mining-outcomes-2008`). Framing precedents: outcome-oriented predictive
+process monitoring, "classifying each ongoing case of a process according to a
+given set of possible categorical outcomes" (Teinemaa, Dumas, La Rosa and
+Maggi 2019, ACM TKDD 13(2), doi:10.1145/3301300; `teinemaa-outcome-ppm-2019`),
+and deviance mining, where "a subset of the executions of a business process
+deviate, in a negative or positive way, with respect to its expected or
+desirable outcomes" (Nguyen, Dumas, La Rosa, Maggi and Suriadi 2016,
+arXiv:1608.08252; `nguyen-deviance-mining-2016`). On this log, Porter et al.
+observe cases "where a 'Cancel Invoice Receipt' event occurs over 120 days
+after the initial 'Clear Invoice' event" (section 3.3, p. 10;
+`bpi2019-nonstudent-8-porter`), a case-study observation, not a registered
+conditional-consequence study. H1 to H3 are studies of this shape.
 
 **Revert and rework analysis.** Corrective events (cancellations, changes,
 deletions, debit memos, subsequent invoices) as rework signals are
@@ -133,6 +166,28 @@ Creates Debit Memo" among rework activities (Table 5, p. 22: 4,680 cases, 4,801
 occurrences; `bpi2019-nonstudent-4-badakhshan`). Both quotes verified
 2026-10-14; neither covers every activity in the registered outcome list.
 
+**Detectability limits of event logs.** That some deviations leave no trace in
+an event log is established: of the workaround types Outmazgin and Soffer
+examine, "The remaining two types are not reflected in events logs and cannot
+be detected by process mining." (2013, LNBIP 147, pp. 48-62,
+doi:10.1007/978-3-642-38484-4_5, abstract; `outmazgin-workarounds-2013`). The
+principle is not claimed; Claimed item 6 is the registered per-class matrix.
+
+**Comparing deciders on the same cases.** Putting different deciders on the
+same cases is established. Palma et al. (2026, arXiv:2609.32643) compare, on
+the same 397 accounts, a human reviewer (MCC 0.422), an LLM agent (0.295), tree
+ensembles (0.338, 0.386) and learned symbolic rules (FOIL-IE 0.425; the full
+neuro-symbolic stage 0.435) (Table 1; `palma-business-compromise-2026`). Kadir
+et al. (2025, arXiv:2512.02726): "Benchmarking SoTA LLMs such as LLaMA and
+Gemma on both synthetic and real-world anonymized ledgers, we compare them
+against JETs and machine learning baselines." (abstract;
+`kadir-auditcopilot-2025`). Harding and Vasconcelos (2022, arXiv:2202.04218):
+"We show that it is possible to find machine learning algorithms that can
+replicate the behavior of the bank managers." (abstract;
+`harding-managers-machines-2022`). None of the three uses a deterministic
+contract declared before the data are read, or a human arm read from a process
+event log.
+
 ## Claimed
 
 The unit and the comparison:
@@ -140,36 +195,45 @@ The unit and the comparison:
 1. Per action, a min() contract over sufficiency-checked, metadata-borne
    predicates (paper 5), evaluated on the evidence reconstructed at clearing
    time.
-2. Exposure in count and in value per Silent Evidence Defect class.
+2. Exposure per Silent Evidence Defect class at the level of the individual
+   clearing: the share of clearings and of cleared value failing each
+   predicate, per class and stratum, with purchase-order-clustered intervals.
+   The count-and-value measure itself is not claimed (Porter et al. 2019).
 3. Consequence conditional on the defect, with the registered window W and lag
    bands.
 4. The same evidence decided by humans (read from the log), by two model
-   families (replayed on the registered ERP view) and by the gate, side by side
-   on the same lines.
+   families (replayed on the registered ERP view) and by a deterministic gate
+   declared before the data were read, side by side on the same lines.
+   Comparing deciders on the same cases is not claimed (Palma et al. 2026;
+   Kadir et al. 2025; Harding and Vasconcelos 2022).
 5. The control derived from declared losses with paper 5's compiler, not
    assumed, with the fewest fields per category a gate must read.
-6. A coverage matrix for what the log cannot show (`COVERAGE.md`).
+6. A registered per-defect-class coverage matrix (`COVERAGE.md`) stating, for
+   each class the paper speaks about, whether this log can expose it and why.
+   The principle that some deviations leave no trace in an event log is not
+   claimed (Outmazgin and Soffer 2013).
 
 Sentence for the related-work section:
 
 > This paper does not introduce conformance checking, the three-way match or
 > rework analysis. It replays each clearing as a gate decision over the
-> evidence it relied on, measures how often that evidence was defective and
-> what followed, and puts people, models and the gate on the same lines.
+> evidence reconstructed from the event log at clearing time, measures how
+> often that evidence was defective and what followed, and puts people, models
+> and the gate on the same lines.
 
 ## Fence status
 
 | item | status |
 |---|---|
-| external fence review (A1) | open |
-| citations fetch-verified | open |
-| BPI 2020 reports located and cited | open |
+| external fence review (A1) | done: `review-secondary/A1-fence-review.md`, adjudicated in `DECISIONS.md` D-A1-1 |
+| citations fetch-verified | done: `verified-citations.json` |
+| BPI 2020 reports located and cited | done |
 
 ---
 
 ## Part 2. Claims (CLAIMS.md)
 
-Source: `CLAIMS.md` at commit `e239864` (the tagged registration; unchanged since). Copied verbatim between the rules.
+Source: `CLAIMS.md` as committed together with this packet, SHA-256 `c26dab0aaeedd87a2843dccf79a152f2883394f2e824543dadb0a24f0d217048`. The claim text is that of the tagged registration (`e239864`); only the status column changed, from `unregistered` to `registered` (D-A1-1). Copied verbatim between the rules.
 
 ---
 
@@ -182,19 +246,19 @@ only with a slot in `results/` behind it.
 
 | id | claim | type | status |
 |---|---|---|---|
-| C1 | An invoice clearing can be replayed as a sufficiency-checked contract (paper 5) over evidence reconstructed from the event log at clearing time, every predicate deterministic and metadata-borne. | architecture | unregistered |
-| C2 | Exposure: the share of clearings, and the share of cleared value, that relied on evidence failing at least one predicate, per defect class, item category, spend area and month, with intervals clustered by purchase order. | empirical, registered, descriptive | unregistered |
-| C3 | Consequence H1: clearings in a category requiring goods receipt, where the receipt was absent or recorded after clearing, are followed by a corrective event within the registered window at a higher rate than clearings with every predicate passing. | empirical, registered, tested | unregistered |
-| C4 | Consequence H2: clearings where price or quantity changed between approval and clearing are followed by a corrective event at a higher rate than unchanged clearings. | empirical, registered, tested | unregistered |
-| C5 | Authority H3: clearings where the same actor created the line and cleared the invoice are followed by a corrective event at a higher rate than clearings with distinct actors. | empirical, registered, tested | unregistered |
-| C6 | Agent replay H4: on a registered stratified sample, each model family's hold rate on defective lines is within a registered margin of its hold rate on clean lines (Flat Ladder on live data). Reported beside the human hold rate from the log and the gate's. | empirical, registered, tested | unregistered |
-| C7 | Gate effect: share of clearings the gate would have held; share of correctives behind a hold; share of holds with no corrective after; euros in each cell. | empirical, registered, descriptive | unregistered |
-| C8 | Exposure of an ungated agent: euros the sample agent would have released on defective evidence and the expected correctives, beside the human and gate columns. | empirical, registered, descriptive | unregistered |
-| C9 | Derivation: paper 5's compiler, given three declared losses (pay for goods not received, pay twice, pay a changed amount), reproduces or does not reproduce the per-category matching rule; and the fewest fields per category a gate must read. | descriptive | unregistered |
-| C10 | Governance cost: wall time and cost per decision of the deterministic gate over the full log, beside cost per decision of each model family in the sample. | descriptive | unregistered |
-| C11 | Replication: H1's shape on BPI 2020 (paid with a missing or wrong-role approval, followed by rejection or resubmission). | empirical, registered, secondary | unregistered |
-| C12 | Coverage honesty: defect classes the log cannot expose are declared undetected. | coverage | unregistered |
-| C13 | Everything reproduces from the committed dataset hash and caches; no number is hand-entered; the replay runs on any XES or CSV event log with the registered column mapping. | reproducibility, deliverable | unregistered |
+| C1 | An invoice clearing can be replayed as a sufficiency-checked contract (paper 5) over evidence reconstructed from the event log at clearing time, every predicate deterministic and metadata-borne. | architecture | registered |
+| C2 | Exposure: the share of clearings, and the share of cleared value, that relied on evidence failing at least one predicate, per defect class, item category, spend area and month, with intervals clustered by purchase order. | empirical, registered, descriptive | registered |
+| C3 | Consequence H1: clearings in a category requiring goods receipt, where the receipt was absent or recorded after clearing, are followed by a corrective event within the registered window at a higher rate than clearings with every predicate passing. | empirical, registered, tested | registered |
+| C4 | Consequence H2: clearings where price or quantity changed between approval and clearing are followed by a corrective event at a higher rate than unchanged clearings. | empirical, registered, tested | registered |
+| C5 | Authority H3: clearings where the same actor created the line and cleared the invoice are followed by a corrective event at a higher rate than clearings with distinct actors. | empirical, registered, tested | registered |
+| C6 | Agent replay H4: on a registered stratified sample, each model family's hold rate on defective lines is within a registered margin of its hold rate on clean lines (Flat Ladder on live data). Reported beside the human hold rate from the log and the gate's. | empirical, registered, tested | registered |
+| C7 | Gate effect: share of clearings the gate would have held; share of correctives behind a hold; share of holds with no corrective after; euros in each cell. | empirical, registered, descriptive | registered |
+| C8 | Exposure of an ungated agent: euros the sample agent would have released on defective evidence and the expected correctives, beside the human and gate columns. | empirical, registered, descriptive | registered |
+| C9 | Derivation: paper 5's compiler, given three declared losses (pay for goods not received, pay twice, pay a changed amount), reproduces or does not reproduce the per-category matching rule; and the fewest fields per category a gate must read. | descriptive | registered |
+| C10 | Governance cost: wall time and cost per decision of the deterministic gate over the full log, beside cost per decision of each model family in the sample. | descriptive | registered |
+| C11 | Replication: H1's shape on BPI 2020 (paid with a missing or wrong-role approval, followed by rejection or resubmission). | empirical, registered, secondary | registered |
+| C12 | Coverage honesty: defect classes the log cannot expose are declared undetected. | coverage | registered |
+| C13 | Everything reproduces from the committed dataset hash and caches; no number is hand-entered; the replay runs on any XES or CSV event log with the registered column mapping. | reproducibility, deliverable | registered |
 
 ## Non-claims (stated in the paper)
 
@@ -324,22 +388,7 @@ serialisation of the source events on L up to t_c. A 1,000-record sample
 
 ## Candidate prior art from a machine sweep
 
-The author ran a prior-art sweep with a language model (OpenAI ChatGPT, web search on) on the previous version of this packet. It is AI support, not this review. Its text is committed unedited in `review-secondary/A1-fence-sweep-gpt.md` with its URL list and an attestation; each source below was fetched and its quoted line checked on 2026-10-14 (`DECISIONS.md` D-A1-0b, `verified-citations.json`). Sources it supplied for the "Not claimed as new" paragraphs are already cited in Part 1. The items below concern the "Claimed" section and were **not** applied; the author adjudicates them after your review (D-A1-1). You may use, dispute or ignore them.
-
-| Claimed item | candidate prior art | check | quoted line |
-|---|---|---|---|
-| 1 | Pesic, Schonenberg and van der Aalst (2007), "DECLARE: Full Support for Loosely-Structured Processes", EDOC 2007, doi:10.1109/EDOC.2007.14 | quote verified, PDF p. 5, section II-B | "A process model containing multiple constraints is defined as a conjunction of the constraints, i.e., actions of users during execution must fulfill all the constraints." |
-| 2 | Porter et al. (2019), "Balancing Efficiency and Risk in Procure to Pay", BPI Challenge 2019 report | quote verified, Table 3, p. 8 | 3-Way After: "Compliance by number" 80.5%; "Compliance by EUR value" 80.2% |
-| 3 | Porter et al. (2019), same report | quote verified, p. 10, section 3.3 | "We identify a number of cases where a 'Cancel Invoice Receipt' event occurs over 120 days after the initial 'Clear Invoice' event, which would conclude a compliant cycle." |
-| 4 | Gutermuth et al. (2019), "Efficient and Compliant Purchase Order Handling", BPI Challenge 2019 report | quote verified, p. 22, section 6 | "The results show that the presented approach can distinguish between normal and anomalous cases and confirms the anomalies from sections 6.1 and 6.2." |
-| 1 and 5 | Besanson (2026), "Compiling Sufficient Governance Context from Declared Losses and Reachable States", arXiv:2609.26016 (paper 5 of this programme) | quote verified, PDF p. 7, section 8, claim C3 | "The implementation selects minimum-cardinality or minimum-cost sufficient contracts using distinct objectives." |
-| 6 | Outmazgin and Soffer (2013), "Business Process Workarounds: What Can and Cannot Be Detected by Process Mining", LNBIP 147, pp. 48-62, doi:10.1007/978-3-642-38484-4_5 | quote verified, abstract | "The remaining two types are not reflected in events logs and cannot be detected by process mining." |
-
-The sweep's own verdict: for each of the six items taken as a complete combination it found no antecedent; the rows above are component precedents.
-
-**Proposed rewording of the related-work sentence (not applied).** The sweep judges that the sentence "does not hold unqualified as written" and proposes replacing "the evidence it relied on" with "the evidence reconstructed from the event log at clearing time", because "the packet establishes a reconstruction, not which information the original decision-maker actually consulted". It also suggests that the component precedents above should delimit the contribution.
-
-Named by the sweep but not used as evidence (could not be opened from here): Chiu and Jans (2019); ISACA (2010); Leonardi et al. (2025). The sweep also cites Peleg, Soffer and Ghattas (2008), "Mining Process Execution and Outcomes – Position Paper", for the deviation-to-outcome paragraph; its quotation could not be checked here, so that paragraph still carries no source.
+The candidates from the two machine sweeps (`DECISIONS.md` D-A1-0b, D-A1-0c) were adjudicated with the external review in D-A1-1. Those accepted are now cited in Part 1 ("Not claimed as new"); the Gutermuth et al. row for item 4 was withdrawn. The sweep texts stay unedited in `review-secondary/A1-fence-sweep-gpt.md` and `review-secondary/A1-fence-sweep-deepseek.md`.
 
 ## What the reviewer is not asked
 
