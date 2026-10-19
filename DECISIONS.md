@@ -480,3 +480,20 @@ a month followed by a sparse tail) and on the K count (a clearing after T_end
 does not count toward K). `make test` 110 passed; `make lint` clean;
 `make mutate`: 1,471 mutants, 1,380 killed, 0 without a covering test, kill
 score 0.9381 (gate 0.85, passed).
+
+**(e) E0 run 2 under v1.1 (2026-10-19).** `python -m experiments.e0 --out
+results/e0/run-2`, seed 20261201, 2 min 25 s, no pipeline error. All four stop
+conditions clear: creation events in window 251,352 of 251,734; T_end
+2019-01-18T13:34:00Z (month 2019-01, the last with at least 1,000 events), not
+after 2019-12-31; every mapped attribute present; undefined category 0 of
+251,734. Events after T_end excluded: 9 (latest timestamp in the log
+2020-04-09T21:59:00Z).
+
+Frame status counts (251,734 lines): no creation 0; consignment 14,498;
+undefined category 0; zero or missing value 1,887; more than 12 clearings 78;
+outside window 376; incomplete outcome window 53,731; framed 181,164.
+
+E0 drew 500 of the 181,164 framed lines (424 analysed clearings). Run 1's lines
+(`results/e0/run-1/e0-lines.txt`) are superseded by run 2's draw:
+`results/e0/run-2/e0-lines.txt` is the E0 set removed from every later
+estimate.

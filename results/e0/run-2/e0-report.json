@@ -1,0 +1,252 @@
+{
+  "all_activity_frequencies": {
+    "Block Purchase Order Item": 514,
+    "Cancel Goods Receipt": 3096,
+    "Cancel Invoice Receipt": 7096,
+    "Cancel Subsequent Invoice": 491,
+    "Change Approval for Purchase Order": 7541,
+    "Change Currency": 35,
+    "Change Delivery Indicator": 3289,
+    "Change Final Invoice Indicator": 11,
+    "Change Price": 12423,
+    "Change Quantity": 21449,
+    "Change Rejection Indicator": 2,
+    "Change Storage Location": 415,
+    "Change payment term": 7,
+    "Clear Invoice": 194393,
+    "Create Purchase Order Item": 251734,
+    "Create Purchase Requisition Item": 46592,
+    "Delete Purchase Order Item": 8875,
+    "Reactivate Purchase Order Item": 543,
+    "Receive Order Confirmation": 32065,
+    "Record Goods Receipt": 314097,
+    "Record Invoice Receipt": 228760,
+    "Record Service Entry Sheet": 164975,
+    "Record Subsequent Invoice": 167,
+    "Release Purchase Order": 1610,
+    "Release Purchase Requisition": 467,
+    "Remove Payment Block": 57136,
+    "SRM: Awaiting Approval": 1628,
+    "SRM: Change was Transmitted": 1440,
+    "SRM: Complete": 1628,
+    "SRM: Created": 1628,
+    "SRM: Deleted": 188,
+    "SRM: Document Completed": 1628,
+    "SRM: Held": 6,
+    "SRM: In Transfer to Execution Syst.": 1765,
+    "SRM: Incomplete": 6,
+    "SRM: Ordered": 1628,
+    "SRM: Transaction Completed": 8,
+    "SRM: Transfer Failed (E.Sys.)": 45,
+    "Set Payment Block": 124,
+    "Update Order Confirmation": 244,
+    "Vendor creates debit memo": 6255,
+    "Vendor creates invoice": 219919
+  },
+  "attribute_inventory": {
+    "event_keys": {
+      "Cumulative net worth (EUR)": 1595923,
+      "User": 1595923,
+      "concept:name": 1595923,
+      "org:resource": 1595923,
+      "time:timestamp": 1595923
+    },
+    "mapped_keys": {
+      "case": [
+        "Company",
+        "Document Type",
+        "GR-Based Inv. Verif.",
+        "Goods Receipt",
+        "Item",
+        "Item Category",
+        "Item Type",
+        "Name",
+        "Purch. Doc. Category name",
+        "Purchasing Document",
+        "Source",
+        "Spend area text",
+        "Spend classification text",
+        "Sub spend area text",
+        "Vendor",
+        "concept:name"
+      ],
+      "event": [
+        "Cumulative net worth (EUR)",
+        "User",
+        "concept:name",
+        "org:resource",
+        "time:timestamp"
+      ]
+    },
+    "trace_keys": {
+      "Company": 251734,
+      "Document Type": 251734,
+      "GR-Based Inv. Verif.": 251734,
+      "Goods Receipt": 251734,
+      "Item": 251734,
+      "Item Category": 251734,
+      "Item Type": 251734,
+      "Name": 251734,
+      "Purch. Doc. Category name": 251734,
+      "Purchasing Document": 251734,
+      "Source": 251734,
+      "Spend area text": 251734,
+      "Spend classification text": 251734,
+      "Sub spend area text": 251734,
+      "Vendor": 251734,
+      "concept:name": 251734
+    }
+  },
+  "dropped_events_after_t_end": 9,
+  "e0": {
+    "analysed_clearings": 424,
+    "drawn_from": 181164,
+    "errors": [],
+    "lines": 500,
+    "outcome_activity_follows_clearing": {
+      "Cancel Goods Receipt": 0,
+      "Cancel Invoice Receipt": 1,
+      "Change Price": 2,
+      "Change Quantity": 0,
+      "Delete Purchase Order Item": 0,
+      "Record Subsequent Invoice": 0,
+      "Vendor creates debit memo": 0
+    },
+    "predicates": {
+      "D1": {
+        "fail": 4,
+        "pass": 420
+      },
+      "D2": {
+        "fail": 4,
+        "pass": 420
+      },
+      "D3": {
+        "fail": 4,
+        "pass": 420
+      },
+      "D4": {
+        "fail": 47,
+        "pass": 377
+      },
+      "D5": {
+        "pass": 424
+      },
+      "D6": {
+        "pass": 424
+      },
+      "D7": {
+        "pass": 424
+      }
+    },
+    "seed": 20261201,
+    "size": 500,
+    "verdicts": {
+      "allow": 374,
+      "hold": 50
+    }
+  },
+  "frame": {
+    "categories": {
+      "2-way": 1044,
+      "3-way, invoice after receipt": 15182,
+      "3-way, invoice before receipt": 221010,
+      "consignment": 14498
+    },
+    "category_vs_item_category": [
+      {
+        "flag_category": "2-way",
+        "item_category": "2-way match",
+        "lines": 1044
+      },
+      {
+        "flag_category": "3-way, invoice after receipt",
+        "item_category": "3-way match, invoice after GR",
+        "lines": 15182
+      },
+      {
+        "flag_category": "3-way, invoice before receipt",
+        "item_category": "3-way match, invoice before GR",
+        "lines": 221010
+      },
+      {
+        "flag_category": "consignment",
+        "item_category": "Consignment",
+        "lines": 14498
+      }
+    ],
+    "framed_lines": 181164,
+    "lines": 251734,
+    "statuses": {
+      "consignment": 14498,
+      "framed": 181164,
+      "incomplete_outcome_window": 53731,
+      "more_than_k_clearings": 78,
+      "no_creation": 0,
+      "outside_window": 376,
+      "undefined_category": 0,
+      "zero_or_missing_value": 1887
+    },
+    "undefined": 0
+  },
+  "latest_timestamp_in_log": "2020-04-09T21:59:00+00:00",
+  "log": {
+    "events": 1595923,
+    "file": "BPI_Challenge_2019.xes",
+    "traces": 251734
+  },
+  "registered_activity_frequencies": {
+    "Block Purchase Order Item": 514,
+    "Cancel Goods Receipt": 3096,
+    "Cancel Invoice Receipt": 7096,
+    "Change Approval for Purchase Order": 7541,
+    "Change Price": 12423,
+    "Change Quantity": 21449,
+    "Clear Invoice": 194393,
+    "Create Purchase Order Item": 251734,
+    "Delete Purchase Order Item": 8875,
+    "Reactivate Purchase Order Item": 543,
+    "Record Goods Receipt": 314097,
+    "Record Invoice Receipt": 228760,
+    "Record Subsequent Invoice": 167,
+    "Release Purchase Order": 1610,
+    "Release Purchase Requisition": 467,
+    "Remove Payment Block": 57136,
+    "SRM: Document Completed": 1628,
+    "Set Payment Block": 124,
+    "Vendor creates debit memo": 6255
+  },
+  "registration": "p7-v1.1 (supersedes p7-v1, tag prereg-p7-v1 on e239864)",
+  "stop_conditions": {
+    "any_fires": false,
+    "checks": {
+      "creation_events_in_window": {
+        "count": 251352,
+        "fires": false,
+        "of": 251734,
+        "rule": "at least 50% of Create Purchase Order Item events in [2018-01-01, 2018-12-31]",
+        "value": 0.9984825252051769
+      },
+      "mapped_attributes_present": {
+        "fires": false,
+        "missing_case": [],
+        "missing_event": [],
+        "rule": "every attribute in prereg/column-mapping.yaml (bpi2019) present in the log"
+      },
+      "t_end": {
+        "fires": false,
+        "rule": "T_end (v1.1 rule) not after 2019-12-31T23:59:59Z",
+        "value": "2019-01-18T13:34:00+00:00"
+      },
+      "undefined_category": {
+        "count": 0,
+        "fires": false,
+        "of": 251734,
+        "rule": "flag-derived category undefined for at most 1% of lines",
+        "value": 0.0
+      }
+    }
+  },
+  "t_end": "2019-01-18T13:34:00+00:00",
+  "t_end_month": "2019-01"
+}
