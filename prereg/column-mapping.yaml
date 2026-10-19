@@ -23,7 +23,7 @@ bpi2019:
     goods_receipt_required: "Goods Receipt"        # flag
     item_category: "Item Category"                 # cross-check only
     source: "Source"
-    doc_category: "Doc. Category name"
+    doc_category: "Purch. Doc. Category name"         # p7-v1.1: the 4TU record page names it "Doc. Category name"; the log names it "Purch. Doc. Category name"
     document_type: "Document Type"
     company: "Company"                             # stratum label only
     spend_class: "Spend classification text"

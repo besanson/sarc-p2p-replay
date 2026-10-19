@@ -435,3 +435,33 @@ amended and re-tagged as p7-v1.1 by the author, then E0 drawn again under the
 amended frame (run 1's draw used the out-of-range T_end, so its framed set is
 not the v1.1 frame). Nothing under `prereg/` was changed. The amendment's
 content is the author's decision; no fix is applied here.
+
+## D-C0-2 Author confirmations and E0 observations (2026-10-19)
+
+**(a) Human hold.** The author confirms the D-B-1 reading: a clearing recorded
+before the first invoice receipt counts as a release by people (it is a D3
+defect, not a hold). p7-v1.1 states it in section 3.6.
+
+**(b) Observed at E0 run 1 and not acted on.** Five of the seven registered
+outcome activities followed none of the 398 pilot clearings within W;
+`Record Service Entry Sheet` (164,975 events) and `Vendor creates invoice`
+(219,919) appear in no registered list; D1 failed on 1 of 398 clearings. No
+predicate, pattern, template or mapping semantics change on these observations
+(brief section 10: no tuning after seeing the log); they are reported as
+registered.
+
+**(c) Amendment p7-v1.1.** `prereg/p7-v1.1.md` is a copy of the tagged v1 with
+five edits: header (id, status, supersedes, changes from v1); section 2
+observation end (the T_end rule); section 2.2 (one sentence recording run 1);
+section 3.6 (the sentence in (a)); section 12 (the tag `prereg-p7-v1.1`).
+`prereg/p7-v1.md` is unchanged. `prereg/column-mapping.yaml`: `Doc. Category
+name` renamed `Purch. Doc. Category name`. `prereg/DEVIATIONS.md` records the
+three changes.
+
+The v1.1 justification sentence ("The threshold is under one per cent of the
+log's median monthly event count") is as the author wrote it. The builder
+checked it against the timestamps (counts only): over the 13 months that carry
+the log, January 2018 to January 2019, the 2018 median monthly count is
+139,879.5 and 1,000 is 0.71% of it; over all 47 calendar months with at least
+one event the median is 7. The sentence holds under the first reading only;
+flagged to the author before the tag.
