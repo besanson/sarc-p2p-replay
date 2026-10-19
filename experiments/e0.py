@@ -1,8 +1,10 @@
-"""E0 pilot (prereg/p7-v1.md sections 2.2 and 6, E0). Pipeline only.
+"""E0 pilot (prereg/p7-v1.1.md sections 2.2 and 6, E0). Pipeline only.
 
 Three passes over the BPI 2019 log:
 
-1. Raw XES inventory, independent of the column mapping: T_end, every trace-
+1. Raw XES inventory, independent of the column mapping: T_end under the
+   v1.1 rule (last calendar month with at least 1,000 events) and the count of
+   events after it, every trace-
    and event-level attribute key with its count, every activity name with its
    count, and the share of `Create Purchase Order Item` events inside the window.
 2. The registered reader and frame over every case: frame status counts,
@@ -36,7 +38,8 @@ from typing import Any, Iterable
 
 from p2p_replay.category import Category, category_of
 from p2p_replay.config import (
-    ROOT, SEED, T_END_LIMIT, W_DAYS, WINDOW_END, WINDOW_START, load_mapping, load_patterns,
+    REGISTRATION, ROOT, SEED, T_END_LIMIT, T_END_MONTH_MIN_EVENTS, W_DAYS, WINDOW_END, WINDOW_START,
+    load_mapping, load_patterns,
 )
 from p2p_replay.frame import FRAMED, STATUSES, classify
 from p2p_replay.model import parse_timestamp
@@ -60,9 +63,10 @@ def raw_inventory(path: Path, creation: str, activity_key: str = "concept:name",
     trace_keys: Counter[str] = Counter()
     event_keys: Counter[str] = Counter()
     activities: Counter[str] = Counter()
+    months: Counter[str] = Counter()
     traces = events = 0
-    t_end = None
-    created = created_in_window = 0
+    latest = None
+    creations = []
     opener = gzip.open if path.suffix == ".gz" else open
     with opener(path, "rb") as fh:
         stack: list[str] = []
@@ -93,22 +97,54 @@ def raw_inventory(path: Path, creation: str, activity_key: str = "concept:name",
                 stamp = ev.get(timestamp_key)
                 if stamp is not None:
                     ts = parse_timestamp(stamp)
-                    if t_end is None or ts > t_end:
-                        t_end = ts
+                    months[f"{ts.year:04d}-{ts.month:02d}"] += 1
+                    if latest is None or ts > latest:
+                        latest = ts
                     if name == creation:
-                        created += 1
-                        created_in_window += WINDOW_START <= ts <= WINDOW_END
+                        creations.append(ts)
             elif tag == "trace":
                 traces += 1
                 el.clear()
                 if root is not None:
                     root.clear()
     return {
-        "traces": traces, "events": events, "t_end": t_end,
+        "traces": traces, "events": events, "latest_timestamp": latest, "months": dict(sorted(months.items())),
         "trace_keys": dict(sorted(trace_keys.items())), "event_keys": dict(sorted(event_keys.items())),
         "activities": dict(sorted(activities.items())),
-        "creation_events": created, "creation_events_in_window": created_in_window,
+        "creation_times": creations,
     }
+
+
+def apply_t_end(inv: dict[str, Any], path: Path, min_month_events: int = T_END_MONTH_MIN_EVENTS) -> dict[str, Any]:
+    """v1.1 observation end on the inventory, plus counts that use it (events after T_end excluded)."""
+    full = [m for m, n in inv["months"].items() if n >= min_month_events]
+    if not full:
+        raise ValueError(f"no calendar month carries at least {min_month_events} events")
+    month = max(full)
+    t_end = _latest_in_month(path, month)
+    creations = [ts for ts in inv["creation_times"] if ts <= t_end]
+    return inv | {
+        "t_end": t_end, "t_end_month": month,
+        # T_end is the latest timestamp of its month, so the dropped events are those of later months.
+        "dropped_events": sum(n for m, n in inv["months"].items() if m > month),
+        "creation_events": len(creations),
+        "creation_events_in_window": sum(WINDOW_START <= ts <= WINDOW_END for ts in creations),
+    }
+
+
+def _timestamps(path: Path, timestamp_key: str = "time:timestamp"):
+    opener = gzip.open if path.suffix == ".gz" else open
+    with opener(path, "rb") as fh:
+        for _, el in ET.iterparse(fh, events=("end",)):
+            tag = _local(el.tag)
+            if tag in ATTRIBUTE_TAGS and el.get("key") == timestamp_key:
+                yield parse_timestamp(el.get("value"))
+            elif tag == "trace":
+                el.clear()
+
+
+def _latest_in_month(path: Path, month: str):
+    return max(ts for ts in _timestamps(path) if f"{ts.year:04d}-{ts.month:02d}" == month)
 
 
 def mapped_keys(mapping: dict[str, Any]) -> dict[str, list[str]]:
@@ -129,7 +165,7 @@ def stop_conditions(inv: dict[str, Any], mapping: dict[str, Any], undefined: int
             "value": share_created, "count": inv["creation_events_in_window"], "of": inv["creation_events"],
             "fires": share_created < CREATE_SHARE_MIN},
         "t_end": {
-            "rule": "T_end not after 2019-12-31T23:59:59Z",
+            "rule": "T_end (v1.1 rule) not after 2019-12-31T23:59:59Z",
             "value": inv["t_end"].isoformat() if inv["t_end"] else None,
             "fires": inv["t_end"] is None or inv["t_end"] > T_END_LIMIT},
         "mapped_attributes_present": {
@@ -145,12 +181,14 @@ def stop_conditions(inv: dict[str, Any], mapping: dict[str, Any], undefined: int
 
 
 def frame_pass(cases: Iterable, p2p, flag_true, t_end) -> dict[str, Any]:
+    """Pass 2, on cases with their events after T_end excluded (v1.1)."""
     statuses: Counter[str] = Counter()
     categories: Counter[str] = Counter()
     crosstab: Counter[tuple[str, str]] = Counter()
     framed: list[str] = []
     lines = 0
     for case in cases:
+        case = case.truncated(t_end)
         lines += 1
         cat = category_of(case, flag_true)
         categories[cat.value] += 1
@@ -185,6 +223,7 @@ def pilot_pass(cases: Iterable, chosen: set[str], p2p, flag_true, t_end) -> dict
     for case in cases:
         if case.case_id not in chosen:
             continue
+        case = case.truncated(t_end)
         lines += 1
         try:
             result = replay_case(case, p2p, flag_true, t_end)
@@ -218,13 +257,13 @@ def registered_name_frequencies(activities: dict[str, int], p2p) -> dict[str, in
     return {n: activities.get(n, 0) for n in sorted(names)}
 
 
-def run(log: Path, out: Path) -> dict[str, Any]:
+def run(log: Path, out: Path, min_month_events: int = T_END_MONTH_MIN_EVENTS) -> dict[str, Any]:
     started = time.time()
     mapping = load_mapping("bpi2019")
     p2p, _ = load_patterns()
     flag_true = mapping.get("flag_true", ["true"])
 
-    inv = raw_inventory(log, p2p.creation)
+    inv = apply_t_end(raw_inventory(log, p2p.creation), log, min_month_events)
     t1 = time.time()
     frame = frame_pass(read_log(log, mapping), p2p, flag_true, inv["t_end"])
     t2 = time.time()
@@ -234,9 +273,12 @@ def run(log: Path, out: Path) -> dict[str, Any]:
     t3 = time.time()
 
     report = {
-        "registration": "p7-v1 (tag prereg-p7-v1, e239864)",
+        "registration": f"{REGISTRATION} (supersedes p7-v1, tag prereg-p7-v1 on e239864)",
         "log": {"file": log.name, "traces": inv["traces"], "events": inv["events"]},
-        "t_end": inv["t_end"].isoformat() if inv["t_end"] else None,
+        "t_end": inv["t_end"].isoformat(),
+        "t_end_month": inv["t_end_month"],
+        "dropped_events_after_t_end": inv["dropped_events"],
+        "latest_timestamp_in_log": inv["latest_timestamp"].isoformat() if inv["latest_timestamp"] else None,
         "stop_conditions": stops,
         "attribute_inventory": {"trace_keys": inv["trace_keys"], "event_keys": inv["event_keys"],
                                 "mapped_keys": mapped_keys(mapping)},
@@ -259,8 +301,9 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="experiments.e0")
     parser.add_argument("--log", type=Path, default=DEFAULT_LOG)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    parser.add_argument("--min-month-events", type=int, default=T_END_MONTH_MIN_EVENTS)
     args = parser.parse_args(argv)
-    report = run(args.log, args.out)
+    report = run(args.log, args.out, args.min_month_events)
     for name, check in report["stop_conditions"]["checks"].items():
         print(f"stop condition {name}: {'FIRES' if check['fires'] else 'clear'}")
     print(f"E0: {report['e0']['size']} lines, {report['e0']['analysed_clearings']} analysed clearings, "

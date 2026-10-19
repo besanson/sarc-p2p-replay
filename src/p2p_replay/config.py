@@ -1,7 +1,7 @@
-"""Registered configuration (prereg/p7-v1.md and its companion files).
+"""Registered configuration (prereg/p7-v1.1.md and its companion files).
 
-The numbers below are the registered values of p7-v1; tests/test_config.py
-checks each one against the registration text. The activity lists and the
+The numbers below are the registered values of p7-v1.1 (which supersedes p7-v1);
+tests/test_pipeline.py checks each one against the registration text. The activity lists and the
 column mapping are read from the YAML companion files, never restated here.
 """
 
@@ -20,7 +20,10 @@ PATTERNS_PATH = PREREG / "outcome-patterns.yaml"
 MAPPING_PATH = PREREG / "column-mapping.yaml"
 TEMPLATE_PATH = PREREG / "erp-view-template.txt"
 
-# prereg/p7-v1.md section 2 and section 9
+REGISTRATION = "p7-v1.1"
+REGISTRATION_PATH = PREREG / "p7-v1.1.md"
+
+# prereg/p7-v1.1.md section 2 and section 9
 WINDOW_START = datetime(2018, 1, 1, 0, 0, 0, tzinfo=timezone.utc)
 WINDOW_END = datetime(2018, 12, 31, 23, 59, 59, tzinfo=timezone.utc)
 K_MAX_CLEARINGS = 12
@@ -28,6 +31,8 @@ W_DAYS = 60
 W_SENSITIVITY_DAYS = 30
 SEED = 20261201
 T_END_LIMIT = datetime(2019, 12, 31, 23, 59, 59, tzinfo=timezone.utc)
+# v1.1 observation end: the last calendar month (UTC) carrying at least this many events
+T_END_MONTH_MIN_EVENTS = 1000
 
 
 def load_yaml(path: Path) -> dict[str, Any]:

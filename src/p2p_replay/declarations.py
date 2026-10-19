@@ -1,4 +1,4 @@
-"""E7 replication on BPI 2020 declarations: D1' to D3' and O' (prereg/p7-v1.md section 8)."""
+"""E7 replication on BPI 2020 declarations: D1' to D3' and O' (prereg/p7-v1.1.md section 8)."""
 
 from __future__ import annotations
 

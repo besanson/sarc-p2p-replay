@@ -1,4 +1,4 @@
-"""Property tests of the replay engine (prereg/p7-v1.md section 10).
+"""Property tests of the replay engine (prereg/p7-v1.1.md section 10).
 
 No proposition is claimed. Each property below is checked on generated lines,
 not proved. Generation is derandomised, so every run checks the same cases.

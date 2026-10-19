@@ -18,11 +18,11 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from .config import MAPPING_PATH, PATTERNS_PATH, load_mapping, load_patterns
+from .config import MAPPING_PATH, PATTERNS_PATH, T_END_MONTH_MIN_EVENTS, load_mapping, load_patterns
 from .declarations import replay_declarations
 from .frame import STATUSES
 from .reader import read_log
-from .replay import replay_log
+from .replay import observation_end, replay_log
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -35,6 +35,8 @@ def build_parser() -> argparse.ArgumentParser:
     rep.add_argument("--mapping", type=Path, default=MAPPING_PATH)
     rep.add_argument("--patterns", type=Path, default=PATTERNS_PATH)
     rep.add_argument("--frame-counts", type=Path, default=None)
+    rep.add_argument("--min-month-events", type=int, default=T_END_MONTH_MIN_EVENTS,
+                     help="v1.1 observation end: last calendar month with at least this many events (registered: 1000)")
     return parser
 
 
@@ -48,9 +50,11 @@ def run_replay(args: argparse.Namespace) -> int:
     args.out.parent.mkdir(parents=True, exist_ok=True)
     written = 0
     counts: Counter[str] = Counter()
+    end = None
     with args.out.open("w", encoding="utf-8", newline="\n") as out:
         if args.dataset == "bpi2019":
-            for result in replay_log(open_cases, p2p, mapping.get("flag_true", ["true"])):
+            end = observation_end(open_cases(), args.min_month_events)
+            for result in replay_log(open_cases, p2p, mapping.get("flag_true", ["true"]), args.min_month_events):
                 counts[result.frame.status] += 1
                 for record in result.records:
                     out.write(record.to_json() + "\n")
@@ -61,6 +65,9 @@ def run_replay(args: argparse.Namespace) -> int:
                 written += 1
     if args.frame_counts is not None:
         ordered = {s: counts.get(s, 0) for s in STATUSES} if args.dataset == "bpi2019" else {}
+        if end is not None:
+            ordered |= {"t_end": end.t_end.isoformat(), "t_end_month": end.month,
+                        "dropped_events_after_t_end": end.dropped_events}
         args.frame_counts.write_text(json.dumps(ordered, indent=2) + "\n", encoding="utf-8")
     print(f"p2p_replay: {written} record(s) written to {args.out}")
     return 0

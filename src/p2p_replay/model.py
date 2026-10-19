@@ -3,7 +3,7 @@
 A case's events are kept in one canonical order: timestamp, then activity,
 actor and value. The source order of events that share a timestamp is
 therefore never visible to the replay, which is what makes the verdict
-invariant under reordering within equal timestamps (prereg/p7-v1.md 3.3).
+invariant under reordering within equal timestamps (prereg/p7-v1.1.md 3.3).
 """
 
 from __future__ import annotations
@@ -65,6 +65,10 @@ class Case:
     def upto(self, t: datetime) -> tuple[Event, ...]:
         """Events with timestamp at most t (the evidence available at t)."""
         return tuple(e for e in self.events if e.ts <= t)
+
+    def truncated(self, t: datetime) -> "Case":
+        """The same case without events after t (v1.1: events after T_end are excluded)."""
+        return Case(self.case_id, self.attrs, self.upto(t))
 
     def of(self, activities: str | Iterable[str]) -> tuple[Event, ...]:
         wanted = {activities} if isinstance(activities, str) else set(activities)

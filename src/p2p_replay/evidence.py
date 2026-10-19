@@ -1,4 +1,4 @@
-"""Evidence set: one record per analysed clearing (prereg/p7-v1.md section 3.9)."""
+"""Evidence set: one record per analysed clearing (prereg/p7-v1.1.md section 3.9)."""
 
 from __future__ import annotations
 

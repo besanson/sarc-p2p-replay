@@ -13,7 +13,9 @@ XES = FIXTURES / "mini2019.xes"
 
 
 def test_raw_inventory_on_fixture():
-    inv = e0.raw_inventory(XES, "Create Purchase Order Item")
+    inv = e0.apply_t_end(e0.raw_inventory(XES, "Create Purchase Order Item"), XES, min_month_events=1)
+    assert inv["t_end_month"] == "2019-06" and inv["dropped_events"] == 0
+    assert inv["latest_timestamp"] == inv["t_end"]
     assert inv["traces"] == len(make_fixtures.CASES_2019)
     assert inv["events"] == sum(len(ev) for _, ev in make_fixtures.CASES_2019.values())
     assert inv["t_end"] == datetime(2019, 6, 30, 9, 0, tzinfo=timezone.utc)
@@ -50,8 +52,21 @@ def test_draw_is_seeded_uniform_and_sorted():
     assert e0.draw_e0(ids[:10]) == ids[:10]
 
 
+def test_apply_t_end_drops_a_sparse_tail():
+    inv = e0.raw_inventory(XES, "Create Purchase Order Item")
+    # The fixture's busiest month count is small; with threshold 2, months with one event are a tail.
+    full = sorted(m for m, n in inv["months"].items() if n >= 2)
+    out = e0.apply_t_end(inv, XES, min_month_events=2)
+    assert out["t_end_month"] == full[-1]
+    assert out["dropped_events"] == sum(n for m, n in inv["months"].items() if m > full[-1])
+    assert out["creation_events"] <= len(inv["creation_times"])
+    import pytest
+    with pytest.raises(ValueError):
+        e0.apply_t_end(inv, XES, min_month_events=10_000)
+
+
 def test_run_on_fixture(tmp_path):
-    report = e0.run(XES, tmp_path)
+    report = e0.run(XES, tmp_path, min_month_events=1)
     assert report["frame"]["framed_lines"] == 6
     assert report["frame"]["statuses"]["consignment"] == 1
     assert report["e0"]["size"] == 6 and report["e0"]["analysed_clearings"] == 6 and report["e0"]["errors"] == []
@@ -62,9 +77,11 @@ def test_run_on_fixture(tmp_path):
     assert report["registered_activity_frequencies"]["Vendor creates debit memo"] == 0
     # The fixture omits nothing the mapping names except attributes it does not carry.
     missing = report["stop_conditions"]["checks"]["mapped_attributes_present"]
-    assert set(missing["missing_case"]) == {"Item", "Source", "Doc. Category name", "Document Type",
+    assert set(missing["missing_case"]) == {"Item", "Source", "Purch. Doc. Category name", "Document Type",
                                             "Spend classification text", "Sub spend area text"}
     lines = (tmp_path / "e0-lines.txt").read_text().split()
     assert lines == sorted(lines) and len(lines) == 6
     assert json.loads((tmp_path / "e0-report.json").read_text())["t_end"] == "2019-06-30T09:00:00+00:00"
-    assert e0.main(["--log", str(XES), "--out", str(tmp_path / "again")]) == 3  # fixture lacks mapped attributes
+    assert report["registration"].startswith("p7-v1.1")
+    assert report["dropped_events_after_t_end"] == 0 and report["t_end_month"] == "2019-06"
+    assert e0.main(["--log", str(XES), "--out", str(tmp_path / "again"), "--min-month-events", "1"]) == 3  # fixture lacks mapped attributes

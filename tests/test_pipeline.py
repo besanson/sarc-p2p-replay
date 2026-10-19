@@ -15,7 +15,7 @@ from conftest import BASE, DECL, FIXTURES, FLAG_TRUE, MAPPING, P2P, TWO_WAY, at,
 from fixtures import make_fixtures
 from p2p_replay import cli, config, declarations, evidence, view
 from p2p_replay.config import load_mapping
-from p2p_replay.model import Case
+from p2p_replay.model import Case, Event
 from p2p_replay.reader import make_event, read_csv, read_log, read_xes
 from p2p_replay.replay import log_end, replay_case, replay_log
 
@@ -96,7 +96,7 @@ def test_reader_value_parsing_and_actor_fallback():
 # ---- end-to-end replay on the fixture ---------------------------------------
 
 def replay_fixture():
-    return {r.case_id: r for r in replay_log(lambda: read_log(XES, MAPPING), P2P, FLAG_TRUE)}
+    return {r.case_id: r for r in replay_log(lambda: read_log(XES, MAPPING), P2P, FLAG_TRUE, min_month_events=1)}
 
 
 def test_fixture_cases_replay_to_expected():
@@ -265,7 +265,7 @@ def test_request_template_block_is_extracted():
 def run_cli(tmp_path, *extra):
     out = tmp_path / "ev.jsonl"
     counts = tmp_path / "frame.json"
-    code = cli.main(["replay", str(XES), "--out", str(out), "--frame-counts", str(counts), *extra])
+    code = cli.main(["replay", str(XES), "--out", str(out), "--frame-counts", str(counts), "--min-month-events", "1", *extra])
     return code, out, counts
 
 
@@ -274,9 +274,12 @@ def test_cli_replay_bpi2019(tmp_path, capsys):
     assert code == 0
     lines = out.read_text(encoding="utf-8").splitlines()
     assert len(lines) == 6
-    assert json.loads(counts.read_text())["framed"] == 6
-    assert list(json.loads(counts.read_text())) == list(cli.STATUSES)
-    assert "6 record(s)" in capsys.readouterr().out
+    data = json.loads(counts.read_text())
+    assert data["framed"] == 6
+    assert list(data)[: len(cli.STATUSES)] == list(cli.STATUSES)
+    assert data["t_end"] == "2019-06-30T09:00:00+00:00" and data["t_end_month"] == "2019-06"
+    assert data["dropped_events_after_t_end"] == 0
+    assert "p2p_replay: 6 record(s)" in capsys.readouterr().out
 
 
 def test_cli_is_byte_identical_across_runs(tmp_path):
@@ -298,14 +301,14 @@ def test_cli_runs_outside_repository_root(tmp_path, monkeypatch):
     log = tmp_path / "copy.xes"
     shutil.copy(XES, log)
     monkeypatch.chdir(tmp_path)
-    assert cli.main(["replay", "copy.xes", "--out", "out.jsonl"]) == 0
+    assert cli.main(["replay", "copy.xes", "--out", "out.jsonl", "--min-month-events", "1"]) == 0
     assert len((tmp_path / "out.jsonl").read_text().splitlines()) == 6
 
 
 # ---- registered configuration -----------------------------------------------
 
 def test_registered_numbers_match_the_registration():
-    text = (ROOT / "prereg" / "p7-v1.md").read_text(encoding="utf-8")
+    text = (ROOT / "prereg" / "p7-v1.1.md").read_text(encoding="utf-8")
     assert "[2018-01-01T00:00:00Z, 2018-12-31T23:59:59Z]" in text
     assert config.WINDOW_START.isoformat() == "2018-01-01T00:00:00+00:00"
     assert config.WINDOW_END.isoformat() == "2018-12-31T23:59:59+00:00"
@@ -314,6 +317,10 @@ def test_registered_numbers_match_the_registration():
     assert f"`{config.SEED}`" in text
     assert "T_end after 2019-12-31T23:59:59Z" in text
     assert config.T_END_LIMIT.isoformat() == "2019-12-31T23:59:59+00:00"
+    assert "last calendar month (UTC) of the log that carries at least 1,000 events" in text
+    assert config.T_END_MONTH_MIN_EVENTS == 1000
+    assert config.REGISTRATION == "p7-v1.1" and config.REGISTRATION_PATH.name == "p7-v1.1.md"
+    assert "| registration id | `p7-v1.1` |" in text
     assert P2P.window_days == config.W_DAYS and P2P.sensitivity_window_days == config.W_SENSITIVITY_DAYS
     assert DECL.window_days == config.W_DAYS
 
@@ -385,14 +392,16 @@ def test_cli_csv_log_with_a_custom_mapping_file(tmp_path, capsys):
                             encoding="utf-8")
     out = tmp_path / "a" / "b" / "ev.jsonl"
     counts = tmp_path / "frame.json"
-    code = cli.main(["replay", str(CSV), "--mapping", str(mapping_file), "--out", str(out), "--frame-counts", str(counts)])
+    code = cli.main(["replay", str(CSV), "--mapping", str(mapping_file), "--out", str(out), "--frame-counts", str(counts),
+                     "--min-month-events", "1"])
     assert code == 0
     # Without flag_true in the mapping the default is ["true"], which the fixture uses.
     assert len(out.read_text(encoding="utf-8").splitlines()) == 6
-    assert "6 record(s)" in capsys.readouterr().out
+    assert "p2p_replay: 6 record(s)" in capsys.readouterr().out
     assert json.loads(counts.read_text()) == {
         "no_creation": 1, "consignment": 1, "undefined_category": 0, "zero_or_missing_value": 1,
         "more_than_k_clearings": 0, "outside_window": 1, "incomplete_outcome_window": 1, "framed": 6,
+        "t_end": "2019-06-30T09:00:00+00:00", "t_end_month": "2019-06", "dropped_events_after_t_end": 0,
     }
     assert counts.read_text().startswith('{\n  "no_creation": 1,')
 
@@ -400,4 +409,61 @@ def test_cli_csv_log_with_a_custom_mapping_file(tmp_path, capsys):
 def test_cli_bpi2020_reports_its_count(tmp_path, capsys):
     out = tmp_path / "x" / "y" / "e7.jsonl"
     assert cli.main(["replay", str(XES2020), "--dataset", "bpi2020", "--out", str(out)]) == 0
-    assert "3 record(s)" in capsys.readouterr().out
+    assert "p2p_replay: 3 record(s)" in capsys.readouterr().out
+
+
+# ---- v1.1 observation end (prereg/p7-v1.1.md section 2) ----------------------
+
+def _bulk_case(case_id, start, n, activity="Change Price"):
+    return Case.build(case_id, {}, [Event(activity, start + timedelta(minutes=i), "u", None) for i in range(n)])
+
+
+def test_observation_end_registered_threshold():
+    """1,000 events in January 2019, then a sparse tail: T_end is January's latest event."""
+    from p2p_replay.replay import observation_end
+    jan = datetime(2019, 1, 1, tzinfo=timezone.utc)
+    full = _bulk_case("FULL", jan, 1000)
+    tail = Case.build("TAIL", {}, [Event("Change Price", t, "u", None) for t in (
+        datetime(2019, 2, 3, tzinfo=timezone.utc), datetime(2019, 4, 9, tzinfo=timezone.utc),
+        datetime(2020, 4, 9, 21, 59, tzinfo=timezone.utc))])
+    end = observation_end([full, tail])
+    assert end.month == "2019-01" and end.t_end == jan + timedelta(minutes=999)
+    assert end.dropped_events == 3
+    one_short = _bulk_case("SHORT", jan, 999)
+    with pytest.raises(ValueError):
+        observation_end([one_short, tail])
+    assert observation_end([one_short, tail], min_month_events=999).month == "2019-01"
+    # A later month reaching the threshold moves T_end to that month.
+    later = _bulk_case("LATER", datetime(2019, 3, 1, tzinfo=timezone.utc), 1000)
+    assert observation_end([full, later, tail]).month == "2019-03"
+
+
+def test_observation_end_threshold_is_inclusive_and_months_are_utc():
+    from p2p_replay.replay import observation_end
+    from p2p_replay.model import parse_timestamp
+    case = Case.build("X", {}, [
+        Event("a", parse_timestamp("2019-01-31T23:30:00-01:00"), "u", None),  # 2019-02-01 00:30 UTC
+        Event("a", parse_timestamp("2019-01-15T00:00:00+00:00"), "u", None),
+        Event("a", parse_timestamp("2019-01-16T00:00:00+00:00"), "u", None),
+    ])
+    end = observation_end([case], min_month_events=2)
+    assert end.month == "2019-01" and end.t_end == parse_timestamp("2019-01-16T00:00:00+00:00")
+    assert end.dropped_events == 1
+    assert observation_end([case], min_month_events=1).month == "2019-02"
+
+
+def test_replay_log_excludes_events_after_t_end():
+    """A clearing after T_end is excluded, so it does not count toward K (more than 12 clearings)."""
+    from p2p_replay.replay import replay_log
+    create = Event("Create Purchase Order Item", datetime(2018, 1, 2, tzinfo=timezone.utc), "user_1", 10.0)
+    clears = [Event("Clear Invoice", datetime(2018, 1, 3 + i, tzinfo=timezone.utc), "user_2", 1.0) for i in range(12)]
+    late = Event("Clear Invoice", datetime(2019, 6, 1, tzinfo=timezone.utc), "user_2", 1.0)
+    line = Case.build("L13", TWO_WAY, [create, *clears, late])
+    filler = Case.build("F", {}, [Event("x", datetime(2018, 6, d, tzinfo=timezone.utc), "u", None) for d in range(1, 21)])
+    results = {r.case_id: r for r in replay_log(lambda: [line, filler], P2P, FLAG_TRUE, min_month_events=20)}
+    assert results["L13"].frame.status == "framed" and len(results["L13"].frame.analysed) == 12
+    # Without the exclusion the same line has 13 clearings and is a framework line.
+    from p2p_replay import frame as fr
+    assert fr.classify(line, P2P, FLAG_TRUE, datetime(2018, 6, 20, tzinfo=timezone.utc), 60).status == fr.FRAMEWORK
+    truncated = line.truncated(datetime(2018, 6, 20, tzinfo=timezone.utc))
+    assert len(truncated.events) == 13 and truncated.case_id == "L13" and truncated.attrs == line.attrs

@@ -1,4 +1,4 @@
-"""Contract per category and the min() verdict (prereg/p7-v1.md sections 3.1 and 3.5)."""
+"""Contract per category and the min() verdict (prereg/p7-v1.1.md sections 3.1 and 3.5)."""
 
 from __future__ import annotations
 

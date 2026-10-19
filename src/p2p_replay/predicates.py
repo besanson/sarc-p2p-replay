@@ -1,4 +1,4 @@
-"""Predicates D1 to D7 at clearing time (prereg/p7-v1.md section 3.2).
+"""Predicates D1 to D7 at clearing time (prereg/p7-v1.1.md section 3.2).
 
 Every predicate reads only events with timestamp at most t_c. Counts, not
 event order, decide receipts, blocks and deletions, so the result does not

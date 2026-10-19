@@ -1,4 +1,4 @@
-"""Outcome proxy O, receipt defect class and lag bands (prereg/p7-v1.md 3.3, 3.7, 3.8)."""
+"""Outcome proxy O, receipt defect class and lag bands (prereg/p7-v1.1.md 3.3, 3.7, 3.8)."""
 
 from __future__ import annotations
 

@@ -1,6 +1,6 @@
 """Values, exclusions, frame, human hold and the E4 decision point.
 
-prereg/p7-v1.md sections 2, 3.4, 3.6 and 7. The E0 pilot lines are removed by
+prereg/p7-v1.1.md sections 2, 3.4, 3.6 and 7. The E0 pilot lines are removed by
 the experiment layer, not here.
 """
 

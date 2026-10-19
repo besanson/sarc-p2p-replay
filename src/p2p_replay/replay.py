@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Callable, Iterable, Iterator
 
-from .config import W_DAYS, W_SENSITIVITY_DAYS, P2PPatterns
+from .config import T_END_MONTH_MIN_EVENTS, W_DAYS, W_SENSITIVITY_DAYS, P2PPatterns
 from .category import requires_receipt
 from .contract import applicable, decide
 from .evidence import EvidenceSet, source_hash
@@ -17,7 +17,7 @@ from .predicates import Value, evaluate, last_approval, uncancelled_receipts
 
 
 def log_end(cases: Iterable[Case]) -> datetime:
-    """T_end: the latest timestamp of any event in the log."""
+    """Latest timestamp of any event in the log (the v1 rule; still T_end' for E7, section 8)."""
     latest = None
     for case in cases:
         for e in case.events:
@@ -26,6 +26,34 @@ def log_end(cases: Iterable[Case]) -> datetime:
     if latest is None:
         raise ValueError("log has no events")
     return latest
+
+
+@dataclass(frozen=True)
+class ObservationEnd:
+    """v1.1 observation end (prereg/p7-v1.1.md section 2)."""
+
+    t_end: datetime
+    month: str
+    dropped_events: int
+
+
+def _month(ts: datetime) -> str:
+    return f"{ts.year:04d}-{ts.month:02d}"
+
+
+def observation_end(cases: Iterable[Case], min_month_events: int = T_END_MONTH_MIN_EVENTS) -> ObservationEnd:
+    """T_end: the latest timestamp among events in the last calendar month (UTC) carrying at
+    least `min_month_events` events. Events after T_end are counted as dropped."""
+    stamps = [e.ts for case in cases for e in case.events]
+    per_month: dict[str, int] = {}
+    for ts in stamps:
+        per_month[_month(ts)] = per_month.get(_month(ts), 0) + 1
+    full = [m for m, n in per_month.items() if n >= min_month_events]
+    if not full:
+        raise ValueError(f"no calendar month carries at least {min_month_events} events")
+    month = max(full)
+    t_end = max(ts for ts in stamps if _month(ts) == month)
+    return ObservationEnd(t_end, month, sum(1 for ts in stamps if ts > t_end))
 
 
 def inputs_at(case: Case, clearing: Event, p: P2PPatterns) -> dict:
@@ -95,8 +123,10 @@ def replay_case(case: Case, p: P2PPatterns, flag_true, t_end: datetime) -> CaseR
     return CaseResult(case.case_id, frame, records)
 
 
-def replay_log(open_cases: Callable[[], Iterable[Case]], p: P2PPatterns, flag_true) -> Iterator[CaseResult]:
-    """Two passes over the log: T_end first, then every case."""
-    t_end = log_end(open_cases())
+def replay_log(open_cases: Callable[[], Iterable[Case]], p: P2PPatterns, flag_true,
+               min_month_events: int = T_END_MONTH_MIN_EVENTS) -> Iterator[CaseResult]:
+    """Two passes over the log: the v1.1 observation end first, then every case with
+    its events after T_end excluded."""
+    end = observation_end(open_cases(), min_month_events)
     for case in open_cases():
-        yield replay_case(case, p, flag_true, t_end)
+        yield replay_case(case.truncated(end.t_end), p, flag_true, end.t_end)

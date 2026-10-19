@@ -465,3 +465,18 @@ the log, January 2018 to January 2019, the 2018 median monthly count is
 139,879.5 and 1,000 is 0.71% of it; over all 47 calendar months with at least
 one event the median is 7. The sentence holds under the first reading only;
 flagged to the author before the tag.
+
+**(d) Engine for v1.1.** `observation_end` in `src/p2p_replay/replay.py`
+implements the v1.1 rule (last calendar month in UTC with at least
+`T_END_MONTH_MIN_EVENTS` = 1,000 events; T_end its latest timestamp; events
+after it dropped and counted). `replay_log` and the E0 runner exclude events
+after T_end from every computation (`Case.truncated`); the CLI's frame counts
+carry `t_end`, `t_end_month` and `dropped_events_after_t_end`, and take
+`--min-month-events` so that a small log can run (C13; the registered value is
+the default). `log_end` (latest timestamp of any event) is kept only for E7,
+whose T_end' section 8 leaves unchanged. Code that names the registration now
+points at `prereg/p7-v1.1.md`. Tests at the registered threshold (1,000 events in
+a month followed by a sparse tail) and on the K count (a clearing after T_end
+does not count toward K). `make test` 110 passed; `make lint` clean;
+`make mutate`: 1,471 mutants, 1,380 killed, 0 without a covering test, kill
+score 0.9381 (gate 0.85, passed).

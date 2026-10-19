@@ -4,7 +4,7 @@ Ported from paper 5's checkers/proof_status_lint.py (sarc-authority-derivation,
 pinned in engines.lock), which ports it from sarc-suite-one-pass. Changed only
 in what counts as a verification source: here a property test module under
 `tests/` (paper 7 claims no proposition; tags apply only to the replay
-engine's property tests, prereg/p7-v1.md section 10).
+engine's property tests, prereg/p7-v1.1.md section 10).
 
 ALLOWED is small and closed. "proven" is deliberately absent: clearing a tag to
 proven is human-only, and its appearance in a linted file is a failure.

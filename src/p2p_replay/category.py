@@ -1,4 +1,4 @@
-"""Item category from the case flags (prereg/p7-v1.md section 3.1)."""
+"""Item category from the case flags (prereg/p7-v1.1.md section 3.1)."""
 
 from __future__ import annotations
 
