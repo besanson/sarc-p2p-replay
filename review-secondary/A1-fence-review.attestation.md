@@ -4,8 +4,8 @@
 |---|---|
 | reviewer | Eduardo Arana, independent researcher; named at his request |
 | independence | external to SARC papers 1 to 6 and to this repository, as he states ("I am external to SARC papers 1-6"; "I had no role in developing the repository") |
-| other SARC fence reviews | he also reviewed the fence of SARC paper [N] |
-| date received | [DATE RECEIVED] |
+| other SARC fence reviews | he also reviewed the fences of two earlier SARC papers |
+| date received | 2026-10-16 |
 | form | e-mail, plain text |
 | review dated | 2026-10-16 |
 | packet reviewed | `review-secondary/A1-fence-packet.md` at commit `fc6447e` |
