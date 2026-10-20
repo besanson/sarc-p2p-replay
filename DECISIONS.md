@@ -466,6 +466,11 @@ the log, January 2018 to January 2019, the 2018 median monthly count is
 one event the median is 7. The sentence holds under the first reading only;
 flagged to the author before the tag.
 
+Settled by the author before the tag (2026-10-20): the sentence now reads
+"under one per cent of the median monthly event count over calendar 2018",
+and the title line of `prereg/p7-v1.1.md` reads "Preregistration p7-v1.1".
+No rule, number or threshold changed.
+
 **(d) Engine for v1.1.** `observation_end` in `src/p2p_replay/replay.py`
 implements the v1.1 rule (last calendar month in UTC with at least
 `T_END_MONTH_MIN_EVENTS` = 1,000 events; T_end its latest timestamp; events
