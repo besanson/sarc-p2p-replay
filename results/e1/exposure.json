@@ -1,0 +1,190 @@
+{
+  "analysed_clearings": 155534,
+  "applicable_clearings": {
+    "D1 class (absent receipt)": 155346,
+    "D2 class (stale receipt)": 155346,
+    "D3": 155534,
+    "D4": 155534,
+    "D5": 155534,
+    "D6": 155534,
+    "D7": 155534,
+    "at least one defect": 155534,
+    "held unknown": 155534
+  },
+  "bootstrap": {
+    "B": 10000,
+    "cluster": "purchase document, sorted by its hashed id",
+    "clusters": 42346,
+    "generator": "numpy PCG64",
+    "interval": "percentile 2.5 to 97.5",
+    "seed": 20261201
+  },
+  "classes": {
+    "D1 class (absent receipt)": {
+      "bootstrap95": [
+        0.0030046483166595805,
+        0.004954867914523359
+      ],
+      "cleared_value_eur": 1015565.0,
+      "clearings": 610,
+      "share_of_clearings": 0.0039219720446976225,
+      "share_of_value": 0.0011839738956422618,
+      "value_bootstrap95": [
+        0.0007873277923059259,
+        0.0016872867064492841
+      ],
+      "wilson95": [
+        0.003623362899143407,
+        0.004245085366192147
+      ]
+    },
+    "D2 class (stale receipt)": {
+      "bootstrap95": [
+        0.0002295495660515011,
+        0.0009706931969335307
+      ],
+      "cleared_value_eur": 1070757.0,
+      "clearings": 82,
+      "share_of_clearings": 0.0005272159142052542,
+      "share_of_value": 0.001248318262815498,
+      "value_bootstrap95": [
+        0.0002962519669549688,
+        0.002672081468370826
+      ],
+      "wilson95": [
+        0.00042480674202726647,
+        0.0006542969490518648
+      ]
+    },
+    "D3": {
+      "bootstrap95": [
+        0.0014848852819536447,
+        0.0033224852625873907
+      ],
+      "cleared_value_eur": 253223.0,
+      "clearings": 362,
+      "share_of_clearings": 0.0023274653773451464,
+      "share_of_value": 0.0002952144094924702,
+      "value_bootstrap95": [
+        0.00016263763207484218,
+        0.0004635312586673232
+      ],
+      "wilson95": [
+        0.002099963585506377,
+        0.002579550107072372
+      ]
+    },
+    "D4": {
+      "bootstrap95": [
+        0.10554986059992753,
+        0.11525040245955996
+      ],
+      "cleared_value_eur": 164991489.0,
+      "clearings": 17157,
+      "share_of_clearings": 0.11031028585389689,
+      "share_of_value": 0.19235166235459805,
+      "value_bootstrap95": [
+        0.15883952937366302,
+        0.22894979136893856
+      ],
+      "wilson95": [
+        0.10876299271150094,
+        0.11187682803531385
+      ]
+    },
+    "D5": {
+      "bootstrap95": [
+        0.0,
+        0.0
+      ],
+      "cleared_value_eur": 0.0,
+      "clearings": 0,
+      "share_of_clearings": 0.0,
+      "share_of_value": 0.0,
+      "value_bootstrap95": [
+        0.0,
+        0.0
+      ],
+      "wilson95": [
+        0.0,
+        2.469790492567152e-05
+      ]
+    },
+    "D6": {
+      "bootstrap95": [
+        0.0,
+        6.472370421631815e-05
+      ],
+      "cleared_value_eur": 259972.0,
+      "clearings": 4,
+      "share_of_clearings": 2.5717849473427033e-05,
+      "share_of_value": 0.00030308258122120206,
+      "value_bootstrap95": [
+        0.0,
+        0.0010191906001008851
+      ],
+      "wilson95": [
+        1.0001213426099491e-05,
+        6.613112009242372e-05
+      ]
+    },
+    "D7": {
+      "bootstrap95": [
+        5.104397696750263e-05,
+        0.00021757086291199362
+      ],
+      "cleared_value_eur": 90378.0,
+      "clearings": 19,
+      "share_of_clearings": 0.0001221597849987784,
+      "share_of_value": 0.00010536518365673918,
+      "value_bootstrap95": [
+        1.8235329835976125e-05,
+        0.00024383142015976133
+      ],
+      "wilson95": [
+        7.821056686104164e-05,
+        0.00019080087388067545
+      ]
+    },
+    "at least one defect": {
+      "bootstrap95": [
+        0.10935171789963308,
+        0.11915284806350128
+      ],
+      "cleared_value_eur": 166487454.0,
+      "clearings": 17748,
+      "share_of_clearings": 0.11411009811359574,
+      "share_of_value": 0.19409569991870718,
+      "value_bootstrap95": [
+        0.16036481458045976,
+        0.2308619766174474
+      ],
+      "wilson95": [
+        0.11253950950531999,
+        0.11569974806608863
+      ]
+    }
+  },
+  "cleared_value_eur": 857759621.0,
+  "denominator": "all analysed clearings (E0 lines removed); D1 and D2 classes apply to 3-way categories",
+  "held unknown": {
+    "bootstrap95": [
+      0.0,
+      0.0
+    ],
+    "cleared_value_eur": 0.0,
+    "clearings": 0,
+    "share_of_clearings": 0.0,
+    "share_of_value": 0.0,
+    "value_bootstrap95": [
+      0.0,
+      0.0
+    ],
+    "wilson95": [
+      0.0,
+      2.469790492567152e-05
+    ]
+  },
+  "registration": "p7-v1.1",
+  "wilson": "95%, shares of clearings"
+}

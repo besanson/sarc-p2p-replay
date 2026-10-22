@@ -1,0 +1,15 @@
+{
+  "all_lines": 251734,
+  "all_lines_disagreeing": 0,
+  "expected_item_category": {
+    "2-way": "2-way match",
+    "3-way, invoice after receipt": "3-way match, invoice after GR",
+    "3-way, invoice before receipt": "3-way match, invoice before GR",
+    "consignment": "Consignment"
+  },
+  "framed_lines": 180664,
+  "framed_lines_disagreeing": 0,
+  "registration": "p7-v1.1",
+  "rule": "Item Category string differs from the record's string for the flag-derived category",
+  "section": "3.1"
+}

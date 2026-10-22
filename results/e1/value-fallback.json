@@ -1,0 +1,10 @@
+{
+  "analysed_clearings": 155534,
+  "cleared_value_source": {
+    "clearing": 155534,
+    "invoice_receipt": 0,
+    "line_value": 0
+  },
+  "registration": "p7-v1.1",
+  "section": "3.4"
+}

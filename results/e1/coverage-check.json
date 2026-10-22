@@ -1,0 +1,49 @@
+{
+  "every_detected_row_fired": false,
+  "note": "D1 and D2 have the same truth value at t_c (section 3.3); the BPI 2020 rows belong to E7",
+  "rows": [
+    {
+      "defect_class": "goods receipt required but absent at clearing",
+      "failed_clearings": 692,
+      "fired": true,
+      "predicate": "D1"
+    },
+    {
+      "defect_class": "stale receipt: receipt recorded after clearing",
+      "failed_clearings": 692,
+      "fired": true,
+      "predicate": "D2"
+    },
+    {
+      "defect_class": "invoice absent at clearing",
+      "failed_clearings": 362,
+      "fired": true,
+      "predicate": "D3"
+    },
+    {
+      "defect_class": "changed after approval",
+      "failed_clearings": 17157,
+      "fired": true,
+      "predicate": "D4"
+    },
+    {
+      "defect_class": "same actor created and cleared",
+      "failed_clearings": 0,
+      "fired": false,
+      "predicate": "D5"
+    },
+    {
+      "defect_class": "clearing under an open payment block",
+      "failed_clearings": 4,
+      "fired": true,
+      "predicate": "D6"
+    },
+    {
+      "defect_class": "line deleted or blocked at clearing",
+      "failed_clearings": 19,
+      "fired": true,
+      "predicate": "D7"
+    }
+  ],
+  "source": "COVERAGE.md, section Detected (BPI 2019, E1 to E6)"
+}
