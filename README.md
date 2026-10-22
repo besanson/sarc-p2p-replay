@@ -5,7 +5,7 @@ Wild: A Registered Replay of a Real Purchase-to-Pay Process**. Author: Gaston
 Besanson, Universidad Torcuato Di Tella. Sole author; AI tools are support,
 disclosed in the acknowledgements only.
 
-**Status: Phase C0: amendment p7-v1.1 written, E0 run 2 clear, awaiting the author's tag `prereg-p7-v1.1`; E1 not started.**
+**Status: Phase C session 1: E1, E2 and E3 run under the tagged p7-v1.1 (`prereg-p7-v1.1`), slots in `results/`; Holm and E4 to E7 not started.**
 
 ## What the paper does
 

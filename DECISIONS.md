@@ -502,3 +502,96 @@ E0 drew 500 of the 181,164 framed lines (424 analysed clearings). Run 1's lines
 (`results/e0/run-1/e0-lines.txt`) are superseded by run 2's draw:
 `results/e0/run-2/e0-lines.txt` is the E0 set removed from every later
 estimate.
+
+## D-C-1 E1 to E3 run (2026-10-22)
+
+**What ran.** E1 (`experiments/e1.py`), E2 (`experiments/e2.py`) and E3
+(`experiments/e3.py`) on `data/BPI_Challenge_2019.xes` (SHA-256 as registered,
+recorded in `results/e1/exclusions.json`), on base commit `d8cdb2d` (tag
+`prereg-p7-v1.1`) with the runners committed in this session; `src/` is
+unchanged since the tag, so the mutation gate was not re-run. No model call.
+Shared analysis code is `experiments/common.py`; the SHA-256 of every runner
+and engine source file at run time is in `results/reproducibility.json`.
+
+**Run times.** Run A (written to `results/`): E1 4 min 06 s, E2 28 s,
+E3 29 s. Run B (`out/repro/run-b/`): E1 3 min 40 s, E2 25 s,
+E3 30 s. E6 timing (`results/e6/timing-e1.json`): replay of the full
+E1 over three further runs 2 min 34 s, 2 min 38 s, 2 min 33 s; median 2 min 34 s.
+
+**Double run.** `experiments/repro.py` ran E1, E2 and E3 twice from the log and
+compared every file they write: all 16 files byte-identical between run A and run B. The three E6 runs of E1 wrote
+byte-identical files: yes.
+
+**Holm deferred.** The Holm adjustment over the registered five-test family
+(H1, H2, H3, H4-Jev, H4-Haiku; alpha 0.05) is applied once
+H4-Jev and H4-Haiku exist, after E4. `results/e2/hypotheses.json` holds raw
+one-sided p-values for H1 to H3 only, and its `holm` field says so.
+
+**For the author (reported, nothing changed).** H3: the D5 defect group has
+0 analysed clearings and the D5-unknown
+exclusion 0, so the registered H3
+statistic is not computable (defect group has no analysed clearings);
+`results/e2/hypotheses.json` says so and carries no p-value for it. Across the
+whole log no `Clear Invoice` actor equals an actor of the line's earliest
+creation, and the clearings recorded with actor `NONE` lie on lines outside the
+frame or after the outcome horizon. Coverage check: every detected row fired:
+no; not fired: D5 (same actor created and cleared).
+Human hold by gate status at t*: 47,597 classified
+lines are held_unknown at t* (no failed predicate, at least one unknown; at a
+t* that is not a clearing D5 is unknown, having no clearing actor), and their
+human hold rate is 1.0. Under this reading a line
+with no clearing within W can be defective or held_unknown but never clean, so
+the defective and clean rates are read with that in mind. How E4 treats such lines
+is the author's decision before E4.
+
+**Pipeline readings (no registered item changed).**
+
+- numpy is added as a pinned dependency (`numpy==2.3.4`, extras `dev` and
+  `analysis`): section 5 registers the `numpy.random.Generator` (PCG64).
+- Bootstrap clusters are the purchase documents of the analysed clearings,
+  sorted by the id the evidence set carries (the first 16 hex digits of its
+  SHA-256, section 3.9), so every interval can be recomputed from the committed
+  evidence set. Each bootstrap starts one generator seeded 20261201 and draws
+  B resamples in order; every statistic of a runner uses the same resamples.
+  Counts and values (integer cents; the log's values carry at most two
+  decimals, checked) are summed exactly. Percentile interval: 2.5 and 97.5
+  (numpy linear). The H1 to H3 SE is the standard deviation (ddof 1) of the
+  bootstrap differences.
+- Shares per defect class use every analysed clearing as denominator; the
+  number of clearings to which each class applies is reported beside them
+  (D1 and D2 classes apply to 3-way categories). "D1 class" is the absent
+  receipt and "D2 class" the stale receipt of section 3.3.
+- Strata: quartiles are numpy linear quantiles over framed lines (E0 lines
+  removed); vendor activity is the number of framed lines of the line's
+  vendor, with quartiles over framed lines; a value at a cutpoint falls in the
+  lower quartile.
+- Category cross-check (3.1): a line disagrees when its `Item Category` string
+  is not the record's string for the flag-derived category (`3-way match,
+  invoice after GR`, `3-way match, invoice before GR`, `2-way match`,
+  `Consignment`); counted over all lines and over framed lines.
+- H2 excludes clearings with D4 unknown, and counts them, as H3 does for D5.
+- Human hold rate on defective and clean lines (E3): a line's status is the
+  gate verdict at the E4 decision point t* of section 7. At a t* that is not a
+  clearing (first invoice receipt + W) there is no clearing actor, so D5 is
+  unknown and such a line cannot be clean. This reading also fixes which lines
+  E4 can sample as clean; it is flagged to the author before E4.
+- The evidence-set sample (3.9) is `random.Random(20261201)` over the evidence
+  set sorted by hashed line id and t_c.
+
+**Exclusion counts** (generated from `results/e1/exclusions.json`):
+
+| step | status | lines |
+|---|---|---|
+| lines in the log | | 251,734 |
+| 2.1 (1) no Create Purchase Order Item | `no_creation` | 0 |
+| 2.1 (2) consignment | `consignment` | 14,498 |
+| 3.1 category undefined by the flags | `undefined_category` | 0 |
+| 2.1 (3) zero or missing line value | `zero_or_missing_value` | 1,887 |
+| 2.1 (4) more than K = 12 clearings | `more_than_k_clearings` | 78 |
+| 2.1 (5) outside the window | `outside_window` | 376 |
+| 2.1 (5) failing the frame condition | `incomplete_outcome_window` | 53,731 |
+| framed | `framed` | 181,164 |
+| E0 lines removed (section 2) | | 500 |
+| framed lines after E0 removal | | 180,664 |
+| analysed clearings | | 155,534 |
+| events after T_end (2019-01-18T13:34:00+00:00) excluded | | 9 |

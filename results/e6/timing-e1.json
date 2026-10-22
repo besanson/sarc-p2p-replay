@@ -1,0 +1,38 @@
+{
+  "analysed_clearings": 155534,
+  "cost_status": "waits for E4",
+  "cost_usd_per_decision": null,
+  "hardware": {
+    "cpu_cores": 4,
+    "cpu_model": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+    "memory_total": "16477352 kB",
+    "numpy": "2.3.4",
+    "platform": "Linux-6.18.44-fc-v140-x86_64-with-glibc2.39",
+    "python": "3.13.16"
+  },
+  "log": "BPI_Challenge_2019.xes",
+  "median_e1_runner_seconds": 218.4,
+  "median_replay_seconds": 153.5,
+  "outputs_byte_identical_across_runs": true,
+  "registration": "p7-v1.1",
+  "runs": [
+    {
+      "e1_runner_seconds": 218.4,
+      "replay_seconds": 153.5,
+      "run": 1
+    },
+    {
+      "e1_runner_seconds": 223.1,
+      "replay_seconds": 158.2,
+      "run": 2
+    },
+    {
+      "e1_runner_seconds": 217.5,
+      "replay_seconds": 153.0,
+      "run": 3
+    }
+  ],
+  "seconds_per_decision": 0.0009869224735427624,
+  "seconds_per_decision_rule": "median replay seconds over three full runs / analysed clearings",
+  "section": "6, E6 (timing of E1)"
+}
