@@ -1,0 +1,3051 @@
+{
+  "clearings": {
+    "category": {
+      "2-way": {
+        "analysed_clearings": 188,
+        "cleared_value_eur": 1710628.0,
+        "held": 4,
+        "held_share": 0.02127659574468085,
+        "held_value_eur": 45790.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 60141.0,
+              "clearings": 5
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 1604697.0,
+              "clearings": 179
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 45790.0,
+              "clearings": 4
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 60141.0,
+              "clearings": 5
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 1604697.0,
+              "clearings": 179
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 45790.0,
+              "clearings": 4
+            }
+          }
+        }
+      },
+      "3-way, invoice after receipt": {
+        "analysed_clearings": 9640,
+        "cleared_value_eur": 362233005.0,
+        "held": 1592,
+        "held_share": 0.16514522821576763,
+        "held_value_eur": 56768100.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 65173821.0,
+              "clearings": 219
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 240291084.0,
+              "clearings": 7829
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 10620039.0,
+              "clearings": 62
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 46148061.0,
+              "clearings": 1530
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 101636032.0,
+              "clearings": 377
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 203828873.0,
+              "clearings": 7671
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 17679415.0,
+              "clearings": 109
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 39088685.0,
+              "clearings": 1483
+            }
+          }
+        }
+      },
+      "3-way, invoice before receipt": {
+        "analysed_clearings": 145706,
+        "cleared_value_eur": 493815988.0,
+        "held": 16152,
+        "held_share": 0.1108533622500103,
+        "held_value_eur": 109673564.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 3143371.0,
+              "clearings": 674
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 380999053.0,
+              "clearings": 128880
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 2585679.0,
+              "clearings": 178
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 107087885.0,
+              "clearings": 15974
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 4598648.0,
+              "clearings": 909
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 379543776.0,
+              "clearings": 128645
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 3739142.0,
+              "clearings": 259
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 105934422.0,
+              "clearings": 15893
+            }
+          }
+        }
+      }
+    },
+    "company": {
+      "e828567fcb6448fd": {
+        "analysed_clearings": 188,
+        "cleared_value_eur": 1710628.0,
+        "held": 4,
+        "held_share": 0.02127659574468085,
+        "held_value_eur": 45790.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 60141.0,
+              "clearings": 5
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 1604697.0,
+              "clearings": 179
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 45790.0,
+              "clearings": 4
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 60141.0,
+              "clearings": 5
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 1604697.0,
+              "clearings": 179
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 45790.0,
+              "clearings": 4
+            }
+          }
+        }
+      },
+      "e8620b539a5f68a8": {
+        "analysed_clearings": 155345,
+        "cleared_value_eur": 856033717.0,
+        "held": 17743,
+        "held_share": 0.11421674337764331,
+        "held_value_eur": 166426388.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 68317192.0,
+              "clearings": 893
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 621290137.0,
+              "clearings": 136709
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 13205718.0,
+              "clearings": 240
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 153220670.0,
+              "clearings": 17503
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 106234680.0,
+              "clearings": 1286
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 583372649.0,
+              "clearings": 136316
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 21418557.0,
+              "clearings": 368
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 145007831.0,
+              "clearings": 17375
+            }
+          }
+        }
+      },
+      "f3933c5764536f63": {
+        "analysed_clearings": 1,
+        "cleared_value_eur": 15276.0,
+        "held": 1,
+        "held_share": 1.0,
+        "held_value_eur": 15276.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 15276.0,
+              "clearings": 1
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 15276.0,
+              "clearings": 1
+            }
+          }
+        }
+      }
+    },
+    "line_value_quartile": {
+      "Q1": {
+        "analysed_clearings": 38549,
+        "cleared_value_eur": 3555526.0,
+        "held": 2334,
+        "held_share": 0.06054631767361021,
+        "held_value_eur": 198936.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 13768.0,
+              "clearings": 157
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 3342822.0,
+              "clearings": 36058
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 1347.0,
+              "clearings": 13
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 197589.0,
+              "clearings": 2321
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 17125.0,
+              "clearings": 203
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 3339465.0,
+              "clearings": 36012
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 2107.0,
+              "clearings": 20
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 196829.0,
+              "clearings": 2314
+            }
+          }
+        }
+      },
+      "Q2": {
+        "analysed_clearings": 38481,
+        "cleared_value_eur": 13196115.0,
+        "held": 2724,
+        "held_share": 0.07078818118032276,
+        "held_value_eur": 955321.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 58875.0,
+              "clearings": 161
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 12181919.0,
+              "clearings": 35596
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 5208.0,
+              "clearings": 15
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 950113.0,
+              "clearings": 2709
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 74671.0,
+              "clearings": 210
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 12166123.0,
+              "clearings": 35547
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 9240.0,
+              "clearings": 25
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 946081.0,
+              "clearings": 2699
+            }
+          }
+        }
+      },
+      "Q3": {
+        "analysed_clearings": 38963,
+        "cleared_value_eur": 45533056.0,
+        "held": 4522,
+        "held_share": 0.1160588250391397,
+        "held_value_eur": 5705620.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 242336.0,
+              "clearings": 216
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 39585100.0,
+              "clearings": 34225
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 52501.0,
+              "clearings": 40
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 5653119.0,
+              "clearings": 4482
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 346835.0,
+              "clearings": 296
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 39480601.0,
+              "clearings": 34145
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 72308.0,
+              "clearings": 54
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 5633312.0,
+              "clearings": 4468
+            }
+          }
+        }
+      },
+      "Q4": {
+        "analysed_clearings": 39541,
+        "cleared_value_eur": 795474924.0,
+        "held": 8168,
+        "held_share": 0.20657039528590576,
+        "held_value_eur": 159627577.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 68062354.0,
+              "clearings": 364
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 567784993.0,
+              "clearings": 31009
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 13146662.0,
+              "clearings": 172
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 146480915.0,
+              "clearings": 7996
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 105856190.0,
+              "clearings": 582
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 529991157.0,
+              "clearings": 30791
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 21334902.0,
+              "clearings": 269
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 138292675.0,
+              "clearings": 7899
+            }
+          }
+        }
+      }
+    },
+    "month": {
+      "2018-01": {
+        "analysed_clearings": 255,
+        "cleared_value_eur": 777330.0,
+        "held": 9,
+        "held_share": 0.03529411764705882,
+        "held_value_eur": 100103.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 677227.0,
+              "clearings": 246
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 100103.0,
+              "clearings": 9
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 677227.0,
+              "clearings": 246
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 100103.0,
+              "clearings": 9
+            }
+          }
+        }
+      },
+      "2018-02": {
+        "analysed_clearings": 2812,
+        "cleared_value_eur": 11801681.0,
+        "held": 103,
+        "held_share": 0.03662873399715505,
+        "held_value_eur": 323964.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 2613128.0,
+              "clearings": 7
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 8864589.0,
+              "clearings": 2702
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 408.0,
+              "clearings": 1
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 323556.0,
+              "clearings": 102
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 2613555.0,
+              "clearings": 8
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 8864162.0,
+              "clearings": 2701
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 487.0,
+              "clearings": 2
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 323477.0,
+              "clearings": 101
+            }
+          }
+        }
+      },
+      "2018-03": {
+        "analysed_clearings": 9790,
+        "cleared_value_eur": 60128321.0,
+        "held": 877,
+        "held_share": 0.08958120531154239,
+        "held_value_eur": 5115812.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 9051046.0,
+              "clearings": 54
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 45961463.0,
+              "clearings": 8859
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 179104.0,
+              "clearings": 22
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 4936708.0,
+              "clearings": 855
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 13617119.0,
+              "clearings": 78
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 41395390.0,
+              "clearings": 8835
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 228113.0,
+              "clearings": 28
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 4887699.0,
+              "clearings": 849
+            }
+          }
+        }
+      },
+      "2018-04": {
+        "analysed_clearings": 15063,
+        "cleared_value_eur": 80650795.0,
+        "held": 1827,
+        "held_share": 0.12129057956582354,
+        "held_value_eur": 12534017.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 3901831.0,
+              "clearings": 50
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 64214947.0,
+              "clearings": 13186
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 232508.0,
+              "clearings": 15
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 12301509.0,
+              "clearings": 1812
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 7246682.0,
+              "clearings": 76
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 60870096.0,
+              "clearings": 13160
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 252201.0,
+              "clearings": 18
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 12281816.0,
+              "clearings": 1809
+            }
+          }
+        }
+      },
+      "2018-05": {
+        "analysed_clearings": 18939,
+        "cleared_value_eur": 107316432.0,
+        "held": 1972,
+        "held_share": 0.10412376577432811,
+        "held_value_eur": 18276264.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 15500495.0,
+              "clearings": 103
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 73539673.0,
+              "clearings": 16864
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 4430885.0,
+              "clearings": 19
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 13845379.0,
+              "clearings": 1953
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 21401164.0,
+              "clearings": 141
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 67639004.0,
+              "clearings": 16826
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 4680647.0,
+              "clearings": 29
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 13595617.0,
+              "clearings": 1943
+            }
+          }
+        }
+      },
+      "2018-06": {
+        "analysed_clearings": 19748,
+        "cleared_value_eur": 111211002.0,
+        "held": 2331,
+        "held_share": 0.11803726959692121,
+        "held_value_eur": 16988947.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 6008775.0,
+              "clearings": 120
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 88213280.0,
+              "clearings": 17297
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 150149.0,
+              "clearings": 27
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 16838798.0,
+              "clearings": 2304
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 16785546.0,
+              "clearings": 197
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 77436509.0,
+              "clearings": 17220
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 904530.0,
+              "clearings": 50
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 16084417.0,
+              "clearings": 2281
+            }
+          }
+        }
+      },
+      "2018-07": {
+        "analysed_clearings": 20019,
+        "cleared_value_eur": 114534768.0,
+        "held": 2060,
+        "held_share": 0.10290224286927419,
+        "held_value_eur": 19905082.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 10410179.0,
+              "clearings": 158
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 84219507.0,
+              "clearings": 17801
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 1159529.0,
+              "clearings": 37
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 18745553.0,
+              "clearings": 2023
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 13106940.0,
+              "clearings": 216
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 81522746.0,
+              "clearings": 17743
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 2890408.0,
+              "clearings": 45
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 17014674.0,
+              "clearings": 2015
+            }
+          }
+        }
+      },
+      "2018-08": {
+        "analysed_clearings": 21610,
+        "cleared_value_eur": 113546888.0,
+        "held": 2531,
+        "held_share": 0.11712170291531698,
+        "held_value_eur": 25733049.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 4793692.0,
+              "clearings": 143
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 83020147.0,
+              "clearings": 18936
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 2412769.0,
+              "clearings": 35
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 23320280.0,
+              "clearings": 2496
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 7263447.0,
+              "clearings": 186
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 80550392.0,
+              "clearings": 18893
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 3664403.0,
+              "clearings": 49
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 22068646.0,
+              "clearings": 2482
+            }
+          }
+        }
+      },
+      "2018-09": {
+        "analysed_clearings": 19002,
+        "cleared_value_eur": 94804772.0,
+        "held": 2314,
+        "held_share": 0.12177665508893801,
+        "held_value_eur": 26229225.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 2570169.0,
+              "clearings": 106
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 66005378.0,
+              "clearings": 16582
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 942277.0,
+              "clearings": 35
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 25286948.0,
+              "clearings": 2279
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 4994561.0,
+              "clearings": 148
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 63580986.0,
+              "clearings": 16540
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 1634232.0,
+              "clearings": 58
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 24594993.0,
+              "clearings": 2256
+            }
+          }
+        }
+      },
+      "2018-10": {
+        "analysed_clearings": 19193,
+        "cleared_value_eur": 107324605.0,
+        "held": 2483,
+        "held_share": 0.12937008284270307,
+        "held_value_eur": 28835057.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 6056315.0,
+              "clearings": 98
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 72433233.0,
+              "clearings": 16612
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 1647438.0,
+              "clearings": 30
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 27187619.0,
+              "clearings": 2453
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 8973794.0,
+              "clearings": 153
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 69515754.0,
+              "clearings": 16557
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 4064874.0,
+              "clearings": 59
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 24770183.0,
+              "clearings": 2424
+            }
+          }
+        }
+      },
+      "2018-11": {
+        "analysed_clearings": 9103,
+        "cleared_value_eur": 55663027.0,
+        "held": 1241,
+        "held_share": 0.1363286828518071,
+        "held_value_eur": 12445934.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 7471703.0,
+              "clearings": 59
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 35745390.0,
+              "clearings": 7803
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 2050651.0,
+              "clearings": 19
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 10395283.0,
+              "clearings": 1222
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 10292013.0,
+              "clearings": 88
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 32925080.0,
+              "clearings": 7774
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 3098662.0,
+              "clearings": 30
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 9347272.0,
+              "clearings": 1211
+            }
+          }
+        }
+      }
+    },
+    "spend_area": {
+      "Additives": {
+        "analysed_clearings": 10206,
+        "cleared_value_eur": 89123013.0,
+        "held": 1219,
+        "held_share": 0.11943954536547129,
+        "held_value_eur": 12542529.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 415812.0,
+              "clearings": 58
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 76164672.0,
+              "clearings": 8929
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 140470.0,
+              "clearings": 14
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 12402059.0,
+              "clearings": 1205
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 638471.0,
+              "clearings": 92
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 75942013.0,
+              "clearings": 8895
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 332759.0,
+              "clearings": 23
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 12209770.0,
+              "clearings": 1196
+            }
+          }
+        }
+      },
+      "CAPEX & SOCS": {
+        "analysed_clearings": 4672,
+        "cleared_value_eur": 8527208.0,
+        "held": 332,
+        "held_share": 0.07106164383561644,
+        "held_value_eur": 2246986.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 404746.0,
+              "clearings": 42
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 5875476.0,
+              "clearings": 4298
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 29777.0,
+              "clearings": 6
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 2217209.0,
+              "clearings": 326
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 422236.0,
+              "clearings": 63
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 5857986.0,
+              "clearings": 4277
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 35099.0,
+              "clearings": 7
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 2211887.0,
+              "clearings": 325
+            }
+          }
+        }
+      },
+      "Chemicals & Intermediates": {
+        "analysed_clearings": 1,
+        "cleared_value_eur": 509.0,
+        "held": 0,
+        "held_share": 0.0,
+        "held_value_eur": 0.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 509.0,
+              "clearings": 1
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 509.0,
+              "clearings": 1
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            }
+          }
+        }
+      },
+      "Commodity Resins": {
+        "analysed_clearings": 306,
+        "cleared_value_eur": 5318330.0,
+        "held": 81,
+        "held_share": 0.2647058823529412,
+        "held_value_eur": 1524980.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 94480.0,
+              "clearings": 5
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 3698870.0,
+              "clearings": 220
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 39750.0,
+              "clearings": 1
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 1485230.0,
+              "clearings": 80
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 94480.0,
+              "clearings": 5
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 3698870.0,
+              "clearings": 220
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 39750.0,
+              "clearings": 1
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 1485230.0,
+              "clearings": 80
+            }
+          }
+        }
+      },
+      "Energy": {
+        "analysed_clearings": 3,
+        "cleared_value_eur": 99780.0,
+        "held": 0,
+        "held_share": 0.0,
+        "held_value_eur": 0.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 99780.0,
+              "clearings": 3
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 99780.0,
+              "clearings": 3
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            }
+          }
+        }
+      },
+      "Enterprise Services": {
+        "analysed_clearings": 370,
+        "cleared_value_eur": 4289603.0,
+        "held": 22,
+        "held_share": 0.05945945945945946,
+        "held_value_eur": 313229.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 743603.0,
+              "clearings": 6
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 3232771.0,
+              "clearings": 342
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 313229.0,
+              "clearings": 22
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 868012.0,
+              "clearings": 7
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 3108362.0,
+              "clearings": 341
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 313229.0,
+              "clearings": 22
+            }
+          }
+        }
+      },
+      "Latex & Monomers": {
+        "analysed_clearings": 2584,
+        "cleared_value_eur": 86514552.0,
+        "held": 488,
+        "held_share": 0.18885448916408668,
+        "held_value_eur": 16280373.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 441196.0,
+              "clearings": 19
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 69792983.0,
+              "clearings": 2077
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 129013.0,
+              "clearings": 4
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 16151360.0,
+              "clearings": 484
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 1259180.0,
+              "clearings": 41
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 68974999.0,
+              "clearings": 2055
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 420016.0,
+              "clearings": 12
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 15860357.0,
+              "clearings": 476
+            }
+          }
+        }
+      },
+      "Logistics": {
+        "analysed_clearings": 2069,
+        "cleared_value_eur": 223021933.0,
+        "held": 114,
+        "held_share": 0.055099081681971966,
+        "held_value_eur": 13631268.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 51381765.0,
+              "clearings": 113
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 158008900.0,
+              "clearings": 1842
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 2878653.0,
+              "clearings": 19
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 10752615.0,
+              "clearings": 95
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 78365184.0,
+              "clearings": 205
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 131025481.0,
+              "clearings": 1750
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 6241092.0,
+              "clearings": 41
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 7390176.0,
+              "clearings": 73
+            }
+          }
+        }
+      },
+      "Marketing": {
+        "analysed_clearings": 1220,
+        "cleared_value_eur": 41726156.0,
+        "held": 114,
+        "held_share": 0.09344262295081968,
+        "held_value_eur": 19701977.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 8130088.0,
+              "clearings": 29
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 13894091.0,
+              "clearings": 1077
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 5180884.0,
+              "clearings": 8
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 14521093.0,
+              "clearings": 106
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 9094386.0,
+              "clearings": 33
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 12929793.0,
+              "clearings": 1073
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 6906813.0,
+              "clearings": 14
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 12795164.0,
+              "clearings": 100
+            }
+          }
+        }
+      },
+      "Others": {
+        "analysed_clearings": 1776,
+        "cleared_value_eur": 20047760.0,
+        "held": 94,
+        "held_share": 0.05292792792792793,
+        "held_value_eur": 1836666.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 1279932.0,
+              "clearings": 17
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 16931162.0,
+              "clearings": 1665
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 597513.0,
+              "clearings": 4
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 1239153.0,
+              "clearings": 90
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 2964381.0,
+              "clearings": 26
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 15246713.0,
+              "clearings": 1656
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 794594.0,
+              "clearings": 5
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 1042072.0,
+              "clearings": 89
+            }
+          }
+        }
+      },
+      "Packaging": {
+        "analysed_clearings": 63561,
+        "cleared_value_eur": 98334818.0,
+        "held": 7035,
+        "held_share": 0.11068107801954029,
+        "held_value_eur": 18812786.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 457369.0,
+              "clearings": 209
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 79064663.0,
+              "clearings": 56317
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 225747.0,
+              "clearings": 58
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 18587039.0,
+              "clearings": 6977
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 597767.0,
+              "clearings": 254
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 78924265.0,
+              "clearings": 56272
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 317220.0,
+              "clearings": 85
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 18495566.0,
+              "clearings": 6950
+            }
+          }
+        }
+      },
+      "Pigments & Colorants": {
+        "analysed_clearings": 1694,
+        "cleared_value_eur": 16489742.0,
+        "held": 297,
+        "held_share": 0.17532467532467533,
+        "held_value_eur": 4842510.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 120446.0,
+              "clearings": 12
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 11526786.0,
+              "clearings": 1385
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 182051.0,
+              "clearings": 7
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 4660459.0,
+              "clearings": 290
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 174559.0,
+              "clearings": 17
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 11472673.0,
+              "clearings": 1380
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 342020.0,
+              "clearings": 9
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 4500490.0,
+              "clearings": 288
+            }
+          }
+        }
+      },
+      "Real Estate": {
+        "analysed_clearings": 151,
+        "cleared_value_eur": 1007062.0,
+        "held": 5,
+        "held_share": 0.033112582781456956,
+        "held_value_eur": 124702.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 37919.0,
+              "clearings": 3
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 844441.0,
+              "clearings": 143
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 124702.0,
+              "clearings": 5
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 37919.0,
+              "clearings": 3
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 844441.0,
+              "clearings": 143
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 124702.0,
+              "clearings": 5
+            }
+          }
+        }
+      },
+      "Sales": {
+        "analysed_clearings": 46891,
+        "cleared_value_eur": 56989974.0,
+        "held": 3378,
+        "held_share": 0.07203941054786633,
+        "held_value_eur": 9255104.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 456083.0,
+              "clearings": 225
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 47278787.0,
+              "clearings": 43288
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 179445.0,
+              "clearings": 41
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 9075659.0,
+              "clearings": 3337
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 758242.0,
+              "clearings": 318
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 46976628.0,
+              "clearings": 43195
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 240104.0,
+              "clearings": 55
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 9015000.0,
+              "clearings": 3323
+            }
+          }
+        }
+      },
+      "Solvents": {
+        "analysed_clearings": 1573,
+        "cleared_value_eur": 20690546.0,
+        "held": 219,
+        "held_share": 0.13922441195168467,
+        "held_value_eur": 3443742.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 123587.0,
+              "clearings": 12
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 17123217.0,
+              "clearings": 1342
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 113020.0,
+              "clearings": 5
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 3330722.0,
+              "clearings": 214
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 234617.0,
+              "clearings": 21
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 17012187.0,
+              "clearings": 1333
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 122504.0,
+              "clearings": 7
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 3321238.0,
+              "clearings": 212
+            }
+          }
+        }
+      },
+      "Specialty Resins": {
+        "analysed_clearings": 1295,
+        "cleared_value_eur": 24710607.0,
+        "held": 228,
+        "held_share": 0.17606177606177606,
+        "held_value_eur": 4199944.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 190764.0,
+              "clearings": 9
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 20319899.0,
+              "clearings": 1058
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 133995.0,
+              "clearings": 6
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 4065949.0,
+              "clearings": 222
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 231065.0,
+              "clearings": 11
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 20279598.0,
+              "clearings": 1056
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 150286.0,
+              "clearings": 8
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 4049658.0,
+              "clearings": 220
+            }
+          }
+        }
+      },
+      "Spend Area Unidentified": {
+        "analysed_clearings": 18,
+        "cleared_value_eur": 186321.0,
+        "held": 3,
+        "held_share": 0.16666666666666666,
+        "held_value_eur": 17988.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 168333.0,
+              "clearings": 15
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 17988.0,
+              "clearings": 3
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 168333.0,
+              "clearings": 15
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 0.0,
+              "clearings": 0
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 17988.0,
+              "clearings": 3
+            }
+          }
+        }
+      },
+      "Titanium Dioxides": {
+        "analysed_clearings": 429,
+        "cleared_value_eur": 43138458.0,
+        "held": 124,
+        "held_share": 0.289044289044289,
+        "held_value_eur": 15983772.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 662718.0,
+              "clearings": 6
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 26491968.0,
+              "clearings": 299
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 907188.0,
+              "clearings": 8
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 15076584.0,
+              "clearings": 116
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 709848.0,
+              "clearings": 8
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 26444838.0,
+              "clearings": 297
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 915817.0,
+              "clearings": 9
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 15067955.0,
+              "clearings": 115
+            }
+          }
+        }
+      },
+      "Trading & End Products": {
+        "analysed_clearings": 15104,
+        "cleared_value_eur": 56002402.0,
+        "held": 3556,
+        "held_share": 0.2354343220338983,
+        "held_value_eur": 24346417.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 168869.0,
+              "clearings": 111
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 31487116.0,
+              "clearings": 11437
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 659940.0,
+              "clearings": 48
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 23686477.0,
+              "clearings": 3508
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 369754.0,
+              "clearings": 141
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 31286231.0,
+              "clearings": 11407
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 1072031.0,
+              "clearings": 73
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 23274386.0,
+              "clearings": 3483
+            }
+          }
+        }
+      },
+      "Workforce Services": {
+        "analysed_clearings": 281,
+        "cleared_value_eur": 49440182.0,
+        "held": 62,
+        "held_share": 0.2206405693950178,
+        "held_value_eur": 13929339.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 3137732.0,
+              "clearings": 14
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 32373111.0,
+              "clearings": 205
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 1711264.0,
+              "clearings": 4
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 12218075.0,
+              "clearings": 58
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 9313327.0,
+              "clearings": 37
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 26197516.0,
+              "clearings": 182
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 3335566.0,
+              "clearings": 11
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 10593773.0,
+              "clearings": 51
+            }
+          }
+        }
+      },
+      "missing": {
+        "analysed_clearings": 1330,
+        "cleared_value_eur": 12100665.0,
+        "held": 377,
+        "held_share": 0.28345864661654135,
+        "held_value_eur": 3453142.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 130224.0,
+              "clearings": 8
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 8517299.0,
+              "clearings": 945
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 97008.0,
+              "clearings": 7
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 3356134.0,
+              "clearings": 370
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 161393.0,
+              "clearings": 9
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 8486130.0,
+              "clearings": 944
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 152886.0,
+              "clearings": 8
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 3300256.0,
+              "clearings": 369
+            }
+          }
+        }
+      }
+    },
+    "vendor_activity_quartile": {
+      "Q1": {
+        "analysed_clearings": 38820,
+        "cleared_value_eur": 608251429.0,
+        "held": 6194,
+        "held_share": 0.15955692941782587,
+        "held_value_eur": 116050229.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 66775101.0,
+              "clearings": 449
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 425426099.0,
+              "clearings": 32177
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 11634463.0,
+              "clearings": 122
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 104415766.0,
+              "clearings": 6072
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 103654853.0,
+              "clearings": 681
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 388546347.0,
+              "clearings": 31945
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 18974110.0,
+              "clearings": 194
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 97076119.0,
+              "clearings": 6000
+            }
+          }
+        }
+      },
+      "Q2": {
+        "analysed_clearings": 39580,
+        "cleared_value_eur": 164444595.0,
+        "held": 5391,
+        "held_share": 0.13620515411824152,
+        "held_value_eur": 35755309.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 1139972.0,
+              "clearings": 183
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 127549314.0,
+              "clearings": 34006
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 1334695.0,
+              "clearings": 83
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 34420614.0,
+              "clearings": 5308
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 2009547.0,
+              "clearings": 259
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 126679739.0,
+              "clearings": 33930
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 2106626.0,
+              "clearings": 118
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 33648683.0,
+              "clearings": 5273
+            }
+          }
+        }
+      },
+      "Q3": {
+        "analysed_clearings": 42763,
+        "cleared_value_eur": 39257352.0,
+        "held": 3829,
+        "held_share": 0.08954002291700769,
+        "held_value_eur": 11179549.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 216015.0,
+              "clearings": 213
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 27861788.0,
+              "clearings": 38721
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 206999.0,
+              "clearings": 26
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 10972550.0,
+              "clearings": 3803
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 372150.0,
+              "clearings": 280
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 27705653.0,
+              "clearings": 38654
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 296887.0,
+              "clearings": 39
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 10882662.0,
+              "clearings": 3790
+            }
+          }
+        }
+      },
+      "Q4": {
+        "analysed_clearings": 34371,
+        "cleared_value_eur": 45806245.0,
+        "held": 2334,
+        "held_share": 0.0679060836170027,
+        "held_value_eur": 3502367.0,
+        "verdict_by_outcome": {
+          "W30": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 246245.0,
+              "clearings": 53
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 42057633.0,
+              "clearings": 31984
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 29561.0,
+              "clearings": 9
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 3472806.0,
+              "clearings": 2325
+            }
+          },
+          "W60": {
+            "allow_with_corrective": {
+              "cleared_value_eur": 258271.0,
+              "clearings": 71
+            },
+            "allow_without_corrective": {
+              "cleared_value_eur": 42045607.0,
+              "clearings": 31966
+            },
+            "hold_with_corrective": {
+              "cleared_value_eur": 40934.0,
+              "clearings": 17
+            },
+            "hold_without_corrective": {
+              "cleared_value_eur": 3461433.0,
+              "clearings": 2317
+            }
+          }
+        }
+      }
+    }
+  },
+  "cutpoints": {
+    "line_value_quartile_cutpoints_eur": [
+      184.0,
+      573.0,
+      2223.0
+    ],
+    "rule": "Q1 <= first cutpoint < Q2 <= second < Q3 <= third < Q4; numpy linear quantiles over framed lines",
+    "vendor_activity_quartile_cutpoints_lines": [
+      319.0,
+      1117.0,
+      3276.0
+    ]
+  },
+  "human_hold_lines": {
+    "category": {
+      "2-way": {
+        "clean": {
+          "classified_lines": 176,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 14,
+          "held_by_people": 10,
+          "human_hold_rate": 0.7142857142857143
+        },
+        "difference_defective_minus_clean": 0.7142857142857143,
+        "held_unknown": {
+          "classified_lines": 252,
+          "held_by_people": 252,
+          "human_hold_rate": 1.0
+        }
+      },
+      "3-way, invoice after receipt": {
+        "clean": {
+          "classified_lines": 5735,
+          "held_by_people": 1,
+          "human_hold_rate": 0.0001743679163034002
+        },
+        "defective": {
+          "classified_lines": 1239,
+          "held_by_people": 243,
+          "human_hold_rate": 0.19612590799031476
+        },
+        "difference_defective_minus_clean": 0.19595154007401136,
+        "held_unknown": {
+          "classified_lines": 1418,
+          "held_by_people": 1418,
+          "human_hold_rate": 1.0
+        }
+      },
+      "3-way, invoice before receipt": {
+        "clean": {
+          "classified_lines": 85267,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 15011,
+          "held_by_people": 5411,
+          "human_hold_rate": 0.3604689894077676
+        },
+        "difference_defective_minus_clean": 0.3604689894077676,
+        "held_unknown": {
+          "classified_lines": 45927,
+          "held_by_people": 45927,
+          "human_hold_rate": 1.0
+        }
+      }
+    },
+    "company": {
+      "32b1bdb585c23efa": {
+        "clean": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "defective": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "difference_defective_minus_clean": null,
+        "held_unknown": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        }
+      },
+      "e828567fcb6448fd": {
+        "clean": {
+          "classified_lines": 176,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 14,
+          "held_by_people": 10,
+          "human_hold_rate": 0.7142857142857143
+        },
+        "difference_defective_minus_clean": 0.7142857142857143,
+        "held_unknown": {
+          "classified_lines": 252,
+          "held_by_people": 252,
+          "human_hold_rate": 1.0
+        }
+      },
+      "e8620b539a5f68a8": {
+        "clean": {
+          "classified_lines": 91002,
+          "held_by_people": 1,
+          "human_hold_rate": 1.0988769477593899e-05
+        },
+        "defective": {
+          "classified_lines": 16249,
+          "held_by_people": 5654,
+          "human_hold_rate": 0.34795987445381255
+        },
+        "difference_defective_minus_clean": 0.34794888568433496,
+        "held_unknown": {
+          "classified_lines": 47345,
+          "held_by_people": 47345,
+          "human_hold_rate": 1.0
+        }
+      },
+      "f3933c5764536f63": {
+        "clean": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "defective": {
+          "classified_lines": 1,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "difference_defective_minus_clean": null,
+        "held_unknown": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        }
+      }
+    },
+    "line_value_quartile": {
+      "Q1": {
+        "clean": {
+          "classified_lines": 26078,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 1998,
+          "held_by_people": 524,
+          "human_hold_rate": 0.26226226226226224
+        },
+        "difference_defective_minus_clean": 0.26226226226226224,
+        "held_unknown": {
+          "classified_lines": 11316,
+          "held_by_people": 11316,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Q2": {
+        "clean": {
+          "classified_lines": 23234,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 2756,
+          "held_by_people": 1179,
+          "human_hold_rate": 0.42779390420899854
+        },
+        "difference_defective_minus_clean": 0.42779390420899854,
+        "held_unknown": {
+          "classified_lines": 13782,
+          "held_by_people": 13782,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Q3": {
+        "clean": {
+          "classified_lines": 22735,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 4385,
+          "held_by_people": 1636,
+          "human_hold_rate": 0.37309007981755987
+        },
+        "difference_defective_minus_clean": 0.37309007981755987,
+        "held_unknown": {
+          "classified_lines": 11692,
+          "held_by_people": 11692,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Q4": {
+        "clean": {
+          "classified_lines": 19131,
+          "held_by_people": 1,
+          "human_hold_rate": 5.227118289686896e-05
+        },
+        "defective": {
+          "classified_lines": 7125,
+          "held_by_people": 2325,
+          "human_hold_rate": 0.3263157894736842
+        },
+        "difference_defective_minus_clean": 0.32626351829078737,
+        "held_unknown": {
+          "classified_lines": 10807,
+          "held_by_people": 10807,
+          "human_hold_rate": 1.0
+        }
+      }
+    },
+    "month": {
+      "2018-01": {
+        "clean": {
+          "classified_lines": 245,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 8,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "difference_defective_minus_clean": 0.0,
+        "held_unknown": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        }
+      },
+      "2018-02": {
+        "clean": {
+          "classified_lines": 2665,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 99,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "difference_defective_minus_clean": 0.0,
+        "held_unknown": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        }
+      },
+      "2018-03": {
+        "clean": {
+          "classified_lines": 7675,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 885,
+          "held_by_people": 127,
+          "human_hold_rate": 0.14350282485875707
+        },
+        "difference_defective_minus_clean": 0.14350282485875707,
+        "held_unknown": {
+          "classified_lines": 2343,
+          "held_by_people": 2343,
+          "human_hold_rate": 1.0
+        }
+      },
+      "2018-04": {
+        "clean": {
+          "classified_lines": 9740,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 1918,
+          "held_by_people": 547,
+          "human_hold_rate": 0.2851929092805005
+        },
+        "difference_defective_minus_clean": 0.2851929092805005,
+        "held_unknown": {
+          "classified_lines": 6081,
+          "held_by_people": 6081,
+          "human_hold_rate": 1.0
+        }
+      },
+      "2018-05": {
+        "clean": {
+          "classified_lines": 10476,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 2239,
+          "held_by_people": 1045,
+          "human_hold_rate": 0.46672621706118805
+        },
+        "difference_defective_minus_clean": 0.46672621706118805,
+        "held_unknown": {
+          "classified_lines": 6916,
+          "held_by_people": 6916,
+          "human_hold_rate": 1.0
+        }
+      },
+      "2018-06": {
+        "clean": {
+          "classified_lines": 10641,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 2071,
+          "held_by_people": 837,
+          "human_hold_rate": 0.4041525832930951
+        },
+        "difference_defective_minus_clean": 0.4041525832930951,
+        "held_unknown": {
+          "classified_lines": 5736,
+          "held_by_people": 5736,
+          "human_hold_rate": 1.0
+        }
+      },
+      "2018-07": {
+        "clean": {
+          "classified_lines": 11597,
+          "held_by_people": 1,
+          "human_hold_rate": 8.622919720617402e-05
+        },
+        "defective": {
+          "classified_lines": 1740,
+          "held_by_people": 625,
+          "human_hold_rate": 0.35919540229885055
+        },
+        "difference_defective_minus_clean": 0.35910917310164436,
+        "held_unknown": {
+          "classified_lines": 6045,
+          "held_by_people": 6045,
+          "human_hold_rate": 1.0
+        }
+      },
+      "2018-08": {
+        "clean": {
+          "classified_lines": 11690,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 2219,
+          "held_by_people": 884,
+          "human_hold_rate": 0.39837764758900407
+        },
+        "difference_defective_minus_clean": 0.39837764758900407,
+        "held_unknown": {
+          "classified_lines": 6100,
+          "held_by_people": 6100,
+          "human_hold_rate": 1.0
+        }
+      },
+      "2018-09": {
+        "clean": {
+          "classified_lines": 10884,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 1964,
+          "held_by_people": 609,
+          "human_hold_rate": 0.310081466395112
+        },
+        "difference_defective_minus_clean": 0.310081466395112,
+        "held_unknown": {
+          "classified_lines": 4992,
+          "held_by_people": 4992,
+          "human_hold_rate": 1.0
+        }
+      },
+      "2018-10": {
+        "clean": {
+          "classified_lines": 10560,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 1917,
+          "held_by_people": 443,
+          "human_hold_rate": 0.2310902451747522
+        },
+        "difference_defective_minus_clean": 0.2310902451747522,
+        "held_unknown": {
+          "classified_lines": 3728,
+          "held_by_people": 3728,
+          "human_hold_rate": 1.0
+        }
+      },
+      "2018-11": {
+        "clean": {
+          "classified_lines": 5005,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 710,
+          "held_by_people": 53,
+          "human_hold_rate": 0.07464788732394366
+        },
+        "difference_defective_minus_clean": 0.07464788732394366,
+        "held_unknown": {
+          "classified_lines": 492,
+          "held_by_people": 492,
+          "human_hold_rate": 1.0
+        }
+      },
+      "2018-12": {
+        "clean": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "defective": {
+          "classified_lines": 221,
+          "held_by_people": 221,
+          "human_hold_rate": 1.0
+        },
+        "difference_defective_minus_clean": null,
+        "held_unknown": {
+          "classified_lines": 2799,
+          "held_by_people": 2799,
+          "human_hold_rate": 1.0
+        }
+      },
+      "2019-01": {
+        "clean": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "defective": {
+          "classified_lines": 273,
+          "held_by_people": 273,
+          "human_hold_rate": 1.0
+        },
+        "difference_defective_minus_clean": null,
+        "held_unknown": {
+          "classified_lines": 2365,
+          "held_by_people": 2365,
+          "human_hold_rate": 1.0
+        }
+      },
+      "2019-02": {
+        "clean": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "defective": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "difference_defective_minus_clean": null,
+        "held_unknown": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        }
+      },
+      "2019-03": {
+        "clean": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "defective": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "difference_defective_minus_clean": null,
+        "held_unknown": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        }
+      },
+      "missing": {
+        "clean": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "defective": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "difference_defective_minus_clean": null,
+        "held_unknown": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        }
+      }
+    },
+    "spend_area": {
+      "Additives": {
+        "clean": {
+          "classified_lines": 5143,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 1118,
+          "held_by_people": 393,
+          "human_hold_rate": 0.35152057245080504
+        },
+        "difference_defective_minus_clean": 0.35152057245080504,
+        "held_unknown": {
+          "classified_lines": 3610,
+          "held_by_people": 3610,
+          "human_hold_rate": 1.0
+        }
+      },
+      "CAPEX & SOCS": {
+        "clean": {
+          "classified_lines": 3997,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 272,
+          "held_by_people": 24,
+          "human_hold_rate": 0.08823529411764706
+        },
+        "difference_defective_minus_clean": 0.08823529411764706,
+        "held_unknown": {
+          "classified_lines": 401,
+          "held_by_people": 401,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Chemicals & Intermediates": {
+        "clean": {
+          "classified_lines": 1,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "difference_defective_minus_clean": null,
+        "held_unknown": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        }
+      },
+      "Commodity Resins": {
+        "clean": {
+          "classified_lines": 131,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 64,
+          "held_by_people": 10,
+          "human_hold_rate": 0.15625
+        },
+        "difference_defective_minus_clean": 0.15625,
+        "held_unknown": {
+          "classified_lines": 69,
+          "held_by_people": 69,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Energy": {
+        "clean": {
+          "classified_lines": 3,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 0,
+          "held_by_people": 0,
+          "human_hold_rate": null
+        },
+        "difference_defective_minus_clean": null,
+        "held_unknown": {
+          "classified_lines": 8,
+          "held_by_people": 8,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Enterprise Services": {
+        "clean": {
+          "classified_lines": 313,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 24,
+          "held_by_people": 6,
+          "human_hold_rate": 0.25
+        },
+        "difference_defective_minus_clean": 0.25,
+        "held_unknown": {
+          "classified_lines": 9,
+          "held_by_people": 9,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Latex & Monomers": {
+        "clean": {
+          "classified_lines": 1163,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 442,
+          "held_by_people": 196,
+          "human_hold_rate": 0.4434389140271493
+        },
+        "difference_defective_minus_clean": 0.4434389140271493,
+        "held_unknown": {
+          "classified_lines": 852,
+          "held_by_people": 852,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Logistics": {
+        "clean": {
+          "classified_lines": 1162,
+          "held_by_people": 1,
+          "human_hold_rate": 0.0008605851979345956
+        },
+        "defective": {
+          "classified_lines": 49,
+          "held_by_people": 27,
+          "human_hold_rate": 0.5510204081632653
+        },
+        "difference_defective_minus_clean": 0.5501598229653306,
+        "held_unknown": {
+          "classified_lines": 262,
+          "held_by_people": 262,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Marketing": {
+        "clean": {
+          "classified_lines": 969,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 68,
+          "held_by_people": 6,
+          "human_hold_rate": 0.08823529411764706
+        },
+        "difference_defective_minus_clean": 0.08823529411764706,
+        "held_unknown": {
+          "classified_lines": 131,
+          "held_by_people": 131,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Others": {
+        "clean": {
+          "classified_lines": 1374,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 78,
+          "held_by_people": 24,
+          "human_hold_rate": 0.3076923076923077
+        },
+        "difference_defective_minus_clean": 0.3076923076923077,
+        "held_unknown": {
+          "classified_lines": 392,
+          "held_by_people": 392,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Packaging": {
+        "clean": {
+          "classified_lines": 24131,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 6981,
+          "held_by_people": 3665,
+          "human_hold_rate": 0.5249964188511674
+        },
+        "difference_defective_minus_clean": 0.5249964188511674,
+        "held_unknown": {
+          "classified_lines": 36072,
+          "held_by_people": 36072,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Pigments & Colorants": {
+        "clean": {
+          "classified_lines": 1053,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 265,
+          "held_by_people": 68,
+          "human_hold_rate": 0.25660377358490566
+        },
+        "difference_defective_minus_clean": 0.25660377358490566,
+        "held_unknown": {
+          "classified_lines": 292,
+          "held_by_people": 292,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Real Estate": {
+        "clean": {
+          "classified_lines": 142,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 14,
+          "held_by_people": 10,
+          "human_hold_rate": 0.7142857142857143
+        },
+        "difference_defective_minus_clean": 0.7142857142857143,
+        "held_unknown": {
+          "classified_lines": 52,
+          "held_by_people": 52,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Sales": {
+        "clean": {
+          "classified_lines": 39159,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 3057,
+          "held_by_people": 176,
+          "human_hold_rate": 0.05757278377494275
+        },
+        "difference_defective_minus_clean": 0.05757278377494275,
+        "held_unknown": {
+          "classified_lines": 3091,
+          "held_by_people": 3091,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Solvents": {
+        "clean": {
+          "classified_lines": 721,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 201,
+          "held_by_people": 75,
+          "human_hold_rate": 0.373134328358209
+        },
+        "difference_defective_minus_clean": 0.373134328358209,
+        "held_unknown": {
+          "classified_lines": 525,
+          "held_by_people": 525,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Specialty Resins": {
+        "clean": {
+          "classified_lines": 616,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 208,
+          "held_by_people": 82,
+          "human_hold_rate": 0.3942307692307692
+        },
+        "difference_defective_minus_clean": 0.3942307692307692,
+        "held_unknown": {
+          "classified_lines": 436,
+          "held_by_people": 436,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Spend Area Unidentified": {
+        "clean": {
+          "classified_lines": 10,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 3,
+          "held_by_people": 1,
+          "human_hold_rate": 0.3333333333333333
+        },
+        "difference_defective_minus_clean": 0.3333333333333333,
+        "held_unknown": {
+          "classified_lines": 5,
+          "held_by_people": 5,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Titanium Dioxides": {
+        "clean": {
+          "classified_lines": 161,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 108,
+          "held_by_people": 45,
+          "human_hold_rate": 0.4166666666666667
+        },
+        "difference_defective_minus_clean": 0.4166666666666667,
+        "held_unknown": {
+          "classified_lines": 131,
+          "held_by_people": 131,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Trading & End Products": {
+        "clean": {
+          "classified_lines": 10155,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 2939,
+          "held_by_people": 764,
+          "human_hold_rate": 0.25995236474991495
+        },
+        "difference_defective_minus_clean": 0.25995236474991495,
+        "held_unknown": {
+          "classified_lines": 1014,
+          "held_by_people": 1014,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Workforce Services": {
+        "clean": {
+          "classified_lines": 77,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 13,
+          "held_by_people": 2,
+          "human_hold_rate": 0.15384615384615385
+        },
+        "difference_defective_minus_clean": 0.15384615384615385,
+        "held_unknown": {
+          "classified_lines": 1,
+          "held_by_people": 1,
+          "human_hold_rate": 1.0
+        }
+      },
+      "missing": {
+        "clean": {
+          "classified_lines": 697,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 360,
+          "held_by_people": 90,
+          "human_hold_rate": 0.25
+        },
+        "difference_defective_minus_clean": 0.25,
+        "held_unknown": {
+          "classified_lines": 244,
+          "held_by_people": 244,
+          "human_hold_rate": 1.0
+        }
+      }
+    },
+    "vendor_activity_quartile": {
+      "Q1": {
+        "clean": {
+          "classified_lines": 24458,
+          "held_by_people": 1,
+          "human_hold_rate": 4.088641753209584e-05
+        },
+        "defective": {
+          "classified_lines": 5443,
+          "held_by_people": 1302,
+          "human_hold_rate": 0.23920632004409334
+        },
+        "difference_defective_minus_clean": 0.23916543362656126,
+        "held_unknown": {
+          "classified_lines": 6694,
+          "held_by_people": 6694,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Q2": {
+        "clean": {
+          "classified_lines": 25868,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 4937,
+          "held_by_people": 1360,
+          "human_hold_rate": 0.2754709337654446
+        },
+        "difference_defective_minus_clean": 0.2754709337654446,
+        "held_unknown": {
+          "classified_lines": 8284,
+          "held_by_people": 8284,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Q3": {
+        "clean": {
+          "classified_lines": 34604,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 3254,
+          "held_by_people": 765,
+          "human_hold_rate": 0.23509526736324524
+        },
+        "difference_defective_minus_clean": 0.23509526736324524,
+        "held_unknown": {
+          "classified_lines": 2830,
+          "held_by_people": 2830,
+          "human_hold_rate": 1.0
+        }
+      },
+      "Q4": {
+        "clean": {
+          "classified_lines": 6248,
+          "held_by_people": 0,
+          "human_hold_rate": 0.0
+        },
+        "defective": {
+          "classified_lines": 2630,
+          "held_by_people": 2237,
+          "human_hold_rate": 0.8505703422053232
+        },
+        "difference_defective_minus_clean": 0.8505703422053232,
+        "held_unknown": {
+          "classified_lines": 29789,
+          "held_by_people": 29789,
+          "human_hold_rate": 1.0
+        }
+      }
+    }
+  },
+  "note": "reported beside every estimate, never modelled in; for lines, month is the month of t*",
+  "registration": "p7-v1.1"
+}

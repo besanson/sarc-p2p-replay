@@ -1,0 +1,44 @@
+{
+  "analysed_clearings": 155534,
+  "cells": "corrective = O (section 3.7) within W after t_c",
+  "registration": "p7-v1.1",
+  "section": "6, E3",
+  "table": {
+    "W30": {
+      "allow_with_corrective": {
+        "cleared_value_eur": 68377333.0,
+        "clearings": 898
+      },
+      "allow_without_corrective": {
+        "cleared_value_eur": 622894834.0,
+        "clearings": 136888
+      },
+      "hold_with_corrective": {
+        "cleared_value_eur": 13205718.0,
+        "clearings": 240
+      },
+      "hold_without_corrective": {
+        "cleared_value_eur": 153281736.0,
+        "clearings": 17508
+      }
+    },
+    "W60": {
+      "allow_with_corrective": {
+        "cleared_value_eur": 106294821.0,
+        "clearings": 1291
+      },
+      "allow_without_corrective": {
+        "cleared_value_eur": 584977346.0,
+        "clearings": 136495
+      },
+      "hold_with_corrective": {
+        "cleared_value_eur": 21418557.0,
+        "clearings": 368
+      },
+      "hold_without_corrective": {
+        "cleared_value_eur": 145068897.0,
+        "clearings": 17380
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "analysed_clearings": 155534,
+  "bootstrap": {
+    "B": 10000,
+    "cluster": "purchase document, sorted by its hashed id",
+    "clusters": 42346,
+    "generator": "numpy PCG64",
+    "interval": "percentile 2.5 to 97.5",
+    "seed": 20261201
+  },
+  "cleared_value_eur": 857759621.0,
+  "held": {
+    "bootstrap95": [
+      0.10935171789963308,
+      0.11915284806350128
+    ],
+    "cleared_value_eur": 166487454.0,
+    "clearings": 17748,
+    "share_of_clearings": 0.11411009811359574,
+    "share_of_value": 0.19409569991870718,
+    "value_bootstrap95": [
+      0.16036481458045976,
+      0.2308619766174474
+    ],
+    "wilson95": [
+      0.11253950950531999,
+      0.11569974806608863
+    ]
+  },
+  "held_unknown_only": 0,
+  "held_with_a_failed_predicate": 17748,
+  "registration": "p7-v1.1"
+}

@@ -1,0 +1,32 @@
+{
+  "bands": {
+    "0-1": {
+      "cleared_value_eur": 109886.0,
+      "clearings": 11
+    },
+    "1-7": {
+      "cleared_value_eur": 113119.0,
+      "clearings": 21
+    },
+    "7-30": {
+      "cleared_value_eur": 803512.0,
+      "clearings": 11
+    },
+    "never": {
+      "cleared_value_eur": 1015565.0,
+      "clearings": 610
+    },
+    "over 30": {
+      "cleared_value_eur": 44240.0,
+      "clearings": 39
+    }
+  },
+  "clearings": 692,
+  "receipt_class": {
+    "absent receipt": 610,
+    "stale receipt": 82
+  },
+  "registration": "p7-v1.1",
+  "section": "3.8",
+  "unit": "analysed clearings with D1/D2 fail; lag from t_c to the first uncancelled receipt after t_c, up to T_end"
+}
