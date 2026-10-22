@@ -1,0 +1,3755 @@
+{
+  "comparisons": {
+    "H1": {
+      "category": {
+        "2-way": {
+          "W30": {
+            "comparison_O_rate": null,
+            "comparison_clearings": 0,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": null,
+            "comparison_clearings": 0,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "3-way, invoice after receipt": {
+          "W30": {
+            "comparison_O_rate": 0.027211729622266402,
+            "comparison_clearings": 8048,
+            "comparison_with_O": 219,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.04684393638170974,
+            "comparison_clearings": 8048,
+            "comparison_with_O": 377,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "3-way, invoice before receipt": {
+          "W30": {
+            "comparison_O_rate": 0.005202463837473177,
+            "comparison_clearings": 129554,
+            "comparison_with_O": 674,
+            "defect_O_rate": 0.04190751445086705,
+            "defect_clearings": 692,
+            "defect_with_O": 29,
+            "difference": 0.03670505061339387
+          },
+          "W60": {
+            "comparison_O_rate": 0.007016379270420057,
+            "comparison_clearings": 129554,
+            "comparison_with_O": 909,
+            "defect_O_rate": 0.05635838150289017,
+            "defect_clearings": 692,
+            "defect_with_O": 39,
+            "difference": 0.049342002232470115
+          }
+        }
+      },
+      "company": {
+        "e828567fcb6448fd": {
+          "W30": {
+            "comparison_O_rate": null,
+            "comparison_clearings": 0,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": null,
+            "comparison_clearings": 0,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "e8620b539a5f68a8": {
+          "W30": {
+            "comparison_O_rate": 0.006489731253906193,
+            "comparison_clearings": 137602,
+            "comparison_with_O": 893,
+            "defect_O_rate": 0.04190751445086705,
+            "defect_clearings": 692,
+            "defect_with_O": 29,
+            "difference": 0.03541778319696086
+          },
+          "W60": {
+            "comparison_O_rate": 0.009345794392523364,
+            "comparison_clearings": 137602,
+            "comparison_with_O": 1286,
+            "defect_O_rate": 0.05635838150289017,
+            "defect_clearings": 692,
+            "defect_with_O": 39,
+            "difference": 0.04701258711036681
+          }
+        },
+        "f3933c5764536f63": {
+          "W30": {
+            "comparison_O_rate": null,
+            "comparison_clearings": 0,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": null,
+            "comparison_clearings": 0,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        }
+      },
+      "line_value_quartile": {
+        "Q1": {
+          "W30": {
+            "comparison_O_rate": 0.0043358188345760836,
+            "comparison_clearings": 36210,
+            "comparison_with_O": 157,
+            "defect_O_rate": 0.018134715025906734,
+            "defect_clearings": 386,
+            "defect_with_O": 7,
+            "difference": 0.01379889619133065
+          },
+          "W60": {
+            "comparison_O_rate": 0.005606186136426401,
+            "comparison_clearings": 36210,
+            "comparison_with_O": 203,
+            "defect_O_rate": 0.025906735751295335,
+            "defect_clearings": 386,
+            "defect_with_O": 10,
+            "difference": 0.020300549614868935
+          }
+        },
+        "Q2": {
+          "W30": {
+            "comparison_O_rate": 0.004505639045140347,
+            "comparison_clearings": 35733,
+            "comparison_with_O": 161,
+            "defect_O_rate": 0.03669724770642202,
+            "defect_clearings": 109,
+            "defect_with_O": 4,
+            "difference": 0.03219160866128167
+          },
+          "W60": {
+            "comparison_O_rate": 0.005876920493661322,
+            "comparison_clearings": 35733,
+            "comparison_with_O": 210,
+            "defect_O_rate": 0.08256880733944955,
+            "defect_clearings": 109,
+            "defect_with_O": 9,
+            "difference": 0.07669188684578822
+          }
+        },
+        "Q3": {
+          "W30": {
+            "comparison_O_rate": 0.006282357047292188,
+            "comparison_clearings": 34382,
+            "comparison_with_O": 216,
+            "defect_O_rate": 0.05747126436781609,
+            "defect_clearings": 87,
+            "defect_with_O": 5,
+            "difference": 0.051188907320523905
+          },
+          "W60": {
+            "comparison_O_rate": 0.008609155953696702,
+            "comparison_clearings": 34382,
+            "comparison_with_O": 296,
+            "defect_O_rate": 0.05747126436781609,
+            "defect_clearings": 87,
+            "defect_with_O": 5,
+            "difference": 0.04886210841411939
+          }
+        },
+        "Q4": {
+          "W30": {
+            "comparison_O_rate": 0.011478082936343,
+            "comparison_clearings": 31277,
+            "comparison_with_O": 359,
+            "defect_O_rate": 0.11818181818181818,
+            "defect_clearings": 110,
+            "defect_with_O": 13,
+            "difference": 0.10670373524547518
+          },
+          "W60": {
+            "comparison_O_rate": 0.01844806087540365,
+            "comparison_clearings": 31277,
+            "comparison_with_O": 577,
+            "defect_O_rate": 0.13636363636363635,
+            "defect_clearings": 110,
+            "defect_with_O": 15,
+            "difference": 0.1179155754882327
+          }
+        }
+      },
+      "month": {
+        "2018-01": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 238,
+            "comparison_with_O": 0,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 1,
+            "defect_with_O": 0,
+            "difference": 0.0
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 238,
+            "comparison_with_O": 0,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 1,
+            "defect_with_O": 0,
+            "difference": 0.0
+          }
+        },
+        "2018-02": {
+          "W30": {
+            "comparison_O_rate": 0.002589715131335553,
+            "comparison_clearings": 2703,
+            "comparison_with_O": 7,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 6,
+            "defect_with_O": 0,
+            "difference": -0.002589715131335553
+          },
+          "W60": {
+            "comparison_O_rate": 0.0029596744358120607,
+            "comparison_clearings": 2703,
+            "comparison_with_O": 8,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 6,
+            "defect_with_O": 0,
+            "difference": -0.0029596744358120607
+          }
+        },
+        "2018-03": {
+          "W30": {
+            "comparison_O_rate": 0.006066052572455628,
+            "comparison_clearings": 8902,
+            "comparison_with_O": 54,
+            "defect_O_rate": 0.13043478260869565,
+            "defect_clearings": 23,
+            "defect_with_O": 3,
+            "difference": 0.12436873003624002
+          },
+          "W60": {
+            "comparison_O_rate": 0.008762075937991463,
+            "comparison_clearings": 8902,
+            "comparison_with_O": 78,
+            "defect_O_rate": 0.13043478260869565,
+            "defect_clearings": 23,
+            "defect_with_O": 3,
+            "difference": 0.12167270667070418
+          }
+        },
+        "2018-04": {
+          "W30": {
+            "comparison_O_rate": 0.0037812901762081224,
+            "comparison_clearings": 13223,
+            "comparison_with_O": 50,
+            "defect_O_rate": 0.03225806451612903,
+            "defect_clearings": 93,
+            "defect_with_O": 3,
+            "difference": 0.028476774339920907
+          },
+          "W60": {
+            "comparison_O_rate": 0.005747561067836346,
+            "comparison_clearings": 13223,
+            "comparison_with_O": 76,
+            "defect_O_rate": 0.03225806451612903,
+            "defect_clearings": 93,
+            "defect_with_O": 3,
+            "difference": 0.026510503448292685
+          }
+        },
+        "2018-05": {
+          "W30": {
+            "comparison_O_rate": 0.005957647613991624,
+            "comparison_clearings": 16953,
+            "comparison_with_O": 101,
+            "defect_O_rate": 0.04411764705882353,
+            "defect_clearings": 68,
+            "defect_with_O": 3,
+            "difference": 0.03815999944483191
+          },
+          "W60": {
+            "comparison_O_rate": 0.008199138795493423,
+            "comparison_clearings": 16953,
+            "comparison_with_O": 139,
+            "defect_O_rate": 0.04411764705882353,
+            "defect_clearings": 68,
+            "defect_with_O": 3,
+            "difference": 0.03591850826333011
+          }
+        },
+        "2018-06": {
+          "W30": {
+            "comparison_O_rate": 0.006896551724137931,
+            "comparison_clearings": 17400,
+            "comparison_with_O": 120,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 79,
+            "defect_with_O": 0,
+            "difference": -0.006896551724137931
+          },
+          "W60": {
+            "comparison_O_rate": 0.01132183908045977,
+            "comparison_clearings": 17400,
+            "comparison_with_O": 197,
+            "defect_O_rate": 0.02531645569620253,
+            "defect_clearings": 79,
+            "defect_with_O": 2,
+            "difference": 0.013994616615742762
+          }
+        },
+        "2018-07": {
+          "W30": {
+            "comparison_O_rate": 0.008809099018733274,
+            "comparison_clearings": 17936,
+            "comparison_with_O": 158,
+            "defect_O_rate": 0.09333333333333334,
+            "defect_clearings": 75,
+            "defect_with_O": 7,
+            "difference": 0.08452423431460006
+          },
+          "W60": {
+            "comparison_O_rate": 0.012042818911685994,
+            "comparison_clearings": 17936,
+            "comparison_with_O": 216,
+            "defect_O_rate": 0.12,
+            "defect_clearings": 75,
+            "defect_with_O": 9,
+            "difference": 0.10795718108831401
+          }
+        },
+        "2018-08": {
+          "W30": {
+            "comparison_O_rate": 0.007504985829747035,
+            "comparison_clearings": 19054,
+            "comparison_with_O": 143,
+            "defect_O_rate": 0.0625,
+            "defect_clearings": 96,
+            "defect_with_O": 6,
+            "difference": 0.054995014170252966
+          },
+          "W60": {
+            "comparison_O_rate": 0.009761729820510129,
+            "comparison_clearings": 19054,
+            "comparison_with_O": 186,
+            "defect_O_rate": 0.0625,
+            "defect_clearings": 96,
+            "defect_with_O": 6,
+            "difference": 0.05273827017948987
+          }
+        },
+        "2018-09": {
+          "W30": {
+            "comparison_O_rate": 0.006182101914650981,
+            "comparison_clearings": 16661,
+            "comparison_with_O": 103,
+            "defect_O_rate": 0.02564102564102564,
+            "defect_clearings": 78,
+            "defect_with_O": 2,
+            "difference": 0.019458923726374658
+          },
+          "W60": {
+            "comparison_O_rate": 0.00870295900606206,
+            "comparison_clearings": 16661,
+            "comparison_with_O": 145,
+            "defect_O_rate": 0.02564102564102564,
+            "defect_clearings": 78,
+            "defect_with_O": 2,
+            "difference": 0.01693806663496358
+          }
+        },
+        "2018-10": {
+          "W30": {
+            "comparison_O_rate": 0.00587424324162321,
+            "comparison_clearings": 16683,
+            "comparison_with_O": 98,
+            "defect_O_rate": 0.03,
+            "defect_clearings": 100,
+            "defect_with_O": 3,
+            "difference": 0.02412575675837679
+          },
+          "W60": {
+            "comparison_O_rate": 0.009171012407840316,
+            "comparison_clearings": 16683,
+            "comparison_with_O": 153,
+            "defect_O_rate": 0.09,
+            "defect_clearings": 100,
+            "defect_with_O": 9,
+            "difference": 0.08082898759215967
+          }
+        },
+        "2018-11": {
+          "W30": {
+            "comparison_O_rate": 0.007516881131354312,
+            "comparison_clearings": 7849,
+            "comparison_with_O": 59,
+            "defect_O_rate": 0.0273972602739726,
+            "defect_clearings": 73,
+            "defect_with_O": 2,
+            "difference": 0.01988037914261829
+          },
+          "W60": {
+            "comparison_O_rate": 0.011211619314562365,
+            "comparison_clearings": 7849,
+            "comparison_with_O": 88,
+            "defect_O_rate": 0.0273972602739726,
+            "defect_clearings": 73,
+            "defect_with_O": 2,
+            "difference": 0.016185640959410236
+          }
+        }
+      },
+      "spend_area": {
+        "Additives": {
+          "W30": {
+            "comparison_O_rate": 0.006453766551685768,
+            "comparison_clearings": 8987,
+            "comparison_with_O": 58,
+            "defect_O_rate": 0.07692307692307693,
+            "defect_clearings": 13,
+            "defect_with_O": 1,
+            "difference": 0.07046931037139116
+          },
+          "W60": {
+            "comparison_O_rate": 0.010237009013018805,
+            "comparison_clearings": 8987,
+            "comparison_with_O": 92,
+            "defect_O_rate": 0.07692307692307693,
+            "defect_clearings": 13,
+            "defect_with_O": 1,
+            "difference": 0.06668606791005813
+          }
+        },
+        "CAPEX & SOCS": {
+          "W30": {
+            "comparison_O_rate": 0.009697529438928654,
+            "comparison_clearings": 4331,
+            "comparison_with_O": 42,
+            "defect_O_rate": 0.01818181818181818,
+            "defect_clearings": 55,
+            "defect_with_O": 1,
+            "difference": 0.008484288742889527
+          },
+          "W60": {
+            "comparison_O_rate": 0.01454629415839298,
+            "comparison_clearings": 4331,
+            "comparison_with_O": 63,
+            "defect_O_rate": 0.01818181818181818,
+            "defect_clearings": 55,
+            "defect_with_O": 1,
+            "difference": 0.0036355240234252004
+          }
+        },
+        "Chemicals & Intermediates": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 1,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 1,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Commodity Resins": {
+          "W30": {
+            "comparison_O_rate": 0.022222222222222223,
+            "comparison_clearings": 225,
+            "comparison_with_O": 5,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 1,
+            "defect_with_O": 0,
+            "difference": -0.022222222222222223
+          },
+          "W60": {
+            "comparison_O_rate": 0.022222222222222223,
+            "comparison_clearings": 225,
+            "comparison_with_O": 5,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 1,
+            "defect_with_O": 0,
+            "difference": -0.022222222222222223
+          }
+        },
+        "Energy": {
+          "W30": {
+            "comparison_O_rate": null,
+            "comparison_clearings": 0,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": null,
+            "comparison_clearings": 0,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Enterprise Services": {
+          "W30": {
+            "comparison_O_rate": 0.017543859649122806,
+            "comparison_clearings": 342,
+            "comparison_with_O": 6,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 2,
+            "defect_with_O": 0,
+            "difference": -0.017543859649122806
+          },
+          "W60": {
+            "comparison_O_rate": 0.02046783625730994,
+            "comparison_clearings": 342,
+            "comparison_with_O": 7,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 2,
+            "defect_with_O": 0,
+            "difference": -0.02046783625730994
+          }
+        },
+        "Latex & Monomers": {
+          "W30": {
+            "comparison_O_rate": 0.009064885496183206,
+            "comparison_clearings": 2096,
+            "comparison_with_O": 19,
+            "defect_O_rate": 0.1,
+            "defect_clearings": 10,
+            "defect_with_O": 1,
+            "difference": 0.0909351145038168
+          },
+          "W60": {
+            "comparison_O_rate": 0.019561068702290078,
+            "comparison_clearings": 2096,
+            "comparison_with_O": 41,
+            "defect_O_rate": 0.3,
+            "defect_clearings": 10,
+            "defect_with_O": 3,
+            "difference": 0.2804389312977099
+          }
+        },
+        "Logistics": {
+          "W30": {
+            "comparison_O_rate": 0.05780051150895141,
+            "comparison_clearings": 1955,
+            "comparison_with_O": 113,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.10485933503836317,
+            "comparison_clearings": 1955,
+            "comparison_with_O": 205,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Marketing": {
+          "W30": {
+            "comparison_O_rate": 0.026220614828209764,
+            "comparison_clearings": 1106,
+            "comparison_with_O": 29,
+            "defect_O_rate": 0.16666666666666666,
+            "defect_clearings": 6,
+            "defect_with_O": 1,
+            "difference": 0.1404460518384569
+          },
+          "W60": {
+            "comparison_O_rate": 0.029837251356238697,
+            "comparison_clearings": 1106,
+            "comparison_with_O": 33,
+            "defect_O_rate": 0.16666666666666666,
+            "defect_clearings": 6,
+            "defect_with_O": 1,
+            "difference": 0.13682941531042797
+          }
+        },
+        "Others": {
+          "W30": {
+            "comparison_O_rate": 0.009019843656043296,
+            "comparison_clearings": 1663,
+            "comparison_with_O": 15,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 8,
+            "defect_with_O": 0,
+            "difference": -0.009019843656043296
+          },
+          "W60": {
+            "comparison_O_rate": 0.014431749849669273,
+            "comparison_clearings": 1663,
+            "comparison_with_O": 24,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 8,
+            "defect_with_O": 0,
+            "difference": -0.014431749849669273
+          }
+        },
+        "Packaging": {
+          "W30": {
+            "comparison_O_rate": 0.0036974135795916924,
+            "comparison_clearings": 56526,
+            "comparison_with_O": 209,
+            "defect_O_rate": 0.047058823529411764,
+            "defect_clearings": 170,
+            "defect_with_O": 8,
+            "difference": 0.04336140994982007
+          },
+          "W60": {
+            "comparison_O_rate": 0.004493507412518133,
+            "comparison_clearings": 56526,
+            "comparison_with_O": 254,
+            "defect_O_rate": 0.052941176470588235,
+            "defect_clearings": 170,
+            "defect_with_O": 9,
+            "difference": 0.0484476690580701
+          }
+        },
+        "Pigments & Colorants": {
+          "W30": {
+            "comparison_O_rate": 0.008589835361488905,
+            "comparison_clearings": 1397,
+            "comparison_with_O": 12,
+            "defect_O_rate": 0.4,
+            "defect_clearings": 5,
+            "defect_with_O": 2,
+            "difference": 0.39141016463851114
+          },
+          "W60": {
+            "comparison_O_rate": 0.012168933428775949,
+            "comparison_clearings": 1397,
+            "comparison_with_O": 17,
+            "defect_O_rate": 0.4,
+            "defect_clearings": 5,
+            "defect_with_O": 2,
+            "difference": 0.38783106657122407
+          }
+        },
+        "Real Estate": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 1,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 1,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Sales": {
+          "W30": {
+            "comparison_O_rate": 0.005171106157063731,
+            "comparison_clearings": 43511,
+            "comparison_with_O": 225,
+            "defect_O_rate": 0.08571428571428572,
+            "defect_clearings": 140,
+            "defect_with_O": 12,
+            "difference": 0.08054317955722198
+          },
+          "W60": {
+            "comparison_O_rate": 0.0073084967019834066,
+            "comparison_clearings": 43511,
+            "comparison_with_O": 318,
+            "defect_O_rate": 0.1357142857142857,
+            "defect_clearings": 140,
+            "defect_with_O": 19,
+            "difference": 0.1284057890123023
+          }
+        },
+        "Solvents": {
+          "W30": {
+            "comparison_O_rate": 0.008862629246676515,
+            "comparison_clearings": 1354,
+            "comparison_with_O": 12,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0155096011816839,
+            "comparison_clearings": 1354,
+            "comparison_with_O": 21,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Specialty Resins": {
+          "W30": {
+            "comparison_O_rate": 0.008434864104967198,
+            "comparison_clearings": 1067,
+            "comparison_with_O": 9,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.010309278350515464,
+            "comparison_clearings": 1067,
+            "comparison_with_O": 11,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Spend Area Unidentified": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 15,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 15,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Titanium Dioxides": {
+          "W30": {
+            "comparison_O_rate": 0.019672131147540985,
+            "comparison_clearings": 305,
+            "comparison_with_O": 6,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 5,
+            "defect_with_O": 0,
+            "difference": -0.019672131147540985
+          },
+          "W60": {
+            "comparison_O_rate": 0.02622950819672131,
+            "comparison_clearings": 305,
+            "comparison_with_O": 8,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 5,
+            "defect_with_O": 0,
+            "difference": -0.02622950819672131
+          }
+        },
+        "Trading & End Products": {
+          "W30": {
+            "comparison_O_rate": 0.009612054035330794,
+            "comparison_clearings": 11548,
+            "comparison_with_O": 111,
+            "defect_O_rate": 0.007326007326007326,
+            "defect_clearings": 273,
+            "defect_with_O": 2,
+            "difference": -0.002286046709323468
+          },
+          "W60": {
+            "comparison_O_rate": 0.012209906477312089,
+            "comparison_clearings": 11548,
+            "comparison_with_O": 141,
+            "defect_O_rate": 0.007326007326007326,
+            "defect_clearings": 273,
+            "defect_with_O": 2,
+            "difference": -0.004883899151304763
+          }
+        },
+        "Workforce Services": {
+          "W30": {
+            "comparison_O_rate": 0.0639269406392694,
+            "comparison_clearings": 219,
+            "comparison_with_O": 14,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.1689497716894977,
+            "comparison_clearings": 219,
+            "comparison_with_O": 37,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "missing": {
+          "W30": {
+            "comparison_O_rate": 0.008394543546694649,
+            "comparison_clearings": 953,
+            "comparison_with_O": 8,
+            "defect_O_rate": 0.25,
+            "defect_clearings": 4,
+            "defect_with_O": 1,
+            "difference": 0.24160545645330536
+          },
+          "W60": {
+            "comparison_O_rate": 0.00944386149003148,
+            "comparison_clearings": 953,
+            "comparison_with_O": 9,
+            "defect_O_rate": 0.25,
+            "defect_clearings": 4,
+            "defect_with_O": 1,
+            "difference": 0.24055613850996851
+          }
+        }
+      },
+      "vendor_activity_quartile": {
+        "Q1": {
+          "W30": {
+            "comparison_O_rate": 0.013685962641020899,
+            "comparison_clearings": 32442,
+            "comparison_with_O": 444,
+            "defect_O_rate": 0.11428571428571428,
+            "defect_clearings": 140,
+            "defect_with_O": 16,
+            "difference": 0.10059975164469338
+          },
+          "W60": {
+            "comparison_O_rate": 0.020837186363356144,
+            "comparison_clearings": 32442,
+            "comparison_with_O": 676,
+            "defect_O_rate": 0.11428571428571428,
+            "defect_clearings": 140,
+            "defect_with_O": 16,
+            "difference": 0.09344852792235814
+          }
+        },
+        "Q2": {
+          "W30": {
+            "comparison_O_rate": 0.005352598789084209,
+            "comparison_clearings": 34189,
+            "comparison_with_O": 183,
+            "defect_O_rate": 0.08771929824561403,
+            "defect_clearings": 114,
+            "defect_with_O": 10,
+            "difference": 0.08236669945652982
+          },
+          "W60": {
+            "comparison_O_rate": 0.0075755359911082515,
+            "comparison_clearings": 34189,
+            "comparison_with_O": 259,
+            "defect_O_rate": 0.14912280701754385,
+            "defect_clearings": 114,
+            "defect_with_O": 17,
+            "difference": 0.1415472710264356
+          }
+        },
+        "Q3": {
+          "W30": {
+            "comparison_O_rate": 0.0054707967329326555,
+            "comparison_clearings": 38934,
+            "comparison_with_O": 213,
+            "defect_O_rate": 0.006060606060606061,
+            "defect_clearings": 330,
+            "defect_with_O": 2,
+            "difference": 0.0005898093276734051
+          },
+          "W60": {
+            "comparison_O_rate": 0.00719165767709457,
+            "comparison_clearings": 38934,
+            "comparison_with_O": 280,
+            "defect_O_rate": 0.012121212121212121,
+            "defect_clearings": 330,
+            "defect_with_O": 4,
+            "difference": 0.004929554444117551
+          }
+        },
+        "Q4": {
+          "W30": {
+            "comparison_O_rate": 0.0016543371726441302,
+            "comparison_clearings": 32037,
+            "comparison_with_O": 53,
+            "defect_O_rate": 0.009259259259259259,
+            "defect_clearings": 108,
+            "defect_with_O": 1,
+            "difference": 0.007604922086615128
+          },
+          "W60": {
+            "comparison_O_rate": 0.002216187533164778,
+            "comparison_clearings": 32037,
+            "comparison_with_O": 71,
+            "defect_O_rate": 0.018518518518518517,
+            "defect_clearings": 108,
+            "defect_with_O": 2,
+            "difference": 0.01630233098535374
+          }
+        }
+      }
+    },
+    "H1 all-category comparison": {
+      "category": {
+        "2-way": {
+          "W30": {
+            "comparison_O_rate": 0.02717391304347826,
+            "comparison_clearings": 184,
+            "comparison_with_O": 5,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.02717391304347826,
+            "comparison_clearings": 184,
+            "comparison_with_O": 5,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "3-way, invoice after receipt": {
+          "W30": {
+            "comparison_O_rate": 0.027211729622266402,
+            "comparison_clearings": 8048,
+            "comparison_with_O": 219,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.04684393638170974,
+            "comparison_clearings": 8048,
+            "comparison_with_O": 377,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "3-way, invoice before receipt": {
+          "W30": {
+            "comparison_O_rate": 0.005202463837473177,
+            "comparison_clearings": 129554,
+            "comparison_with_O": 674,
+            "defect_O_rate": 0.04190751445086705,
+            "defect_clearings": 692,
+            "defect_with_O": 29,
+            "difference": 0.03670505061339387
+          },
+          "W60": {
+            "comparison_O_rate": 0.007016379270420057,
+            "comparison_clearings": 129554,
+            "comparison_with_O": 909,
+            "defect_O_rate": 0.05635838150289017,
+            "defect_clearings": 692,
+            "defect_with_O": 39,
+            "difference": 0.049342002232470115
+          }
+        }
+      },
+      "company": {
+        "e828567fcb6448fd": {
+          "W30": {
+            "comparison_O_rate": 0.02717391304347826,
+            "comparison_clearings": 184,
+            "comparison_with_O": 5,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.02717391304347826,
+            "comparison_clearings": 184,
+            "comparison_with_O": 5,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "e8620b539a5f68a8": {
+          "W30": {
+            "comparison_O_rate": 0.006489731253906193,
+            "comparison_clearings": 137602,
+            "comparison_with_O": 893,
+            "defect_O_rate": 0.04190751445086705,
+            "defect_clearings": 692,
+            "defect_with_O": 29,
+            "difference": 0.03541778319696086
+          },
+          "W60": {
+            "comparison_O_rate": 0.009345794392523364,
+            "comparison_clearings": 137602,
+            "comparison_with_O": 1286,
+            "defect_O_rate": 0.05635838150289017,
+            "defect_clearings": 692,
+            "defect_with_O": 39,
+            "difference": 0.04701258711036681
+          }
+        },
+        "f3933c5764536f63": {
+          "W30": {
+            "comparison_O_rate": null,
+            "comparison_clearings": 0,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": null,
+            "comparison_clearings": 0,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        }
+      },
+      "line_value_quartile": {
+        "Q1": {
+          "W30": {
+            "comparison_O_rate": 0.00433522021261908,
+            "comparison_clearings": 36215,
+            "comparison_with_O": 157,
+            "defect_O_rate": 0.018134715025906734,
+            "defect_clearings": 386,
+            "defect_with_O": 7,
+            "difference": 0.013799494813287655
+          },
+          "W60": {
+            "comparison_O_rate": 0.005605412122048875,
+            "comparison_clearings": 36215,
+            "comparison_with_O": 203,
+            "defect_O_rate": 0.025906735751295335,
+            "defect_clearings": 386,
+            "defect_with_O": 10,
+            "difference": 0.02030132362924646
+          }
+        },
+        "Q2": {
+          "W30": {
+            "comparison_O_rate": 0.004502614872612356,
+            "comparison_clearings": 35757,
+            "comparison_with_O": 161,
+            "defect_O_rate": 0.03669724770642202,
+            "defect_clearings": 109,
+            "defect_with_O": 4,
+            "difference": 0.03219463283380966
+          },
+          "W60": {
+            "comparison_O_rate": 0.0058729759207987245,
+            "comparison_clearings": 35757,
+            "comparison_with_O": 210,
+            "defect_O_rate": 0.08256880733944955,
+            "defect_clearings": 109,
+            "defect_with_O": 9,
+            "difference": 0.07669583141865083
+          }
+        },
+        "Q3": {
+          "W30": {
+            "comparison_O_rate": 0.006271594901425626,
+            "comparison_clearings": 34441,
+            "comparison_with_O": 216,
+            "defect_O_rate": 0.05747126436781609,
+            "defect_clearings": 87,
+            "defect_with_O": 5,
+            "difference": 0.051199669466390464
+          },
+          "W60": {
+            "comparison_O_rate": 0.008594407827879562,
+            "comparison_clearings": 34441,
+            "comparison_with_O": 296,
+            "defect_O_rate": 0.05747126436781609,
+            "defect_clearings": 87,
+            "defect_with_O": 5,
+            "difference": 0.04887685653993653
+          }
+        },
+        "Q4": {
+          "W30": {
+            "comparison_O_rate": 0.011602333216460014,
+            "comparison_clearings": 31373,
+            "comparison_with_O": 364,
+            "defect_O_rate": 0.11818181818181818,
+            "defect_clearings": 110,
+            "defect_with_O": 13,
+            "difference": 0.10657948496535817
+          },
+          "W60": {
+            "comparison_O_rate": 0.018550983329614638,
+            "comparison_clearings": 31373,
+            "comparison_with_O": 582,
+            "defect_O_rate": 0.13636363636363635,
+            "defect_clearings": 110,
+            "defect_with_O": 15,
+            "difference": 0.11781265303402172
+          }
+        }
+      },
+      "month": {
+        "2018-01": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 246,
+            "comparison_with_O": 0,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 1,
+            "defect_with_O": 0,
+            "difference": 0.0
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 246,
+            "comparison_with_O": 0,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 1,
+            "defect_with_O": 0,
+            "difference": 0.0
+          }
+        },
+        "2018-02": {
+          "W30": {
+            "comparison_O_rate": 0.002583979328165375,
+            "comparison_clearings": 2709,
+            "comparison_with_O": 7,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 6,
+            "defect_with_O": 0,
+            "difference": -0.002583979328165375
+          },
+          "W60": {
+            "comparison_O_rate": 0.0029531192321889995,
+            "comparison_clearings": 2709,
+            "comparison_with_O": 8,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 6,
+            "defect_with_O": 0,
+            "difference": -0.0029531192321889995
+          }
+        },
+        "2018-03": {
+          "W30": {
+            "comparison_O_rate": 0.006058566139347021,
+            "comparison_clearings": 8913,
+            "comparison_with_O": 54,
+            "defect_O_rate": 0.13043478260869565,
+            "defect_clearings": 23,
+            "defect_with_O": 3,
+            "difference": 0.12437621646934863
+          },
+          "W60": {
+            "comparison_O_rate": 0.008751262201279031,
+            "comparison_clearings": 8913,
+            "comparison_with_O": 78,
+            "defect_O_rate": 0.13043478260869565,
+            "defect_clearings": 23,
+            "defect_with_O": 3,
+            "difference": 0.12168352040741662
+          }
+        },
+        "2018-04": {
+          "W30": {
+            "comparison_O_rate": 0.0037775763070414022,
+            "comparison_clearings": 13236,
+            "comparison_with_O": 50,
+            "defect_O_rate": 0.03225806451612903,
+            "defect_clearings": 93,
+            "defect_with_O": 3,
+            "difference": 0.028480488209087627
+          },
+          "W60": {
+            "comparison_O_rate": 0.005741915986702931,
+            "comparison_clearings": 13236,
+            "comparison_with_O": 76,
+            "defect_O_rate": 0.03225806451612903,
+            "defect_clearings": 93,
+            "defect_with_O": 3,
+            "difference": 0.0265161485294261
+          }
+        },
+        "2018-05": {
+          "W30": {
+            "comparison_O_rate": 0.006070607650144398,
+            "comparison_clearings": 16967,
+            "comparison_with_O": 103,
+            "defect_O_rate": 0.04411764705882353,
+            "defect_clearings": 68,
+            "defect_with_O": 3,
+            "difference": 0.03804703940867914
+          },
+          "W60": {
+            "comparison_O_rate": 0.008310249307479225,
+            "comparison_clearings": 16967,
+            "comparison_with_O": 141,
+            "defect_O_rate": 0.04411764705882353,
+            "defect_clearings": 68,
+            "defect_with_O": 3,
+            "difference": 0.03580739775134431
+          }
+        },
+        "2018-06": {
+          "W30": {
+            "comparison_O_rate": 0.0068898202905207555,
+            "comparison_clearings": 17417,
+            "comparison_with_O": 120,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 79,
+            "defect_with_O": 0,
+            "difference": -0.0068898202905207555
+          },
+          "W60": {
+            "comparison_O_rate": 0.011310788310271574,
+            "comparison_clearings": 17417,
+            "comparison_with_O": 197,
+            "defect_O_rate": 0.02531645569620253,
+            "defect_clearings": 79,
+            "defect_with_O": 2,
+            "difference": 0.014005667385930957
+          }
+        },
+        "2018-07": {
+          "W30": {
+            "comparison_O_rate": 0.008797817250403697,
+            "comparison_clearings": 17959,
+            "comparison_with_O": 158,
+            "defect_O_rate": 0.09333333333333334,
+            "defect_clearings": 75,
+            "defect_with_O": 7,
+            "difference": 0.08453551608292964
+          },
+          "W60": {
+            "comparison_O_rate": 0.012027395734729105,
+            "comparison_clearings": 17959,
+            "comparison_with_O": 216,
+            "defect_O_rate": 0.12,
+            "defect_clearings": 75,
+            "defect_with_O": 9,
+            "difference": 0.10797260426527089
+          }
+        },
+        "2018-08": {
+          "W30": {
+            "comparison_O_rate": 0.007495151737512448,
+            "comparison_clearings": 19079,
+            "comparison_with_O": 143,
+            "defect_O_rate": 0.0625,
+            "defect_clearings": 96,
+            "defect_with_O": 6,
+            "difference": 0.055004848262487555
+          },
+          "W60": {
+            "comparison_O_rate": 0.00974893862361759,
+            "comparison_clearings": 19079,
+            "comparison_with_O": 186,
+            "defect_O_rate": 0.0625,
+            "defect_clearings": 96,
+            "defect_with_O": 6,
+            "difference": 0.05275106137638241
+          }
+        },
+        "2018-09": {
+          "W30": {
+            "comparison_O_rate": 0.006351869606903164,
+            "comparison_clearings": 16688,
+            "comparison_with_O": 106,
+            "defect_O_rate": 0.02564102564102564,
+            "defect_clearings": 78,
+            "defect_with_O": 2,
+            "difference": 0.019289156034122477
+          },
+          "W60": {
+            "comparison_O_rate": 0.008868648130393097,
+            "comparison_clearings": 16688,
+            "comparison_with_O": 148,
+            "defect_O_rate": 0.02564102564102564,
+            "defect_clearings": 78,
+            "defect_with_O": 2,
+            "difference": 0.01677237751063254
+          }
+        },
+        "2018-10": {
+          "W30": {
+            "comparison_O_rate": 0.005864751645721125,
+            "comparison_clearings": 16710,
+            "comparison_with_O": 98,
+            "defect_O_rate": 0.03,
+            "defect_clearings": 100,
+            "defect_with_O": 3,
+            "difference": 0.024135248354278875
+          },
+          "W60": {
+            "comparison_O_rate": 0.009156193895870737,
+            "comparison_clearings": 16710,
+            "comparison_with_O": 153,
+            "defect_O_rate": 0.09,
+            "defect_clearings": 100,
+            "defect_with_O": 9,
+            "difference": 0.08084380610412926
+          }
+        },
+        "2018-11": {
+          "W30": {
+            "comparison_O_rate": 0.007504451793436785,
+            "comparison_clearings": 7862,
+            "comparison_with_O": 59,
+            "defect_O_rate": 0.0273972602739726,
+            "defect_clearings": 73,
+            "defect_with_O": 2,
+            "difference": 0.019892808480535817
+          },
+          "W60": {
+            "comparison_O_rate": 0.011193080641058254,
+            "comparison_clearings": 7862,
+            "comparison_with_O": 88,
+            "defect_O_rate": 0.0273972602739726,
+            "defect_clearings": 73,
+            "defect_with_O": 2,
+            "difference": 0.016204179632914345
+          }
+        }
+      },
+      "spend_area": {
+        "Additives": {
+          "W30": {
+            "comparison_O_rate": 0.006453766551685768,
+            "comparison_clearings": 8987,
+            "comparison_with_O": 58,
+            "defect_O_rate": 0.07692307692307693,
+            "defect_clearings": 13,
+            "defect_with_O": 1,
+            "difference": 0.07046931037139116
+          },
+          "W60": {
+            "comparison_O_rate": 0.010237009013018805,
+            "comparison_clearings": 8987,
+            "comparison_with_O": 92,
+            "defect_O_rate": 0.07692307692307693,
+            "defect_clearings": 13,
+            "defect_with_O": 1,
+            "difference": 0.06668606791005813
+          }
+        },
+        "CAPEX & SOCS": {
+          "W30": {
+            "comparison_O_rate": 0.00967741935483871,
+            "comparison_clearings": 4340,
+            "comparison_with_O": 42,
+            "defect_O_rate": 0.01818181818181818,
+            "defect_clearings": 55,
+            "defect_with_O": 1,
+            "difference": 0.00850439882697947
+          },
+          "W60": {
+            "comparison_O_rate": 0.014516129032258065,
+            "comparison_clearings": 4340,
+            "comparison_with_O": 63,
+            "defect_O_rate": 0.01818181818181818,
+            "defect_clearings": 55,
+            "defect_with_O": 1,
+            "difference": 0.0036656891495601158
+          }
+        },
+        "Chemicals & Intermediates": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 1,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 1,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Commodity Resins": {
+          "W30": {
+            "comparison_O_rate": 0.022222222222222223,
+            "comparison_clearings": 225,
+            "comparison_with_O": 5,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 1,
+            "defect_with_O": 0,
+            "difference": -0.022222222222222223
+          },
+          "W60": {
+            "comparison_O_rate": 0.022222222222222223,
+            "comparison_clearings": 225,
+            "comparison_with_O": 5,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 1,
+            "defect_with_O": 0,
+            "difference": -0.022222222222222223
+          }
+        },
+        "Energy": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 3,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 3,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Enterprise Services": {
+          "W30": {
+            "comparison_O_rate": 0.017241379310344827,
+            "comparison_clearings": 348,
+            "comparison_with_O": 6,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 2,
+            "defect_with_O": 0,
+            "difference": -0.017241379310344827
+          },
+          "W60": {
+            "comparison_O_rate": 0.020114942528735632,
+            "comparison_clearings": 348,
+            "comparison_with_O": 7,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 2,
+            "defect_with_O": 0,
+            "difference": -0.020114942528735632
+          }
+        },
+        "Latex & Monomers": {
+          "W30": {
+            "comparison_O_rate": 0.009064885496183206,
+            "comparison_clearings": 2096,
+            "comparison_with_O": 19,
+            "defect_O_rate": 0.1,
+            "defect_clearings": 10,
+            "defect_with_O": 1,
+            "difference": 0.0909351145038168
+          },
+          "W60": {
+            "comparison_O_rate": 0.019561068702290078,
+            "comparison_clearings": 2096,
+            "comparison_with_O": 41,
+            "defect_O_rate": 0.3,
+            "defect_clearings": 10,
+            "defect_with_O": 3,
+            "difference": 0.2804389312977099
+          }
+        },
+        "Logistics": {
+          "W30": {
+            "comparison_O_rate": 0.05780051150895141,
+            "comparison_clearings": 1955,
+            "comparison_with_O": 113,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.10485933503836317,
+            "comparison_clearings": 1955,
+            "comparison_with_O": 205,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Marketing": {
+          "W30": {
+            "comparison_O_rate": 0.026220614828209764,
+            "comparison_clearings": 1106,
+            "comparison_with_O": 29,
+            "defect_O_rate": 0.16666666666666666,
+            "defect_clearings": 6,
+            "defect_with_O": 1,
+            "difference": 0.1404460518384569
+          },
+          "W60": {
+            "comparison_O_rate": 0.029837251356238697,
+            "comparison_clearings": 1106,
+            "comparison_with_O": 33,
+            "defect_O_rate": 0.16666666666666666,
+            "defect_clearings": 6,
+            "defect_with_O": 1,
+            "difference": 0.13682941531042797
+          }
+        },
+        "Others": {
+          "W30": {
+            "comparison_O_rate": 0.010107015457788348,
+            "comparison_clearings": 1682,
+            "comparison_with_O": 17,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 8,
+            "defect_with_O": 0,
+            "difference": -0.010107015457788348
+          },
+          "W60": {
+            "comparison_O_rate": 0.015457788347205707,
+            "comparison_clearings": 1682,
+            "comparison_with_O": 26,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 8,
+            "defect_with_O": 0,
+            "difference": -0.015457788347205707
+          }
+        },
+        "Packaging": {
+          "W30": {
+            "comparison_O_rate": 0.0036974135795916924,
+            "comparison_clearings": 56526,
+            "comparison_with_O": 209,
+            "defect_O_rate": 0.047058823529411764,
+            "defect_clearings": 170,
+            "defect_with_O": 8,
+            "difference": 0.04336140994982007
+          },
+          "W60": {
+            "comparison_O_rate": 0.004493507412518133,
+            "comparison_clearings": 56526,
+            "comparison_with_O": 254,
+            "defect_O_rate": 0.052941176470588235,
+            "defect_clearings": 170,
+            "defect_with_O": 9,
+            "difference": 0.0484476690580701
+          }
+        },
+        "Pigments & Colorants": {
+          "W30": {
+            "comparison_O_rate": 0.008589835361488905,
+            "comparison_clearings": 1397,
+            "comparison_with_O": 12,
+            "defect_O_rate": 0.4,
+            "defect_clearings": 5,
+            "defect_with_O": 2,
+            "difference": 0.39141016463851114
+          },
+          "W60": {
+            "comparison_O_rate": 0.012168933428775949,
+            "comparison_clearings": 1397,
+            "comparison_with_O": 17,
+            "defect_O_rate": 0.4,
+            "defect_clearings": 5,
+            "defect_with_O": 2,
+            "difference": 0.38783106657122407
+          }
+        },
+        "Real Estate": {
+          "W30": {
+            "comparison_O_rate": 0.02054794520547945,
+            "comparison_clearings": 146,
+            "comparison_with_O": 3,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.02054794520547945,
+            "comparison_clearings": 146,
+            "comparison_with_O": 3,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Sales": {
+          "W30": {
+            "comparison_O_rate": 0.005170868476087606,
+            "comparison_clearings": 43513,
+            "comparison_with_O": 225,
+            "defect_O_rate": 0.08571428571428572,
+            "defect_clearings": 140,
+            "defect_with_O": 12,
+            "difference": 0.0805434172381981
+          },
+          "W60": {
+            "comparison_O_rate": 0.007308160779537149,
+            "comparison_clearings": 43513,
+            "comparison_with_O": 318,
+            "defect_O_rate": 0.1357142857142857,
+            "defect_clearings": 140,
+            "defect_with_O": 19,
+            "difference": 0.12840612493474857
+          }
+        },
+        "Solvents": {
+          "W30": {
+            "comparison_O_rate": 0.008862629246676515,
+            "comparison_clearings": 1354,
+            "comparison_with_O": 12,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0155096011816839,
+            "comparison_clearings": 1354,
+            "comparison_with_O": 21,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Specialty Resins": {
+          "W30": {
+            "comparison_O_rate": 0.008434864104967198,
+            "comparison_clearings": 1067,
+            "comparison_with_O": 9,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.010309278350515464,
+            "comparison_clearings": 1067,
+            "comparison_with_O": 11,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Spend Area Unidentified": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 15,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 15,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Titanium Dioxides": {
+          "W30": {
+            "comparison_O_rate": 0.019672131147540985,
+            "comparison_clearings": 305,
+            "comparison_with_O": 6,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 5,
+            "defect_with_O": 0,
+            "difference": -0.019672131147540985
+          },
+          "W60": {
+            "comparison_O_rate": 0.02622950819672131,
+            "comparison_clearings": 305,
+            "comparison_with_O": 8,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 5,
+            "defect_with_O": 0,
+            "difference": -0.02622950819672131
+          }
+        },
+        "Trading & End Products": {
+          "W30": {
+            "comparison_O_rate": 0.009612054035330794,
+            "comparison_clearings": 11548,
+            "comparison_with_O": 111,
+            "defect_O_rate": 0.007326007326007326,
+            "defect_clearings": 273,
+            "defect_with_O": 2,
+            "difference": -0.002286046709323468
+          },
+          "W60": {
+            "comparison_O_rate": 0.012209906477312089,
+            "comparison_clearings": 11548,
+            "comparison_with_O": 141,
+            "defect_O_rate": 0.007326007326007326,
+            "defect_clearings": 273,
+            "defect_with_O": 2,
+            "difference": -0.004883899151304763
+          }
+        },
+        "Workforce Services": {
+          "W30": {
+            "comparison_O_rate": 0.0639269406392694,
+            "comparison_clearings": 219,
+            "comparison_with_O": 14,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.1689497716894977,
+            "comparison_clearings": 219,
+            "comparison_with_O": 37,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "missing": {
+          "W30": {
+            "comparison_O_rate": 0.008394543546694649,
+            "comparison_clearings": 953,
+            "comparison_with_O": 8,
+            "defect_O_rate": 0.25,
+            "defect_clearings": 4,
+            "defect_with_O": 1,
+            "difference": 0.24160545645330536
+          },
+          "W60": {
+            "comparison_O_rate": 0.00944386149003148,
+            "comparison_clearings": 953,
+            "comparison_with_O": 9,
+            "defect_O_rate": 0.25,
+            "defect_clearings": 4,
+            "defect_with_O": 1,
+            "difference": 0.24055613850996851
+          }
+        }
+      },
+      "vendor_activity_quartile": {
+        "Q1": {
+          "W30": {
+            "comparison_O_rate": 0.013762030282596703,
+            "comparison_clearings": 32626,
+            "comparison_with_O": 449,
+            "defect_O_rate": 0.11428571428571428,
+            "defect_clearings": 140,
+            "defect_with_O": 16,
+            "difference": 0.10052368400311758
+          },
+          "W60": {
+            "comparison_O_rate": 0.020872923435297,
+            "comparison_clearings": 32626,
+            "comparison_with_O": 681,
+            "defect_O_rate": 0.11428571428571428,
+            "defect_clearings": 140,
+            "defect_with_O": 16,
+            "difference": 0.09341279085041729
+          }
+        },
+        "Q2": {
+          "W30": {
+            "comparison_O_rate": 0.005352598789084209,
+            "comparison_clearings": 34189,
+            "comparison_with_O": 183,
+            "defect_O_rate": 0.08771929824561403,
+            "defect_clearings": 114,
+            "defect_with_O": 10,
+            "difference": 0.08236669945652982
+          },
+          "W60": {
+            "comparison_O_rate": 0.0075755359911082515,
+            "comparison_clearings": 34189,
+            "comparison_with_O": 259,
+            "defect_O_rate": 0.14912280701754385,
+            "defect_clearings": 114,
+            "defect_with_O": 17,
+            "difference": 0.1415472710264356
+          }
+        },
+        "Q3": {
+          "W30": {
+            "comparison_O_rate": 0.0054707967329326555,
+            "comparison_clearings": 38934,
+            "comparison_with_O": 213,
+            "defect_O_rate": 0.006060606060606061,
+            "defect_clearings": 330,
+            "defect_with_O": 2,
+            "difference": 0.0005898093276734051
+          },
+          "W60": {
+            "comparison_O_rate": 0.00719165767709457,
+            "comparison_clearings": 38934,
+            "comparison_with_O": 280,
+            "defect_O_rate": 0.012121212121212121,
+            "defect_clearings": 330,
+            "defect_with_O": 4,
+            "difference": 0.004929554444117551
+          }
+        },
+        "Q4": {
+          "W30": {
+            "comparison_O_rate": 0.0016543371726441302,
+            "comparison_clearings": 32037,
+            "comparison_with_O": 53,
+            "defect_O_rate": 0.009259259259259259,
+            "defect_clearings": 108,
+            "defect_with_O": 1,
+            "difference": 0.007604922086615128
+          },
+          "W60": {
+            "comparison_O_rate": 0.002216187533164778,
+            "comparison_clearings": 32037,
+            "comparison_with_O": 71,
+            "defect_O_rate": 0.018518518518518517,
+            "defect_clearings": 108,
+            "defect_with_O": 2,
+            "difference": 0.01630233098535374
+          }
+        }
+      }
+    },
+    "H2": {
+      "category": {
+        "2-way": {
+          "W30": {
+            "comparison_O_rate": 0.02717391304347826,
+            "comparison_clearings": 184,
+            "comparison_with_O": 5,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 4,
+            "defect_with_O": 0,
+            "difference": -0.02717391304347826
+          },
+          "W60": {
+            "comparison_O_rate": 0.02717391304347826,
+            "comparison_clearings": 184,
+            "comparison_with_O": 5,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 4,
+            "defect_with_O": 0,
+            "difference": -0.02717391304347826
+          }
+        },
+        "3-way, invoice after receipt": {
+          "W30": {
+            "comparison_O_rate": 0.027312228429546864,
+            "comparison_clearings": 8055,
+            "comparison_with_O": 220,
+            "defect_O_rate": 0.038485804416403785,
+            "defect_clearings": 1585,
+            "defect_with_O": 61,
+            "difference": 0.01117357598685692
+          },
+          "W60": {
+            "comparison_O_rate": 0.04692737430167598,
+            "comparison_clearings": 8055,
+            "comparison_with_O": 378,
+            "defect_O_rate": 0.06813880126182965,
+            "defect_clearings": 1585,
+            "defect_with_O": 108,
+            "difference": 0.021211426960153677
+          }
+        },
+        "3-way, invoice before receipt": {
+          "W30": {
+            "comparison_O_rate": 0.005401957921590927,
+            "comparison_clearings": 130138,
+            "comparison_with_O": 703,
+            "defect_O_rate": 0.009570914696813978,
+            "defect_clearings": 15568,
+            "defect_with_O": 149,
+            "difference": 0.004168956775223051
+          },
+          "W60": {
+            "comparison_O_rate": 0.00729225898661421,
+            "comparison_clearings": 130138,
+            "comparison_with_O": 949,
+            "defect_O_rate": 0.01406731757451182,
+            "defect_clearings": 15568,
+            "defect_with_O": 219,
+            "difference": 0.0067750585878976095
+          }
+        }
+      },
+      "company": {
+        "e828567fcb6448fd": {
+          "W30": {
+            "comparison_O_rate": 0.02717391304347826,
+            "comparison_clearings": 184,
+            "comparison_with_O": 5,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 4,
+            "defect_with_O": 0,
+            "difference": -0.02717391304347826
+          },
+          "W60": {
+            "comparison_O_rate": 0.02717391304347826,
+            "comparison_clearings": 184,
+            "comparison_with_O": 5,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 4,
+            "defect_with_O": 0,
+            "difference": -0.02717391304347826
+          }
+        },
+        "e8620b539a5f68a8": {
+          "W30": {
+            "comparison_O_rate": 0.0066790647862048,
+            "comparison_clearings": 138193,
+            "comparison_with_O": 923,
+            "defect_O_rate": 0.012243470149253732,
+            "defect_clearings": 17152,
+            "defect_with_O": 210,
+            "difference": 0.005564405363048932
+          },
+          "W60": {
+            "comparison_O_rate": 0.009602512428270607,
+            "comparison_clearings": 138193,
+            "comparison_with_O": 1327,
+            "defect_O_rate": 0.019064832089552237,
+            "defect_clearings": 17152,
+            "defect_with_O": 327,
+            "difference": 0.00946231966128163
+          }
+        },
+        "f3933c5764536f63": {
+          "W30": {
+            "comparison_O_rate": null,
+            "comparison_clearings": 0,
+            "comparison_with_O": 0,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 1,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": null,
+            "comparison_clearings": 0,
+            "comparison_with_O": 0,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 1,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        }
+      },
+      "line_value_quartile": {
+        "Q1": {
+          "W30": {
+            "comparison_O_rate": 0.00446123108082218,
+            "comparison_clearings": 36537,
+            "comparison_with_O": 163,
+            "defect_O_rate": 0.0034791252485089465,
+            "defect_clearings": 2012,
+            "defect_with_O": 7,
+            "difference": -0.0009821058323132336
+          },
+          "W60": {
+            "comparison_O_rate": 0.005802337356652161,
+            "comparison_clearings": 36537,
+            "comparison_with_O": 212,
+            "defect_O_rate": 0.0054671968190854875,
+            "defect_clearings": 2012,
+            "defect_with_O": 11,
+            "difference": -0.00033514053756667373
+          }
+        },
+        "Q2": {
+          "W30": {
+            "comparison_O_rate": 0.004602253709695414,
+            "comparison_clearings": 35852,
+            "comparison_with_O": 165,
+            "defect_O_rate": 0.0041841004184100415,
+            "defect_clearings": 2629,
+            "defect_with_O": 11,
+            "difference": -0.00041815329128537266
+          },
+          "W60": {
+            "comparison_O_rate": 0.00610844583286846,
+            "comparison_clearings": 35852,
+            "comparison_with_O": 219,
+            "defect_O_rate": 0.006085964244960061,
+            "defect_clearings": 2629,
+            "defect_with_O": 16,
+            "difference": -2.248158790839859e-05
+          }
+        },
+        "Q3": {
+          "W30": {
+            "comparison_O_rate": 0.006402827674122146,
+            "comparison_clearings": 34516,
+            "comparison_with_O": 221,
+            "defect_O_rate": 0.007870474477175624,
+            "defect_clearings": 4447,
+            "defect_with_O": 35,
+            "difference": 0.0014676468030534783
+          },
+          "W60": {
+            "comparison_O_rate": 0.008720593348012515,
+            "comparison_clearings": 34516,
+            "comparison_with_O": 301,
+            "defect_O_rate": 0.011018664268045873,
+            "defect_clearings": 4447,
+            "defect_with_O": 49,
+            "difference": 0.002298070920033358
+          }
+        },
+        "Q4": {
+          "W30": {
+            "comparison_O_rate": 0.012042450432130147,
+            "comparison_clearings": 31472,
+            "comparison_with_O": 379,
+            "defect_O_rate": 0.019457181806915354,
+            "defect_clearings": 8069,
+            "defect_with_O": 157,
+            "difference": 0.007414731374785207
+          },
+          "W60": {
+            "comparison_O_rate": 0.019064565327910524,
+            "comparison_clearings": 31472,
+            "comparison_with_O": 600,
+            "defect_O_rate": 0.031106704672202255,
+            "defect_clearings": 8069,
+            "defect_with_O": 251,
+            "difference": 0.01204213934429173
+          }
+        }
+      },
+      "month": {
+        "2018-01": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 247,
+            "comparison_with_O": 0,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 8,
+            "defect_with_O": 0,
+            "difference": 0.0
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 247,
+            "comparison_with_O": 0,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 8,
+            "defect_with_O": 0,
+            "difference": 0.0
+          }
+        },
+        "2018-02": {
+          "W30": {
+            "comparison_O_rate": 0.002577319587628866,
+            "comparison_clearings": 2716,
+            "comparison_with_O": 7,
+            "defect_O_rate": 0.010416666666666666,
+            "defect_clearings": 96,
+            "defect_with_O": 1,
+            "difference": 0.0078393470790378
+          },
+          "W60": {
+            "comparison_O_rate": 0.0029455081001472753,
+            "comparison_clearings": 2716,
+            "comparison_with_O": 8,
+            "defect_O_rate": 0.020833333333333332,
+            "defect_clearings": 96,
+            "defect_with_O": 2,
+            "difference": 0.017887825233186057
+          }
+        },
+        "2018-03": {
+          "W30": {
+            "comparison_O_rate": 0.006379406827084499,
+            "comparison_clearings": 8935,
+            "comparison_with_O": 57,
+            "defect_O_rate": 0.022222222222222223,
+            "defect_clearings": 855,
+            "defect_with_O": 19,
+            "difference": 0.015842815395137724
+          },
+          "W60": {
+            "comparison_O_rate": 0.00906547285954113,
+            "comparison_clearings": 8935,
+            "comparison_with_O": 81,
+            "defect_O_rate": 0.029239766081871343,
+            "defect_clearings": 855,
+            "defect_with_O": 25,
+            "difference": 0.020174293222330213
+          }
+        },
+        "2018-04": {
+          "W30": {
+            "comparison_O_rate": 0.0039021461803992194,
+            "comparison_clearings": 13326,
+            "comparison_with_O": 52,
+            "defect_O_rate": 0.007484168105929764,
+            "defect_clearings": 1737,
+            "defect_with_O": 13,
+            "difference": 0.003582021925530545
+          },
+          "W60": {
+            "comparison_O_rate": 0.00585321927059883,
+            "comparison_clearings": 13326,
+            "comparison_with_O": 78,
+            "defect_O_rate": 0.009211283822682787,
+            "defect_clearings": 1737,
+            "defect_with_O": 16,
+            "difference": 0.0033580645520839576
+          }
+        },
+        "2018-05": {
+          "W30": {
+            "comparison_O_rate": 0.006224310041103934,
+            "comparison_clearings": 17030,
+            "comparison_with_O": 106,
+            "defect_O_rate": 0.008381351492928235,
+            "defect_clearings": 1909,
+            "defect_with_O": 16,
+            "difference": 0.0021570414518243012
+          },
+          "W60": {
+            "comparison_O_rate": 0.008455666470933647,
+            "comparison_clearings": 17030,
+            "comparison_with_O": 144,
+            "defect_O_rate": 0.013619696176008382,
+            "defect_clearings": 1909,
+            "defect_with_O": 26,
+            "difference": 0.005164029705074735
+          }
+        },
+        "2018-06": {
+          "W30": {
+            "comparison_O_rate": 0.006862240521530279,
+            "comparison_clearings": 17487,
+            "comparison_with_O": 120,
+            "defect_O_rate": 0.011941618752764263,
+            "defect_clearings": 2261,
+            "defect_with_O": 27,
+            "difference": 0.005079378231233984
+          },
+          "W60": {
+            "comparison_O_rate": 0.011379882198204381,
+            "comparison_clearings": 17487,
+            "comparison_with_O": 199,
+            "defect_O_rate": 0.021229544449358692,
+            "defect_clearings": 2261,
+            "defect_with_O": 48,
+            "difference": 0.009849662251154311
+          }
+        },
+        "2018-07": {
+          "W30": {
+            "comparison_O_rate": 0.00915242955402707,
+            "comparison_clearings": 18028,
+            "comparison_with_O": 165,
+            "defect_O_rate": 0.015067805123053743,
+            "defect_clearings": 1991,
+            "defect_with_O": 30,
+            "difference": 0.0059153755690266735
+          },
+          "W60": {
+            "comparison_O_rate": 0.012480585755491458,
+            "comparison_clearings": 18028,
+            "comparison_with_O": 225,
+            "defect_O_rate": 0.01808136614766449,
+            "defect_clearings": 1991,
+            "defect_with_O": 36,
+            "difference": 0.0056007803921730315
+          }
+        },
+        "2018-08": {
+          "W30": {
+            "comparison_O_rate": 0.0077212020033388985,
+            "comparison_clearings": 19168,
+            "comparison_with_O": 148,
+            "defect_O_rate": 0.012285012285012284,
+            "defect_clearings": 2442,
+            "defect_with_O": 30,
+            "difference": 0.004563810281673386
+          },
+          "W60": {
+            "comparison_O_rate": 0.009964524207011686,
+            "comparison_clearings": 19168,
+            "comparison_with_O": 191,
+            "defect_O_rate": 0.018018018018018018,
+            "defect_clearings": 2442,
+            "defect_with_O": 44,
+            "difference": 0.008053493811006332
+          }
+        },
+        "2018-09": {
+          "W30": {
+            "comparison_O_rate": 0.00650785121499791,
+            "comparison_clearings": 16749,
+            "comparison_with_O": 109,
+            "defect_O_rate": 0.014203284509542832,
+            "defect_clearings": 2253,
+            "defect_with_O": 32,
+            "difference": 0.007695433294544921
+          },
+          "W60": {
+            "comparison_O_rate": 0.009015463609767748,
+            "comparison_clearings": 16749,
+            "comparison_with_O": 151,
+            "defect_O_rate": 0.024411895250776743,
+            "defect_clearings": 2253,
+            "defect_with_O": 55,
+            "difference": 0.015396431641008995
+          }
+        },
+        "2018-10": {
+          "W30": {
+            "comparison_O_rate": 0.006069260978222063,
+            "comparison_clearings": 16806,
+            "comparison_with_O": 102,
+            "defect_O_rate": 0.010892333472978634,
+            "defect_clearings": 2387,
+            "defect_with_O": 26,
+            "difference": 0.004823072494756571
+          },
+          "W60": {
+            "comparison_O_rate": 0.009758419612043318,
+            "comparison_clearings": 16806,
+            "comparison_with_O": 164,
+            "defect_O_rate": 0.020108923334729786,
+            "defect_clearings": 2387,
+            "defect_with_O": 48,
+            "difference": 0.010350503722686468
+          }
+        },
+        "2018-11": {
+          "W30": {
+            "comparison_O_rate": 0.00786303107165504,
+            "comparison_clearings": 7885,
+            "comparison_with_O": 62,
+            "defect_O_rate": 0.013136288998357963,
+            "defect_clearings": 1218,
+            "defect_with_O": 16,
+            "difference": 0.005273257926702923
+          },
+          "W60": {
+            "comparison_O_rate": 0.011540900443880786,
+            "comparison_clearings": 7885,
+            "comparison_with_O": 91,
+            "defect_O_rate": 0.022167487684729065,
+            "defect_clearings": 1218,
+            "defect_with_O": 27,
+            "difference": 0.010626587240848279
+          }
+        }
+      },
+      "spend_area": {
+        "Additives": {
+          "W30": {
+            "comparison_O_rate": 0.0065562840315590626,
+            "comparison_clearings": 8999,
+            "comparison_with_O": 59,
+            "defect_O_rate": 0.010770505385252692,
+            "defect_clearings": 1207,
+            "defect_with_O": 13,
+            "difference": 0.00421422135369363
+          },
+          "W60": {
+            "comparison_O_rate": 0.010334481609067674,
+            "comparison_clearings": 8999,
+            "comparison_with_O": 93,
+            "defect_O_rate": 0.018227009113504555,
+            "defect_clearings": 1207,
+            "defect_with_O": 22,
+            "difference": 0.007892527504436881
+          }
+        },
+        "CAPEX & SOCS": {
+          "W30": {
+            "comparison_O_rate": 0.00978607191624943,
+            "comparison_clearings": 4394,
+            "comparison_with_O": 43,
+            "defect_O_rate": 0.017985611510791366,
+            "defect_clearings": 278,
+            "defect_with_O": 5,
+            "difference": 0.008199539594541935
+          },
+          "W60": {
+            "comparison_O_rate": 0.01456531634046427,
+            "comparison_clearings": 4394,
+            "comparison_with_O": 64,
+            "defect_O_rate": 0.02158273381294964,
+            "defect_clearings": 278,
+            "defect_with_O": 6,
+            "difference": 0.007017417472485372
+          }
+        },
+        "Chemicals & Intermediates": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 1,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 1,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Commodity Resins": {
+          "W30": {
+            "comparison_O_rate": 0.022123893805309734,
+            "comparison_clearings": 226,
+            "comparison_with_O": 5,
+            "defect_O_rate": 0.0125,
+            "defect_clearings": 80,
+            "defect_with_O": 1,
+            "difference": -0.009623893805309734
+          },
+          "W60": {
+            "comparison_O_rate": 0.022123893805309734,
+            "comparison_clearings": 226,
+            "comparison_with_O": 5,
+            "defect_O_rate": 0.0125,
+            "defect_clearings": 80,
+            "defect_with_O": 1,
+            "difference": -0.009623893805309734
+          }
+        },
+        "Energy": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 3,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 3,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Enterprise Services": {
+          "W30": {
+            "comparison_O_rate": 0.017142857142857144,
+            "comparison_clearings": 350,
+            "comparison_with_O": 6,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 20,
+            "defect_with_O": 0,
+            "difference": -0.017142857142857144
+          },
+          "W60": {
+            "comparison_O_rate": 0.02,
+            "comparison_clearings": 350,
+            "comparison_with_O": 7,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 20,
+            "defect_with_O": 0,
+            "difference": -0.02
+          }
+        },
+        "Latex & Monomers": {
+          "W30": {
+            "comparison_O_rate": 0.009501187648456057,
+            "comparison_clearings": 2105,
+            "comparison_with_O": 20,
+            "defect_O_rate": 0.006263048016701462,
+            "defect_clearings": 479,
+            "defect_with_O": 3,
+            "difference": -0.003238139631754596
+          },
+          "W60": {
+            "comparison_O_rate": 0.020902612826603325,
+            "comparison_clearings": 2105,
+            "comparison_with_O": 44,
+            "defect_O_rate": 0.018789144050104383,
+            "defect_clearings": 479,
+            "defect_with_O": 9,
+            "difference": -0.002113468776498942
+          }
+        },
+        "Logistics": {
+          "W30": {
+            "comparison_O_rate": 0.05780051150895141,
+            "comparison_clearings": 1955,
+            "comparison_with_O": 113,
+            "defect_O_rate": 0.16666666666666666,
+            "defect_clearings": 114,
+            "defect_with_O": 19,
+            "difference": 0.10886615515771525
+          },
+          "W60": {
+            "comparison_O_rate": 0.10485933503836317,
+            "comparison_clearings": 1955,
+            "comparison_with_O": 205,
+            "defect_O_rate": 0.35964912280701755,
+            "defect_clearings": 114,
+            "defect_with_O": 41,
+            "difference": 0.25478978776865435
+          }
+        },
+        "Marketing": {
+          "W30": {
+            "comparison_O_rate": 0.02697841726618705,
+            "comparison_clearings": 1112,
+            "comparison_with_O": 30,
+            "defect_O_rate": 0.06481481481481481,
+            "defect_clearings": 108,
+            "defect_with_O": 7,
+            "difference": 0.03783639754862776
+          },
+          "W60": {
+            "comparison_O_rate": 0.030575539568345324,
+            "comparison_clearings": 1112,
+            "comparison_with_O": 34,
+            "defect_O_rate": 0.12037037037037036,
+            "defect_clearings": 108,
+            "defect_with_O": 13,
+            "difference": 0.08979483080202504
+          }
+        },
+        "Others": {
+          "W30": {
+            "comparison_O_rate": 0.010059171597633136,
+            "comparison_clearings": 1690,
+            "comparison_with_O": 17,
+            "defect_O_rate": 0.046511627906976744,
+            "defect_clearings": 86,
+            "defect_with_O": 4,
+            "difference": 0.03645245630934361
+          },
+          "W60": {
+            "comparison_O_rate": 0.015384615384615385,
+            "comparison_clearings": 1690,
+            "comparison_with_O": 26,
+            "defect_O_rate": 0.05813953488372093,
+            "defect_clearings": 86,
+            "defect_with_O": 5,
+            "difference": 0.042754919499105544
+          }
+        },
+        "Packaging": {
+          "W30": {
+            "comparison_O_rate": 0.0038298623367454994,
+            "comparison_clearings": 56660,
+            "comparison_with_O": 217,
+            "defect_O_rate": 0.007245326764237067,
+            "defect_clearings": 6901,
+            "defect_with_O": 50,
+            "difference": 0.0034154644274915673
+          },
+          "W60": {
+            "comparison_O_rate": 0.004641722555594776,
+            "comparison_clearings": 56660,
+            "comparison_with_O": 263,
+            "defect_O_rate": 0.011012896681640343,
+            "defect_clearings": 6901,
+            "defect_with_O": 76,
+            "difference": 0.006371174126045567
+          }
+        },
+        "Pigments & Colorants": {
+          "W30": {
+            "comparison_O_rate": 0.009292351679771264,
+            "comparison_clearings": 1399,
+            "comparison_with_O": 13,
+            "defect_O_rate": 0.020338983050847456,
+            "defect_clearings": 295,
+            "defect_with_O": 6,
+            "difference": 0.011046631371076192
+          },
+          "W60": {
+            "comparison_O_rate": 0.012866333095067906,
+            "comparison_clearings": 1399,
+            "comparison_with_O": 18,
+            "defect_O_rate": 0.02711864406779661,
+            "defect_clearings": 295,
+            "defect_with_O": 8,
+            "difference": 0.014252310972728704
+          }
+        },
+        "Real Estate": {
+          "W30": {
+            "comparison_O_rate": 0.02054794520547945,
+            "comparison_clearings": 146,
+            "comparison_with_O": 3,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 5,
+            "defect_with_O": 0,
+            "difference": -0.02054794520547945
+          },
+          "W60": {
+            "comparison_O_rate": 0.02054794520547945,
+            "comparison_clearings": 146,
+            "comparison_with_O": 3,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 5,
+            "defect_with_O": 0,
+            "difference": -0.02054794520547945
+          }
+        },
+        "Sales": {
+          "W30": {
+            "comparison_O_rate": 0.005475748619607304,
+            "comparison_clearings": 43647,
+            "comparison_with_O": 239,
+            "defect_O_rate": 0.008323057953144267,
+            "defect_clearings": 3244,
+            "defect_with_O": 27,
+            "difference": 0.002847309333536963
+          },
+          "W60": {
+            "comparison_O_rate": 0.007789767910738424,
+            "comparison_clearings": 43647,
+            "comparison_with_O": 340,
+            "defect_O_rate": 0.010172626387176326,
+            "defect_clearings": 3244,
+            "defect_with_O": 33,
+            "difference": 0.002382858476437902
+          }
+        },
+        "Solvents": {
+          "W30": {
+            "comparison_O_rate": 0.008843036109064112,
+            "comparison_clearings": 1357,
+            "comparison_with_O": 12,
+            "defect_O_rate": 0.023148148148148147,
+            "defect_clearings": 216,
+            "defect_with_O": 5,
+            "difference": 0.014305112039084035
+          },
+          "W60": {
+            "comparison_O_rate": 0.015475313190862197,
+            "comparison_clearings": 1357,
+            "comparison_with_O": 21,
+            "defect_O_rate": 0.032407407407407406,
+            "defect_clearings": 216,
+            "defect_with_O": 7,
+            "difference": 0.016932094216545207
+          }
+        },
+        "Specialty Resins": {
+          "W30": {
+            "comparison_O_rate": 0.008434864104967198,
+            "comparison_clearings": 1067,
+            "comparison_with_O": 9,
+            "defect_O_rate": 0.02631578947368421,
+            "defect_clearings": 228,
+            "defect_with_O": 6,
+            "difference": 0.01788092536871701
+          },
+          "W60": {
+            "comparison_O_rate": 0.010309278350515464,
+            "comparison_clearings": 1067,
+            "comparison_with_O": 11,
+            "defect_O_rate": 0.03508771929824561,
+            "defect_clearings": 228,
+            "defect_with_O": 8,
+            "difference": 0.02477844094773015
+          }
+        },
+        "Spend Area Unidentified": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 15,
+            "comparison_with_O": 0,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 3,
+            "defect_with_O": 0,
+            "difference": 0.0
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 15,
+            "comparison_with_O": 0,
+            "defect_O_rate": 0.0,
+            "defect_clearings": 3,
+            "defect_with_O": 0,
+            "difference": 0.0
+          }
+        },
+        "Titanium Dioxides": {
+          "W30": {
+            "comparison_O_rate": 0.01935483870967742,
+            "comparison_clearings": 310,
+            "comparison_with_O": 6,
+            "defect_O_rate": 0.06722689075630252,
+            "defect_clearings": 119,
+            "defect_with_O": 8,
+            "difference": 0.0478720520466251
+          },
+          "W60": {
+            "comparison_O_rate": 0.025806451612903226,
+            "comparison_clearings": 310,
+            "comparison_with_O": 8,
+            "defect_O_rate": 0.07563025210084033,
+            "defect_clearings": 119,
+            "defect_with_O": 9,
+            "difference": 0.04982380048793711
+          }
+        },
+        "Trading & End Products": {
+          "W30": {
+            "comparison_O_rate": 0.009604759881002975,
+            "comparison_clearings": 11765,
+            "comparison_with_O": 113,
+            "defect_O_rate": 0.013776579814315664,
+            "defect_clearings": 3339,
+            "defect_with_O": 46,
+            "difference": 0.0041718199333126895
+          },
+          "W60": {
+            "comparison_O_rate": 0.012154696132596685,
+            "comparison_clearings": 11765,
+            "comparison_with_O": 143,
+            "defect_O_rate": 0.021263851452530697,
+            "defect_clearings": 3339,
+            "defect_with_O": 71,
+            "difference": 0.009109155319934012
+          }
+        },
+        "Workforce Services": {
+          "W30": {
+            "comparison_O_rate": 0.0639269406392694,
+            "comparison_clearings": 219,
+            "comparison_with_O": 14,
+            "defect_O_rate": 0.06451612903225806,
+            "defect_clearings": 62,
+            "defect_with_O": 4,
+            "difference": 0.0005891883929886599
+          },
+          "W60": {
+            "comparison_O_rate": 0.1689497716894977,
+            "comparison_clearings": 219,
+            "comparison_with_O": 37,
+            "defect_O_rate": 0.1774193548387097,
+            "defect_clearings": 62,
+            "defect_with_O": 11,
+            "difference": 0.008469583149211979
+          }
+        },
+        "missing": {
+          "W30": {
+            "comparison_O_rate": 0.009404388714733543,
+            "comparison_clearings": 957,
+            "comparison_with_O": 9,
+            "defect_O_rate": 0.0160857908847185,
+            "defect_clearings": 373,
+            "defect_with_O": 6,
+            "difference": 0.006681402169984956
+          },
+          "W60": {
+            "comparison_O_rate": 0.01044932079414838,
+            "comparison_clearings": 957,
+            "comparison_with_O": 10,
+            "defect_O_rate": 0.01876675603217158,
+            "defect_clearings": 373,
+            "defect_with_O": 7,
+            "difference": 0.0083174352380232
+          }
+        }
+      },
+      "vendor_activity_quartile": {
+        "Q1": {
+          "W30": {
+            "comparison_O_rate": 0.01422292760346722,
+            "comparison_clearings": 32764,
+            "comparison_with_O": 466,
+            "defect_O_rate": 0.017338177014531043,
+            "defect_clearings": 6056,
+            "defect_with_O": 105,
+            "difference": 0.0031152494110638224
+          },
+          "W60": {
+            "comparison_O_rate": 0.02133439140520083,
+            "comparison_clearings": 32764,
+            "comparison_with_O": 699,
+            "defect_O_rate": 0.02906208718626156,
+            "defect_clearings": 6056,
+            "defect_with_O": 176,
+            "difference": 0.00772769578106073
+          }
+        },
+        "Q2": {
+          "W30": {
+            "comparison_O_rate": 0.005627970722888053,
+            "comparison_clearings": 34293,
+            "comparison_with_O": 193,
+            "defect_O_rate": 0.0138074522413467,
+            "defect_clearings": 5287,
+            "defect_with_O": 73,
+            "difference": 0.008179481518458646
+          },
+          "W60": {
+            "comparison_O_rate": 0.008048289738430584,
+            "comparison_clearings": 34293,
+            "comparison_with_O": 276,
+            "defect_O_rate": 0.019103461320219405,
+            "defect_clearings": 5287,
+            "defect_with_O": 101,
+            "difference": 0.011055171581788821
+          }
+        },
+        "Q3": {
+          "W30": {
+            "comparison_O_rate": 0.005485813431312513,
+            "comparison_clearings": 39192,
+            "comparison_with_O": 215,
+            "defect_O_rate": 0.006720806496779613,
+            "defect_clearings": 3571,
+            "defect_with_O": 24,
+            "difference": 0.0012349930654671007
+          },
+          "W60": {
+            "comparison_O_rate": 0.007246376811594203,
+            "comparison_clearings": 39192,
+            "comparison_with_O": 284,
+            "defect_O_rate": 0.009801176141136937,
+            "defect_clearings": 3571,
+            "defect_with_O": 35,
+            "difference": 0.002554799329542734
+          }
+        },
+        "Q4": {
+          "W30": {
+            "comparison_O_rate": 0.001680776892430279,
+            "comparison_clearings": 32128,
+            "comparison_with_O": 54,
+            "defect_O_rate": 0.0035666518056174765,
+            "defect_clearings": 2243,
+            "defect_with_O": 8,
+            "difference": 0.0018858749131871976
+          },
+          "W60": {
+            "comparison_O_rate": 0.0022721613545816735,
+            "comparison_clearings": 32128,
+            "comparison_with_O": 73,
+            "defect_O_rate": 0.006687472135532769,
+            "defect_clearings": 2243,
+            "defect_with_O": 15,
+            "difference": 0.004415310780951096
+          }
+        }
+      }
+    },
+    "H3": {
+      "category": {
+        "2-way": {
+          "W30": {
+            "comparison_O_rate": 0.026595744680851064,
+            "comparison_clearings": 188,
+            "comparison_with_O": 5,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.026595744680851064,
+            "comparison_clearings": 188,
+            "comparison_with_O": 5,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "3-way, invoice after receipt": {
+          "W30": {
+            "comparison_O_rate": 0.029149377593360996,
+            "comparison_clearings": 9640,
+            "comparison_with_O": 281,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0504149377593361,
+            "comparison_clearings": 9640,
+            "comparison_with_O": 486,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "3-way, invoice before receipt": {
+          "W30": {
+            "comparison_O_rate": 0.005847391322251657,
+            "comparison_clearings": 145706,
+            "comparison_with_O": 852,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.008016142094354384,
+            "comparison_clearings": 145706,
+            "comparison_with_O": 1168,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        }
+      },
+      "company": {
+        "e828567fcb6448fd": {
+          "W30": {
+            "comparison_O_rate": 0.026595744680851064,
+            "comparison_clearings": 188,
+            "comparison_with_O": 5,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.026595744680851064,
+            "comparison_clearings": 188,
+            "comparison_with_O": 5,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "e8620b539a5f68a8": {
+          "W30": {
+            "comparison_O_rate": 0.007293443625478773,
+            "comparison_clearings": 155345,
+            "comparison_with_O": 1133,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.010647268981943417,
+            "comparison_clearings": 155345,
+            "comparison_with_O": 1654,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "f3933c5764536f63": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 1,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 1,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        }
+      },
+      "line_value_quartile": {
+        "Q1": {
+          "W30": {
+            "comparison_O_rate": 0.004409971724298944,
+            "comparison_clearings": 38549,
+            "comparison_with_O": 170,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.005784845261874497,
+            "comparison_clearings": 38549,
+            "comparison_with_O": 223,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Q2": {
+          "W30": {
+            "comparison_O_rate": 0.004573685715028196,
+            "comparison_clearings": 38481,
+            "comparison_with_O": 176,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.006106909903588784,
+            "comparison_clearings": 38481,
+            "comparison_with_O": 235,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Q3": {
+          "W30": {
+            "comparison_O_rate": 0.006570335959756693,
+            "comparison_clearings": 38963,
+            "comparison_with_O": 256,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.008982881194979853,
+            "comparison_clearings": 38963,
+            "comparison_with_O": 350,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Q4": {
+          "W30": {
+            "comparison_O_rate": 0.013555549935509977,
+            "comparison_clearings": 39541,
+            "comparison_with_O": 536,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.021521964543132446,
+            "comparison_clearings": 39541,
+            "comparison_with_O": 851,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        }
+      },
+      "month": {
+        "2018-01": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 255,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 255,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "2018-02": {
+          "W30": {
+            "comparison_O_rate": 0.002844950213371266,
+            "comparison_clearings": 2812,
+            "comparison_with_O": 8,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0035561877667140826,
+            "comparison_clearings": 2812,
+            "comparison_with_O": 10,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "2018-03": {
+          "W30": {
+            "comparison_O_rate": 0.007763023493360572,
+            "comparison_clearings": 9790,
+            "comparison_with_O": 76,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.010827374872318692,
+            "comparison_clearings": 9790,
+            "comparison_with_O": 106,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "2018-04": {
+          "W30": {
+            "comparison_O_rate": 0.0043152094536280956,
+            "comparison_clearings": 15063,
+            "comparison_with_O": 65,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.006240456748323707,
+            "comparison_clearings": 15063,
+            "comparison_with_O": 94,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "2018-05": {
+          "W30": {
+            "comparison_O_rate": 0.006441733988066952,
+            "comparison_clearings": 18939,
+            "comparison_with_O": 122,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.008976186704683458,
+            "comparison_clearings": 18939,
+            "comparison_with_O": 170,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "2018-06": {
+          "W30": {
+            "comparison_O_rate": 0.007443791776382418,
+            "comparison_clearings": 19748,
+            "comparison_with_O": 147,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.012507595705894268,
+            "comparison_clearings": 19748,
+            "comparison_with_O": 247,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "2018-07": {
+          "W30": {
+            "comparison_O_rate": 0.009740746291023528,
+            "comparison_clearings": 20019,
+            "comparison_with_O": 195,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.013037614266446876,
+            "comparison_clearings": 20019,
+            "comparison_with_O": 261,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "2018-08": {
+          "W30": {
+            "comparison_O_rate": 0.008236927348449791,
+            "comparison_clearings": 21610,
+            "comparison_with_O": 178,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.01087459509486349,
+            "comparison_clearings": 21610,
+            "comparison_with_O": 235,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "2018-09": {
+          "W30": {
+            "comparison_O_rate": 0.00742027155036312,
+            "comparison_clearings": 19002,
+            "comparison_with_O": 141,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.010840964109041154,
+            "comparison_clearings": 19002,
+            "comparison_with_O": 206,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "2018-10": {
+          "W30": {
+            "comparison_O_rate": 0.006669098108685458,
+            "comparison_clearings": 19193,
+            "comparison_with_O": 128,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.01104569374251029,
+            "comparison_clearings": 19193,
+            "comparison_with_O": 212,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "2018-11": {
+          "W30": {
+            "comparison_O_rate": 0.008568603757003185,
+            "comparison_clearings": 9103,
+            "comparison_with_O": 78,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.012962759529825332,
+            "comparison_clearings": 9103,
+            "comparison_with_O": 118,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        }
+      },
+      "spend_area": {
+        "Additives": {
+          "W30": {
+            "comparison_O_rate": 0.007054673721340388,
+            "comparison_clearings": 10206,
+            "comparison_with_O": 72,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.011267881638252009,
+            "comparison_clearings": 10206,
+            "comparison_with_O": 115,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "CAPEX & SOCS": {
+          "W30": {
+            "comparison_O_rate": 0.010273972602739725,
+            "comparison_clearings": 4672,
+            "comparison_with_O": 48,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.014982876712328766,
+            "comparison_clearings": 4672,
+            "comparison_with_O": 70,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Chemicals & Intermediates": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 1,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 1,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Commodity Resins": {
+          "W30": {
+            "comparison_O_rate": 0.0196078431372549,
+            "comparison_clearings": 306,
+            "comparison_with_O": 6,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0196078431372549,
+            "comparison_clearings": 306,
+            "comparison_with_O": 6,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Energy": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 3,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 3,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Enterprise Services": {
+          "W30": {
+            "comparison_O_rate": 0.016216216216216217,
+            "comparison_clearings": 370,
+            "comparison_with_O": 6,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.01891891891891892,
+            "comparison_clearings": 370,
+            "comparison_with_O": 7,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Latex & Monomers": {
+          "W30": {
+            "comparison_O_rate": 0.00890092879256966,
+            "comparison_clearings": 2584,
+            "comparison_with_O": 23,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.020510835913312694,
+            "comparison_clearings": 2584,
+            "comparison_with_O": 53,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Logistics": {
+          "W30": {
+            "comparison_O_rate": 0.06379893668438859,
+            "comparison_clearings": 2069,
+            "comparison_with_O": 132,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.11889801836636056,
+            "comparison_clearings": 2069,
+            "comparison_with_O": 246,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Marketing": {
+          "W30": {
+            "comparison_O_rate": 0.030327868852459017,
+            "comparison_clearings": 1220,
+            "comparison_with_O": 37,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.038524590163934426,
+            "comparison_clearings": 1220,
+            "comparison_with_O": 47,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Others": {
+          "W30": {
+            "comparison_O_rate": 0.011824324324324325,
+            "comparison_clearings": 1776,
+            "comparison_with_O": 21,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.017454954954954954,
+            "comparison_clearings": 1776,
+            "comparison_with_O": 31,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Packaging": {
+          "W30": {
+            "comparison_O_rate": 0.004200689101807712,
+            "comparison_clearings": 63561,
+            "comparison_with_O": 267,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.005333459196677208,
+            "comparison_clearings": 63561,
+            "comparison_with_O": 339,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Pigments & Colorants": {
+          "W30": {
+            "comparison_O_rate": 0.011216056670602124,
+            "comparison_clearings": 1694,
+            "comparison_with_O": 19,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.015348288075560802,
+            "comparison_clearings": 1694,
+            "comparison_with_O": 26,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Real Estate": {
+          "W30": {
+            "comparison_O_rate": 0.019867549668874173,
+            "comparison_clearings": 151,
+            "comparison_with_O": 3,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.019867549668874173,
+            "comparison_clearings": 151,
+            "comparison_with_O": 3,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Sales": {
+          "W30": {
+            "comparison_O_rate": 0.005672730374698769,
+            "comparison_clearings": 46891,
+            "comparison_with_O": 266,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.00795461815700241,
+            "comparison_clearings": 46891,
+            "comparison_with_O": 373,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Solvents": {
+          "W30": {
+            "comparison_O_rate": 0.01080737444373808,
+            "comparison_clearings": 1573,
+            "comparison_with_O": 17,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.017800381436745075,
+            "comparison_clearings": 1573,
+            "comparison_with_O": 28,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Specialty Resins": {
+          "W30": {
+            "comparison_O_rate": 0.011583011583011582,
+            "comparison_clearings": 1295,
+            "comparison_with_O": 15,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.014671814671814672,
+            "comparison_clearings": 1295,
+            "comparison_with_O": 19,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Spend Area Unidentified": {
+          "W30": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 18,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0,
+            "comparison_clearings": 18,
+            "comparison_with_O": 0,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Titanium Dioxides": {
+          "W30": {
+            "comparison_O_rate": 0.03263403263403263,
+            "comparison_clearings": 429,
+            "comparison_with_O": 14,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.039627039627039624,
+            "comparison_clearings": 429,
+            "comparison_with_O": 17,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Trading & End Products": {
+          "W30": {
+            "comparison_O_rate": 0.010527012711864406,
+            "comparison_clearings": 15104,
+            "comparison_with_O": 159,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.014168432203389831,
+            "comparison_clearings": 15104,
+            "comparison_with_O": 214,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Workforce Services": {
+          "W30": {
+            "comparison_O_rate": 0.06405693950177936,
+            "comparison_clearings": 281,
+            "comparison_with_O": 18,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.1708185053380783,
+            "comparison_clearings": 281,
+            "comparison_with_O": 48,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "missing": {
+          "W30": {
+            "comparison_O_rate": 0.011278195488721804,
+            "comparison_clearings": 1330,
+            "comparison_with_O": 15,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.012781954887218045,
+            "comparison_clearings": 1330,
+            "comparison_with_O": 17,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        }
+      },
+      "vendor_activity_quartile": {
+        "Q1": {
+          "W30": {
+            "comparison_O_rate": 0.01470891293147862,
+            "comparison_clearings": 38820,
+            "comparison_with_O": 571,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.02253992787223081,
+            "comparison_clearings": 38820,
+            "comparison_with_O": 875,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Q2": {
+          "W30": {
+            "comparison_O_rate": 0.006720565942395149,
+            "comparison_clearings": 39580,
+            "comparison_with_O": 266,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.009525012632642748,
+            "comparison_clearings": 39580,
+            "comparison_with_O": 377,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Q3": {
+          "W30": {
+            "comparison_O_rate": 0.00558894371302294,
+            "comparison_clearings": 42763,
+            "comparison_with_O": 239,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.007459719851273297,
+            "comparison_clearings": 42763,
+            "comparison_with_O": 319,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        },
+        "Q4": {
+          "W30": {
+            "comparison_O_rate": 0.001803846265747287,
+            "comparison_clearings": 34371,
+            "comparison_with_O": 62,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          },
+          "W60": {
+            "comparison_O_rate": 0.0025602979255767945,
+            "comparison_clearings": 34371,
+            "comparison_with_O": 88,
+            "defect_O_rate": null,
+            "defect_clearings": 0,
+            "defect_with_O": 0,
+            "difference": null
+          }
+        }
+      }
+    }
+  },
+  "cutpoints": {
+    "line_value_quartile_cutpoints_eur": [
+      184.0,
+      573.0,
+      2223.0
+    ],
+    "rule": "Q1 <= first cutpoint < Q2 <= second < Q3 <= third < Q4; numpy linear quantiles over framed lines",
+    "vendor_activity_quartile_cutpoints_lines": [
+      319.0,
+      1117.0,
+      3276.0
+    ]
+  },
+  "note": "reported beside every estimate, never modelled in",
+  "registration": "p7-v1.1"
+}
