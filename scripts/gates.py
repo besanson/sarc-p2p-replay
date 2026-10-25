@@ -217,7 +217,8 @@ def g7_data_and_pins() -> dict:
 
 def g8_package() -> dict:
     with tempfile.TemporaryDirectory() as tmp:
-        r = sh(PY, "-m", "pip", "wheel", ".", "--no-deps", "--no-build-isolation", "-q", "-w", tmp)
+        # Isolated build, as pyproject.toml's build-system declares (the venv itself has no setuptools).
+        r = sh(PY, "-m", "pip", "wheel", ".", "--no-deps", "-q", "-w", tmp)
         wheels = sorted(p.name for p in Path(tmp).glob("*.whl"))
     return gate("pass" if r.returncode == 0 and wheels else "fail", {"wheels": wheels},
                 ["fresh-venv install and smoke test (make package-smoke-test, FINAL-AUDIT item 2): waiting on Phase E"])
@@ -236,8 +237,11 @@ def g9_paper() -> dict:
         build_tex.write_tex(paper, regen)
         detail["tex_regenerated_identical"] = tex.exists() and digest(tex) == digest(regen)
     tex_text = tex.read_text(encoding="utf-8") if tex.exists() else ""
-    detail["template_syntax_left_in_tex"] = bool(re.search(r"\{\{|\}\}", tex_text))
-    md_nums = Counter(re.findall(r"\d[\d,.]*\d|\d", re.sub(r"`[^`]*`|https?://\S+", "", paper.read_text(encoding="utf-8"))))
+    md_text = paper.read_text(encoding="utf-8")
+    # Token purity: no placeholder left in the paper, and none (escaped by pandoc) in the tex.
+    detail["template_syntax_left_in_tex"] = "{{" in md_text or "\\{\\{" in tex_text
+    # Number parity: HTML comments (reference ids, the source note) are not typeset, so not counted.
+    md_nums = Counter(re.findall(r"\d[\d,.]*\d|\d", re.sub(r"<!--.*?-->|`[^`]*`|https?://\S+", "", md_text, flags=re.DOTALL)))
     tex_nums = Counter(re.findall(r"\d[\d,.]*\d|\d", re.sub(r"\\texttt\{[^}]*\}|\\url\{[^}]*\}|\\href\{[^}]*\}", "",
                                                               build_tex.body_of(tex_text))))
     detail["numeral_multiset_md_minus_tex"] = dict((md_nums - tex_nums).most_common(10))
