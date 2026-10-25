@@ -1,0 +1,113 @@
+{
+  "arm": "e4",
+  "families": {
+    "H4-Haiku": {
+      "clean": {
+        "held": 573,
+        "lines": 1000
+      },
+      "d": 0.42300000000000004,
+      "defective": {
+        "held": 996,
+        "lines": 1000
+      },
+      "family": "haiku",
+      "hold_rate_clean": 0.573,
+      "hold_rate_defective": 0.996,
+      "margin": 0.05,
+      "p_lower": 5.542212830129224e-198,
+      "p_tost": 1.0,
+      "p_upper": 1.0,
+      "se": 0.015768798305514597,
+      "status": "COMPLETE",
+      "truncated": false,
+      "z_lower": 29.9959445758517,
+      "z_upper": -23.65430724480483
+    },
+    "H4-Jev": {
+      "clean": {
+        "held": 530,
+        "lines": 1000
+      },
+      "d": 0.47,
+      "defective": {
+        "held": 1000,
+        "lines": 1000
+      },
+      "family": "jev",
+      "hold_rate_clean": 0.53,
+      "hold_rate_defective": 1.0,
+      "margin": 0.05,
+      "p_lower": 2.3316561112886008e-238,
+      "p_tost": 1.0,
+      "p_upper": 1.0,
+      "se": 0.015782902141241326,
+      "status": "COMPLETE",
+      "truncated": false,
+      "z_lower": 32.94704581872938,
+      "z_upper": -26.61107546897373
+    }
+  },
+  "holm": {
+    "alpha": 0.05,
+    "applied": true,
+    "family": [
+      "H1",
+      "H2",
+      "H3",
+      "H4-Jev",
+      "H4-Haiku"
+    ],
+    "method": "Holm step-down over the five-test family",
+    "notes": {
+      "H3": "not computable (0 D5 failures); enters with p = 1 (DECISIONS.md D-C-2 A)"
+    },
+    "table": [
+      {
+        "below_alpha": true,
+        "multiplier": 5,
+        "p_holm": 3.477706313786906e-07,
+        "p_raw": 6.955412627573813e-08,
+        "rank": 1,
+        "test": "H2"
+      },
+      {
+        "below_alpha": true,
+        "multiplier": 4,
+        "p_holm": 0.0004529304163760633,
+        "p_raw": 0.00011323260409401582,
+        "rank": 2,
+        "test": "H1"
+      },
+      {
+        "below_alpha": false,
+        "multiplier": 3,
+        "p_holm": 1.0,
+        "p_raw": 1.0,
+        "rank": 3,
+        "test": "H3"
+      },
+      {
+        "below_alpha": false,
+        "multiplier": 2,
+        "p_holm": 1.0,
+        "p_raw": 1.0,
+        "rank": 4,
+        "test": "H4-Haiku"
+      },
+      {
+        "below_alpha": false,
+        "multiplier": 1,
+        "p_holm": 1.0,
+        "p_raw": 1.0,
+        "rank": 5,
+        "test": "H4-Jev"
+      }
+    ]
+  },
+  "label": "primary",
+  "margin": 0.05,
+  "registration": "p7-v1.1",
+  "section": "4 (H4)",
+  "test": "TOST, two one-sided z-tests with unpooled SE against -m and +m; p_TOST = max of the two"
+}

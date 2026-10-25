@@ -201,7 +201,7 @@
   },
   "holm": {
     "alpha": 0.05,
-    "applied": false,
+    "applied": true,
     "family": [
       "H1",
       "H2",
@@ -209,7 +209,52 @@
       "H4-Jev",
       "H4-Haiku"
     ],
-    "status": "deferred: Holm over the five-test family is applied once H4-Jev and H4-Haiku exist (after E4); the p-values here are raw"
+    "method": "Holm step-down over the five-test family",
+    "notes": {
+      "H3": "not computable (0 D5 failures); enters with p = 1 (DECISIONS.md D-C-2 A)"
+    },
+    "table": [
+      {
+        "below_alpha": true,
+        "multiplier": 5,
+        "p_holm": 3.477706313786906e-07,
+        "p_raw": 6.955412627573813e-08,
+        "rank": 1,
+        "test": "H2"
+      },
+      {
+        "below_alpha": true,
+        "multiplier": 4,
+        "p_holm": 0.0004529304163760633,
+        "p_raw": 0.00011323260409401582,
+        "rank": 2,
+        "test": "H1"
+      },
+      {
+        "below_alpha": false,
+        "multiplier": 3,
+        "p_holm": 1.0,
+        "p_raw": 1.0,
+        "rank": 3,
+        "test": "H3"
+      },
+      {
+        "below_alpha": false,
+        "multiplier": 2,
+        "p_holm": 1.0,
+        "p_raw": 1.0,
+        "rank": 4,
+        "test": "H4-Haiku"
+      },
+      {
+        "below_alpha": false,
+        "multiplier": 1,
+        "p_holm": 1.0,
+        "p_raw": 1.0,
+        "rank": 5,
+        "test": "H4-Jev"
+      }
+    ]
   },
   "registration": "p7-v1.1",
   "statistic": "difference in O rate, defect group minus comparison group; SE = standard deviation (ddof 1) of the difference over the bootstrap resamples; z = difference / SE; one-sided p = 1 - Phi(z)"

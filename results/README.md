@@ -33,7 +33,7 @@ refer to `prereg/p7-v1.1.md`.
 
 | file | holds | section |
 |---|---|---|
-| `e2/hypotheses.json` | H1, H2, H3 at W = 60: O rates, difference, bootstrap SE, z, raw one-sided p; the H1 all-category comparison and W = 30, descriptive; Holm deferred to after E4 | 3.7, 4, 5 |
+| `e2/hypotheses.json` | H1, H2, H3 at W = 60: O rates, difference, bootstrap SE, z, raw one-sided p; the H1 all-category comparison and W = 30, descriptive; the Holm table over the five-test family (`holm`, written by the E4 analysis) | 3.7, 4, 5 |
 | `e2/confounders.json` | O rates of each comparison's groups per stratum | 2.3, 6 |
 
 ## e3/ (E3, gate effect: `experiments/e3.py`)
@@ -54,6 +54,9 @@ refer to `prereg/p7-v1.1.md`.
 | `e4/sample-frame.json` | eligible lines per status and stratum, the allocation, the drawn counts | 7 |
 | `e4/views.jsonl` | the ERP view of each sampled line, keyed by order | 7 |
 | `e4/views-timeline.jsonl` | the exploratory timeline view of each sampled line, keyed by order (exploratory) | 7 |
+| `e4/h4.json` | per family: hold rates on defective and clean lines, d, TOST p-values; the Holm table over the five-test family | 4, 7; DEVIATIONS |
+| `e4/arms.json` | per arm (people, each family, gate): hold rates, kappa with the gate, value released on defective lines, expected correctives, invalid counts, cost per decision | 7 |
+| `e4/double-run.json` | the E4 analysis run twice from the committed responses: byte comparison | 7 |
 
 ## e6/ (E6, timing: `experiments/e6.py`)
 

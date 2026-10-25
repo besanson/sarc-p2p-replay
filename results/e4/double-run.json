@@ -1,0 +1,24 @@
+{
+  "all_identical": true,
+  "arm": "e4",
+  "files": [
+    {
+      "file": "results/e4/arms.json",
+      "identical": true,
+      "sha256_committed": "c24c34aa5dc2ebd468cddd3e8ce826b226978d539e8b3e69de850844aa837e0a",
+      "sha256_rerun": "c24c34aa5dc2ebd468cddd3e8ce826b226978d539e8b3e69de850844aa837e0a"
+    },
+    {
+      "file": "results/e4/h4.json",
+      "identical": true,
+      "sha256_committed": "1c3e0400258cae6eee192bd246e8f5325bffee970b4f01af62ef464974401af3",
+      "sha256_rerun": "1c3e0400258cae6eee192bd246e8f5325bffee970b4f01af62ef464974401af3"
+    },
+    {
+      "file": "results/e2/hypotheses.json",
+      "identical": true,
+      "sha256_committed": "eb43d763e5ee882f95afe01251c494e64c0bfcbbe60fb8cdc69a45201676d436",
+      "sha256_rerun": "eb43d763e5ee882f95afe01251c494e64c0bfcbbe60fb8cdc69a45201676d436"
+    }
+  ]
+}
