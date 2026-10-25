@@ -1,0 +1,53 @@
+{
+  "arms": {
+    "e4": {
+      "haiku": {
+        "attempts": 2000,
+        "decisions": 2000,
+        "input_tokens": 495278,
+        "label": "primary",
+        "output_tokens": 48000,
+        "spend_usd": 0.735278,
+        "status": "COMPLETE",
+        "usd_per_decision": 0.000367639
+      },
+      "jev": {
+        "attempts": 2000,
+        "decisions": 2000,
+        "input_tokens": 1062069,
+        "label": "primary",
+        "output_tokens": 68000,
+        "spend_usd": 0.044606898,
+        "status": "COMPLETE",
+        "usd_per_decision": 2.2303448999999998e-05
+      }
+    },
+    "e4-exploratory": {
+      "haiku": {
+        "attempts": 2000,
+        "decisions": 2000,
+        "input_tokens": 502244,
+        "label": "exploratory",
+        "output_tokens": 48000,
+        "spend_usd": 0.742244,
+        "status": "COMPLETE",
+        "usd_per_decision": 0.000371122
+      },
+      "jev": {
+        "attempts": 2000,
+        "decisions": 2000,
+        "input_tokens": 1135032,
+        "label": "exploratory",
+        "output_tokens": 68000,
+        "spend_usd": 0.047671344,
+        "status": "COMPLETE",
+        "usd_per_decision": 2.3835672e-05
+      }
+    }
+  },
+  "cap_usd": 60.0,
+  "registration": "p7-v1.1",
+  "rule": "spend charged by every attempt (retries and re-requests included) / decisions made; token prices as recorded in responses/e4/manifest-e4.json",
+  "section": "6, E6 (cost)",
+  "spend_usd_total": 1.569800242
+}

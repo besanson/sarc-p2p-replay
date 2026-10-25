@@ -71,6 +71,7 @@ refer to `prereg/p7-v1.1.md`.
 | file | holds | section |
 |---|---|---|
 | `e6/timing-e1.json` | wall time of the full E1 replay over three runs, median, seconds per decision, hardware; the cost column waits for E4 | 6 (E6) |
+| `e6/cost.json` | USD per decision per family and arm, from the responses (retries and re-requests included); spend total against the cap | 6 (E6) |
 
 ## Checks
 

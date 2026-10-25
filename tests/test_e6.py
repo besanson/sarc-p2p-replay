@@ -30,3 +30,21 @@ def test_double_run_is_byte_identical_on_fixture(tmp_path):
     assert {f["file"].split("/")[0] for f in out["files"]} == {"e1", "e2", "e3"}
     (tmp_path / "b" / "e2" / "hypotheses.json").write_text("{}\n")
     assert not all(f["identical"] for f in repro.compare(tmp_path / "a", tmp_path / "b"))
+
+
+def test_e6_cost_from_responses(tmp_path):
+    from experiments import e4_run, e6_cost
+
+    for arm, family, n in (("responses/e4", "jev", 3), ("responses/e4-exploratory", "haiku", 2)):
+        log = e4_run.Log(tmp_path / arm / family / "responses.jsonl")
+        for i in range(n):
+            log.append({"kind": "attempt", "charged_usd": 0.01, "usage_input_tokens": 10, "usage_output_tokens": 1})
+            log.append({"kind": "call", "order": i + 1})
+        log.append({"kind": "attempt", "charged_usd": 0.01, "usage_input_tokens": 10, "usage_output_tokens": 1})
+        log.append({"kind": "run_event", "status": "COMPLETE"})
+    doc = e6_cost.run(tmp_path)
+    jev = doc["arms"]["e4"]["jev"]
+    assert jev["decisions"] == 3 and jev["attempts"] == 4 and abs(jev["usd_per_decision"] - 0.04 / 3) < 1e-12
+    assert doc["arms"]["e4-exploratory"]["haiku"]["label"] == "exploratory"
+    assert abs(doc["spend_usd_total"] - 0.07) < 1e-12 and doc["cap_usd"] == 60.0
+    assert json.loads((tmp_path / "results" / "e6" / "cost.json").read_text()) == json.loads(json.dumps(doc))
