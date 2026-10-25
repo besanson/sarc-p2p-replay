@@ -1,0 +1,181 @@
+{
+  "bootstrap": {
+    "B": 10000,
+    "cluster": "declaration case, sorted by its hashed id (log name and case id)",
+    "generator": "numpy PCG64",
+    "seed": 20261201
+  },
+  "claim": "C11",
+  "h1_shape_rule": "difference above zero with the 95% interval excluding zero",
+  "registration": "p7-v1.1",
+  "scopes": {
+    "domestic": {
+      "D1'": {
+        "all_pass_group": {
+          "O_prime_rate": 0.0,
+          "payments": 10040,
+          "with_O_prime": 0
+        },
+        "bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "bootstrap_resamples_used": 8685,
+        "defect_group": {
+          "O_prime_rate": 0.5,
+          "payments": 2,
+          "with_O_prime": 1
+        },
+        "difference": 0.5,
+        "h1_shape": false
+      },
+      "D2'": {
+        "all_pass_group": {
+          "O_prime_rate": 0.0,
+          "payments": 10040,
+          "with_O_prime": 0
+        },
+        "bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "bootstrap_resamples_used": 8685,
+        "defect_group": {
+          "O_prime_rate": 0.5,
+          "payments": 2,
+          "with_O_prime": 1
+        },
+        "difference": 0.5,
+        "h1_shape": false
+      },
+      "D3'": {
+        "all_pass_group": {
+          "O_prime_rate": 0.0,
+          "payments": 10040,
+          "with_O_prime": 0
+        },
+        "bootstrap95": null,
+        "bootstrap_resamples_used": 0,
+        "defect_group": {
+          "O_prime_rate": null,
+          "payments": 0,
+          "with_O_prime": 0
+        },
+        "difference": null,
+        "h1_shape": false
+      },
+      "clusters": 10042
+    },
+    "international": {
+      "D1'": {
+        "all_pass_group": {
+          "O_prime_rate": 0.0,
+          "payments": 6187,
+          "with_O_prime": 0
+        },
+        "bootstrap95": null,
+        "bootstrap_resamples_used": 0,
+        "defect_group": {
+          "O_prime_rate": null,
+          "payments": 0,
+          "with_O_prime": 0
+        },
+        "difference": null,
+        "h1_shape": false
+      },
+      "D2'": {
+        "all_pass_group": {
+          "O_prime_rate": 0.0,
+          "payments": 6187,
+          "with_O_prime": 0
+        },
+        "bootstrap95": null,
+        "bootstrap_resamples_used": 0,
+        "defect_group": {
+          "O_prime_rate": null,
+          "payments": 0,
+          "with_O_prime": 0
+        },
+        "difference": null,
+        "h1_shape": false
+      },
+      "D3'": {
+        "all_pass_group": {
+          "O_prime_rate": 0.0,
+          "payments": 6187,
+          "with_O_prime": 0
+        },
+        "bootstrap95": null,
+        "bootstrap_resamples_used": 0,
+        "defect_group": {
+          "O_prime_rate": null,
+          "payments": 0,
+          "with_O_prime": 0
+        },
+        "difference": null,
+        "h1_shape": false
+      },
+      "clusters": 6187
+    },
+    "pooled": {
+      "D1'": {
+        "all_pass_group": {
+          "O_prime_rate": 0.0,
+          "payments": 16227,
+          "with_O_prime": 0
+        },
+        "bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "bootstrap_resamples_used": 8696,
+        "defect_group": {
+          "O_prime_rate": 0.5,
+          "payments": 2,
+          "with_O_prime": 1
+        },
+        "difference": 0.5,
+        "h1_shape": false
+      },
+      "D2'": {
+        "all_pass_group": {
+          "O_prime_rate": 0.0,
+          "payments": 16227,
+          "with_O_prime": 0
+        },
+        "bootstrap95": [
+          0.0,
+          1.0
+        ],
+        "bootstrap_resamples_used": 8696,
+        "defect_group": {
+          "O_prime_rate": 0.5,
+          "payments": 2,
+          "with_O_prime": 1
+        },
+        "difference": 0.5,
+        "h1_shape": false
+      },
+      "D3'": {
+        "all_pass_group": {
+          "O_prime_rate": 0.0,
+          "payments": 16227,
+          "with_O_prime": 0
+        },
+        "bootstrap95": null,
+        "bootstrap_resamples_used": 0,
+        "defect_group": {
+          "O_prime_rate": null,
+          "payments": 0,
+          "with_O_prime": 0
+        },
+        "difference": null,
+        "h1_shape": false
+      },
+      "clusters": 16229
+    }
+  },
+  "section": "8",
+  "statistic": "O' rate of payments failing the predicate minus O' rate of payments with every predicate passing; case-clustered bootstrap percentile interval",
+  "status": "descriptive, secondary; no p-value; not in the Holm family"
+}

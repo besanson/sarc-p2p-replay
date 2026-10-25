@@ -1,0 +1,38 @@
+{
+  "claim": "C11",
+  "logs": {
+    "domestic": {
+      "cases": 10500,
+      "cases_with_units": 10042,
+      "cases_without_payment": 456,
+      "excluded_payments_after_t_end_prime_minus_w": 2,
+      "file": "DomesticDeclarations.xes.gz",
+      "horizon": "2019-04-18T15:30:58+00:00",
+      "payments_in_log": 10044,
+      "t_end_prime": "2019-06-17T15:30:58+00:00",
+      "units": 10042,
+      "units_without_amount": 0
+    },
+    "international": {
+      "cases": 6449,
+      "cases_with_units": 6187,
+      "cases_without_payment": 262,
+      "excluded_payments_after_t_end_prime_minus_w": 0,
+      "file": "InternationalDeclarations.xes.gz",
+      "horizon": "2020-03-10T22:00:00+00:00",
+      "payments_in_log": 6187,
+      "t_end_prime": "2020-05-09T22:00:00+00:00",
+      "units": 6187,
+      "units_without_amount": 0
+    },
+    "pooled": {
+      "cases_with_units": 16229,
+      "units": 16229
+    }
+  },
+  "registration": "p7-v1.1",
+  "section": "8",
+  "status": "descriptive, secondary; no p-value; not in the Holm family",
+  "unit": "payment event with t_pay <= T_end' - W",
+  "window_days": 60
+}

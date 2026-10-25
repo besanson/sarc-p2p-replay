@@ -86,6 +86,12 @@ refer to `prereg/p7-v1.1.md`.
 | file | holds | section |
 |---|---|---|
 | `e7/vocabulary.json` | per log: activity names and counts, attribute keys, T_end'; per registered list, which names occur; mapped attributes present | 8 |
+| `e7/units.json` | per log and pooled: cases, payments, exclusions after T_end' - W, units | 8 |
+| `e7/predicates.json` | per log and pooled: D1', D2', D3' pass, fail and unknown counts | 8 |
+| `e7/exposure.json` | share of payments and of paid value (case `Amount`) with at least one failed predicate | 8 |
+| `e7/comparisons.json` | O' rate for D1', D2', D3' failures against all-pass, difference and case-clustered bootstrap interval; descriptive, not in Holm | 8 |
+| `e7/evidence-set.jsonl.gz` | one record per payment unit, ids hashed | 8 |
+| `e7/double-run.json` | E7 vocabulary check and replication run twice: byte comparison | 8 |
 
 ## Checks
 

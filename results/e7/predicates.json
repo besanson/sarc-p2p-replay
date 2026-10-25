@@ -1,0 +1,60 @@
+{
+  "claim": "C11",
+  "counts": {
+    "domestic": {
+      "D1'": {
+        "fail": 2,
+        "pass": 10040,
+        "unknown": 0
+      },
+      "D2'": {
+        "fail": 2,
+        "pass": 10040,
+        "unknown": 0
+      },
+      "D3'": {
+        "fail": 0,
+        "pass": 10040,
+        "unknown": 2
+      }
+    },
+    "international": {
+      "D1'": {
+        "fail": 0,
+        "pass": 6187,
+        "unknown": 0
+      },
+      "D2'": {
+        "fail": 0,
+        "pass": 6187,
+        "unknown": 0
+      },
+      "D3'": {
+        "fail": 0,
+        "pass": 6187,
+        "unknown": 0
+      }
+    },
+    "pooled": {
+      "D1'": {
+        "fail": 2,
+        "pass": 16227,
+        "unknown": 0
+      },
+      "D2'": {
+        "fail": 2,
+        "pass": 16227,
+        "unknown": 0
+      },
+      "D3'": {
+        "fail": 0,
+        "pass": 16227,
+        "unknown": 2
+      }
+    }
+  },
+  "registration": "p7-v1.1",
+  "rule": "D3' is unknown when no approval precedes the payment (D-B-1)",
+  "section": "8",
+  "status": "descriptive, secondary; no p-value; not in the Holm family"
+}

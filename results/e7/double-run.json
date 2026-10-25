@@ -1,0 +1,42 @@
+{
+  "all_identical": true,
+  "committed": "results/e7",
+  "files": [
+    {
+      "file": "comparisons.json",
+      "identical": true,
+      "sha256_committed": "3eb78536a1aea74ee725d5452a61cad214a2f5a6fe3b9b377181d91e227723b2",
+      "sha256_rerun": "3eb78536a1aea74ee725d5452a61cad214a2f5a6fe3b9b377181d91e227723b2"
+    },
+    {
+      "file": "evidence-set.jsonl.gz",
+      "identical": true,
+      "sha256_committed": "0d0b09caceebd1c855b07eea728a881fe7047d6ab6d3c625b4834d49aaf9f8eb",
+      "sha256_rerun": "0d0b09caceebd1c855b07eea728a881fe7047d6ab6d3c625b4834d49aaf9f8eb"
+    },
+    {
+      "file": "exposure.json",
+      "identical": true,
+      "sha256_committed": "d81ee233499642fa1bd67681eac010f6e0c5d920701c834402124a609e7ba715",
+      "sha256_rerun": "d81ee233499642fa1bd67681eac010f6e0c5d920701c834402124a609e7ba715"
+    },
+    {
+      "file": "predicates.json",
+      "identical": true,
+      "sha256_committed": "4a5239dfc10221525ab8f3e839289401262bee2f37dd87d3bc29fb1210b5f27d",
+      "sha256_rerun": "4a5239dfc10221525ab8f3e839289401262bee2f37dd87d3bc29fb1210b5f27d"
+    },
+    {
+      "file": "units.json",
+      "identical": true,
+      "sha256_committed": "69703a41567fe00c98aefcbce8ac797f77d504f7814ef12b536db88d890919ff",
+      "sha256_rerun": "69703a41567fe00c98aefcbce8ac797f77d504f7814ef12b536db88d890919ff"
+    },
+    {
+      "file": "vocabulary.json",
+      "identical": true,
+      "sha256_committed": "e85cc2204600d2ede7eef3754021d0d44d84d090d754cfd23f9a414781e9d2cf",
+      "sha256_rerun": "e85cc2204600d2ede7eef3754021d0d44d84d090d754cfd23f9a414781e9d2cf"
+    }
+  ]
+}

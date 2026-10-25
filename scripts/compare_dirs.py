@@ -19,7 +19,7 @@ def digest(p: Path) -> str | None:
 
 def main(argv: list[str]) -> int:
     a, b, out = Path(argv[0]), Path(argv[1]), Path(argv[2])
-    names = sorted({p.name for p in a.iterdir() if p.is_file()} | {p.name for p in b.iterdir() if p.is_file()}
+    names = sorted(({p.name for p in a.iterdir() if p.is_file()} | {p.name for p in b.iterdir() if p.is_file()})
                    - {out.name})
     rows = [{"file": n, "sha256_committed": digest(a / n), "sha256_rerun": digest(b / n),
              "identical": digest(a / n) is not None and digest(a / n) == digest(b / n)} for n in names]

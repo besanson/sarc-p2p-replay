@@ -1,0 +1,36 @@
+{
+  "claim": "C11",
+  "registration": "p7-v1.1",
+  "scopes": {
+    "domestic": {
+      "paid_value_eur": 906547.56,
+      "paid_value_with_a_failed_predicate_eur": 85.23,
+      "share_of_paid_value": 9.402153832364911e-05,
+      "share_of_payments": 0.00019916351324437363,
+      "units": 10042,
+      "units_with_amount": 10042,
+      "with_a_failed_predicate": 2
+    },
+    "international": {
+      "paid_value_eur": 4940699.28,
+      "paid_value_with_a_failed_predicate_eur": 0.0,
+      "share_of_paid_value": 0.0,
+      "share_of_payments": 0.0,
+      "units": 6187,
+      "units_with_amount": 6187,
+      "with_a_failed_predicate": 0
+    },
+    "pooled": {
+      "paid_value_eur": 5847246.84,
+      "paid_value_with_a_failed_predicate_eur": 85.23,
+      "share_of_paid_value": 1.4576945056155732e-05,
+      "share_of_payments": 0.00012323618214307722,
+      "units": 16229,
+      "units_with_amount": 16229,
+      "with_a_failed_predicate": 2
+    }
+  },
+  "section": "8",
+  "status": "descriptive, secondary; no p-value; not in the Holm family",
+  "value": "case attribute `Amount`, read beside the registered mapping; each payment carries its case's amount"
+}
