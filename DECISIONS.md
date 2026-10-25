@@ -595,3 +595,31 @@ is the author's decision before E4.
 | framed lines after E0 removal | | 180,664 |
 | analysed clearings | | 155,534 |
 | events after T_end (2019-01-18T13:34:00+00:00) excluded | | 9 |
+
+## D-C-2 Author decisions before E4 (2026-10-25)
+
+The author's decisions, final; recorded here with their reasons and logged as
+deviations in `prereg/DEVIATIONS.md` (A, B) or as a status correction there (C).
+
+**A. H3 convention.** H3 is not computable: the D5 defect group is empty
+(0 analysed clearings fail D5, D-C-1). The Holm family stays at five tests
+and H3 enters it with p = 1. C5 will read "inconclusive: defect class has zero
+incidence in this log" at the end of Phase C. Reason: the hypothesis cannot be
+tested on this log, and p = 1 is the conservative convention.
+Chosen after the raw p-values of H1 (0.000113) and H2 (6.96e-08) were known and
+before any H4 value existed.
+
+**B. D5 at a decision point that is not a clearing.** At a t* that is not a
+clearing (first invoice receipt + W, section 7), D5 is not applicable and counts
+as pass: the predicate asks whether the decider is the line's creator, and at a
+replayed decision the decider is the gate or the model. Reason: a definitional
+gap in section 7. Under the literal reading (D5 unknown, D-C-1) a line held by
+people can never be clean: 1 of 91,178 clean lines
+are held, against 47,597 held-unknown lines all held
+(rate 1.0), so the human arm on clean lines would be degenerate by
+construction. B changes line status at t* for E3's human-hold slot and for the
+E4 sample; it changes no predicate at an actual clearing (E1 and E2 untouched).
+Decided before any E4 call.
+
+**C. Status line.** `prereg/DEVIATIONS.md`: "p7-v1.1: no deviations (pending
+tag)" becomes "p7-v1.1: tagged `prereg-p7-v1.1` on d8cdb2d."

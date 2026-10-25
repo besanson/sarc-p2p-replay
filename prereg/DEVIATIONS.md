@@ -28,4 +28,26 @@ section 2.2. Three changes, registered in `prereg/p7-v1.1.md`:
 
 No result is touched: none exists. E0 is drawn again under v1.1 before E1.
 
-p7-v1.1: no deviations (pending tag).
+p7-v1.1: tagged `prereg-p7-v1.1` on d8cdb2d.
+
+## Under p7-v1.1
+
+### H3 convention (2026-10-25)
+
+Found after E2 (`DECISIONS.md` D-C-1): no analysed clearing fails D5, so the
+H3 defect group is empty and the registered H3 statistic is not computable.
+The author decided (D-C-2, A) that the Holm family stays at five tests and H3
+enters it with p = 1; C5 will read "inconclusive: defect class has zero
+incidence in this log". Touches: the Holm family (section 4). Does not touch
+the E1 or E2 estimates. Results it changes: the Holm table in `results/e2/hypotheses.json`
+(`holm`) and `results/e4/h4.json`.
+
+### D5 applicability at a non-clearing decision point (2026-10-25)
+
+Found at E3 (`DECISIONS.md` D-C-1): under the literal reading of section 7, D5
+at a decision point t* that is not a clearing is unknown, so a line with no
+clearing within W can never be clean. The author decided (D-C-2, B) that D5 is
+not applicable there and counts as pass. Touches: the line status at t*, hence
+the E3 human-hold slot and the E4 sample frame. Does not touch E1 or E2 (no
+predicate at an actual clearing changes). Results it changes:
+`results/e3/human-hold.json` (both readings kept) and every E4 result.
