@@ -46,6 +46,15 @@ refer to `prereg/p7-v1.1.md`.
 | `e3/human-hold.json` | human-hold classification of every framed line, unclassified count, human hold rate on defective and on clean lines, under the literal reading and under D-C-2 B | 3.6, 7; DEVIATIONS |
 | `e3/confounders.json` | the E3 quantities per stratum | 2.3, 6 |
 
+## e4/ (E4, agent replay: `experiments/e4_sample.py`, `experiments/e4.py`)
+
+| file | holds | section |
+|---|---|---|
+| `e4/sample.json` | the drawn lines in registered order: hashed id, stratum, status at t* (D-C-2 B), failed predicates, t*, value, the human arm from the log | 7; DEVIATIONS |
+| `e4/sample-frame.json` | eligible lines per status and stratum, the allocation, the drawn counts | 7 |
+| `e4/views.jsonl` | the ERP view of each sampled line, keyed by order | 7 |
+| `e4/views-timeline.jsonl` | the exploratory timeline view of each sampled line, keyed by order (exploratory) | 7 |
+
 ## e6/ (E6, timing: `experiments/e6.py`)
 
 | file | holds | section |

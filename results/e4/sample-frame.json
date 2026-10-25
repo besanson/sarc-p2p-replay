@@ -1,0 +1,149 @@
+{
+  "allocation": "proportional to eligible lines per stratum, largest remainder; ties by stratum label",
+  "amendment": "DECISIONS.md D-C-2 B",
+  "cutpoints": {
+    "line_value_quartile_cutpoints_eur": [
+      184.0,
+      573.0,
+      2223.0
+    ],
+    "rule": "Q1 <= first cutpoint < Q2 <= second < Q3 <= third < Q4; numpy linear quantiles over framed lines",
+    "vendor_activity_quartile_cutpoints_lines": [
+      319.0,
+      1117.0,
+      3276.0
+    ]
+  },
+  "draw_rule": "eligible lines sorted by hashed line id, shuffled once with random.Random(seed); taken in that order while the status x stratum quota is open and the purchase document is unused",
+  "framed_lines_after_e0_removal": 180664,
+  "groups": {
+    "clean": {
+      "drawn": 1000,
+      "eligible_lines": 147240,
+      "shortfall": 0,
+      "strata": {
+        "2-way | Q1": {
+          "allocated": 0,
+          "drawn": 0,
+          "eligible": 5
+        },
+        "2-way | Q2": {
+          "allocated": 0,
+          "drawn": 0,
+          "eligible": 23
+        },
+        "2-way | Q3": {
+          "allocated": 0,
+          "drawn": 0,
+          "eligible": 61
+        },
+        "2-way | Q4": {
+          "allocated": 2,
+          "drawn": 2,
+          "eligible": 345
+        },
+        "3-way, invoice after receipt | Q1": {
+          "allocated": 16,
+          "drawn": 16,
+          "eligible": 2272
+        },
+        "3-way, invoice after receipt | Q2": {
+          "allocated": 13,
+          "drawn": 13,
+          "eligible": 1857
+        },
+        "3-way, invoice after receipt | Q3": {
+          "allocated": 13,
+          "drawn": 13,
+          "eligible": 1928
+        },
+        "3-way, invoice after receipt | Q4": {
+          "allocated": 12,
+          "drawn": 12,
+          "eligible": 1710
+        },
+        "3-way, invoice before receipt | Q1": {
+          "allocated": 249,
+          "drawn": 249,
+          "eligible": 36699
+        },
+        "3-way, invoice before receipt | Q2": {
+          "allocated": 252,
+          "drawn": 252,
+          "eligible": 37095
+        },
+        "3-way, invoice before receipt | Q3": {
+          "allocated": 235,
+          "drawn": 235,
+          "eligible": 34645
+        },
+        "3-way, invoice before receipt | Q4": {
+          "allocated": 208,
+          "drawn": 208,
+          "eligible": 30600
+        }
+      }
+    },
+    "defective": {
+      "drawn": 1000,
+      "eligible_lines": 18006,
+      "shortfall": 0,
+      "strata": {
+        "2-way | Q4": {
+          "allocated": 1,
+          "drawn": 1,
+          "eligible": 14
+        },
+        "3-way, invoice after receipt | Q1": {
+          "allocated": 18,
+          "drawn": 18,
+          "eligible": 326
+        },
+        "3-way, invoice after receipt | Q2": {
+          "allocated": 16,
+          "drawn": 16,
+          "eligible": 278
+        },
+        "3-way, invoice after receipt | Q3": {
+          "allocated": 15,
+          "drawn": 15,
+          "eligible": 273
+        },
+        "3-way, invoice after receipt | Q4": {
+          "allocated": 25,
+          "drawn": 25,
+          "eligible": 445
+        },
+        "3-way, invoice before receipt | Q1": {
+          "allocated": 95,
+          "drawn": 95,
+          "eligible": 1717
+        },
+        "3-way, invoice before receipt | Q2": {
+          "allocated": 149,
+          "drawn": 149,
+          "eligible": 2688
+        },
+        "3-way, invoice before receipt | Q3": {
+          "allocated": 262,
+          "drawn": 262,
+          "eligible": 4713
+        },
+        "3-way, invoice before receipt | Q4": {
+          "allocated": 419,
+          "drawn": 419,
+          "eligible": 7552
+        }
+      }
+    }
+  },
+  "registration": "p7-v1.1",
+  "section": "7",
+  "status_at_t_star_amended": {
+    "clean": 147240,
+    "defective": 18006,
+    "held_unknown": 0,
+    "no_invoice_receipt": 15418
+  },
+  "stratum": "category x line-value quartile (quartiles over framed lines, results/e1)"
+}
