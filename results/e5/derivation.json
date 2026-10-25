@@ -1,0 +1,211 @@
+{
+  "categories": {
+    "2-way": {
+      "analysed_clearings": 188,
+      "clearings_per_loss": {
+        "L1": 0,
+        "L2": 0,
+        "L3": 4
+      },
+      "clearings_with_any_loss": 4,
+      "contracts_of_minimal_reducts": [
+        [
+          "D4"
+        ]
+      ],
+      "core_fields": [
+        "changes"
+      ],
+      "derived_contract": [
+        "D4"
+      ],
+      "derived_not_registered": [],
+      "distinct_states": 3,
+      "equal": false,
+      "fields_outside_every_predicate": [],
+      "minimal_reducts": [
+        [
+          "changes"
+        ]
+      ],
+      "minimum_cardinality_field_set": [
+        "changes"
+      ],
+      "registered_contract": [
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7"
+      ],
+      "registered_not_derived": [
+        "D3",
+        "D5",
+        "D6",
+        "D7"
+      ],
+      "result": "does not reproduce"
+    },
+    "3-way, invoice after receipt": {
+      "analysed_clearings": 9640,
+      "clearings_per_loss": {
+        "L1": 0,
+        "L2": 81,
+        "L3": 1585
+      },
+      "clearings_with_any_loss": 1647,
+      "contracts_of_minimal_reducts": [
+        [
+          "D3",
+          "D4"
+        ]
+      ],
+      "core_fields": [
+        "changes",
+        "clearing_ordinal",
+        "invoices"
+      ],
+      "derived_contract": [
+        "D3",
+        "D4"
+      ],
+      "derived_not_registered": [],
+      "distinct_states": 896,
+      "equal": false,
+      "fields_outside_every_predicate": [
+        "clearing_ordinal"
+      ],
+      "minimal_reducts": [
+        [
+          "changes",
+          "clearing_ordinal",
+          "invoices"
+        ]
+      ],
+      "minimum_cardinality_field_set": [
+        "changes",
+        "clearing_ordinal",
+        "invoices"
+      ],
+      "registered_contract": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7"
+      ],
+      "registered_not_derived": [
+        "D1",
+        "D2",
+        "D5",
+        "D6",
+        "D7"
+      ],
+      "result": "does not reproduce"
+    },
+    "3-way, invoice before receipt": {
+      "analysed_clearings": 145706,
+      "clearings_per_loss": {
+        "L1": 692,
+        "L2": 1390,
+        "L3": 15568
+      },
+      "clearings_with_any_loss": 16894,
+      "contracts_of_minimal_reducts": [
+        [
+          "D1",
+          "D2",
+          "D3",
+          "D4"
+        ]
+      ],
+      "core_fields": [
+        "changes",
+        "clearing_ordinal",
+        "invoices",
+        "receipts"
+      ],
+      "derived_contract": [
+        "D1",
+        "D2",
+        "D3",
+        "D4"
+      ],
+      "derived_not_registered": [],
+      "distinct_states": 758,
+      "equal": false,
+      "fields_outside_every_predicate": [
+        "clearing_ordinal"
+      ],
+      "minimal_reducts": [
+        [
+          "changes",
+          "clearing_ordinal",
+          "invoices",
+          "receipts"
+        ]
+      ],
+      "minimum_cardinality_field_set": [
+        "changes",
+        "clearing_ordinal",
+        "invoices",
+        "receipts"
+      ],
+      "registered_contract": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7"
+      ],
+      "registered_not_derived": [
+        "D5",
+        "D6",
+        "D7"
+      ],
+      "result": "does not reproduce"
+    }
+  },
+  "claim": "C9",
+  "compiler": {
+    "commit": "cfb321ec220e83e81a771a048276571f6edf08fb",
+    "entry_point": "authority_compiler.derive_authority_contract",
+    "modified": false,
+    "repository": "sarc-authority-derivation",
+    "version": "0+unknown"
+  },
+  "derived_contract_rule": "registered predicates whose observation is in the minimum-cardinality reduct",
+  "fields": {
+    "blocks": [
+      "D6"
+    ],
+    "changes": [
+      "D4"
+    ],
+    "clearing_ordinal": [],
+    "closed": [
+      "D7"
+    ],
+    "distinct_actors": [
+      "D5"
+    ],
+    "invoices": [
+      "D3"
+    ],
+    "receipts": [
+      "D1",
+      "D2"
+    ]
+  },
+  "losses": {
+    "L1": "pay for goods not received: the category requires a goods receipt and receipts <= 0",
+    "L2": "pay twice: clearing_ordinal > invoices",
+    "L3": "pay a changed amount: changes > 0"
+  },
+  "registration": "p7-v1.1",
+  "section": "6, E5"
+}

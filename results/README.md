@@ -66,6 +66,14 @@ refer to `prereg/p7-v1.1.md`.
 | `e4-exploratory/arms-exploratory.json` | exploratory: the arm measures of `e4/arms.json` with the timeline view | 7 (exploratory) |
 | `e4-exploratory/double-run.json` | the exploratory analysis run twice: byte comparison | 7 (exploratory) |
 
+## e5/ (E5, derivation with paper 5's compiler: `experiments/e5.py`)
+
+| file | holds | section |
+|---|---|---|
+| `e5/derivation.json` | per category: states, clearings per declared loss, the compiler's core, reducts and minimum-cardinality field set, the derived contract against the registered one, "reproduces" or "does not reproduce" | 3.1, 6 (E5) |
+| `e5/trace-<category>.json` | the compiler's full output per category: candidate context, certificate, witnesses, every state with its losses | 6 (E5) |
+| `e5/double-run.json` | E5 run twice: byte comparison | 6 (E5) |
+
 ## e6/ (E6, timing: `experiments/e6.py`)
 
 | file | holds | section |

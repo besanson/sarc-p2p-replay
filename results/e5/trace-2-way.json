@@ -1,0 +1,135 @@
+{
+  "candidate_context": {
+    "blocks": [
+      0
+    ],
+    "changes": [
+      0,
+      1
+    ],
+    "clearing_ordinal": [
+      1,
+      2
+    ],
+    "closed": [
+      0
+    ],
+    "distinct_actors": [
+      "pass"
+    ],
+    "invoices": [
+      1,
+      2
+    ],
+    "receipts": [
+      0
+    ]
+  },
+  "candidate_property_count": 7,
+  "category": "2-way",
+  "compiler": "authority_compiler.derive_authority_contract",
+  "core_attributes": [
+    "changes"
+  ],
+  "core_witnesses": {
+    "changes": [
+      {
+        "loss_id": "L3",
+        "tuple_a": {
+          "blocks": 0,
+          "changes": 0,
+          "clearing_ordinal": 1,
+          "closed": 0,
+          "distinct_actors": "pass",
+          "invoices": 1,
+          "receipts": 0
+        },
+        "tuple_a_prime": {
+          "blocks": 0,
+          "changes": 1,
+          "clearing_ordinal": 1,
+          "closed": 0,
+          "distinct_actors": "pass",
+          "invoices": 1,
+          "receipts": 0
+        },
+        "verdict_a": false,
+        "verdict_a_prime": true
+      }
+    ]
+  },
+  "counterexamples": null,
+  "losses": {
+    "L1": "pay for goods not received: the category requires a goods receipt and receipts <= 0",
+    "L2": "pay twice: clearing_ordinal > invoices",
+    "L3": "pay a changed amount: changes > 0"
+  },
+  "minimal_reducts": [
+    [
+      "changes"
+    ]
+  ],
+  "minimal_reducts_note": null,
+  "minimum_cardinality_reduct": [
+    "changes"
+  ],
+  "minimum_cost_reduct": null,
+  "reachability_dependencies": [],
+  "reachable_tuple_count": 3,
+  "redundant_attributes": [
+    "blocks",
+    "clearing_ordinal",
+    "closed",
+    "distinct_actors",
+    "invoices",
+    "receipts"
+  ],
+  "registration": "p7-v1.1",
+  "states": [
+    {
+      "clearings": 180,
+      "losses": [],
+      "state": {
+        "blocks": 0,
+        "changes": 0,
+        "clearing_ordinal": 1,
+        "closed": 0,
+        "distinct_actors": "pass",
+        "invoices": 1,
+        "receipts": 0
+      }
+    },
+    {
+      "clearings": 4,
+      "losses": [
+        "L3"
+      ],
+      "state": {
+        "blocks": 0,
+        "changes": 1,
+        "clearing_ordinal": 1,
+        "closed": 0,
+        "distinct_actors": "pass",
+        "invoices": 1,
+        "receipts": 0
+      }
+    },
+    {
+      "clearings": 4,
+      "losses": [],
+      "state": {
+        "blocks": 0,
+        "changes": 0,
+        "clearing_ordinal": 2,
+        "closed": 0,
+        "distinct_actors": "pass",
+        "invoices": 2,
+        "receipts": 0
+      }
+    }
+  ],
+  "sufficiency_certificate": {
+    "partition_cell_count": 2,
+    "uniform_verdict_within_every_cell": true
+  }
+}

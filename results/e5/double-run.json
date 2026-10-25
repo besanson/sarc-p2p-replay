@@ -1,0 +1,30 @@
+{
+  "all_identical": true,
+  "committed": "results/e5",
+  "files": [
+    {
+      "file": "derivation.json",
+      "identical": true,
+      "sha256_committed": "3cbf9d9b0adc76cf6861b916fad76ccefc6dad00767621fe3e97e4e6e88de3ac",
+      "sha256_rerun": "3cbf9d9b0adc76cf6861b916fad76ccefc6dad00767621fe3e97e4e6e88de3ac"
+    },
+    {
+      "file": "trace-2-way.json",
+      "identical": true,
+      "sha256_committed": "5affb9165555f897925d1cc8b6240f4e75fa29bd7659b0cc0bce426d2c61961e",
+      "sha256_rerun": "5affb9165555f897925d1cc8b6240f4e75fa29bd7659b0cc0bce426d2c61961e"
+    },
+    {
+      "file": "trace-3-way-invoice-after-receipt.json",
+      "identical": true,
+      "sha256_committed": "b526262dba4228b2644a0a45e8c12b7dd4babdc4e466f5ce01c81ca1894547b6",
+      "sha256_rerun": "b526262dba4228b2644a0a45e8c12b7dd4babdc4e466f5ce01c81ca1894547b6"
+    },
+    {
+      "file": "trace-3-way-invoice-before-receipt.json",
+      "identical": true,
+      "sha256_committed": "adc1fc3880e0f933d0cd9de3bf86ecfbfe1c41c5ad78289990a7ec8233a0584a",
+      "sha256_rerun": "adc1fc3880e0f933d0cd9de3bf86ecfbfe1c41c5ad78289990a7ec8233a0584a"
+    }
+  ]
+}
