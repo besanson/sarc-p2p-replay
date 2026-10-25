@@ -22,6 +22,9 @@ Rules, applied to live prose (README.md, paper/**/*.md, results/**/*.md):
                          appear, except under a local negation ("no causal
                          claim", "not ready").
 
+A `## References` section is skipped: it quotes cited titles verbatim (one verified title names
+a banned word); the rules apply to the paper's own prose.
+
 The registration documents (prereg/, CLAIMS.md, COVERAGE.md, NOVELTY.md,
 DECISIONS.md) are not targets: they name these words in order to forbid them.
 
@@ -86,8 +89,13 @@ def _negated(para: str, pos: int) -> bool:
     return bool(_NEGATION_LOCAL.search(para[max(0, pos - 60) : pos]))
 
 
+_REFERENCES = re.compile(r"^## References[ \t]*\n.*?(?=^## |\Z)", re.MULTILINE | re.DOTALL)
+
+
 def lint_text(text: str) -> list[dict[str, Any]]:
-    stripped = strip_code(text)
+    # A paper's References section quotes the titles of cited works verbatim; it is not the
+    # paper's own voice, so it is blanked (line numbers kept) before the rules apply.
+    stripped = _REFERENCES.sub(_blank, strip_code(text))
     violations: list[dict[str, Any]] = []
 
     def add(rule: str, offset: int, para: str, word: str) -> None:

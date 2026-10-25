@@ -73,6 +73,8 @@ REGISTERED: dict[str, str] = {
     r"\bfive tests\b": "prereg/p7-v1.1.md section 4 (Holm family)",
     r"\bCC BY(?:-NC)? 4\.0\b": "prereg/p7-v1.1.md section Data (licences as the record pages state them)",
     r"\bSHA-256\b": "hash algorithm name",
+    r"\bO'? = 1\b": "prereg/p7-v1.1.md sections 3.7 and 8 (definition of the outcome proxy)",
+    r"\bp = 1\b": "prereg/DEVIATIONS.md, H3 convention (the p-value H3 enters Holm with)",
 }
 
 _STRIP_URLS: list[Pattern] = [
@@ -82,6 +84,7 @@ _STRIP_URLS: list[Pattern] = [
     re.compile(r"https?://\S+"),
     re.compile(r"\bdoi:\s*\S+"),
     re.compile(r"\b10\.\d{4,9}/\S+"),
+    re.compile(r"\]\([^)\s]*\)"),  # markdown link and image targets (file names, anchors)
 ]
 _PLACEHOLDER = re.compile(r"\{\{.*?\}\}", re.DOTALL)
 
@@ -93,13 +96,15 @@ _ALLOWED: list[Pattern] = [
     re.compile(rf"\b\d{{1,2}}\s+(?:{_MONTHS})\s+(?:19|20)\d{{2}}\b"),
     re.compile(r"\b(?:19|20)\d{2}[a-z]?\b"),
     re.compile(r"\bH4-(?:Jev|Haiku)\b"),
-    re.compile(r"\b[A-Z]{1,3}\d{1,2}'?(?![\d.,])"),
+    re.compile(r"\bD-[A-Z]+\d*-\d+[a-z]?\b"),  # decision ids (D-A1-1, D-C-2)
+    re.compile(r"\b[A-Z]{1,3}\d{1,2}'?(?!\d|[.,]\d)"),
     re.compile(r"\bp7-v\d+(?:\.\d+)?\b"),
     re.compile(r"\bv\d+(?:\.\d+){0,2}\b"),
     re.compile(r"\b[23]-way\b"),
     re.compile(r"\b2 x 2\b"),
     re.compile(r"\b4TU\b"),
-    *[re.compile(p) for p in REGISTERED],
+    # A registered constant may wrap across a line: its spaces match any whitespace.
+    *[re.compile(p.replace(" ", r"\s+")) for p in REGISTERED],
 ]
 
 
