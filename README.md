@@ -5,7 +5,7 @@ Wild: A Registered Replay of a Real Purchase-to-Pay Process**. Author: Gaston
 Besanson, Universidad Torcuato Di Tella. Sole author; AI tools are support,
 disclosed in the acknowledgements only.
 
-**Status: Phase C closed; every slot in results/; Phase D (paper) not started.**
+**Status: Phase D: draft v0.1 in paper/, generated from slots; review round 1 open.**
 
 ## What the paper does
 
@@ -37,7 +37,7 @@ What it does not claim: see `CLAIMS.md` (non-claims) and `COVERAGE.md`
 | `src/p2p_replay/` | replay engine: XES/CSV reader, evidence at clearing time, predicates D1 to D7, contract per category, outcome proxy, evidence set, ERP view, E7 predicates, CLI |
 | `tests/` | unit, fixture, CLI and property tests; synthetic fixtures in `tests/fixtures/` |
 | `experiments/` `responses/` `results/` | E0 to E7 runners, E4 caches, slots (Phases C and later) |
-| `paper/` `paper-tex/` `review-secondary/` | draft, gates, external reviews (Phases D and later) |
+| `paper/` `paper-tex/` `review-secondary/` | `paper/template.md` (source), `paper/paper.md` and figures (generated from the slots), `paper-tex/main.tex` (generated), review packets and replies |
 | `data/` | gitignored; fetched by `make bootstrap` |
 
 ## Reproduce

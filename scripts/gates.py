@@ -24,7 +24,8 @@ token purity, number parity between source and typeset paper) sit inside G9.
                       equal as a multiset, references only verified records; the PDF build waits
                       for a LaTeX engine when none is installed
 
-Each gate is "pass", "fail" or "waiting" (with the reason); the run passes when no gate fails.
+Each gate is "pass", "fail" or "waiting": waiting when every check it can run now passes and an
+item remains for a later phase or environment (named in the report). The run passes when no gate fails.
 
 Usage: python scripts/gates.py [--quick]   (--quick skips the log replays of G4)
 """
@@ -279,6 +280,9 @@ def main(argv: list[str] | None = None) -> int:
             result = fn(args.quick) if name.startswith("G4") else fn()
         except Exception as exc:  # noqa: BLE001 - a crashing gate is a failing gate
             result = gate("fail", f"{type(exc).__name__}: {exc}")
+        # A gate whose checks pass but which still waits on a later phase reports "waiting".
+        if result["status"] == "pass" and result["waiting"]:
+            result["status"] = "waiting"
         report["gates"][name] = result
         print(f"{name}: {result['status']}" + (f" (waiting: {'; '.join(result['waiting'])})" if result["waiting"] else ""))
     statuses = [g["status"] for g in report["gates"].values()]

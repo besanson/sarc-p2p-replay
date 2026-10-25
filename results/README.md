@@ -100,6 +100,12 @@ refer to `prereg/p7-v1.1.md`.
 | `mutation.json` | mutation gate result on `src/` (kill score, counts, threshold) | 10 |
 | `checks-d-c-2.json` | D-C-2 B applied: E1 re-run from the log against the committed files, E2 re-run, E3 double run | DEVIATIONS |
 
+## Paper (`scripts/fill_paper.py`)
+
+| file | holds | section |
+|---|---|---|
+| `filled-template.json` | every placeholder of `paper/template.md`: its text in `paper/paper.md`, source file, key, raw value and span | 12 (Phase D) |
+
 ## Reproducibility (`experiments/repro.py`)
 
 | file | holds | section |
