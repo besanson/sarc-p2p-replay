@@ -642,3 +642,70 @@ on clean lines 0.000011 (literal) and 0.3430 (B).
 Mutation gate (`make mutate`, `results/mutation.json`): 1,526 mutants,
 1,432 killed, 94 survived, 0 without a covering
 test; kill score 0.9384 (gate 0.85, passed).
+
+## D-C-3 E4 run (2026-10-25)
+
+**Sample (section 7, D-C-2 B; `results/e4/sample-frame.json`).** Framed lines after E0
+removal 180,664; status at t* under B: defective 18,006,
+clean 147,240, held-unknown 0, no invoice receipt 15,418.
+Eligible: 18,006 defective, 147,240 clean. Drawn:
+1,000 defective and 1,000 clean (shortfall 0 and
+0), from 2,000 purchase documents. The draw was committed and
+pushed before any call. Human arm from the log on these lines: unclassified 152.
+
+**Families.** Statuses, invalid replies (after the one re-request), H4 and spend
+(`results/e4/arms.json`, `results/e4/h4.json`):
+
+| family | status | lines | invalid | hold rate, defective | hold rate, clean | d | p_TOST | kappa with gate | spend USD | USD per decision |
+|---|---|---|---|---|---|---|---|---|---|---|
+| jev | COMPLETE | 2,000 | 0 | 1.0000 | 0.5300 | 0.4700 | 1 | 0.4700 | 0.0446 | 0.000022 |
+| haiku | COMPLETE | 2,000 | 0 | 0.9960 | 0.5730 | 0.4230 | 1 | 0.4230 | 0.7353 | 0.000368 |
+
+People (from the log): hold rate on defective lines 0.3300, on clean
+lines 0.3397. Gate: holds every defective line and allows every clean one.
+
+**Spend.** Total USD 1.5698 against the cap of USD 60
+(`results/e6/cost.json`): e4/haiku USD 0.7353; e4/jev USD 0.0446; e4-exploratory/haiku USD 0.7422; e4-exploratory/jev USD 0.0477.
+
+**Holm over the five-test family** (alpha 0.05; H3 enters with p = 1, D-C-2 A;
+written to `results/e2/hypotheses.json` under `holm` and to `results/e4/h4.json`):
+
+| test | p raw | rank | multiplier | p Holm | below alpha |
+|---|---|---|---|---|---|
+| H2 | 6.96e-08 | 1 | 5 | 3.48e-07 | yes |
+| H1 | 0.000113 | 2 | 4 | 0.000453 | yes |
+| H3 | 1 | 3 | 3 | 1 | no |
+| H4-Haiku | 1 | 4 | 2 | 1 | no |
+| H4-Jev | 1 | 5 | 1 | 1 | no |
+
+**Double run.** The E4 analysis run twice from the committed responses: byte-identical:
+yes (`results/e4/double-run.json`). Exploratory timeline arm ran (labelled exploratory, never in Holm): jev COMPLETE (2,000 lines, 0 invalid), haiku COMPLETE (2,000 lines, 0 invalid); results in `results/e4-exploratory/`; analysis double run byte-identical: yes.
+
+**Pipeline readings (no registered item changed).**
+
+- Jev request. System One answers typed questions about a state; it has no free-text reply,
+  so the registered template's JSON reply cannot apply to it. The view's task sentences
+  (up to the reply-format sentence) are the state's `context`, the ERP record its `record`,
+  and the question is one `choice` with labels `clear` and `hold`; `decision` is the selected
+  label and `p_hold` the probability of `hold`. A reply without a valid choice or a `hold`
+  probability in [0, 1] is invalid; a 422 is re-requested once, as an invalid reply. Model
+  alias `jev-latest`; MODEL_VERSION_CHANGED for Jev means a returned model other than the
+  first one it returned.
+- Registered sample order: the sample sorted by hashed line id (field `order`). Line ids
+  are the hashed ids of the evidence set, as for every E1 to E3 output (D-C-1).
+- Draw: eligible lines sorted by hashed id, shuffled once with `random.Random(20261201)`, then
+  taken in that order while the status x stratum quota is open and the purchase document is
+  unused. Stratum quartiles are those of E1 (framed lines).
+- Lines whose t* (first invoice receipt + W) falls after T_end stay in the frame as section 7
+  defines it; their view is built from events up to T_end. Count in the sample:
+  150.
+- Hold rates, kappa and released value use valid replies only; an invalid reply counts as
+  neither hold nor clear. The human arm uses classified lines only (3.6).
+- Expected correctives: a released defective line carries the E2 O rate at W = 60 of the H1
+  defect group if D1/D2 fails, else of the H2 defect group if D4 fails; lines failing
+  neither (D3, D6 or D7 only) have no E2 group and are counted, not imputed.
+- Cost: every attempt is charged from the reported token usage at the prices recorded in the
+  manifest (paper 6's prices), or at the worst-case bound when no usage is reported;
+  retries and re-requests included.
+- Exploratory view: the template's task paragraph followed by the line's events up to t*
+  (date, activity, value), with no actor, id, company or vendor.
