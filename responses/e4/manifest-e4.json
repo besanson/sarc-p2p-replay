@@ -1,6 +1,6 @@
 {
   "cap_usd": 60.0,
-  "committed_usd_total": 0.7798848979999999,
+  "committed_usd_total": 1.5698002420000001,
   "families": {
     "e4": {
       "haiku": {
@@ -85,6 +85,91 @@
         "spend_usd": 0.044606898,
         "status": "COMPLETE",
         "updated_utc": "2026-10-25T18:45:53.344238+00:00"
+      }
+    },
+    "e4-exploratory": {
+      "haiku": {
+        "arm": "e4-exploratory",
+        "attempts": 2000,
+        "detail": "",
+        "endpoint": "https://api.anthropic.com",
+        "family": "haiku",
+        "health_rule": {
+          "health_max_invalid": 10,
+          "health_n": 200,
+          "smoke_max_invalid": 2,
+          "smoke_n": 20
+        },
+        "input_tokens": 502244,
+        "invalid": 0,
+        "label": "exploratory",
+        "lines_done": 2000,
+        "lines_in_sample": 2000,
+        "model_check": "claude-haiku-4-5-20251001",
+        "output_tokens": 48000,
+        "price_usd_per_token": {
+          "input": 1e-06,
+          "output": 5e-06
+        },
+        "python": "3.13.16",
+        "request": {
+          "max_tokens": 48,
+          "prefill": "{",
+          "temperature": 0.0
+        },
+        "requested_model": "claude-haiku-4-5-20251001",
+        "returned_models": [
+          "claude-haiku-4-5-20251001"
+        ],
+        "sdk": {
+          "anthropic": "1.9.0"
+        },
+        "spend_usd": 0.742244,
+        "status": "COMPLETE",
+        "updated_utc": "2026-10-25T19:27:51.494092+00:00"
+      },
+      "jev": {
+        "arm": "e4-exploratory",
+        "attempts": 2000,
+        "detail": "",
+        "endpoint": "https://api.typesafe.ai/v1/systemone",
+        "family": "jev",
+        "health_rule": {
+          "health_max_invalid": 10,
+          "health_n": 200,
+          "smoke_max_invalid": 2,
+          "smoke_n": 20
+        },
+        "input_tokens": 1135032,
+        "invalid": 0,
+        "label": "exploratory",
+        "lines_done": 2000,
+        "lines_in_sample": 2000,
+        "model_check": "jev-latest,jev-preview",
+        "output_tokens": 68000,
+        "price_usd_per_token": {
+          "input": 4.2e-08,
+          "output": 0.0
+        },
+        "python": "3.13.16",
+        "request": {
+          "criteria": {
+            "clear": "Clear the invoice for payment now.",
+            "hold": "Hold the invoice; do not pay it now."
+          },
+          "question": "Decide whether to clear the invoice for payment now or to hold it.",
+          "question_id": "Q_clear_or_hold"
+        },
+        "requested_model": "jev-latest",
+        "returned_models": [
+          "jev-1.14.0"
+        ],
+        "sdk": {
+          "typesafe-sdk": "0.7.2"
+        },
+        "spend_usd": 0.047671344,
+        "status": "COMPLETE",
+        "updated_utc": "2026-10-25T19:09:22.178583+00:00"
       }
     }
   },

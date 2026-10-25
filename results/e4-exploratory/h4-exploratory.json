@@ -1,0 +1,56 @@
+{
+  "arm": "e4-exploratory",
+  "families": {
+    "H4-Haiku": {
+      "clean": {
+        "held": 39,
+        "lines": 1000
+      },
+      "d": 0.056,
+      "defective": {
+        "held": 95,
+        "lines": 1000
+      },
+      "family": "haiku",
+      "hold_rate_clean": 0.039,
+      "hold_rate_defective": 0.095,
+      "margin": 0.05,
+      "p_lower": 7.13419575631262e-22,
+      "p_tost": 0.7054035878959448,
+      "p_upper": 0.7054035878959448,
+      "se": 0.011110985554846159,
+      "status": "COMPLETE",
+      "truncated": false,
+      "z_lower": 9.54010780382728,
+      "z_upper": -0.5400061021034307
+    },
+    "H4-Jev": {
+      "clean": {
+        "held": 38,
+        "lines": 1000
+      },
+      "d": 0.088,
+      "defective": {
+        "held": 126,
+        "lines": 1000
+      },
+      "family": "jev",
+      "hold_rate_clean": 0.038,
+      "hold_rate_defective": 0.126,
+      "margin": 0.05,
+      "p_lower": 2.2279954942051093e-30,
+      "p_tost": 0.999148326165575,
+      "p_upper": 0.999148326165575,
+      "se": 0.012111151885762146,
+      "status": "COMPLETE",
+      "truncated": false,
+      "z_lower": 11.39445705096248,
+      "z_upper": -3.1376041154824206
+    }
+  },
+  "label": "exploratory",
+  "margin": 0.05,
+  "registration": "p7-v1.1",
+  "section": "4 (H4)",
+  "test": "TOST, two one-sided z-tests with unpooled SE against -m and +m; p_TOST = max of the two"
+}

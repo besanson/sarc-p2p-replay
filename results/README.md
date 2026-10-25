@@ -58,6 +58,14 @@ refer to `prereg/p7-v1.1.md`.
 | `e4/arms.json` | per arm (people, each family, gate): hold rates, kappa with the gate, value released on defective lines, expected correctives, invalid counts, cost per decision | 7 |
 | `e4/double-run.json` | the E4 analysis run twice from the committed responses: byte comparison | 7 |
 
+## e4-exploratory/ (E4 exploratory timeline arm, never in Holm: `experiments/e4.py --arm e4-exploratory`)
+
+| file | holds | section |
+|---|---|---|
+| `e4-exploratory/h4-exploratory.json` | exploratory: per family hold rates on defective and clean lines with the timeline view, d, TOST p-values (descriptive) | 7 (exploratory) |
+| `e4-exploratory/arms-exploratory.json` | exploratory: the arm measures of `e4/arms.json` with the timeline view | 7 (exploratory) |
+| `e4-exploratory/double-run.json` | the exploratory analysis run twice: byte comparison | 7 (exploratory) |
+
 ## e6/ (E6, timing: `experiments/e6.py`)
 
 | file | holds | section |

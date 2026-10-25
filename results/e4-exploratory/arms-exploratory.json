@@ -1,0 +1,117 @@
+{
+  "amendment": "DECISIONS.md D-C-2 B",
+  "arm": "e4-exploratory",
+  "arms": {
+    "gate": {
+      "clean": {
+        "held": 0,
+        "lines": 1000
+      },
+      "defective": {
+        "held": 1000,
+        "lines": 1000
+      },
+      "expected_correctives": 0,
+      "hold_rate_clean": 0.0,
+      "hold_rate_defective": 1.0,
+      "released_defective_lines": 0,
+      "released_defective_lines_without_e2_group": 0,
+      "source": "gate verdict at t* (D-C-2 B): holds every defective line, allows every clean line",
+      "value_released_on_defective_lines_eur": 0
+    },
+    "haiku": {
+      "agreement_with_gate": 0.528,
+      "attempts": 2000,
+      "clean": {
+        "held": 39,
+        "lines": 1000
+      },
+      "cost_usd_per_decision": 0.000371122,
+      "defective": {
+        "held": 95,
+        "lines": 1000
+      },
+      "expected_correctives": 17.73271379146886,
+      "hold_rate_clean": 0.039,
+      "hold_rate_defective": 0.095,
+      "invalid": 0,
+      "invalid_by_status": {
+        "clean": 0,
+        "defective": 0
+      },
+      "kappa_with_gate": 0.05600000000000005,
+      "lines_called": 2000,
+      "released_defective_lines": 905,
+      "released_defective_lines_without_e2_group": 2,
+      "returned_models": [
+        "claude-haiku-4-5-20251001"
+      ],
+      "source": "responses/e4-exploratory/haiku/responses.jsonl",
+      "spend_usd": 0.742244,
+      "status": "COMPLETE",
+      "truncated": false,
+      "value_released_on_defective_lines_eur": 6165145.0
+    },
+    "jev": {
+      "agreement_with_gate": 0.544,
+      "attempts": 2000,
+      "clean": {
+        "held": 38,
+        "lines": 1000
+      },
+      "cost_usd_per_decision": 2.3835672e-05,
+      "defective": {
+        "held": 126,
+        "lines": 1000
+      },
+      "expected_correctives": 16.955380705426695,
+      "hold_rate_clean": 0.038,
+      "hold_rate_defective": 0.126,
+      "invalid": 0,
+      "invalid_by_status": {
+        "clean": 0,
+        "defective": 0
+      },
+      "kappa_with_gate": 0.08800000000000008,
+      "lines_called": 2000,
+      "released_defective_lines": 874,
+      "released_defective_lines_without_e2_group": 2,
+      "returned_models": [
+        "jev-1.14.0"
+      ],
+      "source": "responses/e4-exploratory/jev/responses.jsonl",
+      "spend_usd": 0.047671344,
+      "status": "COMPLETE",
+      "truncated": false,
+      "value_released_on_defective_lines_eur": 4777290.0
+    },
+    "people": {
+      "clean": {
+        "held": 318,
+        "lines": 936
+      },
+      "defective": {
+        "held": 301,
+        "lines": 912
+      },
+      "expected_correctives": 12.260243211200471,
+      "hold_rate_clean": 0.33974358974358976,
+      "hold_rate_defective": 0.3300438596491228,
+      "released_defective_lines": 611,
+      "released_defective_lines_without_e2_group": 1,
+      "source": "the log (section 3.6)",
+      "unclassified": 152,
+      "value_released_on_defective_lines_eur": 4759520.0
+    }
+  },
+  "defective_lines_without_e2_group": 8,
+  "e2_o_rate_w60": {
+    "H1": 0.05635838150289017,
+    "H2": 0.019059276097219795
+  },
+  "expected_correctives_rule": "released defective lines x the E2 O rate at W = 60 of their defect group: the H1 defect group if D1/D2 fails, else the H2 defect group if D4 fails; lines failing neither have no E2 group and are counted",
+  "label": "exploratory",
+  "registration": "p7-v1.1",
+  "sample_lines": 2000,
+  "section": "7 (E4)"
+}
