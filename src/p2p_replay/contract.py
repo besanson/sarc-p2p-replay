@@ -39,8 +39,9 @@ def score(value: Value) -> int:
     return 1 if value is Value.PASS else 0
 
 
-def decide(values: Mapping[str, Value], category: Category) -> Verdict:
-    ids = applicable(category)
+def decide(values: Mapping[str, Value], category: Category, not_applicable: tuple[str, ...] = ()) -> Verdict:
+    """min() over the category's contract, less any predicate `not_applicable` at this decision."""
+    ids = tuple(i for i in applicable(category) if i not in not_applicable)
     allow = min(score(values[i]) for i in ids) == 1
     failed = tuple(i for i in ids if values[i] is Value.FAIL)
     unknown = tuple(i for i in ids if values[i] is Value.UNKNOWN)

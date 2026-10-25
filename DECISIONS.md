@@ -623,3 +623,22 @@ Decided before any E4 call.
 
 **C. Status line.** `prereg/DEVIATIONS.md`: "p7-v1.1: no deviations (pending
 tag)" becomes "p7-v1.1: tagged `prereg-p7-v1.1` on d8cdb2d."
+
+**Applied (2026-10-25).** `src/p2p_replay/replay.py` gains `verdict_at_decision_point`
+(and `contract.decide` an optional `not_applicable` set): at a t* that is not a
+clearing D5 is not applicable under B, at an actual clearing the registered
+contract is unchanged. E1 keeps the literal status in `lines.jsonl.gz` and
+writes the status under B to the new file `results/e1/lines-t-star-amended.jsonl.gz`.
+Checks (`results/checks-d-c-2.json`, `scripts/recheck_d_c_2.py`): E1 re-run from the
+log, all 9 committed E1 files byte-identical: yes;
+E2 re-run, all 2 files byte-identical: yes;
+E3 run twice, all 5 files byte-identical: yes.
+`results/e3/human-hold.json` carries both readings, `registered_literal_reading`
+and `amended_reading_D-C-2` (as does `results/e3/confounders.json` for its line
+tables). Classified clean lines at t*: 91,178 under the literal reading,
+138,775 under B; held-unknown: 47,597 and
+0. Human hold rate on defective lines 0.3483,
+on clean lines 0.000011 (literal) and 0.3430 (B).
+Mutation gate (`make mutate`, `results/mutation.json`): 1,526 mutants,
+1,432 killed, 94 survived, 0 without a covering
+test; kill score 0.9384 (gate 0.85, passed).

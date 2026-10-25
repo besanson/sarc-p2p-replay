@@ -7,6 +7,10 @@ directory (default results/e1/):
   evidence-set.jsonl.gz     one record per analysed clearing (section 3.9), ids hashed
   lines.jsonl.gz            one record per framed line: category, value, strata,
                             human hold (3.6), E4 decision point t* and the gate status there
+                            (literal reading of section 7)
+  lines-t-star-amended.jsonl.gz
+                            the gate status at t* under D-C-2 B (D5 not applicable at a t*
+                            that is not a clearing), by line
   exclusions.json           exclusion counts in registered order (2.1), T_end,
                             events after T_end, E0 removal
   exposure.json             per defect class and overall: share of clearings (Wilson and
@@ -44,14 +48,12 @@ from experiments.common import (
 )
 from p2p_replay.category import Category, category_of
 from p2p_replay.config import REGISTRATION, ROOT, SEED, T_END_MONTH_MIN_EVENTS, W_DAYS, load_mapping, load_patterns
-from p2p_replay.contract import decide
 from p2p_replay.evidence import export_record, sha256_text
-from p2p_replay.frame import clearings, decision_point, human_hold, line_value
-from p2p_replay.model import Case, Event
+from p2p_replay.frame import human_hold, line_value
+from p2p_replay.model import Case
 from p2p_replay.outcome import ABSENT, STALE
-from p2p_replay.predicates import evaluate
 from p2p_replay.reader import read_log
-from p2p_replay.replay import observation_end, replay_case
+from p2p_replay.replay import line_status, observation_end, replay_case, verdict_at_decision_point
 
 DEFAULT_LOG = ROOT / "data" / "BPI_Challenge_2019.xes"
 DEFAULT_OUT = ROOT / "results" / "e1"
@@ -102,20 +104,16 @@ def disagrees(case: Case, category: Category) -> bool:
     return expected is None or found is None or found.strip() != expected
 
 
-def decision_status(case: Case, category: Category, p) -> tuple[str | None, str | None]:
+def decision_status(case: Case, category: Category, p, amended: bool = False) -> tuple[str | None, str | None]:
     """Gate status of the line at the E4 decision point t* (section 7): defective, clean or held_unknown.
 
-    At a t* that is the first clearing, the predicates are those of that clearing. At a t* with no
-    clearing (first invoice receipt + W), no clearing actor exists, so D5 is unknown (section 3.2).
+    `amended=False` is the literal reading of section 7 (D5 unknown at a t* with no clearing);
+    `amended=True` is D-C-2 B (D5 not applicable there).
     """
-    t_star = decision_point(case, p, W_DAYS)
+    t_star, verdict = verdict_at_decision_point(case, category, p, W_DAYS, amended=amended)
     if t_star is None:
         return None, None
-    first = clearings(case, p)
-    event = first[0] if first and first[0].ts == t_star else Event(p.clearing, t_star, None, None)
-    verdict = decide(evaluate(case, event, p), category)
-    status = "defective" if verdict.defective else ("clean" if verdict.allow else "held_unknown")
-    return t_star.isoformat(), status
+    return t_star.isoformat(), line_status(verdict)
 
 
 def line_row(case: Case, category: Category, n_records: int, p, t_end) -> dict[str, Any]:
@@ -143,6 +141,7 @@ def replay(log: Path, e0_ids: set[str], min_month_events: int = T_END_MONTH_MIN_
     crosscheck = Counter()
     records: list[dict] = []
     lines: list[dict] = []
+    amended: list[dict] = []
     raw_docs: set[str] = set()
     raw_lines: set[str] = set()
     e0_found = 0
@@ -163,6 +162,8 @@ def replay(log: Path, e0_ids: set[str], min_month_events: int = T_END_MONTH_MIN_
         raw_lines.add(case.case_id)
         raw_docs.add(case.attr("purchase_document") or "")
         lines.append(line_row(case, result.frame.category, len(result.records), p2p, end.t_end))
+        amended.append({"case_id": lines[-1]["case_id"],
+                        "t_star_status": decision_status(case, result.frame.category, p2p, amended=True)[1]})
         records.extend(export_record(r) for r in result.records)
     # Hashed ids must stay distinct, or a cluster or a line would merge.
     if len({l["case_id"] for l in lines}) != len(raw_lines) or \
@@ -170,7 +171,9 @@ def replay(log: Path, e0_ids: set[str], min_month_events: int = T_END_MONTH_MIN_
         raise RuntimeError("hashed identifier collision")
     records.sort(key=lambda r: (r["case_id"], r["t_c"]))
     lines.sort(key=lambda l: l["case_id"])
+    amended.sort(key=lambda l: l["case_id"])
     return {"end": end, "statuses": statuses, "crosscheck": dict(crosscheck), "records": records, "lines": lines,
+            "lines_amended": amended,
             "e0_found": e0_found, "e0_listed": len(e0_ids)}
 
 
@@ -317,6 +320,7 @@ def run(log: Path, out: Path, e0_path: Path = E0_LINES, min_month_events: int = 
     rep = replay(log, read_e0_lines(e0_path), min_month_events)
     write_jsonl_gz(out / "evidence-set.jsonl.gz", rep["records"])
     write_jsonl_gz(out / "lines.jsonl.gz", rep["lines"])
+    write_jsonl_gz(out / "lines-t-star-amended.jsonl.gz", rep["lines_amended"])
     replayed = time.perf_counter()
     slots = analyse(rep, log.name, file_sha256(log), b)
     write_jsonl(out / "evidence-sample.jsonl", slots.pop("_sample"))
@@ -330,6 +334,11 @@ def run(log: Path, out: Path, e0_path: Path = E0_LINES, min_month_events: int = 
 
 def load(out: Path) -> tuple[list[dict], list[dict]]:
     return read_jsonl_gz(out / "evidence-set.jsonl.gz"), read_jsonl_gz(out / "lines.jsonl.gz")
+
+
+def load_amended(out: Path) -> dict[str, str | None]:
+    """Line status at t* under D-C-2 B, by hashed line id."""
+    return {r["case_id"]: r["t_star_status"] for r in read_jsonl_gz(out / "lines-t-star-amended.jsonl.gz")}
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -2099,949 +2099,1989 @@
   "human_hold_lines": {
     "category": {
       "2-way": {
-        "clean": {
-          "classified_lines": 176,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 428,
+            "held_by_people": 252,
+            "human_hold_rate": 0.5887850467289719
+          },
+          "defective": {
+            "classified_lines": 14,
+            "held_by_people": 10,
+            "human_hold_rate": 0.7142857142857143
+          },
+          "difference_defective_minus_clean": 0.12550066755674238,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 14,
-          "held_by_people": 10,
-          "human_hold_rate": 0.7142857142857143
-        },
-        "difference_defective_minus_clean": 0.7142857142857143,
-        "held_unknown": {
-          "classified_lines": 252,
-          "held_by_people": 252,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 176,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 14,
+            "held_by_people": 10,
+            "human_hold_rate": 0.7142857142857143
+          },
+          "difference_defective_minus_clean": 0.7142857142857143,
+          "held_unknown": {
+            "classified_lines": 252,
+            "held_by_people": 252,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "3-way, invoice after receipt": {
-        "clean": {
-          "classified_lines": 5735,
-          "held_by_people": 1,
-          "human_hold_rate": 0.0001743679163034002
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 7153,
+            "held_by_people": 1419,
+            "human_hold_rate": 0.1983783028100098
+          },
+          "defective": {
+            "classified_lines": 1239,
+            "held_by_people": 243,
+            "human_hold_rate": 0.19612590799031476
+          },
+          "difference_defective_minus_clean": -0.002252394819695025,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 1239,
-          "held_by_people": 243,
-          "human_hold_rate": 0.19612590799031476
-        },
-        "difference_defective_minus_clean": 0.19595154007401136,
-        "held_unknown": {
-          "classified_lines": 1418,
-          "held_by_people": 1418,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 5735,
+            "held_by_people": 1,
+            "human_hold_rate": 0.0001743679163034002
+          },
+          "defective": {
+            "classified_lines": 1239,
+            "held_by_people": 243,
+            "human_hold_rate": 0.19612590799031476
+          },
+          "difference_defective_minus_clean": 0.19595154007401136,
+          "held_unknown": {
+            "classified_lines": 1418,
+            "held_by_people": 1418,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "3-way, invoice before receipt": {
-        "clean": {
-          "classified_lines": 85267,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 131194,
+            "held_by_people": 45927,
+            "human_hold_rate": 0.3500693629281827
+          },
+          "defective": {
+            "classified_lines": 15011,
+            "held_by_people": 5411,
+            "human_hold_rate": 0.3604689894077676
+          },
+          "difference_defective_minus_clean": 0.010399626479584922,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 15011,
-          "held_by_people": 5411,
-          "human_hold_rate": 0.3604689894077676
-        },
-        "difference_defective_minus_clean": 0.3604689894077676,
-        "held_unknown": {
-          "classified_lines": 45927,
-          "held_by_people": 45927,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 85267,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 15011,
+            "held_by_people": 5411,
+            "human_hold_rate": 0.3604689894077676
+          },
+          "difference_defective_minus_clean": 0.3604689894077676,
+          "held_unknown": {
+            "classified_lines": 45927,
+            "held_by_people": 45927,
+            "human_hold_rate": 1.0
+          }
         }
       }
     },
     "company": {
       "32b1bdb585c23efa": {
-        "clean": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "defective": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
-        },
-        "difference_defective_minus_clean": null,
-        "held_unknown": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "defective": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         }
       },
       "e828567fcb6448fd": {
-        "clean": {
-          "classified_lines": 176,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 428,
+            "held_by_people": 252,
+            "human_hold_rate": 0.5887850467289719
+          },
+          "defective": {
+            "classified_lines": 14,
+            "held_by_people": 10,
+            "human_hold_rate": 0.7142857142857143
+          },
+          "difference_defective_minus_clean": 0.12550066755674238,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 14,
-          "held_by_people": 10,
-          "human_hold_rate": 0.7142857142857143
-        },
-        "difference_defective_minus_clean": 0.7142857142857143,
-        "held_unknown": {
-          "classified_lines": 252,
-          "held_by_people": 252,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 176,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 14,
+            "held_by_people": 10,
+            "human_hold_rate": 0.7142857142857143
+          },
+          "difference_defective_minus_clean": 0.7142857142857143,
+          "held_unknown": {
+            "classified_lines": 252,
+            "held_by_people": 252,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "e8620b539a5f68a8": {
-        "clean": {
-          "classified_lines": 91002,
-          "held_by_people": 1,
-          "human_hold_rate": 1.0988769477593899e-05
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 138347,
+            "held_by_people": 47346,
+            "human_hold_rate": 0.34222643064179203
+          },
+          "defective": {
+            "classified_lines": 16249,
+            "held_by_people": 5654,
+            "human_hold_rate": 0.34795987445381255
+          },
+          "difference_defective_minus_clean": 0.005733443812020511,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 16249,
-          "held_by_people": 5654,
-          "human_hold_rate": 0.34795987445381255
-        },
-        "difference_defective_minus_clean": 0.34794888568433496,
-        "held_unknown": {
-          "classified_lines": 47345,
-          "held_by_people": 47345,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 91002,
+            "held_by_people": 1,
+            "human_hold_rate": 1.0988769477593899e-05
+          },
+          "defective": {
+            "classified_lines": 16249,
+            "held_by_people": 5654,
+            "human_hold_rate": 0.34795987445381255
+          },
+          "difference_defective_minus_clean": 0.34794888568433496,
+          "held_unknown": {
+            "classified_lines": 47345,
+            "held_by_people": 47345,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "f3933c5764536f63": {
-        "clean": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "defective": {
+            "classified_lines": 1,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 1,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
-        },
-        "difference_defective_minus_clean": null,
-        "held_unknown": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "defective": {
+            "classified_lines": 1,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         }
       }
     },
     "line_value_quartile": {
       "Q1": {
-        "clean": {
-          "classified_lines": 26078,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 37394,
+            "held_by_people": 11316,
+            "human_hold_rate": 0.3026153928437717
+          },
+          "defective": {
+            "classified_lines": 1998,
+            "held_by_people": 524,
+            "human_hold_rate": 0.26226226226226224
+          },
+          "difference_defective_minus_clean": -0.040353130581509467,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 1998,
-          "held_by_people": 524,
-          "human_hold_rate": 0.26226226226226224
-        },
-        "difference_defective_minus_clean": 0.26226226226226224,
-        "held_unknown": {
-          "classified_lines": 11316,
-          "held_by_people": 11316,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 26078,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 1998,
+            "held_by_people": 524,
+            "human_hold_rate": 0.26226226226226224
+          },
+          "difference_defective_minus_clean": 0.26226226226226224,
+          "held_unknown": {
+            "classified_lines": 11316,
+            "held_by_people": 11316,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Q2": {
-        "clean": {
-          "classified_lines": 23234,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 37016,
+            "held_by_people": 13782,
+            "human_hold_rate": 0.37232548087313594
+          },
+          "defective": {
+            "classified_lines": 2756,
+            "held_by_people": 1179,
+            "human_hold_rate": 0.42779390420899854
+          },
+          "difference_defective_minus_clean": 0.055468423335862604,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 2756,
-          "held_by_people": 1179,
-          "human_hold_rate": 0.42779390420899854
-        },
-        "difference_defective_minus_clean": 0.42779390420899854,
-        "held_unknown": {
-          "classified_lines": 13782,
-          "held_by_people": 13782,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 23234,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 2756,
+            "held_by_people": 1179,
+            "human_hold_rate": 0.42779390420899854
+          },
+          "difference_defective_minus_clean": 0.42779390420899854,
+          "held_unknown": {
+            "classified_lines": 13782,
+            "held_by_people": 13782,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Q3": {
-        "clean": {
-          "classified_lines": 22735,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 34427,
+            "held_by_people": 11692,
+            "human_hold_rate": 0.3396171609492549
+          },
+          "defective": {
+            "classified_lines": 4385,
+            "held_by_people": 1636,
+            "human_hold_rate": 0.37309007981755987
+          },
+          "difference_defective_minus_clean": 0.033472918868304946,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 4385,
-          "held_by_people": 1636,
-          "human_hold_rate": 0.37309007981755987
-        },
-        "difference_defective_minus_clean": 0.37309007981755987,
-        "held_unknown": {
-          "classified_lines": 11692,
-          "held_by_people": 11692,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 22735,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 4385,
+            "held_by_people": 1636,
+            "human_hold_rate": 0.37309007981755987
+          },
+          "difference_defective_minus_clean": 0.37309007981755987,
+          "held_unknown": {
+            "classified_lines": 11692,
+            "held_by_people": 11692,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Q4": {
-        "clean": {
-          "classified_lines": 19131,
-          "held_by_people": 1,
-          "human_hold_rate": 5.227118289686896e-05
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 29938,
+            "held_by_people": 10808,
+            "human_hold_rate": 0.361012759703387
+          },
+          "defective": {
+            "classified_lines": 7125,
+            "held_by_people": 2325,
+            "human_hold_rate": 0.3263157894736842
+          },
+          "difference_defective_minus_clean": -0.03469697022970275,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 7125,
-          "held_by_people": 2325,
-          "human_hold_rate": 0.3263157894736842
-        },
-        "difference_defective_minus_clean": 0.32626351829078737,
-        "held_unknown": {
-          "classified_lines": 10807,
-          "held_by_people": 10807,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 19131,
+            "held_by_people": 1,
+            "human_hold_rate": 5.227118289686896e-05
+          },
+          "defective": {
+            "classified_lines": 7125,
+            "held_by_people": 2325,
+            "human_hold_rate": 0.3263157894736842
+          },
+          "difference_defective_minus_clean": 0.32626351829078737,
+          "held_unknown": {
+            "classified_lines": 10807,
+            "held_by_people": 10807,
+            "human_hold_rate": 1.0
+          }
         }
       }
     },
     "month": {
       "2018-01": {
-        "clean": {
-          "classified_lines": 245,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 245,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 8,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "difference_defective_minus_clean": 0.0,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 8,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
-        },
-        "difference_defective_minus_clean": 0.0,
-        "held_unknown": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 245,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 8,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "difference_defective_minus_clean": 0.0,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         }
       },
       "2018-02": {
-        "clean": {
-          "classified_lines": 2665,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 2665,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 99,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "difference_defective_minus_clean": 0.0,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 99,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
-        },
-        "difference_defective_minus_clean": 0.0,
-        "held_unknown": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 2665,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 99,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "difference_defective_minus_clean": 0.0,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         }
       },
       "2018-03": {
-        "clean": {
-          "classified_lines": 7675,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 10018,
+            "held_by_people": 2343,
+            "human_hold_rate": 0.23387901776801756
+          },
+          "defective": {
+            "classified_lines": 885,
+            "held_by_people": 127,
+            "human_hold_rate": 0.14350282485875707
+          },
+          "difference_defective_minus_clean": -0.0903761929092605,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 885,
-          "held_by_people": 127,
-          "human_hold_rate": 0.14350282485875707
-        },
-        "difference_defective_minus_clean": 0.14350282485875707,
-        "held_unknown": {
-          "classified_lines": 2343,
-          "held_by_people": 2343,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 7675,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 885,
+            "held_by_people": 127,
+            "human_hold_rate": 0.14350282485875707
+          },
+          "difference_defective_minus_clean": 0.14350282485875707,
+          "held_unknown": {
+            "classified_lines": 2343,
+            "held_by_people": 2343,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "2018-04": {
-        "clean": {
-          "classified_lines": 9740,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 15821,
+            "held_by_people": 6081,
+            "human_hold_rate": 0.3843625560963277
+          },
+          "defective": {
+            "classified_lines": 1918,
+            "held_by_people": 547,
+            "human_hold_rate": 0.2851929092805005
+          },
+          "difference_defective_minus_clean": -0.09916964681582718,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 1918,
-          "held_by_people": 547,
-          "human_hold_rate": 0.2851929092805005
-        },
-        "difference_defective_minus_clean": 0.2851929092805005,
-        "held_unknown": {
-          "classified_lines": 6081,
-          "held_by_people": 6081,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 9740,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 1918,
+            "held_by_people": 547,
+            "human_hold_rate": 0.2851929092805005
+          },
+          "difference_defective_minus_clean": 0.2851929092805005,
+          "held_unknown": {
+            "classified_lines": 6081,
+            "held_by_people": 6081,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "2018-05": {
-        "clean": {
-          "classified_lines": 10476,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 17392,
+            "held_by_people": 6916,
+            "human_hold_rate": 0.39765409383624656
+          },
+          "defective": {
+            "classified_lines": 2239,
+            "held_by_people": 1045,
+            "human_hold_rate": 0.46672621706118805
+          },
+          "difference_defective_minus_clean": 0.0690721232249415,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 2239,
-          "held_by_people": 1045,
-          "human_hold_rate": 0.46672621706118805
-        },
-        "difference_defective_minus_clean": 0.46672621706118805,
-        "held_unknown": {
-          "classified_lines": 6916,
-          "held_by_people": 6916,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 10476,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 2239,
+            "held_by_people": 1045,
+            "human_hold_rate": 0.46672621706118805
+          },
+          "difference_defective_minus_clean": 0.46672621706118805,
+          "held_unknown": {
+            "classified_lines": 6916,
+            "held_by_people": 6916,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "2018-06": {
-        "clean": {
-          "classified_lines": 10641,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 16377,
+            "held_by_people": 5736,
+            "human_hold_rate": 0.35024729803993404
+          },
+          "defective": {
+            "classified_lines": 2071,
+            "held_by_people": 837,
+            "human_hold_rate": 0.4041525832930951
+          },
+          "difference_defective_minus_clean": 0.05390528525316107,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 2071,
-          "held_by_people": 837,
-          "human_hold_rate": 0.4041525832930951
-        },
-        "difference_defective_minus_clean": 0.4041525832930951,
-        "held_unknown": {
-          "classified_lines": 5736,
-          "held_by_people": 5736,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 10641,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 2071,
+            "held_by_people": 837,
+            "human_hold_rate": 0.4041525832930951
+          },
+          "difference_defective_minus_clean": 0.4041525832930951,
+          "held_unknown": {
+            "classified_lines": 5736,
+            "held_by_people": 5736,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "2018-07": {
-        "clean": {
-          "classified_lines": 11597,
-          "held_by_people": 1,
-          "human_hold_rate": 8.622919720617402e-05
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 17642,
+            "held_by_people": 6046,
+            "human_hold_rate": 0.34270490874050563
+          },
+          "defective": {
+            "classified_lines": 1740,
+            "held_by_people": 625,
+            "human_hold_rate": 0.35919540229885055
+          },
+          "difference_defective_minus_clean": 0.01649049355834492,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 1740,
-          "held_by_people": 625,
-          "human_hold_rate": 0.35919540229885055
-        },
-        "difference_defective_minus_clean": 0.35910917310164436,
-        "held_unknown": {
-          "classified_lines": 6045,
-          "held_by_people": 6045,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 11597,
+            "held_by_people": 1,
+            "human_hold_rate": 8.622919720617402e-05
+          },
+          "defective": {
+            "classified_lines": 1740,
+            "held_by_people": 625,
+            "human_hold_rate": 0.35919540229885055
+          },
+          "difference_defective_minus_clean": 0.35910917310164436,
+          "held_unknown": {
+            "classified_lines": 6045,
+            "held_by_people": 6045,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "2018-08": {
-        "clean": {
-          "classified_lines": 11690,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 17790,
+            "held_by_people": 6100,
+            "human_hold_rate": 0.3428892636312535
+          },
+          "defective": {
+            "classified_lines": 2219,
+            "held_by_people": 884,
+            "human_hold_rate": 0.39837764758900407
+          },
+          "difference_defective_minus_clean": 0.055488383957750576,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 2219,
-          "held_by_people": 884,
-          "human_hold_rate": 0.39837764758900407
-        },
-        "difference_defective_minus_clean": 0.39837764758900407,
-        "held_unknown": {
-          "classified_lines": 6100,
-          "held_by_people": 6100,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 11690,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 2219,
+            "held_by_people": 884,
+            "human_hold_rate": 0.39837764758900407
+          },
+          "difference_defective_minus_clean": 0.39837764758900407,
+          "held_unknown": {
+            "classified_lines": 6100,
+            "held_by_people": 6100,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "2018-09": {
-        "clean": {
-          "classified_lines": 10884,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 15876,
+            "held_by_people": 4992,
+            "human_hold_rate": 0.3144368858654573
+          },
+          "defective": {
+            "classified_lines": 1964,
+            "held_by_people": 609,
+            "human_hold_rate": 0.310081466395112
+          },
+          "difference_defective_minus_clean": -0.00435541947034529,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 1964,
-          "held_by_people": 609,
-          "human_hold_rate": 0.310081466395112
-        },
-        "difference_defective_minus_clean": 0.310081466395112,
-        "held_unknown": {
-          "classified_lines": 4992,
-          "held_by_people": 4992,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 10884,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 1964,
+            "held_by_people": 609,
+            "human_hold_rate": 0.310081466395112
+          },
+          "difference_defective_minus_clean": 0.310081466395112,
+          "held_unknown": {
+            "classified_lines": 4992,
+            "held_by_people": 4992,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "2018-10": {
-        "clean": {
-          "classified_lines": 10560,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 14288,
+            "held_by_people": 3728,
+            "human_hold_rate": 0.2609182530795073
+          },
+          "defective": {
+            "classified_lines": 1917,
+            "held_by_people": 443,
+            "human_hold_rate": 0.2310902451747522
+          },
+          "difference_defective_minus_clean": -0.029828007904755066,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 1917,
-          "held_by_people": 443,
-          "human_hold_rate": 0.2310902451747522
-        },
-        "difference_defective_minus_clean": 0.2310902451747522,
-        "held_unknown": {
-          "classified_lines": 3728,
-          "held_by_people": 3728,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 10560,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 1917,
+            "held_by_people": 443,
+            "human_hold_rate": 0.2310902451747522
+          },
+          "difference_defective_minus_clean": 0.2310902451747522,
+          "held_unknown": {
+            "classified_lines": 3728,
+            "held_by_people": 3728,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "2018-11": {
-        "clean": {
-          "classified_lines": 5005,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 5497,
+            "held_by_people": 492,
+            "human_hold_rate": 0.08950336547207567
+          },
+          "defective": {
+            "classified_lines": 710,
+            "held_by_people": 53,
+            "human_hold_rate": 0.07464788732394366
+          },
+          "difference_defective_minus_clean": -0.014855478148132012,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 710,
-          "held_by_people": 53,
-          "human_hold_rate": 0.07464788732394366
-        },
-        "difference_defective_minus_clean": 0.07464788732394366,
-        "held_unknown": {
-          "classified_lines": 492,
-          "held_by_people": 492,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 5005,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 710,
+            "held_by_people": 53,
+            "human_hold_rate": 0.07464788732394366
+          },
+          "difference_defective_minus_clean": 0.07464788732394366,
+          "held_unknown": {
+            "classified_lines": 492,
+            "held_by_people": 492,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "2018-12": {
-        "clean": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 2799,
+            "held_by_people": 2799,
+            "human_hold_rate": 1.0
+          },
+          "defective": {
+            "classified_lines": 221,
+            "held_by_people": 221,
+            "human_hold_rate": 1.0
+          },
+          "difference_defective_minus_clean": 0.0,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 221,
-          "held_by_people": 221,
-          "human_hold_rate": 1.0
-        },
-        "difference_defective_minus_clean": null,
-        "held_unknown": {
-          "classified_lines": 2799,
-          "held_by_people": 2799,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "defective": {
+            "classified_lines": 221,
+            "held_by_people": 221,
+            "human_hold_rate": 1.0
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 2799,
+            "held_by_people": 2799,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "2019-01": {
-        "clean": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 2365,
+            "held_by_people": 2365,
+            "human_hold_rate": 1.0
+          },
+          "defective": {
+            "classified_lines": 273,
+            "held_by_people": 273,
+            "human_hold_rate": 1.0
+          },
+          "difference_defective_minus_clean": 0.0,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 273,
-          "held_by_people": 273,
-          "human_hold_rate": 1.0
-        },
-        "difference_defective_minus_clean": null,
-        "held_unknown": {
-          "classified_lines": 2365,
-          "held_by_people": 2365,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "defective": {
+            "classified_lines": 273,
+            "held_by_people": 273,
+            "human_hold_rate": 1.0
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 2365,
+            "held_by_people": 2365,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "2019-02": {
-        "clean": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "defective": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
-        },
-        "difference_defective_minus_clean": null,
-        "held_unknown": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "defective": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         }
       },
       "2019-03": {
-        "clean": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "defective": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
-        },
-        "difference_defective_minus_clean": null,
-        "held_unknown": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "defective": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         }
       },
       "missing": {
-        "clean": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "defective": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
-        },
-        "difference_defective_minus_clean": null,
-        "held_unknown": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "defective": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         }
       }
     },
     "spend_area": {
       "Additives": {
-        "clean": {
-          "classified_lines": 5143,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 8753,
+            "held_by_people": 3610,
+            "human_hold_rate": 0.41243002399177425
+          },
+          "defective": {
+            "classified_lines": 1118,
+            "held_by_people": 393,
+            "human_hold_rate": 0.35152057245080504
+          },
+          "difference_defective_minus_clean": -0.06090945154096922,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 1118,
-          "held_by_people": 393,
-          "human_hold_rate": 0.35152057245080504
-        },
-        "difference_defective_minus_clean": 0.35152057245080504,
-        "held_unknown": {
-          "classified_lines": 3610,
-          "held_by_people": 3610,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 5143,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 1118,
+            "held_by_people": 393,
+            "human_hold_rate": 0.35152057245080504
+          },
+          "difference_defective_minus_clean": 0.35152057245080504,
+          "held_unknown": {
+            "classified_lines": 3610,
+            "held_by_people": 3610,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "CAPEX & SOCS": {
-        "clean": {
-          "classified_lines": 3997,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 4398,
+            "held_by_people": 401,
+            "human_hold_rate": 0.09117780809458845
+          },
+          "defective": {
+            "classified_lines": 272,
+            "held_by_people": 24,
+            "human_hold_rate": 0.08823529411764706
+          },
+          "difference_defective_minus_clean": -0.0029425139769413827,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 272,
-          "held_by_people": 24,
-          "human_hold_rate": 0.08823529411764706
-        },
-        "difference_defective_minus_clean": 0.08823529411764706,
-        "held_unknown": {
-          "classified_lines": 401,
-          "held_by_people": 401,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 3997,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 272,
+            "held_by_people": 24,
+            "human_hold_rate": 0.08823529411764706
+          },
+          "difference_defective_minus_clean": 0.08823529411764706,
+          "held_unknown": {
+            "classified_lines": 401,
+            "held_by_people": 401,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Chemicals & Intermediates": {
-        "clean": {
-          "classified_lines": 1,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 1,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
-        },
-        "difference_defective_minus_clean": null,
-        "held_unknown": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 1,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         }
       },
       "Commodity Resins": {
-        "clean": {
-          "classified_lines": 131,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 200,
+            "held_by_people": 69,
+            "human_hold_rate": 0.345
+          },
+          "defective": {
+            "classified_lines": 64,
+            "held_by_people": 10,
+            "human_hold_rate": 0.15625
+          },
+          "difference_defective_minus_clean": -0.18874999999999997,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 64,
-          "held_by_people": 10,
-          "human_hold_rate": 0.15625
-        },
-        "difference_defective_minus_clean": 0.15625,
-        "held_unknown": {
-          "classified_lines": 69,
-          "held_by_people": 69,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 131,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 64,
+            "held_by_people": 10,
+            "human_hold_rate": 0.15625
+          },
+          "difference_defective_minus_clean": 0.15625,
+          "held_unknown": {
+            "classified_lines": 69,
+            "held_by_people": 69,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Energy": {
-        "clean": {
-          "classified_lines": 3,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 11,
+            "held_by_people": 8,
+            "human_hold_rate": 0.7272727272727273
+          },
+          "defective": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 0,
-          "held_by_people": 0,
-          "human_hold_rate": null
-        },
-        "difference_defective_minus_clean": null,
-        "held_unknown": {
-          "classified_lines": 8,
-          "held_by_people": 8,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 3,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          },
+          "difference_defective_minus_clean": null,
+          "held_unknown": {
+            "classified_lines": 8,
+            "held_by_people": 8,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Enterprise Services": {
-        "clean": {
-          "classified_lines": 313,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 322,
+            "held_by_people": 9,
+            "human_hold_rate": 0.027950310559006212
+          },
+          "defective": {
+            "classified_lines": 24,
+            "held_by_people": 6,
+            "human_hold_rate": 0.25
+          },
+          "difference_defective_minus_clean": 0.2220496894409938,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 24,
-          "held_by_people": 6,
-          "human_hold_rate": 0.25
-        },
-        "difference_defective_minus_clean": 0.25,
-        "held_unknown": {
-          "classified_lines": 9,
-          "held_by_people": 9,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 313,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 24,
+            "held_by_people": 6,
+            "human_hold_rate": 0.25
+          },
+          "difference_defective_minus_clean": 0.25,
+          "held_unknown": {
+            "classified_lines": 9,
+            "held_by_people": 9,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Latex & Monomers": {
-        "clean": {
-          "classified_lines": 1163,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 2015,
+            "held_by_people": 852,
+            "human_hold_rate": 0.4228287841191067
+          },
+          "defective": {
+            "classified_lines": 442,
+            "held_by_people": 196,
+            "human_hold_rate": 0.4434389140271493
+          },
+          "difference_defective_minus_clean": 0.020610129908042618,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 442,
-          "held_by_people": 196,
-          "human_hold_rate": 0.4434389140271493
-        },
-        "difference_defective_minus_clean": 0.4434389140271493,
-        "held_unknown": {
-          "classified_lines": 852,
-          "held_by_people": 852,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 1163,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 442,
+            "held_by_people": 196,
+            "human_hold_rate": 0.4434389140271493
+          },
+          "difference_defective_minus_clean": 0.4434389140271493,
+          "held_unknown": {
+            "classified_lines": 852,
+            "held_by_people": 852,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Logistics": {
-        "clean": {
-          "classified_lines": 1162,
-          "held_by_people": 1,
-          "human_hold_rate": 0.0008605851979345956
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 1424,
+            "held_by_people": 263,
+            "human_hold_rate": 0.18469101123595505
+          },
+          "defective": {
+            "classified_lines": 49,
+            "held_by_people": 27,
+            "human_hold_rate": 0.5510204081632653
+          },
+          "difference_defective_minus_clean": 0.3663293969273102,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 49,
-          "held_by_people": 27,
-          "human_hold_rate": 0.5510204081632653
-        },
-        "difference_defective_minus_clean": 0.5501598229653306,
-        "held_unknown": {
-          "classified_lines": 262,
-          "held_by_people": 262,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 1162,
+            "held_by_people": 1,
+            "human_hold_rate": 0.0008605851979345956
+          },
+          "defective": {
+            "classified_lines": 49,
+            "held_by_people": 27,
+            "human_hold_rate": 0.5510204081632653
+          },
+          "difference_defective_minus_clean": 0.5501598229653306,
+          "held_unknown": {
+            "classified_lines": 262,
+            "held_by_people": 262,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Marketing": {
-        "clean": {
-          "classified_lines": 969,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 1100,
+            "held_by_people": 131,
+            "human_hold_rate": 0.1190909090909091
+          },
+          "defective": {
+            "classified_lines": 68,
+            "held_by_people": 6,
+            "human_hold_rate": 0.08823529411764706
+          },
+          "difference_defective_minus_clean": -0.03085561497326203,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 68,
-          "held_by_people": 6,
-          "human_hold_rate": 0.08823529411764706
-        },
-        "difference_defective_minus_clean": 0.08823529411764706,
-        "held_unknown": {
-          "classified_lines": 131,
-          "held_by_people": 131,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 969,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 68,
+            "held_by_people": 6,
+            "human_hold_rate": 0.08823529411764706
+          },
+          "difference_defective_minus_clean": 0.08823529411764706,
+          "held_unknown": {
+            "classified_lines": 131,
+            "held_by_people": 131,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Others": {
-        "clean": {
-          "classified_lines": 1374,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 1766,
+            "held_by_people": 392,
+            "human_hold_rate": 0.22197055492638731
+          },
+          "defective": {
+            "classified_lines": 78,
+            "held_by_people": 24,
+            "human_hold_rate": 0.3076923076923077
+          },
+          "difference_defective_minus_clean": 0.0857217527659204,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 78,
-          "held_by_people": 24,
-          "human_hold_rate": 0.3076923076923077
-        },
-        "difference_defective_minus_clean": 0.3076923076923077,
-        "held_unknown": {
-          "classified_lines": 392,
-          "held_by_people": 392,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 1374,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 78,
+            "held_by_people": 24,
+            "human_hold_rate": 0.3076923076923077
+          },
+          "difference_defective_minus_clean": 0.3076923076923077,
+          "held_unknown": {
+            "classified_lines": 392,
+            "held_by_people": 392,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Packaging": {
-        "clean": {
-          "classified_lines": 24131,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 60203,
+            "held_by_people": 36072,
+            "human_hold_rate": 0.5991727986977393
+          },
+          "defective": {
+            "classified_lines": 6981,
+            "held_by_people": 3665,
+            "human_hold_rate": 0.5249964188511674
+          },
+          "difference_defective_minus_clean": -0.07417637984657188,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 6981,
-          "held_by_people": 3665,
-          "human_hold_rate": 0.5249964188511674
-        },
-        "difference_defective_minus_clean": 0.5249964188511674,
-        "held_unknown": {
-          "classified_lines": 36072,
-          "held_by_people": 36072,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 24131,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 6981,
+            "held_by_people": 3665,
+            "human_hold_rate": 0.5249964188511674
+          },
+          "difference_defective_minus_clean": 0.5249964188511674,
+          "held_unknown": {
+            "classified_lines": 36072,
+            "held_by_people": 36072,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Pigments & Colorants": {
-        "clean": {
-          "classified_lines": 1053,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 1345,
+            "held_by_people": 292,
+            "human_hold_rate": 0.2171003717472119
+          },
+          "defective": {
+            "classified_lines": 265,
+            "held_by_people": 68,
+            "human_hold_rate": 0.25660377358490566
+          },
+          "difference_defective_minus_clean": 0.03950340183769377,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 265,
-          "held_by_people": 68,
-          "human_hold_rate": 0.25660377358490566
-        },
-        "difference_defective_minus_clean": 0.25660377358490566,
-        "held_unknown": {
-          "classified_lines": 292,
-          "held_by_people": 292,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 1053,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 265,
+            "held_by_people": 68,
+            "human_hold_rate": 0.25660377358490566
+          },
+          "difference_defective_minus_clean": 0.25660377358490566,
+          "held_unknown": {
+            "classified_lines": 292,
+            "held_by_people": 292,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Real Estate": {
-        "clean": {
-          "classified_lines": 142,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 194,
+            "held_by_people": 52,
+            "human_hold_rate": 0.26804123711340205
+          },
+          "defective": {
+            "classified_lines": 14,
+            "held_by_people": 10,
+            "human_hold_rate": 0.7142857142857143
+          },
+          "difference_defective_minus_clean": 0.44624447717231225,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 14,
-          "held_by_people": 10,
-          "human_hold_rate": 0.7142857142857143
-        },
-        "difference_defective_minus_clean": 0.7142857142857143,
-        "held_unknown": {
-          "classified_lines": 52,
-          "held_by_people": 52,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 142,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 14,
+            "held_by_people": 10,
+            "human_hold_rate": 0.7142857142857143
+          },
+          "difference_defective_minus_clean": 0.7142857142857143,
+          "held_unknown": {
+            "classified_lines": 52,
+            "held_by_people": 52,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Sales": {
-        "clean": {
-          "classified_lines": 39159,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 42250,
+            "held_by_people": 3091,
+            "human_hold_rate": 0.07315976331360947
+          },
+          "defective": {
+            "classified_lines": 3057,
+            "held_by_people": 176,
+            "human_hold_rate": 0.05757278377494275
+          },
+          "difference_defective_minus_clean": -0.015586979538666723,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 3057,
-          "held_by_people": 176,
-          "human_hold_rate": 0.05757278377494275
-        },
-        "difference_defective_minus_clean": 0.05757278377494275,
-        "held_unknown": {
-          "classified_lines": 3091,
-          "held_by_people": 3091,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 39159,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 3057,
+            "held_by_people": 176,
+            "human_hold_rate": 0.05757278377494275
+          },
+          "difference_defective_minus_clean": 0.05757278377494275,
+          "held_unknown": {
+            "classified_lines": 3091,
+            "held_by_people": 3091,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Solvents": {
-        "clean": {
-          "classified_lines": 721,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 1246,
+            "held_by_people": 525,
+            "human_hold_rate": 0.42134831460674155
+          },
+          "defective": {
+            "classified_lines": 201,
+            "held_by_people": 75,
+            "human_hold_rate": 0.373134328358209
+          },
+          "difference_defective_minus_clean": -0.04821398624853257,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 201,
-          "held_by_people": 75,
-          "human_hold_rate": 0.373134328358209
-        },
-        "difference_defective_minus_clean": 0.373134328358209,
-        "held_unknown": {
-          "classified_lines": 525,
-          "held_by_people": 525,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 721,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 201,
+            "held_by_people": 75,
+            "human_hold_rate": 0.373134328358209
+          },
+          "difference_defective_minus_clean": 0.373134328358209,
+          "held_unknown": {
+            "classified_lines": 525,
+            "held_by_people": 525,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Specialty Resins": {
-        "clean": {
-          "classified_lines": 616,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 1052,
+            "held_by_people": 436,
+            "human_hold_rate": 0.4144486692015209
+          },
+          "defective": {
+            "classified_lines": 208,
+            "held_by_people": 82,
+            "human_hold_rate": 0.3942307692307692
+          },
+          "difference_defective_minus_clean": -0.020217899970751685,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 208,
-          "held_by_people": 82,
-          "human_hold_rate": 0.3942307692307692
-        },
-        "difference_defective_minus_clean": 0.3942307692307692,
-        "held_unknown": {
-          "classified_lines": 436,
-          "held_by_people": 436,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 616,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 208,
+            "held_by_people": 82,
+            "human_hold_rate": 0.3942307692307692
+          },
+          "difference_defective_minus_clean": 0.3942307692307692,
+          "held_unknown": {
+            "classified_lines": 436,
+            "held_by_people": 436,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Spend Area Unidentified": {
-        "clean": {
-          "classified_lines": 10,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 15,
+            "held_by_people": 5,
+            "human_hold_rate": 0.3333333333333333
+          },
+          "defective": {
+            "classified_lines": 3,
+            "held_by_people": 1,
+            "human_hold_rate": 0.3333333333333333
+          },
+          "difference_defective_minus_clean": 0.0,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 3,
-          "held_by_people": 1,
-          "human_hold_rate": 0.3333333333333333
-        },
-        "difference_defective_minus_clean": 0.3333333333333333,
-        "held_unknown": {
-          "classified_lines": 5,
-          "held_by_people": 5,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 10,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 3,
+            "held_by_people": 1,
+            "human_hold_rate": 0.3333333333333333
+          },
+          "difference_defective_minus_clean": 0.3333333333333333,
+          "held_unknown": {
+            "classified_lines": 5,
+            "held_by_people": 5,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Titanium Dioxides": {
-        "clean": {
-          "classified_lines": 161,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 292,
+            "held_by_people": 131,
+            "human_hold_rate": 0.4486301369863014
+          },
+          "defective": {
+            "classified_lines": 108,
+            "held_by_people": 45,
+            "human_hold_rate": 0.4166666666666667
+          },
+          "difference_defective_minus_clean": -0.0319634703196347,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 108,
-          "held_by_people": 45,
-          "human_hold_rate": 0.4166666666666667
-        },
-        "difference_defective_minus_clean": 0.4166666666666667,
-        "held_unknown": {
-          "classified_lines": 131,
-          "held_by_people": 131,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 161,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 108,
+            "held_by_people": 45,
+            "human_hold_rate": 0.4166666666666667
+          },
+          "difference_defective_minus_clean": 0.4166666666666667,
+          "held_unknown": {
+            "classified_lines": 131,
+            "held_by_people": 131,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Trading & End Products": {
-        "clean": {
-          "classified_lines": 10155,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 11169,
+            "held_by_people": 1014,
+            "human_hold_rate": 0.0907869997313994
+          },
+          "defective": {
+            "classified_lines": 2939,
+            "held_by_people": 764,
+            "human_hold_rate": 0.25995236474991495
+          },
+          "difference_defective_minus_clean": 0.16916536501851553,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 2939,
-          "held_by_people": 764,
-          "human_hold_rate": 0.25995236474991495
-        },
-        "difference_defective_minus_clean": 0.25995236474991495,
-        "held_unknown": {
-          "classified_lines": 1014,
-          "held_by_people": 1014,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 10155,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 2939,
+            "held_by_people": 764,
+            "human_hold_rate": 0.25995236474991495
+          },
+          "difference_defective_minus_clean": 0.25995236474991495,
+          "held_unknown": {
+            "classified_lines": 1014,
+            "held_by_people": 1014,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Workforce Services": {
-        "clean": {
-          "classified_lines": 77,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 78,
+            "held_by_people": 1,
+            "human_hold_rate": 0.01282051282051282
+          },
+          "defective": {
+            "classified_lines": 13,
+            "held_by_people": 2,
+            "human_hold_rate": 0.15384615384615385
+          },
+          "difference_defective_minus_clean": 0.14102564102564102,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 13,
-          "held_by_people": 2,
-          "human_hold_rate": 0.15384615384615385
-        },
-        "difference_defective_minus_clean": 0.15384615384615385,
-        "held_unknown": {
-          "classified_lines": 1,
-          "held_by_people": 1,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 77,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 13,
+            "held_by_people": 2,
+            "human_hold_rate": 0.15384615384615385
+          },
+          "difference_defective_minus_clean": 0.15384615384615385,
+          "held_unknown": {
+            "classified_lines": 1,
+            "held_by_people": 1,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "missing": {
-        "clean": {
-          "classified_lines": 697,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 941,
+            "held_by_people": 244,
+            "human_hold_rate": 0.2592986184909671
+          },
+          "defective": {
+            "classified_lines": 360,
+            "held_by_people": 90,
+            "human_hold_rate": 0.25
+          },
+          "difference_defective_minus_clean": -0.009298618490967081,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 360,
-          "held_by_people": 90,
-          "human_hold_rate": 0.25
-        },
-        "difference_defective_minus_clean": 0.25,
-        "held_unknown": {
-          "classified_lines": 244,
-          "held_by_people": 244,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 697,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 360,
+            "held_by_people": 90,
+            "human_hold_rate": 0.25
+          },
+          "difference_defective_minus_clean": 0.25,
+          "held_unknown": {
+            "classified_lines": 244,
+            "held_by_people": 244,
+            "human_hold_rate": 1.0
+          }
         }
       }
     },
     "vendor_activity_quartile": {
       "Q1": {
-        "clean": {
-          "classified_lines": 24458,
-          "held_by_people": 1,
-          "human_hold_rate": 4.088641753209584e-05
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 31152,
+            "held_by_people": 6695,
+            "human_hold_rate": 0.21491397021058037
+          },
+          "defective": {
+            "classified_lines": 5443,
+            "held_by_people": 1302,
+            "human_hold_rate": 0.23920632004409334
+          },
+          "difference_defective_minus_clean": 0.02429234983351297,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 5443,
-          "held_by_people": 1302,
-          "human_hold_rate": 0.23920632004409334
-        },
-        "difference_defective_minus_clean": 0.23916543362656126,
-        "held_unknown": {
-          "classified_lines": 6694,
-          "held_by_people": 6694,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 24458,
+            "held_by_people": 1,
+            "human_hold_rate": 4.088641753209584e-05
+          },
+          "defective": {
+            "classified_lines": 5443,
+            "held_by_people": 1302,
+            "human_hold_rate": 0.23920632004409334
+          },
+          "difference_defective_minus_clean": 0.23916543362656126,
+          "held_unknown": {
+            "classified_lines": 6694,
+            "held_by_people": 6694,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Q2": {
-        "clean": {
-          "classified_lines": 25868,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 34152,
+            "held_by_people": 8284,
+            "human_hold_rate": 0.24256266104474117
+          },
+          "defective": {
+            "classified_lines": 4937,
+            "held_by_people": 1360,
+            "human_hold_rate": 0.2754709337654446
+          },
+          "difference_defective_minus_clean": 0.03290827272070346,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 4937,
-          "held_by_people": 1360,
-          "human_hold_rate": 0.2754709337654446
-        },
-        "difference_defective_minus_clean": 0.2754709337654446,
-        "held_unknown": {
-          "classified_lines": 8284,
-          "held_by_people": 8284,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 25868,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 4937,
+            "held_by_people": 1360,
+            "human_hold_rate": 0.2754709337654446
+          },
+          "difference_defective_minus_clean": 0.2754709337654446,
+          "held_unknown": {
+            "classified_lines": 8284,
+            "held_by_people": 8284,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Q3": {
-        "clean": {
-          "classified_lines": 34604,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 37434,
+            "held_by_people": 2830,
+            "human_hold_rate": 0.07559972217769942
+          },
+          "defective": {
+            "classified_lines": 3254,
+            "held_by_people": 765,
+            "human_hold_rate": 0.23509526736324524
+          },
+          "difference_defective_minus_clean": 0.15949554518554582,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 3254,
-          "held_by_people": 765,
-          "human_hold_rate": 0.23509526736324524
-        },
-        "difference_defective_minus_clean": 0.23509526736324524,
-        "held_unknown": {
-          "classified_lines": 2830,
-          "held_by_people": 2830,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 34604,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 3254,
+            "held_by_people": 765,
+            "human_hold_rate": 0.23509526736324524
+          },
+          "difference_defective_minus_clean": 0.23509526736324524,
+          "held_unknown": {
+            "classified_lines": 2830,
+            "held_by_people": 2830,
+            "human_hold_rate": 1.0
+          }
         }
       },
       "Q4": {
-        "clean": {
-          "classified_lines": 6248,
-          "held_by_people": 0,
-          "human_hold_rate": 0.0
+        "amended_reading_D-C-2": {
+          "clean": {
+            "classified_lines": 36037,
+            "held_by_people": 29789,
+            "human_hold_rate": 0.8266226378444377
+          },
+          "defective": {
+            "classified_lines": 2630,
+            "held_by_people": 2237,
+            "human_hold_rate": 0.8505703422053232
+          },
+          "difference_defective_minus_clean": 0.023947704360885558,
+          "held_unknown": {
+            "classified_lines": 0,
+            "held_by_people": 0,
+            "human_hold_rate": null
+          }
         },
-        "defective": {
-          "classified_lines": 2630,
-          "held_by_people": 2237,
-          "human_hold_rate": 0.8505703422053232
-        },
-        "difference_defective_minus_clean": 0.8505703422053232,
-        "held_unknown": {
-          "classified_lines": 29789,
-          "held_by_people": 29789,
-          "human_hold_rate": 1.0
+        "registered_literal_reading": {
+          "clean": {
+            "classified_lines": 6248,
+            "held_by_people": 0,
+            "human_hold_rate": 0.0
+          },
+          "defective": {
+            "classified_lines": 2630,
+            "held_by_people": 2237,
+            "human_hold_rate": 0.8505703422053232
+          },
+          "difference_defective_minus_clean": 0.8505703422053232,
+          "held_unknown": {
+            "classified_lines": 29789,
+            "held_by_people": 29789,
+            "human_hold_rate": 1.0
+          }
         }
       }
     }

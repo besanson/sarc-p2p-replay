@@ -25,7 +25,8 @@ refer to `prereg/p7-v1.1.md`.
 | `e1/category-crosscheck.json` | lines whose Item Category string disagrees with the flag-derived category | 3.1 |
 | `e1/coverage-check.json` | each detected row of `COVERAGE.md` (BPI 2019) and whether its predicate failed at least once | 6 (E1) |
 | `e1/evidence-set.jsonl.gz` | the full evidence set, one record per analysed clearing, identifiers hashed | 3.9 |
-| `e1/lines.jsonl.gz` | one record per framed line: category, value, strata, human hold, gate status at t* | 2, 3.6, 7 |
+| `e1/lines.jsonl.gz` | one record per framed line: category, value, strata, human hold, gate status at t* (literal reading) | 2, 3.6, 7 |
+| `e1/lines-t-star-amended.jsonl.gz` | gate status at t* per framed line under D-C-2 B (D5 not applicable at a t* that is not a clearing) | 7; DEVIATIONS |
 | `e1/evidence-sample.jsonl` | the seeded sample export of the evidence set | 3.9 |
 
 ## e2/ (E2, consequence: `experiments/e2.py`)
@@ -42,7 +43,7 @@ refer to `prereg/p7-v1.1.md`.
 | `e3/gate-held.json` | share of analysed clearings the gate would have held, in count and cleared value | 3.5, 5, 6 (E3) |
 | `e3/verdict-by-outcome.json` | the verdict by O table in count and cleared value, at both windows | 3.7, 6 (E3) |
 | `e3/lag-bands.json` | D1/D2 failures by lag band in count and cleared value | 3.3, 3.8 |
-| `e3/human-hold.json` | human-hold classification of every framed line, unclassified count, human hold rate on defective and on clean lines | 3.6, 7 |
+| `e3/human-hold.json` | human-hold classification of every framed line, unclassified count, human hold rate on defective and on clean lines, under the literal reading and under D-C-2 B | 3.6, 7; DEVIATIONS |
 | `e3/confounders.json` | the E3 quantities per stratum | 2.3, 6 |
 
 ## e6/ (E6, timing: `experiments/e6.py`)
@@ -50,6 +51,13 @@ refer to `prereg/p7-v1.1.md`.
 | file | holds | section |
 |---|---|---|
 | `e6/timing-e1.json` | wall time of the full E1 replay over three runs, median, seconds per decision, hardware; the cost column waits for E4 | 6 (E6) |
+
+## Checks
+
+| file | holds | section |
+|---|---|---|
+| `mutation.json` | mutation gate result on `src/` (kill score, counts, threshold) | 10 |
+| `checks-d-c-2.json` | D-C-2 B applied: E1 re-run from the log against the committed files, E2 re-run, E3 double run | DEVIATIONS |
 
 ## Reproducibility (`experiments/repro.py`)
 

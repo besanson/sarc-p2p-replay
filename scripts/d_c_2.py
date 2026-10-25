@@ -43,20 +43,26 @@ def step2(date: str) -> str:
     hold = _load("e3/human-hold.json")
     lit = hold["registered_literal_reading"]["by_gate_status_at_t_star"]
     amd = hold["amended_reading_D-C-2"]["by_gate_status_at_t_star"]
+    checks = _load("checks-d-c-2.json")
+    e1c = checks["e1_rerun_from_log"]
+    yes = lambda b: "yes" if b else "no"  # noqa: E731
     return f"""
-**Applied ({date}).** `src/p2p_replay/contract.py` gains `decide_at`, the
-verdict at a decision point: D5 is dropped from the contract when the decision
-point is not a clearing, and an actual clearing keeps the registered contract.
-`experiments/e1.py` writes the line table's status at t* under both readings
-(`t_star_status` literal, `t_star_status_amended` under B). E1 was re-run from
-the log and its evidence set and every E1 slot except `lines.jsonl.gz`
-(which gains the amended column) are byte-identical to the committed ones;
-E2 is unchanged (`results/e2/` re-run byte-identical). `results/e3/human-hold.json`
-carries both readings, `registered_literal_reading` and `amended_reading_D-C-2`.
-Clean lines at t* with a human hold classification: {_n(lit['clean']['classified_lines'])}
-under the literal reading, {_n(amd['clean']['classified_lines'])} under B; held-unknown:
-{_n(lit['held_unknown']['classified_lines'])} and {_n(amd['held_unknown']['classified_lines'])}.
-Mutation gate (`make mutate`, results/mutation.json): {_n(m['total'])} mutants,
+**Applied ({date}).** `src/p2p_replay/replay.py` gains `verdict_at_decision_point`
+(and `contract.decide` an optional `not_applicable` set): at a t* that is not a
+clearing D5 is not applicable under B, at an actual clearing the registered
+contract is unchanged. E1 keeps the literal status in `lines.jsonl.gz` and
+writes the status under B to the new file `results/e1/lines-t-star-amended.jsonl.gz`.
+Checks (`results/checks-d-c-2.json`, `scripts/recheck_d_c_2.py`): E1 re-run from the
+log, all {len(e1c['committed_files'])} committed E1 files byte-identical: {yes(e1c['all_committed_identical'])};
+E2 re-run, all {len(checks['e2_rerun']['files'])} files byte-identical: {yes(checks['e2_rerun']['all_identical'])};
+E3 run twice, all {len(checks['e3_double_run']['files'])} files byte-identical: {yes(checks['e3_double_run']['all_identical'])}.
+`results/e3/human-hold.json` carries both readings, `registered_literal_reading`
+and `amended_reading_D-C-2` (as does `results/e3/confounders.json` for its line
+tables). Classified clean lines at t*: {_n(lit['clean']['classified_lines'])} under the literal reading,
+{_n(amd['clean']['classified_lines'])} under B; held-unknown: {_n(lit['held_unknown']['classified_lines'])} and
+{_n(amd['held_unknown']['classified_lines'])}. Human hold rate on defective lines {amd['defective']['human_hold_rate']:.4f},
+on clean lines {lit['clean']['human_hold_rate']:.6f} (literal) and {amd['clean']['human_hold_rate']:.4f} (B).
+Mutation gate (`make mutate`, `results/mutation.json`): {_n(m['total'])} mutants,
 {_n(m['killed'])} killed, {_n(m['survived'])} survived, {_n(m['no_tests'])} without a covering
 test; kill score {m['kill_score']:.4f} (gate {m['threshold']}, {'passed' if m['passes'] else 'FAILED'}).
 """

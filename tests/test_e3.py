@@ -39,9 +39,26 @@ def test_e3_slots_on_fixture(e1_dir, tmp_path):
     hh = json.loads((out / "human-hold.json").read_text())
     assert hh["framed_lines"] == 6
     assert hh["held_by_people"] + hh["released_by_people"] + hh["unclassified_no_invoice_receipt_by_t_end_minus_w"] == 6
-    rates = hh["by_gate_status_at_t_star"]
-    assert rates["clean"]["classified_lines"] + rates["defective"]["classified_lines"] + \
-        rates["held_unknown"]["classified_lines"] == hh["held_by_people"] + hh["released_by_people"]
+    lit, amd = hh["registered_literal_reading"], hh["amended_reading_D-C-2"]
+    assert set(lit) == set(amd) == {"line_status_rule", "gate_status_at_t_star", "by_gate_status_at_t_star"}
+    for reading in (lit, amd):
+        rates = reading["by_gate_status_at_t_star"]
+        assert rates["clean"]["classified_lines"] + rates["defective"]["classified_lines"] + \
+            rates["held_unknown"]["classified_lines"] == hh["held_by_people"] + hh["released_by_people"]
+    # Every fixture line is cleared at t*, so the readings agree here; the rule itself is tested in
+    # test_engine_units.test_verdict_at_decision_point_d5_off_clearing.
+    assert lit["gate_status_at_t_star"] == amd["gate_status_at_t_star"] == {
+        "clean": 1, "defective": 5, "held_unknown": 0, "no_invoice_receipt": 0}
     conf = json.loads((out / "confounders.json").read_text())
     assert sum(v["held"] for v in conf["clearings"]["category"].values()) == 5
     assert set(conf["human_hold_lines"]) == set(common.STRATA)
+    assert set(conf["human_hold_lines"]["category"]["2-way"]) == {"registered_literal_reading", "amended_reading_D-C-2"}
+
+
+def test_e3_amended_status_comes_from_e1(e1_dir, tmp_path):
+    """E3 reads the D-C-2 B status from E1's file; a changed status changes only the amended table."""
+    lines = common.read_jsonl_gz(e1_dir / "lines.jsonl.gz")
+    flipped = {l["case_id"]: ("clean" if l["t_star_status"] == "defective" else l["t_star_status"]) for l in lines}
+    hh = e3.human_hold(lines, flipped)
+    assert hh["amended_reading_D-C-2"]["gate_status_at_t_star"]["defective"] == 0
+    assert hh["registered_literal_reading"]["gate_status_at_t_star"]["defective"] == 5

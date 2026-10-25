@@ -8,9 +8,9 @@ from typing import Callable, Iterable, Iterator
 
 from .config import T_END_MONTH_MIN_EVENTS, W_DAYS, W_SENSITIVITY_DAYS, P2PPatterns
 from .category import requires_receipt
-from .contract import applicable, decide
+from .contract import Verdict, applicable, decide
 from .evidence import EvidenceSet, source_hash
-from .frame import FrameResult, classify, cleared_value, line_value
+from .frame import FrameResult, classify, cleared_value, clearings, decision_point, line_value
 from .model import Case, Event, count
 from .outcome import corrective_within, first_receipt_after, lag_band, receipt_class
 from .predicates import Value, evaluate, last_approval, uncancelled_receipts
@@ -108,6 +108,33 @@ def replay_clearing(case: Case, frame: FrameResult, clearing: Event, p: P2PPatte
         strata=strata_of(case),
         source_sha256=source_hash(case, clearing.ts),
     )
+
+
+# D-C-2 B: at a decision point that is not a clearing the decider is the gate or the model,
+# not a person who could be the line's creator, so D5 is not applicable there.
+NOT_APPLICABLE_OFF_CLEARING = ("D5",)
+
+
+def verdict_at_decision_point(case: Case, category, p: P2PPatterns, window_days: int = W_DAYS,
+                              amended: bool = True) -> tuple[datetime | None, Verdict | None]:
+    """The E4 decision point t* (section 7) and the gate verdict there.
+
+    At a t* that is the first clearing, the verdict is that clearing's. At a t* that is not a
+    clearing there is no clearing actor: under D-C-2 B (`amended`) D5 is not applicable; under the
+    literal reading of section 7 D5 is unknown.
+    """
+    t_star = decision_point(case, p, window_days)
+    if t_star is None:
+        return None, None
+    first = clearings(case, p)
+    if first and first[0].ts == t_star:
+        return t_star, decide(evaluate(case, first[0], p), category)
+    values = evaluate(case, Event(p.clearing, t_star, None, None), p)
+    return t_star, decide(values, category, NOT_APPLICABLE_OFF_CLEARING if amended else ())
+
+
+def line_status(verdict: Verdict) -> str:
+    return "defective" if verdict.defective else ("clean" if verdict.allow else "held_unknown")
 
 
 @dataclass

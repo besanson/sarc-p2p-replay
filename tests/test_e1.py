@@ -67,6 +67,8 @@ def test_e1_slots_on_fixture(tmp_path):
     assert len(sample) == 6
     lines = common.read_jsonl_gz(out / "lines.jsonl.gz")
     assert len(lines) == 6 and {l["t_star_status"] for l in lines} == {"clean", "defective"}
+    amended = e1.load_amended(out)
+    assert set(amended) == {l["case_id"] for l in lines}
 
 
 def test_e1_is_byte_identical_and_removes_e0_lines(tmp_path):

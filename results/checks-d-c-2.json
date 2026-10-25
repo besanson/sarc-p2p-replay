@@ -1,0 +1,117 @@
+{
+  "amendment": "DECISIONS.md D-C-2 B",
+  "e1_rerun_from_log": {
+    "all_committed_identical": true,
+    "committed_files": [
+      {
+        "file": "category-crosscheck.json",
+        "identical": true,
+        "sha256_a": "eb5de0194d80d7ae392e2e8ef6c3643cf7617c3bae02a908d79ad3a1e75ab260",
+        "sha256_b": "eb5de0194d80d7ae392e2e8ef6c3643cf7617c3bae02a908d79ad3a1e75ab260"
+      },
+      {
+        "file": "coverage-check.json",
+        "identical": true,
+        "sha256_a": "d413839bdbd9079b58c1976dcbe845f89eb0deffd8b2040da328a7a140b09cce",
+        "sha256_b": "d413839bdbd9079b58c1976dcbe845f89eb0deffd8b2040da328a7a140b09cce"
+      },
+      {
+        "file": "evidence-sample.jsonl",
+        "identical": true,
+        "sha256_a": "dad7d9ecbee9af143eac675413e86da584830eeae253af1b5e5625387ce9c19c",
+        "sha256_b": "dad7d9ecbee9af143eac675413e86da584830eeae253af1b5e5625387ce9c19c"
+      },
+      {
+        "file": "evidence-set.jsonl.gz",
+        "identical": true,
+        "sha256_a": "98b55e8024238f6afa9721573b87e0446fa6de6fc30bab2e2f539c43ced761ec",
+        "sha256_b": "98b55e8024238f6afa9721573b87e0446fa6de6fc30bab2e2f539c43ced761ec"
+      },
+      {
+        "file": "exclusions.json",
+        "identical": true,
+        "sha256_a": "e77ba0a504e36d5f0314a8a33fe69e5ec43101a70e80deca0ef3d6469a827bc8",
+        "sha256_b": "e77ba0a504e36d5f0314a8a33fe69e5ec43101a70e80deca0ef3d6469a827bc8"
+      },
+      {
+        "file": "exposure-by-stratum.json",
+        "identical": true,
+        "sha256_a": "69e40a99b444e8f2353d9312645c8aa8aba850fd04be79670fb718d38df06b3c",
+        "sha256_b": "69e40a99b444e8f2353d9312645c8aa8aba850fd04be79670fb718d38df06b3c"
+      },
+      {
+        "file": "exposure.json",
+        "identical": true,
+        "sha256_a": "25594ef8804c350874af4190f05086eef1fab83918d36ec442a7748eb6b62743",
+        "sha256_b": "25594ef8804c350874af4190f05086eef1fab83918d36ec442a7748eb6b62743"
+      },
+      {
+        "file": "lines.jsonl.gz",
+        "identical": true,
+        "sha256_a": "d19d1717db9e7d190f5e8c4163b278b5de0f28bfc2206d606c4b6438047c4877",
+        "sha256_b": "d19d1717db9e7d190f5e8c4163b278b5de0f28bfc2206d606c4b6438047c4877"
+      },
+      {
+        "file": "value-fallback.json",
+        "identical": true,
+        "sha256_a": "12a5ba137b63dd652511ac41bba4b54d6c144c95dc630c1c8ff3585f1f152d81",
+        "sha256_b": "12a5ba137b63dd652511ac41bba4b54d6c144c95dc630c1c8ff3585f1f152d81"
+      }
+    ],
+    "new_files": [
+      "lines-t-star-amended.jsonl.gz"
+    ]
+  },
+  "e2_rerun": {
+    "all_identical": true,
+    "files": [
+      {
+        "file": "confounders.json",
+        "identical": true,
+        "sha256_a": "99afde938fd681fe6b2b314cb10743e2ef844682872c5f9b82a7139238e147ab",
+        "sha256_b": "99afde938fd681fe6b2b314cb10743e2ef844682872c5f9b82a7139238e147ab"
+      },
+      {
+        "file": "hypotheses.json",
+        "identical": true,
+        "sha256_a": "d33de91619ca7cf995383a5b23266ec1cceb0ff3fa664dfc3c8baf9dc69a488c",
+        "sha256_b": "d33de91619ca7cf995383a5b23266ec1cceb0ff3fa664dfc3c8baf9dc69a488c"
+      }
+    ]
+  },
+  "e3_double_run": {
+    "all_identical": true,
+    "files": [
+      {
+        "file": "confounders.json",
+        "identical": true,
+        "sha256_a": "a17d465c04962c1b586c910ebb77e279b4085e709d323ca60b7c89a343eb8fc8",
+        "sha256_b": "a17d465c04962c1b586c910ebb77e279b4085e709d323ca60b7c89a343eb8fc8"
+      },
+      {
+        "file": "gate-held.json",
+        "identical": true,
+        "sha256_a": "67daeeca5d8a54532fa782e1833238112a7b11cd6f3e1b7a2209b0094f3c3030",
+        "sha256_b": "67daeeca5d8a54532fa782e1833238112a7b11cd6f3e1b7a2209b0094f3c3030"
+      },
+      {
+        "file": "human-hold.json",
+        "identical": true,
+        "sha256_a": "9524d1d4544471d7b47240d39704e45a0dad09a98364db2001c1982dca50d1af",
+        "sha256_b": "9524d1d4544471d7b47240d39704e45a0dad09a98364db2001c1982dca50d1af"
+      },
+      {
+        "file": "lag-bands.json",
+        "identical": true,
+        "sha256_a": "561b9f8fe62e64aedd7a1676f19f5d1e802e372d74562fc68aab520ba79a4ad3",
+        "sha256_b": "561b9f8fe62e64aedd7a1676f19f5d1e802e372d74562fc68aab520ba79a4ad3"
+      },
+      {
+        "file": "verdict-by-outcome.json",
+        "identical": true,
+        "sha256_a": "1a6a50ed6a64993721a3258e7feae3c249ea77742aabcaa7397856508bacd101",
+        "sha256_b": "1a6a50ed6a64993721a3258e7feae3c249ea77742aabcaa7397856508bacd101"
+      }
+    ]
+  }
+}

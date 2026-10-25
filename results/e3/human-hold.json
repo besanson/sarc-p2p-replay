@@ -1,31 +1,60 @@
 {
-  "by_gate_status_at_t_star": {
-    "clean": {
-      "classified_lines": 91178,
-      "held_by_people": 1,
-      "human_hold_rate": 1.0967557963543837e-05
+  "amended_reading_D-C-2": {
+    "by_gate_status_at_t_star": {
+      "clean": {
+        "classified_lines": 138775,
+        "held_by_people": 47598,
+        "human_hold_rate": 0.3429868492163574
+      },
+      "defective": {
+        "classified_lines": 16264,
+        "held_by_people": 5664,
+        "human_hold_rate": 0.34825381210034434
+      },
+      "difference_defective_minus_clean": 0.005266962883986925,
+      "held_unknown": {
+        "classified_lines": 0,
+        "held_by_people": 0,
+        "human_hold_rate": null
+      }
     },
-    "defective": {
-      "classified_lines": 16264,
-      "held_by_people": 5664,
-      "human_hold_rate": 0.34825381210034434
+    "gate_status_at_t_star": {
+      "clean": 147240,
+      "defective": 18006,
+      "held_unknown": 0,
+      "no_invoice_receipt": 15418
     },
-    "difference_defective_minus_clean": 0.3482428445423808,
-    "held_unknown": {
-      "classified_lines": 47597,
-      "held_by_people": 47597,
-      "human_hold_rate": 1.0
-    }
+    "line_status_rule": "as the literal reading, except that at a t* that is not a clearing D5 is not applicable and counts as pass (DECISIONS.md D-C-2 B; prereg/DEVIATIONS.md)"
   },
   "framed_lines": 180664,
-  "gate_status_at_t_star": {
-    "clean": 91178,
-    "defective": 18006,
-    "held_unknown": 56062,
-    "no_invoice_receipt": 15418
-  },
   "held_by_people": 53262,
-  "line_status_rule": "gate verdict at the E4 decision point t* (section 7): defective if at least one applicable predicate fails, clean if every applicable predicate passes, otherwise held_unknown; at a t* with no clearing D5 is unknown (no clearing actor)",
+  "registered_literal_reading": {
+    "by_gate_status_at_t_star": {
+      "clean": {
+        "classified_lines": 91178,
+        "held_by_people": 1,
+        "human_hold_rate": 1.0967557963543837e-05
+      },
+      "defective": {
+        "classified_lines": 16264,
+        "held_by_people": 5664,
+        "human_hold_rate": 0.34825381210034434
+      },
+      "difference_defective_minus_clean": 0.3482428445423808,
+      "held_unknown": {
+        "classified_lines": 47597,
+        "held_by_people": 47597,
+        "human_hold_rate": 1.0
+      }
+    },
+    "gate_status_at_t_star": {
+      "clean": 91178,
+      "defective": 18006,
+      "held_unknown": 56062,
+      "no_invoice_receipt": 15418
+    },
+    "line_status_rule": "gate verdict at the E4 decision point t* (section 7): defective if at least one applicable predicate fails, clean if every applicable predicate passes, otherwise held_unknown; at a t* with no clearing D5 is unknown (no clearing actor)"
+  },
   "registration": "p7-v1.1",
   "released_by_people": 101777,
   "section": "3.6",

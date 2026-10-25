@@ -26,7 +26,7 @@ def test_double_run_is_byte_identical_on_fixture(tmp_path):
     e0.write_text("", encoding="utf-8")
     out = repro.run(FIXTURES / "mini2019.xes", tmp_path / "a", tmp_path / "b", tmp_path / "repro.json",
                     e0_path=e0, min_month_events=1, b=50)
-    assert out["all_identical"] is True and out["files_compared"] == 9 + 2 + 5
+    assert out["all_identical"] is True and out["files_compared"] == 10 + 2 + 5
     assert {f["file"].split("/")[0] for f in out["files"]} == {"e1", "e2", "e3"}
     (tmp_path / "b" / "e2" / "hypotheses.json").write_text("{}\n")
     assert not all(f["identical"] for f in repro.compare(tmp_path / "a", tmp_path / "b"))

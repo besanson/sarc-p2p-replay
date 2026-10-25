@@ -363,3 +363,46 @@ def test_naive_timestamp_is_utc_whatever_the_local_zone(monkeypatch):
     finally:
         monkeypatch.delenv("TZ")
         time.tzset()
+
+
+def test_verdict_at_decision_point_d5_off_clearing():
+    """D-C-2 B: at a t* that is not a clearing D5 is not applicable; at a clearing it stays."""
+    from p2p_replay.category import Category
+    from p2p_replay.replay import line_status, verdict_at_decision_point
+
+    gr = "Record Goods Receipt"
+    # No clearing within W of the invoice: t* = invoice + 60 days, no clearing actor.
+    held = make_case([ev(CREATE, 0, "user_1"), ev(gr, 5), ev(RIR, 10)])
+    t_star, literal = verdict_at_decision_point(held, Category.THREE_WAY_AFTER, P2P, 60, amended=False)
+    assert t_star == at(70) and literal.unknown == ("D5",) and line_status(literal) == "held_unknown"
+    t_star, amended = verdict_at_decision_point(held, Category.THREE_WAY_AFTER, P2P, 60)
+    assert t_star == at(70) and amended.allow and amended.unknown == () and line_status(amended) == "clean"
+    # A failed predicate still makes the line defective under both readings.
+    no_receipt = make_case([ev(CREATE, 0, "user_1"), ev(RIR, 10)])
+    for flag in (False, True):
+        _, v = verdict_at_decision_point(no_receipt, Category.THREE_WAY_AFTER, P2P, 60, amended=flag)
+        assert line_status(v) == "defective" and "D1" in v.failed
+    # At an actual clearing D5 is evaluated under both readings: same actor fails, NONE is unknown.
+    same = make_case([ev(CREATE, 0, "user_1"), ev(gr, 5), ev(RIR, 10), ev(CLEAR, 20, "user_1")])
+    none = make_case([ev(CREATE, 0, "user_1"), ev(gr, 5), ev(RIR, 10), ev(CLEAR, 20, "NONE")])
+    for flag in (False, True):
+        t_star, v = verdict_at_decision_point(same, Category.THREE_WAY_AFTER, P2P, 60, amended=flag)
+        assert t_star == at(20) and v.failed == ("D5",)
+        _, v = verdict_at_decision_point(none, Category.THREE_WAY_AFTER, P2P, 60, amended=flag)
+        assert v.unknown == ("D5",) and line_status(v) == "held_unknown"
+    # 2-way lines carry no D1/D2; off a clearing the amended contract is D3, D4, D6, D7.
+    two = make_case([ev(CREATE, 0, "user_1"), ev(RIR, 10)], attrs=TWO_WAY)
+    _, v = verdict_at_decision_point(two, Category.TWO_WAY, P2P, 60)
+    assert v.allow and line_status(v) == "clean"
+    assert verdict_at_decision_point(make_case([ev(CREATE, 0)]), Category.THREE_WAY_AFTER, P2P, 60) == (None, None)
+
+
+def test_decide_not_applicable():
+    from p2p_replay.category import Category
+    from p2p_replay.contract import decide
+    from p2p_replay.predicates import Value
+
+    values = {d: Value.PASS for d in ("D1", "D2", "D3", "D4", "D5", "D6", "D7")} | {"D5": Value.FAIL}
+    assert decide(values, Category.TWO_WAY).failed == ("D5",)
+    v = decide(values, Category.TWO_WAY, ("D5",))
+    assert v.allow and not v.defective and v.failed == ()

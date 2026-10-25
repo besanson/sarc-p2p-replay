@@ -11,7 +11,8 @@ the output directory (default results/e3/):
   lag-bands.json           D1/D2 failures by lag band (3.8) in count and cleared value
   human-hold.json          the 3.6 classification of every framed line (E0 lines removed),
                            the unclassified count, and the human hold rate on defective and
-                           on clean lines (gate status at the E4 decision point t*, section 7)
+                           on clean lines (gate status at the E4 decision point t*, section 7),
+                           under the literal reading and under D-C-2 B
   confounders.json         the same quantities per stratum (2.3), beside, never modelled in
 
 Usage: python -m experiments.e3 [--e1 results/e1] [--out results/e3]
@@ -30,7 +31,7 @@ import numpy as np
 from experiments.common import (
     BOOTSTRAP_B, STRATA, ClusterBootstrap, Strata, cells, cents, eur, percentile95, ratio, wilson, write_json,
 )
-from experiments.e1 import load
+from experiments.e1 import load, load_amended
 from p2p_replay.config import REGISTRATION, ROOT, SEED, W_DAYS, W_SENSITIVITY_DAYS
 from p2p_replay.outcome import ABSENT, LAG_BANDS, STALE
 
@@ -101,36 +102,53 @@ def lag_bands(records: Sequence[dict], value: np.ndarray) -> dict[str, Any]:
             "receipt_class": {STALE: classes.get(STALE, 0), ABSENT: classes.get(ABSENT, 0)}}
 
 
-def hold_rates(lines: Sequence[dict]) -> dict[str, Any]:
+def hold_rates(lines: Sequence[dict], status: Sequence[str | None]) -> dict[str, Any]:
     out = {}
-    for status in LINE_STATUSES:
-        group = [l for l in lines if l["t_star_status"] == status and l["human_hold"] is not None]
+    for s in LINE_STATUSES:
+        group = [l for l, st in zip(lines, status) if st == s and l["human_hold"] is not None]
         held = sum(1 for l in group if l["human_hold"])
-        out[status] = {"classified_lines": len(group), "held_by_people": held,
-                       "human_hold_rate": ratio(held, len(group))}
+        out[s] = {"classified_lines": len(group), "held_by_people": held,
+                  "human_hold_rate": ratio(held, len(group))}
     d, c = out["defective"]["human_hold_rate"], out["clean"]["human_hold_rate"]
     out["difference_defective_minus_clean"] = d - c if d is not None and c is not None else None
     return out
 
 
-def human_hold(lines: Sequence[dict]) -> dict[str, Any]:
+RULES = {
+    "registered_literal_reading": "gate verdict at the E4 decision point t* (section 7): defective if at least one "
+                                  "applicable predicate fails, clean if every applicable predicate passes, otherwise "
+                                  "held_unknown; at a t* with no clearing D5 is unknown (no clearing actor)",
+    "amended_reading_D-C-2": "as the literal reading, except that at a t* that is not a clearing D5 is not "
+                             "applicable and counts as pass (DECISIONS.md D-C-2 B; prereg/DEVIATIONS.md)",
+}
+
+
+def readings(lines: Sequence[dict], amended: dict[str, str | None]) -> dict[str, list[str | None]]:
+    return {"registered_literal_reading": [l["t_star_status"] for l in lines],
+            "amended_reading_D-C-2": [amended[l["case_id"]] for l in lines]}
+
+
+def human_hold(lines: Sequence[dict], amended: dict[str, str | None]) -> dict[str, Any]:
     classified = [l for l in lines if l["human_hold"] is not None]
-    status = Counter(l["t_star_status"] or "no_invoice_receipt" for l in lines)
-    return {
+    out: dict[str, Any] = {
         "registration": REGISTRATION, "section": "3.6",
         "framed_lines": len(lines),
         "held_by_people": sum(1 for l in classified if l["human_hold"]),
         "released_by_people": sum(1 for l in classified if not l["human_hold"]),
         "unclassified_no_invoice_receipt_by_t_end_minus_w": len(lines) - len(classified),
-        "gate_status_at_t_star": {k: status.get(k, 0) for k in (*LINE_STATUSES, "no_invoice_receipt")},
-        "line_status_rule": "gate verdict at the E4 decision point t* (section 7): defective if at least one "
-                            "applicable predicate fails, clean if every applicable predicate passes, otherwise "
-                            "held_unknown; at a t* with no clearing D5 is unknown (no clearing actor)",
-        "by_gate_status_at_t_star": hold_rates(lines),
     }
+    for name, status in readings(lines, amended).items():
+        counts = Counter(s or "no_invoice_receipt" for s in status)
+        out[name] = {
+            "line_status_rule": RULES[name],
+            "gate_status_at_t_star": {k: counts.get(k, 0) for k in (*LINE_STATUSES, "no_invoice_receipt")},
+            "by_gate_status_at_t_star": hold_rates(lines, status),
+        }
+    return out
 
 
-def confounders(records: Sequence[dict], lines: Sequence[dict], strata: Strata, value: np.ndarray) -> dict[str, Any]:
+def confounders(records: Sequence[dict], lines: Sequence[dict], amended: dict[str, str | None], strata: Strata,
+                value: np.ndarray) -> dict[str, Any]:
     rec_masks = cells([strata.of_record(r) for r in records])
     line_labels = [strata.of_line(l, l["t_star"][:7] if l["t_star"] else None) for l in lines]
     line_masks = cells(line_labels)
@@ -138,6 +156,7 @@ def confounders(records: Sequence[dict], lines: Sequence[dict], strata: Strata, 
     line_tables: dict[str, Any] = {}
     held = np.array([r["verdict"] == "hold" for r in records], dtype=bool)
     cm = cell_masks(records)
+    by_reading = readings(lines, amended)
     for var in STRATA:
         clearing_tables[var] = {}
         for label, m in rec_masks[var].items():
@@ -149,13 +168,17 @@ def confounders(records: Sequence[dict], lines: Sequence[dict], strata: Strata, 
                 "verdict_by_outcome": two_by_two(cm, value, m),
             }
         line_tables[var] = {
-            label: hold_rates([l for l, keep in zip(lines, m) if keep]) for label, m in line_masks[var].items()}
+            label: {name: hold_rates([l for l, keep in zip(lines, m) if keep],
+                                     [s for s, keep in zip(status, m) if keep])
+                    for name, status in by_reading.items()}
+            for label, m in line_masks[var].items()}
     return {"registration": REGISTRATION, "cutpoints": strata.cutpoints(),
             "note": "reported beside every estimate, never modelled in; for lines, month is the month of t*",
             "clearings": clearing_tables, "human_hold_lines": line_tables}
 
 
-def analyse(records: list[dict], lines: list[dict], b: int = BOOTSTRAP_B) -> dict[str, Any]:
+def analyse(records: list[dict], lines: list[dict], amended: dict[str, str | None],
+            b: int = BOOTSTRAP_B) -> dict[str, Any]:
     strata = Strata(lines)
     value = np.array([cents(r["cleared_value"]) for r in records], dtype=np.float64)
     return {
@@ -165,14 +188,14 @@ def analyse(records: list[dict], lines: list[dict], b: int = BOOTSTRAP_B) -> dic
                                     "cells": "corrective = O (section 3.7) within W after t_c",
                                     "table": two_by_two(cell_masks(records), value)},
         "lag-bands.json": lag_bands(records, value),
-        "human-hold.json": human_hold(lines),
-        "confounders.json": confounders(records, lines, strata, value),
+        "human-hold.json": human_hold(lines, amended),
+        "confounders.json": confounders(records, lines, amended, strata, value),
     }
 
 
 def run(e1_dir: Path, out: Path, b: int = BOOTSTRAP_B) -> dict[str, Any]:
     records, lines = load(e1_dir)
-    slots = analyse(records, lines, b)
+    slots = analyse(records, lines, load_amended(e1_dir), b)
     for name, obj in slots.items():
         write_json(out / name, obj)
     return slots
