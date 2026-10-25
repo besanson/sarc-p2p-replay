@@ -709,3 +709,113 @@ yes (`results/e4/double-run.json`). Exploratory timeline arm ran (labelled explo
   retries and re-requests included.
 - Exploratory view: the template's task paragraph followed by the line's events up to t*
   (date, activity, value), with no actor, id, company or vendor.
+
+## D-C-4 E5 and E7 run (2026-10-25)
+
+**What ran.** E5 (`experiments/e5.py`) on the E1 evidence set, with paper 5's compiler; the E7
+vocabulary check (`experiments/e7_check.py`) and the E7 replication (`experiments/e7.py`) on the
+two BPI 2020 declaration logs (SHA-256 as registered, checked by the runner). No model call.
+
+**Compiler.** `authority_compiler.derive_authority_contract` from `sarc-authority-derivation` at
+`cfb321ec220e83e81a771a048276571f6edf08fb` (the engines.lock pin, checked by the runner), imported from the
+sibling checkout unmodified (package version string `0+unknown` when not
+installed); its dependency python-sat at the version of its own `constraints.txt` (pinned in
+`pyproject.toml`). The adapter lives in `experiments/e5.py`: per category, one state per distinct
+combination of the evidence-set observations (a frozen dataclass, as the compiler's
+`participation` module reads states), the candidate context the values each observation takes,
+and the three registered losses as predicates over the state. Observations: `receipts`
+(uncancelled receipts, read by D1 and D2), `invoices` (D3), `changes` (changes since approval, D4),
+`distinct_actors` (D5's recorded value; the evidence set does not carry the creator), `blocks`
+(D6), `closed` (D7), and `clearing_ordinal` (the clearing's position among the line's analysed
+clearings, from the evidence set's own case_id and t_c; read by no predicate). Losses: L1 pay for
+goods not received = the category requires a goods receipt and `receipts <= 0`; L2 pay twice =
+`clearing_ordinal > invoices`; L3 pay a changed amount = `changes > 0`. The derived contract is the
+set of registered predicates whose observation is in the compiler's minimum-cardinality reduct.
+
+**E5 result** (`results/e5/derivation.json`; the compiler's full output per category in
+`results/e5/trace-*.json`):
+
+| category | clearings | states | clearings per loss | minimum-cardinality field set | derived contract | registered contract | result |
+|---|---|---|---|---|---|---|---|
+| 2-way | 188 | 3 | L1 0, L2 0, L3 4 | changes | D4 | D3, D4, D5, D6, D7 | does not reproduce |
+| 3-way, invoice after receipt | 9,640 | 896 | L1 0, L2 81, L3 1,585 | changes, clearing_ordinal, invoices | D3, D4 | D1, D2, D3, D4, D5, D6, D7 | does not reproduce |
+| 3-way, invoice before receipt | 145,706 | 758 | L1 692, L2 1,390, L3 15,568 | changes, clearing_ordinal, invoices, receipts | D1, D2, D3, D4 | D1, D2, D3, D4, D5, D6, D7 | does not reproduce |
+
+Each category has a single minimal reduct (`minimal_reducts` in the slot). No declared loss reads
+the observations of D5, D6 or D7, so they never enter a sufficient set; L2 needs
+`clearing_ordinal`, an observation no registered predicate reads.
+
+**E7 vocabulary** (`results/e7/vocabulary.json`). Registered names absent from both logs:
+none. Absent per log: domestic: `Declaration FINAL_APPROVED by DIRECTOR`, `Declaration REJECTED by DIRECTOR`; international: none; each
+is reported with a zero count and stays in its list. Every attribute the registered bpi2020
+mapping names is present in both logs: yes.
+
+**E7 results** (`results/e7/`; descriptive, secondary, no p-value, not in the Holm family):
+
+| log | cases | payments | excluded after T_end' - W | units | T_end' |
+|---|---|---|---|---|---|
+| domestic | 10,500 | 10,044 | 2 | 10,042 | 2019-06-17T15:30:58+00:00 |
+| international | 6,449 | 6,187 | 0 | 6,187 | 2020-05-09T22:00:00+00:00 |
+
+Predicates: domestic: D1' fail 2, unknown 0, D2' fail 2, unknown 0, D3' fail 0, unknown 2; international: D1' fail 0, unknown 0, D2' fail 0, unknown 0, D3' fail 0, unknown 0; pooled: D1' fail 2, unknown 0, D2' fail 2, unknown 0, D3' fail 0, unknown 2. Payments with at least one failed predicate: domestic 2 of 10,042 payments (value share 0.0001); international 0 of 6,187 payments (value share 0.0000); pooled 2 of 16,229 payments (value share 0.0000).
+
+| scope | predicate | failing payments | O' rate | all-pass payments | O' rate | difference | 95% interval | H1 shape |
+|---|---|---|---|---|---|---|---|---|
+| domestic | D1' | 2 | 0.5000 | 10,040 | 0.0000 | 0.5000 | [0.0000, 1.0000] | no |
+| domestic | D2' | 2 | 0.5000 | 10,040 | 0.0000 | 0.5000 | [0.0000, 1.0000] | no |
+| domestic | D3' | 0 | n/a | 10,040 | 0.0000 | n/a | n/a | no |
+| international | D1' | 0 | n/a | 6,187 | 0.0000 | n/a | n/a | no |
+| international | D2' | 0 | n/a | 6,187 | 0.0000 | n/a | n/a | no |
+| international | D3' | 0 | n/a | 6,187 | 0.0000 | n/a | n/a | no |
+| pooled | D1' | 2 | 0.5000 | 16,227 | 0.0000 | 0.5000 | [0.0000, 1.0000] | no |
+| pooled | D2' | 2 | 0.5000 | 16,227 | 0.0000 | 0.5000 | [0.0000, 1.0000] | no |
+| pooled | D3' | 0 | n/a | 16,227 | 0.0000 | n/a | n/a | no |
+
+**Double runs.** E5 twice, byte-identical: yes
+(`results/e5/double-run.json`); E7 vocabulary check and replication twice, byte-identical:
+yes (`results/e7/double-run.json`).
+
+**Pipeline readings (no registered item changed).**
+
+- The three losses are expressed over the evidence set as above. L1 is a loss only where the
+  category requires a goods receipt (on a 2-way line no receipt is recorded by design). L2 has no
+  single evidence-set field; it is expressed with the clearing's position on its line, derived from
+  the evidence set's own line id and clearing time, against the invoice count. The compiler needs
+  every loss to be a function of the candidate observations, so that position is a candidate.
+- Identical observation vectors are one state; the number of clearings each stands for is in the
+  trace. The compiler's partitions, core and reducts do not depend on repeats.
+- E7 paid value is the case attribute `Amount`, read beside the registered bpi2020 mapping (which
+  names no amount field) for the value share only; every payment of a case carries its case's
+  amount; sums use `math.fsum` (the anonymised amounts carry many decimals).
+- E7 bootstrap clusters are declaration cases, identified by the hash of log name and case id so
+  that the pooled scope keeps the two logs' cases apart; sorted by that hash.
+- T_end' is the latest timestamp of each log (section 8, unchanged by v1.1).
+
+## D-C-5 Phase C closed (2026-10-25)
+
+Every Phase C experiment of the registration (E0 to E7) has run; every figure is in a slot file
+under `results/` (index: `results/README.md`). Claim statuses, set from the slots by
+`scripts/claim_statuses.py` (`CLAIMS.md`):
+
+| claim | status | evidence |
+|---|---|---|
+| C1 | supported | `results/e1/exclusions.json`, `results/e1/evidence-set.jsonl.gz`, `results/mutation.json` |
+| C2 | supported | `results/e1/exposure.json`, `results/e1/exposure-by-stratum.json` |
+| C3 | supported | `results/e2/hypotheses.json` |
+| C4 | supported | `results/e2/hypotheses.json` |
+| C5 | inconclusive: defect class has zero incidence in this log | `results/e1/coverage-check.json`, `results/e2/hypotheses.json` |
+| C6 | not supported for both families | `results/e4/h4.json` |
+| C7 | supported | `results/e3/gate-held.json`, `results/e3/verdict-by-outcome.json`, `results/e3/lag-bands.json` |
+| C8 | supported | `results/e4/arms.json` |
+| C9 | not supported: 2-way does not reproduce; 3-way, invoice after receipt does not reproduce; 3-way, invoice before receipt does not reproduce | `results/e5/derivation.json` |
+| C10 | supported | `results/e6/timing-e1.json`, `results/e6/cost.json` |
+| C11 | inconclusive | `results/e7/comparisons.json` |
+| C12 | supported; D5 class zero incidence | `results/e1/coverage-check.json` |
+| C13 | supported for the internal double runs; external reproduction pending (FINAL-AUDIT item 11) | `results/reproducibility.json`, `results/e4/double-run.json` |
+
+**Deviations under p7-v1.1** (`prereg/DEVIATIONS.md`): H3 convention (2026-10-25); D5 applicability at a non-clearing decision point (2026-10-25).
+
+**Spend.** USD 1.5698 of the USD 60 cap, E4 and the exploratory
+arm together (`results/e6/cost.json`).
+
+No registered item changed after the tag prereg-p7-v1.1 except as logged in prereg/DEVIATIONS.md.
