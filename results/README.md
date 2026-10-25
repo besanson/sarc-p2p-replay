@@ -81,6 +81,12 @@ refer to `prereg/p7-v1.1.md`.
 | `e6/timing-e1.json` | wall time of the full E1 replay over three runs, median, seconds per decision, hardware; the cost column waits for E4 | 6 (E6) |
 | `e6/cost.json` | USD per decision per family and arm, from the responses (retries and re-requests included); spend total against the cap | 6 (E6) |
 
+## e7/ (E7, BPI 2020 declarations: `experiments/e7_check.py`, `experiments/e7.py`)
+
+| file | holds | section |
+|---|---|---|
+| `e7/vocabulary.json` | per log: activity names and counts, attribute keys, T_end'; per registered list, which names occur; mapped attributes present | 8 |
+
 ## Checks
 
 | file | holds | section |

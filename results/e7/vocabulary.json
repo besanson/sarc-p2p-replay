@@ -1,0 +1,227 @@
+{
+  "logs": {
+    "domestic": {
+      "activities": {
+        "Declaration APPROVED by ADMINISTRATION": 8202,
+        "Declaration APPROVED by BUDGET OWNER": 2820,
+        "Declaration APPROVED by PRE_APPROVER": 685,
+        "Declaration FINAL_APPROVED by SUPERVISOR": 10131,
+        "Declaration FOR_APPROVAL by ADMINISTRATION": 1,
+        "Declaration FOR_APPROVAL by PRE_APPROVER": 1,
+        "Declaration FOR_APPROVAL by SUPERVISOR": 1,
+        "Declaration REJECTED by ADMINISTRATION": 952,
+        "Declaration REJECTED by BUDGET OWNER": 59,
+        "Declaration REJECTED by EMPLOYEE": 1365,
+        "Declaration REJECTED by MISSING": 91,
+        "Declaration REJECTED by PRE_APPROVER": 86,
+        "Declaration REJECTED by SUPERVISOR": 293,
+        "Declaration SAVED by EMPLOYEE": 135,
+        "Declaration SUBMITTED by EMPLOYEE": 11531,
+        "Payment Handled": 10044,
+        "Request Payment": 10040
+      },
+      "case_attribute_keys": {
+        "Amount": 10500,
+        "BudgetNumber": 10500,
+        "DeclarationNumber": 10500,
+        "concept:name": 10500,
+        "id": 10500
+      },
+      "event_attribute_keys": {
+        "concept:name": 56437,
+        "id": 56437,
+        "org:resource": 56437,
+        "org:role": 56437,
+        "time:timestamp": 56437
+      },
+      "events": 56437,
+      "file": "DomesticDeclarations.xes.gz",
+      "mapped_attributes_missing": {
+        "case": [],
+        "event": []
+      },
+      "sha256": "0bc3312acf0b9ee5ae6f4ebe9df204005ef11665d62f2d21dd04995161d7532b",
+      "t_end_prime": "2019-06-17T15:30:58+00:00",
+      "traces": 10500
+    },
+    "international": {
+      "activities": {
+        "Declaration APPROVED by ADMINISTRATION": 5037,
+        "Declaration APPROVED by BUDGET OWNER": 1834,
+        "Declaration APPROVED by PRE_APPROVER": 612,
+        "Declaration APPROVED by SUPERVISOR": 256,
+        "Declaration FINAL_APPROVED by DIRECTOR": 252,
+        "Declaration FINAL_APPROVED by SUPERVISOR": 6039,
+        "Declaration REJECTED by ADMINISTRATION": 1549,
+        "Declaration REJECTED by BUDGET OWNER": 40,
+        "Declaration REJECTED by DIRECTOR": 4,
+        "Declaration REJECTED by EMPLOYEE": 1780,
+        "Declaration REJECTED by MISSING": 103,
+        "Declaration REJECTED by PRE_APPROVER": 84,
+        "Declaration REJECTED by SUPERVISOR": 126,
+        "Declaration SAVED by EMPLOYEE": 75,
+        "Declaration SUBMITTED by EMPLOYEE": 8099,
+        "End trip": 6449,
+        "Payment Handled": 6187,
+        "Permit APPROVED by ADMINISTRATION": 4839,
+        "Permit APPROVED by BUDGET OWNER": 1763,
+        "Permit APPROVED by PRE_APPROVER": 534,
+        "Permit APPROVED by SUPERVISOR": 641,
+        "Permit FINAL_APPROVED by DIRECTOR": 640,
+        "Permit FINAL_APPROVED by SUPERVISOR": 5381,
+        "Permit REJECTED by ADMINISTRATION": 83,
+        "Permit REJECTED by BUDGET OWNER": 31,
+        "Permit REJECTED by DIRECTOR": 1,
+        "Permit REJECTED by EMPLOYEE": 231,
+        "Permit REJECTED by MISSING": 43,
+        "Permit REJECTED by PRE_APPROVER": 25,
+        "Permit REJECTED by SUPERVISOR": 92,
+        "Permit SUBMITTED by EMPLOYEE": 6255,
+        "Request Payment": 6183,
+        "Send Reminder": 434,
+        "Start trip": 6449
+      },
+      "case_attribute_keys": {
+        "AdjustedAmount": 6449,
+        "Amount": 6449,
+        "BudgetNumber": 6449,
+        "DeclarationNumber": 6449,
+        "OriginalAmount": 6449,
+        "Permit ActivityNumber": 6449,
+        "Permit BudgetNumber": 6449,
+        "Permit ID": 6449,
+        "Permit OrganizationalEntity": 6449,
+        "Permit ProjectNumber": 6449,
+        "Permit RequestedBudget": 6449,
+        "Permit TaskNumber": 6449,
+        "Permit id": 6449,
+        "Permit travel permit number": 6449,
+        "RequestedAmount": 6449,
+        "concept:name": 6449,
+        "id": 6449,
+        "travel permit number": 6449
+      },
+      "event_attribute_keys": {
+        "concept:name": 72151,
+        "id": 72151,
+        "org:resource": 72151,
+        "org:role": 72151,
+        "time:timestamp": 72151
+      },
+      "events": 72151,
+      "file": "InternationalDeclarations.xes.gz",
+      "mapped_attributes_missing": {
+        "case": [],
+        "event": []
+      },
+      "sha256": "b527c8d06255f4312c6ce8f36f7f4110243d84fd6ca48583cd9b80896c601494",
+      "t_end_prime": "2020-05-09T22:00:00+00:00",
+      "traces": 6449
+    }
+  },
+  "mapping_keys": {
+    "case": [
+      "concept:name"
+    ],
+    "event": [
+      "concept:name",
+      "org:resource",
+      "org:role",
+      "time:timestamp"
+    ]
+  },
+  "patterns": "prereg/outcome-patterns.yaml",
+  "registered_lists": {
+    "approval": {
+      "Declaration APPROVED by ADMINISTRATION": {
+        "domestic": 8202,
+        "international": 5037
+      },
+      "Declaration APPROVED by BUDGET OWNER": {
+        "domestic": 2820,
+        "international": 1834
+      },
+      "Declaration APPROVED by PRE_APPROVER": {
+        "domestic": 685,
+        "international": 612
+      },
+      "Declaration FINAL_APPROVED by DIRECTOR": {
+        "domestic": 0,
+        "international": 252
+      },
+      "Declaration FINAL_APPROVED by SUPERVISOR": {
+        "domestic": 10131,
+        "international": 6039
+      }
+    },
+    "final_approval_required_role": {
+      "Declaration FINAL_APPROVED by DIRECTOR": {
+        "domestic": 0,
+        "international": 252
+      },
+      "Declaration FINAL_APPROVED by SUPERVISOR": {
+        "domestic": 10131,
+        "international": 6039
+      }
+    },
+    "outcome_prime": {
+      "Declaration REJECTED by ADMINISTRATION": {
+        "domestic": 952,
+        "international": 1549
+      },
+      "Declaration REJECTED by BUDGET OWNER": {
+        "domestic": 59,
+        "international": 40
+      },
+      "Declaration REJECTED by DIRECTOR": {
+        "domestic": 0,
+        "international": 4
+      },
+      "Declaration REJECTED by EMPLOYEE": {
+        "domestic": 1365,
+        "international": 1780
+      },
+      "Declaration REJECTED by MISSING": {
+        "domestic": 91,
+        "international": 103
+      },
+      "Declaration REJECTED by PRE_APPROVER": {
+        "domestic": 86,
+        "international": 84
+      },
+      "Declaration REJECTED by SUPERVISOR": {
+        "domestic": 293,
+        "international": 126
+      },
+      "Declaration SUBMITTED by EMPLOYEE": {
+        "domestic": 11531,
+        "international": 8099
+      }
+    },
+    "payment": {
+      "Payment Handled": {
+        "domestic": 10044,
+        "international": 6187
+      }
+    },
+    "resubmission": {
+      "Declaration SUBMITTED by EMPLOYEE": {
+        "domestic": 11531,
+        "international": 8099
+      }
+    }
+  },
+  "registered_names_absent_from_both_logs": [],
+  "registered_names_absent_per_log": {
+    "domestic": [
+      "Declaration FINAL_APPROVED by DIRECTOR",
+      "Declaration REJECTED by DIRECTOR"
+    ],
+    "international": []
+  },
+  "registration": "p7-v1.1",
+  "rule": "an absent registered name is reported with a zero count and stays in its list (not replaced)",
+  "section": "8",
+  "stop": false,
+  "stop_rule": "a mapped attribute absent from a log stops E7"
+}
