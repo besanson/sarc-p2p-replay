@@ -10,6 +10,22 @@ from conftest import FIXTURES
 from experiments import e1, e5
 
 
+def _compiler_unavailable() -> str | None:
+    """Why paper 5's compiler cannot run here, or None. A fresh clone without siblings skips."""
+    try:
+        e5.sibling_path()
+    except Exception as exc:  # noqa: BLE001 - absent checkout, off its pin, or no git
+        return f"{e5.SIBLING} not available at its engines.lock pin ({type(exc).__name__})"
+    try:
+        import pysat  # noqa: F401
+    except ImportError:
+        return "python-sat (paper 5's dependency) not installed"
+    return None
+
+
+needs_compiler = pytest.mark.skipif(_compiler_unavailable() is not None, reason=str(_compiler_unavailable()))
+
+
 @pytest.fixture
 def e1_dir(tmp_path):
     e0 = tmp_path / "e0-lines.txt"
@@ -27,6 +43,7 @@ def test_losses_and_states():
     assert e5.predicates_of(["receipts", "clearing_ordinal"]) == ["D1", "D2"]
 
 
+@needs_compiler
 def test_e5_on_fixture_and_double_run(e1_dir, tmp_path):
     doc = e5.run(e1_dir, tmp_path / "a")
     cats = doc["categories"]
