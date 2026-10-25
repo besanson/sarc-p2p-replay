@@ -13,10 +13,12 @@ authors = [{ name = "Gaston Besanson" }]
 dependencies = ["pyyaml>=6"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "hypothesis>=6", "mutmut==3.7.0", "numpy==2.3.4", "python-sat==1.9.dev15"]
+dev = ["pytest>=8", "hypothesis>=6", "mutmut==3.7.0", "numpy==2.3.4", "python-sat==1.9.dev15", "matplotlib==3.10.7"]
 # E1 to E3 analysis (experiments/): the registered bootstrap generator, numpy PCG64 (prereg section 5).
 analysis = ["numpy==2.3.4", "python-sat==1.9.dev15"]
 # E5: paper 5's compiler (../sarc-authority-derivation at its pin) needs python-sat, at the version of its constraints.txt.
+# Phase D: figures (scripts/figures.py); pandoc and a LaTeX engine are system tools (make bootstrap-paper).
+paper = ["matplotlib==3.10.7"]
 # E4 only (Phase C). Pins as paper 6 (gigo-jev-probe, engines.lock).
 live = ["typesafe-sdk==0.7.2", "anthropic==1.9.0"]
 
