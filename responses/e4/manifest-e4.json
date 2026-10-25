@@ -1,8 +1,48 @@
 {
   "cap_usd": 60.0,
-  "committed_usd_total": 0.044606898,
+  "committed_usd_total": 0.7798848979999999,
   "families": {
     "e4": {
+      "haiku": {
+        "arm": "e4",
+        "attempts": 2000,
+        "detail": "",
+        "endpoint": "https://api.anthropic.com",
+        "family": "haiku",
+        "health_rule": {
+          "health_max_invalid": 10,
+          "health_n": 200,
+          "smoke_max_invalid": 2,
+          "smoke_n": 20
+        },
+        "input_tokens": 495278,
+        "invalid": 0,
+        "label": "primary",
+        "lines_done": 2000,
+        "lines_in_sample": 2000,
+        "model_check": "claude-haiku-4-5-20251001",
+        "output_tokens": 48000,
+        "price_usd_per_token": {
+          "input": 1e-06,
+          "output": 5e-06
+        },
+        "python": "3.13.16",
+        "request": {
+          "max_tokens": 48,
+          "prefill": "{",
+          "temperature": 0.0
+        },
+        "requested_model": "claude-haiku-4-5-20251001",
+        "returned_models": [
+          "claude-haiku-4-5-20251001"
+        ],
+        "sdk": {
+          "anthropic": "1.9.0"
+        },
+        "spend_usd": 0.735278,
+        "status": "COMPLETE",
+        "updated_utc": "2026-10-25T19:04:55.457072+00:00"
+      },
       "jev": {
         "arm": "e4",
         "attempts": 2000,
