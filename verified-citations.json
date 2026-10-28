@@ -958,6 +958,46 @@
       "status": "unreachable",
       "verified_via": "2026-10-14: the sweep gives no URL and no quote. ScienceDirect title search and the Decision Support Systems vol. 59 page both returned 403 from the site (tunnel established; curl and WebFetch); doi.org offers no title search. Existence not confirmed.",
       "note": "Not evidence; named by the sweep only as corroboration."
+    },
+    {
+      "id": "besanson-paper4-2026",
+      "entry_type": "misc",
+      "authors": [
+        "Gaston Besanson"
+      ],
+      "first_author": "Gaston Besanson",
+      "title": "One Gate Is Not Enough: Composing Stateful Pre-Action Controls for Agentic AI",
+      "year": 2026,
+      "venue": "arXiv:2608.18360 (paper 4 of the SARC series; repository sarc-suite-one-pass)",
+      "doi": null,
+      "url": "https://arxiv.org/abs/2608.18360",
+      "citation_as_written": "Besanson 2026, arXiv:2608.18360 (paper 4)",
+      "http_status": 200,
+      "title_as_page_states": "One Gate Is Not Enough: Composing Stateful Pre-Action Controls for Agentic AI",
+      "reached_on": "2026-10-28",
+      "status": "verified",
+      "verified_via": "2026-10-28: curl of https://arxiv.org/abs/2608.18360 -> 200; citation_title, citation_author 'Besanson, Gaston' and citation_date 2026/08/18 read from the page metadata. Paper 5 (sarc-authority-derivation, pinned in engines.lock) names it paper 4 of the SARC series, the pinned sarc-suite-one-pass artifact (paper5 draft v0.6.6 front matter; its verified-citations.json record sarc-suite-one-pass-paper4).",
+      "note": "Cited for the SARC programme (Section 1)."
+    },
+    {
+      "id": "besanson-paper6-repo-2026",
+      "entry_type": "misc",
+      "authors": [
+        "Gaston Besanson"
+      ],
+      "first_author": "Gaston Besanson",
+      "title": "gigo-jev-probe: a preregistered probe of a model as an advisory data-quality critic (paper 6 of the SARC series)",
+      "year": 2026,
+      "venue": "public GitHub repository besanson/gigo-jev-probe, pinned in engines.lock at e1fc75b",
+      "doi": null,
+      "url": "https://github.com/besanson/gigo-jev-probe",
+      "citation_as_written": "paper 6, repository besanson/gigo-jev-probe",
+      "http_status": 200,
+      "title_as_page_states": "GitHub - besanson/gigo-jev-probe: SARC Jev test",
+      "reached_on": "2026-10-28",
+      "status": "verified",
+      "verified_via": "2026-10-28: curl of https://github.com/besanson/gigo-jev-probe -> 200, page title 'GitHub - besanson/gigo-jev-probe: SARC Jev test'; the repository is the sibling pinned in engines.lock (DECISIONS.md D-A0-3 names it paper 6). No arXiv or DOI record is named in its README.",
+      "note": "A repository, not a publication; cited as such (Section 1). The data-quality repository besanson/dqSarc returned 403 on 2026-10-28 and is not cited. No record identifying papers 1 to 3 was found in the sibling repositories."
     }
   ]
 }

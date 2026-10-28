@@ -7,7 +7,7 @@ only with a slot in `results/` behind it.
 
 | id | claim | type | status | evidence |
 |---|---|---|---|---|
-| C1 | An invoice clearing can be replayed as a sufficiency-checked contract (paper 5) over evidence reconstructed from the event log at clearing time, every predicate deterministic and metadata-borne. | architecture | supported | `results/e1/exclusions.json`, `results/e1/evidence-set.jsonl.gz`, `results/mutation.json` |
+| C1 | An invoice clearing can be replayed as a sufficiency-checked contract (paper 5) over evidence reconstructed from the event log at clearing time, every predicate deterministic and metadata-borne. | architecture | supported | `results/e1/evidence-set.jsonl.gz`, `tests/test_properties.py`; engine evidence `results/mutation.json` |
 | C2 | Exposure: the share of clearings, and the share of cleared value, that relied on evidence failing at least one predicate, per defect class, item category, spend area and month, with intervals clustered by purchase order. | empirical, registered, descriptive | supported | `results/e1/exposure.json`, `results/e1/exposure-by-stratum.json` |
 | C3 | Consequence H1: clearings in a category requiring goods receipt, where the receipt was absent or recorded after clearing, are followed by a corrective event within the registered window at a higher rate than clearings with every predicate passing. | empirical, registered, tested | supported | `results/e2/hypotheses.json` |
 | C4 | Consequence H2: clearings where price or quantity changed between approval and clearing are followed by a corrective event at a higher rate than unchanged clearings. | empirical, registered, tested | supported | `results/e2/hypotheses.json` |

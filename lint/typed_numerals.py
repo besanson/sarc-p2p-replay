@@ -13,7 +13,8 @@ counts as "filled" differs. Paper 5 marks filled values in the draft itself
   `results/filled-template.json` (so a hand edit of `paper/paper.md` is caught too).
 
 Stripped before the allowlist: filled spans or placeholders; inline code and fenced code
-(identifiers, model and package names, file paths); bare URLs and DOIs; HTML comments.
+(identifiers, model and package names, file paths); bare URLs and DOIs; HTML comments; double-quoted
+spans on one line (a direct quotation, as paper 5 strips them).
 
 Allowlist, applied to what remains:
 1. Structure: Section, Figure, Table, Appendix, paper N, Phase, markdown heading numbers and
@@ -70,6 +71,7 @@ REGISTERED: dict[str, str] = {
     r"\bUSD 60\b": "prereg/p7-v1.1.md section 9 (cap)",
     r"\b1,000 events\b": "prereg/p7-v1.1.md section 2 (observation end threshold)",
     r"\b95%": "prereg/p7-v1.1.md section 5 (interval level)",
+    r"\b1,000-record\b": "prereg/p7-v1.1.md section 3.9 (evidence-set sample export)",
     r"\bfive tests\b": "prereg/p7-v1.1.md section 4 (Holm family)",
     r"\bCC BY(?:-NC)? 4\.0\b": "prereg/p7-v1.1.md section Data (licences as the record pages state them)",
     r"\bSHA-256\b": "hash algorithm name",
@@ -85,11 +87,12 @@ _STRIP_URLS: list[Pattern] = [
     re.compile(r"\bdoi:\s*\S+"),
     re.compile(r"\b10\.\d{4,9}/\S+"),
     re.compile(r"\]\([^)\s]*\)"),  # markdown link and image targets (file names, anchors)
+    re.compile(r'"[^"\n]*"'),  # a direct quotation (as paper 5: quoted text is not the paper's own number)
 ]
 _PLACEHOLDER = re.compile(r"\{\{.*?\}\}", re.DOTALL)
 
 _ALLOWED: list[Pattern] = [
-    re.compile(r"\b(?:Sections?|Figures?|Tables?|Appendix|Appendices|[Pp]aper|[Pp]apers|Phase)\s+"
+    re.compile(r"\b(?:[Ss]ections?|Figures?|Tables?|Appendix|Appendices|[Pp]aper|[Pp]apers|Phase)\s+"
                r"\d+(?:\.\d+)?(?:\s*(?:to|and|-)\s*\d+(?:\.\d+)?)?\b"),
     re.compile(r"^#+\s*\d+(?:\.\d+)*\.?\s", re.MULTILINE),
     re.compile(r"^\s*\d+\.\s", re.MULTILINE),

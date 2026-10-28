@@ -233,19 +233,8 @@ def block_human_hold() -> tuple[str, list[str]]:
 
 
 def block_arms() -> tuple[str, list[str]]:
-    a = load("e4/arms.json")["arms"]
     h4 = load("e4/h4.json")["families"]
-    rows = [_row(["arm", "hold rate, lines with a failed predicate", "hold rate, clean lines", "kappa with gate",
-                  "value released on lines with a failed predicate", "expected correctives"]),
-            _row(["---", "---:", "---:", "---:", "---:", "---:"])]
-    for key, label in (("people", "people (from the log)"), ("jev", "Jev"), ("haiku", "Haiku"), ("gate", "gate")):
-        x = a[key]
-        rows.append(_row([label,
-                          f"{fmt(x['hold_rate_defective'], 'pct1')} ({fmt(x['defective']['held'], 'int')} of {fmt(x['defective']['lines'], 'int')})",
-                          f"{fmt(x['hold_rate_clean'], 'pct1')} ({fmt(x['clean']['held'], 'int')} of {fmt(x['clean']['lines'], 'int')})",
-                          fmt(x.get("kappa_with_gate"), "prop3") if x.get("kappa_with_gate") is not None else "n/a",
-                          fmt(x["value_released_on_defective_lines_eur"], "eur"),
-                          fmt(x["expected_correctives"], "prop3")]))
+    rows = _arms_rows(load("e4/arms.json")["arms"])
     rows.append("")
     rows.append(_row(["family", "d (failed predicate minus clean)", "SE", "p, lower", "p, upper", "p_TOST"]))
     rows.append(_row(["---", "---:", "---:", "---:", "---:", "---:"]))
@@ -253,18 +242,73 @@ def block_arms() -> tuple[str, list[str]]:
         x = h4[key]
         rows.append(_row([key, fmt(x["d"], "prop3"), fmt(x["se"], "prop"), fmt(x["p_lower"], "p"),
                           fmt(x["p_upper"], "p"), fmt(x["p_tost"], "p")]))
+    rows += ["", "Source: `results/e4/arms.json`, `results/e4/h4.json`."]
     return "\n".join(rows), ["e4/arms.json", "e4/h4.json"]
 
 
 def block_exploratory() -> tuple[str, list[str]]:
     a = load("e4-exploratory/arms-exploratory.json")["arms"]
-    rows = [_row(["family (timeline view, exploratory)", "hold rate, lines with a failed predicate", "hold rate, clean lines",
+    rows = [_row(["family (timeline view, exploratory)", "held, lines with a failed predicate", "held, clean lines",
                   "kappa with gate", "invalid replies"]), _row(["---", "---:", "---:", "---:", "---:"])]
     for key, label in (("jev", "Jev"), ("haiku", "Haiku")):
         x = a[key]
-        rows.append(_row([label, fmt(x["hold_rate_defective"], "pct1"), fmt(x["hold_rate_clean"], "pct1"),
+        rows.append(_row([label,
+                          f"{fmt(x['defective']['held'], 'int')} of {fmt(x['defective']['lines'], 'int')} ({fmt(x['hold_rate_defective'], 'pct1')})",
+                          f"{fmt(x['clean']['held'], 'int')} of {fmt(x['clean']['lines'], 'int')} ({fmt(x['hold_rate_clean'], 'pct1')})",
                           fmt(x["kappa_with_gate"], "prop3"), fmt(x["invalid"], "int")]))
+    rows += ["", "Source: `results/e4-exploratory/arms-exploratory.json`; exploratory, no interval, outside the Holm family."]
     return "\n".join(rows), ["e4-exploratory/arms-exploratory.json"]
+
+
+def _arms_rows(a: dict) -> list[str]:
+    rows = [_row(["arm", "held, lines with a failed predicate", "held, clean lines", "kappa with gate",
+                  "value released on lines with a failed predicate", "expected correctives"]),
+            _row(["---", "---:", "---:", "---:", "---:", "---:"])]
+    for key, label in (("people", "people (from the log)"), ("jev", "Jev"), ("haiku", "Haiku"), ("gate", "gate")):
+        x = a[key]
+        rows.append(_row([label,
+                          f"{fmt(x['defective']['held'], 'int')} of {fmt(x['defective']['lines'], 'int')} ({fmt(x['hold_rate_defective'], 'pct1')})",
+                          f"{fmt(x['clean']['held'], 'int')} of {fmt(x['clean']['lines'], 'int')} ({fmt(x['hold_rate_clean'], 'pct1')})",
+                          fmt(x.get("kappa_with_gate"), "prop3") if x.get("kappa_with_gate") is not None else "n/a",
+                          fmt(x["value_released_on_defective_lines_eur"], "eur"),
+                          fmt(x["expected_correctives"], "prop3")]))
+    return rows
+
+
+def block_arms_classified() -> tuple[str, list[str]]:
+    d = load("e4/arms-classified-lines.json")
+    rows = _arms_rows(d["arms"])
+    rows += ["", "Source: `results/e4/arms-classified-lines.json`; a re-tabulation on the lines the people arm classifies."]
+    return "\n".join(rows), ["e4/arms-classified-lines.json"]
+
+
+def block_hold_composition() -> tuple[str, list[str]]:
+    c = load("e3/human-hold-composition.json")
+    rows = [_row(["reading", "predicate status at t*", "held by people", "payment block before the first clearing",
+                  "no clearing within W of the first invoice", "both"]),
+            _row(["---", "---", "---:", "---:", "---:", "---:"])]
+    for key, label in (("registered_literal_reading", "literal (registered text)"), ("amended_reading_D-C-2", "amended (D-C-2 B)")):
+        for s in ("defective", "clean", "held_unknown"):
+            x = c["by_status"][key][s]
+            rows.append(_row([label, s.replace("_", " "), fmt(x["held_by_people"], "int"),
+                              fmt(x["payment_block_before_first_clearing"], "int"),
+                              fmt(x["no_clearing_within_W_of_first_invoice"], "int"), fmt(x["both"], "int")]))
+    rows += ["", "Source: `results/e3/human-hold-composition.json`."]
+    return "\n".join(rows), ["e3/human-hold-composition.json"]
+
+
+def block_coverage_status() -> tuple[str, list[str]]:
+    cov = load("e1/coverage-check.json")
+    pred = load("e7/predicates.json")["counts"]
+    rows = [_row(["log", "predicate", "failed", "unknown"]), _row(["---", "---", "---:", "---:"])]
+    for r in cov["rows"]:
+        rows.append(_row(["BPI 2019 (analysed clearings)", r["predicate"], fmt(r["failed_clearings"], "int"), "n/a"]))
+    for log in ("domestic", "international"):
+        for d in ("D1'", "D2'", "D3'"):
+            x = pred[log][d]
+            rows.append(_row([f"BPI 2020 {log} (payments)", d, fmt(x["fail"], "int"), fmt(x["unknown"], "int")]))
+    rows += ["", "Sources: `results/e1/coverage-check.json`, `results/e7/predicates.json`."]
+    return "\n".join(rows), ["e1/coverage-check.json", "e7/predicates.json"]
 
 
 def block_e5() -> tuple[str, list[str]]:
@@ -337,13 +381,17 @@ def block_strata() -> tuple[str, list[str]]:
               "line_value_quartile": "Line value quartile", "vendor_activity_quartile": "Vendor activity quartile"}
     parts = []
     for var in STRATA_IN_PAPER:
-        rows = [_row(["stratum", "clearings", "at least one failed predicate", "share", "Wilson 95%", "share of value"]),
-                _row(["---", "---:", "---:", "---:", "---", "---:"])]
+        rows = [_row(["stratum", "defect class (failed predicate)", "clearings", "share", "clustered 95%",
+                      "share of value", "clustered 95%"]),
+                _row(["---", "---", "---:", "---:", "---", "---:", "---"])]
         for label, cell in s["strata"][var].items():
-            c = cell["classes"]["at least one defect"]
-            rows.append(_row([label, fmt(cell["analysed_clearings"], "int"), fmt(c["clearings"], "int"),
-                              fmt(c["share_of_clearings"], "pct"), fmt(c["wilson95"], "ivpct"),
-                              fmt(c["share_of_value"], "pct")]))
+            for name in CLASS_ORDER:
+                c = cell["classes"][name]
+                if c["clearings"] == 0 and name != "at least one defect":
+                    continue
+                rows.append(_row([label, name, f"{fmt(c['clearings'], 'int')} of {fmt(cell['analysed_clearings'], 'int')}",
+                                  fmt(c["share_of_clearings"], "pct"), fmt(c["bootstrap95"], "ivpct"),
+                                  fmt(c["share_of_value"], "pct"), fmt(c["value_bootstrap95"], "ivpct")]))
         parts.append(f"**{titles[var]}**\n\n" + "\n".join(rows))
     return "\n\n".join(parts), ["e1/exposure-by-stratum.json"]
 
@@ -372,7 +420,8 @@ BLOCKS: dict[str, Callable[[], tuple[str, list[str]]]] = {
     "human_hold": block_human_hold, "arms": block_arms, "exploratory": block_exploratory,
     "e5": block_e5, "e7": block_e7, "coverage": block_coverage, "deviations": block_deviations,
     "claims": block_claims, "strata": block_strata, "registered_numbers": block_registered_numbers,
-    "datasets": block_datasets,
+    "datasets": block_datasets, "arms_classified": block_arms_classified,
+    "hold_composition": block_hold_composition, "coverage_status": block_coverage_status,
 }
 
 

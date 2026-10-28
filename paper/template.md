@@ -4,42 +4,48 @@ author: "Gaston Besanson, Universidad Torcuato Di Tella"
 ---
 
 <!-- paper/template.md: the source of paper/paper.md. Every number reaches the paper through a
-placeholder filled by scripts/fill_paper.py from a slot file under results/. Draft v0.1. -->
+placeholder filled by scripts/fill_paper.py from a slot file under results/. Draft v0.2. -->
 
 ## Abstract
 
-Of {{e1/exposure.json>analysed_clearings|int}} invoice clearings in a real purchase-to-pay event log,
+Of the {{e1/exposure.json>analysed_clearings|int}} analysed invoice clearings of a real purchase-to-pay event log (Section 4 gives the
+registered exclusions),
 {{e1/exposure.json>classes>at least one defect>clearings|int}} ({{e1/exposure.json>classes>at least one defect>share_of_clearings|pct}},
 clustered bootstrap 95% interval {{e1/exposure.json>classes>at least one defect>bootstrap95|ivpct}}) were made on evidence that
 failed at least one of seven registered predicates, carrying {{e1/exposure.json>classes>at least one defect>share_of_value|pct}}
-of the cleared value ({{e1/exposure.json>classes>at least one defect>value_bootstrap95|ivpct}}). We replay every clearing of the
-BPI Challenge 2019 log through a deterministic min() gate declared before the data were read, reconstructing the evidence held
-at clearing time. Clearings that relied on an absent or late goods receipt (D1/D2) were followed by a corrective event within
+of the cleared value ({{e1/exposure.json>classes>at least one defect>value_bootstrap95|ivpct}}). We replay every analysed clearing
+of the BPI Challenge 2019 log through a deterministic min() gate declared before the data were read, over the evidence
+reconstructed from the log at clearing time. Clearings made on evidence that failed on the goods receipt (absent or late, D1/D2)
+were followed by a corrective event within
 60 days at a rate of {{e2/hypotheses.json>estimates>H1>W60>defect_group>O_rate|pct}}, against {{e2/hypotheses.json>estimates>H1>W60>comparison_group>O_rate|pct}}
-for clean three-way clearings (difference {{e2/hypotheses.json>estimates>H1>W60>difference|prop}}, Holm-adjusted
-p = {{e2/hypotheses.json>holm>table>1>p_holm|p}}); clearings after a change of price or quantity since approval (D4), at
+for three-way clearings with every applicable predicate passing (difference {{e2/hypotheses.json>estimates>H1>W60>difference|prop}}, Holm-adjusted
+p = {{e2/hypotheses.json>holm>table>1>p_holm|p}}); clearings made after a change of price or quantity since approval (D4 fail), at
 {{e2/hypotheses.json>estimates>H2>W60>defect_group>O_rate|pct}} against {{e2/hypotheses.json>estimates>H2>W60>comparison_group>O_rate|pct}}
-(difference {{e2/hypotheses.json>estimates>H2>W60>difference|prop}}, Holm-adjusted p = {{e2/hypotheses.json>holm>table>0>p_holm|p}}).
-On the same registered sample of lines, the people in the log held {{e4/arms.json>arms>people>hold_rate_defective|pct1}} of
-lines with a failed predicate and {{e4/arms.json>arms>people>hold_rate_clean|pct1}} of clean lines; two model families shown
-the ERP view held {{e4/arms.json>arms>jev>hold_rate_defective|pct1}} and {{e4/arms.json>arms>haiku>hold_rate_defective|pct1}} of the first
-and {{e4/arms.json>arms>jev>hold_rate_clean|pct1}} and {{e4/arms.json>arms>haiku>hold_rate_clean|pct1}} of the second; the gate holds the first
-and allows the second by construction. Paper 5's compiler, given the three declared losses of the registration, does not
+for D4-pass clearings (difference {{e2/hypotheses.json>estimates>H2>W60>difference|prop}}, Holm-adjusted p = {{e2/hypotheses.json>holm>table>0>p_holm|p}}).
+On a registered sample of lines with a failed predicate and of clean lines, two model families shown the ERP view held
+{{e4/arms.json>arms>jev>hold_rate_defective|pct1}} and {{e4/arms.json>arms>haiku>hold_rate_defective|pct1}} of the first and
+{{e4/arms.json>arms>jev>hold_rate_clean|pct1}} and {{e4/arms.json>arms>haiku>hold_rate_clean|pct1}} of the second; on the sample lines the
+log lets us classify, people held {{e4/arms.json>arms>people>hold_rate_defective|pct1}} and {{e4/arms.json>arms>people>hold_rate_clean|pct1}};
+the gate's verdict holds the first and allows the second by construction. A line's status at the decision point follows a
+reading of D5 (decision D-C-2 B) that the author fixed after E3 and before any model call (Section 4). Paper 5's compiler, given the three declared losses of the registration, does not
 reproduce the registered contract in any item category. The coverage matrix states which defect classes this log cannot
 expose; the authority defect class (D5) has zero incidence here. No causal claim is made.
 
 ## 1 Introduction
 
-Papers 1 to 6 of this programme showed the mechanism of a silent evidence defect, a decision taken on evidence that fails a
-metadata-borne predicate, on constructed domains, and made no prevalence claim. This paper is that number, on one real
-process.
+Earlier papers of this programme showed the mechanism of a silent evidence defect, a decision taken on evidence that fails a
+metadata-borne predicate, on constructed domains, and made no prevalence claim: paper 4 ({{@cite>besanson-paper4-2026}}) and
+paper 5 ({{@cite>besanson-paper5-2026}}) are on arXiv, and paper 6 is a public repository ({{@cite>besanson-paper6-repo-2026}}). We
+found no record that identifies papers 1 to 3, and do not cite them. This paper is the number, on one real process.
 
-The unit is an invoice clearing in the BPI Challenge 2019 purchase-to-pay log. For each clearing we reconstruct the evidence
+The unit is an invoice clearing in the BPI Challenge 2019 purchase-to-pay log. For each of the
+{{e1/exclusions.json>analysed_clearings|int}} analysed clearings (the exclusion table of Section 4) we reconstruct the evidence
 recorded on the purchase-order line at clearing time, evaluate the registered predicates D1 to D7, record what the gate would
 have held, and read what followed in the log. We report exposure in count and in anonymised EUR, the corrective events that
 follow a failed predicate, the reach of the gate, and, on a registered sample, what two model families decide on the same
-ERP view beside the people in the log and the gate. Everything was registered before the log was parsed (tag `prereg-p7-v1`)
-and amended once after the pilot, before any estimate (tag `prereg-p7-v1.1`); every deviation is listed in Section 4.
+ERP view beside the people in the log and the gate. Everything was registered before the log was parsed beyond its published
+counts (tag `prereg-p7-v1`) and amended once after the pilot (v1.1, tag `prereg-p7-v1.1`), with two further deviations
+decided after E2 and E3 and before E4; all are listed in Section 4.
 
 What this paper claims is in the claim table of Appendix B. What it does not claim is stated in the repository's claims file
 and repeated here verbatim:
@@ -50,6 +56,9 @@ and repeated here verbatim:
 - No claim about the company or any vendor. No company, subsidiary or vendor is named in any finding.
 - No agent acting on the live system and no agent with tools.
 - No readiness threshold.
+
+"No claim about the company" means that no company, subsidiary or vendor is named or characterised; the measured process is
+the subject of every finding.
 
 ## 2 Related work
 
@@ -91,7 +100,8 @@ The registered per-class coverage matrix of Section 6 is claimed; the principle 
 and learned rules on the same accounts ({{@cite>palma-business-compromise-2026}}), language models against audit baselines on
 the same ledgers ({{@cite>kadir-auditcopilot-2025}}), and algorithms against bank managers ({{@cite>harding-managers-machines-2022}}).
 None of these uses a deterministic contract declared before the data were read, or a human arm read from a process event log;
-Section 5.4 does both.
+Section 5.4 does both, with one qualification: the status of a line at the decision point follows a reading of D5 (decision
+D-C-2 B) that the author fixed after E3 and before any model call (Section 4).
 
 **The BPI Challenge 2020 reports.** The 2020 challenge posed questions on the approval chain of travel declarations
 ({{@cite>icpm-bpi-challenge-2020-page}}); two reports received awards ({{@cite>icpm-2020-awards-page}}; {{@cite>bpi2020-award-hobeck}};
@@ -101,7 +111,7 @@ Section 5.4 does both.
 
 **Lines, clearings and evidence.** A line is one case of the log: one purchase document and item. A clearing is one
 `Clear Invoice` event on a line at time t_c. The evidence at t_c is every event on the line with timestamp at most t_c,
-excluding the clearing itself; events sharing a timestamp count as available, and counts rather than event order decide
+excluding the clearing itself, as the registration defines "before t_c" (section 2 of `prereg-p7-v1`, unchanged in v1.1); events sharing a timestamp count as available, and counts rather than event order decide
 receipts, blocks and deletions, so the verdict does not depend on the order of events with equal timestamps (a property test
 of the replay engine).
 
@@ -115,6 +125,8 @@ of the replay engine).
 | consignment | any | any | excluded |
 
 **Predicates.** Each predicate takes the value pass, fail or unknown; unknown means a required input is missing.
+"Sufficiency-checked" (claim C1) means that each predicate checks that the evidence is present, fresh, valid, authorised and in scope (the
+SARC-DQ dimensions of the table); it is not paper 5's sufficiency certificate.
 
 | id | name | dimension | fails when, on the line before t_c |
 |---|---|---|---|
@@ -123,8 +135,8 @@ of the replay engine).
 | D3 | invoice present | presence | no invoice receipt |
 | D4 | unchanged since approval | validity | a price or quantity change after the last approval-bearing event |
 | D5 | distinct actors | authority | the actor of the clearing equals an actor of the earliest creation (unknown if either is missing) |
-| D6 | block respected | scope | a payment block set and not removed |
-| D7 | not deleted | validity | the line deleted or blocked and not reactivated |
+| D6 | block respected | scope | payment blocks set minus blocks removed greater than zero |
+| D7 | not deleted | validity | deletions plus blocks minus reactivations of the line greater than zero |
 
 At t_c, D1 and D2 have the same truth value; they are kept apart because they carry two dimensions. For reporting only, a
 D1/D2 failure is assigned to a defect class by what the log records later: the stale receipt (D2 class) if an uncancelled
@@ -162,7 +174,13 @@ calendar 2018. The observation end T_end is the latest timestamp in the last cal
 events; here T_end is {{e1/exclusions.json>t_end|date}} and {{e1/exclusions.json>events_after_t_end_excluded|int}} later
 events are excluded. A line is framed if it survives the exclusions below and its first clearing, or its creation if it has
 none, lies at least W before T_end; the analysed clearings are every clearing on a framed line at least W before T_end, so
-every outcome window is complete. The lines drawn for the pilot (E0) are removed before any estimate.
+every outcome window is complete. The lines drawn for the pilot (E0) are removed before any estimate. As registered, the
+`Item Category` string disagrees with the flag-derived category on {{e1/category-crosscheck.json>all_lines_disagreeing|int}} of
+{{e1/category-crosscheck.json>all_lines|int}} lines (section 3.1); every analysed clearing took its value from the clearing event
+itself ({{e1/value-fallback.json>cleared_value_source>clearing|int}} clearings; {{e1/value-fallback.json>cleared_value_source>invoice_receipt|int}}
+fell back to the invoice receipt and {{e1/value-fallback.json>cleared_value_source>line_value|int}} to the line value, section 3.4);
+and the seeded 1,000-record sample of the evidence set, identifiers hashed, is exported as `results/e1/evidence-sample.jsonl`
+(section 3.9).
 
 {{#exclusions}}
 
@@ -174,8 +192,9 @@ pilot was drawn again, before any estimate. Every deviation, with the decision t
 {{#deviations}}
 
 The H3 convention and the D5 reading were the author's decisions after E2 and E3 and before any model call (decision D-C-2 in
-Appendix B). Before the tag, the prior-art fence was reviewed externally, after two machine sweeps whose output is committed
-unedited.
+the decision log). The commit order is the evidence: the commit recording D-C-2 (`7aea13f`) precedes the first commit of model
+responses (`a475068`). The prior-art fence was reviewed externally after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`,
+after two machine sweeps whose output is committed unedited.
 
 ## 5 Results
 
@@ -185,11 +204,12 @@ unedited.
 
 Figure 1 shows the shares with their intervals. Shares of clearings carry a Wilson and a purchase-document-clustered
 bootstrap 95% interval (B = 10,000, seed 20261201); shares of value carry the clustered interval. The denominator is every
-analysed clearing; D1 and D2 classes apply to {{e1/exposure.json>applicable_clearings>D1 class (absent receipt)|int}} clearings
+analysed clearing, and a share counts the clearings made on evidence that failed the predicate; D1 and D2 classes apply to {{e1/exposure.json>applicable_clearings>D1 class (absent receipt)|int}} clearings
 in the three-way categories. A change after approval (D4) is the largest defect class, {{e1/exposure.json>classes>D4>clearings|int}}
 clearings and {{e1/exposure.json>classes>D4>share_of_value|pct}} of cleared value; no clearing fails D5. Appendix D gives the same
-shares per item category, spend area, month, line value quartile and vendor activity quartile, reported beside the estimates and
-never modelled in.
+shares per defect class, with the clustered intervals, per item category, spend area, month, line value quartile and vendor
+activity quartile, reported beside the estimates and never modelled in. Section 4 reports the registered category cross-check,
+the cleared-value sources and the exported sample.
 
 ![Figure 1: share of analysed clearings and of cleared value per defect class, with clustered bootstrap 95% intervals.](figures/fig1-exposure.svg)
 
@@ -198,16 +218,19 @@ never modelled in.
 {{#hypotheses}}
 
 O is the registered corrective within W = 60 days. The H1 comparison group is three-way clearings with every applicable
-predicate passing; against clean clearings of every category the difference is {{e2/hypotheses.json>estimates>H1 all-category comparison>W60>difference|prop}},
+predicate passing; against clearings of every category with every applicable predicate passing the difference is {{e2/hypotheses.json>estimates>H1 all-category comparison>W60>difference|prop}},
 descriptively. H2 compares D4 fail with D4 pass in every category. Standard errors come from the purchase-document-clustered
 bootstrap. Holm's adjustment runs over the registered family of five tests, H1, H2, H3 and H4 for each model family, at
 alpha = 0.05:
 
 {{#holm}}
 
-H3, distinct actors, is not computable: {{e2/hypotheses.json>estimates>H3>W60>not_computable}}. No clearing in this log was
-made by the person who created its line, so the defect class has zero incidence; H3 enters the family with p = 1, the
-convention the author fixed before any H4 value existed. At W = 30 days the differences are {{e2/hypotheses.json>estimates>H1>W30>difference|prop}}
+H3, distinct actors, is not computable: {{e2/hypotheses.json>estimates>H3>W60>not_computable}}. No analysed clearing was made by
+an actor of its line's earliest creation event, so the defect class has zero incidence; across the log the actors who record a
+`Clear Invoice` and those who record the earliest creation of a line are separate populations
+({{e1/actors.json>scopes>all>distinct_clear_invoice_actors|int}} and {{e1/actors.json>scopes>all>distinct_earliest_creation_actors|int}}
+actors, {{e1/actors.json>scopes>all>intersection|int}} in common; Section 6). H3 enters the family with p = 1, the convention the author
+fixed before any H4 value existed (decision D-C-2, commit `7aea13f`). At W = 30 days the differences are {{e2/hypotheses.json>estimates>H1>W30>difference|prop}}
 for H1 and {{e2/hypotheses.json>estimates>H2>W30>difference|prop}} for H2, descriptively.
 
 ### 5.3 Gate effect and hold cost (E3)
@@ -230,9 +253,9 @@ For D1/D2 failures, the time from clearing to the first uncancelled receipt (Fig
 released {{e3/human-hold.json>released_by_people|int}}; {{e3/human-hold.json>unclassified_no_invoice_receipt_by_t_end_minus_w|int}} had no invoice
 receipt by T_end − W and are not classified. The status of a line is the gate verdict at the decision point t* of the agent
 replay: the first clearing if it came within W of the first invoice receipt, otherwise that receipt plus W. The registered
-text left D5 at a t* that is not a clearing undefined; read literally it is unknown, and then a line held by people can never
-be clean. The author amended the reading before any model call (D5 is not applicable where the decider is the gate or a
-model, decision D-C-2 B); both readings are reported:
+text left D5 at a t* that is not a clearing undefined; read literally it is unknown, and then a line with no clearing within W
+can never be clean under the literal reading. The author amended the reading before any model call (at a t* that is not a
+clearing, D5 is not applicable: the decider there is the gate or a model; decision D-C-2 B); both readings are reported:
 
 {{#human_hold}}
 
@@ -243,14 +266,20 @@ lines.
 ### 5.4 People, models and the gate on the same lines (E4)
 
 **Sample and arms.** From the framed lines with an invoice receipt, {{e4/sample-frame.json>groups>defective>eligible_lines|int}} had at least
-one failed predicate at t* and {{e4/sample-frame.json>groups>clean>eligible_lines|int}} were clean (under D-C-2 B). The registered sample
+one failed predicate at t* and {{e4/sample-frame.json>groups>clean>eligible_lines|int}} were clean, under D-C-2 B (`results/e4/sample-frame.json`).
+These differ from the {{e3/human-hold.json>amended_reading_D-C-2>by_gate_status_at_t_star>defective>classified_lines|int}} and
+{{e3/human-hold.json>amended_reading_D-C-2>by_gate_status_at_t_star>clean>classified_lines|int}} lines of Section 5.3 (`results/e3/human-hold.json`),
+which are the lines the people arm can classify: a line whose first invoice receipt comes later than T_end − W is eligible
+for the sample but not classified (section 3.6). The registered sample
 drew 1,000 defective and 1,000 clean lines, at most one per purchase document, stratified by category and value quartile, with
 seed 20261201; the draw was committed before any call. Each line was shown to two model families as the registered ERP view at
 t*, a short record with no event timeline and no company, vendor, actor or line id: TypeSafe System One (Jev, returned model
 `jev-1.14.0`) through `typesafe-sdk==0.7.2`, asked one choice question with labels clear and hold, and the Anthropic Messages API
 (`claude-haiku-4-5-20251001`, temperature zero, assistant prefill), asked for a JSON decision and hold probability.
-Invalid replies, after one re-request: {{e4/arms.json>arms>jev>invalid|int}} for Jev and {{e4/arms.json>arms>haiku>invalid|int}} for Haiku. The people arm is read from the log (Section 3); the gate holds every
-line with a failed predicate and allows every clean line by construction.
+Invalid replies, after one re-request: {{e4/arms.json>arms>jev>invalid|int}} for Jev and {{e4/arms.json>arms>haiku>invalid|int}} for Haiku. The people arm is read from the log (Section 3);
+{{e4/arms.json>arms>people>unclassified|int}} sample lines have no invoice receipt by T_end − W and are not classified (section 3.6), so
+its denominators are smaller. The gate's verdict holds every line with a failed predicate and allows every clean line by
+construction.
 
 {{#arms}}
 
@@ -262,20 +291,39 @@ Neither is: Jev held {{e4/arms.json>arms>jev>hold_rate_defective|pct1}} and {{e4
 {{e4/h4.json>families>H4-Jev>p_tost|p}} for Jev and {{e4/h4.json>families>H4-Haiku>p_tost|p}} for Haiku, and H4 is below alpha after Holm for
 neither. Both families track the gate's verdict on the lines
 the gate would have held and hold about half of the lines it allows (Cohen's kappa with the gate
-{{e4/arms.json>arms>jev>kappa_with_gate|prop3}} and {{e4/arms.json>arms>haiku>kappa_with_gate|prop3}}). People, by contrast, held lines with and
-without a failed predicate at nearly the same rate. Released on lines with a failed predicate, in anonymised EUR: people
-{{e4/arms.json>arms>people>value_released_on_defective_lines_eur|eur}}, Jev {{e4/arms.json>arms>jev>value_released_on_defective_lines_eur|eur}},
-Haiku {{e4/arms.json>arms>haiku>value_released_on_defective_lines_eur|eur}}, gate {{e4/arms.json>arms>gate>value_released_on_defective_lines_eur|eur}};
-the expected correctives (released lines with a failed predicate times the E2 O rate of their defect group) are in the table.
-The ERP view hands each model the inputs of the predicates; this result is about the view as much as about the models.
+{{e4/arms.json>arms>jev>kappa_with_gate|prop3}} and {{e4/arms.json>arms>haiku>kappa_with_gate|prop3}}). Released on lines with a failed
+predicate, in anonymised EUR: people {{e4/arms.json>arms>people>value_released_on_defective_lines_eur|eur}}, Jev
+{{e4/arms.json>arms>jev>value_released_on_defective_lines_eur|eur}}, Haiku {{e4/arms.json>arms>haiku>value_released_on_defective_lines_eur|eur}},
+gate {{e4/arms.json>arms>gate>value_released_on_defective_lines_eur|eur}}; for the gate, held lines go somewhere the log does not show.
+The expected correctives follow registration section 7: each released line with a failed predicate carries the E2 O rate at
+W = 60 days of its defect group, the H1 group if D1/D2 fails and otherwise the H2 group if D4 fails; a line failing neither
+(only D3, D6 or D7) has no E2 group and is counted, not imputed ({{e4/arms.json>defective_lines_without_e2_group|int}} sample lines,
+{{e4/arms.json>arms>people>released_defective_lines_without_e2_group|int}} of them released by people). The ERP view hands each model the
+inputs of the predicates; this result is about the view as much as about the models.
+
+**On the lines the people arm classifies.** The same four arms, re-tabulated on the
+{{e4/arms-classified-lines.json>classified_lines|int}} sample lines the people arm classifies; the table above, on all sample lines, stays
+primary:
+
+{{#arms_classified}}
+
+**What the people arm measures.** The log records no hold decision except a payment block. "Held by people" (section 3.6)
+is a payment block before the first clearing, or no clearing within W of the first invoice receipt: an inferred non-release,
+not the same act as a model's hold verdict at t*. Of the {{e3/human-hold-composition.json>held_by_people|int}} framed lines held by
+people, {{e3/human-hold-composition.json>by_reason>payment_block_before_first_clearing|int}} were held by a payment block alone,
+{{e3/human-hold-composition.json>by_reason>no_clearing_within_W_of_first_invoice|int}} by no clearing within W alone, and
+{{e3/human-hold-composition.json>by_reason>both|int}} by both:
+
+{{#hold_composition}}
 
 **Exploratory: the event timeline instead of the ERP view.** Labelled exploratory and outside the Holm family: the same lines,
 the same families and rules, with the line's events up to t* (date, activity, value) in place of the ERP view.
 
 {{#exploratory}}
 
-Given the timeline, both families held far fewer lines with a failed predicate. Spend for both arms together was USD
-{{e6/cost.json>spend_usd_total|usd}} against the registered cap of USD 60.
+Under the timeline view the same models held far fewer lines with a failed predicate (exploratory, no interval). Spend for
+both families and both views together was USD {{e6/cost.json>spend_usd_total|usd}} against the registered cap of USD 60
+(`results/e6/cost.json`).
 
 ### 5.5 Derivation (E5)
 
@@ -283,14 +331,16 @@ Paper 5's compiler, at the pinned commit and unmodified, was given per category 
 the three declared losses of the registration: L1, pay for goods not received (the category requires a goods receipt and none
 is uncancelled); L2, pay twice (the clearing's position among the line's clearings exceeds the invoices recorded); L3, pay a
 changed amount (a change since approval). The derived contract is the set of registered predicates whose observation is in
-the compiler's minimum-cardinality sufficient set.
+the compiler's minimum-cardinality sufficient set. The comparison is the registered one (registration section 6, E5):
+"whether the derived contract equals the category contract in 3.1".
 
 {{#e5}}
 
 The compiler does not reproduce the registered contract in any category. The three losses derive at most D1 to D4: no
-declared loss reads the observations of D5, D6 or D7, so those predicates guard losses the registration did not declare (an
-authority loss, a blocked payment, a deleted line). Pay twice needs the clearing's position on its line, an observation no
-registered predicate reads.
+declared loss reads the observations of D5, D6 or D7, so those predicates correspond to no declared loss (an authority loss, a
+blocked payment, a deleted line would be such losses). In the two three-way categories the derived D1 to D4 is the three-way
+match in the narrow sense (receipt, invoice and an unchanged approved amount), and the registered contract carries three
+predicates beyond it. Pay twice needs the clearing's position on its line, an observation no registered predicate reads.
 
 ### 5.6 Governance cost (E6)
 
@@ -310,7 +360,10 @@ resubmission within W after it. Descriptive and secondary, outside the Holm fami
 The replication is inconclusive. Only {{e7/exposure.json>scopes>pooled>with_a_failed_predicate|int}} of {{e7/exposure.json>scopes>pooled>units|int}}
 payments fail any predicate, and O' follows {{e7/comparisons.json>scopes>pooled>D1'>all_pass_group>with_O_prime|int}} of the
 {{e7/comparisons.json>scopes>pooled>D1'>all_pass_group>payments|int}} payments with every predicate passing; no comparison has an interval
-excluding zero. The registered names `{{e7/vocabulary.json>registered_names_absent_per_log>domestic>0}}` and
+excluding zero. A bootstrap replicate in which either group is empty is discarded and the percentiles are taken over the
+retained replicates ({{e7/comparisons.json>scopes>domestic>D1'>bootstrap_resamples_used|int}} of {{e7/comparisons.json>bootstrap>B|int}}
+for the domestic log and {{e7/comparisons.json>scopes>pooled>D1'>bootstrap_resamples_used|int}} pooled; a pipeline reading recorded in
+decision D-D-2). The registered names `{{e7/vocabulary.json>registered_names_absent_per_log>domestic>0}}` and
 `{{e7/vocabulary.json>registered_names_absent_per_log>domestic>1}}` do not occur in the domestic log; they are reported with zero counts,
 not replaced.
 
@@ -320,30 +373,45 @@ What the replay can and cannot see, as registered:
 
 {{#coverage}}
 
-The authority class (D5) is detectable and has zero incidence in this log ({{e1/coverage-check.json>rows>4>failed_clearings|int}} failed
-clearings); the coverage check found every other detected class with at least one failure.
+Per class, the failures found (BPI 2019 on analysed clearings, BPI 2020 on payments):
+
+{{#coverage_status}}
+
+On BPI 2019 every detected class fails at least once except the authority class (D5), with
+{{e1/coverage-check.json>rows>4>failed_clearings|int}} failed clearings: across the log, the
+{{e1/actors.json>scopes>all>distinct_clear_invoice_actors|int}} actors who record a `Clear Invoice` and the
+{{e1/actors.json>scopes>all>distinct_earliest_creation_actors|int}} who record a line's earliest creation share
+{{e1/actors.json>scopes>all>intersection|int}}, so the two are separate populations; no `Clear Invoice` is recorded by a batch user (an
+actor whose name starts with the registered batch prefix), and {{e1/actors.json>scopes>all>clear_invoice_events>missing|int}} carry no
+actor (`results/e1/actors.json`). D5 fires on synthetic lines in the engine's tests (`test_d5_actors` and
+`test_verdict_at_decision_point_d5_off_clearing` in `tests/test_engine_units.py`, and fixture line C in `tests/test_pipeline.py`). On BPI 2020, D3' fails on no payment in
+either log, and in the international log no predicate fails at all.
 
 ## 7 Limitations and non-claims
 
 The outcome is a proxy: a corrective event after a clearing is not proof that the clearing was wrong, and the study is
 observational. Category, spend area, value, vendor activity and month are reported beside every estimate and never modelled
 in. Values are anonymised. What a line the gate would have held becomes is not in the log. The ERP view hands the model the
-inputs of the predicates; the exploratory timeline arm shows that a different view changes what the models decide, which is a
-statement about views, not about the models alone. The derivation depends on how the three declared losses are expressed over
+inputs of the predicates; under the timeline view the same models held far fewer lines (exploratory, no interval), which is
+a statement about views, not about the models alone. The derivation depends on how the three declared losses are expressed over
 the evidence set; the expressions are recorded with the result. One company's process, one year.
 
 ## 8 Conclusion
 
-{{e1/exposure.json>classes>at least one defect>share_of_clearings|pct}} of {{e1/exposure.json>analysed_clearings|int}} invoice clearings in
-this process relied on evidence that failed at least one registered predicate, carrying {{e1/exposure.json>classes>at least one defect>share_of_value|pct}}
-of the cleared value; those that relied on an absent or late receipt, or on a changed amount, were followed by a corrective at
-a higher rate than clean clearings.
+{{e1/exposure.json>classes>at least one defect>share_of_clearings|pct}} of the {{e1/exposure.json>analysed_clearings|int}} analysed invoice
+clearings in this process were made on evidence that failed at least one registered predicate, carrying
+{{e1/exposure.json>classes>at least one defect>share_of_value|pct}} of the cleared value; those made with an absent or late receipt
+(D1/D2) were followed by a corrective at a higher rate than three-way clearings with every applicable predicate passing, and
+those made after a change since approval (D4 fail) at a higher rate than D4-pass clearings.
 
 ## Acknowledgements
 
-The prior-art fence was reviewed externally by Eduardo Arana before the registration was tagged. AI tools were used as support:
-builder sessions with Claude for the code, the runs and the drafting from slots, and two machine prior-art sweeps, with ChatGPT
-and with DeepSeek, committed unedited. The author is solely responsible for every claim. We thank the organisers of the BPI
+The prior-art fence was reviewed externally by Eduardo Arana after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`, and
+he reviewed draft v0.1. AI tools were used as support: builder sessions with Claude for the code, the runs and the drafting
+from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for the second the serving model cannot be
+confirmed: a later session on the platform reports its model as `Claude Opus 5.5` and states that it produced the sweep); and
+two machine reviews of draft v0.1, on ChatGPT and on Perplexity Computer (model as
+it states it: `Claude Opus 5.5`). All are committed unedited. The author is solely responsible for every claim. We thank the organisers of the BPI
 Challenges and 4TU.ResearchData for the logs.
 
 ## References
@@ -362,7 +430,10 @@ Claim statuses, each set from its slot file:
 
 {{#claims}}
 
-Every decision taken while the work ran is in the repository's decision log, from D-A0-1 to D-C-5, and every deviation from
+C1's "sufficiency-checked" means that each predicate checks presence, freshness, validity, authority and scope (Section 3); it
+is not paper 5's sufficiency certificate.
+
+Every decision taken while the work ran is in the repository's decision log, from D-A0-1 to D-D-2, and every deviation from
 the tagged registration is in its deviations file (Section 4).
 
 ## Appendix C: Reproduction
@@ -375,7 +446,9 @@ reproduction from a clean clone is pending.
 
 ## Appendix D: Exposure by stratum
 
-The share of analysed clearings with at least one failed predicate (any defect class), per stratum. Company and vendor strata
-are in the slot file only, as hashed labels.
+The share of analysed clearings and of cleared value per defect class (a failed predicate), per stratum, with the
+purchase-document-clustered 95% intervals; classes with no clearing in a stratum are omitted here and kept in
+`results/e1/exposure-by-stratum.json`. Company and vendor strata are in the slot file only, as hashed labels. The spend-area
+labels are the public log's own strings and the registered strata; the challenge itself names the sector.
 
 {{#strata}}

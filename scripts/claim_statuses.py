@@ -53,7 +53,9 @@ def statuses() -> dict[str, tuple[str, str]]:
     c11 = "supported" if shapes and all(shapes) else "inconclusive"
 
     return {
-        "C1": ("supported", "`results/e1/exclusions.json`, `results/e1/evidence-set.jsonl.gz`, `results/mutation.json`"),
+        # D-D-2: the evidence of C1 is the evidence set and the property tests; mutation is engine evidence.
+        "C1": ("supported", "`results/e1/evidence-set.jsonl.gz`, `tests/test_properties.py`; engine evidence "
+                            "`results/mutation.json`"),
         "C2": ("supported", "`results/e1/exposure.json`, `results/e1/exposure-by-stratum.json`"),
         "C3": ("supported", "`results/e2/hypotheses.json`"),
         "C4": ("supported", "`results/e2/hypotheses.json`"),
@@ -83,10 +85,11 @@ def main() -> int:
         if line.startswith("|---|---|---|---|"):
             out.append("|---|---|---|---|---|")
             continue
-        m = re.match(r"^\| (C\d+) \| (.*) \| ([^|]*) \| ([^|]*) \|$", line)
-        if m and m.group(1) in table:
-            status, evidence = table[m.group(1)]
-            out.append(f"| {m.group(1)} | {m.group(2)} | {m.group(3)} | {status} | {evidence} |")
+        cells = [c.strip() for c in line.strip().strip("|").split("|")] if line.startswith("| C") else []
+        # A claim row has id, claim, type, status and (once added) evidence; claim text has no "|".
+        if len(cells) in (4, 5) and cells[0] in table:
+            status, evidence = table[cells[0]]
+            out.append(f"| {cells[0]} | {cells[1]} | {cells[2]} | {status} | {evidence} |")
             continue
         out.append(line)
     CLAIMS.write_text("\n".join(out) + "\n", encoding="utf-8")
