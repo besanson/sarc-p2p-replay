@@ -143,6 +143,11 @@ def g4_regeneration(quick: bool) -> dict:
         produced += [f"e7/{p.name}" for p in (res / "e7").iterdir()]
     e6_cost.run(root=regen, out=res / "e6")
     produced.append("e6/cost.json")
+    if not quick and log.exists():
+        from experiments import round1_slots  # noqa: PLC0415
+
+        round1_slots.run(log, root=regen, e1_dir=res / "e1", out=res)
+        produced += ["e3/human-hold-composition.json", "e1/actors.json", "e4/arms-classified-lines.json"]
     rows = _compare(ROOT / "results", res, sorted(set(produced)))
 
     import fill_paper  # noqa: PLC0415

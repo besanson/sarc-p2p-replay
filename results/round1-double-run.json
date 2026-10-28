@@ -1,0 +1,25 @@
+{
+  "all_identical": true,
+  "files": [
+    {
+      "file": "e3/human-hold-composition.json",
+      "identical": true,
+      "sha256_committed": "5823edd3b29a16915e5585ebe581bf9cc3b16e912f0955866cf119103bab9226",
+      "sha256_rerun": "5823edd3b29a16915e5585ebe581bf9cc3b16e912f0955866cf119103bab9226"
+    },
+    {
+      "file": "e1/actors.json",
+      "identical": true,
+      "sha256_committed": "14688b2c9b1e61ade6b948fd69d547e7742982a5766967e402b671b30df84346",
+      "sha256_rerun": "14688b2c9b1e61ade6b948fd69d547e7742982a5766967e402b671b30df84346"
+    },
+    {
+      "file": "e4/arms-classified-lines.json",
+      "identical": true,
+      "sha256_committed": "287a2d1951c1df6b5ca5bd9c3aaa3e4c0b4b88d207148c6d53358194174c22a0",
+      "sha256_rerun": "287a2d1951c1df6b5ca5bd9c3aaa3e4c0b4b88d207148c6d53358194174c22a0"
+    }
+  ],
+  "runner": "experiments/round1_slots.py",
+  "runs": "two full runs from the log (out/r1a, copied to results/, and out/r1b)"
+}

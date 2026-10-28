@@ -1,0 +1,54 @@
+{
+  "by_reason": {
+    "both": 70,
+    "no_clearing_within_W_of_first_invoice": 53182,
+    "payment_block_before_first_clearing": 10
+  },
+  "by_status": {
+    "amended_reading_D-C-2": {
+      "clean": {
+        "both": 34,
+        "held_by_people": 47598,
+        "no_clearing_within_W_of_first_invoice": 47563,
+        "payment_block_before_first_clearing": 1
+      },
+      "defective": {
+        "both": 36,
+        "held_by_people": 5664,
+        "no_clearing_within_W_of_first_invoice": 5619,
+        "payment_block_before_first_clearing": 9
+      },
+      "held_unknown": {
+        "both": 0,
+        "held_by_people": 0,
+        "no_clearing_within_W_of_first_invoice": 0,
+        "payment_block_before_first_clearing": 0
+      }
+    },
+    "registered_literal_reading": {
+      "clean": {
+        "both": 0,
+        "held_by_people": 1,
+        "no_clearing_within_W_of_first_invoice": 0,
+        "payment_block_before_first_clearing": 1
+      },
+      "defective": {
+        "both": 36,
+        "held_by_people": 5664,
+        "no_clearing_within_W_of_first_invoice": 5619,
+        "payment_block_before_first_clearing": 9
+      },
+      "held_unknown": {
+        "both": 34,
+        "held_by_people": 47597,
+        "no_clearing_within_W_of_first_invoice": 47563,
+        "payment_block_before_first_clearing": 0
+      }
+    }
+  },
+  "held_by_people": 53262,
+  "note": "the log records no hold decision except a payment block; 'held by people' is a payment block before the first clearing, or no clearing within W of the first invoice receipt",
+  "registration": "p7-v1.1",
+  "section": "3.6 (DECISIONS.md D-D-2)",
+  "source": "the reason from the log with the section 3.6 rule (p2p_replay.frame); held-or-not and the statuses at t* from results/e1/lines.jsonl.gz and lines-t-star-amended.jsonl.gz"
+}

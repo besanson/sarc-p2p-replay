@@ -28,6 +28,7 @@ refer to `prereg/p7-v1.1.md`.
 | `e1/lines.jsonl.gz` | one record per framed line: category, value, strata, human hold, gate status at t* (literal reading) | 2, 3.6, 7 |
 | `e1/lines-t-star-amended.jsonl.gz` | gate status at t* per framed line under D-C-2 B (D5 not applicable at a t* that is not a clearing) | 7; DEVIATIONS |
 | `e1/evidence-sample.jsonl` | the seeded sample export of the evidence set | 3.9 |
+| `e1/actors.json` | `Clear Invoice` events by batch, other and missing actors; distinct clearing actors, distinct earliest-creation actors and their intersection, over all and framed lines (`experiments/round1_slots.py`, D-D-2) | 3.2 (D5) |
 
 ## e2/ (E2, consequence: `experiments/e2.py`)
 
@@ -45,6 +46,7 @@ refer to `prereg/p7-v1.1.md`.
 | `e3/lag-bands.json` | D1/D2 failures by lag band in count and cleared value | 3.3, 3.8 |
 | `e3/human-hold.json` | human-hold classification of every framed line, unclassified count, human hold rate on defective and on clean lines, under the literal reading and under D-C-2 B | 3.6, 7; DEVIATIONS |
 | `e3/confounders.json` | the E3 quantities per stratum | 2.3, 6 |
+| `e3/human-hold-composition.json` | lines held by people, by reason (payment block before the first clearing, no clearing within W, both) and by line status under both readings (`experiments/round1_slots.py`, D-D-2) | 3.6 |
 
 ## e4/ (E4, agent replay: `experiments/e4_sample.py`, `experiments/e4.py`)
 
@@ -57,6 +59,7 @@ refer to `prereg/p7-v1.1.md`.
 | `e4/h4.json` | per family: hold rates on defective and clean lines, d, TOST p-values; the Holm table over the five-test family | 4, 7; DEVIATIONS |
 | `e4/arms.json` | per arm (people, each family, gate): hold rates, kappa with the gate, value released on defective lines, expected correctives, invalid counts, cost per decision | 7 |
 | `e4/double-run.json` | the E4 analysis run twice from the committed responses: byte comparison | 7 |
+| `e4/arms-classified-lines.json` | the four arms re-tabulated on the sample lines the people arm classifies; a re-tabulation, `e4/arms.json` is primary (`experiments/round1_slots.py`, D-D-2) | 7 |
 
 ## e4-exploratory/ (E4 exploratory timeline arm, never in Holm: `experiments/e4.py --arm e4-exploratory`)
 
@@ -99,6 +102,7 @@ refer to `prereg/p7-v1.1.md`.
 |---|---|---|
 | `mutation.json` | mutation gate result on `src/` (kill score, counts, threshold) | 10 |
 | `checks-d-c-2.json` | D-C-2 B applied: E1 re-run from the log against the committed files, E2 re-run, E3 double run | DEVIATIONS |
+| `round1-double-run.json` | the round-1 slots run twice from the log: byte comparison | D-D-2 |
 
 ## Paper (`scripts/fill_paper.py`)
 
