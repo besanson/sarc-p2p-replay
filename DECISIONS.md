@@ -349,6 +349,8 @@ The packet at fc6447e was not changed: it is with the external reviewer.
 
 This sweep is AI support, to be disclosed in the acknowledgements; it is not the external fence review.
 
+**Addendum.** (2026-10-28) The sweep was run on Perplexity Computer; the author had selected DeepSeek 4.0 Pro on the platform. A later session on the same platform (the round-1 machine review, `review-secondary/D1-review-perplexity.md`) reports its model as Claude Opus 5.5 and states that it produced this sweep. The model that served the sweep cannot be confirmed. The file name and its SHA-256 are unchanged.
+
 ## D-A1-1 A1 adjudication (2026-10-18)
 
 **Inputs.** The external fence review by Eduardo Arana, dated 2026-10-16, on the
