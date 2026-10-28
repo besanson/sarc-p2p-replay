@@ -51,3 +51,15 @@ not applicable there and counts as pass. Touches: the line status at t*, hence
 the E3 human-hold slot and the E4 sample frame. Does not touch E1 or E2 (no
 predicate at an actual clearing changes). Results it changes:
 `results/e3/human-hold.json` (both readings kept) and every E4 result.
+
+### Description corrections in COVERAGE.md, no predicate changes (2026-10-28)
+
+Found in review round 1 (`DECISIONS.md` D-D-2). The descriptions in `COVERAGE.md` are corrected to
+match the registered predicates; no predicate, pattern, template, mapping or threshold changes, and
+no result changes. D1' row: "no event in the registered approval list before the payment" (it read
+"no final approval event", which is D2'); D6 row: the count rule of section 3.2 (sets minus removals
+greater than zero before t_c); D7 row: the count rule of section 3.2 (deletions plus blocks minus
+reactivations greater than zero before t_c); the "Detected" definition adds that the absent and stale
+receipt split uses events after t_c and is reporting only (section 3.3); the recovery row reads "the
+log records the corrective event and nothing about recovery". Touches: `COVERAGE.md` and the paper's
+coverage table, which reproduces it.
