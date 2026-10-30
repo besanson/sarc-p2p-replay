@@ -5,7 +5,7 @@ the `release-check` Makefile target), adapted to this repository. Paper 5's G1 t
 release-kit gates; here G1 to G9 cover the whole release, and paper 5's paper checks (build,
 token purity, number parity between source and typeset paper) sit inside G9.
 
-  G1 tests            pytest; CI run ids on the release commit wait on Phase E
+  G1 tests            pytest; the CI runs recorded in results/ci-runs.json are green on both versions
   G2 lints            terminology, proof-status, typed-numeral (template and generated paper)
   G3 mutation         results/mutation.json passes (>= 0.85, no uncovered mutant) and src/ has not
                       changed since the commit that recorded it
@@ -18,7 +18,8 @@ token purity, number parity between source and typeset paper) sit inside G9.
   G6 secrets          no key, token or private key in any tracked file; .env untracked and ignored
   G7 data and pins    data files match prereg/data.lock, siblings at engines.lock, the E1 slot
                       records the registered log hash
-  G8 package          the wheel builds; the fresh-venv smoke test waits on Phase E
+  G8 package          the package smoke test (sdist, wheel, fresh venv, fixtures replayed outside the
+                      checkout) passes now and in its committed record results/package-smoke.json
   G9 paper            paper/paper.md and paper-tex/main.tex present and regenerated identically,
                       no template syntax left in the .tex, the numerals of paper.md and main.tex
                       equal as a multiset, references only verified records; the PDF build waits
@@ -72,8 +73,12 @@ def gate(status: str, detail: Any = None, waiting: list[str] | None = None) -> d
 def g1_tests() -> dict:
     r = sh(PY, "-m", "pytest", "-q", "-p", "no:cacheprovider")
     last = (r.stdout.strip().splitlines() or [""])[-1]
-    return gate("pass" if r.returncode == 0 else "fail", last,
-                ["CI run ids on Python 3.11 and 3.12 for the release commit: waiting on Phase E"])
+    rec_path = ROOT / "results" / "ci-runs.json"
+    ci = json.loads(rec_path.read_text(encoding="utf-8")) if rec_path.exists() else None
+    detail = {"pytest": last, "ci_record": "results/ci-runs.json" if ci else None,
+              "ci_commits_green": [c["commit"][:7] for c in ci["commits"] if c["green"]] if ci else []}
+    waiting = [] if ci and ci["all_green"] else ["CI runs on Python 3.11 and 3.12 (results/ci-runs.json)"]
+    return gate("pass" if r.returncode == 0 and (ci is None or ci["all_green"]) else "fail", detail, waiting)
 
 
 def g2_lints() -> dict:
@@ -234,12 +239,15 @@ def g7_data_and_pins() -> dict:
 
 
 def g8_package() -> dict:
-    with tempfile.TemporaryDirectory() as tmp:
-        # Isolated build, as pyproject.toml's build-system declares (the venv itself has no setuptools).
-        r = sh(PY, "-m", "pip", "wheel", ".", "--no-deps", "-q", "-w", tmp)
-        wheels = sorted(p.name for p in Path(tmp).glob("*.whl"))
-    return gate("pass" if r.returncode == 0 and wheels else "fail", {"wheels": wheels},
-                ["fresh-venv install and smoke test (make package-smoke-test, FINAL-AUDIT item 2): waiting on Phase E"])
+    """The smoke test runs again (scripts/package_smoke.py, logs in out/package-smoke/); the committed
+    record results/package-smoke.json must show it passed."""
+    r = sh(PY, "scripts/package_smoke.py")
+    rec_path = ROOT / "results" / "package-smoke.json"
+    recorded = json.loads(rec_path.read_text(encoding="utf-8")) if rec_path.exists() else None
+    ok = r.returncode == 0 and bool(recorded and recorded["passed"])
+    return gate("pass" if ok else "fail", {"smoke_test_now": (r.stdout.strip().splitlines() or [""])[-1],
+                                           "recorded": "results/package-smoke.json" if recorded else None,
+                                           "recorded_passed": bool(recorded and recorded["passed"])})
 
 
 def g9_paper() -> dict:

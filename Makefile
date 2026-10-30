@@ -1,4 +1,4 @@
-.PHONY: help bootstrap siblings venv fetch-data check-data preflight bootstrap-paper test lint mutate gates gates-quick gates-ci fill figures paper clean
+.PHONY: help bootstrap siblings venv fetch-data check-data preflight bootstrap-paper test lint mutate gates gates-quick gates-ci package-smoke-test fill figures paper clean
 
 # Paper 7: sarc-p2p-replay. Apache License 2.0.
 # Target layout as paper 6 (gigo-jev-probe) and paper 5 (sarc-authority-derivation):
@@ -23,6 +23,7 @@ help:
 	@echo "mutate           mutation gate on src/ (kill score >= 0.85, no uncovered mutant)"
 	@echo "gates            release gates G1 to G9 (out/gates/report.json); gates-quick skips the log replays"
 	@echo "gates-ci         the gates CI can run without the log, a TeX engine or mutation (G2, G5 to G8)"
+	@echo "package-smoke-test  sdist and wheel, fresh venv, replay of the fixtures outside the checkout (results/package-smoke.json)"
 	@echo "fill             paper/paper.md and paper/filled-template.json from paper/template.md and the slots"
 	@echo "figures          paper/figures/ (SVG and PDF) from the slots"
 	@echo "paper            fill, figures, paper-tex/main.tex; the PDF when a LaTeX engine is installed"
@@ -67,6 +68,9 @@ gates-quick:
 
 gates-ci:
 	$(RUN) scripts/gates.py --ci
+
+package-smoke-test:
+	$(RUN) scripts/package_smoke.py --record
 
 fill:
 	$(RUN) scripts/fill_paper.py

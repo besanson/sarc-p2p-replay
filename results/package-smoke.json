@@ -1,0 +1,27 @@
+{
+  "artefacts": {
+    "sdist": "sarc_p2p_replay-0.0.1.tar.gz",
+    "wheel": "sarc_p2p_replay-0.0.1-py3-none-any.whl"
+  },
+  "audit_items": [
+    2,
+    3
+  ],
+  "checks": {
+    "csv and xes evidence identical": true,
+    "csv: evidence byte-identical to the source-tree replay": true,
+    "csv: evidence equals the fixture's expected verdicts": true,
+    "csv: replay runs outside the repository": true,
+    "package imported from the fresh venv, not the checkout": true,
+    "sdist and wheel built": true,
+    "wheel installs in a fresh venv": true,
+    "xes: evidence byte-identical to the source-tree replay": true,
+    "xes: evidence equals the fixture's expected verdicts": true,
+    "xes: replay runs outside the repository": true
+  },
+  "fixture_records": 6,
+  "gate": "G8",
+  "log": "out/package-smoke/log.txt (not committed)",
+  "passed": true,
+  "python": "3.13.16"
+}
