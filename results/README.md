@@ -35,6 +35,7 @@ refer to `prereg/p7-v1.1.md`.
 | `e1/evidence-sample.jsonl` | the seeded sample export of the evidence set | 3.9 |
 | `e1/actors.json` | `Clear Invoice` events by batch, other and missing actors; distinct clearing actors, distinct earliest-creation actors and their intersection, over all and framed lines (`experiments/round1_slots.py`, D-D-2) | 3.2 (D5) |
 | `e1/analysed-clearing-actors.json` | analysed clearings whose `Clear Invoice` or earliest-creation actor is missing, the D5 unknown count, and the framed-line `Clear Invoice` events with a missing actor split into analysed and after the horizon T_end - W (`experiments/round2_slots.py`, D-D-3) | 3.2 (D5) |
+| `e1/predicate-unknowns.json` | per predicate D1 to D7: pass, fail and unknown counts over all analysed clearings and over those where the predicate is in the category's contract (`experiments/round3_slots.py`, D-D-4) | 3.2, 6 |
 
 ## e2/ (E2, consequence: `experiments/e2.py`)
 
@@ -113,6 +114,7 @@ refer to `prereg/p7-v1.1.md`.
 | `checks-d-c-2.json` | D-C-2 B applied: E1 re-run from the log against the committed files, E2 re-run, E3 double run | DEVIATIONS |
 | `round1-double-run.json` | the round-1 slots run twice from the log: byte comparison | D-D-2 |
 | `round2-double-run.json` | the round-2 slots run twice: byte comparison | D-D-3 |
+| `round3-double-run.json` | the round-3 slot run twice: byte comparison | D-D-4 |
 
 ## Reproducibility (`experiments/repro.py`)
 

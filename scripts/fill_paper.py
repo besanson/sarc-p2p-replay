@@ -309,19 +309,19 @@ def block_hold_composition() -> tuple[str, list[str]]:
 def block_coverage_status() -> tuple[str, list[str]]:
     cov = load("e1/coverage-check.json")
     pred = load("e7/predicates.json")["counts"]
-    # D-D-3: the D5 unknown count comes from its own slot; no slot counts unknowns for the other predicates.
-    unknown = {"D5": load("e1/analysed-clearing-actors.json")["analysed_clearings_D5_unknown"]}
+    # D-D-4: unknown counts per predicate over the clearings where it is in the contract, as the failed counts.
+    unknown = load("e1/predicate-unknowns.json")["predicates"]
     rows = [_row(["log", "predicate", "failed", "unknown"]), _row(["---", "---", "---:", "---:"])]
     for r in cov["rows"]:
         rows.append(_row(["BPI 2019 (analysed clearings)", r["predicate"], fmt(r["failed_clearings"], "int"),
-                          fmt(unknown[r["predicate"]], "int") if r["predicate"] in unknown else "n/a"]))
+                          fmt(unknown[r["predicate"]]["applicable_clearings"]["unknown"], "int")]))
     for log in ("domestic", "international"):
         for d in ("D1'", "D2'", "D3'"):
             x = pred[log][d]
             rows.append(_row([f"BPI 2020 {log} (payments)", d, fmt(x["fail"], "int"), fmt(x["unknown"], "int")]))
-    rows += ["", "Sources: `results/e1/coverage-check.json`, `results/e1/analysed-clearing-actors.json` (D5 unknown), "
+    rows += ["", "Sources: `results/e1/coverage-check.json`, `results/e1/predicate-unknowns.json` (BPI 2019 unknown), "
                  "`results/e7/predicates.json`."]
-    return "\n".join(rows), ["e1/coverage-check.json", "e1/analysed-clearing-actors.json", "e7/predicates.json"]
+    return "\n".join(rows), ["e1/coverage-check.json", "e1/predicate-unknowns.json", "e7/predicates.json"]
 
 
 def block_e5() -> tuple[str, list[str]]:
@@ -423,6 +423,42 @@ def block_strata() -> tuple[str, list[str]]:
     return "\n\n".join(parts), ["e1/exposure-by-stratum.json"]
 
 
+def _o(group: dict, prefix: str) -> str:
+    n = group[f"{prefix}_clearings"]
+    return "none" if not n else f"{fmt(group[f'{prefix}_O_rate'], 'pct')} ({fmt(group[f'{prefix}_with_O'], 'int')} of {fmt(n, 'int')})"
+
+
+def block_confounders() -> tuple[str, list[str]]:
+    """Appendix E (D-D-4): the H1, H2 and gate-by-outcome estimates at W = 60 per stratum, never modelled in."""
+    e2 = load("e2/confounders.json")["comparisons"]
+    e3 = load("e3/confounders.json")["clearings"]
+    titles = {"category": "Item category", "spend_area": "Spend area", "month": "Month of the clearing",
+              "line_value_quartile": "Line value quartile", "vendor_activity_quartile": "Vendor activity quartile"}
+    parts = []
+    for var in STRATA_IN_PAPER:
+        rows = [_row(["stratum", "H1: D1/D2 failed", "H1: three-way, all pass", "H1 difference", "H2: D4 failed",
+                      "H2: D4 pass", "H2 difference"]),
+                _row(["---", "---:", "---:", "---:", "---:", "---:", "---:"])]
+        for label in e2["H1"][var]:
+            h1, h2 = e2["H1"][var][label]["W60"], e2["H2"][var][label]["W60"]
+            rows.append(_row([label, _o(h1, "defect"), _o(h1, "comparison"), fmt(h1["difference"], "prop"),
+                              _o(h2, "defect"), _o(h2, "comparison"), fmt(h2["difference"], "prop")]))
+        gate = [_row(["stratum", "analysed clearings", "gate would have held", "held, corrective within W",
+                      "held, no corrective", "allowed, corrective within W", "allowed, no corrective"]),
+                _row(["---", "---:", "---:", "---:", "---:", "---:", "---:"])]
+        for label, c in e3[var].items():
+            v = c["verdict_by_outcome"]["W60"]
+            gate.append(_row([label, fmt(c["analysed_clearings"], "int"),
+                              f"{fmt(c['held'], 'int')} ({fmt(c['held_share'], 'pct')})",
+                              *(fmt(v[k]["clearings"], "int") for k in ("hold_with_corrective", "hold_without_corrective",
+                                                                         "allow_with_corrective", "allow_without_corrective"))]))
+        parts.append(f"**{titles[var]}: H1 and H2 (O rate, corrective events of clearings, at W = 60 days)**\n\n"
+                     + "\n".join(rows) + f"\n\n**{titles[var]}: gate by outcome (clearings, W = 60 days)**\n\n"
+                     + "\n".join(gate))
+    parts.append("Sources: `results/e2/confounders.json`, `results/e3/confounders.json`.")
+    return "\n\n".join(parts), ["e2/confounders.json", "e3/confounders.json"]
+
+
 def block_registered_numbers() -> tuple[str, list[str]]:
     text = (ROOT / "prereg" / "p7-v1.1.md").read_text(encoding="utf-8")
     section = text.split("## 9. Registered numbers", 1)[1].split("\n## ", 1)[0]
@@ -450,6 +486,7 @@ BLOCKS: dict[str, Callable[[], tuple[str, list[str]]]] = {
     "claims": block_claims, "strata": block_strata, "registered_numbers": block_registered_numbers,
     "datasets": block_datasets, "arms_classified": block_arms_classified,
     "hold_composition": block_hold_composition, "coverage_status": block_coverage_status,
+    "confounders": block_confounders,
 }
 
 

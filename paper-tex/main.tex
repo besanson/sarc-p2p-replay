@@ -654,7 +654,9 @@ H3 enters the family with p = 1, the convention the author fixed in
 decision D-C-2, committed at 2026-10-25 18:21:56 UTC, before the first
 model request at 2026-10-25 18:42:18 UTC
 (\texttt{results/e4/timeline.json}). At W = 30 days the differences are
-0.0354 for H1 and 0.0055 for H2, descriptively.
+0.0354 for H1 and 0.0055 for H2, descriptively. Appendix E gives H1 and
+H2 per item category, spend area, value quartile, vendor activity
+quartile and month, descriptively and never modelled in.
 
 \hypertarget{gate-effect-and-hold-cost-e3}{%
 \subsubsection{5.3 Gate effect and hold cost
@@ -675,6 +677,8 @@ gate verdict & corrective within W & no corrective within W \\
 would have held & 368 (21,418,557) & 17,380 (145,068,897) \\
 would have allowed & 1,291 (106,294,821) & 136,495 (584,977,346) \\
 \end{longtable}
+
+Appendix E gives the same table per stratum.
 
 \begin{figure}
 \centering
@@ -1335,13 +1339,13 @@ log & predicate & failed & unknown \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-BPI 2019 (analysed clearings) & D1 & 692 & n/a \\
-BPI 2019 (analysed clearings) & D2 & 692 & n/a \\
-BPI 2019 (analysed clearings) & D3 & 362 & n/a \\
-BPI 2019 (analysed clearings) & D4 & 17,157 & n/a \\
+BPI 2019 (analysed clearings) & D1 & 692 & 0 \\
+BPI 2019 (analysed clearings) & D2 & 692 & 0 \\
+BPI 2019 (analysed clearings) & D3 & 362 & 0 \\
+BPI 2019 (analysed clearings) & D4 & 17,157 & 0 \\
 BPI 2019 (analysed clearings) & D5 & 0 & 0 \\
-BPI 2019 (analysed clearings) & D6 & 4 & n/a \\
-BPI 2019 (analysed clearings) & D7 & 19 & n/a \\
+BPI 2019 (analysed clearings) & D6 & 4 & 0 \\
+BPI 2019 (analysed clearings) & D7 & 19 & 0 \\
 BPI 2020 domestic (payments) & D1' & 2 & 0 \\
 BPI 2020 domestic (payments) & D2' & 2 & 0 \\
 BPI 2020 domestic (payments) & D3' & 0 & 2 \\
@@ -1351,7 +1355,7 @@ BPI 2020 international (payments) & D3' & 0 & 0 \\
 \end{longtable}
 
 Sources: \texttt{results/e1/coverage-check.json},
-\texttt{results/e1/analysed-clearing-actors.json} (D5 unknown),
+\texttt{results/e1/predicate-unknowns.json} (BPI 2019 unknown),
 \texttt{results/e7/predicates.json}.
 
 On BPI 2019 every detected class fails at least once except the
@@ -1375,7 +1379,8 @@ non-claims}\label{limitations-and-non-claims}}
 The outcome is a proxy: a corrective event after a clearing is not proof
 that the clearing was wrong, and the study is observational. Category,
 spend area, value, vendor activity and month are reported beside every
-estimate and never modelled in. Values are anonymised. What a line the
+estimate (Appendix D for exposure, Appendix E for H1, H2 and the gate by
+outcome) and never modelled in. Values are anonymised. What a line the
 gate would have held becomes is not in the log. The people column
 reports what the process did within W; the comparison across the people,
 the models and the gate is of outcomes of three deciders, not of three
@@ -2237,5 +2242,477 @@ Q4 & D7 & 2 of 34,371 & 0.01\% & {[}0.00\%, 0.01\%{]} & 0.01\% &
 Q4 & at least one defect & 2,334 of 34,371 & 6.79\% & {[}6.21\%,
 7.43\%{]} & 7.65\% & {[}6.51\%, 8.86\%{]} \\
 \end{longtable}
+
+\hypertarget{appendix-e-consequence-and-gate-effect-by-stratum}{%
+\subsection{Appendix E: Consequence and gate effect by
+stratum}\label{appendix-e-consequence-and-gate-effect-by-stratum}}
+
+The H1 and H2 comparisons (Section 5.2) and the gate verdict against the
+corrective (Section 5.3), at W = 60 days, per stratum. Each cell gives
+the O rate with the corrective events and the clearings of its group;
+``none'' marks an empty group. These are descriptive: the strata are
+reported beside the estimates and never modelled in. Company and vendor
+strata are in the slot files only, as hashed labels.
+
+\textbf{Item category: H1 and H2 (O rate, corrective events of
+clearings, at W = 60 days)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1111}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+stratum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1: D1/D2 failed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1: three-way, all pass
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1 difference
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2: D4 failed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2: D4 pass
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2 difference
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+2-way & none & none & n/a & 0.00\% (0 of 4) & 2.72\% (5 of 184) &
+-0.0272 \\
+3-way, invoice after receipt & none & 4.68\% (377 of 8,048) & n/a &
+6.81\% (108 of 1,585) & 4.69\% (378 of 8,055) & 0.0212 \\
+3-way, invoice before receipt & 5.64\% (39 of 692) & 0.70\% (909 of
+129,554) & 0.0493 & 1.41\% (219 of 15,568) & 0.73\% (949 of 130,138) &
+0.0068 \\
+\end{longtable}
+
+\textbf{Item category: gate by outcome (clearings, W = 60 days)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1111}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+stratum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+analysed clearings
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+gate would have held
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+held, corrective within W
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+held, no corrective
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+allowed, corrective within W
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+allowed, no corrective
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+2-way & 188 & 4 (2.13\%) & 0 & 4 & 5 & 179 \\
+3-way, invoice after receipt & 9,640 & 1,592 (16.51\%) & 109 & 1,483 &
+377 & 7,671 \\
+3-way, invoice before receipt & 145,706 & 16,152 (11.09\%) & 259 &
+15,893 & 909 & 128,645 \\
+\end{longtable}
+
+\textbf{Spend area: H1 and H2 (O rate, corrective events of clearings,
+at W = 60 days)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1111}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+stratum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1: D1/D2 failed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1: three-way, all pass
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1 difference
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2: D4 failed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2: D4 pass
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2 difference
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Additives & 7.69\% (1 of 13) & 1.02\% (92 of 8,987) & 0.0667 & 1.82\%
+(22 of 1,207) & 1.03\% (93 of 8,999) & 0.0079 \\
+CAPEX \& SOCS & 1.82\% (1 of 55) & 1.45\% (63 of 4,331) & 0.0036 &
+2.16\% (6 of 278) & 1.46\% (64 of 4,394) & 0.0070 \\
+Chemicals \& Intermediates & none & 0.00\% (0 of 1) & n/a & none &
+0.00\% (0 of 1) & n/a \\
+Commodity Resins & 0.00\% (0 of 1) & 2.22\% (5 of 225) & -0.0222 &
+1.25\% (1 of 80) & 2.21\% (5 of 226) & -0.0096 \\
+Energy & none & none & n/a & none & 0.00\% (0 of 3) & n/a \\
+Enterprise Services & 0.00\% (0 of 2) & 2.05\% (7 of 342) & -0.0205 &
+0.00\% (0 of 20) & 2.00\% (7 of 350) & -0.0200 \\
+Latex \& Monomers & 30.00\% (3 of 10) & 1.96\% (41 of 2,096) & 0.2804 &
+1.88\% (9 of 479) & 2.09\% (44 of 2,105) & -0.0021 \\
+Logistics & none & 10.49\% (205 of 1,955) & n/a & 35.96\% (41 of 114) &
+10.49\% (205 of 1,955) & 0.2548 \\
+Marketing & 16.67\% (1 of 6) & 2.98\% (33 of 1,106) & 0.1368 & 12.04\%
+(13 of 108) & 3.06\% (34 of 1,112) & 0.0898 \\
+Others & 0.00\% (0 of 8) & 1.44\% (24 of 1,663) & -0.0144 & 5.81\% (5 of
+86) & 1.54\% (26 of 1,690) & 0.0428 \\
+Packaging & 5.29\% (9 of 170) & 0.45\% (254 of 56,526) & 0.0484 & 1.10\%
+(76 of 6,901) & 0.46\% (263 of 56,660) & 0.0064 \\
+Pigments \& Colorants & 40.00\% (2 of 5) & 1.22\% (17 of 1,397) & 0.3878
+& 2.71\% (8 of 295) & 1.29\% (18 of 1,399) & 0.0143 \\
+Real Estate & none & 0.00\% (0 of 1) & n/a & 0.00\% (0 of 5) & 2.05\% (3
+of 146) & -0.0205 \\
+Sales & 13.57\% (19 of 140) & 0.73\% (318 of 43,511) & 0.1284 & 1.02\%
+(33 of 3,244) & 0.78\% (340 of 43,647) & 0.0024 \\
+Solvents & none & 1.55\% (21 of 1,354) & n/a & 3.24\% (7 of 216) &
+1.55\% (21 of 1,357) & 0.0169 \\
+Specialty Resins & none & 1.03\% (11 of 1,067) & n/a & 3.51\% (8 of 228)
+& 1.03\% (11 of 1,067) & 0.0248 \\
+Spend Area Unidentified & none & 0.00\% (0 of 15) & n/a & 0.00\% (0 of
+3) & 0.00\% (0 of 15) & 0.0000 \\
+Titanium Dioxides & 0.00\% (0 of 5) & 2.62\% (8 of 305) & -0.0262 &
+7.56\% (9 of 119) & 2.58\% (8 of 310) & 0.0498 \\
+Trading \& End Products & 0.73\% (2 of 273) & 1.22\% (141 of 11,548) &
+-0.0049 & 2.13\% (71 of 3,339) & 1.22\% (143 of 11,765) & 0.0091 \\
+Workforce Services & none & 16.89\% (37 of 219) & n/a & 17.74\% (11 of
+62) & 16.89\% (37 of 219) & 0.0085 \\
+missing & 25.00\% (1 of 4) & 0.94\% (9 of 953) & 0.2406 & 1.88\% (7 of
+373) & 1.04\% (10 of 957) & 0.0083 \\
+\end{longtable}
+
+\textbf{Spend area: gate by outcome (clearings, W = 60 days)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1111}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+stratum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+analysed clearings
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+gate would have held
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+held, corrective within W
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+held, no corrective
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+allowed, corrective within W
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+allowed, no corrective
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Additives & 10,206 & 1,219 (11.94\%) & 23 & 1,196 & 92 & 8,895 \\
+CAPEX \& SOCS & 4,672 & 332 (7.11\%) & 7 & 325 & 63 & 4,277 \\
+Chemicals \& Intermediates & 1 & 0 (0.00\%) & 0 & 0 & 0 & 1 \\
+Commodity Resins & 306 & 81 (26.47\%) & 1 & 80 & 5 & 220 \\
+Energy & 3 & 0 (0.00\%) & 0 & 0 & 0 & 3 \\
+Enterprise Services & 370 & 22 (5.95\%) & 0 & 22 & 7 & 341 \\
+Latex \& Monomers & 2,584 & 488 (18.89\%) & 12 & 476 & 41 & 2,055 \\
+Logistics & 2,069 & 114 (5.51\%) & 41 & 73 & 205 & 1,750 \\
+Marketing & 1,220 & 114 (9.34\%) & 14 & 100 & 33 & 1,073 \\
+Others & 1,776 & 94 (5.29\%) & 5 & 89 & 26 & 1,656 \\
+Packaging & 63,561 & 7,035 (11.07\%) & 85 & 6,950 & 254 & 56,272 \\
+Pigments \& Colorants & 1,694 & 297 (17.53\%) & 9 & 288 & 17 & 1,380 \\
+Real Estate & 151 & 5 (3.31\%) & 0 & 5 & 3 & 143 \\
+Sales & 46,891 & 3,378 (7.20\%) & 55 & 3,323 & 318 & 43,195 \\
+Solvents & 1,573 & 219 (13.92\%) & 7 & 212 & 21 & 1,333 \\
+Specialty Resins & 1,295 & 228 (17.61\%) & 8 & 220 & 11 & 1,056 \\
+Spend Area Unidentified & 18 & 3 (16.67\%) & 0 & 3 & 0 & 15 \\
+Titanium Dioxides & 429 & 124 (28.90\%) & 9 & 115 & 8 & 297 \\
+Trading \& End Products & 15,104 & 3,556 (23.54\%) & 73 & 3,483 & 141 &
+11,407 \\
+Workforce Services & 281 & 62 (22.06\%) & 11 & 51 & 37 & 182 \\
+missing & 1,330 & 377 (28.35\%) & 8 & 369 & 9 & 944 \\
+\end{longtable}
+
+\textbf{Month of the clearing: H1 and H2 (O rate, corrective events of
+clearings, at W = 60 days)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1111}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+stratum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1: D1/D2 failed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1: three-way, all pass
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1 difference
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2: D4 failed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2: D4 pass
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2 difference
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+2018-01 & 0.00\% (0 of 1) & 0.00\% (0 of 238) & 0.0000 & 0.00\% (0 of 8)
+& 0.00\% (0 of 247) & 0.0000 \\
+2018-02 & 0.00\% (0 of 6) & 0.30\% (8 of 2,703) & -0.0030 & 2.08\% (2 of
+96) & 0.29\% (8 of 2,716) & 0.0179 \\
+2018-03 & 13.04\% (3 of 23) & 0.88\% (78 of 8,902) & 0.1217 & 2.92\% (25
+of 855) & 0.91\% (81 of 8,935) & 0.0202 \\
+2018-04 & 3.23\% (3 of 93) & 0.57\% (76 of 13,223) & 0.0265 & 0.92\% (16
+of 1,737) & 0.59\% (78 of 13,326) & 0.0034 \\
+2018-05 & 4.41\% (3 of 68) & 0.82\% (139 of 16,953) & 0.0359 & 1.36\%
+(26 of 1,909) & 0.85\% (144 of 17,030) & 0.0052 \\
+2018-06 & 2.53\% (2 of 79) & 1.13\% (197 of 17,400) & 0.0140 & 2.12\%
+(48 of 2,261) & 1.14\% (199 of 17,487) & 0.0098 \\
+2018-07 & 12.00\% (9 of 75) & 1.20\% (216 of 17,936) & 0.1080 & 1.81\%
+(36 of 1,991) & 1.25\% (225 of 18,028) & 0.0056 \\
+2018-08 & 6.25\% (6 of 96) & 0.98\% (186 of 19,054) & 0.0527 & 1.80\%
+(44 of 2,442) & 1.00\% (191 of 19,168) & 0.0081 \\
+2018-09 & 2.56\% (2 of 78) & 0.87\% (145 of 16,661) & 0.0169 & 2.44\%
+(55 of 2,253) & 0.90\% (151 of 16,749) & 0.0154 \\
+2018-10 & 9.00\% (9 of 100) & 0.92\% (153 of 16,683) & 0.0808 & 2.01\%
+(48 of 2,387) & 0.98\% (164 of 16,806) & 0.0104 \\
+2018-11 & 2.74\% (2 of 73) & 1.12\% (88 of 7,849) & 0.0162 & 2.22\% (27
+of 1,218) & 1.15\% (91 of 7,885) & 0.0106 \\
+\end{longtable}
+
+\textbf{Month of the clearing: gate by outcome (clearings, W = 60 days)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1111}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+stratum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+analysed clearings
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+gate would have held
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+held, corrective within W
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+held, no corrective
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+allowed, corrective within W
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+allowed, no corrective
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+2018-01 & 255 & 9 (3.53\%) & 0 & 9 & 0 & 246 \\
+2018-02 & 2,812 & 103 (3.66\%) & 2 & 101 & 8 & 2,701 \\
+2018-03 & 9,790 & 877 (8.96\%) & 28 & 849 & 78 & 8,835 \\
+2018-04 & 15,063 & 1,827 (12.13\%) & 18 & 1,809 & 76 & 13,160 \\
+2018-05 & 18,939 & 1,972 (10.41\%) & 29 & 1,943 & 141 & 16,826 \\
+2018-06 & 19,748 & 2,331 (11.80\%) & 50 & 2,281 & 197 & 17,220 \\
+2018-07 & 20,019 & 2,060 (10.29\%) & 45 & 2,015 & 216 & 17,743 \\
+2018-08 & 21,610 & 2,531 (11.71\%) & 49 & 2,482 & 186 & 18,893 \\
+2018-09 & 19,002 & 2,314 (12.18\%) & 58 & 2,256 & 148 & 16,540 \\
+2018-10 & 19,193 & 2,483 (12.94\%) & 59 & 2,424 & 153 & 16,557 \\
+2018-11 & 9,103 & 1,241 (13.63\%) & 30 & 1,211 & 88 & 7,774 \\
+\end{longtable}
+
+\textbf{Line value quartile: H1 and H2 (O rate, corrective events of
+clearings, at W = 60 days)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1111}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+stratum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1: D1/D2 failed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1: three-way, all pass
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1 difference
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2: D4 failed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2: D4 pass
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2 difference
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Q1 & 2.59\% (10 of 386) & 0.56\% (203 of 36,210) & 0.0203 & 0.55\% (11
+of 2,012) & 0.58\% (212 of 36,537) & -0.0003 \\
+Q2 & 8.26\% (9 of 109) & 0.59\% (210 of 35,733) & 0.0767 & 0.61\% (16 of
+2,629) & 0.61\% (219 of 35,852) & -0.0000 \\
+Q3 & 5.75\% (5 of 87) & 0.86\% (296 of 34,382) & 0.0489 & 1.10\% (49 of
+4,447) & 0.87\% (301 of 34,516) & 0.0023 \\
+Q4 & 13.64\% (15 of 110) & 1.84\% (577 of 31,277) & 0.1179 & 3.11\% (251
+of 8,069) & 1.91\% (600 of 31,472) & 0.0120 \\
+\end{longtable}
+
+\textbf{Line value quartile: gate by outcome (clearings, W = 60 days)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1111}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+stratum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+analysed clearings
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+gate would have held
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+held, corrective within W
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+held, no corrective
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+allowed, corrective within W
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+allowed, no corrective
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Q1 & 38,549 & 2,334 (6.05\%) & 20 & 2,314 & 203 & 36,012 \\
+Q2 & 38,481 & 2,724 (7.08\%) & 25 & 2,699 & 210 & 35,547 \\
+Q3 & 38,963 & 4,522 (11.61\%) & 54 & 4,468 & 296 & 34,145 \\
+Q4 & 39,541 & 8,168 (20.66\%) & 269 & 7,899 & 582 & 30,791 \\
+\end{longtable}
+
+\textbf{Vendor activity quartile: H1 and H2 (O rate, corrective events
+of clearings, at W = 60 days)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1111}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+stratum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1: D1/D2 failed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1: three-way, all pass
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H1 difference
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2: D4 failed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2: D4 pass
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+H2 difference
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Q1 & 11.43\% (16 of 140) & 2.08\% (676 of 32,442) & 0.0934 & 2.91\% (176
+of 6,056) & 2.13\% (699 of 32,764) & 0.0077 \\
+Q2 & 14.91\% (17 of 114) & 0.76\% (259 of 34,189) & 0.1415 & 1.91\% (101
+of 5,287) & 0.80\% (276 of 34,293) & 0.0111 \\
+Q3 & 1.21\% (4 of 330) & 0.72\% (280 of 38,934) & 0.0049 & 0.98\% (35 of
+3,571) & 0.72\% (284 of 39,192) & 0.0026 \\
+Q4 & 1.85\% (2 of 108) & 0.22\% (71 of 32,037) & 0.0163 & 0.67\% (15 of
+2,243) & 0.23\% (73 of 32,128) & 0.0044 \\
+\end{longtable}
+
+\textbf{Vendor activity quartile: gate by outcome (clearings, W = 60
+days)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1111}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1481}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+stratum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+analysed clearings
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+gate would have held
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+held, corrective within W
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+held, no corrective
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+allowed, corrective within W
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+allowed, no corrective
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Q1 & 38,820 & 6,194 (15.96\%) & 194 & 6,000 & 681 & 31,945 \\
+Q2 & 39,580 & 5,391 (13.62\%) & 118 & 5,273 & 259 & 33,930 \\
+Q3 & 42,763 & 3,829 (8.95\%) & 39 & 3,790 & 280 & 38,654 \\
+Q4 & 34,371 & 2,334 (6.79\%) & 17 & 2,317 & 71 & 31,966 \\
+\end{longtable}
+
+Sources: \texttt{results/e2/confounders.json},
+\texttt{results/e3/confounders.json}.
 
 \end{document}

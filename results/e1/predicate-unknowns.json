@@ -1,0 +1,100 @@
+{
+  "analysed_clearings": 155534,
+  "note": "unknown means a required input is missing (section 3.2); a predicate outside the category's contract is evaluated but does not enter the verdict",
+  "predicates": {
+    "D1": {
+      "analysed_clearings": {
+        "fail": 880,
+        "pass": 154654,
+        "unknown": 0
+      },
+      "applicable_clearings": {
+        "fail": 692,
+        "pass": 154654,
+        "total": 155346,
+        "unknown": 0
+      }
+    },
+    "D2": {
+      "analysed_clearings": {
+        "fail": 880,
+        "pass": 154654,
+        "unknown": 0
+      },
+      "applicable_clearings": {
+        "fail": 692,
+        "pass": 154654,
+        "total": 155346,
+        "unknown": 0
+      }
+    },
+    "D3": {
+      "analysed_clearings": {
+        "fail": 362,
+        "pass": 155172,
+        "unknown": 0
+      },
+      "applicable_clearings": {
+        "fail": 362,
+        "pass": 155172,
+        "total": 155534,
+        "unknown": 0
+      }
+    },
+    "D4": {
+      "analysed_clearings": {
+        "fail": 17157,
+        "pass": 138377,
+        "unknown": 0
+      },
+      "applicable_clearings": {
+        "fail": 17157,
+        "pass": 138377,
+        "total": 155534,
+        "unknown": 0
+      }
+    },
+    "D5": {
+      "analysed_clearings": {
+        "fail": 0,
+        "pass": 155534,
+        "unknown": 0
+      },
+      "applicable_clearings": {
+        "fail": 0,
+        "pass": 155534,
+        "total": 155534,
+        "unknown": 0
+      }
+    },
+    "D6": {
+      "analysed_clearings": {
+        "fail": 4,
+        "pass": 155530,
+        "unknown": 0
+      },
+      "applicable_clearings": {
+        "fail": 4,
+        "pass": 155530,
+        "total": 155534,
+        "unknown": 0
+      }
+    },
+    "D7": {
+      "analysed_clearings": {
+        "fail": 19,
+        "pass": 155515,
+        "unknown": 0
+      },
+      "applicable_clearings": {
+        "fail": 19,
+        "pass": 155515,
+        "total": 155534,
+        "unknown": 0
+      }
+    }
+  },
+  "registration": "p7-v1.1",
+  "section": "3.2, 6 (DECISIONS.md D-D-4)",
+  "source": "results/e1/evidence-set.jsonl.gz"
+}

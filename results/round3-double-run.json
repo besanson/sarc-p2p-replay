@@ -1,0 +1,13 @@
+{
+  "all_identical": true,
+  "files": [
+    {
+      "file": "e1/predicate-unknowns.json",
+      "identical": true,
+      "sha256_committed": "99ec4a5fabcdc4af5e365f7c0e87853230a64a0bf15bc2838b41bb471dc145fe",
+      "sha256_rerun": "99ec4a5fabcdc4af5e365f7c0e87853230a64a0bf15bc2838b41bb471dc145fe"
+    }
+  ],
+  "runner": "experiments/round3_slots.py",
+  "runs": "two runs (results/, and a scratch directory)"
+}

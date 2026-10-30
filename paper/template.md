@@ -242,7 +242,8 @@ actors, {{e1/actors.json>scopes>all>intersection|int}} in common; Section 6). No
 {{e1/analysed-clearing-actors.json>framed_lines_clear_invoice_missing_actor>after_horizon|int}} fall after the horizon T_end − W
 (`results/e1/analysed-clearing-actors.json`). H3 enters the family with p = 1, the convention the author fixed in decision D-C-2,
 committed at {{e4/timeline.json>commits>D-C-2 decision (D5 reading, H3 convention)>committer_utc|utc}}, before the first model request at {{e4/timeline.json>calls>e4/jev>earliest_sent_utc|utc}} (`results/e4/timeline.json`). At W = 30 days the differences are {{e2/hypotheses.json>estimates>H1>W30>difference|prop}}
-for H1 and {{e2/hypotheses.json>estimates>H2>W30>difference|prop}} for H2, descriptively.
+for H1 and {{e2/hypotheses.json>estimates>H2>W30>difference|prop}} for H2, descriptively. Appendix E gives H1 and H2 per item
+category, spend area, value quartile, vendor activity quartile and month, descriptively and never modelled in.
 
 ### 5.3 Gate effect and hold cost (E3)
 
@@ -251,6 +252,8 @@ The gate would have held {{e3/gate-held.json>held>clearings|int}} of {{e3/gate-h
 of them were held on an unknown predicate value alone. Against the corrective at W = 60 days, in clearings and anonymised EUR (Figure 4):
 
 {{#two_by_two}}
+
+Appendix E gives the same table per stratum.
 
 ![Figure 4: gate verdict against the corrective within W = 60 days, in clearings and in cleared value.](figures/fig4-verdict-outcome.svg)
 
@@ -419,8 +422,8 @@ either log, and in the international log no predicate fails at all.
 ## 7 Limitations and non-claims
 
 The outcome is a proxy: a corrective event after a clearing is not proof that the clearing was wrong, and the study is
-observational. Category, spend area, value, vendor activity and month are reported beside every estimate and never modelled
-in. Values are anonymised. What a line the gate would have held becomes is not in the log. The people column reports what the process did within W; the comparison across the people, the
+observational. Category, spend area, value, vendor activity and month are reported beside every estimate (Appendix D for
+exposure, Appendix E for H1, H2 and the gate by outcome) and never modelled in. Values are anonymised. What a line the gate would have held becomes is not in the log. The people column reports what the process did within W; the comparison across the people, the
 models and the gate is of outcomes of three deciders, not of three acts. The ERP view hands the model the
 inputs of the predicates; under the timeline view the same models held far fewer lines (exploratory, no interval), which is
 a statement about views, not about the models alone. The derivation depends on how the three declared losses are expressed over
@@ -487,3 +490,12 @@ purchase-document-clustered 95% intervals; classes with no clearing in a stratum
 labels are the public log's own strings and the registered strata; the challenge itself names the sector.
 
 {{#strata}}
+
+## Appendix E: Consequence and gate effect by stratum
+
+The H1 and H2 comparisons (Section 5.2) and the gate verdict against the corrective (Section 5.3), at W = 60 days, per stratum.
+Each cell gives the O rate with the corrective events and the clearings of its group; "none" marks an empty group. These are
+descriptive: the strata are reported beside the estimates and never modelled in. Company and vendor strata are in the slot
+files only, as hashed labels.
+
+{{#confounders}}

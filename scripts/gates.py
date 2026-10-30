@@ -154,6 +154,9 @@ def g4_regeneration(quick: bool) -> dict:
                  + (("e7",) if (res / "e7" / "evidence-set.jsonl.gz").exists() else ()))
         docs = round2_slots.run(log, e1_dir=res / "e1", e5_dir=res / "e5", e7_dir=res / "e7", out=res, parts=parts)
         produced += list(docs)
+        from experiments import round3_slots  # noqa: PLC0415
+
+        produced += list(round3_slots.run(e1_dir=res / "e1", out=res))
     rows = _compare(ROOT / "results", res, sorted(set(produced)))
 
     import fill_paper  # noqa: PLC0415
