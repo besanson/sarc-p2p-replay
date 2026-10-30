@@ -80,3 +80,18 @@ so the E7 intervals rest on fewer than B replicates. Touches: the E7 bootstrap i
 descriptive and not in Holm. Does not touch any point estimate, BPI 2019 result or Holm entry. The
 retained counts per scope and predicate are in `results/e7/comparisons.json`
 (`bootstrap_resamples_used`). Results it changes: none; the slot is as committed.
+
+### E4 Jev request format (2026-10-25)
+
+Found in review round 3 (`DECISIONS.md` D-D-4, 2026-10-30); recorded at the time as a pipeline
+reading in D-C-3 and reclassified here. The registered ERP view template
+(`prereg/erp-view-template.txt`, section 7) ends with a reply-format sentence asking for a JSON
+decision and hold probability. System One answers typed choice questions and has no free-text reply,
+so for the Jev family that sentence was omitted and a typed choice with the labels clear and hold,
+with the probability of hold, was substituted; the view's task sentences and the ERP record were
+sent unchanged. The Haiku family received the template as registered. Decided in the E4 session
+before the first Jev request: the first Jev decision request already carries the typed choice
+(`results/e4/timeline.json` dates it). Touches: the Jev arm's input only. Does not touch the Haiku
+arm, the gate, the people arm or any BPI 2019 estimate outside E4. Results it changes: none; every
+committed response and slot is as it was.
+

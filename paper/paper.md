@@ -45,9 +45,10 @@ recorded on the purchase-order line at clearing time, evaluate the registered pr
 have held, and read what followed in the log. We report exposure in count and in anonymised EUR, the corrective events that
 follow a failed predicate, the reach of the gate, and, on a registered sample, what two model families decide on the same
 ERP view beside the people in the log and the gate. Everything was registered before the log was parsed beyond its published
-counts (tag `prereg-p7-v1`) and amended once after the pilot (v1.1, tag `prereg-p7-v1.1`), with four deviations under v1.1:
-two decided after E2 and E3 and before E4, and two found in review (corrected descriptions in the coverage matrix, and the
-E7 bootstrap replicates with an empty group discarded); all are listed in Section 4.
+counts (tag `prereg-p7-v1`) and amended once after the pilot (v1.1, tag `prereg-p7-v1.1`), with five deviations under v1.1:
+two decided after E2 and E3 and before E4, and three found in review (corrected descriptions in the coverage matrix, the E7
+bootstrap replicates with an empty group discarded, and the request format of the Jev family in E4); all are listed in
+Section 4.
 
 What this paper claims is in the claim table of Appendix B. What it does not claim is stated in the repository's claims file
 and repeated here verbatim:
@@ -218,6 +219,7 @@ pilot was drawn again, before any estimate. Every deviation, with the decision t
 - Under p7-v1.1: D5 applicability at a non-clearing decision point.
 - Under p7-v1.1: Description corrections in COVERAGE.md, no predicate changes.
 - Under p7-v1.1: E7 bootstrap replicates with an empty group discarded.
+- Under p7-v1.1: E4 Jev request format.
 
 The H3 convention and the D5 reading were the author's decisions after E2 and E3 and before any model call (decision D-C-2 in
 the decision log). The response logs date the calls: D-C-2 was committed at 2026-10-25 18:21:56 UTC (`7aea13f`) and the E4 sample drawn at
@@ -346,6 +348,8 @@ seed 20261201; the draw was committed before any call. Each line was shown to tw
 t*, a short record with no event timeline and no company, vendor, actor or line id: TypeSafe System One (Jev, returned model
 `jev-1.14.0`) through `typesafe-sdk==0.7.2`, asked one choice question with labels clear and hold, and the Anthropic Messages API
 (`claude-haiku-4-5-20251001`, temperature zero, assistant prefill), asked for a JSON decision and hold probability.
+For Jev the template's closing reply-format sentence was replaced by that typed choice, a deviation (Section 4); Haiku
+received the template as registered.
 Invalid replies, after one re-request: 0 for Jev and 0 for Haiku. The people arm is read from the log (Section 3);
 152 sample lines have no invoice receipt by T_end − W and are not classified (section 3.6), so
 its denominators are smaller. The gate's verdict holds every line with a failed predicate and allows every clean line by
@@ -675,9 +679,11 @@ Reading notes, as in the claims file. C1's "(paper 5)" refers to paper 5's contr
 declared losses over the observed states E5 checks with paper 5's own function, per category and per loss
 (`results/e5/sufficiency.json`): sufficient for every declared loss in the two-way category, and for L1 and L3 but not L2 in the
 three-way categories; minimal in none; each predicate checks one SARC-DQ dimension (Section 3). C2's "relied on" is read as
-"made on evidence that failed".
+"made on evidence that failed". C9's "per-category matching rule" is the category contract of section 3.1, the comparator the
+registration's E5 row fixes; the before-receipt category recovers the narrow three-way match (D1 to D4), and the status "not
+supported" refers to the registered comparison (Section 5.5).
 
-Every decision taken while the work ran is in the repository's decision log, from D-A0-1 to D-D-3, and every deviation from
+Every decision taken while the work ran is in the repository's decision log, from D-A0-1 to D-D-4, and every deviation from
 the tagged registration is in its deviations file (Section 4).
 
 ## Appendix C: Reproduction

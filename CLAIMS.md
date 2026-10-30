@@ -25,7 +25,10 @@ Reading notes (D-D-3). The claim text stays as registered; it is read as follows
 refers to paper 5's contract construct, whose sufficiency for the declared losses over the observed
 states E5 checks with paper 5's own function, per category and per loss (`results/e5/sufficiency.json`):
 sufficient for every declared loss in 2-way, and for L1 and L3 but not L2 in the three-way categories;
-minimal in none. C2's "relied on" is read as "made on evidence that failed".
+minimal in none. C2's "relied on" is read as "made on evidence that failed". C9's "per-category matching
+rule" is the category contract of section 3.1, the comparator the registration's E5 row fixes; the
+before-receipt category recovers the narrow three-way match (D1 to D4), and the status "not supported"
+refers to the registered comparison.
 
 ## Non-claims (stated in the paper)
 

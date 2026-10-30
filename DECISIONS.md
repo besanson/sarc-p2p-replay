@@ -1010,3 +1010,36 @@ sufficiency per category and per loss.
 **Rule.** Experiment slots under `results/` never change once committed; new slot files may be added.
 The analysed-clearing actor count is therefore a new slot (`results/e1/analysed-clearing-actors.json`),
 not a field added to `results/e1/actors.json`.
+
+## D-D-4 Round-3 adjudication (2026-10-30)
+
+Three round-3 reviews of draft v0.3 (packet `review-secondary/D3-review-packet.md` at `a75be8d`):
+Eduardo Arana (external), and two machine reviews, AI support (ChatGPT, model as it states it:
+gpt-6-astra; Perplexity, which names no serving model and quotes the session label GPT-6 Astra). Each
+is committed unedited with its attestation and SHA-256. The decisions are the author's, applied as
+written: 8 accepted, 2 rejected with the reason.
+
+- Arana: nothing further of substance ("I have nothing further of substance to add within the scope
+  of this review").
+- ChatGPT: "none found" in all six classes, (a) to (f), with 113 generated scalar
+  entries checked against their cited files (its count); every row of "Changes since v0.2" marked yes.
+  Its three hostile-reviewer questions are answered in rows 5 to 7.
+- Perplexity: the findings below. Of "Changes since v0.2" it marked rows 2 and 8 partly and row 10
+  yes for the listed deviations only; these are rows 3, 2 and 1 here. Its three hostile-reviewer
+  questions are answered in rows 3, 1 and 6.
+
+| # | finding | raised by | class | decision | reason | where applied |
+|---|---|---|---|---|---|---|
+| 1 | The Jev reply-template adaptation (typed choice instead of the registered JSON reply) is recorded as a pipeline reading in D-C-3, not as a deviation | Perplexity | (c) | accepted, deviation | the registration makes the companion templates binding and calls any post-tag template change a deviation; the first Jev decision request (2026-10-25 18:42:18 UTC, results/e4/timeline.json) already carries the typed choice; the Haiku family received the template as registered; no result changes | prereg/DEVIATIONS.md, "E4 Jev request format"; Section 1 counts five deviations under v1.1; Section 4 lists it; one sentence in 5.4 |
+| 2 | The Abstract calls every people hold an inferred non-release; the measure also includes a recorded payment block | Perplexity | (a) | accepted, wording | 80 of 53,262 people holds involve a payment block (results/e3/human-hold-composition.json) | Abstract: "where a hold is a recorded payment block or, in nearly every case, an inferred non-release within 60 days, not a recorded decision" |
+| 3 | C9's "per-category matching rule" and its status "not supported" are not aligned with 5.5 | Perplexity | (a) | accepted, wording | the matching rule is the category contract of section 3.1, the comparator the registration's E5 row fixes; the before-receipt category recovers the narrow three-way match (D1 to D4) | CLAIMS.md reading notes and Appendix B: a C9 note; the status refers to the registered comparison |
+| 4 | Section 7: "reported beside every estimate" overstates what the paper shows for 5.2 and 5.3 | Perplexity | (a) | accepted, wording | the per-stratum estimates exist in results/e2/confounders.json and results/e3/confounders.json | Appendix E (H1, H2 and gate by outcome per category, spend area, value quartile, vendor activity quartile and month), pointed to from 5.2, 5.3 and 7 |
+| 5 | What substantive assurance C1's sufficiency check adds | ChatGPT | question | accepted, wording | results/e5/sufficiency.json | Conclusion, one sentence: sufficient for "goods not received" and "changed amount", not for "pay twice" in the three-way categories, because no registered predicate reads the clearing's position |
+| 6 | Which inferences the people, model and gate comparison supports | ChatGPT; Perplexity | question | accepted, wording | the people column is a process outcome, not a decision at t* | Section 7, one sentence: the only inference the three columns support; no decision quality is inferred for people |
+| 7 | What the expected-correctives totals estimate | ChatGPT | question | accepted, wording | E2 rates applied to the lines each arm released, under the stated assignment | 5.4, one sentence: a projection from observed rates onto the sample, not an observed count |
+| 8 | Section 6 table: "n/a" for the unknown counts of every predicate but D5 | author (from the D-D-3 report) | (b) | accepted, wording | the evidence set records each predicate's value per analysed clearing | results/e1/predicate-unknowns.json (a new slot); the Section 6 table |
+| 9 | Lexical hits on "fraud" (the coverage row and a reference title) | Perplexity | (d) | rejected | as in D-D-2 and D-D-3: the coverage row disclaims the class; the reference title is verbatim | none |
+| 10 | Provider names in 5.4 (TypeSafe, Anthropic) | Perplexity | (f) | rejected | methodological attribution of the services the replay called, not the studied company or its vendors | none |
+
+Row 8 was not raised in round 3: the D-D-3 report noted that no slot counted the unknowns of the
+predicates other than D5, and the author decided to add one.

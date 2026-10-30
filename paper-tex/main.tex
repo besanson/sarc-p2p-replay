@@ -143,10 +143,11 @@ gate, and, on a registered sample, what two model families decide on the
 same ERP view beside the people in the log and the gate. Everything was
 registered before the log was parsed beyond its published counts (tag
 \texttt{prereg-p7-v1}) and amended once after the pilot (v1.1, tag
-\texttt{prereg-p7-v1.1}), with four deviations under v1.1: two decided
-after E2 and E3 and before E4, and two found in review (corrected
-descriptions in the coverage matrix, and the E7 bootstrap replicates
-with an empty group discarded); all are listed in Section 4.
+\texttt{prereg-p7-v1.1}), with five deviations under v1.1: two decided
+after E2 and E3 and before E4, and three found in review (corrected
+descriptions in the coverage matrix, the E7 bootstrap replicates with an
+empty group discarded, and the request format of the Jev family in E4);
+all are listed in Section 4.
 
 What this paper claims is in the claim table of Appendix B. What it does
 not claim is stated in the repository's claims file and repeated here
@@ -484,6 +485,8 @@ estimate. Every deviation, with the decision that records its reason:
   changes.
 \item
   Under p7-v1.1: E7 bootstrap replicates with an empty group discarded.
+\item
+  Under p7-v1.1: E4 Jev request format.
 \end{itemize}
 
 The H3 convention and the D5 reading were the author's decisions after
@@ -769,12 +772,15 @@ or line id: TypeSafe System One (Jev, returned model
 \texttt{jev-1.14.0}) through \texttt{typesafe-sdk==0.7.2}, asked one
 choice question with labels clear and hold, and the Anthropic Messages
 API (\texttt{claude-haiku-4-5-20251001}, temperature zero, assistant
-prefill), asked for a JSON decision and hold probability. Invalid
-replies, after one re-request: 0 for Jev and 0 for Haiku. The people arm
-is read from the log (Section 3); 152 sample lines have no invoice
-receipt by T\_end - W and are not classified (section 3.6), so its
-denominators are smaller. The gate's verdict holds every line with a
-failed predicate and allows every clean line by construction.
+prefill), asked for a JSON decision and hold probability. For Jev the
+template's closing reply-format sentence was replaced by that typed
+choice, a deviation (Section 4); Haiku received the template as
+registered. Invalid replies, after one re-request: 0 for Jev and 0 for
+Haiku. The people arm is read from the log (Section 3); 152 sample lines
+have no invoice receipt by T\_end - W and are not classified (section
+3.6), so its denominators are smaller. The gate's verdict holds every
+line with a failed predicate and allows every clean line by
+construction.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1304}}
@@ -1627,10 +1633,14 @@ and per loss (\texttt{results/e5/sufficiency.json}): sufficient for
 every declared loss in the two-way category, and for L1 and L3 but not
 L2 in the three-way categories; minimal in none; each predicate checks
 one SARC-DQ dimension (Section 3). C2's ``relied on'' is read as ``made
-on evidence that failed''.
+on evidence that failed''. C9's ``per-category matching rule'' is the
+category contract of section 3.1, the comparator the registration's E5
+row fixes; the before-receipt category recovers the narrow three-way
+match (D1 to D4), and the status ``not supported'' refers to the
+registered comparison (Section 5.5).
 
 Every decision taken while the work ran is in the repository's decision
-log, from D-A0-1 to D-D-3, and every deviation from the tagged
+log, from D-A0-1 to D-D-4, and every deviation from the tagged
 registration is in its deviations file (Section 4).
 
 \hypertarget{appendix-c-reproduction}{%
