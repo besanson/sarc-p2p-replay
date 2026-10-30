@@ -174,10 +174,14 @@ def g4_regeneration(quick: bool) -> dict:
     shutil.rmtree(paper_dir, ignore_errors=True)
     paper_rows = []
     if (ROOT / "paper" / "template.md").exists():
-        fill_paper.run(out_paper=paper_dir / "paper.md", out_filled=paper_dir / "filled-template.json")
+        paper_dir.mkdir(parents=True)
+        shutil.copyfile(ROOT / "README.md", paper_dir / "README.md")
+        fill_paper.run(out_paper=paper_dir / "paper.md", out_filled=paper_dir / "filled-template.json",
+                       readme=paper_dir / "README.md")
         paper_rows += [{"file": "paper/paper.md", "identical": digest(ROOT / "paper" / "paper.md") == digest(paper_dir / "paper.md")},
                        {"file": "paper/filled-template.json",
-                        "identical": digest(ROOT / "paper" / "filled-template.json") == digest(paper_dir / "filled-template.json")}]
+                        "identical": digest(ROOT / "paper" / "filled-template.json") == digest(paper_dir / "filled-template.json")},
+                       {"file": "README.md", "identical": digest(ROOT / "README.md") == digest(paper_dir / "README.md")}]
         figures.run(paper_dir / "figures")
         for f in sorted((paper_dir / "figures").iterdir()):
             committed = ROOT / "paper" / "figures" / f.name
@@ -314,6 +318,7 @@ def main(argv: list[str] | None = None) -> int:
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--quick", action="store_true")
     mode.add_argument("--ci", action="store_true")
+    parser.add_argument("--record", action="store_true", help="also write results/gates-report.json (FINAL-AUDIT item 10)")
     args = parser.parse_args(argv)
     report: dict[str, Any] = {"gates": {}}
     for name, fn in GATES.items():
@@ -337,6 +342,9 @@ def main(argv: list[str] | None = None) -> int:
     report["ci"] = args.ci
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / ("report-ci.json" if args.ci else "report.json")).write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    if args.record and not (args.ci or args.quick):
+        (ROOT / "results" / "gates-report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n",
+                                                           encoding="utf-8")
     print(f"gates: {report['summary']}; passed: {report['passed']}")
     return 0 if report["passed"] else 1
 

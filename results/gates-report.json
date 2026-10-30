@@ -1,0 +1,342 @@
+{
+  "ci": false,
+  "gates": {
+    "G1 tests": {
+      "detail": {
+        "ci_commits_green": [
+          "25281ea",
+          "d00b776"
+        ],
+        "ci_record": "results/ci-runs.json",
+        "pytest": "...........                                                              [100%]"
+      },
+      "status": "pass",
+      "waiting": []
+    },
+    "G2 lints": {
+      "detail": {
+        "lint.proof_status": {
+          "exit": 0,
+          "summary": "proof-status: 5 tag(s) in 5 file(s), clean"
+        },
+        "lint.terminology": {
+          "exit": 0,
+          "summary": "terminology: 4 file(s), clean"
+        },
+        "lint.typed_numerals": {
+          "exit": 0,
+          "summary": "typed-numerals template: 0 violation(s) typed-numerals paper: 0 violation(s) typed-numerals readme_template: 0 violation(s)"
+        }
+      },
+      "status": "pass",
+      "waiting": []
+    },
+    "G3 mutation": {
+      "detail": {
+        "kill_score": 0.9384010484927916,
+        "no_tests": 0,
+        "recorded_in": "80685af8bf87b0295226e777058f2e95d3ed7a89",
+        "src_last_changed_in": "80685af8bf87b0295226e777058f2e95d3ed7a89",
+        "src_unchanged_since_recorded": true,
+        "threshold": 0.85
+      },
+      "status": "pass",
+      "waiting": []
+    },
+    "G4 regeneration": {
+      "detail": {
+        "differing": [],
+        "paper": [
+          {
+            "file": "paper/paper.md",
+            "identical": true
+          },
+          {
+            "file": "paper/filled-template.json",
+            "identical": true
+          },
+          {
+            "file": "README.md",
+            "identical": true
+          },
+          {
+            "file": "paper/figures/fig1-exposure.pdf",
+            "identical": true
+          },
+          {
+            "file": "paper/figures/fig1-exposure.svg",
+            "identical": true
+          },
+          {
+            "file": "paper/figures/fig2-hold-rates.pdf",
+            "identical": true
+          },
+          {
+            "file": "paper/figures/fig2-hold-rates.svg",
+            "identical": true
+          },
+          {
+            "file": "paper/figures/fig3-lag-bands.pdf",
+            "identical": true
+          },
+          {
+            "file": "paper/figures/fig3-lag-bands.svg",
+            "identical": true
+          },
+          {
+            "file": "paper/figures/fig4-verdict-outcome.pdf",
+            "identical": true
+          },
+          {
+            "file": "paper/figures/fig4-verdict-outcome.svg",
+            "identical": true
+          }
+        ],
+        "results": [
+          {
+            "file": "e1/actors.json",
+            "identical": true
+          },
+          {
+            "file": "e1/analysed-clearing-actors.json",
+            "identical": true
+          },
+          {
+            "file": "e1/category-crosscheck.json",
+            "identical": true
+          },
+          {
+            "file": "e1/coverage-check.json",
+            "identical": true
+          },
+          {
+            "file": "e1/evidence-sample.jsonl",
+            "identical": true
+          },
+          {
+            "file": "e1/evidence-set.jsonl.gz",
+            "identical": true
+          },
+          {
+            "file": "e1/exclusions.json",
+            "identical": true
+          },
+          {
+            "file": "e1/exposure-by-stratum.json",
+            "identical": true
+          },
+          {
+            "file": "e1/exposure.json",
+            "identical": true
+          },
+          {
+            "file": "e1/lines-t-star-amended.jsonl.gz",
+            "identical": true
+          },
+          {
+            "file": "e1/lines.jsonl.gz",
+            "identical": true
+          },
+          {
+            "file": "e1/predicate-unknowns.json",
+            "identical": true
+          },
+          {
+            "file": "e1/value-fallback.json",
+            "identical": true
+          },
+          {
+            "file": "e2/confounders.json",
+            "identical": true
+          },
+          {
+            "file": "e2/hypotheses.json",
+            "identical": true
+          },
+          {
+            "file": "e3/confounders.json",
+            "identical": true
+          },
+          {
+            "file": "e3/gate-held.json",
+            "identical": true
+          },
+          {
+            "file": "e3/human-hold-composition.json",
+            "identical": true
+          },
+          {
+            "file": "e3/human-hold.json",
+            "identical": true
+          },
+          {
+            "file": "e3/lag-bands.json",
+            "identical": true
+          },
+          {
+            "file": "e3/verdict-by-outcome.json",
+            "identical": true
+          },
+          {
+            "file": "e4-exploratory/arms-exploratory.json",
+            "identical": true
+          },
+          {
+            "file": "e4-exploratory/h4-exploratory.json",
+            "identical": true
+          },
+          {
+            "file": "e4/arms-classified-lines.json",
+            "identical": true
+          },
+          {
+            "file": "e4/arms.json",
+            "identical": true
+          },
+          {
+            "file": "e4/h4.json",
+            "identical": true
+          },
+          {
+            "file": "e4/sample-frame.json",
+            "identical": true
+          },
+          {
+            "file": "e4/sample.json",
+            "identical": true
+          },
+          {
+            "file": "e4/timeline.json",
+            "identical": true
+          },
+          {
+            "file": "e4/views-timeline.jsonl",
+            "identical": true
+          },
+          {
+            "file": "e4/views.jsonl",
+            "identical": true
+          },
+          {
+            "file": "e5/derivation.json",
+            "identical": true
+          },
+          {
+            "file": "e5/sufficiency.json",
+            "identical": true
+          },
+          {
+            "file": "e5/trace-2-way.json",
+            "identical": true
+          },
+          {
+            "file": "e5/trace-3-way-invoice-after-receipt.json",
+            "identical": true
+          },
+          {
+            "file": "e5/trace-3-way-invoice-before-receipt.json",
+            "identical": true
+          },
+          {
+            "file": "e6/cost.json",
+            "identical": true
+          },
+          {
+            "file": "e7/comparisons.json",
+            "identical": true
+          },
+          {
+            "file": "e7/evidence-set.jsonl.gz",
+            "identical": true
+          },
+          {
+            "file": "e7/exposure.json",
+            "identical": true
+          },
+          {
+            "file": "e7/predicates.json",
+            "identical": true
+          },
+          {
+            "file": "e7/units.json",
+            "identical": true
+          },
+          {
+            "file": "e7/unknown-overlap.json",
+            "identical": true
+          },
+          {
+            "file": "e7/vocabulary.json",
+            "identical": true
+          }
+        ]
+      },
+      "status": "waiting",
+      "waiting": [
+        "external reproduction from a clean clone (FINAL-AUDIT item 11): waiting on Phase F"
+      ]
+    },
+    "G5 claims": {
+      "detail": {
+        "claims": 13,
+        "mismatch": [],
+        "missing_evidence_files": []
+      },
+      "status": "pass",
+      "waiting": []
+    },
+    "G6 secrets": {
+      "detail": {
+        ".env ignored": true,
+        ".env tracked": false,
+        "files_scanned": 231,
+        "hits": []
+      },
+      "status": "pass",
+      "waiting": []
+    },
+    "G7 data and pins": {
+      "detail": {
+        "e1_log_hash_matches_lock": true,
+        "preflight": "data and siblings complete"
+      },
+      "status": "pass",
+      "waiting": []
+    },
+    "G8 package": {
+      "detail": {
+        "recorded": "results/package-smoke.json",
+        "recorded_passed": true,
+        "smoke_test_now": "package smoke test: passed"
+      },
+      "status": "pass",
+      "waiting": []
+    },
+    "G9 paper": {
+      "detail": {
+        "numeral_multiset_md_minus_tex": {},
+        "pdf": {
+          "built": true,
+          "committed": true,
+          "committed_equals_build": true,
+          "engine": "pdflatex",
+          "two_builds_identical": true
+        },
+        "references": 23,
+        "template_syntax_left_in_tex": false,
+        "tex_regenerated_identical": true,
+        "unverified_references": []
+      },
+      "status": "pass",
+      "waiting": []
+    }
+  },
+  "passed": true,
+  "quick": false,
+  "summary": {
+    "fail": 0,
+    "not run in CI": 0,
+    "pass": 8,
+    "waiting": 1
+  }
+}

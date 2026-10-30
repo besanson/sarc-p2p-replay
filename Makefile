@@ -42,7 +42,7 @@ fetch-data:
 	$(PYTHON) -I scripts/fetch_data.py
 
 check-data:
-	$(PYTHON) -I scripts/fetch_data.py --check
+	$(PYTHON) -I scripts/fetch_data.py --check --record
 
 preflight:
 	$(PYTHON) preflight.py
@@ -61,7 +61,7 @@ lint:
 	$(RUN) -m lint.typed_numerals
 
 gates:
-	$(RUN) scripts/gates.py
+	$(RUN) scripts/gates.py --record
 
 gates-quick:
 	$(RUN) scripts/gates.py --quick

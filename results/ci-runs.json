@@ -1,0 +1,72 @@
+{
+  "all_green": true,
+  "audit_item": 1,
+  "commits": [
+    {
+      "commit": "25281ea836ed124a4fe87f603445d676555c556f",
+      "green": true,
+      "green_on": [
+        "3.11",
+        "3.12"
+      ],
+      "runs": [
+        {
+          "conclusion": "success",
+          "event": "push",
+          "jobs": [
+            {
+              "conclusion": "success",
+              "job_id": 124247520372,
+              "name": "test (3.11)",
+              "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41109377073/job/124247520372"
+            },
+            {
+              "conclusion": "success",
+              "job_id": 124247520721,
+              "name": "test (3.12)",
+              "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41109377073/job/124247520721"
+            }
+          ],
+          "run_id": 41109377073,
+          "status": "completed",
+          "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41109377073"
+        }
+      ]
+    },
+    {
+      "commit": "d00b77639ab0453de848c4fef36e2885e83a1984",
+      "green": true,
+      "green_on": [
+        "3.11",
+        "3.12"
+      ],
+      "runs": [
+        {
+          "conclusion": "success",
+          "event": "push",
+          "jobs": [
+            {
+              "conclusion": "success",
+              "job_id": 124250113595,
+              "name": "test (3.11)",
+              "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41110135191/job/124250113595"
+            },
+            {
+              "conclusion": "success",
+              "job_id": 124250113387,
+              "name": "test (3.12)",
+              "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41110135191/job/124250113387"
+            }
+          ],
+          "run_id": 41110135191,
+          "status": "completed",
+          "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41110135191"
+        }
+      ]
+    }
+  ],
+  "gate": "G1",
+  "repository": "besanson/sarc-p2p-replay",
+  "source": "GitHub REST API via gh api",
+  "workflow": ".github/workflows/ci.yml"
+}

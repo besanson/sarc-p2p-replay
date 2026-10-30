@@ -26,9 +26,28 @@ def test_fill_is_deterministic_and_records_every_span(tmp_path):
 
 
 def test_committed_paper_matches_the_template(tmp_path):
-    fill_paper.run(out_paper=tmp_path / "p.md", out_filled=tmp_path / "f.json")
+    readme = tmp_path / "README.md"
+    readme.write_bytes((ROOT / "README.md").read_bytes())
+    fill_paper.run(out_paper=tmp_path / "p.md", out_filled=tmp_path / "f.json", readme=readme)
     assert (ROOT / "paper" / "paper.md").read_bytes() == (tmp_path / "p.md").read_bytes()
     assert (ROOT / "paper" / "filled-template.json").read_bytes() == (tmp_path / "f.json").read_bytes()
+    assert (ROOT / "README.md").read_bytes() == readme.read_bytes()
+
+
+def test_readme_headline_is_checked_by_the_lint(tmp_path):
+    from lint import typed_numerals as tn
+
+    text = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert fill_paper.README_START in text and fill_paper.README_END in text
+    edited = tmp_path / "README.md"
+    edited.write_text(text.replace("| gate |", "| gate (edited) |", 1), encoding="utf-8")
+    original = tn.README
+    try:
+        tn.README = edited
+        result = tn.run()
+    finally:
+        tn.README = original
+    assert not result["readme"]["clean"] and "differs" in result["readme"]["violations"][0]["context"]
 
 
 def test_formats_and_value_lookup():
