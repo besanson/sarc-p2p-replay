@@ -13,7 +13,7 @@ evidence; the paper reports nothing about that class.
 
 | defect class | predicate | dimension | detected from |
 |---|---|---|---|
-| goods receipt required but absent at clearing | D1 receipt_present | presence | no `Record Goods Receipt` before t_c, or every one cancelled by a later `Cancel Goods Receipt` before t_c, on a line whose category requires receipt |
+| goods receipt required but absent at clearing | D1 receipt_present | presence | receipts minus cancellations at most zero before t_c (count of `Record Goods Receipt` minus count of `Cancel Goods Receipt`), on a line whose category requires receipt |
 | stale receipt: receipt recorded after clearing | D2 receipt_before_clearing | freshness, order | the first uncancelled `Record Goods Receipt` falls after t_c (lag band registered) |
 | invoice absent at clearing | D3 invoice_present | presence | no `Record Invoice Receipt` before t_c |
 | changed after approval | D4 unchanged_since_approval | validity | `Change Price` or `Change Quantity` between the last approval-bearing event and t_c |
@@ -25,7 +25,7 @@ evidence; the paper reports nothing about that class.
 
 | defect class | predicate | dimension | detected from |
 |---|---|---|---|
-| paid without final approval | D1' approval_present | presence | no event in the registered approval list before the payment |
+| paid without an approval event | D1' approval_present | presence | no event in the registered approval list before the payment |
 | approved by a role other than the required one | D2' approval_by_required_role | authority | the approval chain before payment lacks the registered required role |
 | declaration changed after approval | D3' unchanged_since_approval | validity | a resubmission by the employee between the last approval and payment |
 

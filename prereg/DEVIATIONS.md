@@ -63,3 +63,20 @@ reactivations greater than zero before t_c); the "Detected" definition adds that
 receipt split uses events after t_c and is reporting only (section 3.3); the recovery row reads "the
 log records the corrective event and nothing about recovery". Touches: `COVERAGE.md` and the paper's
 coverage table, which reproduces it.
+
+Addendum (2026-10-30). Found in review round 2 (`DECISIONS.md` D-D-3). D1 row: the count rule of
+section 3.2, "receipts minus cancellations at most zero before t_c, on a line whose category requires
+receipt" (it described a temporal rule, "every one cancelled by a later `Cancel Goods Receipt`"); D1'
+class label: "paid without an approval event" (it read "paid without final approval", which is D2').
+No predicate, pattern, template, mapping or threshold changes, and no result changes.
+
+### E7 bootstrap replicates with an empty group discarded (2026-10-25)
+
+Found in review round 1 and recorded then as a pipeline reading (`DECISIONS.md` D-D-2); entered here
+in review round 2 (`DECISIONS.md` D-D-3, 2026-10-30). The registration fixes the bootstrap at
+B = 10,000 (sections 5 and 9), and E7 reports a clustered interval (sections 6 and 8). In `experiments/e7.py`, as run on 2026-10-25, a replicate in which either
+comparison group is empty is discarded, and the percentiles are taken over the retained replicates,
+so the E7 intervals rest on fewer than B replicates. Touches: the E7 bootstrap intervals (section 8),
+descriptive and not in Holm. Does not touch any point estimate, BPI 2019 result or Holm entry. The
+retained counts per scope and predicate are in `results/e7/comparisons.json`
+(`bootstrap_resamples_used`). Results it changes: none; the slot is as committed.

@@ -476,6 +476,8 @@ estimate. Every deviation, with the decision that records its reason:
 \item
   Under p7-v1.1: Description corrections in COVERAGE.md, no predicate
   changes.
+\item
+  Under p7-v1.1: E7 bootstrap replicates with an empty group discarded.
 \end{itemize}
 
 The H3 convention and the D5 reading were the author's decisions after
@@ -1149,9 +1151,10 @@ detected from
 \bottomrule\noalign{}
 \endlastfoot
 goods receipt required but absent at clearing & D1 receipt\_present &
-presence & no \texttt{Record\ Goods\ Receipt} before t\_c, or every one
-cancelled by a later \texttt{Cancel\ Goods\ Receipt} before t\_c, on a
-line whose category requires receipt \\
+presence & receipts minus cancellations at most zero before t\_c (count
+of \texttt{Record\ Goods\ Receipt} minus count of
+\texttt{Cancel\ Goods\ Receipt}), on a line whose category requires
+receipt \\
 stale receipt: receipt recorded after clearing & D2
 receipt\_before\_clearing & freshness, order & the first uncancelled
 \texttt{Record\ Goods\ Receipt} falls after t\_c (lag band
@@ -1195,7 +1198,7 @@ detected from
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-paid without final approval & D1' approval\_present & presence & no
+paid without an approval event & D1' approval\_present & presence & no
 event in the registered approval list before the payment \\
 approved by a role other than the required one & D2'
 approval\_by\_required\_role & authority & the approval chain before
@@ -1521,8 +1524,8 @@ C2 & supported & \texttt{results/e1/exposure.json},
 \texttt{results/e1/exposure-by-stratum.json} \\
 C3 & supported & \texttt{results/e2/hypotheses.json} \\
 C4 & supported & \texttt{results/e2/hypotheses.json} \\
-C5 & inconclusive: defect class has zero incidence in this log &
-\texttt{results/e1/coverage-check.json},
+C5 & inconclusive: defect class has zero incidence in the analysed
+clearings & \texttt{results/e1/coverage-check.json},
 \texttt{results/e2/hypotheses.json} \\
 C6 & not supported for both families & \texttt{results/e4/h4.json} \\
 C7 & supported & \texttt{results/e3/gate-held.json},

@@ -59,7 +59,8 @@ def statuses() -> dict[str, tuple[str, str]]:
         "C2": ("supported", "`results/e1/exposure.json`, `results/e1/exposure-by-stratum.json`"),
         "C3": ("supported", "`results/e2/hypotheses.json`"),
         "C4": ("supported", "`results/e2/hypotheses.json`"),
-        "C5": ("inconclusive: defect class has zero incidence in this log",
+        # D-D-3: the zero incidence is over the analysed clearings.
+        "C5": ("inconclusive: defect class has zero incidence in the analysed clearings",
                "`results/e1/coverage-check.json`, `results/e2/hypotheses.json`"),
         "C6": ("not supported for both families", "`results/e4/h4.json`"),
         "C7": ("supported", "`results/e3/gate-held.json`, `results/e3/verdict-by-outcome.json`, "

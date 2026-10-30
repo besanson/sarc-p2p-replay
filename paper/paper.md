@@ -213,6 +213,7 @@ pilot was drawn again, before any estimate. Every deviation, with the decision t
 - Under p7-v1.1: H3 convention.
 - Under p7-v1.1: D5 applicability at a non-clearing decision point.
 - Under p7-v1.1: Description corrections in COVERAGE.md, no predicate changes.
+- Under p7-v1.1: E7 bootstrap replicates with an empty group discarded.
 
 The H3 convention and the D5 reading were the author's decisions after E2 and E3 and before any model call (decision D-C-2 in
 the decision log). The commit order is the evidence: the commit recording D-C-2 (`7aea13f`) precedes the first commit of model
@@ -486,7 +487,7 @@ What the replay can and cannot see, as registered:
 
 | defect class | predicate | dimension | detected from |
 |---|---|---|---|
-| goods receipt required but absent at clearing | D1 receipt_present | presence | no `Record Goods Receipt` before t_c, or every one cancelled by a later `Cancel Goods Receipt` before t_c, on a line whose category requires receipt |
+| goods receipt required but absent at clearing | D1 receipt_present | presence | receipts minus cancellations at most zero before t_c (count of `Record Goods Receipt` minus count of `Cancel Goods Receipt`), on a line whose category requires receipt |
 | stale receipt: receipt recorded after clearing | D2 receipt_before_clearing | freshness, order | the first uncancelled `Record Goods Receipt` falls after t_c (lag band registered) |
 | invoice absent at clearing | D3 invoice_present | presence | no `Record Invoice Receipt` before t_c |
 | changed after approval | D4 unchanged_since_approval | validity | `Change Price` or `Change Quantity` between the last approval-bearing event and t_c |
@@ -498,7 +499,7 @@ What the replay can and cannot see, as registered:
 
 | defect class | predicate | dimension | detected from |
 |---|---|---|---|
-| paid without final approval | D1' approval_present | presence | no event in the registered approval list before the payment |
+| paid without an approval event | D1' approval_present | presence | no event in the registered approval list before the payment |
 | approved by a role other than the required one | D2' approval_by_required_role | authority | the approval chain before payment lacks the registered required role |
 | declaration changed after approval | D3' unchanged_since_approval | validity | a resubmission by the employee between the last approval and payment |
 
@@ -629,7 +630,7 @@ Claim statuses, each set from its slot file:
 | C2 | supported | `results/e1/exposure.json`, `results/e1/exposure-by-stratum.json` |
 | C3 | supported | `results/e2/hypotheses.json` |
 | C4 | supported | `results/e2/hypotheses.json` |
-| C5 | inconclusive: defect class has zero incidence in this log | `results/e1/coverage-check.json`, `results/e2/hypotheses.json` |
+| C5 | inconclusive: defect class has zero incidence in the analysed clearings | `results/e1/coverage-check.json`, `results/e2/hypotheses.json` |
 | C6 | not supported for both families | `results/e4/h4.json` |
 | C7 | supported | `results/e3/gate-held.json`, `results/e3/verdict-by-outcome.json`, `results/e3/lag-bands.json` |
 | C8 | supported | `results/e4/arms.json` |

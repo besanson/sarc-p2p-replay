@@ -965,3 +965,48 @@ platform with the model as self-reported.
   `tests/test_paper.py::test_committed_paper_matches_the_template`: the slots changed before the
   paper was regenerated, and the failing exit code was hidden by a pipe. `b01be29` (draft v0.2)
   passes. The builder's test runs now fail on a failing exit code (`set -o pipefail`).
+
+**Adjudication.** Three round-2 reviews of draft v0.2 (packet `review-secondary/D2-review-packet.md` at
+`b01be29`): Eduardo Arana (external), and two machine reviews, AI support (ChatGPT, model as it states it:
+OpenAI Codex; Perplexity Computer, model as it states it: Claude Opus 5.5). Each is committed unedited
+with its attestation and SHA-256. The decisions are the author's, applied as written: 19 accepted,
+2 rejected with the reason. Papers 1 to 3: no record given, so the sentence stays as in v0.2.
+
+| # | finding | raised by | class | decision | reason | where applied |
+|---|---|---|---|---|---|---|
+| 1 | C1 is supported without evidence of paper 5's sufficiency; Section 3 and Appendix B say each predicate checks all five SARC-DQ dimensions | ChatGPT; Perplexity | (a) | accepted, new evidence | paper 5's sufficiency function (reduct.sufficiency) run on the registered contract per category: sufficient for every declared loss in 2-way; sufficient for L1 and L3 and not for L2 in both three-way categories (L2 reads the clearing's position on its line, which no registered predicate reads); minimal in none; the derived contract is a subset of the registered one in every category (author, 2026-10-30: qualify, C1 stays supported) | results/e5/sufficiency.json; Section 3 and Appendix B (each predicate checks one SARC-DQ dimension, the table; the contract's sufficiency per category and loss, not minimal); C1 evidence column; one sentence in 5.5 (sufficient, not derived) |
+| 2 | C9's claim text and status disagree with 5.5's narrow-sense sentence | Perplexity | (a) | accepted, new evidence | C9 stays not supported: the comparison is the registered one (registration section 6, E5); C1 and C9 are tied by one sentence: sufficient, not derived | Section 5.5 |
+| 3 | Commit order does not date the model calls (D-C-2 and the H3 convention before any H4 value) | ChatGPT; Perplexity | (a) | accepted, new evidence | the response logs carry sent_utc for every request; the earliest call of each family follows the D-C-2 commit and the sample-draw commit | results/e4/timeline.json; Sections 4 and 5.2 (the commit-order sentences replaced) |
+| 4 | Section 5.5: "in the two three-way categories the derived D1 to D4 is the three-way match" | Arana; ChatGPT; Perplexity | (a) | accepted, new evidence | in the after-receipt category the compiler derives D3 and D4 only, because L1 occurs on 0 analysed clearings there (clearings_per_loss in results/e5/derivation.json); a limit of deriving from one log | Section 5.5: before receipt, D1 to D4 and three predicates beyond; after receipt, D3 and D4 and five beyond |
+| 5 | D5: 7,941 `Clear Invoice` events carry no actor, yet D5 has no unknown and the Section 6 table shows "n/a" | Perplexity | (a) | accepted, new evidence | the missing-actor clearings all lie outside the analysed set; those on framed lines fall after the horizon T_end - W | results/e1/analysed-clearing-actors.json; Sections 5.2 and 6; the Section 6 table shows the D5 unknown count |
+| 6 | E7 intervals rest on fewer than the registered B replicates; recorded in D-D-2, not as a deviation | Perplexity | (b), (c) | accepted, new evidence | retained replicates: 8,685 of 10,000 domestic, 8,696 of 10,000 pooled (results/e7/comparisons.json) | prereg/DEVIATIONS.md, "E7 bootstrap replicates with an empty group discarded"; Sections 1 and 4 count and list it; 5.7 cites the slot |
+| 7 | Expected correctives attributed to registration section 7 | ChatGPT | (a) | accepted, new evidence | the metric is registration section 6 (E4 row); the precedence and the unmatched-group rules are D-C-3 | Section 5.4 |
+| 8 | Abstract puts "people held" beside "models held" as the same act | Arana; ChatGPT; Perplexity | (a) | accepted, wording | section 3.6: a people hold is inferred, the log records no hold decision except a payment block | Abstract: "where a hold is an inferred non-release within 60 days, not a recorded decision" |
+| 9 | Section 7 compares the people column with the model verdicts as if they were the same act | Arana; ChatGPT; Perplexity | (a) | accepted, wording | the comparison is of outcomes of three deciders, not three acts | Section 7, one sentence: the people column reports what the process did within W |
+| 10 | Section 1 counts two deviations after v1.1 | Perplexity | (c) | accepted, wording | DEVIATIONS.md lists four under p7-v1.1 with the E7 entry | Section 1 |
+| 11 | 5.7: 16,227 all-pass payments is right only if the 2 D3' unknowns are the 2 that fail | Perplexity | (a) | accepted, wording | they are the same 2 payments (results/e7/evidence-set.jsonl.gz) | Section 5.7 |
+| 12 | Section 4: no slot path for the category cross-check and the value fallbacks | Perplexity | (b) | accepted, wording | results/e1/category-crosscheck.json, results/e1/value-fallback.json | Section 4 |
+| 13 | 5.5: "would be such losses" names undeclared losses | Perplexity | (d) | accepted, wording | the registration declares three losses only | Section 5.5, the parenthesis removed |
+| 14 | Papers 4 and 5 are both cited as "Besanson 2026" | Perplexity | (a) | accepted, wording | two records, one author-year | References and in-text: "Besanson 2026a/2026b" |
+| 15 | CLAIMS.md C1 still says "(paper 5)" and C2 still says "relied on" | Perplexity | (a) | accepted, wording | claim text stays as registered; the readings are stated beside it | CLAIMS.md "Reading notes" under the table; Appendix B follows |
+| 16 | C5 status says "in this log" where 5.2 says "analysed clearings" | Perplexity | (a) | accepted, wording | the zero incidence is over the analysed clearings | CLAIMS.md and Appendix B: "inconclusive: defect class has zero incidence in the analysed clearings" |
+| 17 | Acknowledgements record only the Claude statement for the second sweep | Perplexity | (a) | accepted, wording | the platform also identified the sweep's model as DeepSeek V4 Pro | Acknowledgements; the A1 attestation and D-A1-0c (Records above) |
+| 18 | COVERAGE.md D1 row describes a temporal rule | Perplexity | (a) | accepted, COVERAGE.md | section 3.2 defines D1 by counts | COVERAGE.md and the paper's coverage table: "receipts minus cancellations at most zero before t_c, on a line whose category requires receipt"; DEVIATIONS.md addendum |
+| 19 | D1' class label "paid without final approval" | Arana; ChatGPT; Perplexity | (a) | accepted, COVERAGE.md | D1' fails when no registered approval event exists; final approval is D2' | COVERAGE.md and the paper's coverage table: "paid without an approval event"; DEVIATIONS.md addendum |
+| 20 | Lexical hits on "fraud" | Perplexity | (d) | rejected | as in D-D-2: the coverage row disclaims the class; the reference title is verbatim | none |
+| 21 | Spend-area labels and a reference title point to the sector | Perplexity | (f) | rejected | as in D-D-2: they are the public log's own strings and the registered strata; the challenge names the sector | none |
+
+**C1 and paper 5's sufficiency.** The author's decision as given read: "per category, the derived
+contract is a subset of the registered one, so the registered contract is sufficient for the three
+declared losses over the observed states in paper 5's sense, and minimal in none". Before applying it,
+the builder ran paper 5's sufficiency function on the registered contract. The subset relation holds in
+every category, but it does not imply sufficiency, because the derived field sets of the three-way
+categories include the clearing's position on its line, which no registered predicate reads. The
+registered contract is sufficient for every declared loss in 2-way, and in both three-way categories
+for L1 and L3 but not for L2; it is minimal in none (`results/e5/sufficiency.json`). The author chose
+(2026-10-30) to qualify the statement and keep C1 supported: Section 3, Appendix B and the slot state
+sufficiency per category and per loss.
+
+**Rule.** Experiment slots under `results/` never change once committed; new slot files may be added.
+The analysed-clearing actor count is therefore a new slot (`results/e1/analysed-clearing-actors.json`),
+not a field added to `results/e1/actors.json`.
