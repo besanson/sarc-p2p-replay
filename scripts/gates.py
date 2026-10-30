@@ -27,7 +27,10 @@ token purity, number parity between source and typeset paper) sit inside G9.
 Each gate is "pass", "fail" or "waiting": waiting when every check it can run now passes and an
 item remains for a later phase or environment (named in the report). The run passes when no gate fails.
 
-Usage: python scripts/gates.py [--quick]   (--quick skips the log replays of G4)
+Usage: python scripts/gates.py [--quick | --ci]
+  --quick skips the log replays of G4; --ci runs only the gates that need neither the log nor a
+  TeX engine nor the mutation run (G2, G5, G6, G7, G8) and marks the others "not run in CI"
+  (report in out/gates/report-ci.json)
 """
 
 from __future__ import annotations
@@ -284,12 +287,21 @@ GATES: dict[str, Callable[..., dict]] = {
 }
 
 
+CI_GATES = ("G2 lints", "G5 claims", "G6 secrets", "G7 data and pins", "G8 package")
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="gates")
-    parser.add_argument("--quick", action="store_true")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--quick", action="store_true")
+    mode.add_argument("--ci", action="store_true")
     args = parser.parse_args(argv)
     report: dict[str, Any] = {"gates": {}}
     for name, fn in GATES.items():
+        if args.ci and name not in CI_GATES:
+            report["gates"][name] = gate("not run in CI", "needs the log, a TeX engine or the mutation run")
+            print(f"{name}: not run in CI")
+            continue
         try:
             result = fn(args.quick) if name.startswith("G4") else fn()
         except Exception as exc:  # noqa: BLE001 - a crashing gate is a failing gate
@@ -300,11 +312,12 @@ def main(argv: list[str] | None = None) -> int:
         report["gates"][name] = result
         print(f"{name}: {result['status']}" + (f" (waiting: {'; '.join(result['waiting'])})" if result["waiting"] else ""))
     statuses = [g["status"] for g in report["gates"].values()]
-    report["summary"] = {s: statuses.count(s) for s in ("pass", "fail", "waiting")}
+    report["summary"] = {s: statuses.count(s) for s in ("pass", "fail", "waiting", "not run in CI")}
     report["passed"] = "fail" not in statuses
     report["quick"] = args.quick
+    report["ci"] = args.ci
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    (OUT / ("report-ci.json" if args.ci else "report.json")).write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"gates: {report['summary']}; passed: {report['passed']}")
     return 0 if report["passed"] else 1
 

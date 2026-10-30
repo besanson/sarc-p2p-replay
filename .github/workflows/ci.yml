@@ -1,0 +1,42 @@
+# CI for paper 7 (FINAL-AUDIT item 1, gate G1): tests, lints, preflight and the gates that need
+# neither the 728 MB log nor a TeX engine nor the mutation run. No secret, no data fetch, no
+# sibling checkout: the sibling-dependent tests skip, and preflight reports the absences and exits 0.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: python -m pip install -e '.[dev]'
+      - name: Test
+        run: make test PYTHON=python
+      - name: Lint
+        run: make lint PYTHON=python
+      - name: Preflight (data, keys and siblings absent; reports and exits 0)
+        run: python preflight.py
+      - name: Gates that CI can run (G2, G5, G6, G7, G8)
+        run: make gates-ci PYTHON=python
+      - name: Gate report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gates-ci-${{ matrix.python-version }}
+          path: out/gates/report-ci.json
+          if-no-files-found: ignore
