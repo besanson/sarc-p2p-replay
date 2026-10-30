@@ -12,6 +12,7 @@ Usage: python scripts/build_tex.py
 
 from __future__ import annotations
 
+import json
 import os
 import re
 import shutil
@@ -46,6 +47,33 @@ def write_tex(paper: Path = PAPER, out: Path = MAIN_TEX) -> None:
         subprocess.run(["pandoc", str(src), "--from", "markdown+superscript+pipe_tables+yaml_metadata_block",
                         "--to", "latex", "--standalone", "-V", "geometry:margin=2.5cm", "-V", "fontsize=10pt",
                         "-V", "colorlinks=true", "-o", str(out)], check=True)
+    out.write_text(_layout(out.read_text(encoding="utf-8")), encoding="utf-8")
+
+
+# Layout only (D-E-0): no word of the paper changes. Tables are set smaller with narrower column gaps;
+# long unbroken strings in table cells (hashes, DOIs, file names, identifiers) may break anywhere;
+# bare URLs become \url, which xurl (loaded by pandoc's template) breaks anywhere.
+TABLE_SETUP = ("\\usepackage{seqsplit}\n"
+               "\\AtBeginEnvironment{longtable}{\\footnotesize\\setlength{\\tabcolsep}{3pt}}\n")
+LONG_TOKEN = re.compile(r"(?<!\S)([A-Za-z0-9][^\s\\{}&]{17,}[^\s\\{}&.,;)])")
+TEXTTT = re.compile(r"(\\texttt\{[^{}]*\})")
+
+
+def _cells(body: str) -> str:
+    parts = TEXTTT.split(body)
+    for i, part in enumerate(parts):
+        if i % 2:  # a \texttt{...} group: its content may break anywhere when long
+            parts[i] = re.sub(r"\\texttt\{([^{}\s]{12,})\}", r"\\texttt{\\seqsplit{\1}}", part)
+        else:
+            parts[i] = LONG_TOKEN.sub(r"\\seqsplit{\1}", part)
+    return "".join(parts)
+
+
+def _layout(tex: str) -> str:
+    tex = tex.replace("\\begin{document}", TABLE_SETUP + "\\begin{document}", 1)
+    tex = re.sub(r"(\\begin\{longtable\}.*?\\endlastfoot)(.*?)(\\end\{longtable\})",
+                 lambda m: m.group(1) + _cells(m.group(2)) + m.group(3), tex, flags=re.DOTALL)
+    return re.sub(r"(?<![{\w])(https?://[^\s}]+)", r"\\url{\1}", tex)
 
 
 def body_of(tex: str) -> str:
@@ -70,6 +98,17 @@ def source_date_epoch() -> str:
     return r.stdout.strip() or "0"
 
 
+OVERFULL = ROOT / "out" / "paper-tex" / "overfull.json"
+
+
+def _record_overfull(log: str) -> None:
+    widths = [float(w) for w in re.findall(r"Overfull \\hbox \(([\d.]+)pt too wide\)", log)]
+    OVERFULL.parent.mkdir(parents=True, exist_ok=True)
+    OVERFULL.write_text(json.dumps({"overfull_hboxes": len(widths),
+                                    "overfull_hboxes_over_10pt": sum(w > 10 for w in widths),
+                                    "widest_pt": max(widths, default=0.0)}, indent=2) + "\n", encoding="utf-8")
+
+
 def build_pdf(engine: str, out: Path = MAIN_PDF) -> bool:
     """Build main.pdf into `out`; aux files stay in a temporary directory. pdflatex runs twice (tables, refs)."""
     with tempfile.TemporaryDirectory() as tmp:
@@ -88,6 +127,7 @@ def build_pdf(engine: str, out: Path = MAIN_PDF) -> bool:
         built = Path(tmp) / "main.pdf"
         if not built.exists():
             return False
+        _record_overfull((Path(tmp) / "main.log").read_text(encoding="latin-1"))
         out.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(built, out)
     return True

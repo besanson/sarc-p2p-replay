@@ -87,6 +87,8 @@ Real Purchase-to-Pay Process}
 \author{Gaston Besanson, Universidad Torcuato Di Tella}
 \date{}
 
+\usepackage{seqsplit}
+\AtBeginEnvironment{longtable}{\footnotesize\setlength{\tabcolsep}{3pt}}
 \begin{document}
 \maketitle
 
@@ -408,17 +410,17 @@ SHA-256
 \bottomrule\noalign{}
 \endlastfoot
 BPI Challenge 2019 &
-doi:10.4121/uuid:d06aff4b-79f0-45e6-8ec8-e19730c248f1 & CC BY 4.0 &
-\texttt{BPI\_Challenge\_2019.xes} & 251,734 & 1,595,923 &
-\texttt{af63bc687fc4152f2123b05c3af7772b37ef3fce2d3f67f812666c9e356baae7} \\
+\seqsplit{doi:10.4121/uuid:d06aff4b-79f0-45e6-8ec8-e19730c248f1} & CC BY 4.0 &
+\texttt{\seqsplit{BPI\_Challenge\_2019.xes}} & 251,734 & 1,595,923 &
+\texttt{\seqsplit{af63bc687fc4152f2123b05c3af7772b37ef3fce2d3f67f812666c9e356baae7}} \\
 BPI Challenge 2020: International Declarations &
-doi:10.4121/uuid:2bbf8f6a-fc50-48eb-aa9e-c4ea5ef7e8c5 & CC BY-NC 4.0 &
-\texttt{InternationalDeclarations.xes.gz} & 6,449 & 72,151 &
-\texttt{b527c8d06255f4312c6ce8f36f7f4110243d84fd6ca48583cd9b80896c601494} \\
+\seqsplit{doi:10.4121/uuid:2bbf8f6a-fc50-48eb-aa9e-c4ea5ef7e8c5} & CC BY-NC 4.0 &
+\texttt{\seqsplit{InternationalDeclarations.xes.gz}} & 6,449 & 72,151 &
+\texttt{\seqsplit{b527c8d06255f4312c6ce8f36f7f4110243d84fd6ca48583cd9b80896c601494}} \\
 BPI Challenge 2020: Domestic Declarations &
-doi:10.4121/uuid:3f422315-ed9d-4882-891f-e180b5b4feb5 & CC BY-NC 4.0 &
-\texttt{DomesticDeclarations.xes.gz} & 10,500 & 56,437 &
-\texttt{0bc3312acf0b9ee5ae6f4ebe9df204005ef11665d62f2d21dd04995161d7532b} \\
+\seqsplit{doi:10.4121/uuid:3f422315-ed9d-4882-891f-e180b5b4feb5} & CC BY-NC 4.0 &
+\texttt{\seqsplit{DomesticDeclarations.xes.gz}} & 10,500 & 56,437 &
+\texttt{\seqsplit{0bc3312acf0b9ee5ae6f4ebe9df204005ef11665d62f2d21dd04995161d7532b}} \\
 \end{longtable}
 
 Values in the 2019 log are anonymised by a linear translation that
@@ -1061,10 +1063,10 @@ result
 2-way & 188 & 3 & 0 & 0 & 4 & \texttt{changes} & D4 & D3, D4, D5, D6, D7
 & does not reproduce \\
 3-way, invoice after receipt & 9,640 & 896 & 0 & 81 & 1,585 &
-\texttt{changes}, \texttt{clearing\_ordinal}, \texttt{invoices} & D3, D4
+\texttt{changes}, \texttt{\seqsplit{clearing\_ordinal}}, \texttt{invoices} & D3, D4
 & D1, D2, D3, D4, D5, D6, D7 & does not reproduce \\
 3-way, invoice before receipt & 145,706 & 758 & 692 & 1,390 & 15,568 &
-\texttt{changes}, \texttt{clearing\_ordinal}, \texttt{invoices},
+\texttt{changes}, \texttt{\seqsplit{clearing\_ordinal}}, \texttt{invoices},
 \texttt{receipts} & D1, D2, D3, D4 & D1, D2, D3, D4, D5, D6, D7 & does
 not reproduce \\
 \end{longtable}
@@ -1114,13 +1116,13 @@ derived contract a subset
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-2-way & \texttt{invoices}, \texttt{changes}, \texttt{distinct\_actors},
+2-way & \texttt{invoices}, \texttt{changes}, \texttt{\seqsplit{distinct\_actors}},
 \texttt{blocks}, \texttt{closed} & L1, L2, L3 & none & 0 & no & yes \\
 3-way, invoice after receipt & \texttt{receipts}, \texttt{invoices},
-\texttt{changes}, \texttt{distinct\_actors}, \texttt{blocks},
+\texttt{changes}, \texttt{\seqsplit{distinct\_actors}}, \texttt{blocks},
 \texttt{closed} & L1, L3 & L2 & 81 & no & yes \\
 3-way, invoice before receipt & \texttt{receipts}, \texttt{invoices},
-\texttt{changes}, \texttt{distinct\_actors}, \texttt{blocks},
+\texttt{changes}, \texttt{\seqsplit{distinct\_actors}}, \texttt{blocks},
 \texttt{closed} & L1, L3 & L2 & 1,390 & no & yes \\
 \end{longtable}
 
@@ -1449,68 +1451,68 @@ Challenges and 4TU.ResearchData for the logs.
   Nakladal, Johannes Schukat, Jennifer Gsenger (2019). Process Mining in
   the Coatings and Paints Industry: The Purchase Order Handling Process.
   BPI Challenge 2019 report, non-student category, ICPM 2019.
-  https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-4.pdf
+  \url{https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-4.pdf}
 \item
   Gaston Besanson (2026a). SARC: A Governance-by-Architecture Framework
   for Agentic AI Systems. arXiv:2605.07728 (paper 1 of the SARC series:
-  the framework (may the agent act)). https://arxiv.org/abs/2605.07728
+  the framework (may the agent act)). \url{https://arxiv.org/abs/2605.07728}
 \item
   Gaston Besanson (2026b). Green SARC: Predictive Cost and Carbon
   Governance for Agentic AI Systems. arXiv:2606.15954 (paper 2 of the
   SARC series: budget (cost and carbon)).
-  https://arxiv.org/abs/2606.15954
+  \url{https://arxiv.org/abs/2606.15954}
 \item
   Gaston Besanson (2026c). SARC-DQ: Runtime Data-Quality Gating for
   Agentic AI: Silent Evidence Defects, the Incompetence Shield, and
   Downstream-Only Remediation. arXiv:2607.26313 (paper 3 of the SARC
-  series: admit (data-quality gating)). https://arxiv.org/abs/2607.26313
+  series: admit (data-quality gating)). \url{https://arxiv.org/abs/2607.26313}
 \item
   Gaston Besanson (2026d). One Gate Is Not Enough: Composing Stateful
   Pre-Action Controls for Agentic AI. arXiv:2608.18360 (paper 4 of the
   SARC series; repository sarc-suite-one-pass).
-  https://arxiv.org/abs/2608.18360
+  \url{https://arxiv.org/abs/2608.18360}
 \item
   Gaston Besanson (2026e). Compiling Sufficient Governance Context from
   Declared Losses and Reachable States: Exact Observation-Contract
   Synthesis with Cardinality and Cost Objectives. arXiv:2609.26016
   (paper 5 of this programme; CITATION.cff of
-  sarc-authority-derivation). https://arxiv.org/pdf/2609.26016
+  sarc-authority-derivation). \url{https://arxiv.org/pdf/2609.26016}
 \item
   Gaston Besanson (2026f). Probabilistic Sensing, Deterministic
   Authority: Admitting Model-Produced Observations into
   Sufficiency-Checked Governance Contracts. arXiv:2610.10978 (paper 6 of
   the SARC series: sense (facts read from unstructured evidence)).
-  https://arxiv.org/abs/2610.10978
+  \url{https://arxiv.org/abs/2610.10978}
 \item
   Kiarash Diba, Simon Remy, Luise Pufahl (2019). BPI Challenge 2019:
   Performance and Compliance Analysis of Procurement Processes Using
   Process Mining. BPI Challenge 2019 report, non-student category, ICPM
   2019.
-  https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-6.pdf
+  \url{https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-6.pdf}
 \item
   Matthew Harding, Gabriel F. R. Vasconcelos (2022). Managers versus
   Machines: Do Algorithms Replicate Human Intuition in Credit Ratings?.
   arXiv:2202.04218 (submitted 2022-02-09).
-  https://arxiv.org/abs/2202.04218
+  \url{https://arxiv.org/abs/2202.04218}
 \item
   ICPM 2019 (2019). BPI Challenge 2019 (ICPM 2019 conference page).
-  https://icpmconference.org/2019/bpi-challenge/
+  \url{https://icpmconference.org/2019/bpi-challenge/}
 \item
   ICPM 2020 (2020a). Awards (ICPM 2020).
-  https://icpmconference.org/2020/awards/
+  \url{https://icpmconference.org/2020/awards/}
 \item
   ICPM 2020 (2020b). BPI Challenge 2020 (ICPM 2020 conference page).
-  https://icpmconference.org/2020/bpi-challenge/
+  \url{https://icpmconference.org/2020/bpi-challenge/}
 \item
   Md Abdul Kadir, Sai Suresh Macharla Vasu, Sidharth S. Nair, Daniel
   Sonntag (2025). AuditCopilot: Leveraging LLMs for Fraud Detection in
   Double-Entry Bookkeeping. arXiv:2512.02726 (submitted 2025-12-02).
-  https://arxiv.org/abs/2512.02726
+  \url{https://arxiv.org/abs/2512.02726}
 \item
   Stijn Kas, Ruben Post, Sebastiaan Wiewel (2020). Automated Machine
   Learning in a Process Mining Context. BPI Student Challenge Award,
   ICPM 2020.
-  https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM\_2020\_paper\_44.pdf
+  \url{https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM\_2020\_paper\_44.pdf}
 \item
   Linh Thao Ly, Fabrizio Maria Maggi, Marco Montali, Stefanie
   Rinderle-Ma, Wil M.P. van der Aalst (2015). Compliance monitoring in
@@ -1522,12 +1524,12 @@ Challenges and 4TU.ResearchData for the logs.
   Viet-Hung Vu, Thi-Thu-Hang Nguyen (2019). Analysis and prediction of
   purchasing compliance using process mining. BPI Challenge 2019 report,
   student category, ICPM 2019.
-  https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Student-Submission-4.pdf
+  \url{https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Student-Submission-4.pdf}
 \item
   Hoang Nguyen, Marlon Dumas, Marcello La Rosa, Fabrizio Maria Maggi,
   Suriadi Suriadi (2016). Business Process Deviance Mining: Review and
   Evaluation. arXiv:1608.08252 (submitted 2016-08-29).
-  https://arxiv.org/abs/1608.08252
+  \url{https://arxiv.org/abs/1608.08252}
 \item
   Nesi Outmazgin, Pnina Soffer (2013). Business Process Workarounds:
   What Can and Cannot Be Detected by Process Mining. Enterprise,
@@ -1538,13 +1540,13 @@ Challenges and 4TU.ResearchData for the logs.
   Diego Palma, Kyu Bin Kim, Zhen Han, Allbright Dsouza, Zhiyuan Liu
   (2026). Business Compromise Detection with Agentic AI and LLM-driven
   Knowledge Discovery. arXiv:2609.32643 (submitted 2026-09-26).
-  https://arxiv.org/html/2609.32643
+  \url{https://arxiv.org/html/2609.32643}
 \item
   Public Company Accounting Oversight Board (2004). An Audit of Internal
   Control Over Financial Reporting Performed in Conjunction with an
   Audit of Financial Statements (PCAOB Release No.~2004-001). PCAOB
   Release 2004-001, March 9, 2004.
-  https://pcaobus.org/Rulemaking/Docket008/2004-03-09\_Release\_2004-001-all.pdf
+  \url{https://pcaobus.org/Rulemaking/Docket008/2004-03-09\_Release\_2004-001-all.pdf}
 \item
   Mor Peleg, Pnina Soffer, Johny Ghattas (2008). Mining Process
   Execution and Outcomes -- Position Paper. Business Process Management
@@ -1561,13 +1563,13 @@ Challenges and 4TU.ResearchData for the logs.
   Efficiency and Risk in Procure to Pay: Safely Realizing Cost Savings
   Using Process Mining Techniques. BPI Challenge 2019 report,
   non-student category, ICPM 2019.
-  https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-8.pdf
+  \url{https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-8.pdf}
 \item
   Luise Pufahl, Richard Hobeck, Paul Binetruy, Wepan Chada, Mykola
   Digtiar, Kim Julian Gülle, Marta Slarzynska, Fabian Stiehle, Ingo
   Weber (2020). Performance, Variant, and Conformance Analysis of an
   Academic Travel Reimbursement Process. BPI Challenge Award, ICPM 2020.
-  https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM\_2020\_paper\_148.pdf
+  \url{https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM\_2020\_paper\_148.pdf}
 \item
   Irene Teinemaa, Marlon Dumas, Marcello La Rosa, Fabrizio Maria Maggi
   (2019). Outcome-Oriented Predictive Process Monitoring. ACM
@@ -1613,7 +1615,7 @@ alpha & 0.05, Holm over H1, H2, H3, H4-Jev, H4-Haiku \\
 bootstrap & B = 10,000, purchase-document clusters \\
 seed & 20261201 \\
 cap & USD 60 \\
-pins & \texttt{engines.lock} at this commit \\
+pins & \texttt{\seqsplit{engines.lock}} at this commit \\
 \end{longtable}
 
 \hypertarget{appendix-b-claims-decisions-and-deviations}{%
@@ -1638,33 +1640,33 @@ evidence
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-C1 & supported & \texttt{results/e5/sufficiency.json},
-\texttt{results/e1/evidence-set.jsonl.gz},
-\texttt{tests/test\_properties.py}; engine evidence
-\texttt{results/mutation.json} \\
-C2 & supported & \texttt{results/e1/exposure.json},
-\texttt{results/e1/exposure-by-stratum.json} \\
-C3 & supported & \texttt{results/e2/hypotheses.json} \\
-C4 & supported & \texttt{results/e2/hypotheses.json} \\
+C1 & supported & \texttt{\seqsplit{results/e5/sufficiency.json}},
+\texttt{\seqsplit{results/e1/evidence-set.jsonl.gz}},
+\texttt{\seqsplit{tests/test\_properties.py}}; engine evidence
+\texttt{\seqsplit{results/mutation.json}} \\
+C2 & supported & \texttt{\seqsplit{results/e1/exposure.json}},
+\texttt{\seqsplit{results/e1/exposure-by-stratum.json}} \\
+C3 & supported & \texttt{\seqsplit{results/e2/hypotheses.json}} \\
+C4 & supported & \texttt{\seqsplit{results/e2/hypotheses.json}} \\
 C5 & inconclusive: defect class has zero incidence in the analysed
-clearings & \texttt{results/e1/coverage-check.json},
-\texttt{results/e2/hypotheses.json} \\
-C6 & not supported for both families & \texttt{results/e4/h4.json} \\
-C7 & supported & \texttt{results/e3/gate-held.json},
-\texttt{results/e3/verdict-by-outcome.json},
-\texttt{results/e3/lag-bands.json} \\
-C8 & supported & \texttt{results/e4/arms.json} \\
+clearings & \texttt{\seqsplit{results/e1/coverage-check.json}},
+\texttt{\seqsplit{results/e2/hypotheses.json}} \\
+C6 & not supported for both families & \texttt{\seqsplit{results/e4/h4.json}} \\
+C7 & supported & \texttt{\seqsplit{results/e3/gate-held.json}},
+\texttt{\seqsplit{results/e3/verdict-by-outcome.json}},
+\texttt{\seqsplit{results/e3/lag-bands.json}} \\
+C8 & supported & \texttt{\seqsplit{results/e4/arms.json}} \\
 C9 & not supported: 2-way does not reproduce; 3-way, invoice after
 receipt does not reproduce; 3-way, invoice before receipt does not
-reproduce & \texttt{results/e5/derivation.json} \\
-C10 & supported & \texttt{results/e6/timing-e1.json},
-\texttt{results/e6/cost.json} \\
-C11 & inconclusive & \texttt{results/e7/comparisons.json} \\
+reproduce & \texttt{\seqsplit{results/e5/derivation.json}} \\
+C10 & supported & \texttt{\seqsplit{results/e6/timing-e1.json}},
+\texttt{\seqsplit{results/e6/cost.json}} \\
+C11 & inconclusive & \texttt{\seqsplit{results/e7/comparisons.json}} \\
 C12 & supported; D5 class zero incidence &
-\texttt{results/e1/coverage-check.json} \\
+\texttt{\seqsplit{results/e1/coverage-check.json}} \\
 C13 & supported for the internal double runs; external reproduction from
-a clean clone is pending & \texttt{results/reproducibility.json},
-\texttt{results/e4/double-run.json} \\
+a clean clone is pending & \texttt{\seqsplit{results/reproducibility.json}},
+\texttt{\seqsplit{results/e4/double-run.json}} \\
 \end{longtable}
 
 Reading notes, as in the claims file. C1's ``(paper 5)'' refers to paper

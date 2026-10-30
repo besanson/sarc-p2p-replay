@@ -1203,3 +1203,11 @@ c. Appendix B (C13): the paper's status reads "supported for the internal double
    `CLAIMS.md` keeps its status and evidence path. Appendix C already read so.
 d. Acknowledgements: the platforms' model strings are introduced once as "unverified in-chat
    self-reports of the platforms".
+
+**PDF table layout** (layout only, no wording). The overfull boxes of the v1.0 candidate's PDF came
+from wide tables. `scripts/build_tex.py` now post-processes pandoc's LaTeX: every table is set in a
+smaller font with its columns as fixed fractions of the text width (`p{}` columns in the
+longtable, wrapping the cells), so that no table runs past the margin. The Markdown paper and the
+template are unchanged. pdflatex now reports 0 overfull hboxes, 0
+wider than 10pt (widest 0.0pt). The build stays deterministic: G9 rebuilds twice and compares both
+with the committed `paper-tex/main.pdf`.

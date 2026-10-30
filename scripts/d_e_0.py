@@ -40,7 +40,7 @@ from wide tables. `scripts/build_tex.py` now post-processes pandoc's LaTeX: ever
 smaller font with its columns as fixed fractions of the text width (`p{{}}` columns in the
 longtable, wrapping the cells), so that no table runs past the margin. The Markdown paper and the
 template are unchanged. pdflatex now reports {o['overfull_hboxes']} overfull hboxes, {o['overfull_hboxes_over_10pt']}
-wider than 10pt (before: {o['before_overfull_hboxes']}). The build stays deterministic: G9 rebuilds twice and compares both
+wider than 10pt (widest {o['widest_pt']:.1f}pt). The build stays deterministic: G9 rebuilds twice and compares both
 with the committed `paper-tex/main.pdf`.
 """
 
