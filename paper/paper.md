@@ -4,7 +4,7 @@ author: "Gaston Besanson, Universidad Torcuato Di Tella"
 ---
 
 <!-- paper/template.md: the source of paper/paper.md. Every number reaches the paper through a
-placeholder filled by scripts/fill_paper.py from a slot file under results/. Draft v0.3. -->
+placeholder filled by scripts/fill_paper.py from a slot file under results/. Draft v1.0-candidate. -->
 
 ## Abstract
 
@@ -26,7 +26,8 @@ On a registered sample of lines with a failed predicate and of clean lines, two 
 100.0% and 99.6% of the first and
 53.0% and 57.3% of the second; on the sample lines the
 log lets us classify, people held 33.0% and 34.0%,
-where a hold is an inferred non-release within 60 days, not a recorded decision;
+where a hold is a recorded payment block or, in nearly every case, an inferred non-release within 60 days, not a recorded
+decision;
 the gate's verdict holds the first and allows the second by construction. A line's status at the decision point follows a
 reading of D5 (decision D-C-2 B) that the author fixed after E3 and before any model call (Section 4). Paper 5's compiler, given the three declared losses of the registration, does not
 reproduce the registered contract in any item category. The coverage matrix states which defect classes this log cannot
@@ -389,7 +390,9 @@ carries the E2 O rate at W = 60 days of its defect group. The precedence and the
 the H1 group if D1/D2 fails and otherwise the H2 group if D4 fails; a line failing neither (only D3, D6 or D7) has no E2 group
 and is counted, not imputed (8 sample lines,
 1 of them released by people). The ERP view hands each model the
-inputs of the predicates; this result is about the view as much as about the models.
+inputs of the predicates; this result is about the view as much as about the models. The expected-corrective totals are the
+number of corrective events the E2 rates would predict for the lines each arm released, under the stated assignment: a
+projection from observed rates onto the sample, not an observed count.
 
 **On the lines the people arm classifies.** The same four arms, re-tabulated on the
 1,848 sample lines the people arm classifies; the table above, on all sample lines, stays
@@ -588,7 +591,13 @@ either log, and in the international log no predicate fails at all.
 The outcome is a proxy: a corrective event after a clearing is not proof that the clearing was wrong, and the study is
 observational. Category, spend area, value, vendor activity and month are reported beside every estimate (Appendix D for
 exposure, Appendix E for H1, H2 and the gate by outcome) and never modelled in. Values are anonymised. What a line the gate would have held becomes is not in the log. The people column reports what the process did within W; the comparison across the people, the
-models and the gate is of outcomes of three deciders, not of three acts. The ERP view hands the model the
+models and the gate is of outcomes of three deciders, not of three acts. The only inference the three columns support is this:
+on the same lines the process released about two thirds of both sets within W (people held
+33.0% and 34.0%); the models shown the predicate inputs
+held nearly every line with a failed predicate (100.0% and
+99.6%) and about half of the clean ones (52.5% and
+56.0%); the gate held exactly the lines with a failed predicate. No decision quality is
+inferred for people, whose column is a process outcome. The ERP view hands the model the
 inputs of the predicates; under the timeline view the same models held far fewer lines (exploratory, no interval), which is
 a statement about views, not about the models alone. The derivation depends on how the three declared losses are expressed over
 the evidence set; the expressions are recorded with the result. One company's process, one year.
@@ -599,16 +608,19 @@ the evidence set; the expressions are recorded with the result. One company's pr
 clearings in this process were made on evidence that failed at least one registered predicate, carrying
 19.41% of the cleared value; those made with an absent or late receipt
 (D1/D2) were followed by a corrective at a higher rate than three-way clearings with every applicable predicate passing, and
-those made after a change since approval (D4 fail) at a higher rate than D4-pass clearings.
+those made after a change since approval (D4 fail) at a higher rate than D4-pass clearings. The sufficiency check adds that
+the registered contract is sufficient for "goods not received" and "changed amount", and not for "pay twice" in the
+three-way categories, because no registered predicate reads the clearing's position on its line.
 
 ## Acknowledgements
 
 The prior-art fence was reviewed externally by Eduardo Arana after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`, and
-he reviewed drafts v0.1 and v0.2. AI tools were used as support: builder sessions with Claude for the code, the runs and the
+he reviewed drafts v0.1 to v0.3. AI tools were used as support: builder sessions with Claude for the code, the runs and the
 drafting from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for the second, the platform made two
 statements, in this order: a later session reported its own model as `Claude Opus 5.5` and stated that it produced the sweep,
-and the same session then identified the sweep's model as `DeepSeek V4 Pro`); and machine reviews of drafts v0.1 and v0.2, on
-ChatGPT and on Perplexity Computer (model as it states it: `Claude Opus 5.5`). All are committed unedited. The author is solely responsible for every claim. We thank the organisers of the BPI
+and the same session then identified the sweep's model as `DeepSeek V4 Pro`); and machine reviews of drafts v0.1 to v0.3, on
+ChatGPT and on Perplexity (the Perplexity reviews of v0.1 and v0.2 state their model as `Claude Opus 5.5`; that of v0.3 names
+no serving model). All are committed unedited. The author is solely responsible for every claim. We thank the organisers of the BPI
 Challenges and 4TU.ResearchData for the logs.
 
 ## References

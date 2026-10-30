@@ -1,21 +1,21 @@
 {
   "paper": "paper/paper.md",
-  "paper_sha256": "3be61cec2ae68e91c7c03eb2b83c068a065a23b73cf277d56c78543b72a536ef",
+  "paper_sha256": "30743b19fcfb9bce72e1abf44d55ec507150562e95889abb29ffc4404f9f6cdd",
   "placeholders": [
     {
-      "end": 382,
+      "end": 392,
       "key": [
         "analysed_clearings"
       ],
       "kind": "value",
       "placeholder": "e1/exposure.json>analysed_clearings|int",
       "source": "results/e1/exposure.json",
-      "start": 375,
+      "start": 385,
       "text": "155,534",
       "value": 155534
     },
     {
-      "end": 497,
+      "end": 507,
       "key": [
         "classes",
         "at least one defect",
@@ -24,12 +24,12 @@
       "kind": "value",
       "placeholder": "e1/exposure.json>classes>at least one defect>clearings|int",
       "source": "results/e1/exposure.json",
-      "start": 491,
+      "start": 501,
       "text": "17,748",
       "value": 17748
     },
     {
-      "end": 505,
+      "end": 515,
       "key": [
         "classes",
         "at least one defect",
@@ -38,12 +38,12 @@
       "kind": "value",
       "placeholder": "e1/exposure.json>classes>at least one defect>share_of_clearings|pct",
       "source": "results/e1/exposure.json",
-      "start": 499,
+      "start": 509,
       "text": "11.41%",
       "value": 0.11411009811359574
     },
     {
-      "end": 556,
+      "end": 566,
       "key": [
         "classes",
         "at least one defect",
@@ -52,7 +52,7 @@
       "kind": "value",
       "placeholder": "e1/exposure.json>classes>at least one defect>bootstrap95|ivpct",
       "source": "results/e1/exposure.json",
-      "start": 540,
+      "start": 550,
       "text": "[10.94%, 11.92%]",
       "value": [
         0.10935171789963308,
@@ -60,7 +60,7 @@
       ]
     },
     {
-      "end": 652,
+      "end": 662,
       "key": [
         "classes",
         "at least one defect",
@@ -69,12 +69,12 @@
       "kind": "value",
       "placeholder": "e1/exposure.json>classes>at least one defect>share_of_value|pct",
       "source": "results/e1/exposure.json",
-      "start": 646,
+      "start": 656,
       "text": "19.41%",
       "value": 0.19409569991870718
     },
     {
-      "end": 691,
+      "end": 701,
       "key": [
         "classes",
         "at least one defect",
@@ -83,7 +83,7 @@
       "kind": "value",
       "placeholder": "e1/exposure.json>classes>at least one defect>value_bootstrap95|ivpct",
       "source": "results/e1/exposure.json",
-      "start": 675,
+      "start": 685,
       "text": "[16.04%, 23.09%]",
       "value": [
         0.16036481458045976,
@@ -91,7 +91,7 @@
       ]
     },
     {
-      "end": 1045,
+      "end": 1055,
       "key": [
         "estimates",
         "H1",
@@ -102,12 +102,12 @@
       "kind": "value",
       "placeholder": "e2/hypotheses.json>estimates>H1>W60>defect_group>O_rate|pct",
       "source": "results/e2/hypotheses.json",
-      "start": 1040,
+      "start": 1050,
       "text": "5.64%",
       "value": 0.05635838150289017
     },
     {
-      "end": 1060,
+      "end": 1070,
       "key": [
         "estimates",
         "H1",
@@ -118,12 +118,12 @@
       "kind": "value",
       "placeholder": "e2/hypotheses.json>estimates>H1>W60>comparison_group>O_rate|pct",
       "source": "results/e2/hypotheses.json",
-      "start": 1055,
+      "start": 1065,
       "text": "0.93%",
       "value": 0.009345794392523364
     },
     {
-      "end": 1143,
+      "end": 1153,
       "key": [
         "estimates",
         "H1",
@@ -133,12 +133,12 @@
       "kind": "value",
       "placeholder": "e2/hypotheses.json>estimates>H1>W60>difference|prop",
       "source": "results/e2/hypotheses.json",
-      "start": 1137,
+      "start": 1147,
       "text": "0.0470",
       "value": 0.04701258711036681
     },
     {
-      "end": 1176,
+      "end": 1186,
       "key": [
         "holm",
         "table",
@@ -148,12 +148,12 @@
       "kind": "value",
       "placeholder": "e2/hypotheses.json>holm>table>1>p_holm|p",
       "source": "results/e2/hypotheses.json",
-      "start": 1163,
+      "start": 1173,
       "text": "4.53 × 10^-4^",
       "value": 0.0004529304163760633
     },
     {
-      "end": 1264,
+      "end": 1274,
       "key": [
         "estimates",
         "H2",
@@ -164,12 +164,12 @@
       "kind": "value",
       "placeholder": "e2/hypotheses.json>estimates>H2>W60>defect_group>O_rate|pct",
       "source": "results/e2/hypotheses.json",
-      "start": 1259,
+      "start": 1269,
       "text": "1.91%",
       "value": 0.019059276097219795
     },
     {
-      "end": 1278,
+      "end": 1288,
       "key": [
         "estimates",
         "H2",
@@ -180,12 +180,12 @@
       "kind": "value",
       "placeholder": "e2/hypotheses.json>estimates>H2>W60>comparison_group>O_rate|pct",
       "source": "results/e2/hypotheses.json",
-      "start": 1273,
+      "start": 1283,
       "text": "0.96%",
       "value": 0.009625877132760502
     },
     {
-      "end": 1319,
+      "end": 1329,
       "key": [
         "estimates",
         "H2",
@@ -195,12 +195,12 @@
       "kind": "value",
       "placeholder": "e2/hypotheses.json>estimates>H2>W60>difference|prop",
       "source": "results/e2/hypotheses.json",
-      "start": 1313,
+      "start": 1323,
       "text": "0.0094",
       "value": 0.009433398964459293
     },
     {
-      "end": 1352,
+      "end": 1362,
       "key": [
         "holm",
         "table",
@@ -210,12 +210,12 @@
       "kind": "value",
       "placeholder": "e2/hypotheses.json>holm>table>0>p_holm|p",
       "source": "results/e2/hypotheses.json",
-      "start": 1339,
+      "start": 1349,
       "text": "3.48 × 10^-7^",
       "value": 3.477706313786906e-07
     },
     {
-      "end": 1480,
+      "end": 1490,
       "key": [
         "arms",
         "jev",
@@ -224,12 +224,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>jev>hold_rate_defective|pct1",
       "source": "results/e4/arms.json",
-      "start": 1474,
+      "start": 1484,
       "text": "100.0%",
       "value": 1.0
     },
     {
-      "end": 1490,
+      "end": 1500,
       "key": [
         "arms",
         "haiku",
@@ -238,12 +238,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>haiku>hold_rate_defective|pct1",
       "source": "results/e4/arms.json",
-      "start": 1485,
+      "start": 1495,
       "text": "99.6%",
       "value": 0.996
     },
     {
-      "end": 1513,
+      "end": 1523,
       "key": [
         "arms",
         "jev",
@@ -252,12 +252,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>jev>hold_rate_clean|pct1",
       "source": "results/e4/arms.json",
-      "start": 1508,
+      "start": 1518,
       "text": "53.0%",
       "value": 0.53
     },
     {
-      "end": 1523,
+      "end": 1533,
       "key": [
         "arms",
         "haiku",
@@ -266,12 +266,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>haiku>hold_rate_clean|pct1",
       "source": "results/e4/arms.json",
-      "start": 1518,
+      "start": 1528,
       "text": "57.3%",
       "value": 0.573
     },
     {
-      "end": 1602,
+      "end": 1612,
       "key": [
         "arms",
         "people",
@@ -280,12 +280,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>people>hold_rate_defective|pct1",
       "source": "results/e4/arms.json",
-      "start": 1597,
+      "start": 1607,
       "text": "33.0%",
       "value": 0.3300438596491228
     },
     {
-      "end": 1612,
+      "end": 1622,
       "key": [
         "arms",
         "people",
@@ -294,316 +294,316 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>people>hold_rate_clean|pct1",
       "source": "results/e4/arms.json",
-      "start": 1607,
+      "start": 1617,
       "text": "34.0%",
       "value": 0.33974358974358976
     },
     {
-      "end": 2460,
+      "end": 2521,
       "key": "besanson-paper4-2026",
       "kind": "citation",
       "placeholder": "@cite>besanson-paper4-2026",
       "source": "verified-citations.json",
-      "start": 2446,
+      "start": 2507,
       "text": "Besanson 2026a"
     },
     {
-      "end": 2489,
+      "end": 2550,
       "key": "besanson-paper5-2026",
       "kind": "citation",
       "placeholder": "@cite>besanson-paper5-2026",
       "source": "verified-citations.json",
-      "start": 2475,
+      "start": 2536,
       "text": "Besanson 2026b"
     },
     {
-      "end": 2555,
+      "end": 2616,
       "key": "besanson-paper6-repo-2026",
       "kind": "citation",
       "placeholder": "@cite>besanson-paper6-repo-2026",
       "source": "verified-citations.json",
-      "start": 2541,
+      "start": 2602,
       "text": "Besanson 2026c"
     },
     {
-      "end": 2780,
+      "end": 2841,
       "key": [
         "analysed_clearings"
       ],
       "kind": "value",
       "placeholder": "e1/exclusions.json>analysed_clearings|int",
       "source": "results/e1/exclusions.json",
-      "start": 2773,
+      "start": 2834,
       "text": "155,534",
       "value": 155534
     },
     {
-      "end": 5056,
+      "end": 5117,
       "key": "vanderaalst-process-mining-2016",
       "kind": "citation",
       "placeholder": "@cite>vanderaalst-process-mining-2016",
       "source": "verified-citations.json",
-      "start": 5038,
+      "start": 5099,
       "text": "van der Aalst 2016"
     },
     {
-      "end": 5072,
+      "end": 5133,
       "key": "ly-compliance-monitoring-2015",
       "kind": "citation",
       "placeholder": "@cite>ly-compliance-monitoring-2015",
       "source": "verified-citations.json",
-      "start": 5058,
+      "start": 5119,
       "text": "Ly et al. 2015"
     },
     {
-      "end": 5202,
+      "end": 5263,
       "key": "pesic-declare-2007",
       "kind": "citation",
       "placeholder": "@cite>pesic-declare-2007",
       "source": "verified-citations.json",
-      "start": 5185,
+      "start": 5246,
       "text": "Pesic et al. 2007"
     },
     {
-      "end": 5424,
+      "end": 5485,
       "key": "besanson-paper5-2026",
       "kind": "citation",
       "placeholder": "@cite>besanson-paper5-2026",
       "source": "verified-citations.json",
-      "start": 5410,
+      "start": 5471,
       "text": "Besanson 2026b"
     },
     {
-      "end": 5615,
+      "end": 5676,
       "key": "ly-compliance-monitoring-2015",
       "kind": "citation",
       "placeholder": "@cite>ly-compliance-monitoring-2015",
       "source": "verified-citations.json",
-      "start": 5601,
+      "start": 5662,
       "text": "Ly et al. 2015"
     },
     {
-      "end": 5854,
+      "end": 5915,
       "key": "icpm-bpi-challenge-2019-page",
       "kind": "citation",
       "placeholder": "@cite>icpm-bpi-challenge-2019-page",
       "source": "verified-citations.json",
-      "start": 5845,
+      "start": 5906,
       "text": "ICPM 2019"
     },
     {
-      "end": 5991,
+      "end": 6052,
       "key": "bpi2019-nonstudent-6-diba",
       "kind": "citation",
       "placeholder": "@cite>bpi2019-nonstudent-6-diba",
       "source": "verified-citations.json",
-      "start": 5975,
+      "start": 6036,
       "text": "Diba et al. 2019"
     },
     {
-      "end": 6076,
+      "end": 6137,
       "key": "bpi2019-nonstudent-8-porter",
       "kind": "citation",
       "placeholder": "@cite>bpi2019-nonstudent-8-porter",
       "source": "verified-citations.json",
-      "start": 6058,
+      "start": 6119,
       "text": "Porter et al. 2019"
     },
     {
-      "end": 6378,
+      "end": 6439,
       "key": "pcaob-release-2004-001",
       "kind": "citation",
       "placeholder": "@cite>pcaob-release-2004-001",
       "source": "verified-citations.json",
-      "start": 6368,
+      "start": 6429,
       "text": "PCAOB 2004"
     },
     {
-      "end": 6651,
+      "end": 6712,
       "key": "peleg-mining-outcomes-2008",
       "kind": "citation",
       "placeholder": "@cite>peleg-mining-outcomes-2008",
       "source": "verified-citations.json",
-      "start": 6634,
+      "start": 6695,
       "text": "Peleg et al. 2008"
     },
     {
-      "end": 6722,
+      "end": 6783,
       "key": "teinemaa-outcome-ppm-2019",
       "kind": "citation",
       "placeholder": "@cite>teinemaa-outcome-ppm-2019",
       "source": "verified-citations.json",
-      "start": 6702,
+      "start": 6763,
       "text": "Teinemaa et al. 2019"
     },
     {
-      "end": 6763,
+      "end": 6824,
       "key": "nguyen-deviance-mining-2016",
       "kind": "citation",
       "placeholder": "@cite>nguyen-deviance-mining-2016",
       "source": "verified-citations.json",
-      "start": 6745,
+      "start": 6806,
       "text": "Nguyen et al. 2016"
     },
     {
-      "end": 6797,
+      "end": 6858,
       "key": "bpi2019-nonstudent-8-porter",
       "kind": "citation",
       "placeholder": "@cite>bpi2019-nonstudent-8-porter",
       "source": "verified-citations.json",
-      "start": 6779,
+      "start": 6840,
       "text": "Porter et al. 2019"
     },
     {
-      "end": 6986,
+      "end": 7047,
       "key": "bpi2019-student-4-meyerzuwickern",
       "kind": "citation",
       "placeholder": "@cite>bpi2019-student-4-meyerzuwickern",
       "source": "verified-citations.json",
-      "start": 6958,
+      "start": 7019,
       "text": "Meyer zu Wickern et al. 2019"
     },
     {
-      "end": 7067,
+      "end": 7128,
       "key": "bpi2019-nonstudent-4-badakhshan",
       "kind": "citation",
       "placeholder": "@cite>bpi2019-nonstudent-4-badakhshan",
       "source": "verified-citations.json",
-      "start": 7045,
+      "start": 7106,
       "text": "Badakhshan et al. 2019"
     },
     {
-      "end": 7385,
+      "end": 7446,
       "key": "outmazgin-workarounds-2013",
       "kind": "citation",
       "placeholder": "@cite>outmazgin-workarounds-2013",
       "source": "verified-citations.json",
-      "start": 7360,
+      "start": 7421,
       "text": "Outmazgin and Soffer 2013"
     },
     {
-      "end": 7659,
+      "end": 7720,
       "key": "palma-business-compromise-2026",
       "kind": "citation",
       "placeholder": "@cite>palma-business-compromise-2026",
       "source": "verified-citations.json",
-      "start": 7642,
+      "start": 7703,
       "text": "Palma et al. 2026"
     },
     {
-      "end": 7740,
+      "end": 7801,
       "key": "kadir-auditcopilot-2025",
       "kind": "citation",
       "placeholder": "@cite>kadir-auditcopilot-2025",
       "source": "verified-citations.json",
-      "start": 7723,
+      "start": 7784,
       "text": "Kadir et al. 2025"
     },
     {
-      "end": 7809,
+      "end": 7870,
       "key": "harding-managers-machines-2022",
       "kind": "citation",
       "placeholder": "@cite>harding-managers-machines-2022",
       "source": "verified-citations.json",
-      "start": 7781,
+      "start": 7842,
       "text": "Harding and Vasconcelos 2022"
     },
     {
-      "end": 8269,
+      "end": 8330,
       "key": "icpm-bpi-challenge-2020-page",
       "kind": "citation",
       "placeholder": "@cite>icpm-bpi-challenge-2020-page",
       "source": "verified-citations.json",
-      "start": 8259,
+      "start": 8320,
       "text": "ICPM 2020b"
     },
     {
-      "end": 8311,
+      "end": 8372,
       "key": "icpm-2020-awards-page",
       "kind": "citation",
       "placeholder": "@cite>icpm-2020-awards-page",
       "source": "verified-citations.json",
-      "start": 8301,
+      "start": 8362,
       "text": "ICPM 2020a"
     },
     {
-      "end": 8331,
+      "end": 8392,
       "key": "bpi2020-award-hobeck",
       "kind": "citation",
       "placeholder": "@cite>bpi2020-award-hobeck",
       "source": "verified-citations.json",
-      "start": 8313,
+      "start": 8374,
       "text": "Pufahl et al. 2020"
     },
     {
-      "end": 8348,
+      "end": 8409,
       "key": "bpi2020-student-award-kas",
       "kind": "citation",
       "placeholder": "@cite>bpi2020-student-award-kas",
       "source": "verified-citations.json",
-      "start": 8333,
+      "start": 8394,
       "text": "Kas et al. 2020"
     },
     {
-      "end": 13665,
+      "end": 13726,
       "kind": "block",
       "placeholder": "#datasets",
       "sources": [
         "prereg/data.lock"
       ],
-      "start": 12869,
+      "start": 12930,
       "text": "| record | DOI | licence | file | cases | events | SHA-256 |\n| --- | --- | --- | --- | ---: | ---: | --- |\n| BPI Challenge 2019 | doi:10.4121/uuid:d06aff4b-79f0-45e6-8ec8-e19730c248f1 | CC BY 4.0 | `BPI_Challenge_2019.xes` | 251,734 | 1,595,923 | `af63bc687fc4152f2123b05c3af7772b37ef3fce2d3f67f812666c9e356baae7` |\n| BPI Challenge 2020: International Declarations | doi:10.4121/uuid:2bbf8f6a-fc50-48eb-aa9e-c4ea5ef7e8c5 | CC BY-NC 4.0 | `InternationalDeclarations.xes.gz` | 6,449 | 72,151 | `b527c8d06255f4312c6ce8f36f7f4110243d84fd6ca48583cd9b80896c601494` |\n| BPI Challenge 2020: Domestic Declarations | doi:10.4121/uuid:3f422315-ed9d-4882-891f-e180b5b4feb5 | CC BY-NC 4.0 | `DomesticDeclarations.xes.gz` | 10,500 | 56,437 | `0bc3312acf0b9ee5ae6f4ebe9df204005ef11665d62f2d21dd04995161d7532b` |"
     },
     {
-      "end": 14058,
+      "end": 14119,
       "key": [
         "t_end"
       ],
       "kind": "value",
       "placeholder": "e1/exclusions.json>t_end|date",
       "source": "results/e1/exclusions.json",
-      "start": 14048,
+      "start": 14109,
       "text": "2019-01-18",
       "value": "2019-01-18T13:34:00+00:00"
     },
     {
-      "end": 14064,
+      "end": 14125,
       "key": [
         "events_after_t_end_excluded"
       ],
       "kind": "value",
       "placeholder": "e1/exclusions.json>events_after_t_end_excluded|int",
       "source": "results/e1/exclusions.json",
-      "start": 14063,
+      "start": 14124,
       "text": "9",
       "value": 9
     },
     {
-      "end": 14507,
+      "end": 14568,
       "key": [
         "all_lines_disagreeing"
       ],
       "kind": "value",
       "placeholder": "e1/category-crosscheck.json>all_lines_disagreeing|int",
       "source": "results/e1/category-crosscheck.json",
-      "start": 14506,
+      "start": 14567,
       "text": "0",
       "value": 0
     },
     {
-      "end": 14518,
+      "end": 14579,
       "key": [
         "all_lines"
       ],
       "kind": "value",
       "placeholder": "e1/category-crosscheck.json>all_lines|int",
       "source": "results/e1/category-crosscheck.json",
-      "start": 14511,
+      "start": 14572,
       "text": "251,734",
       "value": 251734
     },
     {
-      "end": 14657,
+      "end": 14718,
       "key": [
         "cleared_value_source",
         "clearing"
@@ -611,12 +611,12 @@
       "kind": "value",
       "placeholder": "e1/value-fallback.json>cleared_value_source>clearing|int",
       "source": "results/e1/value-fallback.json",
-      "start": 14650,
+      "start": 14711,
       "text": "155,534",
       "value": 155534
     },
     {
-      "end": 14670,
+      "end": 14731,
       "key": [
         "cleared_value_source",
         "invoice_receipt"
@@ -624,12 +624,12 @@
       "kind": "value",
       "placeholder": "e1/value-fallback.json>cleared_value_source>invoice_receipt|int",
       "source": "results/e1/value-fallback.json",
-      "start": 14669,
+      "start": 14730,
       "text": "0",
       "value": 0
     },
     {
-      "end": 14709,
+      "end": 14770,
       "key": [
         "cleared_value_source",
         "line_value"
@@ -637,32 +637,32 @@
       "kind": "value",
       "placeholder": "e1/value-fallback.json>cleared_value_source>line_value|int",
       "source": "results/e1/value-fallback.json",
-      "start": 14708,
+      "start": 14769,
       "text": "0",
       "value": 0
     },
     {
-      "end": 15446,
+      "end": 15507,
       "kind": "block",
       "placeholder": "#exclusions",
       "sources": [
         "e1/exclusions.json"
       ],
-      "start": 14919,
+      "start": 14980,
       "text": "| step | lines |\n| --- | ---: |\n| lines in the log | 251,734 |\n| 2.1 (1) no Create Purchase Order Item | 0 |\n| 2.1 (2) consignment | 14,498 |\n| 3.1 category undefined by the flags | 0 |\n| 2.1 (3) zero or missing line value | 1,887 |\n| 2.1 (4) more than K = 12 clearings | 78 |\n| 2.1 (5) outside the window | 376 |\n| 2.1 (5) failing the frame condition | 53,731 |\n| framed lines | 181,164 |\n| E0 pilot lines removed | 500 |\n| framed lines analysed | 180,664 |\n| analysed clearings | 155,534 |\n| events after T_end excluded | 9 |"
     },
     {
-      "end": 16335,
+      "end": 16396,
       "kind": "block",
       "placeholder": "#deviations",
       "sources": [
         "prereg/DEVIATIONS.md"
       ],
-      "start": 15917,
+      "start": 15978,
       "text": "- p7-v1 to p7-v1.1: T_end rule.\n- p7-v1 to p7-v1.1: Mapping attribute name.\n- p7-v1 to p7-v1.1: Section 3.6, explicit sentence.\n- Under p7-v1.1: H3 convention.\n- Under p7-v1.1: D5 applicability at a non-clearing decision point.\n- Under p7-v1.1: Description corrections in COVERAGE.md, no predicate changes.\n- Under p7-v1.1: E7 bootstrap replicates with an empty group discarded.\n- Under p7-v1.1: E4 Jev request format."
     },
     {
-      "end": 16562,
+      "end": 16623,
       "key": [
         "commits",
         "D-C-2 decision (D5 reading, H3 convention)",
@@ -671,12 +671,12 @@
       "kind": "value",
       "placeholder": "e4/timeline.json>commits>D-C-2 decision (D5 reading, H3 convention)>committer_utc|utc",
       "source": "results/e4/timeline.json",
-      "start": 16539,
+      "start": 16600,
       "text": "2026-10-25 18:21:56 UTC",
       "value": "2026-10-25T18:21:56+00:00"
     },
     {
-      "end": 16625,
+      "end": 16686,
       "key": [
         "commits",
         "E4 sample draw",
@@ -685,12 +685,12 @@
       "kind": "value",
       "placeholder": "e4/timeline.json>commits>E4 sample draw>committer_utc|utc",
       "source": "results/e4/timeline.json",
-      "start": 16602,
+      "start": 16663,
       "text": "2026-10-25 18:39:34 UTC",
       "value": "2026-10-25T18:39:34+00:00"
     },
     {
-      "end": 16692,
+      "end": 16753,
       "key": [
         "calls",
         "e4/jev",
@@ -699,12 +699,12 @@
       "kind": "value",
       "placeholder": "e4/timeline.json>calls>e4/jev>earliest_sent_utc|utc",
       "source": "results/e4/timeline.json",
-      "start": 16669,
+      "start": 16730,
       "text": "2026-10-25 18:42:18 UTC",
       "value": "2026-10-25T18:42:18.076274+00:00"
     },
     {
-      "end": 16731,
+      "end": 16792,
       "key": [
         "calls",
         "e4/haiku",
@@ -713,22 +713,22 @@
       "kind": "value",
       "placeholder": "e4/timeline.json>calls>e4/haiku>earliest_sent_utc|utc",
       "source": "results/e4/timeline.json",
-      "start": 16708,
+      "start": 16769,
       "text": "2026-10-25 18:46:32 UTC",
       "value": "2026-10-25T18:46:32.032785+00:00"
     },
     {
-      "end": 18039,
+      "end": 18100,
       "kind": "block",
       "placeholder": "#exposure",
       "sources": [
         "e1/exposure.json"
       ],
-      "start": 17062,
+      "start": 17123,
       "text": "| defect class | clearings | share | Wilson 95% | bootstrap 95% | share of value | bootstrap 95% |\n| --- | ---: | ---: | --- | --- | ---: | --- |\n| D1 class (absent receipt) | 610 | 0.39% | [0.36%, 0.42%] | [0.30%, 0.50%] | 0.12% | [0.08%, 0.17%] |\n| D2 class (stale receipt) | 82 | 0.05% | [0.04%, 0.07%] | [0.02%, 0.10%] | 0.12% | [0.03%, 0.27%] |\n| D3 | 362 | 0.23% | [0.21%, 0.26%] | [0.15%, 0.33%] | 0.03% | [0.02%, 0.05%] |\n| D4 | 17,157 | 11.03% | [10.88%, 11.19%] | [10.55%, 11.53%] | 19.24% | [15.88%, 22.89%] |\n| D5 | 0 | 0.00% | [0.00%, 0.00%] | [0.00%, 0.00%] | 0.00% | [0.00%, 0.00%] |\n| D6 | 4 | 0.00% | [0.00%, 0.01%] | [0.00%, 0.01%] | 0.03% | [0.00%, 0.10%] |\n| D7 | 19 | 0.01% | [0.01%, 0.02%] | [0.01%, 0.02%] | 0.01% | [0.00%, 0.02%] |\n| at least one defect | 17,748 | 11.41% | [11.25%, 11.57%] | [10.94%, 11.92%] | 19.41% | [16.04%, 23.09%] |\n| held on an unknown only (not a defect) | 0 | 0.00% | [0.00%, 0.00%] | [0.00%, 0.00%] | 0.00% | [0.00%, 0.00%] |"
     },
     {
-      "end": 18411,
+      "end": 18472,
       "key": [
         "applicable_clearings",
         "D1 class (absent receipt)"
@@ -736,12 +736,12 @@
       "kind": "value",
       "placeholder": "e1/exposure.json>applicable_clearings>D1 class (absent receipt)|int",
       "source": "results/e1/exposure.json",
-      "start": 18404,
+      "start": 18465,
       "text": "155,346",
       "value": 155346
     },
     {
-      "end": 18515,
+      "end": 18576,
       "key": [
         "classes",
         "D4",
@@ -750,12 +750,12 @@
       "kind": "value",
       "placeholder": "e1/exposure.json>classes>D4>clearings|int",
       "source": "results/e1/exposure.json",
-      "start": 18509,
+      "start": 18570,
       "text": "17,157",
       "value": 17157
     },
     {
-      "end": 18536,
+      "end": 18597,
       "key": [
         "classes",
         "D4",
@@ -764,22 +764,22 @@
       "kind": "value",
       "placeholder": "e1/exposure.json>classes>D4>share_of_value|pct",
       "source": "results/e1/exposure.json",
-      "start": 18530,
+      "start": 18591,
       "text": "19.24%",
       "value": 0.19235166235459805
     },
     {
-      "end": 19586,
+      "end": 19647,
       "kind": "block",
       "placeholder": "#hypotheses",
       "sources": [
         "e2/hypotheses.json"
       ],
-      "start": 19080,
+      "start": 19141,
       "text": "| test | defect group (failed predicate): O rate | comparison: O rate | difference | bootstrap SE | z | p (raw, one-sided) | p (Holm) |\n| --- | --- | --- | ---: | ---: | ---: | ---: | ---: |\n| H1 | 39 of 692 (5.64%) | 1,286 of 137,602 (0.93%) | 0.0470 | 0.0127 | 3.688 | 1.13 × 10^-4^ | 4.53 × 10^-4^ |\n| H2 | 327 of 17,157 (1.91%) | 1,332 of 138,377 (0.96%) | 0.0094 | 0.0018 | 5.266 | 6.96 × 10^-8^ | 3.48 × 10^-7^ |\n| H3 | 0 of 0 (n/a) | 1,659 of 155,534 (1.07%) | n/a | n/a | n/a | not computable | 1 |"
     },
     {
-      "end": 19827,
+      "end": 19888,
       "key": [
         "estimates",
         "H1 all-category comparison",
@@ -789,22 +789,22 @@
       "kind": "value",
       "placeholder": "e2/hypotheses.json>estimates>H1 all-category comparison>W60>difference|prop",
       "source": "results/e2/hypotheses.json",
-      "start": 19821,
+      "start": 19882,
       "text": "0.0470",
       "value": 0.04698877936624349
     },
     {
-      "end": 20394,
+      "end": 20455,
       "kind": "block",
       "placeholder": "#holm",
       "sources": [
         "e2/hypotheses.json"
       ],
-      "start": 20089,
+      "start": 20150,
       "text": "| test | p (raw) | rank | multiplier | p (Holm) | below alpha |\n| --- | ---: | ---: | ---: | ---: | --- |\n| H2 | 6.96 × 10^-8^ | 1 | 5 | 3.48 × 10^-7^ | yes |\n| H1 | 1.13 × 10^-4^ | 2 | 4 | 4.53 × 10^-4^ | yes |\n| H3 | 1 | 3 | 3 | 1 | no |\n| H4-Haiku | 1 | 4 | 2 | 1 | no |\n| H4-Jev | 1 | 5 | 1 | 1 | no |"
     },
     {
-      "end": 20474,
+      "end": 20535,
       "key": [
         "estimates",
         "H3",
@@ -814,12 +814,12 @@
       "kind": "value",
       "placeholder": "e2/hypotheses.json>estimates>H3>W60>not_computable",
       "source": "results/e2/hypotheses.json",
-      "start": 20436,
+      "start": 20497,
       "text": "defect group has no analysed clearings",
       "value": "defect group has no analysed clearings"
     },
     {
-      "end": 20733,
+      "end": 20794,
       "key": [
         "scopes",
         "all",
@@ -828,12 +828,12 @@
       "kind": "value",
       "placeholder": "e1/actors.json>scopes>all>distinct_clear_invoice_actors|int",
       "source": "results/e1/actors.json",
-      "start": 20731,
+      "start": 20792,
       "text": "23",
       "value": 23
     },
     {
-      "end": 20741,
+      "end": 20802,
       "key": [
         "scopes",
         "all",
@@ -842,12 +842,12 @@
       "kind": "value",
       "placeholder": "e1/actors.json>scopes>all>distinct_earliest_creation_actors|int",
       "source": "results/e1/actors.json",
-      "start": 20738,
+      "start": 20799,
       "text": "185",
       "value": 185
     },
     {
-      "end": 20751,
+      "end": 20812,
       "key": [
         "scopes",
         "all",
@@ -856,24 +856,24 @@
       "kind": "value",
       "placeholder": "e1/actors.json>scopes>all>intersection|int",
       "source": "results/e1/actors.json",
-      "start": 20750,
+      "start": 20811,
       "text": "0",
       "value": 0
     },
     {
-      "end": 20813,
+      "end": 20874,
       "key": [
         "analysed_clearings_D5_unknown"
       ],
       "kind": "value",
       "placeholder": "e1/analysed-clearing-actors.json>analysed_clearings_D5_unknown|int",
       "source": "results/e1/analysed-clearing-actors.json",
-      "start": 20812,
+      "start": 20873,
       "text": "0",
       "value": 0
     },
     {
-      "end": 20825,
+      "end": 20886,
       "key": [
         "scopes",
         "all",
@@ -883,12 +883,12 @@
       "kind": "value",
       "placeholder": "e1/actors.json>scopes>all>clear_invoice_events>missing|int",
       "source": "results/e1/actors.json",
-      "start": 20820,
+      "start": 20881,
       "text": "7,941",
       "value": 7941
     },
     {
-      "end": 20906,
+      "end": 20967,
       "key": [
         "framed_lines_clear_invoice_missing_actor",
         "total"
@@ -896,12 +896,12 @@
       "kind": "value",
       "placeholder": "e1/analysed-clearing-actors.json>framed_lines_clear_invoice_missing_actor>total|int",
       "source": "results/e1/analysed-clearing-actors.json",
-      "start": 20904,
+      "start": 20965,
       "text": "94",
       "value": 94
     },
     {
-      "end": 20926,
+      "end": 20987,
       "key": [
         "framed_lines_clear_invoice_missing_actor",
         "after_horizon"
@@ -909,12 +909,12 @@
       "kind": "value",
       "placeholder": "e1/analysed-clearing-actors.json>framed_lines_clear_invoice_missing_actor>after_horizon|int",
       "source": "results/e1/analysed-clearing-actors.json",
-      "start": 20924,
+      "start": 20985,
       "text": "94",
       "value": 94
     },
     {
-      "end": 21126,
+      "end": 21187,
       "key": [
         "commits",
         "D-C-2 decision (D5 reading, H3 convention)",
@@ -923,12 +923,12 @@
       "kind": "value",
       "placeholder": "e4/timeline.json>commits>D-C-2 decision (D5 reading, H3 convention)>committer_utc|utc",
       "source": "results/e4/timeline.json",
-      "start": 21103,
+      "start": 21164,
       "text": "2026-10-25 18:21:56 UTC",
       "value": "2026-10-25T18:21:56+00:00"
     },
     {
-      "end": 21185,
+      "end": 21246,
       "key": [
         "calls",
         "e4/jev",
@@ -937,12 +937,12 @@
       "kind": "value",
       "placeholder": "e4/timeline.json>calls>e4/jev>earliest_sent_utc|utc",
       "source": "results/e4/timeline.json",
-      "start": 21162,
+      "start": 21223,
       "text": "2026-10-25 18:42:18 UTC",
       "value": "2026-10-25T18:42:18.076274+00:00"
     },
     {
-      "end": 21257,
+      "end": 21318,
       "key": [
         "estimates",
         "H1",
@@ -952,12 +952,12 @@
       "kind": "value",
       "placeholder": "e2/hypotheses.json>estimates>H1>W30>difference|prop",
       "source": "results/e2/hypotheses.json",
-      "start": 21251,
+      "start": 21312,
       "text": "0.0354",
       "value": 0.03541778319696086
     },
     {
-      "end": 21275,
+      "end": 21336,
       "key": [
         "estimates",
         "H2",
@@ -967,12 +967,12 @@
       "kind": "value",
       "placeholder": "e2/hypotheses.json>estimates>H2>W30>difference|prop",
       "source": "results/e2/hypotheses.json",
-      "start": 21269,
+      "start": 21330,
       "text": "0.0055",
       "value": 0.005533585279580843
     },
     {
-      "end": 21518,
+      "end": 21579,
       "key": [
         "held",
         "clearings"
@@ -980,24 +980,24 @@
       "kind": "value",
       "placeholder": "e3/gate-held.json>held>clearings|int",
       "source": "results/e3/gate-held.json",
-      "start": 21512,
+      "start": 21573,
       "text": "17,748",
       "value": 17748
     },
     {
-      "end": 21529,
+      "end": 21590,
       "key": [
         "analysed_clearings"
       ],
       "kind": "value",
       "placeholder": "e3/gate-held.json>analysed_clearings|int",
       "source": "results/e3/gate-held.json",
-      "start": 21522,
+      "start": 21583,
       "text": "155,534",
       "value": 155534
     },
     {
-      "end": 21556,
+      "end": 21617,
       "key": [
         "held",
         "share_of_clearings"
@@ -1005,12 +1005,12 @@
       "kind": "value",
       "placeholder": "e3/gate-held.json>held>share_of_clearings|pct",
       "source": "results/e3/gate-held.json",
-      "start": 21550,
+      "start": 21611,
       "text": "11.41%",
       "value": 0.11411009811359574
     },
     {
-      "end": 21564,
+      "end": 21625,
       "key": [
         "held",
         "share_of_value"
@@ -1018,102 +1018,102 @@
       "kind": "value",
       "placeholder": "e3/gate-held.json>held>share_of_value|pct",
       "source": "results/e3/gate-held.json",
-      "start": 21558,
+      "start": 21619,
       "text": "19.41%",
       "value": 0.19409569991870718
     },
     {
-      "end": 21585,
+      "end": 21646,
       "key": [
         "held_unknown_only"
       ],
       "kind": "value",
       "placeholder": "e3/gate-held.json>held_unknown_only|int",
       "source": "results/e3/gate-held.json",
-      "start": 21584,
+      "start": 21645,
       "text": "0",
       "value": 0
     },
     {
-      "end": 21941,
+      "end": 22002,
       "kind": "block",
       "placeholder": "#two_by_two",
       "sources": [
         "e3/verdict-by-outcome.json"
       ],
-      "start": 21725,
+      "start": 21786,
       "text": "| gate verdict | corrective within W | no corrective within W |\n| --- | ---: | ---: |\n| would have held | 368 (21,418,557) | 17,380 (145,068,897) |\n| would have allowed | 1,291 (106,294,821) | 136,495 (584,977,346) |"
     },
     {
-      "end": 22443,
+      "end": 22504,
       "kind": "block",
       "placeholder": "#lag_bands",
       "sources": [
         "e3/lag-bands.json"
       ],
-      "start": 22217,
+      "start": 22278,
       "text": "| lag band | clearings | cleared value |\n| --- | ---: | ---: |\n| [0, 1] days | 11 | 109,886 |\n| (1, 7] days | 21 | 113,119 |\n| (7, 30] days | 11 | 803,512 |\n| over 30 days | 39 | 44,240 |\n| never (by T_end) | 610 | 1,015,565 |"
     },
     {
-      "end": 22573,
+      "end": 22634,
       "key": [
         "framed_lines"
       ],
       "kind": "value",
       "placeholder": "e3/human-hold.json>framed_lines|int",
       "source": "results/e3/human-hold.json",
-      "start": 22566,
+      "start": 22627,
       "text": "180,664",
       "value": 180664
     },
     {
-      "end": 22606,
+      "end": 22667,
       "key": [
         "held_by_people"
       ],
       "kind": "value",
       "placeholder": "e3/human-hold.json>held_by_people|int",
       "source": "results/e3/human-hold.json",
-      "start": 22600,
+      "start": 22661,
       "text": "53,262",
       "value": 53262
     },
     {
-      "end": 22627,
+      "end": 22688,
       "key": [
         "released_by_people"
       ],
       "kind": "value",
       "placeholder": "e3/human-hold.json>released_by_people|int",
       "source": "results/e3/human-hold.json",
-      "start": 22620,
+      "start": 22681,
       "text": "101,777",
       "value": 101777
     },
     {
-      "end": 22635,
+      "end": 22696,
       "key": [
         "unclassified_no_invoice_receipt_by_t_end_minus_w"
       ],
       "kind": "value",
       "placeholder": "e3/human-hold.json>unclassified_no_invoice_receipt_by_t_end_minus_w|int",
       "source": "results/e3/human-hold.json",
-      "start": 22629,
+      "start": 22690,
       "text": "25,625",
       "value": 25625
     },
     {
-      "end": 23763,
+      "end": 23824,
       "kind": "block",
       "placeholder": "#human_hold",
       "sources": [
         "e3/human-hold.json"
       ],
-      "start": 23269,
+      "start": 23330,
       "text": "| reading | predicate status at t* | classified lines | held by people | human hold rate |\n| --- | --- | ---: | ---: | ---: |\n| literal (registered text) | defective | 16,264 | 5,664 | 34.83% |\n| literal (registered text) | clean | 91,178 | 1 | 0.00% |\n| literal (registered text) | held unknown | 47,597 | 47,597 | 100.00% |\n| amended (D-C-2 B) | defective | 16,264 | 5,664 | 34.83% |\n| amended (D-C-2 B) | clean | 138,775 | 47,598 | 34.30% |\n| amended (D-C-2 B) | held unknown | 0 | 0 | n/a |"
     },
     {
-      "end": 23810,
+      "end": 23871,
       "key": [
         "amended_reading_D-C-2",
         "by_gate_status_at_t_star",
@@ -1123,12 +1123,12 @@
       "kind": "value",
       "placeholder": "e3/human-hold.json>amended_reading_D-C-2>by_gate_status_at_t_star>defective>human_hold_rate|pct",
       "source": "results/e3/human-hold.json",
-      "start": 23804,
+      "start": 23865,
       "text": "34.83%",
       "value": 0.34825381210034434
     },
     {
-      "end": 23860,
+      "end": 23921,
       "key": [
         "amended_reading_D-C-2",
         "by_gate_status_at_t_star",
@@ -1138,12 +1138,12 @@
       "kind": "value",
       "placeholder": "e3/human-hold.json>amended_reading_D-C-2>by_gate_status_at_t_star>clean>human_hold_rate|pct",
       "source": "results/e3/human-hold.json",
-      "start": 23854,
+      "start": 23915,
       "text": "34.30%",
       "value": 0.3429868492163574
     },
     {
-      "end": 24012,
+      "end": 24073,
       "key": [
         "groups",
         "defective",
@@ -1152,12 +1152,12 @@
       "kind": "value",
       "placeholder": "e4/sample-frame.json>groups>defective>eligible_lines|int",
       "source": "results/e4/sample-frame.json",
-      "start": 24006,
+      "start": 24067,
       "text": "18,006",
       "value": 18006
     },
     {
-      "end": 24064,
+      "end": 24125,
       "key": [
         "groups",
         "clean",
@@ -1166,12 +1166,12 @@
       "kind": "value",
       "placeholder": "e4/sample-frame.json>groups>clean>eligible_lines|int",
       "source": "results/e4/sample-frame.json",
-      "start": 24057,
+      "start": 24118,
       "text": "147,240",
       "value": 147240
     },
     {
-      "end": 24153,
+      "end": 24214,
       "key": [
         "amended_reading_D-C-2",
         "by_gate_status_at_t_star",
@@ -1181,12 +1181,12 @@
       "kind": "value",
       "placeholder": "e3/human-hold.json>amended_reading_D-C-2>by_gate_status_at_t_star>defective>classified_lines|int",
       "source": "results/e3/human-hold.json",
-      "start": 24147,
+      "start": 24208,
       "text": "16,264",
       "value": 16264
     },
     {
-      "end": 24165,
+      "end": 24226,
       "key": [
         "amended_reading_D-C-2",
         "by_gate_status_at_t_star",
@@ -1196,12 +1196,12 @@
       "kind": "value",
       "placeholder": "e3/human-hold.json>amended_reading_D-C-2>by_gate_status_at_t_star>clean>classified_lines|int",
       "source": "results/e3/human-hold.json",
-      "start": 24158,
+      "start": 24219,
       "text": "138,775",
       "value": 138775
     },
     {
-      "end": 25234,
+      "end": 25295,
       "key": [
         "arms",
         "jev",
@@ -1210,12 +1210,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>jev>invalid|int",
       "source": "results/e4/arms.json",
-      "start": 25233,
+      "start": 25294,
       "text": "0",
       "value": 0
     },
     {
-      "end": 25248,
+      "end": 25309,
       "key": [
         "arms",
         "haiku",
@@ -1224,12 +1224,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>haiku>invalid|int",
       "source": "results/e4/arms.json",
-      "start": 25247,
+      "start": 25308,
       "text": "0",
       "value": 0
     },
     {
-      "end": 25312,
+      "end": 25373,
       "key": [
         "arms",
         "people",
@@ -1238,23 +1238,23 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>people>unclassified|int",
       "source": "results/e4/arms.json",
-      "start": 25309,
+      "start": 25370,
       "text": "152",
       "value": 152
     },
     {
-      "end": 26355,
+      "end": 26416,
       "kind": "block",
       "placeholder": "#arms",
       "sources": [
         "e4/arms.json",
         "e4/h4.json"
       ],
-      "start": 25540,
+      "start": 25601,
       "text": "| arm | held, lines with a failed predicate | held, clean lines | kappa with gate | value released on lines with a failed predicate | expected correctives |\n| --- | ---: | ---: | ---: | ---: | ---: |\n| people (from the log) | 301 of 912 (33.0%) | 318 of 936 (34.0%) | n/a | 4,759,520 | 12.260 |\n| Jev | 1,000 of 1,000 (100.0%) | 530 of 1,000 (53.0%) | 0.470 | 0 | 0.000 |\n| Haiku | 996 of 1,000 (99.6%) | 573 of 1,000 (57.3%) | 0.423 | 7,307 | 0.076 |\n| gate | 1,000 of 1,000 (100.0%) | 0 of 1,000 (0.0%) | n/a | 0 | 0.000 |\n\n| family | d (failed predicate minus clean) | SE | p, lower | p, upper | p_TOST |\n| --- | ---: | ---: | ---: | ---: | ---: |\n| H4-Jev | 0.470 | 0.0158 | 2.33 × 10^-238^ | 1 | 1 |\n| H4-Haiku | 0.423 | 0.0158 | 5.54 × 10^-198^ | 1 | 1 |\n\nSource: `results/e4/arms.json`, `results/e4/h4.json`."
     },
     {
-      "end": 26673,
+      "end": 26734,
       "key": [
         "arms",
         "jev",
@@ -1263,12 +1263,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>jev>hold_rate_defective|pct1",
       "source": "results/e4/arms.json",
-      "start": 26667,
+      "start": 26728,
       "text": "100.0%",
       "value": 1.0
     },
     {
-      "end": 26683,
+      "end": 26744,
       "key": [
         "arms",
         "jev",
@@ -1277,12 +1277,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>jev>hold_rate_clean|pct1",
       "source": "results/e4/arms.json",
-      "start": 26678,
+      "start": 26739,
       "text": "53.0%",
       "value": 0.53
     },
     {
-      "end": 26701,
+      "end": 26762,
       "key": [
         "arms",
         "haiku",
@@ -1291,12 +1291,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>haiku>hold_rate_defective|pct1",
       "source": "results/e4/arms.json",
-      "start": 26696,
+      "start": 26757,
       "text": "99.6%",
       "value": 0.996
     },
     {
-      "end": 26711,
+      "end": 26772,
       "key": [
         "arms",
         "haiku",
@@ -1305,12 +1305,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>haiku>hold_rate_clean|pct1",
       "source": "results/e4/arms.json",
-      "start": 26706,
+      "start": 26767,
       "text": "57.3%",
       "value": 0.573
     },
     {
-      "end": 26724,
+      "end": 26785,
       "key": [
         "families",
         "H4-Jev",
@@ -1319,12 +1319,12 @@
       "kind": "value",
       "placeholder": "e4/h4.json>families>H4-Jev>p_tost|p",
       "source": "results/e4/h4.json",
-      "start": 26723,
+      "start": 26784,
       "text": "1",
       "value": 1.0
     },
     {
-      "end": 26738,
+      "end": 26799,
       "key": [
         "families",
         "H4-Haiku",
@@ -1333,12 +1333,12 @@
       "kind": "value",
       "placeholder": "e4/h4.json>families>H4-Haiku>p_tost|p",
       "source": "results/e4/h4.json",
-      "start": 26737,
+      "start": 26798,
       "text": "1",
       "value": 1.0
     },
     {
-      "end": 26950,
+      "end": 27011,
       "key": [
         "arms",
         "jev",
@@ -1347,12 +1347,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>jev>kappa_with_gate|prop3",
       "source": "results/e4/arms.json",
-      "start": 26945,
+      "start": 27006,
       "text": "0.470",
       "value": 0.47
     },
     {
-      "end": 26960,
+      "end": 27021,
       "key": [
         "arms",
         "haiku",
@@ -1361,12 +1361,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>haiku>kappa_with_gate|prop3",
       "source": "results/e4/arms.json",
-      "start": 26955,
+      "start": 27016,
       "text": "0.423",
       "value": 0.42300000000000004
     },
     {
-      "end": 27041,
+      "end": 27102,
       "key": [
         "arms",
         "people",
@@ -1375,12 +1375,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>people>value_released_on_defective_lines_eur|eur",
       "source": "results/e4/arms.json",
-      "start": 27032,
+      "start": 27093,
       "text": "4,759,520",
       "value": 4759520.0
     },
     {
-      "end": 27048,
+      "end": 27109,
       "key": [
         "arms",
         "jev",
@@ -1389,12 +1389,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>jev>value_released_on_defective_lines_eur|eur",
       "source": "results/e4/arms.json",
-      "start": 27047,
+      "start": 27108,
       "text": "0",
       "value": 0
     },
     {
-      "end": 27061,
+      "end": 27122,
       "key": [
         "arms",
         "haiku",
@@ -1403,12 +1403,12 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>haiku>value_released_on_defective_lines_eur|eur",
       "source": "results/e4/arms.json",
-      "start": 27056,
+      "start": 27117,
       "text": "7,307",
       "value": 7307.0
     },
     {
-      "end": 27069,
+      "end": 27130,
       "key": [
         "arms",
         "gate",
@@ -1417,24 +1417,24 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>gate>value_released_on_defective_lines_eur|eur",
       "source": "results/e4/arms.json",
-      "start": 27068,
+      "start": 27129,
       "text": "0",
       "value": 0
     },
     {
-      "end": 27530,
+      "end": 27591,
       "key": [
         "defective_lines_without_e2_group"
       ],
       "kind": "value",
       "placeholder": "e4/arms.json>defective_lines_without_e2_group|int",
       "source": "results/e4/arms.json",
-      "start": 27529,
+      "start": 27590,
       "text": "8",
       "value": 8
     },
     {
-      "end": 27546,
+      "end": 27607,
       "key": [
         "arms",
         "people",
@@ -1443,46 +1443,46 @@
       "kind": "value",
       "placeholder": "e4/arms.json>arms>people>released_defective_lines_without_e2_group|int",
       "source": "results/e4/arms.json",
-      "start": 27545,
+      "start": 27606,
       "text": "1",
       "value": 1
     },
     {
-      "end": 27785,
+      "end": 28075,
       "key": [
         "classified_lines"
       ],
       "kind": "value",
       "placeholder": "e4/arms-classified-lines.json>classified_lines|int",
       "source": "results/e4/arms-classified-lines.json",
-      "start": 27780,
+      "start": 28070,
       "text": "1,848",
       "value": 1848
     },
     {
-      "end": 28494,
+      "end": 28784,
       "kind": "block",
       "placeholder": "#arms_classified",
       "sources": [
         "e4/arms-classified-lines.json"
       ],
-      "start": 27880,
+      "start": 28170,
       "text": "| arm | held, lines with a failed predicate | held, clean lines | kappa with gate | value released on lines with a failed predicate | expected correctives |\n| --- | ---: | ---: | ---: | ---: | ---: |\n| people (from the log) | 301 of 912 (33.0%) | 318 of 936 (34.0%) | n/a | 4,759,520 | 12.260 |\n| Jev | 912 of 912 (100.0%) | 491 of 936 (52.5%) | 0.472 | 0 | 0.000 |\n| Haiku | 908 of 912 (99.6%) | 524 of 936 (56.0%) | 0.433 | 7,307 | 0.076 |\n| gate | 912 of 912 (100.0%) | 0 of 936 (0.0%) | n/a | 0 | 0.000 |\n\nSource: `results/e4/arms-classified-lines.json`; a re-tabulation on the lines the people arm classifies."
     },
     {
-      "end": 28806,
+      "end": 29096,
       "key": [
         "held_by_people"
       ],
       "kind": "value",
       "placeholder": "e3/human-hold-composition.json>held_by_people|int",
       "source": "results/e3/human-hold-composition.json",
-      "start": 28800,
+      "start": 29090,
       "text": "53,262",
       "value": 53262
     },
     {
-      "end": 28838,
+      "end": 29128,
       "key": [
         "by_reason",
         "payment_block_before_first_clearing"
@@ -1490,12 +1490,12 @@
       "kind": "value",
       "placeholder": "e3/human-hold-composition.json>by_reason>payment_block_before_first_clearing|int",
       "source": "results/e3/human-hold-composition.json",
-      "start": 28836,
+      "start": 29126,
       "text": "10",
       "value": 10
     },
     {
-      "end": 28881,
+      "end": 29171,
       "key": [
         "by_reason",
         "no_clearing_within_W_of_first_invoice"
@@ -1503,12 +1503,12 @@
       "kind": "value",
       "placeholder": "e3/human-hold-composition.json>by_reason>no_clearing_within_W_of_first_invoice|int",
       "source": "results/e3/human-hold-composition.json",
-      "start": 28875,
+      "start": 29165,
       "text": "53,182",
       "value": 53182
     },
     {
-      "end": 28919,
+      "end": 29209,
       "key": [
         "by_reason",
         "both"
@@ -1516,54 +1516,54 @@
       "kind": "value",
       "placeholder": "e3/human-hold-composition.json>by_reason>both|int",
       "source": "results/e3/human-hold-composition.json",
-      "start": 28917,
+      "start": 29207,
       "text": "70",
       "value": 70
     },
     {
-      "end": 29531,
+      "end": 29821,
       "kind": "block",
       "placeholder": "#hold_composition",
       "sources": [
         "e3/human-hold-composition.json"
       ],
-      "start": 28930,
+      "start": 29220,
       "text": "| reading | predicate status at t* | held by people | payment block before the first clearing | no clearing within W of the first invoice | both |\n| --- | --- | ---: | ---: | ---: | ---: |\n| literal (registered text) | defective | 5,664 | 9 | 5,619 | 36 |\n| literal (registered text) | clean | 1 | 1 | 0 | 0 |\n| literal (registered text) | held unknown | 47,597 | 0 | 47,563 | 34 |\n| amended (D-C-2 B) | defective | 5,664 | 9 | 5,619 | 36 |\n| amended (D-C-2 B) | clean | 47,598 | 1 | 47,563 | 34 |\n| amended (D-C-2 B) | held unknown | 0 | 0 | 0 | 0 |\n\nSource: `results/e3/human-hold-composition.json`."
     },
     {
-      "end": 30177,
+      "end": 30467,
       "kind": "block",
       "placeholder": "#exploratory",
       "sources": [
         "e4-exploratory/arms-exploratory.json"
       ],
-      "start": 29772,
+      "start": 30062,
       "text": "| family (timeline view, exploratory) | held, lines with a failed predicate | held, clean lines | kappa with gate | invalid replies |\n| --- | ---: | ---: | ---: | ---: |\n| Jev | 126 of 1,000 (12.6%) | 38 of 1,000 (3.8%) | 0.088 | 0 |\n| Haiku | 95 of 1,000 (9.5%) | 39 of 1,000 (3.9%) | 0.056 | 0 |\n\nSource: `results/e4-exploratory/arms-exploratory.json`; exploratory, no interval, outside the Holm family."
     },
     {
-      "end": 30352,
+      "end": 30642,
       "key": [
         "spend_usd_total"
       ],
       "kind": "value",
       "placeholder": "e6/cost.json>spend_usd_total|usd",
       "source": "results/e6/cost.json",
-      "start": 30348,
+      "start": 30638,
       "text": "1.57",
       "value": 1.569800242
     },
     {
-      "end": 31762,
+      "end": 32052,
       "kind": "block",
       "placeholder": "#e5",
       "sources": [
         "e5/derivation.json"
       ],
-      "start": 31127,
+      "start": 31417,
       "text": "| category | clearings | states | L1 | L2 | L3 | fewest fields | derived contract | registered contract | result |\n| --- | ---: | ---: | ---: | ---: | ---: | --- | --- | --- | --- |\n| 2-way | 188 | 3 | 0 | 0 | 4 | `changes` | D4 | D3, D4, D5, D6, D7 | does not reproduce |\n| 3-way, invoice after receipt | 9,640 | 896 | 0 | 81 | 1,585 | `changes`, `clearing_ordinal`, `invoices` | D3, D4 | D1, D2, D3, D4, D5, D6, D7 | does not reproduce |\n| 3-way, invoice before receipt | 145,706 | 758 | 692 | 1,390 | 15,568 | `changes`, `clearing_ordinal`, `invoices`, `receipts` | D1, D2, D3, D4 | D1, D2, D3, D4, D5, D6, D7 | does not reproduce |"
     },
     {
-      "end": 32289,
+      "end": 32579,
       "key": [
         "categories",
         "3-way, invoice after receipt",
@@ -1573,34 +1573,34 @@
       "kind": "value",
       "placeholder": "e5/derivation.json>categories>3-way, invoice after receipt>clearings_per_loss>L1|int",
       "source": "results/e5/derivation.json",
-      "start": 32288,
+      "start": 32578,
       "text": "0",
       "value": 0
     },
     {
-      "end": 33276,
+      "end": 33566,
       "kind": "block",
       "placeholder": "#sufficiency",
       "sources": [
         "e5/sufficiency.json"
       ],
-      "start": 32715,
+      "start": 33005,
       "text": "| category | registered fields | sufficient for | not sufficient for | clearings with L2 | minimal | derived contract a subset |\n| --- | --- | --- | --- | ---: | --- | --- |\n| 2-way | `invoices`, `changes`, `distinct_actors`, `blocks`, `closed` | L1, L2, L3 | none | 0 | no | yes |\n| 3-way, invoice after receipt | `receipts`, `invoices`, `changes`, `distinct_actors`, `blocks`, `closed` | L1, L3 | L2 | 81 | no | yes |\n| 3-way, invoice before receipt | `receipts`, `invoices`, `changes`, `distinct_actors`, `blocks`, `closed` | L1, L3 | L2 | 1,390 | no | yes |"
     },
     {
-      "end": 33775,
+      "end": 34065,
       "key": [
         "median_replay_seconds"
       ],
       "kind": "value",
       "placeholder": "e6/timing-e1.json>median_replay_seconds|sec",
       "source": "results/e6/timing-e1.json",
-      "start": 33770,
+      "start": 34060,
       "text": "153.5",
       "value": 153.5
     },
     {
-      "end": 33806,
+      "end": 34096,
       "key": [
         "hardware",
         "cpu_cores"
@@ -1608,24 +1608,24 @@
       "kind": "value",
       "placeholder": "e6/timing-e1.json>hardware>cpu_cores|int",
       "source": "results/e6/timing-e1.json",
-      "start": 33805,
+      "start": 34095,
       "text": "4",
       "value": 4
     },
     {
-      "end": 33829,
+      "end": 34119,
       "key": [
         "seconds_per_decision"
       ],
       "kind": "value",
       "placeholder": "e6/timing-e1.json>seconds_per_decision|f6",
       "source": "results/e6/timing-e1.json",
-      "start": 33821,
+      "start": 34111,
       "text": "0.000987",
       "value": 0.0009869224735427624
     },
     {
-      "end": 33891,
+      "end": 34181,
       "key": [
         "arms",
         "e4",
@@ -1635,12 +1635,12 @@
       "kind": "value",
       "placeholder": "e6/cost.json>arms>e4>jev>usd_per_decision|usd6",
       "source": "results/e6/cost.json",
-      "start": 33883,
+      "start": 34173,
       "text": "0.000022",
       "value": 2.2303448999999998e-05
     },
     {
-      "end": 33917,
+      "end": 34207,
       "key": [
         "arms",
         "e4",
@@ -1650,23 +1650,23 @@
       "kind": "value",
       "placeholder": "e6/cost.json>arms>e4>haiku>usd_per_decision|usd6",
       "source": "results/e6/cost.json",
-      "start": 33909,
+      "start": 34199,
       "text": "0.000368",
       "value": 0.000367639
     },
     {
-      "end": 35172,
+      "end": 35462,
       "kind": "block",
       "placeholder": "#e7",
       "sources": [
         "e7/units.json",
         "e7/comparisons.json"
       ],
-      "start": 34308,
+      "start": 34598,
       "text": "| log | cases | payments | excluded after T_end' − W | units |\n| --- | ---: | ---: | ---: | ---: |\n| domestic | 10,500 | 10,044 | 2 | 10,042 |\n| international | 6,449 | 6,187 | 0 | 6,187 |\n\n| scope | predicate | failing payments | O' rate, failing | O' rate, all-pass | difference | bootstrap 95% |\n| --- | --- | ---: | ---: | ---: | ---: | --- |\n| domestic | D1' | 2 | 0.500 | 0.000 | 0.500 | [0.0000, 1.0000] |\n| domestic | D2' | 2 | 0.500 | 0.000 | 0.500 | [0.0000, 1.0000] |\n| domestic | D3' | 0 | n/a | 0.000 | n/a | n/a |\n| international | D1' | 0 | n/a | 0.000 | n/a | n/a |\n| international | D2' | 0 | n/a | 0.000 | n/a | n/a |\n| international | D3' | 0 | n/a | 0.000 | n/a | n/a |\n| pooled | D1' | 2 | 0.500 | 0.000 | 0.500 | [0.0000, 1.0000] |\n| pooled | D2' | 2 | 0.500 | 0.000 | 0.500 | [0.0000, 1.0000] |\n| pooled | D3' | 0 | n/a | 0.000 | n/a | n/a |"
     },
     {
-      "end": 35213,
+      "end": 35503,
       "key": [
         "scopes",
         "pooled",
@@ -1675,12 +1675,12 @@
       "kind": "value",
       "placeholder": "e7/exposure.json>scopes>pooled>with_a_failed_predicate|int",
       "source": "results/e7/exposure.json",
-      "start": 35212,
+      "start": 35502,
       "text": "2",
       "value": 2
     },
     {
-      "end": 35223,
+      "end": 35513,
       "key": [
         "scopes",
         "pooled",
@@ -1689,12 +1689,12 @@
       "kind": "value",
       "placeholder": "e7/exposure.json>scopes>pooled>units|int",
       "source": "results/e7/exposure.json",
-      "start": 35217,
+      "start": 35507,
       "text": "16,229",
       "value": 16229
     },
     {
-      "end": 35258,
+      "end": 35548,
       "key": [
         "logs",
         "domestic",
@@ -1703,12 +1703,12 @@
       "kind": "value",
       "placeholder": "e7/unknown-overlap.json>logs>domestic>with_a_predicate_unknown|int",
       "source": "results/e7/unknown-overlap.json",
-      "start": 35257,
+      "start": 35547,
       "text": "2",
       "value": 2
     },
     {
-      "end": 35308,
+      "end": 35598,
       "key": [
         "logs",
         "domestic",
@@ -1717,12 +1717,12 @@
       "kind": "value",
       "placeholder": "e7/unknown-overlap.json>logs>domestic>with_a_predicate_unknown_and_another_failing|int",
       "source": "results/e7/unknown-overlap.json",
-      "start": 35307,
+      "start": 35597,
       "text": "2",
       "value": 2
     },
     {
-      "end": 35380,
+      "end": 35670,
       "key": [
         "scopes",
         "pooled",
@@ -1733,12 +1733,12 @@
       "kind": "value",
       "placeholder": "e7/comparisons.json>scopes>pooled>D1'>all_pass_group>with_O_prime|int",
       "source": "results/e7/comparisons.json",
-      "start": 35379,
+      "start": 35669,
       "text": "0",
       "value": 0
     },
     {
-      "end": 35394,
+      "end": 35684,
       "key": [
         "scopes",
         "pooled",
@@ -1749,12 +1749,12 @@
       "kind": "value",
       "placeholder": "e7/comparisons.json>scopes>pooled>D1'>all_pass_group>payments|int",
       "source": "results/e7/comparisons.json",
-      "start": 35388,
+      "start": 35678,
       "text": "16,227",
       "value": 16227
     },
     {
-      "end": 35611,
+      "end": 35901,
       "key": [
         "scopes",
         "domestic",
@@ -1764,12 +1764,12 @@
       "kind": "value",
       "placeholder": "e7/comparisons.json>scopes>domestic>D1'>bootstrap_resamples_used|int",
       "source": "results/e7/comparisons.json",
-      "start": 35606,
+      "start": 35896,
       "text": "8,685",
       "value": 8685
     },
     {
-      "end": 35621,
+      "end": 35911,
       "key": [
         "bootstrap",
         "B"
@@ -1777,12 +1777,12 @@
       "kind": "value",
       "placeholder": "e7/comparisons.json>bootstrap>B|int",
       "source": "results/e7/comparisons.json",
-      "start": 35615,
+      "start": 35905,
       "text": "10,000",
       "value": 10000
     },
     {
-      "end": 35652,
+      "end": 35942,
       "key": [
         "scopes",
         "pooled",
@@ -1792,12 +1792,12 @@
       "kind": "value",
       "placeholder": "e7/comparisons.json>scopes>pooled>D1'>bootstrap_resamples_used|int",
       "source": "results/e7/comparisons.json",
-      "start": 35647,
+      "start": 35937,
       "text": "8,696",
       "value": 8696
     },
     {
-      "end": 35777,
+      "end": 36067,
       "key": [
         "registered_names_absent_per_log",
         "domestic",
@@ -1806,12 +1806,12 @@
       "kind": "value",
       "placeholder": "e7/vocabulary.json>registered_names_absent_per_log>domestic>0",
       "source": "results/e7/vocabulary.json",
-      "start": 35739,
+      "start": 36029,
       "text": "Declaration FINAL_APPROVED by DIRECTOR",
       "value": "Declaration FINAL_APPROVED by DIRECTOR"
     },
     {
-      "end": 35816,
+      "end": 36106,
       "key": [
         "registered_names_absent_per_log",
         "domestic",
@@ -1820,22 +1820,22 @@
       "kind": "value",
       "placeholder": "e7/vocabulary.json>registered_names_absent_per_log>domestic>1",
       "source": "results/e7/vocabulary.json",
-      "start": 35784,
+      "start": 36074,
       "text": "Declaration REJECTED by DIRECTOR",
       "value": "Declaration REJECTED by DIRECTOR"
     },
     {
-      "end": 39387,
+      "end": 39677,
       "kind": "block",
       "placeholder": "#coverage",
       "sources": [
         "COVERAGE.md"
       ],
-      "start": 35970,
+      "start": 36260,
       "text": "**Detected (BPI 2019, E1 to E6)**\n\n| defect class | predicate | dimension | detected from |\n|---|---|---|---|\n| goods receipt required but absent at clearing | D1 receipt_present | presence | receipts minus cancellations at most zero before t_c (count of `Record Goods Receipt` minus count of `Cancel Goods Receipt`), on a line whose category requires receipt |\n| stale receipt: receipt recorded after clearing | D2 receipt_before_clearing | freshness, order | the first uncancelled `Record Goods Receipt` falls after t_c (lag band registered) |\n| invoice absent at clearing | D3 invoice_present | presence | no `Record Invoice Receipt` before t_c |\n| changed after approval | D4 unchanged_since_approval | validity | `Change Price` or `Change Quantity` between the last approval-bearing event and t_c |\n| same actor created and cleared | D5 distinct_actors | authority | actor of `Create Purchase Order Item` equals actor of `Clear Invoice` |\n| clearing under an open payment block | D6 block_respected | scope | count of `Set Payment Block` minus count of `Remove Payment Block` before t_c greater than zero |\n| line deleted or blocked at clearing | D7 not_deleted | validity | count of `Delete Purchase Order Item` plus `Block Purchase Order Item` minus `Reactivate Purchase Order Item` before t_c greater than zero |\n\n**Detected (BPI 2020 declarations, E7, secondary)**\n\n| defect class | predicate | dimension | detected from |\n|---|---|---|---|\n| paid without an approval event | D1' approval_present | presence | no event in the registered approval list before the payment |\n| approved by a role other than the required one | D2' approval_by_required_role | authority | the approval chain before payment lacks the registered required role |\n| declaration changed after approval | D3' unchanged_since_approval | validity | a resubmission by the employee between the last approval and payment |\n\n**Undetected, with reason**\n\n| defect class | reason |\n|---|---|\n| wrong amounts in the payload | values are anonymised by a linear translation; the log carries cumulative net worth per event, not invoice line content, so a mismatch between invoice text and goods is not observable |\n| fraud | intent is not an event attribute; no predicate over the log separates a fraudulent clearing from an erroneous one, and the paper makes no statement about it |\n| vendor identity (wrong, duplicate or fictitious vendor) | vendor names and ids are anonymised consistently; the log carries no master-data change history or bank details |\n| recovery of corrected payments | the log records the corrective event and nothing about recovery; whether money was returned, offset or written off is not recorded |\n| what a held line becomes | a gate hold is a replay verdict; the log records the human path only, so the fate of a line the gate would have held is not observable |\n| approvals outside the log | approvals given by e-mail, in another system or verbally leave no event; D4's \"last approval-bearing event\" sees only logged approvals |\n| partial receipt and value mismatch per receipt | the replay checks presence and order of the receipt, not the matched values; values are anonymised and the registered mapping reads no per-receipt quantity |\n| duplicate invoice across lines | the case is one purchase-order line and the registered mapping carries no invoice document id, so an invoice cleared on two lines is not linked |"
     },
     {
-      "end": 40311,
+      "end": 40601,
       "kind": "block",
       "placeholder": "#coverage_status",
       "sources": [
@@ -1843,11 +1843,11 @@
         "e1/predicate-unknowns.json",
         "e7/predicates.json"
       ],
-      "start": 39476,
+      "start": 39766,
       "text": "| log | predicate | failed | unknown |\n| --- | --- | ---: | ---: |\n| BPI 2019 (analysed clearings) | D1 | 692 | 0 |\n| BPI 2019 (analysed clearings) | D2 | 692 | 0 |\n| BPI 2019 (analysed clearings) | D3 | 362 | 0 |\n| BPI 2019 (analysed clearings) | D4 | 17,157 | 0 |\n| BPI 2019 (analysed clearings) | D5 | 0 | 0 |\n| BPI 2019 (analysed clearings) | D6 | 4 | 0 |\n| BPI 2019 (analysed clearings) | D7 | 19 | 0 |\n| BPI 2020 domestic (payments) | D1' | 2 | 0 |\n| BPI 2020 domestic (payments) | D2' | 2 | 0 |\n| BPI 2020 domestic (payments) | D3' | 0 | 2 |\n| BPI 2020 international (payments) | D1' | 0 | 0 |\n| BPI 2020 international (payments) | D2' | 0 | 0 |\n| BPI 2020 international (payments) | D3' | 0 | 0 |\n\nSources: `results/e1/coverage-check.json`, `results/e1/predicate-unknowns.json` (BPI 2019 unknown), `results/e7/predicates.json`."
     },
     {
-      "end": 40405,
+      "end": 40695,
       "key": [
         "rows",
         "4",
@@ -1856,12 +1856,12 @@
       "kind": "value",
       "placeholder": "e1/coverage-check.json>rows>4>failed_clearings|int",
       "source": "results/e1/coverage-check.json",
-      "start": 40404,
+      "start": 40694,
       "text": "0",
       "value": 0
     },
     {
-      "end": 40446,
+      "end": 40736,
       "key": [
         "scopes",
         "all",
@@ -1870,12 +1870,12 @@
       "kind": "value",
       "placeholder": "e1/actors.json>scopes>all>distinct_clear_invoice_actors|int",
       "source": "results/e1/actors.json",
-      "start": 40444,
+      "start": 40734,
       "text": "23",
       "value": 23
     },
     {
-      "end": 40494,
+      "end": 40784,
       "key": [
         "scopes",
         "all",
@@ -1884,12 +1884,12 @@
       "kind": "value",
       "placeholder": "e1/actors.json>scopes>all>distinct_earliest_creation_actors|int",
       "source": "results/e1/actors.json",
-      "start": 40491,
+      "start": 40781,
       "text": "185",
       "value": 185
     },
     {
-      "end": 40540,
+      "end": 40830,
       "key": [
         "scopes",
         "all",
@@ -1898,12 +1898,12 @@
       "kind": "value",
       "placeholder": "e1/actors.json>scopes>all>intersection|int",
       "source": "results/e1/actors.json",
-      "start": 40539,
+      "start": 40829,
       "text": "0",
       "value": 0
     },
     {
-      "end": 40698,
+      "end": 40988,
       "key": [
         "scopes",
         "all",
@@ -1913,24 +1913,108 @@
       "kind": "value",
       "placeholder": "e1/actors.json>scopes>all>clear_invoice_events>missing|int",
       "source": "results/e1/actors.json",
-      "start": 40693,
+      "start": 40983,
       "text": "7,941",
       "value": 7941
     },
     {
-      "end": 40781,
+      "end": 41071,
       "key": [
         "analysed_clearings_clearing_actor_missing"
       ],
       "kind": "value",
       "placeholder": "e1/analysed-clearing-actors.json>analysed_clearings_clearing_actor_missing|int",
       "source": "results/e1/analysed-clearing-actors.json",
-      "start": 40780,
+      "start": 41070,
       "text": "0",
       "value": 0
     },
     {
-      "end": 42123,
+      "end": 42157,
+      "key": [
+        "arms",
+        "people",
+        "hold_rate_defective"
+      ],
+      "kind": "value",
+      "placeholder": "e4/arms-classified-lines.json>arms>people>hold_rate_defective|pct1",
+      "source": "results/e4/arms-classified-lines.json",
+      "start": 42152,
+      "text": "33.0%",
+      "value": 0.3300438596491228
+    },
+    {
+      "end": 42167,
+      "key": [
+        "arms",
+        "people",
+        "hold_rate_clean"
+      ],
+      "kind": "value",
+      "placeholder": "e4/arms-classified-lines.json>arms>people>hold_rate_clean|pct1",
+      "source": "results/e4/arms-classified-lines.json",
+      "start": 42162,
+      "text": "34.0%",
+      "value": 0.33974358974358976
+    },
+    {
+      "end": 42262,
+      "key": [
+        "arms",
+        "jev",
+        "hold_rate_defective"
+      ],
+      "kind": "value",
+      "placeholder": "e4/arms-classified-lines.json>arms>jev>hold_rate_defective|pct1",
+      "source": "results/e4/arms-classified-lines.json",
+      "start": 42256,
+      "text": "100.0%",
+      "value": 1.0
+    },
+    {
+      "end": 42272,
+      "key": [
+        "arms",
+        "haiku",
+        "hold_rate_defective"
+      ],
+      "kind": "value",
+      "placeholder": "e4/arms-classified-lines.json>arms>haiku>hold_rate_defective|pct1",
+      "source": "results/e4/arms-classified-lines.json",
+      "start": 42267,
+      "text": "99.6%",
+      "value": 0.9956140350877193
+    },
+    {
+      "end": 42313,
+      "key": [
+        "arms",
+        "jev",
+        "hold_rate_clean"
+      ],
+      "kind": "value",
+      "placeholder": "e4/arms-classified-lines.json>arms>jev>hold_rate_clean|pct1",
+      "source": "results/e4/arms-classified-lines.json",
+      "start": 42308,
+      "text": "52.5%",
+      "value": 0.5245726495726496
+    },
+    {
+      "end": 42323,
+      "key": [
+        "arms",
+        "haiku",
+        "hold_rate_clean"
+      ],
+      "kind": "value",
+      "placeholder": "e4/arms-classified-lines.json>arms>haiku>hold_rate_clean|pct1",
+      "source": "results/e4/arms-classified-lines.json",
+      "start": 42318,
+      "text": "56.0%",
+      "value": 0.5598290598290598
+    },
+    {
+      "end": 42868,
       "key": [
         "classes",
         "at least one defect",
@@ -1939,24 +2023,24 @@
       "kind": "value",
       "placeholder": "e1/exposure.json>classes>at least one defect>share_of_clearings|pct",
       "source": "results/e1/exposure.json",
-      "start": 42117,
+      "start": 42862,
       "text": "11.41%",
       "value": 0.11411009811359574
     },
     {
-      "end": 42138,
+      "end": 42883,
       "key": [
         "analysed_clearings"
       ],
       "kind": "value",
       "placeholder": "e1/exposure.json>analysed_clearings|int",
       "source": "results/e1/exposure.json",
-      "start": 42131,
+      "start": 42876,
       "text": "155,534",
       "value": 155534
     },
     {
-      "end": 42266,
+      "end": 43011,
       "key": [
         "classes",
         "at least one defect",
@@ -1965,725 +2049,749 @@
       "kind": "value",
       "placeholder": "e1/exposure.json>classes>at least one defect>share_of_value|pct",
       "source": "results/e1/exposure.json",
-      "start": 42260,
+      "start": 43005,
       "text": "19.41%",
       "value": 0.19409569991870718
     },
     {
-      "end": 50511,
+      "end": 51565,
       "kind": "block",
       "placeholder": "#references",
       "sources": [
         "verified-citations.json",
         "prereg/data.lock"
       ],
-      "start": 43452,
+      "start": 44506,
       "text": "- <!-- ref:bpi2019-nonstudent-4-badakhshan -->Peyman Badakhshan, Samuel Gosling, Jerome Geyer-Klingeberg, Janina Nakladal, Johannes Schukat, Jennifer Gsenger (2019). Process Mining in the Coatings and Paints Industry: The Purchase Order Handling Process. BPI Challenge 2019 report, non-student category, ICPM 2019. https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-4.pdf\n- <!-- ref:besanson-paper4-2026 -->Gaston Besanson (2026a). One Gate Is Not Enough: Composing Stateful Pre-Action Controls for Agentic AI. arXiv:2608.18360 (paper 4 of the SARC series; repository sarc-suite-one-pass). https://arxiv.org/abs/2608.18360\n- <!-- ref:besanson-paper5-2026 -->Gaston Besanson (2026b). Compiling Sufficient Governance Context from Declared Losses and Reachable States: Exact Observation-Contract Synthesis with Cardinality and Cost Objectives. arXiv:2609.26016 (paper 5 of this programme; CITATION.cff of sarc-authority-derivation). https://arxiv.org/pdf/2609.26016\n- <!-- ref:besanson-paper6-repo-2026 -->Gaston Besanson (2026c). gigo-jev-probe: a preregistered probe of a model as an advisory data-quality critic (paper 6 of the SARC series). public GitHub repository besanson/gigo-jev-probe, pinned in engines.lock at e1fc75b. https://github.com/besanson/gigo-jev-probe\n- <!-- ref:bpi2019-nonstudent-6-diba -->Kiarash Diba, Simon Remy, Luise Pufahl (2019). BPI Challenge 2019: Performance and Compliance Analysis of Procurement Processes Using Process Mining. BPI Challenge 2019 report, non-student category, ICPM 2019. https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-6.pdf\n- <!-- ref:harding-managers-machines-2022 -->Matthew Harding, Gabriel F. R. Vasconcelos (2022). Managers versus Machines: Do Algorithms Replicate Human Intuition in Credit Ratings?. arXiv:2202.04218 (submitted 2022-02-09). https://arxiv.org/abs/2202.04218\n- <!-- ref:icpm-bpi-challenge-2019-page -->ICPM 2019 (2019). BPI Challenge 2019 (ICPM 2019 conference page). https://icpmconference.org/2019/bpi-challenge/\n- <!-- ref:icpm-2020-awards-page -->ICPM 2020 (2020a). Awards (ICPM 2020). https://icpmconference.org/2020/awards/\n- <!-- ref:icpm-bpi-challenge-2020-page -->ICPM 2020 (2020b). BPI Challenge 2020 (ICPM 2020 conference page). https://icpmconference.org/2020/bpi-challenge/\n- <!-- ref:kadir-auditcopilot-2025 -->Md Abdul Kadir, Sai Suresh Macharla Vasu, Sidharth S. Nair, Daniel Sonntag (2025). AuditCopilot: Leveraging LLMs for Fraud Detection in Double-Entry Bookkeeping. arXiv:2512.02726 (submitted 2025-12-02). https://arxiv.org/abs/2512.02726\n- <!-- ref:bpi2020-student-award-kas -->Stijn Kas, Ruben Post, Sebastiaan Wiewel (2020). Automated Machine Learning in a Process Mining Context. BPI Student Challenge Award, ICPM 2020. https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM_2020_paper_44.pdf\n- <!-- ref:ly-compliance-monitoring-2015 -->Linh Thao Ly, Fabrizio Maria Maggi, Marco Montali, Stefanie Rinderle-Ma, Wil M.P. van der Aalst (2015). Compliance monitoring in business processes: Functionalities, application, and tool-support. Information Systems 54, 209-234 (December 2015), Elsevier. doi:10.1016/j.is.2015.02.007\n- <!-- ref:bpi2019-student-4-meyerzuwickern -->Vincent Finn Alexander Meyer zu Wickern, Mounisha Juluru, Anshu Roy, Viet-Hung Vu, Thi-Thu-Hang Nguyen (2019). Analysis and prediction of purchasing compliance using process mining. BPI Challenge 2019 report, student category, ICPM 2019. https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Student-Submission-4.pdf\n- <!-- ref:nguyen-deviance-mining-2016 -->Hoang Nguyen, Marlon Dumas, Marcello La Rosa, Fabrizio Maria Maggi, Suriadi Suriadi (2016). Business Process Deviance Mining: Review and Evaluation. arXiv:1608.08252 (submitted 2016-08-29). https://arxiv.org/abs/1608.08252\n- <!-- ref:outmazgin-workarounds-2013 -->Nesi Outmazgin, Pnina Soffer (2013). Business Process Workarounds: What Can and Cannot Be Detected by Process Mining. Enterprise, Business-Process and Information Systems Modeling (BPMDS 2013, EMMSAD 2013), LNBIP vol. 147, pp. 48-62, Springer. doi:10.1007/978-3-642-38484-4_5\n- <!-- ref:palma-business-compromise-2026 -->Diego Palma, Kyu Bin Kim, Zhen Han, Allbright Dsouza, Zhiyuan Liu (2026). Business Compromise Detection with Agentic AI and LLM-driven Knowledge Discovery. arXiv:2609.32643 (submitted 2026-09-26). https://arxiv.org/html/2609.32643\n- <!-- ref:pcaob-release-2004-001 -->Public Company Accounting Oversight Board (2004). An Audit of Internal Control Over Financial Reporting Performed in Conjunction with an Audit of Financial Statements (PCAOB Release No. 2004-001). PCAOB Release 2004-001, March 9, 2004. https://pcaobus.org/Rulemaking/Docket008/2004-03-09_Release_2004-001-all.pdf\n- <!-- ref:peleg-mining-outcomes-2008 -->Mor Peleg, Pnina Soffer, Johny Ghattas (2008). Mining Process Execution and Outcomes – Position Paper. Business Process Management Workshops (BPM 2007), LNCS vol. 4928, pp. 395-400, Springer. doi:10.1007/978-3-540-78238-4_40\n- <!-- ref:pesic-declare-2007 -->Maja Pesic, Helen Schonenberg, Wil M.P. van der Aalst (2007). DECLARE: Full Support for Loosely-Structured Processes. 11th IEEE International Enterprise Distributed Object Computing Conference (EDOC 2007), p. 287, IEEE. doi:10.1109/EDOC.2007.14\n- <!-- ref:bpi2019-nonstudent-8-porter -->Adrien Porter, David Masse, Nuss Visatemongkolchai, Jithendra Seneviratne, Tanvee Deokule, Nicholas Hartman (2019). Balancing Efficiency and Risk in Procure to Pay: Safely Realizing Cost Savings Using Process Mining Techniques. BPI Challenge 2019 report, non-student category, ICPM 2019. https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-8.pdf\n- <!-- ref:bpi2020-award-hobeck -->Luise Pufahl, Richard Hobeck, Paul Binetruy, Wepan Chada, Mykola Digtiar, Kim Julian Gülle, Marta Slarzynska, Fabian Stiehle, Ingo Weber (2020). Performance, Variant, and Conformance Analysis of an Academic Travel Reimbursement Process. BPI Challenge Award, ICPM 2020. https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM_2020_paper_148.pdf\n- <!-- ref:teinemaa-outcome-ppm-2019 -->Irene Teinemaa, Marlon Dumas, Marcello La Rosa, Fabrizio Maria Maggi (2019). Outcome-Oriented Predictive Process Monitoring. ACM Transactions on Knowledge Discovery from Data 13(2), 2019. doi:10.1145/3301300\n- <!-- ref:vanderaalst-process-mining-2016 -->Wil van der Aalst (2016). Process Mining: Data Science in Action. Springer Berlin, Heidelberg, second edition. doi:10.1007/978-3-662-49851-4\n- Boudewijn van Dongen. BPI Challenge 2019. 4TU.ResearchData, CC BY 4.0. doi:10.4121/uuid:d06aff4b-79f0-45e6-8ec8-e19730c248f1\n- Boudewijn van Dongen. BPI Challenge 2020: International Declarations. 4TU.ResearchData, CC BY-NC 4.0. doi:10.4121/uuid:2bbf8f6a-fc50-48eb-aa9e-c4ea5ef7e8c5\n- Boudewijn van Dongen. BPI Challenge 2020: Domestic Declarations. 4TU.ResearchData, CC BY-NC 4.0. doi:10.4121/uuid:3f422315-ed9d-4882-891f-e180b5b4feb5"
     },
     {
-      "end": 51099,
+      "end": 52153,
       "kind": "block",
       "placeholder": "#registered_numbers",
       "sources": [
         "prereg/p7-v1.1.md section 9"
       ],
-      "start": 50606,
+      "start": 51660,
       "text": "| item | value |\n|---|---|\n| window | Create Purchase Order Item in calendar 2018 (UTC) |\n| W | 60 days; sensitivity 30 days |\n| lag bands | [0, 1], (1, 7], (7, 30], over 30 days, never |\n| K (framework exclusion) | more than 12 clearings |\n| E0 | 500 lines |\n| E4 | N_d = 1,000, N_c = 1,000; m = 0.05 |\n| alpha | 0.05, Holm over H1, H2, H3, H4-Jev, H4-Haiku |\n| bootstrap | B = 10,000, purchase-document clusters |\n| seed | 20261201 |\n| cap | USD 60 |\n| pins | `engines.lock` at this commit |"
     },
     {
-      "end": 52511,
+      "end": 53565,
       "kind": "block",
       "placeholder": "#claims",
       "sources": [
         "CLAIMS.md"
       ],
-      "start": 51196,
+      "start": 52250,
       "text": "| claim | status | evidence |\n| --- | --- | --- |\n| C1 | supported | `results/e5/sufficiency.json`, `results/e1/evidence-set.jsonl.gz`, `tests/test_properties.py`; engine evidence `results/mutation.json` |\n| C2 | supported | `results/e1/exposure.json`, `results/e1/exposure-by-stratum.json` |\n| C3 | supported | `results/e2/hypotheses.json` |\n| C4 | supported | `results/e2/hypotheses.json` |\n| C5 | inconclusive: defect class has zero incidence in the analysed clearings | `results/e1/coverage-check.json`, `results/e2/hypotheses.json` |\n| C6 | not supported for both families | `results/e4/h4.json` |\n| C7 | supported | `results/e3/gate-held.json`, `results/e3/verdict-by-outcome.json`, `results/e3/lag-bands.json` |\n| C8 | supported | `results/e4/arms.json` |\n| C9 | not supported: 2-way does not reproduce; 3-way, invoice after receipt does not reproduce; 3-way, invoice before receipt does not reproduce | `results/e5/derivation.json` |\n| C10 | supported | `results/e6/timing-e1.json`, `results/e6/cost.json` |\n| C11 | inconclusive | `results/e7/comparisons.json` |\n| C12 | supported; D5 class zero incidence | `results/e1/coverage-check.json` |\n| C13 | supported for the internal double runs; external reproduction pending (FINAL-AUDIT item 11) | `results/reproducibility.json`, `results/e4/double-run.json` |"
     },
     {
-      "end": 53941,
+      "end": 54995,
       "key": [
         "files_compared"
       ],
       "kind": "value",
       "placeholder": "reproducibility.json>files_compared|int",
       "source": "results/reproducibility.json",
-      "start": 53939,
+      "start": 54993,
       "text": "16",
       "value": 16
     },
     {
-      "end": 75127,
+      "end": 76181,
       "kind": "block",
       "placeholder": "#strata",
       "sources": [
         "e1/exposure-by-stratum.json"
       ],
-      "start": 54509,
+      "start": 55563,
       "text": "**Item category**\n\n| stratum | defect class (failed predicate) | clearings | share | clustered 95% | share of value | clustered 95% |\n| --- | --- | ---: | ---: | --- | ---: | --- |\n| 2-way | D4 | 4 of 188 | 2.13% | [0.00%, 4.94%] | 2.68% | [0.00%, 8.71%] |\n| 2-way | at least one defect | 4 of 188 | 2.13% | [0.00%, 4.94%] | 2.68% | [0.00%, 8.71%] |\n| 3-way, invoice after receipt | D3 | 9 of 9,640 | 0.09% | [0.01%, 0.21%] | 0.02% | [0.00%, 0.05%] |\n| 3-way, invoice after receipt | D4 | 1,585 of 9,640 | 16.44% | [14.36%, 18.73%] | 15.65% | [9.48%, 24.64%] |\n| 3-way, invoice after receipt | at least one defect | 1,592 of 9,640 | 16.51% | [14.42%, 18.79%] | 15.67% | [9.50%, 24.66%] |\n| 3-way, invoice before receipt | D1 class (absent receipt) | 610 of 145,706 | 0.42% | [0.32%, 0.53%] | 0.21% | [0.14%, 0.28%] |\n| 3-way, invoice before receipt | D2 class (stale receipt) | 82 of 145,706 | 0.06% | [0.02%, 0.10%] | 0.22% | [0.05%, 0.45%] |\n| 3-way, invoice before receipt | D3 | 353 of 145,706 | 0.24% | [0.15%, 0.35%] | 0.04% | [0.02%, 0.06%] |\n| 3-way, invoice before receipt | D4 | 15,568 of 145,706 | 10.68% | [10.21%, 11.19%] | 21.92% | [20.71%, 23.18%] |\n| 3-way, invoice before receipt | D6 | 4 of 145,706 | 0.00% | [0.00%, 0.01%] | 0.05% | [0.00%, 0.16%] |\n| 3-way, invoice before receipt | D7 | 19 of 145,706 | 0.01% | [0.01%, 0.02%] | 0.02% | [0.00%, 0.04%] |\n| 3-way, invoice before receipt | at least one defect | 16,152 of 145,706 | 11.09% | [10.60%, 11.60%] | 22.21% | [21.00%, 23.48%] |\n\n**Spend area**\n\n| stratum | defect class (failed predicate) | clearings | share | clustered 95% | share of value | clustered 95% |\n| --- | --- | ---: | ---: | --- | ---: | --- |\n| Additives | D1 class (absent receipt) | 9 of 10,206 | 0.09% | [0.04%, 0.15%] | 0.13% | [0.02%, 0.29%] |\n| Additives | D2 class (stale receipt) | 4 of 10,206 | 0.04% | [0.01%, 0.08%] | 0.02% | [0.00%, 0.04%] |\n| Additives | D3 | 4 of 10,206 | 0.04% | [0.01%, 0.08%] | 0.01% | [0.00%, 0.04%] |\n| Additives | D4 | 1,207 of 10,206 | 11.83% | [11.10%, 12.57%] | 13.94% | [12.60%, 15.32%] |\n| Additives | D7 | 1 of 10,206 | 0.01% | [0.00%, 0.03%] | 0.01% | [0.00%, 0.02%] |\n| Additives | at least one defect | 1,219 of 10,206 | 11.94% | [11.22%, 12.69%] | 14.07% | [12.74%, 15.46%] |\n| CAPEX & SOCS | D1 class (absent receipt) | 46 of 4,672 | 0.98% | [0.62%, 1.40%] | 0.74% | [0.38%, 1.25%] |\n| CAPEX & SOCS | D2 class (stale receipt) | 9 of 4,672 | 0.19% | [0.00%, 0.50%] | 0.10% | [0.00%, 0.31%] |\n| CAPEX & SOCS | D3 | 15 of 4,672 | 0.32% | [0.11%, 0.59%] | 0.06% | [0.01%, 0.13%] |\n| CAPEX & SOCS | D4 | 278 of 4,672 | 5.95% | [4.50%, 7.90%] | 25.55% | [12.52%, 38.45%] |\n| CAPEX & SOCS | at least one defect | 332 of 4,672 | 7.11% | [5.57%, 9.12%] | 26.35% | [13.48%, 39.09%] |\n| Chemicals & Intermediates | at least one defect | 0 of 1 | 0.00% | [0.00%, 0.00%] | 0.00% | [0.00%, 0.00%] |\n| Commodity Resins | D1 class (absent receipt) | 1 of 306 | 0.33% | [0.00%, 1.10%] | 0.79% | [0.00%, 2.69%] |\n| Commodity Resins | D4 | 80 of 306 | 26.14% | [19.93%, 32.47%] | 27.89% | [19.61%, 36.60%] |\n| Commodity Resins | at least one defect | 81 of 306 | 26.47% | [20.18%, 32.78%] | 28.67% | [20.42%, 37.47%] |\n| Energy | at least one defect | 0 of 3 | 0.00% | [0.00%, 0.00%] | 0.00% | [0.00%, 0.00%] |\n| Enterprise Services | D1 class (absent receipt) | 1 of 370 | 0.27% | [0.00%, 0.90%] | 0.09% | [0.00%, 0.39%] |\n| Enterprise Services | D2 class (stale receipt) | 1 of 370 | 0.27% | [0.00%, 0.93%] | 0.01% | [0.00%, 0.03%] |\n| Enterprise Services | D4 | 20 of 370 | 5.41% | [2.55%, 9.09%] | 7.21% | [1.89%, 18.58%] |\n| Enterprise Services | at least one defect | 22 of 370 | 5.95% | [2.98%, 9.83%] | 7.30% | [1.95%, 18.80%] |\n| Latex & Monomers | D1 class (absent receipt) | 7 of 2,584 | 0.27% | [0.07%, 0.54%] | 0.26% | [0.05%, 0.55%] |\n| Latex & Monomers | D2 class (stale receipt) | 3 of 2,584 | 0.12% | [0.00%, 0.27%] | 0.15% | [0.00%, 0.36%] |\n| Latex & Monomers | D3 | 1 of 2,584 | 0.04% | [0.00%, 0.12%] | 0.01% | [0.00%, 0.02%] |\n| Latex & Monomers | D4 | 479 of 2,584 | 18.54% | [16.86%, 20.28%] | 18.46% | [16.67%, 20.40%] |\n| Latex & Monomers | D7 | 1 of 2,584 | 0.04% | [0.00%, 0.12%] | 0.05% | [0.00%, 0.16%] |\n| Latex & Monomers | at least one defect | 488 of 2,584 | 18.89% | [17.18%, 20.63%] | 18.82% | [17.02%, 20.76%] |\n| Logistics | D3 | 1 of 2,069 | 0.05% | [0.00%, 0.16%] | 0.01% | [0.00%, 0.03%] |\n| Logistics | D4 | 114 of 2,069 | 5.51% | [3.09%, 8.13%] | 6.11% | [1.88%, 15.39%] |\n| Logistics | at least one defect | 114 of 2,069 | 5.51% | [3.09%, 8.13%] | 6.11% | [1.88%, 15.39%] |\n| Marketing | D1 class (absent receipt) | 6 of 1,220 | 0.49% | [0.00%, 1.31%] | 0.03% | [0.00%, 0.12%] |\n| Marketing | D4 | 108 of 1,220 | 8.85% | [5.94%, 12.34%] | 47.19% | [25.71%, 59.53%] |\n| Marketing | at least one defect | 114 of 1,220 | 9.34% | [6.36%, 12.92%] | 47.22% | [25.76%, 59.54%] |\n| Others | D1 class (absent receipt) | 8 of 1,776 | 0.45% | [0.00%, 1.24%] | 0.00% | [0.00%, 0.00%] |\n| Others | D4 | 86 of 1,776 | 4.84% | [3.52%, 6.31%] | 9.16% | [2.55%, 22.87%] |\n| Others | at least one defect | 94 of 1,776 | 5.29% | [3.85%, 6.89%] | 9.16% | [2.55%, 22.88%] |\n| Packaging | D1 class (absent receipt) | 136 of 63,561 | 0.21% | [0.16%, 0.27%] | 0.24% | [0.12%, 0.39%] |\n| Packaging | D2 class (stale receipt) | 34 of 63,561 | 0.05% | [0.00%, 0.15%] | 0.04% | [0.00%, 0.09%] |\n| Packaging | D3 | 15 of 63,561 | 0.02% | [0.01%, 0.04%] | 0.02% | [0.01%, 0.05%] |\n| Packaging | D4 | 6,901 of 63,561 | 10.86% | [10.31%, 11.45%] | 18.95% | [17.63%, 20.33%] |\n| Packaging | D7 | 4 of 63,561 | 0.01% | [0.00%, 0.01%] | 0.00% | [0.00%, 0.01%] |\n| Packaging | at least one defect | 7,035 of 63,561 | 11.07% | [10.52%, 11.66%] | 19.13% | [17.82%, 20.53%] |\n| Pigments & Colorants | D1 class (absent receipt) | 3 of 1,694 | 0.18% | [0.00%, 0.41%] | 0.24% | [0.00%, 0.67%] |\n| Pigments & Colorants | D2 class (stale receipt) | 2 of 1,694 | 0.12% | [0.00%, 0.37%] | 0.19% | [0.00%, 0.60%] |\n| Pigments & Colorants | D3 | 1 of 1,694 | 0.06% | [0.00%, 0.19%] | 0.17% | [0.00%, 0.56%] |\n| Pigments & Colorants | D4 | 295 of 1,694 | 17.41% | [15.35%, 19.59%] | 29.19% | [23.93%, 34.78%] |\n| Pigments & Colorants | at least one defect | 297 of 1,694 | 17.53% | [15.48%, 19.71%] | 29.37% | [24.09%, 34.95%] |\n| Real Estate | D4 | 5 of 151 | 3.31% | [0.60%, 7.25%] | 12.38% | [0.45%, 25.30%] |\n| Real Estate | at least one defect | 5 of 151 | 3.31% | [0.60%, 7.25%] | 12.38% | [0.45%, 25.30%] |\n| Sales | D1 class (absent receipt) | 126 of 46,891 | 0.27% | [0.17%, 0.41%] | 0.32% | [0.12%, 0.59%] |\n| Sales | D2 class (stale receipt) | 14 of 46,891 | 0.03% | [0.00%, 0.08%] | 0.02% | [0.00%, 0.05%] |\n| Sales | D3 | 62 of 46,891 | 0.13% | [0.05%, 0.26%] | 0.10% | [0.04%, 0.19%] |\n| Sales | D4 | 3,244 of 46,891 | 6.92% | [6.34%, 7.55%] | 15.91% | [13.78%, 18.18%] |\n| Sales | D7 | 10 of 46,891 | 0.02% | [0.00%, 0.05%] | 0.05% | [0.00%, 0.14%] |\n| Sales | at least one defect | 3,378 of 46,891 | 7.20% | [6.61%, 7.84%] | 16.24% | [14.14%, 18.48%] |\n| Solvents | D3 | 3 of 1,573 | 0.19% | [0.00%, 0.43%] | 0.04% | [0.00%, 0.09%] |\n| Solvents | D4 | 216 of 1,573 | 13.73% | [11.80%, 15.69%] | 16.61% | [13.63%, 19.78%] |\n| Solvents | at least one defect | 219 of 1,573 | 13.92% | [12.00%, 15.87%] | 16.64% | [13.67%, 19.81%] |\n| Specialty Resins | D4 | 228 of 1,295 | 17.61% | [15.33%, 19.94%] | 17.00% | [14.21%, 19.98%] |\n| Specialty Resins | at least one defect | 228 of 1,295 | 17.61% | [15.33%, 19.94%] | 17.00% | [14.21%, 19.98%] |\n| Spend Area Unidentified | D4 | 3 of 18 | 16.67% | [0.00%, 40.00%] | 9.65% | [0.00%, 30.06%] |\n| Spend Area Unidentified | at least one defect | 3 of 18 | 16.67% | [0.00%, 40.00%] | 9.65% | [0.00%, 30.06%] |\n| Titanium Dioxides | D1 class (absent receipt) | 3 of 429 | 0.70% | [0.00%, 1.59%] | 0.10% | [0.00%, 0.27%] |\n| Titanium Dioxides | D2 class (stale receipt) | 2 of 429 | 0.47% | [0.00%, 1.21%] | 1.66% | [0.00%, 4.28%] |\n| Titanium Dioxides | D4 | 119 of 429 | 27.74% | [22.84%, 32.89%] | 36.36% | [28.19%, 44.61%] |\n| Titanium Dioxides | D6 | 2 of 429 | 0.47% | [0.00%, 1.51%] | 0.59% | [0.00%, 1.98%] |\n| Titanium Dioxides | at least one defect | 124 of 429 | 28.90% | [23.95%, 34.11%] | 37.05% | [28.83%, 45.32%] |\n| Trading & End Products | D1 class (absent receipt) | 261 of 15,104 | 1.73% | [0.93%, 2.68%] | 0.07% | [0.03%, 0.13%] |\n| Trading & End Products | D2 class (stale receipt) | 12 of 15,104 | 0.08% | [0.01%, 0.16%] | 0.13% | [0.02%, 0.28%] |\n| Trading & End Products | D3 | 259 of 15,104 | 1.71% | [0.93%, 2.68%] | 0.17% | [0.05%, 0.32%] |\n| Trading & End Products | D4 | 3,339 of 15,104 | 22.11% | [18.90%, 25.57%] | 43.14% | [38.19%, 47.92%] |\n| Trading & End Products | D7 | 3 of 15,104 | 0.02% | [0.00%, 0.05%] | 0.01% | [0.00%, 0.04%] |\n| Trading & End Products | at least one defect | 3,556 of 15,104 | 23.54% | [20.24%, 27.05%] | 43.47% | [38.53%, 48.25%] |\n| Workforce Services | D4 | 62 of 281 | 22.06% | [15.93%, 28.45%] | 28.17% | [19.43%, 36.45%] |\n| Workforce Services | at least one defect | 62 of 281 | 22.06% | [15.93%, 28.45%] | 28.17% | [19.43%, 36.45%] |\n| missing | D1 class (absent receipt) | 3 of 1,330 | 0.23% | [0.00%, 0.51%] | 0.17% | [0.00%, 0.44%] |\n| missing | D2 class (stale receipt) | 1 of 1,330 | 0.08% | [0.00%, 0.24%] | 0.33% | [0.00%, 1.04%] |\n| missing | D3 | 1 of 1,330 | 0.08% | [0.00%, 0.24%] | 0.01% | [0.00%, 0.03%] |\n| missing | D4 | 373 of 1,330 | 28.05% | [25.10%, 30.94%] | 28.16% | [23.41%, 32.95%] |\n| missing | D6 | 2 of 1,330 | 0.15% | [0.00%, 0.47%] | 0.04% | [0.00%, 0.12%] |\n| missing | at least one defect | 377 of 1,330 | 28.35% | [25.34%, 31.29%] | 28.54% | [23.77%, 33.37%] |\n\n**Month of the clearing**\n\n| stratum | defect class (failed predicate) | clearings | share | clustered 95% | share of value | clustered 95% |\n| --- | --- | ---: | ---: | --- | ---: | --- |\n| 2018-01 | D1 class (absent receipt) | 1 of 255 | 0.39% | [0.00%, 1.68%] | 3.62% | [0.00%, 12.12%] |\n| 2018-01 | D3 | 1 of 255 | 0.39% | [0.00%, 1.68%] | 3.62% | [0.00%, 12.12%] |\n| 2018-01 | D4 | 8 of 255 | 3.14% | [0.73%, 7.95%] | 9.26% | [0.10%, 22.02%] |\n| 2018-01 | at least one defect | 9 of 255 | 3.53% | [0.94%, 8.63%] | 12.88% | [0.34%, 26.75%] |\n| 2018-02 | D1 class (absent receipt) | 5 of 2,812 | 0.18% | [0.00%, 0.41%] | 0.01% | [0.00%, 0.02%] |\n| 2018-02 | D2 class (stale receipt) | 1 of 2,812 | 0.04% | [0.00%, 0.12%] | 0.34% | [0.00%, 1.31%] |\n| 2018-02 | D3 | 2 of 2,812 | 0.07% | [0.00%, 0.19%] | 0.03% | [0.00%, 0.12%] |\n| 2018-02 | D4 | 96 of 2,812 | 3.41% | [2.60%, 4.32%] | 2.37% | [1.21%, 4.41%] |\n| 2018-02 | at least one defect | 103 of 2,812 | 3.66% | [2.83%, 4.59%] | 2.75% | [1.38%, 5.13%] |\n| 2018-03 | D1 class (absent receipt) | 19 of 9,790 | 0.19% | [0.07%, 0.36%] | 0.06% | [0.01%, 0.12%] |\n| 2018-03 | D2 class (stale receipt) | 4 of 9,790 | 0.04% | [0.00%, 0.10%] | 0.10% | [0.00%, 0.29%] |\n| 2018-03 | D3 | 11 of 9,790 | 0.11% | [0.02%, 0.26%] | 0.04% | [0.00%, 0.11%] |\n| 2018-03 | D4 | 855 of 9,790 | 8.73% | [7.37%, 10.37%] | 8.36% | [6.02%, 11.75%] |\n| 2018-03 | D7 | 2 of 9,790 | 0.02% | [0.00%, 0.05%] | 0.00% | [0.00%, 0.02%] |\n| 2018-03 | at least one defect | 877 of 9,790 | 8.96% | [7.58%, 10.61%] | 8.51% | [6.14%, 11.95%] |\n| 2018-04 | D1 class (absent receipt) | 87 of 15,063 | 0.58% | [0.21%, 1.06%] | 0.15% | [0.01%, 0.36%] |\n| 2018-04 | D2 class (stale receipt) | 6 of 15,063 | 0.04% | [0.01%, 0.07%] | 0.02% | [0.00%, 0.07%] |\n| 2018-04 | D3 | 73 of 15,063 | 0.48% | [0.13%, 0.97%] | 0.01% | [0.00%, 0.02%] |\n| 2018-04 | D4 | 1,737 of 15,063 | 11.53% | [10.29%, 12.95%] | 15.08% | [12.24%, 18.36%] |\n| 2018-04 | D6 | 2 of 15,063 | 0.01% | [0.00%, 0.04%] | 0.32% | [0.00%, 1.06%] |\n| 2018-04 | D7 | 2 of 15,063 | 0.01% | [0.00%, 0.04%] | 0.01% | [0.00%, 0.03%] |\n| 2018-04 | at least one defect | 1,827 of 15,063 | 12.13% | [10.83%, 13.61%] | 15.54% | [12.63%, 18.94%] |\n| 2018-05 | D1 class (absent receipt) | 60 of 18,939 | 0.32% | [0.15%, 0.58%] | 0.09% | [0.03%, 0.19%] |\n| 2018-05 | D2 class (stale receipt) | 8 of 18,939 | 0.04% | [0.01%, 0.10%] | 0.03% | [0.00%, 0.07%] |\n| 2018-05 | D3 | 38 of 18,939 | 0.20% | [0.05%, 0.46%] | 0.03% | [0.01%, 0.06%] |\n| 2018-05 | D4 | 1,909 of 18,939 | 10.08% | [9.27%, 10.95%] | 16.92% | [10.76%, 25.85%] |\n| 2018-05 | D7 | 1 of 18,939 | 0.01% | [0.00%, 0.02%] | 0.00% | [0.00%, 0.01%] |\n| 2018-05 | at least one defect | 1,972 of 18,939 | 10.41% | [9.57%, 11.30%] | 17.03% | [10.85%, 25.97%] |\n| 2018-06 | D1 class (absent receipt) | 70 of 19,748 | 0.35% | [0.20%, 0.53%] | 0.10% | [0.03%, 0.21%] |\n| 2018-06 | D2 class (stale receipt) | 9 of 19,748 | 0.05% | [0.01%, 0.09%] | 0.10% | [0.01%, 0.25%] |\n| 2018-06 | D3 | 44 of 19,748 | 0.22% | [0.08%, 0.39%] | 0.01% | [0.00%, 0.01%] |\n| 2018-06 | D4 | 2,261 of 19,748 | 11.45% | [10.30%, 12.69%] | 15.09% | [11.54%, 19.60%] |\n| 2018-06 | at least one defect | 2,331 of 19,748 | 11.80% | [10.64%, 13.06%] | 15.28% | [11.68%, 19.82%] |\n| 2018-07 | D1 class (absent receipt) | 74 of 20,019 | 0.37% | [0.20%, 0.61%] | 0.07% | [0.02%, 0.17%] |\n| 2018-07 | D2 class (stale receipt) | 1 of 20,019 | 0.00% | [0.00%, 0.02%] | 0.00% | [0.00%, 0.00%] |\n| 2018-07 | D3 | 32 of 20,019 | 0.16% | [0.03%, 0.37%] | 0.01% | [0.00%, 0.01%] |\n| 2018-07 | D4 | 1,991 of 20,019 | 9.95% | [8.93%, 11.07%] | 17.30% | [13.42%, 21.79%] |\n| 2018-07 | D6 | 2 of 20,019 | 0.01% | [0.00%, 0.03%] | 0.00% | [0.00%, 0.01%] |\n| 2018-07 | D7 | 1 of 20,019 | 0.00% | [0.00%, 0.02%] | 0.00% | [0.00%, 0.01%] |\n| 2018-07 | at least one defect | 2,060 of 20,019 | 10.29% | [9.26%, 11.43%] | 17.38% | [13.49%, 21.90%] |\n| 2018-08 | D1 class (absent receipt) | 56 of 21,610 | 0.26% | [0.18%, 0.35%] | 0.13% | [0.06%, 0.23%] |\n| 2018-08 | D2 class (stale receipt) | 40 of 21,610 | 0.19% | [0.02%, 0.48%] | 0.07% | [0.01%, 0.15%] |\n| 2018-08 | D3 | 13 of 21,610 | 0.06% | [0.02%, 0.11%] | 0.03% | [0.00%, 0.08%] |\n| 2018-08 | D4 | 2,442 of 21,610 | 11.30% | [10.18%, 12.58%] | 22.47% | [17.18%, 28.35%] |\n| 2018-08 | at least one defect | 2,531 of 21,610 | 11.71% | [10.55%, 13.02%] | 22.66% | [17.38%, 28.56%] |\n| 2018-09 | D1 class (absent receipt) | 77 of 19,002 | 0.41% | [0.26%, 0.58%] | 0.33% | [0.15%, 0.56%] |\n| 2018-09 | D2 class (stale receipt) | 1 of 19,002 | 0.01% | [0.00%, 0.02%] | 0.00% | [0.00%, 0.00%] |\n| 2018-09 | D3 | 23 of 19,002 | 0.12% | [0.03%, 0.23%] | 0.06% | [0.01%, 0.14%] |\n| 2018-09 | D4 | 2,253 of 19,002 | 11.86% | [10.83%, 12.97%] | 27.43% | [23.69%, 31.34%] |\n| 2018-09 | D7 | 5 of 19,002 | 0.03% | [0.01%, 0.06%] | 0.05% | [0.00%, 0.16%] |\n| 2018-09 | at least one defect | 2,314 of 19,002 | 12.18% | [11.14%, 13.29%] | 27.67% | [23.93%, 31.56%] |\n| 2018-10 | D1 class (absent receipt) | 91 of 19,193 | 0.47% | [0.15%, 0.96%] | 0.06% | [0.02%, 0.11%] |\n| 2018-10 | D2 class (stale receipt) | 9 of 19,193 | 0.05% | [0.00%, 0.15%] | 0.00% | [0.00%, 0.01%] |\n| 2018-10 | D3 | 64 of 19,193 | 0.33% | [0.03%, 0.82%] | 0.03% | [0.01%, 0.07%] |\n| 2018-10 | D4 | 2,387 of 19,193 | 12.44% | [10.93%, 14.41%] | 26.80% | [21.62%, 32.61%] |\n| 2018-10 | D7 | 4 of 19,193 | 0.02% | [0.00%, 0.05%] | 0.01% | [0.00%, 0.04%] |\n| 2018-10 | at least one defect | 2,483 of 19,193 | 12.94% | [11.37%, 14.95%] | 26.87% | [21.69%, 32.69%] |\n| 2018-11 | D1 class (absent receipt) | 70 of 9,103 | 0.77% | [0.15%, 1.70%] | 0.02% | [0.01%, 0.05%] |\n| 2018-11 | D2 class (stale receipt) | 3 of 9,103 | 0.03% | [0.00%, 0.08%] | 1.29% | [0.00%, 3.45%] |\n| 2018-11 | D3 | 61 of 9,103 | 0.67% | [0.05%, 1.60%] | 0.04% | [0.00%, 0.10%] |\n| 2018-11 | D4 | 1,218 of 9,103 | 13.38% | [11.90%, 15.02%] | 22.30% | [15.43%, 30.79%] |\n| 2018-11 | D7 | 4 of 9,103 | 0.04% | [0.00%, 0.10%] | 0.01% | [0.00%, 0.05%] |\n| 2018-11 | at least one defect | 1,241 of 9,103 | 13.63% | [12.14%, 15.29%] | 22.36% | [15.48%, 30.86%] |\n\n**Line value quartile**\n\n| stratum | defect class (failed predicate) | clearings | share | clustered 95% | share of value | clustered 95% |\n| --- | --- | ---: | ---: | --- | ---: | --- |\n| Q1 | D1 class (absent receipt) | 369 of 38,549 | 0.96% | [0.63%, 1.34%] | 0.59% | [0.42%, 0.79%] |\n| Q1 | D2 class (stale receipt) | 17 of 38,549 | 0.04% | [0.01%, 0.09%] | 0.05% | [0.01%, 0.12%] |\n| Q1 | D3 | 273 of 38,549 | 0.71% | [0.40%, 1.08%] | 0.32% | [0.18%, 0.51%] |\n| Q1 | D4 | 2,012 of 38,549 | 5.22% | [4.42%, 6.30%] | 5.01% | [4.45%, 5.64%] |\n| Q1 | D7 | 3 of 38,549 | 0.01% | [0.00%, 0.02%] | 0.01% | [0.00%, 0.03%] |\n| Q1 | at least one defect | 2,334 of 38,549 | 6.05% | [5.20%, 7.15%] | 5.60% | [5.01%, 6.26%] |\n| Q2 | D1 class (absent receipt) | 91 of 38,481 | 0.24% | [0.17%, 0.32%] | 0.23% | [0.16%, 0.31%] |\n| Q2 | D2 class (stale receipt) | 18 of 38,481 | 0.05% | [0.01%, 0.11%] | 0.04% | [0.01%, 0.09%] |\n| Q2 | D3 | 35 of 38,481 | 0.09% | [0.04%, 0.16%] | 0.09% | [0.04%, 0.16%] |\n| Q2 | D4 | 2,629 of 38,481 | 6.83% | [6.40%, 7.28%] | 7.01% | [6.57%, 7.46%] |\n| Q2 | D7 | 3 of 38,481 | 0.01% | [0.00%, 0.02%] | 0.01% | [0.00%, 0.02%] |\n| Q2 | at least one defect | 2,724 of 38,481 | 7.08% | [6.64%, 7.54%] | 7.24% | [6.79%, 7.71%] |\n| Q3 | D1 class (absent receipt) | 67 of 38,963 | 0.17% | [0.12%, 0.23%] | 0.17% | [0.12%, 0.23%] |\n| Q3 | D2 class (stale receipt) | 20 of 38,963 | 0.05% | [0.01%, 0.11%] | 0.04% | [0.01%, 0.08%] |\n| Q3 | D3 | 29 of 38,963 | 0.07% | [0.04%, 0.12%] | 0.07% | [0.04%, 0.12%] |\n| Q3 | D4 | 4,447 of 38,963 | 11.41% | [10.77%, 12.11%] | 12.35% | [11.60%, 13.17%] |\n| Q3 | D7 | 3 of 38,963 | 0.01% | [0.00%, 0.02%] | 0.01% | [0.00%, 0.02%] |\n| Q3 | at least one defect | 4,522 of 38,963 | 11.61% | [10.96%, 12.31%] | 12.53% | [11.78%, 13.34%] |\n| Q4 | D1 class (absent receipt) | 83 of 39,541 | 0.21% | [0.15%, 0.27%] | 0.11% | [0.07%, 0.16%] |\n| Q4 | D2 class (stale receipt) | 27 of 39,541 | 0.07% | [0.04%, 0.10%] | 0.13% | [0.03%, 0.29%] |\n| Q4 | D3 | 25 of 39,541 | 0.06% | [0.03%, 0.10%] | 0.02% | [0.01%, 0.04%] |\n| Q4 | D4 | 8,069 of 39,541 | 20.41% | [19.34%, 21.54%] | 19.90% | [16.24%, 23.97%] |\n| Q4 | D6 | 4 of 39,541 | 0.01% | [0.00%, 0.03%] | 0.03% | [0.00%, 0.11%] |\n| Q4 | D7 | 10 of 39,541 | 0.03% | [0.01%, 0.05%] | 0.01% | [0.00%, 0.03%] |\n| Q4 | at least one defect | 8,168 of 39,541 | 20.66% | [19.60%, 21.78%] | 20.07% | [16.39%, 24.17%] |\n\n**Vendor activity quartile**\n\n| stratum | defect class (failed predicate) | clearings | share | clustered 95% | share of value | clustered 95% |\n| --- | --- | ---: | ---: | --- | ---: | --- |\n| Q1 | D1 class (absent receipt) | 114 of 38,820 | 0.29% | [0.22%, 0.38%] | 0.09% | [0.05%, 0.14%] |\n| Q1 | D2 class (stale receipt) | 26 of 38,820 | 0.07% | [0.03%, 0.11%] | 0.14% | [0.01%, 0.34%] |\n| Q1 | D3 | 45 of 38,820 | 0.12% | [0.06%, 0.18%] | 0.03% | [0.01%, 0.05%] |\n| Q1 | D4 | 6,056 of 38,820 | 15.60% | [14.97%, 16.25%] | 18.93% | [14.45%, 24.29%] |\n| Q1 | D6 | 4 of 38,820 | 0.01% | [0.00%, 0.03%] | 0.04% | [0.00%, 0.15%] |\n| Q1 | D7 | 10 of 38,820 | 0.03% | [0.01%, 0.06%] | 0.00% | [0.00%, 0.01%] |\n| Q1 | at least one defect | 6,194 of 38,820 | 15.96% | [15.31%, 16.62%] | 19.08% | [14.58%, 24.46%] |\n| Q2 | D1 class (absent receipt) | 99 of 39,580 | 0.25% | [0.14%, 0.41%] | 0.21% | [0.08%, 0.37%] |\n| Q2 | D2 class (stale receipt) | 15 of 39,580 | 0.04% | [0.01%, 0.07%] | 0.12% | [0.04%, 0.23%] |\n| Q2 | D3 | 45 of 39,580 | 0.11% | [0.03%, 0.25%] | 0.02% | [0.01%, 0.03%] |\n| Q2 | D4 | 5,287 of 39,580 | 13.36% | [12.46%, 14.29%] | 21.45% | [19.39%, 23.62%] |\n| Q2 | D7 | 5 of 39,580 | 0.01% | [0.00%, 0.03%] | 0.03% | [0.00%, 0.10%] |\n| Q2 | at least one defect | 5,391 of 39,580 | 13.62% | [12.71%, 14.56%] | 21.74% | [19.69%, 23.90%] |\n| Q3 | D1 class (absent receipt) | 317 of 42,763 | 0.74% | [0.45%, 1.09%] | 0.24% | [0.07%, 0.56%] |\n| Q3 | D2 class (stale receipt) | 13 of 42,763 | 0.03% | [0.00%, 0.08%] | 0.01% | [0.00%, 0.03%] |\n| Q3 | D3 | 269 of 42,763 | 0.63% | [0.35%, 0.97%] | 0.08% | [0.03%, 0.15%] |\n| Q3 | D4 | 3,571 of 42,763 | 8.35% | [7.10%, 9.78%] | 28.36% | [23.47%, 33.40%] |\n| Q3 | D7 | 2 of 42,763 | 0.00% | [0.00%, 0.01%] | 0.00% | [0.00%, 0.00%] |\n| Q3 | at least one defect | 3,829 of 42,763 | 8.95% | [7.69%, 10.39%] | 28.48% | [23.60%, 33.49%] |\n| Q4 | D1 class (absent receipt) | 80 of 34,371 | 0.23% | [0.17%, 0.30%] | 0.11% | [0.06%, 0.18%] |\n| Q4 | D2 class (stale receipt) | 28 of 34,371 | 0.08% | [0.00%, 0.25%] | 0.05% | [0.00%, 0.14%] |\n| Q4 | D3 | 3 of 34,371 | 0.01% | [0.00%, 0.02%] | 0.02% | [0.00%, 0.06%] |\n| Q4 | D4 | 2,243 of 34,371 | 6.53% | [5.97%, 7.15%] | 7.50% | [6.37%, 8.70%] |\n| Q4 | D7 | 2 of 34,371 | 0.01% | [0.00%, 0.01%] | 0.01% | [0.00%, 0.02%] |\n| Q4 | at least one defect | 2,334 of 34,371 | 6.79% | [6.21%, 7.43%] | 7.65% | [6.51%, 8.86%] |"
     },
     {
-      "end": 85881,
+      "end": 86935,
       "kind": "block",
       "placeholder": "#confounders",
       "sources": [
         "e2/confounders.json",
         "e3/confounders.json"
       ],
-      "start": 75591,
+      "start": 76645,
       "text": "**Item category: H1 and H2 (O rate, corrective events of clearings, at W = 60 days)**\n\n| stratum | H1: D1/D2 failed | H1: three-way, all pass | H1 difference | H2: D4 failed | H2: D4 pass | H2 difference |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n| 2-way | none | none | n/a | 0.00% (0 of 4) | 2.72% (5 of 184) | -0.0272 |\n| 3-way, invoice after receipt | none | 4.68% (377 of 8,048) | n/a | 6.81% (108 of 1,585) | 4.69% (378 of 8,055) | 0.0212 |\n| 3-way, invoice before receipt | 5.64% (39 of 692) | 0.70% (909 of 129,554) | 0.0493 | 1.41% (219 of 15,568) | 0.73% (949 of 130,138) | 0.0068 |\n\n**Item category: gate by outcome (clearings, W = 60 days)**\n\n| stratum | analysed clearings | gate would have held | held, corrective within W | held, no corrective | allowed, corrective within W | allowed, no corrective |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n| 2-way | 188 | 4 (2.13%) | 0 | 4 | 5 | 179 |\n| 3-way, invoice after receipt | 9,640 | 1,592 (16.51%) | 109 | 1,483 | 377 | 7,671 |\n| 3-way, invoice before receipt | 145,706 | 16,152 (11.09%) | 259 | 15,893 | 909 | 128,645 |\n\n**Spend area: H1 and H2 (O rate, corrective events of clearings, at W = 60 days)**\n\n| stratum | H1: D1/D2 failed | H1: three-way, all pass | H1 difference | H2: D4 failed | H2: D4 pass | H2 difference |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n| Additives | 7.69% (1 of 13) | 1.02% (92 of 8,987) | 0.0667 | 1.82% (22 of 1,207) | 1.03% (93 of 8,999) | 0.0079 |\n| CAPEX & SOCS | 1.82% (1 of 55) | 1.45% (63 of 4,331) | 0.0036 | 2.16% (6 of 278) | 1.46% (64 of 4,394) | 0.0070 |\n| Chemicals & Intermediates | none | 0.00% (0 of 1) | n/a | none | 0.00% (0 of 1) | n/a |\n| Commodity Resins | 0.00% (0 of 1) | 2.22% (5 of 225) | -0.0222 | 1.25% (1 of 80) | 2.21% (5 of 226) | -0.0096 |\n| Energy | none | none | n/a | none | 0.00% (0 of 3) | n/a |\n| Enterprise Services | 0.00% (0 of 2) | 2.05% (7 of 342) | -0.0205 | 0.00% (0 of 20) | 2.00% (7 of 350) | -0.0200 |\n| Latex & Monomers | 30.00% (3 of 10) | 1.96% (41 of 2,096) | 0.2804 | 1.88% (9 of 479) | 2.09% (44 of 2,105) | -0.0021 |\n| Logistics | none | 10.49% (205 of 1,955) | n/a | 35.96% (41 of 114) | 10.49% (205 of 1,955) | 0.2548 |\n| Marketing | 16.67% (1 of 6) | 2.98% (33 of 1,106) | 0.1368 | 12.04% (13 of 108) | 3.06% (34 of 1,112) | 0.0898 |\n| Others | 0.00% (0 of 8) | 1.44% (24 of 1,663) | -0.0144 | 5.81% (5 of 86) | 1.54% (26 of 1,690) | 0.0428 |\n| Packaging | 5.29% (9 of 170) | 0.45% (254 of 56,526) | 0.0484 | 1.10% (76 of 6,901) | 0.46% (263 of 56,660) | 0.0064 |\n| Pigments & Colorants | 40.00% (2 of 5) | 1.22% (17 of 1,397) | 0.3878 | 2.71% (8 of 295) | 1.29% (18 of 1,399) | 0.0143 |\n| Real Estate | none | 0.00% (0 of 1) | n/a | 0.00% (0 of 5) | 2.05% (3 of 146) | -0.0205 |\n| Sales | 13.57% (19 of 140) | 0.73% (318 of 43,511) | 0.1284 | 1.02% (33 of 3,244) | 0.78% (340 of 43,647) | 0.0024 |\n| Solvents | none | 1.55% (21 of 1,354) | n/a | 3.24% (7 of 216) | 1.55% (21 of 1,357) | 0.0169 |\n| Specialty Resins | none | 1.03% (11 of 1,067) | n/a | 3.51% (8 of 228) | 1.03% (11 of 1,067) | 0.0248 |\n| Spend Area Unidentified | none | 0.00% (0 of 15) | n/a | 0.00% (0 of 3) | 0.00% (0 of 15) | 0.0000 |\n| Titanium Dioxides | 0.00% (0 of 5) | 2.62% (8 of 305) | -0.0262 | 7.56% (9 of 119) | 2.58% (8 of 310) | 0.0498 |\n| Trading & End Products | 0.73% (2 of 273) | 1.22% (141 of 11,548) | -0.0049 | 2.13% (71 of 3,339) | 1.22% (143 of 11,765) | 0.0091 |\n| Workforce Services | none | 16.89% (37 of 219) | n/a | 17.74% (11 of 62) | 16.89% (37 of 219) | 0.0085 |\n| missing | 25.00% (1 of 4) | 0.94% (9 of 953) | 0.2406 | 1.88% (7 of 373) | 1.04% (10 of 957) | 0.0083 |\n\n**Spend area: gate by outcome (clearings, W = 60 days)**\n\n| stratum | analysed clearings | gate would have held | held, corrective within W | held, no corrective | allowed, corrective within W | allowed, no corrective |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n| Additives | 10,206 | 1,219 (11.94%) | 23 | 1,196 | 92 | 8,895 |\n| CAPEX & SOCS | 4,672 | 332 (7.11%) | 7 | 325 | 63 | 4,277 |\n| Chemicals & Intermediates | 1 | 0 (0.00%) | 0 | 0 | 0 | 1 |\n| Commodity Resins | 306 | 81 (26.47%) | 1 | 80 | 5 | 220 |\n| Energy | 3 | 0 (0.00%) | 0 | 0 | 0 | 3 |\n| Enterprise Services | 370 | 22 (5.95%) | 0 | 22 | 7 | 341 |\n| Latex & Monomers | 2,584 | 488 (18.89%) | 12 | 476 | 41 | 2,055 |\n| Logistics | 2,069 | 114 (5.51%) | 41 | 73 | 205 | 1,750 |\n| Marketing | 1,220 | 114 (9.34%) | 14 | 100 | 33 | 1,073 |\n| Others | 1,776 | 94 (5.29%) | 5 | 89 | 26 | 1,656 |\n| Packaging | 63,561 | 7,035 (11.07%) | 85 | 6,950 | 254 | 56,272 |\n| Pigments & Colorants | 1,694 | 297 (17.53%) | 9 | 288 | 17 | 1,380 |\n| Real Estate | 151 | 5 (3.31%) | 0 | 5 | 3 | 143 |\n| Sales | 46,891 | 3,378 (7.20%) | 55 | 3,323 | 318 | 43,195 |\n| Solvents | 1,573 | 219 (13.92%) | 7 | 212 | 21 | 1,333 |\n| Specialty Resins | 1,295 | 228 (17.61%) | 8 | 220 | 11 | 1,056 |\n| Spend Area Unidentified | 18 | 3 (16.67%) | 0 | 3 | 0 | 15 |\n| Titanium Dioxides | 429 | 124 (28.90%) | 9 | 115 | 8 | 297 |\n| Trading & End Products | 15,104 | 3,556 (23.54%) | 73 | 3,483 | 141 | 11,407 |\n| Workforce Services | 281 | 62 (22.06%) | 11 | 51 | 37 | 182 |\n| missing | 1,330 | 377 (28.35%) | 8 | 369 | 9 | 944 |\n\n**Month of the clearing: H1 and H2 (O rate, corrective events of clearings, at W = 60 days)**\n\n| stratum | H1: D1/D2 failed | H1: three-way, all pass | H1 difference | H2: D4 failed | H2: D4 pass | H2 difference |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n| 2018-01 | 0.00% (0 of 1) | 0.00% (0 of 238) | 0.0000 | 0.00% (0 of 8) | 0.00% (0 of 247) | 0.0000 |\n| 2018-02 | 0.00% (0 of 6) | 0.30% (8 of 2,703) | -0.0030 | 2.08% (2 of 96) | 0.29% (8 of 2,716) | 0.0179 |\n| 2018-03 | 13.04% (3 of 23) | 0.88% (78 of 8,902) | 0.1217 | 2.92% (25 of 855) | 0.91% (81 of 8,935) | 0.0202 |\n| 2018-04 | 3.23% (3 of 93) | 0.57% (76 of 13,223) | 0.0265 | 0.92% (16 of 1,737) | 0.59% (78 of 13,326) | 0.0034 |\n| 2018-05 | 4.41% (3 of 68) | 0.82% (139 of 16,953) | 0.0359 | 1.36% (26 of 1,909) | 0.85% (144 of 17,030) | 0.0052 |\n| 2018-06 | 2.53% (2 of 79) | 1.13% (197 of 17,400) | 0.0140 | 2.12% (48 of 2,261) | 1.14% (199 of 17,487) | 0.0098 |\n| 2018-07 | 12.00% (9 of 75) | 1.20% (216 of 17,936) | 0.1080 | 1.81% (36 of 1,991) | 1.25% (225 of 18,028) | 0.0056 |\n| 2018-08 | 6.25% (6 of 96) | 0.98% (186 of 19,054) | 0.0527 | 1.80% (44 of 2,442) | 1.00% (191 of 19,168) | 0.0081 |\n| 2018-09 | 2.56% (2 of 78) | 0.87% (145 of 16,661) | 0.0169 | 2.44% (55 of 2,253) | 0.90% (151 of 16,749) | 0.0154 |\n| 2018-10 | 9.00% (9 of 100) | 0.92% (153 of 16,683) | 0.0808 | 2.01% (48 of 2,387) | 0.98% (164 of 16,806) | 0.0104 |\n| 2018-11 | 2.74% (2 of 73) | 1.12% (88 of 7,849) | 0.0162 | 2.22% (27 of 1,218) | 1.15% (91 of 7,885) | 0.0106 |\n\n**Month of the clearing: gate by outcome (clearings, W = 60 days)**\n\n| stratum | analysed clearings | gate would have held | held, corrective within W | held, no corrective | allowed, corrective within W | allowed, no corrective |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n| 2018-01 | 255 | 9 (3.53%) | 0 | 9 | 0 | 246 |\n| 2018-02 | 2,812 | 103 (3.66%) | 2 | 101 | 8 | 2,701 |\n| 2018-03 | 9,790 | 877 (8.96%) | 28 | 849 | 78 | 8,835 |\n| 2018-04 | 15,063 | 1,827 (12.13%) | 18 | 1,809 | 76 | 13,160 |\n| 2018-05 | 18,939 | 1,972 (10.41%) | 29 | 1,943 | 141 | 16,826 |\n| 2018-06 | 19,748 | 2,331 (11.80%) | 50 | 2,281 | 197 | 17,220 |\n| 2018-07 | 20,019 | 2,060 (10.29%) | 45 | 2,015 | 216 | 17,743 |\n| 2018-08 | 21,610 | 2,531 (11.71%) | 49 | 2,482 | 186 | 18,893 |\n| 2018-09 | 19,002 | 2,314 (12.18%) | 58 | 2,256 | 148 | 16,540 |\n| 2018-10 | 19,193 | 2,483 (12.94%) | 59 | 2,424 | 153 | 16,557 |\n| 2018-11 | 9,103 | 1,241 (13.63%) | 30 | 1,211 | 88 | 7,774 |\n\n**Line value quartile: H1 and H2 (O rate, corrective events of clearings, at W = 60 days)**\n\n| stratum | H1: D1/D2 failed | H1: three-way, all pass | H1 difference | H2: D4 failed | H2: D4 pass | H2 difference |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n| Q1 | 2.59% (10 of 386) | 0.56% (203 of 36,210) | 0.0203 | 0.55% (11 of 2,012) | 0.58% (212 of 36,537) | -0.0003 |\n| Q2 | 8.26% (9 of 109) | 0.59% (210 of 35,733) | 0.0767 | 0.61% (16 of 2,629) | 0.61% (219 of 35,852) | -0.0000 |\n| Q3 | 5.75% (5 of 87) | 0.86% (296 of 34,382) | 0.0489 | 1.10% (49 of 4,447) | 0.87% (301 of 34,516) | 0.0023 |\n| Q4 | 13.64% (15 of 110) | 1.84% (577 of 31,277) | 0.1179 | 3.11% (251 of 8,069) | 1.91% (600 of 31,472) | 0.0120 |\n\n**Line value quartile: gate by outcome (clearings, W = 60 days)**\n\n| stratum | analysed clearings | gate would have held | held, corrective within W | held, no corrective | allowed, corrective within W | allowed, no corrective |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n| Q1 | 38,549 | 2,334 (6.05%) | 20 | 2,314 | 203 | 36,012 |\n| Q2 | 38,481 | 2,724 (7.08%) | 25 | 2,699 | 210 | 35,547 |\n| Q3 | 38,963 | 4,522 (11.61%) | 54 | 4,468 | 296 | 34,145 |\n| Q4 | 39,541 | 8,168 (20.66%) | 269 | 7,899 | 582 | 30,791 |\n\n**Vendor activity quartile: H1 and H2 (O rate, corrective events of clearings, at W = 60 days)**\n\n| stratum | H1: D1/D2 failed | H1: three-way, all pass | H1 difference | H2: D4 failed | H2: D4 pass | H2 difference |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n| Q1 | 11.43% (16 of 140) | 2.08% (676 of 32,442) | 0.0934 | 2.91% (176 of 6,056) | 2.13% (699 of 32,764) | 0.0077 |\n| Q2 | 14.91% (17 of 114) | 0.76% (259 of 34,189) | 0.1415 | 1.91% (101 of 5,287) | 0.80% (276 of 34,293) | 0.0111 |\n| Q3 | 1.21% (4 of 330) | 0.72% (280 of 38,934) | 0.0049 | 0.98% (35 of 3,571) | 0.72% (284 of 39,192) | 0.0026 |\n| Q4 | 1.85% (2 of 108) | 0.22% (71 of 32,037) | 0.0163 | 0.67% (15 of 2,243) | 0.23% (73 of 32,128) | 0.0044 |\n\n**Vendor activity quartile: gate by outcome (clearings, W = 60 days)**\n\n| stratum | analysed clearings | gate would have held | held, corrective within W | held, no corrective | allowed, corrective within W | allowed, no corrective |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n| Q1 | 38,820 | 6,194 (15.96%) | 194 | 6,000 | 681 | 31,945 |\n| Q2 | 39,580 | 5,391 (13.62%) | 118 | 5,273 | 259 | 33,930 |\n| Q3 | 42,763 | 3,829 (8.95%) | 39 | 3,790 | 280 | 38,654 |\n| Q4 | 34,371 | 2,334 (6.79%) | 17 | 2,317 | 71 | 31,966 |\n\nSources: `results/e2/confounders.json`, `results/e3/confounders.json`."
     }
   ],
   "spans": [
     {
-      "end": 382,
-      "start": 375
+      "end": 392,
+      "start": 385
     },
     {
-      "end": 497,
-      "start": 491
+      "end": 507,
+      "start": 501
     },
     {
-      "end": 505,
-      "start": 499
+      "end": 515,
+      "start": 509
     },
     {
-      "end": 556,
-      "start": 540
+      "end": 566,
+      "start": 550
     },
     {
-      "end": 652,
-      "start": 646
+      "end": 662,
+      "start": 656
     },
     {
-      "end": 691,
-      "start": 675
+      "end": 701,
+      "start": 685
     },
     {
-      "end": 1045,
-      "start": 1040
+      "end": 1055,
+      "start": 1050
     },
     {
-      "end": 1060,
-      "start": 1055
+      "end": 1070,
+      "start": 1065
     },
     {
-      "end": 1143,
-      "start": 1137
+      "end": 1153,
+      "start": 1147
     },
     {
-      "end": 1176,
-      "start": 1163
+      "end": 1186,
+      "start": 1173
     },
     {
-      "end": 1264,
-      "start": 1259
+      "end": 1274,
+      "start": 1269
     },
     {
-      "end": 1278,
-      "start": 1273
+      "end": 1288,
+      "start": 1283
     },
     {
-      "end": 1319,
-      "start": 1313
+      "end": 1329,
+      "start": 1323
     },
     {
-      "end": 1352,
-      "start": 1339
-    },
-    {
-      "end": 1480,
-      "start": 1474
+      "end": 1362,
+      "start": 1349
     },
     {
       "end": 1490,
-      "start": 1485
+      "start": 1484
     },
     {
-      "end": 1513,
-      "start": 1508
+      "end": 1500,
+      "start": 1495
     },
     {
       "end": 1523,
       "start": 1518
     },
     {
-      "end": 1602,
-      "start": 1597
+      "end": 1533,
+      "start": 1528
     },
     {
       "end": 1612,
       "start": 1607
     },
     {
-      "end": 2460,
-      "start": 2446
+      "end": 1622,
+      "start": 1617
     },
     {
-      "end": 2489,
-      "start": 2475
+      "end": 2521,
+      "start": 2507
     },
     {
-      "end": 2555,
-      "start": 2541
+      "end": 2550,
+      "start": 2536
     },
     {
-      "end": 2780,
-      "start": 2773
+      "end": 2616,
+      "start": 2602
     },
     {
-      "end": 5056,
-      "start": 5038
+      "end": 2841,
+      "start": 2834
     },
     {
-      "end": 5072,
-      "start": 5058
+      "end": 5117,
+      "start": 5099
     },
     {
-      "end": 5202,
-      "start": 5185
+      "end": 5133,
+      "start": 5119
     },
     {
-      "end": 5424,
-      "start": 5410
+      "end": 5263,
+      "start": 5246
     },
     {
-      "end": 5615,
-      "start": 5601
+      "end": 5485,
+      "start": 5471
     },
     {
-      "end": 5854,
-      "start": 5845
+      "end": 5676,
+      "start": 5662
     },
     {
-      "end": 5991,
-      "start": 5975
+      "end": 5915,
+      "start": 5906
     },
     {
-      "end": 6076,
-      "start": 6058
+      "end": 6052,
+      "start": 6036
     },
     {
-      "end": 6378,
-      "start": 6368
+      "end": 6137,
+      "start": 6119
     },
     {
-      "end": 6651,
-      "start": 6634
+      "end": 6439,
+      "start": 6429
     },
     {
-      "end": 6722,
-      "start": 6702
+      "end": 6712,
+      "start": 6695
     },
     {
-      "end": 6763,
-      "start": 6745
+      "end": 6783,
+      "start": 6763
     },
     {
-      "end": 6797,
-      "start": 6779
+      "end": 6824,
+      "start": 6806
     },
     {
-      "end": 6986,
-      "start": 6958
+      "end": 6858,
+      "start": 6840
     },
     {
-      "end": 7067,
-      "start": 7045
+      "end": 7047,
+      "start": 7019
     },
     {
-      "end": 7385,
-      "start": 7360
+      "end": 7128,
+      "start": 7106
     },
     {
-      "end": 7659,
-      "start": 7642
+      "end": 7446,
+      "start": 7421
     },
     {
-      "end": 7740,
-      "start": 7723
+      "end": 7720,
+      "start": 7703
     },
     {
-      "end": 7809,
-      "start": 7781
+      "end": 7801,
+      "start": 7784
     },
     {
-      "end": 8269,
-      "start": 8259
+      "end": 7870,
+      "start": 7842
     },
     {
-      "end": 8311,
-      "start": 8301
+      "end": 8330,
+      "start": 8320
     },
     {
-      "end": 8331,
-      "start": 8313
+      "end": 8372,
+      "start": 8362
     },
     {
-      "end": 8348,
-      "start": 8333
+      "end": 8392,
+      "start": 8374
     },
     {
-      "end": 13665,
-      "start": 12869
+      "end": 8409,
+      "start": 8394
     },
     {
-      "end": 14058,
-      "start": 14048
+      "end": 13726,
+      "start": 12930
     },
     {
-      "end": 14064,
-      "start": 14063
+      "end": 14119,
+      "start": 14109
     },
     {
-      "end": 14507,
-      "start": 14506
+      "end": 14125,
+      "start": 14124
     },
     {
-      "end": 14518,
-      "start": 14511
+      "end": 14568,
+      "start": 14567
     },
     {
-      "end": 14657,
-      "start": 14650
+      "end": 14579,
+      "start": 14572
     },
     {
-      "end": 14670,
-      "start": 14669
+      "end": 14718,
+      "start": 14711
     },
     {
-      "end": 14709,
-      "start": 14708
+      "end": 14731,
+      "start": 14730
     },
     {
-      "end": 15446,
-      "start": 14919
+      "end": 14770,
+      "start": 14769
     },
     {
-      "end": 16335,
-      "start": 15917
+      "end": 15507,
+      "start": 14980
     },
     {
-      "end": 16562,
-      "start": 16539
+      "end": 16396,
+      "start": 15978
     },
     {
-      "end": 16625,
-      "start": 16602
+      "end": 16623,
+      "start": 16600
     },
     {
-      "end": 16692,
-      "start": 16669
+      "end": 16686,
+      "start": 16663
     },
     {
-      "end": 16731,
-      "start": 16708
+      "end": 16753,
+      "start": 16730
     },
     {
-      "end": 18039,
-      "start": 17062
+      "end": 16792,
+      "start": 16769
     },
     {
-      "end": 18411,
-      "start": 18404
+      "end": 18100,
+      "start": 17123
     },
     {
-      "end": 18515,
-      "start": 18509
+      "end": 18472,
+      "start": 18465
     },
     {
-      "end": 18536,
-      "start": 18530
+      "end": 18576,
+      "start": 18570
     },
     {
-      "end": 19586,
-      "start": 19080
+      "end": 18597,
+      "start": 18591
     },
     {
-      "end": 19827,
-      "start": 19821
+      "end": 19647,
+      "start": 19141
     },
     {
-      "end": 20394,
-      "start": 20089
+      "end": 19888,
+      "start": 19882
     },
     {
-      "end": 20474,
-      "start": 20436
+      "end": 20455,
+      "start": 20150
     },
     {
-      "end": 20733,
-      "start": 20731
+      "end": 20535,
+      "start": 20497
     },
     {
-      "end": 20741,
-      "start": 20738
+      "end": 20794,
+      "start": 20792
     },
     {
-      "end": 20751,
-      "start": 20750
+      "end": 20802,
+      "start": 20799
     },
     {
-      "end": 20813,
-      "start": 20812
+      "end": 20812,
+      "start": 20811
     },
     {
-      "end": 20825,
-      "start": 20820
+      "end": 20874,
+      "start": 20873
     },
     {
-      "end": 20906,
-      "start": 20904
+      "end": 20886,
+      "start": 20881
     },
     {
-      "end": 20926,
-      "start": 20924
+      "end": 20967,
+      "start": 20965
     },
     {
-      "end": 21126,
-      "start": 21103
+      "end": 20987,
+      "start": 20985
     },
     {
-      "end": 21185,
-      "start": 21162
+      "end": 21187,
+      "start": 21164
     },
     {
-      "end": 21257,
-      "start": 21251
+      "end": 21246,
+      "start": 21223
     },
     {
-      "end": 21275,
-      "start": 21269
+      "end": 21318,
+      "start": 21312
     },
     {
-      "end": 21518,
-      "start": 21512
+      "end": 21336,
+      "start": 21330
     },
     {
-      "end": 21529,
-      "start": 21522
+      "end": 21579,
+      "start": 21573
     },
     {
-      "end": 21556,
-      "start": 21550
+      "end": 21590,
+      "start": 21583
     },
     {
-      "end": 21564,
-      "start": 21558
+      "end": 21617,
+      "start": 21611
     },
     {
-      "end": 21585,
-      "start": 21584
+      "end": 21625,
+      "start": 21619
     },
     {
-      "end": 21941,
-      "start": 21725
+      "end": 21646,
+      "start": 21645
     },
     {
-      "end": 22443,
-      "start": 22217
+      "end": 22002,
+      "start": 21786
     },
     {
-      "end": 22573,
-      "start": 22566
+      "end": 22504,
+      "start": 22278
     },
     {
-      "end": 22606,
-      "start": 22600
+      "end": 22634,
+      "start": 22627
     },
     {
-      "end": 22627,
-      "start": 22620
+      "end": 22667,
+      "start": 22661
     },
     {
-      "end": 22635,
-      "start": 22629
+      "end": 22688,
+      "start": 22681
     },
     {
-      "end": 23763,
-      "start": 23269
+      "end": 22696,
+      "start": 22690
     },
     {
-      "end": 23810,
-      "start": 23804
+      "end": 23824,
+      "start": 23330
     },
     {
-      "end": 23860,
-      "start": 23854
+      "end": 23871,
+      "start": 23865
     },
     {
-      "end": 24012,
-      "start": 24006
+      "end": 23921,
+      "start": 23915
     },
     {
-      "end": 24064,
-      "start": 24057
+      "end": 24073,
+      "start": 24067
     },
     {
-      "end": 24153,
-      "start": 24147
+      "end": 24125,
+      "start": 24118
     },
     {
-      "end": 24165,
-      "start": 24158
+      "end": 24214,
+      "start": 24208
     },
     {
-      "end": 25234,
-      "start": 25233
+      "end": 24226,
+      "start": 24219
     },
     {
-      "end": 25248,
-      "start": 25247
+      "end": 25295,
+      "start": 25294
     },
     {
-      "end": 25312,
-      "start": 25309
+      "end": 25309,
+      "start": 25308
     },
     {
-      "end": 26355,
-      "start": 25540
+      "end": 25373,
+      "start": 25370
     },
     {
-      "end": 26673,
-      "start": 26667
+      "end": 26416,
+      "start": 25601
     },
     {
-      "end": 26683,
-      "start": 26678
+      "end": 26734,
+      "start": 26728
     },
     {
-      "end": 26701,
-      "start": 26696
+      "end": 26744,
+      "start": 26739
     },
     {
-      "end": 26711,
-      "start": 26706
+      "end": 26762,
+      "start": 26757
     },
     {
-      "end": 26724,
-      "start": 26723
+      "end": 26772,
+      "start": 26767
     },
     {
-      "end": 26738,
-      "start": 26737
+      "end": 26785,
+      "start": 26784
     },
     {
-      "end": 26950,
-      "start": 26945
+      "end": 26799,
+      "start": 26798
     },
     {
-      "end": 26960,
-      "start": 26955
+      "end": 27011,
+      "start": 27006
     },
     {
-      "end": 27041,
-      "start": 27032
+      "end": 27021,
+      "start": 27016
     },
     {
-      "end": 27048,
-      "start": 27047
+      "end": 27102,
+      "start": 27093
     },
     {
-      "end": 27061,
-      "start": 27056
+      "end": 27109,
+      "start": 27108
     },
     {
-      "end": 27069,
-      "start": 27068
+      "end": 27122,
+      "start": 27117
     },
     {
-      "end": 27530,
-      "start": 27529
+      "end": 27130,
+      "start": 27129
     },
     {
-      "end": 27546,
-      "start": 27545
+      "end": 27591,
+      "start": 27590
     },
     {
-      "end": 27785,
-      "start": 27780
+      "end": 27607,
+      "start": 27606
     },
     {
-      "end": 28494,
-      "start": 27880
+      "end": 28075,
+      "start": 28070
     },
     {
-      "end": 28806,
-      "start": 28800
+      "end": 28784,
+      "start": 28170
     },
     {
-      "end": 28838,
-      "start": 28836
+      "end": 29096,
+      "start": 29090
     },
     {
-      "end": 28881,
-      "start": 28875
+      "end": 29128,
+      "start": 29126
     },
     {
-      "end": 28919,
-      "start": 28917
+      "end": 29171,
+      "start": 29165
     },
     {
-      "end": 29531,
-      "start": 28930
+      "end": 29209,
+      "start": 29207
     },
     {
-      "end": 30177,
-      "start": 29772
+      "end": 29821,
+      "start": 29220
     },
     {
-      "end": 30352,
-      "start": 30348
+      "end": 30467,
+      "start": 30062
     },
     {
-      "end": 31762,
-      "start": 31127
+      "end": 30642,
+      "start": 30638
     },
     {
-      "end": 32289,
-      "start": 32288
+      "end": 32052,
+      "start": 31417
     },
     {
-      "end": 33276,
-      "start": 32715
+      "end": 32579,
+      "start": 32578
     },
     {
-      "end": 33775,
-      "start": 33770
+      "end": 33566,
+      "start": 33005
     },
     {
-      "end": 33806,
-      "start": 33805
+      "end": 34065,
+      "start": 34060
     },
     {
-      "end": 33829,
-      "start": 33821
+      "end": 34096,
+      "start": 34095
     },
     {
-      "end": 33891,
-      "start": 33883
+      "end": 34119,
+      "start": 34111
     },
     {
-      "end": 33917,
-      "start": 33909
+      "end": 34181,
+      "start": 34173
     },
     {
-      "end": 35172,
-      "start": 34308
+      "end": 34207,
+      "start": 34199
     },
     {
-      "end": 35213,
-      "start": 35212
+      "end": 35462,
+      "start": 34598
     },
     {
-      "end": 35223,
-      "start": 35217
+      "end": 35503,
+      "start": 35502
     },
     {
-      "end": 35258,
-      "start": 35257
+      "end": 35513,
+      "start": 35507
     },
     {
-      "end": 35308,
-      "start": 35307
+      "end": 35548,
+      "start": 35547
     },
     {
-      "end": 35380,
-      "start": 35379
+      "end": 35598,
+      "start": 35597
     },
     {
-      "end": 35394,
-      "start": 35388
+      "end": 35670,
+      "start": 35669
     },
     {
-      "end": 35611,
-      "start": 35606
+      "end": 35684,
+      "start": 35678
     },
     {
-      "end": 35621,
-      "start": 35615
+      "end": 35901,
+      "start": 35896
     },
     {
-      "end": 35652,
-      "start": 35647
+      "end": 35911,
+      "start": 35905
     },
     {
-      "end": 35777,
-      "start": 35739
+      "end": 35942,
+      "start": 35937
     },
     {
-      "end": 35816,
-      "start": 35784
+      "end": 36067,
+      "start": 36029
     },
     {
-      "end": 39387,
-      "start": 35970
+      "end": 36106,
+      "start": 36074
     },
     {
-      "end": 40311,
-      "start": 39476
+      "end": 39677,
+      "start": 36260
     },
     {
-      "end": 40405,
-      "start": 40404
+      "end": 40601,
+      "start": 39766
     },
     {
-      "end": 40446,
-      "start": 40444
+      "end": 40695,
+      "start": 40694
     },
     {
-      "end": 40494,
-      "start": 40491
+      "end": 40736,
+      "start": 40734
     },
     {
-      "end": 40540,
-      "start": 40539
+      "end": 40784,
+      "start": 40781
     },
     {
-      "end": 40698,
-      "start": 40693
+      "end": 40830,
+      "start": 40829
     },
     {
-      "end": 40781,
-      "start": 40780
+      "end": 40988,
+      "start": 40983
     },
     {
-      "end": 42123,
-      "start": 42117
+      "end": 41071,
+      "start": 41070
     },
     {
-      "end": 42138,
-      "start": 42131
+      "end": 42157,
+      "start": 42152
     },
     {
-      "end": 42266,
-      "start": 42260
+      "end": 42167,
+      "start": 42162
     },
     {
-      "end": 50511,
-      "start": 43452
+      "end": 42262,
+      "start": 42256
     },
     {
-      "end": 51099,
-      "start": 50606
+      "end": 42272,
+      "start": 42267
     },
     {
-      "end": 52511,
-      "start": 51196
+      "end": 42313,
+      "start": 42308
     },
     {
-      "end": 53941,
-      "start": 53939
+      "end": 42323,
+      "start": 42318
     },
     {
-      "end": 75127,
-      "start": 54509
+      "end": 42868,
+      "start": 42862
     },
     {
-      "end": 85881,
-      "start": 75591
+      "end": 42883,
+      "start": 42876
+    },
+    {
+      "end": 43011,
+      "start": 43005
+    },
+    {
+      "end": 51565,
+      "start": 44506
+    },
+    {
+      "end": 52153,
+      "start": 51660
+    },
+    {
+      "end": 53565,
+      "start": 52250
+    },
+    {
+      "end": 54995,
+      "start": 54993
+    },
+    {
+      "end": 76181,
+      "start": 55563
+    },
+    {
+      "end": 86935,
+      "start": 76645
     }
   ],
   "template": "paper/template.md",
-  "template_sha256": "3df21b160b49b9ca9c6ff04927210e0cdcd46d78e2fe93e3840a28dc6afba451"
+  "template_sha256": "d0046d0b15086ce2be4e689eda03fcac596b7a3a4e1e4770b5563ae00c9cbd9c"
 }

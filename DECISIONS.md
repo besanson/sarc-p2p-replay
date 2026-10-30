@@ -1043,3 +1043,64 @@ written: 8 accepted, 2 rejected with the reason.
 
 Row 8 was not raised in round 3: the D-D-3 report noted that no slot counted the unknowns of the
 predicates other than D5, and the author decided to add one.
+
+## D-D-5 Phase D closed (2026-10-30)
+
+**Review rounds.** Findings are the rows of each adjudication table (round 3 includes one row the
+author added, D-D-4 row 8).
+
+| round | draft reviewed | reviewers | findings | accepted | rejected | adjudication | draft produced |
+|---|---|---|---:|---:|---:|---|---|
+| 1 | v0.1 | Arana (external); ChatGPT, Perplexity (machine, AI support) | 29 | 24 | 5 | D-D-2 | v0.2 |
+| 2 | v0.2 | Arana (external); ChatGPT, Perplexity (machine, AI support) | 21 | 19 | 2 | D-D-3 | v0.3 |
+| 3 | v0.3 | Arana (external); ChatGPT, Perplexity (machine, AI support) | 10 | 8 | 2 | D-D-4 | v1.0 candidate |
+
+**Slots.** No committed experiment slot under `results/` changed during Phase D (git, from `14842cc`, Phase C closed, to this commit). Under `results/`
+only the index (`results/README.md`) changed, and the paper's filled template, which was written there
+in Phase D, regenerated with each draft and moved to `paper/filled-template.json` in D-D-3. Slot files
+added in Phase D, each with its first commit:
+
+| file | first commit | date |
+|---|---|---|
+| `results/e1/actors.json` | `08d860c` | 2026-10-28 |
+| `results/e3/human-hold-composition.json` | `08d860c` | 2026-10-28 |
+| `results/e4/arms-classified-lines.json` | `08d860c` | 2026-10-28 |
+| `results/round1-double-run.json` | `08d860c` | 2026-10-28 |
+| `results/e1/analysed-clearing-actors.json` | `aad3359` | 2026-10-30 |
+| `results/e4/timeline.json` | `aad3359` | 2026-10-30 |
+| `results/e5/sufficiency.json` | `aad3359` | 2026-10-30 |
+| `results/e7/unknown-overlap.json` | `aad3359` | 2026-10-30 |
+| `results/round2-double-run.json` | `aad3359` | 2026-10-30 |
+| `results/e1/predicate-unknowns.json` | `d7e72ee` | 2026-10-30 |
+| `results/round3-double-run.json` | `d7e72ee` | 2026-10-30 |
+
+**Deviations under p7-v1.1 (5).**
+
+1. H3 convention (2026-10-25)
+2. D5 applicability at a non-clearing decision point (2026-10-25)
+3. Description corrections in COVERAGE.md, no predicate changes (2026-10-28)
+4. E7 bootstrap replicates with an empty group discarded (2026-10-25)
+5. E4 Jev request format (2026-10-25)
+
+**Lints and gates.** The terminology, typed-numeral and proof-status lints pass on the v1.0 candidate.
+`make gates` (`out/gates/report.json`): 5 pass, 4 waiting, 0 fail.
+
+| gate | status | waiting on |
+|---|---|---|
+| G1 tests | waiting | CI run ids on Python 3.11 and 3.12 for the release commit: waiting on Phase E |
+| G2 lints | pass |  |
+| G3 mutation | pass |  |
+| G4 regeneration | waiting | external reproduction from a clean clone (FINAL-AUDIT item 11): waiting on Phase F |
+| G5 claims | pass |  |
+| G6 secrets | pass |  |
+| G7 data and pins | pass |  |
+| G8 package | waiting | fresh-venv install and smoke test (make package-smoke-test, FINAL-AUDIT item 2): waiting on Phase E |
+| G9 paper | waiting | PDF build: no LaTeX engine (tectonic, latexmk, pdflatex, xelatex) in this environment |
+
+**Phase E (release) needs:** CI run ids on Python 3.11 and 3.12 for the release commit (G1); a LaTeX
+engine to build the PDF from `paper-tex/main.tex` (G9); the fresh-venv package smoke test (G8,
+`make package-smoke-test`); FINAL-AUDIT items 1 to 10; a Zenodo DOI; an arXiv id; the release tag,
+which the author sets.
+
+**Phase F needs:** external reproduction from a clean clone (FINAL-AUDIT item 11, G4), which settles
+C13's pending part ("external reproduction pending").
