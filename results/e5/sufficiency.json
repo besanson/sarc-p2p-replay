@@ -1,0 +1,336 @@
+{
+  "categories": {
+    "2-way": {
+      "all_three_losses": {
+        "counterexample": null,
+        "sufficient": true
+      },
+      "analysed_clearings": 188,
+      "derived_contract": [
+        "D4"
+      ],
+      "derived_proper_subset_of_registered": true,
+      "derived_subset_of_registered": true,
+      "distinct_states": 3,
+      "fields_droppable_keeping_sufficiency": [
+        "invoices",
+        "distinct_actors",
+        "blocks",
+        "closed"
+      ],
+      "fields_read_by_no_registered_predicate": [
+        "receipts",
+        "clearing_ordinal"
+      ],
+      "minimal_for_the_losses_it_is_sufficient_for": false,
+      "not_sufficient_for": [],
+      "per_loss": {
+        "L1": {
+          "analysed_clearings_with_loss": 0,
+          "counterexample": null,
+          "sufficient": true
+        },
+        "L2": {
+          "analysed_clearings_with_loss": 0,
+          "counterexample": null,
+          "sufficient": true
+        },
+        "L3": {
+          "analysed_clearings_with_loss": 4,
+          "counterexample": null,
+          "sufficient": true
+        }
+      },
+      "registered_contract": [
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7"
+      ],
+      "registered_fields": [
+        "invoices",
+        "changes",
+        "distinct_actors",
+        "blocks",
+        "closed"
+      ],
+      "sufficient_for": [
+        "L1",
+        "L2",
+        "L3"
+      ]
+    },
+    "3-way, invoice after receipt": {
+      "all_three_losses": {
+        "counterexample": {
+          "differing_fields": [
+            "clearing_ordinal"
+          ],
+          "state_a": {
+            "blocks": -1,
+            "changes": 0,
+            "clearing_ordinal": 1,
+            "closed": 0,
+            "distinct_actors": "pass",
+            "invoices": 1,
+            "receipts": 1
+          },
+          "state_a_prime": {
+            "blocks": -1,
+            "changes": 0,
+            "clearing_ordinal": 2,
+            "closed": 0,
+            "distinct_actors": "pass",
+            "invoices": 1,
+            "receipts": 1
+          },
+          "verdict_a": false,
+          "verdict_a_prime": true
+        },
+        "sufficient": false
+      },
+      "analysed_clearings": 9640,
+      "derived_contract": [
+        "D3",
+        "D4"
+      ],
+      "derived_proper_subset_of_registered": true,
+      "derived_subset_of_registered": true,
+      "distinct_states": 896,
+      "fields_droppable_keeping_sufficiency": [
+        "receipts",
+        "invoices",
+        "distinct_actors",
+        "blocks",
+        "closed"
+      ],
+      "fields_read_by_no_registered_predicate": [
+        "clearing_ordinal"
+      ],
+      "minimal_for_the_losses_it_is_sufficient_for": false,
+      "not_sufficient_for": [
+        "L2"
+      ],
+      "per_loss": {
+        "L1": {
+          "analysed_clearings_with_loss": 0,
+          "counterexample": null,
+          "sufficient": true
+        },
+        "L2": {
+          "analysed_clearings_with_loss": 81,
+          "counterexample": {
+            "differing_fields": [
+              "clearing_ordinal"
+            ],
+            "state_a": {
+              "blocks": -1,
+              "changes": 0,
+              "clearing_ordinal": 1,
+              "closed": 0,
+              "distinct_actors": "pass",
+              "invoices": 1,
+              "receipts": 1
+            },
+            "state_a_prime": {
+              "blocks": -1,
+              "changes": 0,
+              "clearing_ordinal": 2,
+              "closed": 0,
+              "distinct_actors": "pass",
+              "invoices": 1,
+              "receipts": 1
+            },
+            "verdict_a": false,
+            "verdict_a_prime": true
+          },
+          "sufficient": false
+        },
+        "L3": {
+          "analysed_clearings_with_loss": 1585,
+          "counterexample": null,
+          "sufficient": true
+        }
+      },
+      "registered_contract": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7"
+      ],
+      "registered_fields": [
+        "receipts",
+        "invoices",
+        "changes",
+        "distinct_actors",
+        "blocks",
+        "closed"
+      ],
+      "sufficient_for": [
+        "L1",
+        "L3"
+      ]
+    },
+    "3-way, invoice before receipt": {
+      "all_three_losses": {
+        "counterexample": {
+          "differing_fields": [
+            "clearing_ordinal"
+          ],
+          "state_a": {
+            "blocks": -1,
+            "changes": 0,
+            "clearing_ordinal": 1,
+            "closed": 0,
+            "distinct_actors": "pass",
+            "invoices": 1,
+            "receipts": 1
+          },
+          "state_a_prime": {
+            "blocks": -1,
+            "changes": 0,
+            "clearing_ordinal": 2,
+            "closed": 0,
+            "distinct_actors": "pass",
+            "invoices": 1,
+            "receipts": 1
+          },
+          "verdict_a": false,
+          "verdict_a_prime": true
+        },
+        "sufficient": false
+      },
+      "analysed_clearings": 145706,
+      "derived_contract": [
+        "D1",
+        "D2",
+        "D3",
+        "D4"
+      ],
+      "derived_proper_subset_of_registered": true,
+      "derived_subset_of_registered": true,
+      "distinct_states": 758,
+      "fields_droppable_keeping_sufficiency": [
+        "invoices",
+        "distinct_actors",
+        "blocks",
+        "closed"
+      ],
+      "fields_read_by_no_registered_predicate": [
+        "clearing_ordinal"
+      ],
+      "minimal_for_the_losses_it_is_sufficient_for": false,
+      "not_sufficient_for": [
+        "L2"
+      ],
+      "per_loss": {
+        "L1": {
+          "analysed_clearings_with_loss": 692,
+          "counterexample": null,
+          "sufficient": true
+        },
+        "L2": {
+          "analysed_clearings_with_loss": 1390,
+          "counterexample": {
+            "differing_fields": [
+              "clearing_ordinal"
+            ],
+            "state_a": {
+              "blocks": 0,
+              "changes": 0,
+              "clearing_ordinal": 1,
+              "closed": 0,
+              "distinct_actors": "pass",
+              "invoices": 1,
+              "receipts": -1
+            },
+            "state_a_prime": {
+              "blocks": 0,
+              "changes": 0,
+              "clearing_ordinal": 2,
+              "closed": 0,
+              "distinct_actors": "pass",
+              "invoices": 1,
+              "receipts": -1
+            },
+            "verdict_a": false,
+            "verdict_a_prime": true
+          },
+          "sufficient": false
+        },
+        "L3": {
+          "analysed_clearings_with_loss": 15568,
+          "counterexample": null,
+          "sufficient": true
+        }
+      },
+      "registered_contract": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7"
+      ],
+      "registered_fields": [
+        "receipts",
+        "invoices",
+        "changes",
+        "distinct_actors",
+        "blocks",
+        "closed"
+      ],
+      "sufficient_for": [
+        "L1",
+        "L3"
+      ]
+    }
+  },
+  "claims": [
+    "C1",
+    "C9"
+  ],
+  "fields": {
+    "blocks": [
+      "D6"
+    ],
+    "changes": [
+      "D4"
+    ],
+    "clearing_ordinal": [],
+    "closed": [
+      "D7"
+    ],
+    "distinct_actors": [
+      "D5"
+    ],
+    "invoices": [
+      "D3"
+    ],
+    "receipts": [
+      "D1",
+      "D2"
+    ]
+  },
+  "function": {
+    "commit": "cfb321ec220e83e81a771a048276571f6edf08fb",
+    "definition": "paper 5, Definition 4: a field set is sufficient for a loss model on the reachable states when every cell of the partition by those fields carries one verdict",
+    "entry_point": "reduct.sufficiency",
+    "modified": false,
+    "repository": "sarc-authority-derivation"
+  },
+  "losses": {
+    "L1": "pay for goods not received: the category requires a goods receipt and receipts <= 0",
+    "L2": "pay twice: clearing_ordinal > invoices",
+    "L3": "pay a changed amount: changes > 0"
+  },
+  "registration": "p7-v1.1",
+  "section": "6, E5 (DECISIONS.md D-D-3)",
+  "states": "the observed states of E5 (experiments/e5.py states(), from results/e1/evidence-set.jsonl.gz)",
+  "verdict_of_all_three": "hazardous if any declared loss fires (paper 5's m_verdict)"
+}

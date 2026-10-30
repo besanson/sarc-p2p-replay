@@ -1,0 +1,118 @@
+{
+  "calls": {
+    "e4-exploratory/haiku": {
+      "earliest_sent_utc": "2026-10-25T19:09:24.049394+00:00",
+      "file": "responses/e4-exploratory/haiku/responses.jsonl",
+      "requests": {
+        "attempt": {
+          "count": 2000,
+          "earliest_sent_utc": "2026-10-25T19:09:24.237326+00:00",
+          "latest_sent_utc": "2026-10-25T19:27:50.663310+00:00"
+        },
+        "models_retrieve": {
+          "count": 1,
+          "earliest_sent_utc": "2026-10-25T19:09:24.049394+00:00",
+          "latest_sent_utc": "2026-10-25T19:09:24.049394+00:00"
+        }
+      }
+    },
+    "e4-exploratory/jev": {
+      "earliest_sent_utc": "2026-10-25T19:06:00.800301+00:00",
+      "file": "responses/e4-exploratory/jev/responses.jsonl",
+      "requests": {
+        "attempt": {
+          "count": 2000,
+          "earliest_sent_utc": "2026-10-25T19:06:01.169580+00:00",
+          "latest_sent_utc": "2026-10-25T19:09:21.717672+00:00"
+        },
+        "models_list": {
+          "count": 1,
+          "earliest_sent_utc": "2026-10-25T19:06:00.800301+00:00",
+          "latest_sent_utc": "2026-10-25T19:06:00.800301+00:00"
+        }
+      }
+    },
+    "e4/haiku": {
+      "earliest_sent_utc": "2026-10-25T18:46:32.032785+00:00",
+      "file": "responses/e4/haiku/responses.jsonl",
+      "requests": {
+        "attempt": {
+          "count": 2000,
+          "earliest_sent_utc": "2026-10-25T18:46:32.193426+00:00",
+          "latest_sent_utc": "2026-10-25T19:04:54.643515+00:00"
+        },
+        "models_retrieve": {
+          "count": 1,
+          "earliest_sent_utc": "2026-10-25T18:46:32.032785+00:00",
+          "latest_sent_utc": "2026-10-25T18:46:32.032785+00:00"
+        }
+      }
+    },
+    "e4/jev": {
+      "earliest_sent_utc": "2026-10-25T18:42:18.076274+00:00",
+      "file": "responses/e4/jev/responses.jsonl",
+      "requests": {
+        "attempt": {
+          "count": 2000,
+          "earliest_sent_utc": "2026-10-25T18:42:18.697062+00:00",
+          "latest_sent_utc": "2026-10-25T18:45:53.134037+00:00"
+        },
+        "models_list": {
+          "count": 2,
+          "earliest_sent_utc": "2026-10-25T18:42:18.076274+00:00",
+          "latest_sent_utc": "2026-10-25T18:42:29.573451+00:00"
+        }
+      }
+    }
+  },
+  "commits": {
+    "D-C-2 decision (D5 reading, H3 convention)": {
+      "author_utc": "2026-10-25T18:21:56+00:00",
+      "commit": "7aea13f",
+      "commit_full": "7aea13f96be68b92e114b090160e8ff9b80c59d8",
+      "committer_utc": "2026-10-25T18:21:56+00:00",
+      "subject": "paper 7: D-C-2 author decisions, deviations recorded"
+    },
+    "E4 sample draw": {
+      "author_utc": "2026-10-25T18:39:34+00:00",
+      "commit": "5ffd887",
+      "commit_full": "5ffd887c1ca66960fecf5b015c4f4096b732774a",
+      "committer_utc": "2026-10-25T18:39:34+00:00",
+      "subject": "paper 7: E4 sample draw and views (no call yet)"
+    },
+    "first committed H4 values (results/e4/h4.json)": {
+      "author_utc": "2026-10-25T19:05:47+00:00",
+      "commit": "69797a5",
+      "commit_full": "69797a5c11173a739c8838bd9e178d40f0be0b81",
+      "committer_utc": "2026-10-25T19:05:47+00:00",
+      "subject": "paper 7: E4 analysis, H4, Holm over the five-test family"
+    },
+    "first committed responses, haiku": {
+      "author_utc": "2026-10-25T19:05:12+00:00",
+      "commit": "058903c",
+      "commit_full": "058903c01905836435e76b8c7781d579306f1148",
+      "committer_utc": "2026-10-25T19:05:12+00:00",
+      "subject": "paper 7: E4 responses, family haiku, 2000 lines, status COMPLETE"
+    },
+    "first committed responses, jev": {
+      "author_utc": "2026-10-25T18:46:28+00:00",
+      "commit": "a475068",
+      "commit_full": "a475068c44704596232936b38be425bb3c5e377b",
+      "committer_utc": "2026-10-25T18:46:28+00:00",
+      "subject": "paper 7: E4 responses, family jev, 2000 lines, status COMPLETE"
+    }
+  },
+  "earliest_sent_utc_any_call": "2026-10-25T18:42:18.076274+00:00",
+  "note": "times compared as UTC ISO 8601 strings of the same form",
+  "order": {
+    "decision_commit_before_earliest_call": true,
+    "decision_commit_before_first_h4_commit": true,
+    "sample_commit_before_earliest_call": true
+  },
+  "registration": "p7-v1.1",
+  "section": "7, E4 (DECISIONS.md D-D-3)",
+  "sources": {
+    "calls": "sent_utc of every request in the committed response logs, written by the client before the request is sent",
+    "commits": "git committer and author times, as recorded by the committing machine"
+  }
+}

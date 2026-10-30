@@ -148,6 +148,12 @@ def g4_regeneration(quick: bool) -> dict:
 
         round1_slots.run(log, root=regen, e1_dir=res / "e1", out=res)
         produced += ["e3/human-hold-composition.json", "e1/actors.json", "e4/arms-classified-lines.json"]
+        from experiments import round2_slots  # noqa: PLC0415
+
+        parts = (("timeline", "actors") + (("sufficiency",) if (res / "e5" / "derivation.json").exists() else ())
+                 + (("e7",) if (res / "e7" / "evidence-set.jsonl.gz").exists() else ()))
+        docs = round2_slots.run(log, e1_dir=res / "e1", e5_dir=res / "e5", e7_dir=res / "e7", out=res, parts=parts)
+        produced += list(docs)
     rows = _compare(ROOT / "results", res, sorted(set(produced)))
 
     import fill_paper  # noqa: PLC0415

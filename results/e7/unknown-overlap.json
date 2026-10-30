@@ -1,0 +1,29 @@
+{
+  "logs": {
+    "domestic": {
+      "every_predicate_passing": 10040,
+      "payments": 10042,
+      "unknown_per_predicate": {
+        "D1'": 0,
+        "D2'": 0,
+        "D3'": 2
+      },
+      "with_a_predicate_unknown": 2,
+      "with_a_predicate_unknown_and_another_failing": 2
+    },
+    "international": {
+      "every_predicate_passing": 6187,
+      "payments": 6187,
+      "unknown_per_predicate": {
+        "D1'": 0,
+        "D2'": 0,
+        "D3'": 0
+      },
+      "with_a_predicate_unknown": 0,
+      "with_a_predicate_unknown_and_another_failing": 0
+    }
+  },
+  "registration": "p7-v1.1",
+  "section": "8, E7 (DECISIONS.md D-D-3)",
+  "source": "results/e7/evidence-set.jsonl.gz"
+}

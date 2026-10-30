@@ -1,0 +1,19 @@
+{
+  "analysed_clearings": 155534,
+  "analysed_clearings_D5_unknown": 0,
+  "analysed_clearings_clearing_actor_missing": 0,
+  "analysed_clearings_earliest_creation_actor_missing": 0,
+  "analysed_clearings_in_evidence_set": 155534,
+  "framed_lines_clear_invoice_missing_actor": {
+    "after_horizon": 94,
+    "analysed": 0,
+    "other": 0,
+    "total": 94
+  },
+  "horizon_t_end_minus_W": "2018-11-19T13:34:00+00:00",
+  "missing_actor_rule": "empty or NONE (registered actor_missing); D5 is unknown if either actor is missing",
+  "note": "framed lines with the E0 lines removed, as in results/e1/actors.json (scope framed)",
+  "registration": "p7-v1.1",
+  "section": "3.2, D5 (DECISIONS.md D-D-3)",
+  "t_end": "2019-01-18T13:34:00+00:00"
+}

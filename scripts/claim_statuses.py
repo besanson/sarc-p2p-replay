@@ -54,8 +54,9 @@ def statuses() -> dict[str, tuple[str, str]]:
 
     return {
         # D-D-2: the evidence of C1 is the evidence set and the property tests; mutation is engine evidence.
-        "C1": ("supported", "`results/e1/evidence-set.jsonl.gz`, `tests/test_properties.py`; engine evidence "
-                            "`results/mutation.json`"),
+        # D-D-3: paper 5's sufficiency function on the registered contract comes first.
+        "C1": ("supported", "`results/e5/sufficiency.json`, `results/e1/evidence-set.jsonl.gz`, "
+                            "`tests/test_properties.py`; engine evidence `results/mutation.json`"),
         "C2": ("supported", "`results/e1/exposure.json`, `results/e1/exposure-by-stratum.json`"),
         "C3": ("supported", "`results/e2/hypotheses.json`"),
         "C4": ("supported", "`results/e2/hypotheses.json`"),

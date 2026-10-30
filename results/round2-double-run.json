@@ -1,0 +1,31 @@
+{
+  "all_identical": true,
+  "files": [
+    {
+      "file": "e5/sufficiency.json",
+      "identical": true,
+      "sha256_committed": "2bc621ab99434259f3085a1f5a634379532c19a9c7b2c31185c0f6b6dfc675d8",
+      "sha256_rerun": "2bc621ab99434259f3085a1f5a634379532c19a9c7b2c31185c0f6b6dfc675d8"
+    },
+    {
+      "file": "e4/timeline.json",
+      "identical": true,
+      "sha256_committed": "d8f39eb8f902bf7ee1dc6f86b62f5186ddbae74e857d806c3f73d8d8a0fae0f4",
+      "sha256_rerun": "d8f39eb8f902bf7ee1dc6f86b62f5186ddbae74e857d806c3f73d8d8a0fae0f4"
+    },
+    {
+      "file": "e1/analysed-clearing-actors.json",
+      "identical": true,
+      "sha256_committed": "fbb5e153b6bb530fe663ea2bdd2a30dbdd7135b6aac64120ae1bd1feedc4b644",
+      "sha256_rerun": "fbb5e153b6bb530fe663ea2bdd2a30dbdd7135b6aac64120ae1bd1feedc4b644"
+    },
+    {
+      "file": "e7/unknown-overlap.json",
+      "identical": true,
+      "sha256_committed": "fefbaee64501d20fad91e018933b90fae6dfcc55ebf5240ea246b183cf964723",
+      "sha256_rerun": "fefbaee64501d20fad91e018933b90fae6dfcc55ebf5240ea246b183cf964723"
+    }
+  ],
+  "runner": "experiments/round2_slots.py",
+  "runs": "two runs (results/, and a scratch directory)"
+}

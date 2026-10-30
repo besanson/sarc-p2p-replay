@@ -626,7 +626,7 @@ Claim statuses, each set from its slot file:
 
 | claim | status | evidence |
 | --- | --- | --- |
-| C1 | supported | `results/e1/evidence-set.jsonl.gz`, `tests/test_properties.py`; engine evidence `results/mutation.json` |
+| C1 | supported | `results/e5/sufficiency.json`, `results/e1/evidence-set.jsonl.gz`, `tests/test_properties.py`; engine evidence `results/mutation.json` |
 | C2 | supported | `results/e1/exposure.json`, `results/e1/exposure-by-stratum.json` |
 | C3 | supported | `results/e2/hypotheses.json` |
 | C4 | supported | `results/e2/hypotheses.json` |

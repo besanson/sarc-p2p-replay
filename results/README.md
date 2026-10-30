@@ -34,6 +34,7 @@ refer to `prereg/p7-v1.1.md`.
 | `e1/lines-t-star-amended.jsonl.gz` | gate status at t* per framed line under D-C-2 B (D5 not applicable at a t* that is not a clearing) | 7; DEVIATIONS |
 | `e1/evidence-sample.jsonl` | the seeded sample export of the evidence set | 3.9 |
 | `e1/actors.json` | `Clear Invoice` events by batch, other and missing actors; distinct clearing actors, distinct earliest-creation actors and their intersection, over all and framed lines (`experiments/round1_slots.py`, D-D-2) | 3.2 (D5) |
+| `e1/analysed-clearing-actors.json` | analysed clearings whose `Clear Invoice` or earliest-creation actor is missing, the D5 unknown count, and the framed-line `Clear Invoice` events with a missing actor split into analysed and after the horizon T_end - W (`experiments/round2_slots.py`, D-D-3) | 3.2 (D5) |
 
 ## e2/ (E2, consequence: `experiments/e2.py`)
 
@@ -65,6 +66,7 @@ refer to `prereg/p7-v1.1.md`.
 | `e4/arms.json` | per arm (people, each family, gate): hold rates, kappa with the gate, value released on defective lines, expected correctives, invalid counts, cost per decision | 7 |
 | `e4/double-run.json` | the E4 analysis run twice from the committed responses: byte comparison | 7 |
 | `e4/arms-classified-lines.json` | the four arms re-tabulated on the sample lines the people arm classifies; a re-tabulation, `e4/arms.json` is primary (`experiments/round1_slots.py`, D-D-2) | 7 |
+| `e4/timeline.json` | when the E4 calls were made (`sent_utc` per family, arm and request kind, from the committed response logs) beside the commit times of the D-C-2 decision, the sample draw, the first committed responses and the first H4 values (`experiments/round2_slots.py`, D-D-3) | 7 |
 
 ## e4-exploratory/ (E4 exploratory timeline arm, never in Holm: `experiments/e4.py --arm e4-exploratory`)
 
@@ -81,6 +83,7 @@ refer to `prereg/p7-v1.1.md`.
 | `e5/derivation.json` | per category: states, clearings per declared loss, the compiler's core, reducts and minimum-cardinality field set, the derived contract against the registered one, "reproduces" or "does not reproduce" | 3.1, 6 (E5) |
 | `e5/trace-<category>.json` | the compiler's full output per category: candidate context, certificate, witnesses, every state with its losses | 6 (E5) |
 | `e5/double-run.json` | E5 run twice: byte comparison | 6 (E5) |
+| `e5/sufficiency.json` | per category, the registered contract through paper 5's sufficiency function over the observed states: the fields it reads, sufficiency per declared loss and for the three together, counterexamples, minimality, the derived contract as a subset (`experiments/round2_slots.py`, D-D-3) | 6 (E5) |
 
 ## e6/ (E6, timing: `experiments/e6.py`)
 
@@ -100,6 +103,7 @@ refer to `prereg/p7-v1.1.md`.
 | `e7/comparisons.json` | O' rate for D1', D2', D3' failures against all-pass, difference and case-clustered bootstrap interval; descriptive, not in Holm | 8 |
 | `e7/evidence-set.jsonl.gz` | one record per payment unit, ids hashed | 8 |
 | `e7/double-run.json` | E7 vocabulary check and replication run twice: byte comparison | 8 |
+| `e7/unknown-overlap.json` | per log: payments with a predicate unknown, how many of them fail another predicate, and payments with every predicate passing (`experiments/round2_slots.py`, D-D-3) | 8 |
 
 ## Checks
 
@@ -108,6 +112,7 @@ refer to `prereg/p7-v1.1.md`.
 | `mutation.json` | mutation gate result on `src/` (kill score, counts, threshold) | 10 |
 | `checks-d-c-2.json` | D-C-2 B applied: E1 re-run from the log against the committed files, E2 re-run, E3 double run | DEVIATIONS |
 | `round1-double-run.json` | the round-1 slots run twice from the log: byte comparison | D-D-2 |
+| `round2-double-run.json` | the round-2 slots run twice: byte comparison | D-D-3 |
 
 ## Reproducibility (`experiments/repro.py`)
 
