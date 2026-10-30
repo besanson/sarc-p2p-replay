@@ -10,7 +10,7 @@ counts as "filled" differs. Paper 5 marks filled values in the draft itself
 - the template: every numeral outside a `{{...}}` placeholder (the template is where a
   hand-typed number would be written);
 - the generated paper: every numeral outside the spans the filler recorded in
-  `results/filled-template.json` (so a hand edit of `paper/paper.md` is caught too).
+  `paper/filled-template.json` (so a hand edit of `paper/paper.md` is caught too).
 
 Stripped before the allowlist: filled spans or placeholders; inline code and fenced code
 (identifiers, model and package names, file paths); bare URLs and DOIs; HTML comments; double-quoted
@@ -43,7 +43,7 @@ from typing import Any, Pattern
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "paper" / "template.md"
 PAPER = ROOT / "paper" / "paper.md"
-FILLED = ROOT / "results" / "filled-template.json"
+FILLED = ROOT / "paper" / "filled-template.json"
 OUTPUT_PATH = ROOT / "out" / "lint" / "typed_numerals.json"
 
 _MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December"

@@ -159,8 +159,8 @@ def g4_regeneration(quick: bool) -> dict:
     if (ROOT / "paper" / "template.md").exists():
         fill_paper.run(out_paper=paper_dir / "paper.md", out_filled=paper_dir / "filled-template.json")
         paper_rows += [{"file": "paper/paper.md", "identical": digest(ROOT / "paper" / "paper.md") == digest(paper_dir / "paper.md")},
-                       {"file": "results/filled-template.json",
-                        "identical": digest(ROOT / "results" / "filled-template.json") == digest(paper_dir / "filled-template.json")}]
+                       {"file": "paper/filled-template.json",
+                        "identical": digest(ROOT / "paper" / "filled-template.json") == digest(paper_dir / "filled-template.json")}]
         figures.run(paper_dir / "figures")
         for f in sorted((paper_dir / "figures").iterdir()):
             committed = ROOT / "paper" / "figures" / f.name

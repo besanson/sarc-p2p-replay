@@ -22,7 +22,7 @@ help:
 	@echo "lint             terminology and proof-status lints"
 	@echo "mutate           mutation gate on src/ (kill score >= 0.85, no uncovered mutant)"
 	@echo "gates            release gates G1 to G9 (out/gates/report.json); gates-quick skips the log replays"
-	@echo "fill             paper/paper.md and results/filled-template.json from paper/template.md and the slots"
+	@echo "fill             paper/paper.md and paper/filled-template.json from paper/template.md and the slots"
 	@echo "figures          paper/figures/ (SVG and PDF) from the slots"
 	@echo "paper            fill, figures, paper-tex/main.tex; the PDF when a LaTeX engine is installed"
 

@@ -351,6 +351,8 @@ This sweep is AI support, to be disclosed in the acknowledgements; it is not the
 
 **Addendum.** (2026-10-28) The sweep was run on Perplexity Computer; the author had selected DeepSeek 4.0 Pro on the platform. A later session on the same platform (the round-1 machine review, `review-secondary/D1-review-perplexity.md`) reports its model as Claude Opus 5.5 and states that it produced this sweep. The model that served the sweep cannot be confirmed. The file name and its SHA-256 are unchanged.
 
+**Addendum.** (2026-10-30) In the same Perplexity Computer session, after the round-1 review, the platform identified the model of the 2026-10-14 sweep as DeepSeek V4 Pro and the model of the round-1 review as Claude Opus 5.5 (source: `review-secondary/D2-review-perplexity.md`, the Acknowledgements row). Both statements are now on record, in order: first that the round-1 session produced this sweep (2026-10-28 paragraph above), then that DeepSeek V4 Pro served it. The file name and its SHA-256 are unchanged.
+
 ## D-A1-1 A1 adjudication (2026-10-18)
 
 **Inputs.** The external fence review by Eduardo Arana, dated 2026-10-16, on the
@@ -943,3 +945,23 @@ pipeline reading of `experiments/e7.py`, recorded here; the retained counts are 
 `results/e7/comparisons.json` (`bootstrap_resamples_used`). The A1 second sweep's attestation and
 D-A1-0c carry the platform correction of 2026-10-28; the paper names machine sweeps and reviews by
 platform with the model as self-reported.
+
+## D-D-3 Round-2 adjudication (2026-10-30)
+
+**Records.**
+
+- *A1 sweep statements.* The attestation of the A1 second sweep
+  (`review-secondary/A1-fence-sweep-deepseek.attestation.md`) and D-A1-0c carry a second dated
+  paragraph: in the same Perplexity Computer session, after the round-1 review, the platform
+  identified the model of the 2026-10-14 sweep as DeepSeek V4 Pro and the model of the round-1 review
+  as Claude Opus 5.5 (`review-secondary/D2-review-perplexity.md`, the Acknowledgements row). Both
+  statements are on record, in order; the Acknowledgements say the same.
+- *Filled template moved.* `results/filled-template.json` is now `paper/filled-template.json`; its
+  readers (the typed-numeral lint, G4 and G9 in `scripts/gates.py`, `tests/test_paper.py`,
+  `scripts/fill_paper.py`, `scripts/review_packet.py`, the results and paper READMEs) follow. The
+  rule: experiment slots under `results/` never change once committed (new slot files may be added);
+  derived records of the paper live beside the paper and regenerate with it.
+- *Paper-regeneration test.* Commits `a09c4b1` (D-D-2) and `08d860c` (round-1 slots) fail
+  `tests/test_paper.py::test_committed_paper_matches_the_template`: the slots changed before the
+  paper was regenerated, and the failing exit code was hidden by a pipe. `b01be29` (draft v0.2)
+  passes. The builder's test runs now fail on a failing exit code (`set -o pipefail`).

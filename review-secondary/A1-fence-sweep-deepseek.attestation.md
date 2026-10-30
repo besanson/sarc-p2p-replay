@@ -5,3 +5,5 @@ Second machine prior-art sweep, not the external review. Model: DeepSeek, DeepSe
 The author's file was named A1-fence-review.md; that name is reserved for the external review and is not used here.
 
 **Correction (2026-10-28).** The sweep was run on Perplexity Computer; the author had selected DeepSeek 4.0 Pro on the platform. A later session on the same platform (the round-1 machine review, `review-secondary/D1-review-perplexity.md`) reports its model as Claude Opus 5.5 and states that it produced this sweep. The model that served the sweep cannot be confirmed. The file name and its SHA-256 are unchanged.
+
+**Second statement (2026-10-30).** In the same Perplexity Computer session, after the round-1 review, the platform identified the model of the 2026-10-14 sweep as DeepSeek V4 Pro and the model of the round-1 review as Claude Opus 5.5 (source: `review-secondary/D2-review-perplexity.md`, the Acknowledgements row). Both statements are now on record, in order: first that the round-1 session produced this sweep (2026-10-28 paragraph above), then that DeepSeek V4 Pro served it. The file name and its SHA-256 are unchanged.

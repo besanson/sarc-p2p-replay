@@ -1,7 +1,7 @@
 """Write DECISIONS.md D-D-1 (draft v0.1) from the gate report, the lint outputs and the filled template.
 
 Reads out/gates/report.json (`make gates`), out/lint/typed_numerals.json and out/lint/terminology.json
-(`make lint`), results/filled-template.json and paper/figures/. Replaces an earlier D-D-1 or appends.
+(`make lint`), paper/filled-template.json and paper/figures/. Replaces an earlier D-D-1 or appends.
 
 Usage: python scripts/d_d_1.py --date YYYY-MM-DD
 """
@@ -26,7 +26,7 @@ def _json(p: str) -> dict:
 def render(date: str) -> str:
     report = _json("out/gates/report.json")
     tn = _json("out/lint/typed_numerals.json")
-    filled = _json("results/filled-template.json")
+    filled = _json("paper/filled-template.json")
     words = len(re.findall(r"\S+", (ROOT / "paper" / "paper.md").read_text(encoding="utf-8")))
     gate_rows = []
     for name, g in report["gates"].items():

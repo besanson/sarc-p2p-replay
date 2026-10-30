@@ -1,4 +1,4 @@
-"""Fill paper/template.md from the slot files: writes paper/paper.md and results/filled-template.json.
+"""Fill paper/template.md from the slot files: writes paper/paper.md and paper/filled-template.json.
 
 Every numeral in the paper reaches it through this script. Placeholders:
 
@@ -15,7 +15,7 @@ p (p-value), eur (whole anonymised EUR, thousands separator), usd (two decimals)
 iv (interval of proportions, four decimals), ivpct (interval in %, two decimals), sec (seconds,
 one decimal), str (as is), date (YYYY-MM-DD).
 
-results/filled-template.json records, for every placeholder, its text, source, key, raw value and
+paper/filled-template.json records, for every placeholder, its text, source, key, raw value and
 its character span in paper/paper.md; the typed-numeral lint reads the spans. Output is a pure
 function of the template and the slots, so regeneration is byte-identical.
 
@@ -35,7 +35,7 @@ from typing import Any, Callable
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "paper" / "template.md"
 PAPER = ROOT / "paper" / "paper.md"
-FILLED = ROOT / "results" / "filled-template.json"
+FILLED = ROOT / "paper" / "filled-template.json"
 RESULTS = ROOT / "results"
 PLACEHOLDER = re.compile(r"\{\{(.*?)\}\}", re.DOTALL)
 STRATA_IN_PAPER = ("category", "spend_area", "month", "line_value_quartile", "vendor_activity_quartile")

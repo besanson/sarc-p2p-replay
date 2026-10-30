@@ -41,7 +41,7 @@ def render(date: str, rnd: int = 1) -> str:
         f"| packet date | {date}, built on the commit after `{head}` |",
         "| repository | https://github.com/besanson/sarc-p2p-replay |", "",
         "The registration itself is `prereg/p7-v1.1.md` in the repository; every number in the paper is traceable to "
-        "its slot file through `results/filled-template.json`. The reply is committed to the repository unedited, "
+        "its slot file through `paper/filled-template.json`. The reply is committed to the repository unedited, "
         "with its SHA-256.", "",
         "## Instructions to the reviewer", "", INSTRUCTIONS, "",
     ]

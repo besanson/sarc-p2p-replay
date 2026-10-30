@@ -28,7 +28,7 @@ def test_fill_is_deterministic_and_records_every_span(tmp_path):
 def test_committed_paper_matches_the_template(tmp_path):
     fill_paper.run(out_paper=tmp_path / "p.md", out_filled=tmp_path / "f.json")
     assert (ROOT / "paper" / "paper.md").read_bytes() == (tmp_path / "p.md").read_bytes()
-    assert (ROOT / "results" / "filled-template.json").read_bytes() == (tmp_path / "f.json").read_bytes()
+    assert (ROOT / "paper" / "filled-template.json").read_bytes() == (tmp_path / "f.json").read_bytes()
 
 
 def test_formats_and_value_lookup():

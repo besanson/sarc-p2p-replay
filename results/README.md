@@ -1,7 +1,12 @@
 # results/
 
 Slot files. Every figure in the paper comes from a file here, written by code
-in `experiments/`; nothing in this directory is edited by hand. Company and
+in `experiments/`; nothing in this directory is edited by hand. A slot file
+never changes once committed; new slot files may be added (D-D-3). Derived
+records of the paper live beside the paper and regenerate with it:
+`paper/filled-template.json` (every placeholder of `paper/template.md`, its
+text in `paper/paper.md`, source file, key, raw value and span; written by
+`scripts/fill_paper.py`). Company and
 vendor appear only as hashed stratum labels inside the JSON files. Sections
 refer to `prereg/p7-v1.1.md`.
 
@@ -103,12 +108,6 @@ refer to `prereg/p7-v1.1.md`.
 | `mutation.json` | mutation gate result on `src/` (kill score, counts, threshold) | 10 |
 | `checks-d-c-2.json` | D-C-2 B applied: E1 re-run from the log against the committed files, E2 re-run, E3 double run | DEVIATIONS |
 | `round1-double-run.json` | the round-1 slots run twice from the log: byte comparison | D-D-2 |
-
-## Paper (`scripts/fill_paper.py`)
-
-| file | holds | section |
-|---|---|---|
-| `filled-template.json` | every placeholder of `paper/template.md`: its text in `paper/paper.md`, source file, key, raw value and span | 12 (Phase D) |
 
 ## Reproducibility (`experiments/repro.py`)
 
