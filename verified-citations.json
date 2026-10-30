@@ -651,9 +651,9 @@
       "citation_as_written": null,
       "http_status": 200,
       "title_as_page_states": null,
-      "reached_on": "2026-10-14",
+      "reached_on": "2026-10-30",
       "status": "verified",
-      "verified_via": "2026-10-14: arXiv PDF 200, 19 pages; PDF p. 7, section 8 (Claim-by-Claim Evidence, heading on p. 6), claim C3: 'The implementation selects minimum-cardinality or minimum-cost sufficient contracts using distinct objectives.'",
+      "verified_via": "2026-10-14: arXiv PDF 200, 19 pages; PDF p. 7, section 8 (Claim-by-Claim Evidence, heading on p. 6), claim C3: 'The implementation selects minimum-cardinality or minimum-cost sufficient contracts using distinct objectives.' 2026-10-30: arXiv search 'Besanson' (https://arxiv.org/search/?query=Besanson&searchtype=all&source=header, 10 results) lists it; curl of https://arxiv.org/abs/2609.26016 -> 200; citation_title, citation_author 'Besanson, Gaston' and citation_date 2026/09/22 read from the page metadata; v1 submitted Tue, 22 Sep 2026 11:20:31 UTC.",
       "note": "Named by the A1 sweep as a candidate against Claimed items 1 and 5 (D-A1-0b); not cited in NOVELTY.md."
     },
     {
@@ -974,9 +974,9 @@
       "citation_as_written": "Besanson 2026, arXiv:2608.18360 (paper 4)",
       "http_status": 200,
       "title_as_page_states": "One Gate Is Not Enough: Composing Stateful Pre-Action Controls for Agentic AI",
-      "reached_on": "2026-10-28",
+      "reached_on": "2026-10-30",
       "status": "verified",
-      "verified_via": "2026-10-28: curl of https://arxiv.org/abs/2608.18360 -> 200; citation_title, citation_author 'Besanson, Gaston' and citation_date 2026/08/18 read from the page metadata. Paper 5 (sarc-authority-derivation, pinned in engines.lock) names it paper 4 of the SARC series, the pinned sarc-suite-one-pass artifact (paper5 draft v0.6.6 front matter; its verified-citations.json record sarc-suite-one-pass-paper4).",
+      "verified_via": "2026-10-28: curl of https://arxiv.org/abs/2608.18360 -> 200; citation_title, citation_author 'Besanson, Gaston' and citation_date 2026/08/18 read from the page metadata. Paper 5 (sarc-authority-derivation, pinned in engines.lock) names it paper 4 of the SARC series, the pinned sarc-suite-one-pass artifact (paper5 draft v0.6.6 front matter; its verified-citations.json record sarc-suite-one-pass-paper4). 2026-10-30: arXiv search 'Besanson' (https://arxiv.org/search/?query=Besanson&searchtype=all&source=header, 10 results) lists it; curl of https://arxiv.org/abs/2608.18360 -> 200; citation_title, citation_author 'Besanson, Gaston' and citation_date 2026/08/18 read from the page metadata; v1 submitted Tue, 18 Aug 2026 22:24:44 UTC.",
       "note": "Cited for the SARC programme (Section 1)."
     },
     {
@@ -997,7 +997,87 @@
       "reached_on": "2026-10-28",
       "status": "verified",
       "verified_via": "2026-10-28: curl of https://github.com/besanson/gigo-jev-probe -> 200, page title 'GitHub - besanson/gigo-jev-probe: SARC Jev test'; the repository is the sibling pinned in engines.lock (DECISIONS.md D-A0-3 names it paper 6). No arXiv or DOI record is named in its README.",
-      "note": "A repository, not a publication; cited as such (Section 1). The data-quality repository besanson/dqSarc returned 403 on 2026-10-28 and is not cited. No record identifying papers 1 to 3 was found in the sibling repositories."
+      "note": "A repository, not a publication; cited as such (Section 1). The data-quality repository besanson/dqSarc returned 403 on 2026-10-28 and is not cited. No record identifying papers 1 to 3 was found in the sibling repositories. Superseded in the paper by the arXiv record besanson-paper6-2026 (D-E-0); no longer cited."
+    },
+    {
+      "id": "besanson-paper1-2026",
+      "entry_type": "misc",
+      "authors": [
+        "Gaston Besanson"
+      ],
+      "first_author": "Gaston Besanson",
+      "title": "SARC: A Governance-by-Architecture Framework for Agentic AI Systems",
+      "year": 2026,
+      "venue": "arXiv:2605.07728 (paper 1 of the SARC series: the framework (may the agent act))",
+      "doi": null,
+      "url": "https://arxiv.org/abs/2605.07728",
+      "citation_as_written": null,
+      "http_status": 200,
+      "title_as_page_states": "SARC: A Governance-by-Architecture Framework for Agentic AI Systems",
+      "reached_on": "2026-10-30",
+      "status": "verified",
+      "verified_via": "2026-10-30: arXiv search 'Besanson' (https://arxiv.org/search/?query=Besanson&searchtype=all&source=header, 10 results) lists it; curl of https://arxiv.org/abs/2605.07728 -> 200; citation_title, citation_author 'Besanson, Gaston' and citation_date 2026/05/08 read from the page metadata; v1 submitted Fri, 8 May 2026 13:34:36 UTC.",
+      "note": "Cited for the SARC series (Section 1; D-E-0)."
+    },
+    {
+      "id": "besanson-paper2-2026",
+      "entry_type": "misc",
+      "authors": [
+        "Gaston Besanson"
+      ],
+      "first_author": "Gaston Besanson",
+      "title": "Green SARC: Predictive Cost and Carbon Governance for Agentic AI Systems",
+      "year": 2026,
+      "venue": "arXiv:2606.15954 (paper 2 of the SARC series: budget (cost and carbon))",
+      "doi": null,
+      "url": "https://arxiv.org/abs/2606.15954",
+      "citation_as_written": null,
+      "http_status": 200,
+      "title_as_page_states": "Green SARC: Predictive Cost and Carbon Governance for Agentic AI Systems",
+      "reached_on": "2026-10-30",
+      "status": "verified",
+      "verified_via": "2026-10-30: arXiv search 'Besanson' (https://arxiv.org/search/?query=Besanson&searchtype=all&source=header, 10 results) lists it; curl of https://arxiv.org/abs/2606.15954 -> 200; citation_title, citation_author 'Besanson, Gaston' and citation_date 2026/06/14 read from the page metadata; v1 submitted Sun, 14 Jun 2026 18:26:43 UTC.",
+      "note": "Cited for the SARC series (Section 1; D-E-0)."
+    },
+    {
+      "id": "besanson-paper3-2026",
+      "entry_type": "misc",
+      "authors": [
+        "Gaston Besanson"
+      ],
+      "first_author": "Gaston Besanson",
+      "title": "SARC-DQ: Runtime Data-Quality Gating for Agentic AI: Silent Evidence Defects, the Incompetence Shield, and Downstream-Only Remediation",
+      "year": 2026,
+      "venue": "arXiv:2607.26313 (paper 3 of the SARC series: admit (data-quality gating))",
+      "doi": null,
+      "url": "https://arxiv.org/abs/2607.26313",
+      "citation_as_written": null,
+      "http_status": 200,
+      "title_as_page_states": "SARC-DQ: Runtime Data-Quality Gating for Agentic AI: Silent Evidence Defects, the Incompetence Shield, and Downstream-Only Remediation",
+      "reached_on": "2026-10-30",
+      "status": "verified",
+      "verified_via": "2026-10-30: arXiv search 'Besanson' (https://arxiv.org/search/?query=Besanson&searchtype=all&source=header, 10 results) lists it; curl of https://arxiv.org/abs/2607.26313 -> 200; citation_title, citation_author 'Besanson, Gaston' and citation_date 2026/07/28 read from the page metadata; v1 submitted Tue, 28 Jul 2026 22:22:52 UTC.",
+      "note": "Cited for the SARC series (Section 1; D-E-0)."
+    },
+    {
+      "id": "besanson-paper6-2026",
+      "entry_type": "misc",
+      "authors": [
+        "Gaston Besanson"
+      ],
+      "first_author": "Gaston Besanson",
+      "title": "Probabilistic Sensing, Deterministic Authority: Admitting Model-Produced Observations into Sufficiency-Checked Governance Contracts",
+      "year": 2026,
+      "venue": "arXiv:2610.10978 (paper 6 of the SARC series: sense (facts read from unstructured evidence))",
+      "doi": null,
+      "url": "https://arxiv.org/abs/2610.10978",
+      "citation_as_written": null,
+      "http_status": 200,
+      "title_as_page_states": "Probabilistic Sensing, Deterministic Authority: Admitting Model-Produced Observations into Sufficiency-Checked Governance Contracts",
+      "reached_on": "2026-10-30",
+      "status": "verified",
+      "verified_via": "2026-10-30: arXiv search 'Besanson' (https://arxiv.org/search/?query=Besanson&searchtype=all&source=header, 10 results) lists it; curl of https://arxiv.org/abs/2610.10978 -> 200; citation_title, citation_author 'Besanson, Gaston' and citation_date 2026/10/07 read from the page metadata; v1 submitted Wed, 7 Oct 2026 23:02:20 UTC.",
+      "note": "Cited for the SARC series (Section 1; D-E-0)."
     }
   ]
 }

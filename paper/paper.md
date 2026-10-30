@@ -36,9 +36,11 @@ expose; the authority defect class (D5) has zero incidence here. No causal claim
 ## 1 Introduction
 
 Earlier papers of this programme showed the mechanism of a silent evidence defect, a decision taken on evidence that fails a
-metadata-borne predicate, on constructed domains, and made no prevalence claim: paper 4 (Besanson 2026a) and
-paper 5 (Besanson 2026b) are on arXiv, and paper 6 is a public repository (Besanson 2026c). We
-found no record that identifies papers 1 to 3, and do not cite them. This paper is the number, on one real process.
+metadata-borne predicate, on constructed domains, and made no prevalence claim. The six papers are on arXiv: paper 1, SARC,
+on whether the agent may act (Besanson 2026a); paper 2, Green SARC, on its budget (Besanson 2026b);
+paper 3, SARC-DQ, on the evidence it admits (Besanson 2026c); paper 4 on composing several gates on one action
+(Besanson 2026d); paper 5 on deriving the contract, the compiler (Besanson 2026e); and paper 6
+on facts read from documents (Besanson 2026f). This paper is the number, on one real process.
 
 The unit is an invoice clearing in the BPI Challenge 2019 purchase-to-pay log. For each of the
 155,534 analysed clearings (the exclusion table of Section 4) we reconstruct the evidence
@@ -75,7 +77,7 @@ of Section 3.
 (van der Aalst 2016; Ly et al. 2015), and declarative constraints in the Declare
 family take a process model as the conjunction of its constraints (Pesic et al. 2007). The predicates D1 to D7 are
 compliance rules in this sense, and taking the decision as their conjunction is Declare's. Synthesising a sufficient contract
-from declared losses is paper 5 of this programme (Besanson 2026b); the compiler used in Section 5.5 is
+from declared losses is paper 5 of this programme (Besanson 2026e); the compiler used in Section 5.5 is
 paper 5's. Detecting that one resource performed two activities that must be separated is a standard compliance monitoring
 functionality (Ly et al. 2015); predicate D5 is that check.
 
@@ -592,11 +594,13 @@ The outcome is a proxy: a corrective event after a clearing is not proof that th
 observational. Category, spend area, value, vendor activity and month are reported beside every estimate (Appendix D for
 exposure, Appendix E for H1, H2 and the gate by outcome) and never modelled in. Values are anonymised. What a line the gate would have held becomes is not in the log. The people column reports what the process did within W; the comparison across the people, the
 models and the gate is of outcomes of three deciders, not of three acts. The only inference the three columns support is this:
-on the same lines the process released about two thirds of both sets within W (people held
+on the 1,848 sample lines the log classifies, the process released about two
+thirds of both sets within W (people held
 33.0% and 34.0%); the models shown the predicate inputs
 held nearly every line with a failed predicate (100.0% and
 99.6%) and about half of the clean ones (52.5% and
-56.0%); the gate held exactly the lines with a failed predicate. No decision quality is
+56.0%; 53.0% and
+57.3% on all 2,000 sample lines); the gate held exactly the lines with a failed predicate. No decision quality is
 inferred for people, whose column is a process outcome. The ERP view hands the model the
 inputs of the predicates; under the timeline view the same models held far fewer lines (exploratory, no interval), which is
 a statement about views, not about the models alone. The derivation depends on how the three declared losses are expressed over
@@ -617,7 +621,7 @@ three-way categories, because no registered predicate reads the clearing's posit
 The prior-art fence was reviewed externally by Eduardo Arana after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`, and
 he reviewed drafts v0.1 to v0.3. AI tools were used as support: builder sessions with Claude for the code, the runs and the
 drafting from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for the second, the platform made two
-statements, in this order: a later session reported its own model as `Claude Opus 5.5` and stated that it produced the sweep,
+statements, unverified in-chat self-reports of the platforms, in this order: a later session reported its own model as `Claude Opus 5.5` and stated that it produced the sweep,
 and the same session then identified the sweep's model as `DeepSeek V4 Pro`); and machine reviews of drafts v0.1 to v0.3, on
 ChatGPT and on Perplexity (the Perplexity reviews of v0.1 and v0.2 state their model as `Claude Opus 5.5`; that of v0.3 names
 no serving model). All are committed unedited. The author is solely responsible for every claim. We thank the organisers of the BPI
@@ -626,9 +630,12 @@ Challenges and 4TU.ResearchData for the logs.
 ## References
 
 - <!-- ref:bpi2019-nonstudent-4-badakhshan -->Peyman Badakhshan, Samuel Gosling, Jerome Geyer-Klingeberg, Janina Nakladal, Johannes Schukat, Jennifer Gsenger (2019). Process Mining in the Coatings and Paints Industry: The Purchase Order Handling Process. BPI Challenge 2019 report, non-student category, ICPM 2019. https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-4.pdf
-- <!-- ref:besanson-paper4-2026 -->Gaston Besanson (2026a). One Gate Is Not Enough: Composing Stateful Pre-Action Controls for Agentic AI. arXiv:2608.18360 (paper 4 of the SARC series; repository sarc-suite-one-pass). https://arxiv.org/abs/2608.18360
-- <!-- ref:besanson-paper5-2026 -->Gaston Besanson (2026b). Compiling Sufficient Governance Context from Declared Losses and Reachable States: Exact Observation-Contract Synthesis with Cardinality and Cost Objectives. arXiv:2609.26016 (paper 5 of this programme; CITATION.cff of sarc-authority-derivation). https://arxiv.org/pdf/2609.26016
-- <!-- ref:besanson-paper6-repo-2026 -->Gaston Besanson (2026c). gigo-jev-probe: a preregistered probe of a model as an advisory data-quality critic (paper 6 of the SARC series). public GitHub repository besanson/gigo-jev-probe, pinned in engines.lock at e1fc75b. https://github.com/besanson/gigo-jev-probe
+- <!-- ref:besanson-paper1-2026 -->Gaston Besanson (2026a). SARC: A Governance-by-Architecture Framework for Agentic AI Systems. arXiv:2605.07728 (paper 1 of the SARC series: the framework (may the agent act)). https://arxiv.org/abs/2605.07728
+- <!-- ref:besanson-paper2-2026 -->Gaston Besanson (2026b). Green SARC: Predictive Cost and Carbon Governance for Agentic AI Systems. arXiv:2606.15954 (paper 2 of the SARC series: budget (cost and carbon)). https://arxiv.org/abs/2606.15954
+- <!-- ref:besanson-paper3-2026 -->Gaston Besanson (2026c). SARC-DQ: Runtime Data-Quality Gating for Agentic AI: Silent Evidence Defects, the Incompetence Shield, and Downstream-Only Remediation. arXiv:2607.26313 (paper 3 of the SARC series: admit (data-quality gating)). https://arxiv.org/abs/2607.26313
+- <!-- ref:besanson-paper4-2026 -->Gaston Besanson (2026d). One Gate Is Not Enough: Composing Stateful Pre-Action Controls for Agentic AI. arXiv:2608.18360 (paper 4 of the SARC series; repository sarc-suite-one-pass). https://arxiv.org/abs/2608.18360
+- <!-- ref:besanson-paper5-2026 -->Gaston Besanson (2026e). Compiling Sufficient Governance Context from Declared Losses and Reachable States: Exact Observation-Contract Synthesis with Cardinality and Cost Objectives. arXiv:2609.26016 (paper 5 of this programme; CITATION.cff of sarc-authority-derivation). https://arxiv.org/pdf/2609.26016
+- <!-- ref:besanson-paper6-2026 -->Gaston Besanson (2026f). Probabilistic Sensing, Deterministic Authority: Admitting Model-Produced Observations into Sufficiency-Checked Governance Contracts. arXiv:2610.10978 (paper 6 of the SARC series: sense (facts read from unstructured evidence)). https://arxiv.org/abs/2610.10978
 - <!-- ref:bpi2019-nonstudent-6-diba -->Kiarash Diba, Simon Remy, Luise Pufahl (2019). BPI Challenge 2019: Performance and Compliance Analysis of Procurement Processes Using Process Mining. BPI Challenge 2019 report, non-student category, ICPM 2019. https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-6.pdf
 - <!-- ref:harding-managers-machines-2022 -->Matthew Harding, Gabriel F. R. Vasconcelos (2022). Managers versus Machines: Do Algorithms Replicate Human Intuition in Credit Ratings?. arXiv:2202.04218 (submitted 2022-02-09). https://arxiv.org/abs/2202.04218
 - <!-- ref:icpm-bpi-challenge-2019-page -->ICPM 2019 (2019). BPI Challenge 2019 (ICPM 2019 conference page). https://icpmconference.org/2019/bpi-challenge/
@@ -688,7 +695,7 @@ Claim statuses, each set from its slot file:
 | C10 | supported | `results/e6/timing-e1.json`, `results/e6/cost.json` |
 | C11 | inconclusive | `results/e7/comparisons.json` |
 | C12 | supported; D5 class zero incidence | `results/e1/coverage-check.json` |
-| C13 | supported for the internal double runs; external reproduction pending (FINAL-AUDIT item 11) | `results/reproducibility.json`, `results/e4/double-run.json` |
+| C13 | supported for the internal double runs; external reproduction from a clean clone is pending | `results/reproducibility.json`, `results/e4/double-run.json` |
 
 Reading notes, as in the claims file. C1's "(paper 5)" refers to paper 5's contract construct, whose sufficiency for the
 declared losses over the observed states E5 checks with paper 5's own function, per category and per loss

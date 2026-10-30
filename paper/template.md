@@ -36,9 +36,11 @@ expose; the authority defect class (D5) has zero incidence here. No causal claim
 ## 1 Introduction
 
 Earlier papers of this programme showed the mechanism of a silent evidence defect, a decision taken on evidence that fails a
-metadata-borne predicate, on constructed domains, and made no prevalence claim: paper 4 ({{@cite>besanson-paper4-2026}}) and
-paper 5 ({{@cite>besanson-paper5-2026}}) are on arXiv, and paper 6 is a public repository ({{@cite>besanson-paper6-repo-2026}}). We
-found no record that identifies papers 1 to 3, and do not cite them. This paper is the number, on one real process.
+metadata-borne predicate, on constructed domains, and made no prevalence claim. The six papers are on arXiv: paper 1, SARC,
+on whether the agent may act ({{@cite>besanson-paper1-2026}}); paper 2, Green SARC, on its budget ({{@cite>besanson-paper2-2026}});
+paper 3, SARC-DQ, on the evidence it admits ({{@cite>besanson-paper3-2026}}); paper 4 on composing several gates on one action
+({{@cite>besanson-paper4-2026}}); paper 5 on deriving the contract, the compiler ({{@cite>besanson-paper5-2026}}); and paper 6
+on facts read from documents ({{@cite>besanson-paper6-2026}}). This paper is the number, on one real process.
 
 The unit is an invoice clearing in the BPI Challenge 2019 purchase-to-pay log. For each of the
 {{e1/exclusions.json>analysed_clearings|int}} analysed clearings (the exclusion table of Section 4) we reconstruct the evidence
@@ -428,11 +430,13 @@ The outcome is a proxy: a corrective event after a clearing is not proof that th
 observational. Category, spend area, value, vendor activity and month are reported beside every estimate (Appendix D for
 exposure, Appendix E for H1, H2 and the gate by outcome) and never modelled in. Values are anonymised. What a line the gate would have held becomes is not in the log. The people column reports what the process did within W; the comparison across the people, the
 models and the gate is of outcomes of three deciders, not of three acts. The only inference the three columns support is this:
-on the same lines the process released about two thirds of both sets within W (people held
+on the {{e4/arms-classified-lines.json>classified_lines|int}} sample lines the log classifies, the process released about two
+thirds of both sets within W (people held
 {{e4/arms-classified-lines.json>arms>people>hold_rate_defective|pct1}} and {{e4/arms-classified-lines.json>arms>people>hold_rate_clean|pct1}}); the models shown the predicate inputs
 held nearly every line with a failed predicate ({{e4/arms-classified-lines.json>arms>jev>hold_rate_defective|pct1}} and
 {{e4/arms-classified-lines.json>arms>haiku>hold_rate_defective|pct1}}) and about half of the clean ones ({{e4/arms-classified-lines.json>arms>jev>hold_rate_clean|pct1}} and
-{{e4/arms-classified-lines.json>arms>haiku>hold_rate_clean|pct1}}); the gate held exactly the lines with a failed predicate. No decision quality is
+{{e4/arms-classified-lines.json>arms>haiku>hold_rate_clean|pct1}}; {{e4/arms.json>arms>jev>hold_rate_clean|pct1}} and
+{{e4/arms.json>arms>haiku>hold_rate_clean|pct1}} on all {{e4/arms-classified-lines.json>sample_lines|int}} sample lines); the gate held exactly the lines with a failed predicate. No decision quality is
 inferred for people, whose column is a process outcome. The ERP view hands the model the
 inputs of the predicates; under the timeline view the same models held far fewer lines (exploratory, no interval), which is
 a statement about views, not about the models alone. The derivation depends on how the three declared losses are expressed over
@@ -453,7 +457,7 @@ three-way categories, because no registered predicate reads the clearing's posit
 The prior-art fence was reviewed externally by Eduardo Arana after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`, and
 he reviewed drafts v0.1 to v0.3. AI tools were used as support: builder sessions with Claude for the code, the runs and the
 drafting from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for the second, the platform made two
-statements, in this order: a later session reported its own model as `Claude Opus 5.5` and stated that it produced the sweep,
+statements, unverified in-chat self-reports of the platforms, in this order: a later session reported its own model as `Claude Opus 5.5` and stated that it produced the sweep,
 and the same session then identified the sweep's model as `DeepSeek V4 Pro`); and machine reviews of drafts v0.1 to v0.3, on
 ChatGPT and on Perplexity (the Perplexity reviews of v0.1 and v0.2 state their model as `Claude Opus 5.5`; that of v0.3 names
 no serving model). All are committed unedited. The author is solely responsible for every claim. We thank the organisers of the BPI

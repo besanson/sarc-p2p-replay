@@ -51,6 +51,7 @@ CLASS_ORDER = ("D1 class (absent receipt)", "D2 class (stale receipt)", "D3", "D
 # ------------------------------------------------------------------ sources
 
 _cache: dict[str, Any] = {}
+_cited: set[str] = set()  # the record ids the paper template cites, set by run()
 
 
 def load(source: str) -> Any:
@@ -120,10 +121,12 @@ def fmt(value: Any, f: str) -> str:
 # ------------------------------------------------------------------ citations
 
 def cite_text(cid: str) -> str:
-    """Author-year; verified records sharing one author-year get a, b, c in order of record id (D-D-3)."""
+    """Author-year; cited records sharing one author-year get a, b, c in order of record id (D-D-3, D-E-0:
+    among the records the template cites, so that an uncited record takes no letter)."""
     base = _author_year(cid)
     cites = load("@citations")
-    same = sorted(k for k, c in cites.items() if c["status"] == "verified" and _author_year(k) == base)
+    pool = _cited or {k for k, c in cites.items() if c["status"] == "verified"}
+    same = sorted(k for k in pool if _author_year(k) == base)
     return base + ("abcdefghij"[same.index(cid)] if len(same) > 1 else "")
 
 
@@ -400,10 +403,17 @@ def block_deviations() -> tuple[str, list[str]]:
     return "\n".join(items), ["prereg/DEVIATIONS.md"]
 
 
+# D-E-0: the paper drops the internal audit label from C13's status; CLAIMS.md keeps it.
+PAPER_STATUS = {
+    "supported for the internal double runs; external reproduction pending (FINAL-AUDIT item 11)":
+        "supported for the internal double runs; external reproduction from a clean clone is pending",
+}
+
+
 def block_claims() -> tuple[str, list[str]]:
     rows = [_row(["claim", "status", "evidence"]), _row(["---", "---", "---"])]
     for cid, r in load("@claims").items():
-        rows.append(_row([cid, r["status"], r["evidence"]]))
+        rows.append(_row([cid, PAPER_STATUS.get(r["status"], r["status"]), r["evidence"]]))
     return "\n".join(rows), ["CLAIMS.md"]
 
 
@@ -600,6 +610,8 @@ def run(template: Path = TEMPLATE, out_paper: Path = PAPER, out_filled: Path = F
         readme: Path | None = None) -> dict[str, Any]:
     """readme: a README.md to rewrite with the generated headline block (make fill passes the repository's)."""
     _cache.clear()
+    _cited.clear()
+    _cited.update(re.findall(r"\{\{@cite>([^}|]+)\}\}", template.read_text(encoding="utf-8")))
     paper, filled = fill(template.read_text(encoding="utf-8"))
     if README_TEMPLATE.exists():
         block = readme_headline()

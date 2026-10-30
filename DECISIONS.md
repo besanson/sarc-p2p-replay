@@ -1167,3 +1167,39 @@ on the release commit recorded in `results/ci-runs.json`; the Zenodo DOI and the
 `CITATION.cff` and the README); the release tag, which the author sets. External reproduction from
 a clean clone (item 11, C13) is Phase F. The package version in `pyproject.toml` is still 0.0.1;
 `CITATION.cff` carries 1.0.0-rc1.
+
+## D-E-0 Author's read of the v1.0 candidate (2026-10-30)
+
+The author's read (`review-secondary/D-author-read-v1.0-candidate.md`, committed unedited with its
+attestation) raised four points; the author accepted all four, applied as written through
+`paper/template.md`:
+
+a. Section 1, the SARC series: the arXiv search for "Besanson"
+   (https://arxiv.org/search/?query=Besanson&searchtype=all&source=header) returned ten records whose
+   author is Gaston Besanson; six are the series, the other four (2604.17431, 2604.00218, 2602.22750,
+   2602.13283) are outside it and are not cited. Each abstract page was fetched on 2026-10-30; title,
+   author ("Besanson, Gaston") and submission date are recorded in `verified-citations.json`. Mapped
+   to papers 1 to 6 by title and role, the ids agree with the author's list (2605.07728, 2606.15954,
+   2607.26313, 2608.18360, 2609.26016, 2610.10978), and the existing paper 4 and paper 5 records carry
+   2608.18360 and 2609.26016. No disagreement. Paper 6 is cited by its arXiv record; the repository
+   record stays in `verified-citations.json`, no longer cited. "We found no record that identifies
+   papers 1 to 3, and do not cite them." is replaced by one sentence citing all six, Besanson 2026a
+   to 2026f in series order; the letters are now assigned among the records the paper cites.
+
+| paper | arXiv id | title | v1 submitted | status |
+|---|---|---|---|---|
+| 1 | 2605.07728 | SARC: A Governance-by-Architecture Framework for Agentic AI Systems | Fri, 8 May 2026 13:34:36 UTC | verified |
+| 2 | 2606.15954 | Green SARC: Predictive Cost and Carbon Governance for Agentic AI Systems | Sun, 14 Jun 2026 18:26:43 UTC | verified |
+| 3 | 2607.26313 | SARC-DQ: Runtime Data-Quality Gating for Agentic AI: Silent Evidence Defects, the Incompetence Shield, and Downstream-Only Remediation | Tue, 28 Jul 2026 22:22:52 UTC | verified |
+| 4 | 2608.18360 | One Gate Is Not Enough: Composing Stateful Pre-Action Controls for Agentic AI | Tue, 18 Aug 2026 22:24:44 UTC | verified |
+| 5 | 2609.26016 | Compiling Sufficient Governance Context from Declared Losses and Reachable States: Exact Observation-Contract Synthesis with Cardinality and Cost Objectives | Tue, 22 Sep 2026 11:20:31 UTC | verified |
+| 6 | 2610.10978 | Probabilistic Sensing, Deterministic Authority: Admitting Model-Produced Observations into Sufficiency-Checked Governance Contracts | Wed, 7 Oct 2026 23:02:20 UTC | verified |
+
+b. Section 7: the three-column sentence names its lines ("on the 1,848 sample lines the log
+   classifies") and gives the clean-line hold rates on both bases (classified lines and all sample
+   lines), each figure from its slot (`results/e4/arms-classified-lines.json`, `results/e4/arms.json`).
+c. Appendix B (C13): the paper's status reads "supported for the internal double runs; external
+   reproduction from a clean clone is pending", without the internal label "(FINAL-AUDIT item 11)";
+   `CLAIMS.md` keeps its status and evidence path. Appendix C already read so.
+d. Acknowledgements: the platforms' model strings are introduced once as "unverified in-chat
+   self-reports of the platforms".
