@@ -102,6 +102,7 @@ FORMATS: dict[str, Callable[[Any], str]] = {
     "sec": lambda v: f"{v:.1f}",
     "str": lambda v: str(v),
     "date": lambda v: str(v)[:10],
+    "utc": lambda v: f"{str(v)[:10]} {str(v)[11:19]} UTC",
 }
 
 
@@ -114,6 +115,14 @@ def fmt(value: Any, f: str) -> str:
 # ------------------------------------------------------------------ citations
 
 def cite_text(cid: str) -> str:
+    """Author-year; verified records sharing one author-year get a, b, c in order of record id (D-D-3)."""
+    base = _author_year(cid)
+    cites = load("@citations")
+    same = sorted(k for k, c in cites.items() if c["status"] == "verified" and _author_year(k) == base)
+    return base + ("abcdefghij"[same.index(cid)] if len(same) > 1 else "")
+
+
+def _author_year(cid: str) -> str:
     c = load("@citations")[cid]
     authors = c.get("authors") or [c.get("first_author") or ""]
     surname = lambda a: a.split()[-1] if a else ""  # noqa: E731
@@ -300,15 +309,19 @@ def block_hold_composition() -> tuple[str, list[str]]:
 def block_coverage_status() -> tuple[str, list[str]]:
     cov = load("e1/coverage-check.json")
     pred = load("e7/predicates.json")["counts"]
+    # D-D-3: the D5 unknown count comes from its own slot; no slot counts unknowns for the other predicates.
+    unknown = {"D5": load("e1/analysed-clearing-actors.json")["analysed_clearings_D5_unknown"]}
     rows = [_row(["log", "predicate", "failed", "unknown"]), _row(["---", "---", "---:", "---:"])]
     for r in cov["rows"]:
-        rows.append(_row(["BPI 2019 (analysed clearings)", r["predicate"], fmt(r["failed_clearings"], "int"), "n/a"]))
+        rows.append(_row(["BPI 2019 (analysed clearings)", r["predicate"], fmt(r["failed_clearings"], "int"),
+                          fmt(unknown[r["predicate"]], "int") if r["predicate"] in unknown else "n/a"]))
     for log in ("domestic", "international"):
         for d in ("D1'", "D2'", "D3'"):
             x = pred[log][d]
             rows.append(_row([f"BPI 2020 {log} (payments)", d, fmt(x["fail"], "int"), fmt(x["unknown"], "int")]))
-    rows += ["", "Sources: `results/e1/coverage-check.json`, `results/e7/predicates.json`."]
-    return "\n".join(rows), ["e1/coverage-check.json", "e7/predicates.json"]
+    rows += ["", "Sources: `results/e1/coverage-check.json`, `results/e1/analysed-clearing-actors.json` (D5 unknown), "
+                 "`results/e7/predicates.json`."]
+    return "\n".join(rows), ["e1/coverage-check.json", "e1/analysed-clearing-actors.json", "e7/predicates.json"]
 
 
 def block_e5() -> tuple[str, list[str]]:
@@ -323,6 +336,20 @@ def block_e5() -> tuple[str, list[str]]:
                           ", ".join(f"`{f}`" for f in s["minimum_cardinality_field_set"]),
                           ", ".join(s["derived_contract"]) or "none", ", ".join(s["registered_contract"]), s["result"]]))
     return "\n".join(rows), ["e5/derivation.json"]
+
+
+def block_sufficiency() -> tuple[str, list[str]]:
+    d = load("e5/sufficiency.json")["categories"]
+    rows = [_row(["category", "registered fields", "sufficient for", "not sufficient for", "clearings with L2",
+                  "minimal", "derived contract a subset"]),
+            _row(["---", "---", "---", "---", "---:", "---", "---"])]
+    for cat, s in d.items():
+        rows.append(_row([cat, ", ".join(f"`{f}`" for f in s["registered_fields"]), ", ".join(s["sufficient_for"]) or "none",
+                          ", ".join(s["not_sufficient_for"]) or "none",
+                          fmt(s["per_loss"]["L2"]["analysed_clearings_with_loss"], "int"),
+                          "yes" if s["minimal_for_the_losses_it_is_sufficient_for"] else "no",
+                          "yes" if s["derived_subset_of_registered"] else "no"]))
+    return "\n".join(rows), ["e5/sufficiency.json"]
 
 
 def block_e7() -> tuple[str, list[str]]:
@@ -418,7 +445,8 @@ BLOCKS: dict[str, Callable[[], tuple[str, list[str]]]] = {
     "exclusions": block_exclusions, "exposure": block_exposure, "hypotheses": block_hypotheses,
     "holm": block_holm, "two_by_two": block_two_by_two, "lag_bands": block_lag_bands,
     "human_hold": block_human_hold, "arms": block_arms, "exploratory": block_exploratory,
-    "e5": block_e5, "e7": block_e7, "coverage": block_coverage, "deviations": block_deviations,
+    "e5": block_e5, "sufficiency": block_sufficiency, "e7": block_e7, "coverage": block_coverage,
+    "deviations": block_deviations,
     "claims": block_claims, "strata": block_strata, "registered_numbers": block_registered_numbers,
     "datasets": block_datasets, "arms_classified": block_arms_classified,
     "hold_composition": block_hold_composition, "coverage_status": block_coverage_status,
@@ -436,7 +464,8 @@ def references(cited: list[str]) -> str:
         authors = ", ".join(c.get("authors") or [c.get("first_author") or ""])
         loc = f"doi:{c['doi']}" if c.get("doi") else (c.get("url") or "")
         venue = f" {c['venue']}." if c.get("venue") else ""
-        entries.append(f"- <!-- ref:{cid} -->{authors} ({c['year']}). {c['title']}.{venue} {loc}")
+        year = cite_text(cid).rsplit(" ", 1)[1]
+        entries.append(f"- <!-- ref:{cid} -->{authors} ({year}). {c['title']}.{venue} {loc}")
     for key in ("bpi2019", "bpi2020_international", "bpi2020_domestic"):
         x = lock[key]
         entries.append(f"- Boudewijn van Dongen. {x['title']}. 4TU.ResearchData, {x['licence']}. doi:{x['doi']}")

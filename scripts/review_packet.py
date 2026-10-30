@@ -4,9 +4,9 @@ Carries, verbatim and each with its SHA-256, paper/paper.md (the current draft, 
 CLAIMS.md, COVERAGE.md and prereg/DEVIATIONS.md, with the instructions to the reviewer. Layout as
 the A1 fence packet. The reply is committed unedited, with its SHA-256. From round 2 on, the packet
 adds "Changes since" the previous draft, generated from the adjudication table (scripts/d_d_2.py for
-round 2), so that reviewers can check each accepted finding where it was applied.
+round 2, scripts/d_d_3.py for round 3), so that reviewers can check each accepted finding where it was applied.
 
-Usage: python scripts/review_packet.py --date YYYY-MM-DD [--round 2]
+Usage: python scripts/review_packet.py --date YYYY-MM-DD [--round 3]
 """
 
 from __future__ import annotations
@@ -18,7 +18,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DRAFTS = {1: "v0.1", 2: "v0.2"}
+DRAFTS = {1: "v0.1", 2: "v0.2", 3: "v0.3"}
 PARTS = (("Part 1. The paper, draft {draft}", "paper/paper.md"),
          ("Part 2. Claims and statuses", "CLAIMS.md"),
          ("Part 3. Coverage matrix", "COVERAGE.md"),
@@ -53,6 +53,14 @@ def render(date: str, rnd: int = 1) -> str:
                   "Every round-1 finding the author accepted (`DECISIONS.md` D-D-2, numbering as there), and where it was "
                   "applied in this draft or in the registered files. The rejected findings and their reasons are in D-D-2.",
                   "", d_d_2.changes_table(), ""]
+    if rnd == 3:
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import d_d_3  # noqa: PLC0415
+
+        lines += ["## Changes since v0.2", "",
+                  "Every round-2 finding the author accepted (`DECISIONS.md` D-D-3, numbering as there), and where it was "
+                  "applied in this draft, in the registered files or in a new slot. The rejected findings and their reasons "
+                  "are in D-D-3.", "", d_d_3.changes_table(), ""]
     for title, rel in PARTS:
         data = (ROOT / rel).read_bytes()
         lines += [f"## {title.format(draft=draft)} ({rel})", "",

@@ -4,7 +4,7 @@ author: "Gaston Besanson, Universidad Torcuato Di Tella"
 ---
 
 <!-- paper/template.md: the source of paper/paper.md. Every number reaches the paper through a
-placeholder filled by scripts/fill_paper.py from a slot file under results/. Draft v0.2. -->
+placeholder filled by scripts/fill_paper.py from a slot file under results/. Draft v0.3. -->
 
 ## Abstract
 
@@ -25,7 +25,8 @@ for D4-pass clearings (difference 0.0094, Holm-adjusted p = 3.48 × 10^-7^).
 On a registered sample of lines with a failed predicate and of clean lines, two model families shown the ERP view held
 100.0% and 99.6% of the first and
 53.0% and 57.3% of the second; on the sample lines the
-log lets us classify, people held 33.0% and 34.0%;
+log lets us classify, people held 33.0% and 34.0%,
+where a hold is an inferred non-release within 60 days, not a recorded decision;
 the gate's verdict holds the first and allows the second by construction. A line's status at the decision point follows a
 reading of D5 (decision D-C-2 B) that the author fixed after E3 and before any model call (Section 4). Paper 5's compiler, given the three declared losses of the registration, does not
 reproduce the registered contract in any item category. The coverage matrix states which defect classes this log cannot
@@ -34,8 +35,8 @@ expose; the authority defect class (D5) has zero incidence here. No causal claim
 ## 1 Introduction
 
 Earlier papers of this programme showed the mechanism of a silent evidence defect, a decision taken on evidence that fails a
-metadata-borne predicate, on constructed domains, and made no prevalence claim: paper 4 (Besanson 2026) and
-paper 5 (Besanson 2026) are on arXiv, and paper 6 is a public repository (Besanson 2026). We
+metadata-borne predicate, on constructed domains, and made no prevalence claim: paper 4 (Besanson 2026a) and
+paper 5 (Besanson 2026b) are on arXiv, and paper 6 is a public repository (Besanson 2026c). We
 found no record that identifies papers 1 to 3, and do not cite them. This paper is the number, on one real process.
 
 The unit is an invoice clearing in the BPI Challenge 2019 purchase-to-pay log. For each of the
@@ -44,8 +45,9 @@ recorded on the purchase-order line at clearing time, evaluate the registered pr
 have held, and read what followed in the log. We report exposure in count and in anonymised EUR, the corrective events that
 follow a failed predicate, the reach of the gate, and, on a registered sample, what two model families decide on the same
 ERP view beside the people in the log and the gate. Everything was registered before the log was parsed beyond its published
-counts (tag `prereg-p7-v1`) and amended once after the pilot (v1.1, tag `prereg-p7-v1.1`), with two further deviations
-decided after E2 and E3 and before E4; all are listed in Section 4.
+counts (tag `prereg-p7-v1`) and amended once after the pilot (v1.1, tag `prereg-p7-v1.1`), with four deviations under v1.1:
+two decided after E2 and E3 and before E4, and two found in review (corrected descriptions in the coverage matrix, and the
+E7 bootstrap replicates with an empty group discarded); all are listed in Section 4.
 
 What this paper claims is in the claim table of Appendix B. What it does not claim is stated in the repository's claims file
 and repeated here verbatim:
@@ -71,7 +73,7 @@ of Section 3.
 (van der Aalst 2016; Ly et al. 2015), and declarative constraints in the Declare
 family take a process model as the conjunction of its constraints (Pesic et al. 2007). The predicates D1 to D7 are
 compliance rules in this sense, and taking the decision as their conjunction is Declare's. Synthesising a sufficient contract
-from declared losses is paper 5 of this programme (Besanson 2026); the compiler used in Section 5.5 is
+from declared losses is paper 5 of this programme (Besanson 2026b); the compiler used in Section 5.5 is
 paper 5's. Detecting that one resource performed two activities that must be separated is a standard compliance monitoring
 functionality (Ly et al. 2015); predicate D5 is that check.
 
@@ -104,7 +106,7 @@ Section 5.4 does both, with one qualification: the status of a line at the decis
 D-C-2 B) that the author fixed after E3 and before any model call (Section 4).
 
 **The BPI Challenge 2020 reports.** The 2020 challenge posed questions on the approval chain of travel declarations
-(ICPM 2020); two reports received awards (ICPM 2020; Pufahl et al. 2020;
+(ICPM 2020b); two reports received awards (ICPM 2020a; Pufahl et al. 2020;
 Kas et al. 2020). They are prior art for the basic rates of the replication in Section 5.7.
 
 ## 3 Formal core
@@ -125,8 +127,10 @@ of the replay engine).
 | consignment | any | any | excluded |
 
 **Predicates.** Each predicate takes the value pass, fail or unknown; unknown means a required input is missing.
-"Sufficiency-checked" (claim C1) means that each predicate checks that the evidence is present, fresh, valid, authorised and in scope (the
-SARC-DQ dimensions of the table); it is not paper 5's sufficiency certificate.
+Each predicate checks one SARC-DQ dimension (the table). The contract as a whole is checked with paper 5's own sufficiency
+function over this log's observed states (E5, `results/e5/sufficiency.json`, Section 5.5): it is sufficient for the three
+declared losses in the two-way category, and in the two three-way categories for L1 and L3 but not for L2; it is minimal in no
+category.
 
 | id | name | dimension | fails when, on the line before t_c |
 |---|---|---|---|
@@ -180,9 +184,9 @@ events are excluded. A line is framed if it survives the exclusions below and it
 none, lies at least W before T_end; the analysed clearings are every clearing on a framed line at least W before T_end, so
 every outcome window is complete. The lines drawn for the pilot (E0) are removed before any estimate. As registered, the
 `Item Category` string disagrees with the flag-derived category on 0 of
-251,734 lines (section 3.1); every analysed clearing took its value from the clearing event
+251,734 lines (section 3.1; `results/e1/category-crosscheck.json`); every analysed clearing took its value from the clearing event
 itself (155,534 clearings; 0
-fell back to the invoice receipt and 0 to the line value, section 3.4);
+fell back to the invoice receipt and 0 to the line value, section 3.4; `results/e1/value-fallback.json`);
 and the seeded 1,000-record sample of the evidence set, identifiers hashed, is exported as `results/e1/evidence-sample.jsonl`
 (section 3.9).
 
@@ -216,8 +220,9 @@ pilot was drawn again, before any estimate. Every deviation, with the decision t
 - Under p7-v1.1: E7 bootstrap replicates with an empty group discarded.
 
 The H3 convention and the D5 reading were the author's decisions after E2 and E3 and before any model call (decision D-C-2 in
-the decision log). The commit order is the evidence: the commit recording D-C-2 (`7aea13f`) precedes the first commit of model
-responses (`a475068`). The prior-art fence was reviewed externally after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`,
+the decision log). The response logs date the calls: D-C-2 was committed at 2026-10-25 18:21:56 UTC (`7aea13f`) and the E4 sample drawn at
+2026-10-25 18:39:34 UTC (`5ffd887`); the first request was sent at 2026-10-25 18:42:18 UTC for Jev and at 2026-10-25 18:46:32 UTC for Haiku
+(`results/e4/timeline.json`; request times as the client wrote them before sending, commit times as git records them). The prior-art fence was reviewed externally after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`,
 after two machine sweeps whose output is committed unedited.
 
 ## 5 Results
@@ -273,8 +278,13 @@ H3, distinct actors, is not computable: defect group has no analysed clearings. 
 an actor of its line's earliest creation event, so the defect class has zero incidence; across the log the actors who record a
 `Clear Invoice` and those who record the earliest creation of a line are separate populations
 (23 and 185
-actors, 0 in common; Section 6). H3 enters the family with p = 1, the convention the author
-fixed before any H4 value existed (decision D-C-2, commit `7aea13f`). At W = 30 days the differences are 0.0354
+actors, 0 in common; Section 6). No analysed clearing has D5 unknown
+(0): the 7,941
+`Clear Invoice` events with no actor all lie outside the analysed set: of the
+94 on framed lines,
+94 fall after the horizon T_end − W
+(`results/e1/analysed-clearing-actors.json`). H3 enters the family with p = 1, the convention the author fixed in decision D-C-2,
+committed at 2026-10-25 18:21:56 UTC, before the first model request at 2026-10-25 18:42:18 UTC (`results/e4/timeline.json`). At W = 30 days the differences are 0.0354
 for H1 and 0.0055 for H2, descriptively.
 
 ### 5.3 Gate effect and hold cost (E3)
@@ -367,9 +377,10 @@ the gate would have held and hold about half of the lines it allows (Cohen's kap
 predicate, in anonymised EUR: people 4,759,520, Jev
 0, Haiku 7,307,
 gate 0; for the gate, held lines go somewhere the log does not show.
-The expected correctives follow registration section 7: each released line with a failed predicate carries the E2 O rate at
-W = 60 days of its defect group, the H1 group if D1/D2 fails and otherwise the H2 group if D4 fails; a line failing neither
-(only D3, D6 or D7) has no E2 group and is counted, not imputed (8 sample lines,
+The expected correctives are the metric of registration section 6 (E4 row): each released line with a failed predicate
+carries the E2 O rate at W = 60 days of its defect group. The precedence and the unmatched-group rule are decision D-C-3:
+the H1 group if D1/D2 fails and otherwise the H2 group if D4 fails; a line failing neither (only D3, D6 or D7) has no E2 group
+and is counted, not imputed (8 sample lines,
 1 of them released by people). The ERP view hands each model the
 inputs of the predicates; this result is about the view as much as about the models.
 
@@ -434,10 +445,26 @@ the compiler's minimum-cardinality sufficient set. The comparison is the registe
 | 3-way, invoice before receipt | 145,706 | 758 | 692 | 1,390 | 15,568 | `changes`, `clearing_ordinal`, `invoices`, `receipts` | D1, D2, D3, D4 | D1, D2, D3, D4, D5, D6, D7 | does not reproduce |
 
 The compiler does not reproduce the registered contract in any category. The three losses derive at most D1 to D4: no
-declared loss reads the observations of D5, D6 or D7, so those predicates correspond to no declared loss (an authority loss, a
-blocked payment, a deleted line would be such losses). In the two three-way categories the derived D1 to D4 is the three-way
-match in the narrow sense (receipt, invoice and an unchanged approved amount), and the registered contract carries three
-predicates beyond it. Pay twice needs the clearing's position on its line, an observation no registered predicate reads.
+declared loss reads the observations of D5, D6 or D7, so those predicates correspond to no declared loss. In the before-receipt
+category the derived D1 to D4 is the three-way match in the narrow sense (receipt, invoice and an unchanged approved amount),
+and the registered contract carries three predicates beyond it. In the after-receipt category the compiler derives D3 and D4
+only, because L1 occurs on 0 analysed
+clearings there, and the registered contract carries five predicates beyond it. This is a limit of deriving from one log: a
+loss the log never shows calls for no observation. Pay twice needs the clearing's position on its line, an observation no
+registered predicate reads.
+
+Read the other way, paper 5's sufficiency function applied to the registered contract over the same states
+(`results/e5/sufficiency.json`):
+
+| category | registered fields | sufficient for | not sufficient for | clearings with L2 | minimal | derived contract a subset |
+| --- | --- | --- | --- | ---: | --- | --- |
+| 2-way | `invoices`, `changes`, `distinct_actors`, `blocks`, `closed` | L1, L2, L3 | none | 0 | no | yes |
+| 3-way, invoice after receipt | `receipts`, `invoices`, `changes`, `distinct_actors`, `blocks`, `closed` | L1, L3 | L2 | 81 | no | yes |
+| 3-way, invoice before receipt | `receipts`, `invoices`, `changes`, `distinct_actors`, `blocks`, `closed` | L1, L3 | L2 | 1,390 | no | yes |
+
+The registered contract is sufficient, not derived: sufficient for the three declared losses in the two-way category, and in
+the three-way categories for L1 and L3 but not for L2, for the reason above; minimal in no category (C1). The compiler's
+contract is smaller in every category, and so C9, which asks whether it equals the registered one, is not supported.
 
 ### 5.6 Governance cost (E6)
 
@@ -470,12 +497,14 @@ resubmission within W after it. Descriptive and secondary, outside the Holm fami
 | pooled | D3' | 0 | n/a | 0.000 | n/a | n/a |
 
 The replication is inconclusive. Only 2 of 16,229
-payments fail any predicate, and O' follows 0 of the
+payments fail any predicate; the 2
+domestic payments with D3' unknown are the same 2
+that fail D1' and D2' (`results/e7/unknown-overlap.json`). O' follows 0 of the
 16,227 payments with every predicate passing; no comparison has an interval
 excluding zero. A bootstrap replicate in which either group is empty is discarded and the percentiles are taken over the
 retained replicates (8,685 of 10,000
-for the domestic log and 8,696 pooled; a pipeline reading recorded in
-decision D-D-2). The registered names `Declaration FINAL_APPROVED by DIRECTOR` and
+for the domestic log and 8,696 pooled,
+`results/e7/comparisons.json`; a deviation, Section 4). The registered names `Declaration FINAL_APPROVED by DIRECTOR` and
 `Declaration REJECTED by DIRECTOR` do not occur in the domestic log; they are reported with zero counts,
 not replaced.
 
@@ -524,7 +553,7 @@ Per class, the failures found (BPI 2019 on analysed clearings, BPI 2020 on payme
 | BPI 2019 (analysed clearings) | D2 | 692 | n/a |
 | BPI 2019 (analysed clearings) | D3 | 362 | n/a |
 | BPI 2019 (analysed clearings) | D4 | 17,157 | n/a |
-| BPI 2019 (analysed clearings) | D5 | 0 | n/a |
+| BPI 2019 (analysed clearings) | D5 | 0 | 0 |
 | BPI 2019 (analysed clearings) | D6 | 4 | n/a |
 | BPI 2019 (analysed clearings) | D7 | 19 | n/a |
 | BPI 2020 domestic (payments) | D1' | 2 | 0 |
@@ -534,7 +563,7 @@ Per class, the failures found (BPI 2019 on analysed clearings, BPI 2020 on payme
 | BPI 2020 international (payments) | D2' | 0 | 0 |
 | BPI 2020 international (payments) | D3' | 0 | 0 |
 
-Sources: `results/e1/coverage-check.json`, `results/e7/predicates.json`.
+Sources: `results/e1/coverage-check.json`, `results/e1/analysed-clearing-actors.json` (D5 unknown), `results/e7/predicates.json`.
 
 On BPI 2019 every detected class fails at least once except the authority class (D5), with
 0 failed clearings: across the log, the
@@ -542,7 +571,8 @@ On BPI 2019 every detected class fails at least once except the authority class 
 185 who record a line's earliest creation share
 0, so the two are separate populations; no `Clear Invoice` is recorded by a batch user (an
 actor whose name starts with the registered batch prefix), and 7,941 carry no
-actor (`results/e1/actors.json`). D5 fires on synthetic lines in the engine's tests (`test_d5_actors` and
+actor (`results/e1/actors.json`), none of them on an analysed clearing
+(0; Section 5.2). D5 fires on synthetic lines in the engine's tests (`test_d5_actors` and
 `test_verdict_at_decision_point_d5_off_clearing` in `tests/test_engine_units.py`, and fixture line C in `tests/test_pipeline.py`). On BPI 2020, D3' fails on no payment in
 either log, and in the international log no predicate fails at all.
 
@@ -550,7 +580,8 @@ either log, and in the international log no predicate fails at all.
 
 The outcome is a proxy: a corrective event after a clearing is not proof that the clearing was wrong, and the study is
 observational. Category, spend area, value, vendor activity and month are reported beside every estimate and never modelled
-in. Values are anonymised. What a line the gate would have held becomes is not in the log. The ERP view hands the model the
+in. Values are anonymised. What a line the gate would have held becomes is not in the log. The people column reports what the process did within W; the comparison across the people, the
+models and the gate is of outcomes of three deciders, not of three acts. The ERP view hands the model the
 inputs of the predicates; under the timeline view the same models held far fewer lines (exploratory, no interval), which is
 a statement about views, not about the models alone. The derivation depends on how the three declared losses are expressed over
 the evidence set; the expressions are recorded with the result. One company's process, one year.
@@ -566,24 +597,24 @@ those made after a change since approval (D4 fail) at a higher rate than D4-pass
 ## Acknowledgements
 
 The prior-art fence was reviewed externally by Eduardo Arana after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`, and
-he reviewed draft v0.1. AI tools were used as support: builder sessions with Claude for the code, the runs and the drafting
-from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for the second the serving model cannot be
-confirmed: a later session on the platform reports its model as `Claude Opus 5.5` and states that it produced the sweep); and
-two machine reviews of draft v0.1, on ChatGPT and on Perplexity Computer (model as
-it states it: `Claude Opus 5.5`). All are committed unedited. The author is solely responsible for every claim. We thank the organisers of the BPI
+he reviewed drafts v0.1 and v0.2. AI tools were used as support: builder sessions with Claude for the code, the runs and the
+drafting from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for the second, the platform made two
+statements, in this order: a later session reported its own model as `Claude Opus 5.5` and stated that it produced the sweep,
+and the same session then identified the sweep's model as `DeepSeek V4 Pro`); and machine reviews of drafts v0.1 and v0.2, on
+ChatGPT and on Perplexity Computer (model as it states it: `Claude Opus 5.5`). All are committed unedited. The author is solely responsible for every claim. We thank the organisers of the BPI
 Challenges and 4TU.ResearchData for the logs.
 
 ## References
 
 - <!-- ref:bpi2019-nonstudent-4-badakhshan -->Peyman Badakhshan, Samuel Gosling, Jerome Geyer-Klingeberg, Janina Nakladal, Johannes Schukat, Jennifer Gsenger (2019). Process Mining in the Coatings and Paints Industry: The Purchase Order Handling Process. BPI Challenge 2019 report, non-student category, ICPM 2019. https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-4.pdf
-- <!-- ref:besanson-paper4-2026 -->Gaston Besanson (2026). One Gate Is Not Enough: Composing Stateful Pre-Action Controls for Agentic AI. arXiv:2608.18360 (paper 4 of the SARC series; repository sarc-suite-one-pass). https://arxiv.org/abs/2608.18360
-- <!-- ref:besanson-paper5-2026 -->Gaston Besanson (2026). Compiling Sufficient Governance Context from Declared Losses and Reachable States: Exact Observation-Contract Synthesis with Cardinality and Cost Objectives. arXiv:2609.26016 (paper 5 of this programme; CITATION.cff of sarc-authority-derivation). https://arxiv.org/pdf/2609.26016
-- <!-- ref:besanson-paper6-repo-2026 -->Gaston Besanson (2026). gigo-jev-probe: a preregistered probe of a model as an advisory data-quality critic (paper 6 of the SARC series). public GitHub repository besanson/gigo-jev-probe, pinned in engines.lock at e1fc75b. https://github.com/besanson/gigo-jev-probe
+- <!-- ref:besanson-paper4-2026 -->Gaston Besanson (2026a). One Gate Is Not Enough: Composing Stateful Pre-Action Controls for Agentic AI. arXiv:2608.18360 (paper 4 of the SARC series; repository sarc-suite-one-pass). https://arxiv.org/abs/2608.18360
+- <!-- ref:besanson-paper5-2026 -->Gaston Besanson (2026b). Compiling Sufficient Governance Context from Declared Losses and Reachable States: Exact Observation-Contract Synthesis with Cardinality and Cost Objectives. arXiv:2609.26016 (paper 5 of this programme; CITATION.cff of sarc-authority-derivation). https://arxiv.org/pdf/2609.26016
+- <!-- ref:besanson-paper6-repo-2026 -->Gaston Besanson (2026c). gigo-jev-probe: a preregistered probe of a model as an advisory data-quality critic (paper 6 of the SARC series). public GitHub repository besanson/gigo-jev-probe, pinned in engines.lock at e1fc75b. https://github.com/besanson/gigo-jev-probe
 - <!-- ref:bpi2019-nonstudent-6-diba -->Kiarash Diba, Simon Remy, Luise Pufahl (2019). BPI Challenge 2019: Performance and Compliance Analysis of Procurement Processes Using Process Mining. BPI Challenge 2019 report, non-student category, ICPM 2019. https://icpmconference.org/2019/wp-content/uploads/sites/6/2019/07/BPI-Challenge-Submission-6.pdf
 - <!-- ref:harding-managers-machines-2022 -->Matthew Harding, Gabriel F. R. Vasconcelos (2022). Managers versus Machines: Do Algorithms Replicate Human Intuition in Credit Ratings?. arXiv:2202.04218 (submitted 2022-02-09). https://arxiv.org/abs/2202.04218
 - <!-- ref:icpm-bpi-challenge-2019-page -->ICPM 2019 (2019). BPI Challenge 2019 (ICPM 2019 conference page). https://icpmconference.org/2019/bpi-challenge/
-- <!-- ref:icpm-2020-awards-page -->ICPM 2020 (2020). Awards (ICPM 2020). https://icpmconference.org/2020/awards/
-- <!-- ref:icpm-bpi-challenge-2020-page -->ICPM 2020 (2020). BPI Challenge 2020 (ICPM 2020 conference page). https://icpmconference.org/2020/bpi-challenge/
+- <!-- ref:icpm-2020-awards-page -->ICPM 2020 (2020a). Awards (ICPM 2020). https://icpmconference.org/2020/awards/
+- <!-- ref:icpm-bpi-challenge-2020-page -->ICPM 2020 (2020b). BPI Challenge 2020 (ICPM 2020 conference page). https://icpmconference.org/2020/bpi-challenge/
 - <!-- ref:kadir-auditcopilot-2025 -->Md Abdul Kadir, Sai Suresh Macharla Vasu, Sidharth S. Nair, Daniel Sonntag (2025). AuditCopilot: Leveraging LLMs for Fraud Detection in Double-Entry Bookkeeping. arXiv:2512.02726 (submitted 2025-12-02). https://arxiv.org/abs/2512.02726
 - <!-- ref:bpi2020-student-award-kas -->Stijn Kas, Ruben Post, Sebastiaan Wiewel (2020). Automated Machine Learning in a Process Mining Context. BPI Student Challenge Award, ICPM 2020. https://icpmconference.org/2020/wp-content/uploads/sites/4/2020/10/ICPM_2020_paper_44.pdf
 - <!-- ref:ly-compliance-monitoring-2015 -->Linh Thao Ly, Fabrizio Maria Maggi, Marco Montali, Stefanie Rinderle-Ma, Wil M.P. van der Aalst (2015). Compliance monitoring in business processes: Functionalities, application, and tool-support. Information Systems 54, 209-234 (December 2015), Elsevier. doi:10.1016/j.is.2015.02.007
@@ -640,10 +671,13 @@ Claim statuses, each set from its slot file:
 | C12 | supported; D5 class zero incidence | `results/e1/coverage-check.json` |
 | C13 | supported for the internal double runs; external reproduction pending (FINAL-AUDIT item 11) | `results/reproducibility.json`, `results/e4/double-run.json` |
 
-C1's "sufficiency-checked" means that each predicate checks presence, freshness, validity, authority and scope (Section 3); it
-is not paper 5's sufficiency certificate.
+Reading notes, as in the claims file. C1's "(paper 5)" refers to paper 5's contract construct, whose sufficiency for the
+declared losses over the observed states E5 checks with paper 5's own function, per category and per loss
+(`results/e5/sufficiency.json`): sufficient for every declared loss in the two-way category, and for L1 and L3 but not L2 in the
+three-way categories; minimal in none; each predicate checks one SARC-DQ dimension (Section 3). C2's "relied on" is read as
+"made on evidence that failed".
 
-Every decision taken while the work ran is in the repository's decision log, from D-A0-1 to D-D-2, and every deviation from
+Every decision taken while the work ran is in the repository's decision log, from D-A0-1 to D-D-3, and every deviation from
 the tagged registration is in its deviations file (Section 4).
 
 ## Appendix C: Reproduction

@@ -4,7 +4,7 @@ author: "Gaston Besanson, Universidad Torcuato Di Tella"
 ---
 
 <!-- paper/template.md: the source of paper/paper.md. Every number reaches the paper through a
-placeholder filled by scripts/fill_paper.py from a slot file under results/. Draft v0.2. -->
+placeholder filled by scripts/fill_paper.py from a slot file under results/. Draft v0.3. -->
 
 ## Abstract
 
@@ -25,7 +25,8 @@ for D4-pass clearings (difference {{e2/hypotheses.json>estimates>H2>W60>differen
 On a registered sample of lines with a failed predicate and of clean lines, two model families shown the ERP view held
 {{e4/arms.json>arms>jev>hold_rate_defective|pct1}} and {{e4/arms.json>arms>haiku>hold_rate_defective|pct1}} of the first and
 {{e4/arms.json>arms>jev>hold_rate_clean|pct1}} and {{e4/arms.json>arms>haiku>hold_rate_clean|pct1}} of the second; on the sample lines the
-log lets us classify, people held {{e4/arms.json>arms>people>hold_rate_defective|pct1}} and {{e4/arms.json>arms>people>hold_rate_clean|pct1}};
+log lets us classify, people held {{e4/arms.json>arms>people>hold_rate_defective|pct1}} and {{e4/arms.json>arms>people>hold_rate_clean|pct1}},
+where a hold is an inferred non-release within 60 days, not a recorded decision;
 the gate's verdict holds the first and allows the second by construction. A line's status at the decision point follows a
 reading of D5 (decision D-C-2 B) that the author fixed after E3 and before any model call (Section 4). Paper 5's compiler, given the three declared losses of the registration, does not
 reproduce the registered contract in any item category. The coverage matrix states which defect classes this log cannot
@@ -44,8 +45,9 @@ recorded on the purchase-order line at clearing time, evaluate the registered pr
 have held, and read what followed in the log. We report exposure in count and in anonymised EUR, the corrective events that
 follow a failed predicate, the reach of the gate, and, on a registered sample, what two model families decide on the same
 ERP view beside the people in the log and the gate. Everything was registered before the log was parsed beyond its published
-counts (tag `prereg-p7-v1`) and amended once after the pilot (v1.1, tag `prereg-p7-v1.1`), with two further deviations
-decided after E2 and E3 and before E4; all are listed in Section 4.
+counts (tag `prereg-p7-v1`) and amended once after the pilot (v1.1, tag `prereg-p7-v1.1`), with four deviations under v1.1:
+two decided after E2 and E3 and before E4, and two found in review (corrected descriptions in the coverage matrix, and the
+E7 bootstrap replicates with an empty group discarded); all are listed in Section 4.
 
 What this paper claims is in the claim table of Appendix B. What it does not claim is stated in the repository's claims file
 and repeated here verbatim:
@@ -125,8 +127,10 @@ of the replay engine).
 | consignment | any | any | excluded |
 
 **Predicates.** Each predicate takes the value pass, fail or unknown; unknown means a required input is missing.
-"Sufficiency-checked" (claim C1) means that each predicate checks that the evidence is present, fresh, valid, authorised and in scope (the
-SARC-DQ dimensions of the table); it is not paper 5's sufficiency certificate.
+Each predicate checks one SARC-DQ dimension (the table). The contract as a whole is checked with paper 5's own sufficiency
+function over this log's observed states (E5, `results/e5/sufficiency.json`, Section 5.5): it is sufficient for the three
+declared losses in the two-way category, and in the two three-way categories for L1 and L3 but not for L2; it is minimal in no
+category.
 
 | id | name | dimension | fails when, on the line before t_c |
 |---|---|---|---|
@@ -176,9 +180,9 @@ events are excluded. A line is framed if it survives the exclusions below and it
 none, lies at least W before T_end; the analysed clearings are every clearing on a framed line at least W before T_end, so
 every outcome window is complete. The lines drawn for the pilot (E0) are removed before any estimate. As registered, the
 `Item Category` string disagrees with the flag-derived category on {{e1/category-crosscheck.json>all_lines_disagreeing|int}} of
-{{e1/category-crosscheck.json>all_lines|int}} lines (section 3.1); every analysed clearing took its value from the clearing event
+{{e1/category-crosscheck.json>all_lines|int}} lines (section 3.1; `results/e1/category-crosscheck.json`); every analysed clearing took its value from the clearing event
 itself ({{e1/value-fallback.json>cleared_value_source>clearing|int}} clearings; {{e1/value-fallback.json>cleared_value_source>invoice_receipt|int}}
-fell back to the invoice receipt and {{e1/value-fallback.json>cleared_value_source>line_value|int}} to the line value, section 3.4);
+fell back to the invoice receipt and {{e1/value-fallback.json>cleared_value_source>line_value|int}} to the line value, section 3.4; `results/e1/value-fallback.json`);
 and the seeded 1,000-record sample of the evidence set, identifiers hashed, is exported as `results/e1/evidence-sample.jsonl`
 (section 3.9).
 
@@ -192,8 +196,9 @@ pilot was drawn again, before any estimate. Every deviation, with the decision t
 {{#deviations}}
 
 The H3 convention and the D5 reading were the author's decisions after E2 and E3 and before any model call (decision D-C-2 in
-the decision log). The commit order is the evidence: the commit recording D-C-2 (`7aea13f`) precedes the first commit of model
-responses (`a475068`). The prior-art fence was reviewed externally after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`,
+the decision log). The response logs date the calls: D-C-2 was committed at {{e4/timeline.json>commits>D-C-2 decision (D5 reading, H3 convention)>committer_utc|utc}} (`7aea13f`) and the E4 sample drawn at
+{{e4/timeline.json>commits>E4 sample draw>committer_utc|utc}} (`5ffd887`); the first request was sent at {{e4/timeline.json>calls>e4/jev>earliest_sent_utc|utc}} for Jev and at {{e4/timeline.json>calls>e4/haiku>earliest_sent_utc|utc}} for Haiku
+(`results/e4/timeline.json`; request times as the client wrote them before sending, commit times as git records them). The prior-art fence was reviewed externally after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`,
 after two machine sweeps whose output is committed unedited.
 
 ## 5 Results
@@ -229,8 +234,13 @@ H3, distinct actors, is not computable: {{e2/hypotheses.json>estimates>H3>W60>no
 an actor of its line's earliest creation event, so the defect class has zero incidence; across the log the actors who record a
 `Clear Invoice` and those who record the earliest creation of a line are separate populations
 ({{e1/actors.json>scopes>all>distinct_clear_invoice_actors|int}} and {{e1/actors.json>scopes>all>distinct_earliest_creation_actors|int}}
-actors, {{e1/actors.json>scopes>all>intersection|int}} in common; Section 6). H3 enters the family with p = 1, the convention the author
-fixed before any H4 value existed (decision D-C-2, commit `7aea13f`). At W = 30 days the differences are {{e2/hypotheses.json>estimates>H1>W30>difference|prop}}
+actors, {{e1/actors.json>scopes>all>intersection|int}} in common; Section 6). No analysed clearing has D5 unknown
+({{e1/analysed-clearing-actors.json>analysed_clearings_D5_unknown|int}}): the {{e1/actors.json>scopes>all>clear_invoice_events>missing|int}}
+`Clear Invoice` events with no actor all lie outside the analysed set: of the
+{{e1/analysed-clearing-actors.json>framed_lines_clear_invoice_missing_actor>total|int}} on framed lines,
+{{e1/analysed-clearing-actors.json>framed_lines_clear_invoice_missing_actor>after_horizon|int}} fall after the horizon T_end − W
+(`results/e1/analysed-clearing-actors.json`). H3 enters the family with p = 1, the convention the author fixed in decision D-C-2,
+committed at {{e4/timeline.json>commits>D-C-2 decision (D5 reading, H3 convention)>committer_utc|utc}}, before the first model request at {{e4/timeline.json>calls>e4/jev>earliest_sent_utc|utc}} (`results/e4/timeline.json`). At W = 30 days the differences are {{e2/hypotheses.json>estimates>H1>W30>difference|prop}}
 for H1 and {{e2/hypotheses.json>estimates>H2>W30>difference|prop}} for H2, descriptively.
 
 ### 5.3 Gate effect and hold cost (E3)
@@ -295,9 +305,10 @@ the gate would have held and hold about half of the lines it allows (Cohen's kap
 predicate, in anonymised EUR: people {{e4/arms.json>arms>people>value_released_on_defective_lines_eur|eur}}, Jev
 {{e4/arms.json>arms>jev>value_released_on_defective_lines_eur|eur}}, Haiku {{e4/arms.json>arms>haiku>value_released_on_defective_lines_eur|eur}},
 gate {{e4/arms.json>arms>gate>value_released_on_defective_lines_eur|eur}}; for the gate, held lines go somewhere the log does not show.
-The expected correctives follow registration section 7: each released line with a failed predicate carries the E2 O rate at
-W = 60 days of its defect group, the H1 group if D1/D2 fails and otherwise the H2 group if D4 fails; a line failing neither
-(only D3, D6 or D7) has no E2 group and is counted, not imputed ({{e4/arms.json>defective_lines_without_e2_group|int}} sample lines,
+The expected correctives are the metric of registration section 6 (E4 row): each released line with a failed predicate
+carries the E2 O rate at W = 60 days of its defect group. The precedence and the unmatched-group rule are decision D-C-3:
+the H1 group if D1/D2 fails and otherwise the H2 group if D4 fails; a line failing neither (only D3, D6 or D7) has no E2 group
+and is counted, not imputed ({{e4/arms.json>defective_lines_without_e2_group|int}} sample lines,
 {{e4/arms.json>arms>people>released_defective_lines_without_e2_group|int}} of them released by people). The ERP view hands each model the
 inputs of the predicates; this result is about the view as much as about the models.
 
@@ -337,10 +348,22 @@ the compiler's minimum-cardinality sufficient set. The comparison is the registe
 {{#e5}}
 
 The compiler does not reproduce the registered contract in any category. The three losses derive at most D1 to D4: no
-declared loss reads the observations of D5, D6 or D7, so those predicates correspond to no declared loss (an authority loss, a
-blocked payment, a deleted line would be such losses). In the two three-way categories the derived D1 to D4 is the three-way
-match in the narrow sense (receipt, invoice and an unchanged approved amount), and the registered contract carries three
-predicates beyond it. Pay twice needs the clearing's position on its line, an observation no registered predicate reads.
+declared loss reads the observations of D5, D6 or D7, so those predicates correspond to no declared loss. In the before-receipt
+category the derived D1 to D4 is the three-way match in the narrow sense (receipt, invoice and an unchanged approved amount),
+and the registered contract carries three predicates beyond it. In the after-receipt category the compiler derives D3 and D4
+only, because L1 occurs on {{e5/derivation.json>categories>3-way, invoice after receipt>clearings_per_loss>L1|int}} analysed
+clearings there, and the registered contract carries five predicates beyond it. This is a limit of deriving from one log: a
+loss the log never shows calls for no observation. Pay twice needs the clearing's position on its line, an observation no
+registered predicate reads.
+
+Read the other way, paper 5's sufficiency function applied to the registered contract over the same states
+(`results/e5/sufficiency.json`):
+
+{{#sufficiency}}
+
+The registered contract is sufficient, not derived: sufficient for the three declared losses in the two-way category, and in
+the three-way categories for L1 and L3 but not for L2, for the reason above; minimal in no category (C1). The compiler's
+contract is smaller in every category, and so C9, which asks whether it equals the registered one, is not supported.
 
 ### 5.6 Governance cost (E6)
 
@@ -358,12 +381,14 @@ resubmission within W after it. Descriptive and secondary, outside the Holm fami
 {{#e7}}
 
 The replication is inconclusive. Only {{e7/exposure.json>scopes>pooled>with_a_failed_predicate|int}} of {{e7/exposure.json>scopes>pooled>units|int}}
-payments fail any predicate, and O' follows {{e7/comparisons.json>scopes>pooled>D1'>all_pass_group>with_O_prime|int}} of the
+payments fail any predicate; the {{e7/unknown-overlap.json>logs>domestic>with_a_predicate_unknown|int}}
+domestic payments with D3' unknown are the same {{e7/unknown-overlap.json>logs>domestic>with_a_predicate_unknown_and_another_failing|int}}
+that fail D1' and D2' (`results/e7/unknown-overlap.json`). O' follows {{e7/comparisons.json>scopes>pooled>D1'>all_pass_group>with_O_prime|int}} of the
 {{e7/comparisons.json>scopes>pooled>D1'>all_pass_group>payments|int}} payments with every predicate passing; no comparison has an interval
 excluding zero. A bootstrap replicate in which either group is empty is discarded and the percentiles are taken over the
 retained replicates ({{e7/comparisons.json>scopes>domestic>D1'>bootstrap_resamples_used|int}} of {{e7/comparisons.json>bootstrap>B|int}}
-for the domestic log and {{e7/comparisons.json>scopes>pooled>D1'>bootstrap_resamples_used|int}} pooled; a pipeline reading recorded in
-decision D-D-2). The registered names `{{e7/vocabulary.json>registered_names_absent_per_log>domestic>0}}` and
+for the domestic log and {{e7/comparisons.json>scopes>pooled>D1'>bootstrap_resamples_used|int}} pooled,
+`results/e7/comparisons.json`; a deviation, Section 4). The registered names `{{e7/vocabulary.json>registered_names_absent_per_log>domestic>0}}` and
 `{{e7/vocabulary.json>registered_names_absent_per_log>domestic>1}}` do not occur in the domestic log; they are reported with zero counts,
 not replaced.
 
@@ -383,7 +408,8 @@ On BPI 2019 every detected class fails at least once except the authority class 
 {{e1/actors.json>scopes>all>distinct_earliest_creation_actors|int}} who record a line's earliest creation share
 {{e1/actors.json>scopes>all>intersection|int}}, so the two are separate populations; no `Clear Invoice` is recorded by a batch user (an
 actor whose name starts with the registered batch prefix), and {{e1/actors.json>scopes>all>clear_invoice_events>missing|int}} carry no
-actor (`results/e1/actors.json`). D5 fires on synthetic lines in the engine's tests (`test_d5_actors` and
+actor (`results/e1/actors.json`), none of them on an analysed clearing
+({{e1/analysed-clearing-actors.json>analysed_clearings_clearing_actor_missing|int}}; Section 5.2). D5 fires on synthetic lines in the engine's tests (`test_d5_actors` and
 `test_verdict_at_decision_point_d5_off_clearing` in `tests/test_engine_units.py`, and fixture line C in `tests/test_pipeline.py`). On BPI 2020, D3' fails on no payment in
 either log, and in the international log no predicate fails at all.
 
@@ -391,7 +417,8 @@ either log, and in the international log no predicate fails at all.
 
 The outcome is a proxy: a corrective event after a clearing is not proof that the clearing was wrong, and the study is
 observational. Category, spend area, value, vendor activity and month are reported beside every estimate and never modelled
-in. Values are anonymised. What a line the gate would have held becomes is not in the log. The ERP view hands the model the
+in. Values are anonymised. What a line the gate would have held becomes is not in the log. The people column reports what the process did within W; the comparison across the people, the
+models and the gate is of outcomes of three deciders, not of three acts. The ERP view hands the model the
 inputs of the predicates; under the timeline view the same models held far fewer lines (exploratory, no interval), which is
 a statement about views, not about the models alone. The derivation depends on how the three declared losses are expressed over
 the evidence set; the expressions are recorded with the result. One company's process, one year.
@@ -407,11 +434,11 @@ those made after a change since approval (D4 fail) at a higher rate than D4-pass
 ## Acknowledgements
 
 The prior-art fence was reviewed externally by Eduardo Arana after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`, and
-he reviewed draft v0.1. AI tools were used as support: builder sessions with Claude for the code, the runs and the drafting
-from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for the second the serving model cannot be
-confirmed: a later session on the platform reports its model as `Claude Opus 5.5` and states that it produced the sweep); and
-two machine reviews of draft v0.1, on ChatGPT and on Perplexity Computer (model as
-it states it: `Claude Opus 5.5`). All are committed unedited. The author is solely responsible for every claim. We thank the organisers of the BPI
+he reviewed drafts v0.1 and v0.2. AI tools were used as support: builder sessions with Claude for the code, the runs and the
+drafting from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for the second, the platform made two
+statements, in this order: a later session reported its own model as `Claude Opus 5.5` and stated that it produced the sweep,
+and the same session then identified the sweep's model as `DeepSeek V4 Pro`); and machine reviews of drafts v0.1 and v0.2, on
+ChatGPT and on Perplexity Computer (model as it states it: `Claude Opus 5.5`). All are committed unedited. The author is solely responsible for every claim. We thank the organisers of the BPI
 Challenges and 4TU.ResearchData for the logs.
 
 ## References
@@ -430,10 +457,13 @@ Claim statuses, each set from its slot file:
 
 {{#claims}}
 
-C1's "sufficiency-checked" means that each predicate checks presence, freshness, validity, authority and scope (Section 3); it
-is not paper 5's sufficiency certificate.
+Reading notes, as in the claims file. C1's "(paper 5)" refers to paper 5's contract construct, whose sufficiency for the
+declared losses over the observed states E5 checks with paper 5's own function, per category and per loss
+(`results/e5/sufficiency.json`): sufficient for every declared loss in the two-way category, and for L1 and L3 but not L2 in the
+three-way categories; minimal in none; each predicate checks one SARC-DQ dimension (Section 3). C2's "relied on" is read as
+"made on evidence that failed".
 
-Every decision taken while the work ran is in the repository's decision log, from D-A0-1 to D-D-2, and every deviation from
+Every decision taken while the work ran is in the repository's decision log, from D-A0-1 to D-D-3, and every deviation from
 the tagged registration is in its deviations file (Section 4).
 
 ## Appendix C: Reproduction
