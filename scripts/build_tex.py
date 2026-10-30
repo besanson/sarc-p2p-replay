@@ -71,6 +71,9 @@ def _cells(body: str) -> str:
 
 def _layout(tex: str) -> str:
     tex = tex.replace("\\begin{document}", TABLE_SETUP + "\\begin{document}", 1)
+    # The affiliation as a footnote on the author's name, not beside it; the PDF metadata carries the name only.
+    tex = re.sub(r"\\author\{([^,{}]+), ([^{}]+)\}", r"\\author{\1\\thanks{\2}}", tex, count=1)
+    tex = re.sub(r"pdfauthor=\{([^,{}]+), [^{}]+\}", r"pdfauthor={\1}", tex, count=1)
     tex = re.sub(r"(\\begin\{longtable\}.*?\\endlastfoot)(.*?)(\\end\{longtable\})",
                  lambda m: m.group(1) + _cells(m.group(2)) + m.group(3), tex, flags=re.DOTALL)
     return re.sub(r"(?<![{\w])(https?://[^\s}]+)", r"\\url{\1}", tex)
