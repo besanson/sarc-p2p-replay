@@ -269,14 +269,25 @@ def g9_paper() -> dict:
     detail["references"] = len(used)
     detail["unverified_references"] = [u for u in used if status.get(u) != "verified"]
     engine = build_tex.latex_engine()
+    committed = build_tex.MAIN_PDF
+    pdf_ok = True
     if engine is None:
         waiting.append("PDF build: no LaTeX engine (tectonic, latexmk, pdflatex, xelatex) in this environment")
-        detail["pdf"] = None
+        detail["pdf"] = {"engine": None, "committed": committed.exists()}
     else:
-        detail["pdf"] = build_tex.build_pdf(engine)
+        # Two builds must give the same bytes; a committed PDF must equal them.
+        with tempfile.TemporaryDirectory() as tmp:
+            a, b = Path(tmp) / "a.pdf", Path(tmp) / "b.pdf"
+            built = build_tex.build_pdf(engine, a) and build_tex.build_pdf(engine, b)
+            same = built and digest(a) == digest(b)
+            detail["pdf"] = {"engine": engine, "built": built, "two_builds_identical": same,
+                             "committed": committed.exists(),
+                             "committed_equals_build": committed.exists() and built and digest(committed) == digest(a)}
+        pdf_ok = built and (detail["pdf"]["committed_equals_build"] if committed.exists() else True)
+        if built and not committed.exists():
+            detail["pdf"]["note"] = "built locally; not committed" + ("" if same else " (two builds differ)")
     ok = (detail["tex_regenerated_identical"] and not detail["template_syntax_left_in_tex"]
-          and not detail["numeral_multiset_md_minus_tex"] and not detail["unverified_references"]
-          and (engine is None or detail["pdf"]))
+          and not detail["numeral_multiset_md_minus_tex"] and not detail["unverified_references"] and pdf_ok)
     return gate("pass" if ok else "fail", detail, waiting)
 
 

@@ -12,6 +12,7 @@ Usage: python scripts/build_tex.py
 
 from __future__ import annotations
 
+import os
 import re
 import shutil
 import subprocess
@@ -56,12 +57,40 @@ def latex_engine() -> str | None:
     return next((e for e in ENGINES if shutil.which(e)), None)
 
 
-def build_pdf(engine: str) -> bool:
-    cmd = {"tectonic": ["tectonic", "main.tex"], "latexmk": ["latexmk", "-pdf", "-interaction=nonstopmode", "main.tex"],
-           "pdflatex": ["pdflatex", "-interaction=nonstopmode", "main.tex"],
-           "xelatex": ["xelatex", "-interaction=nonstopmode", "main.tex"]}[engine]
-    r = subprocess.run(cmd, cwd=TEX_DIR, capture_output=True, text=True)
-    return r.returncode == 0 and (TEX_DIR / "main.pdf").exists()
+MAIN_PDF = TEX_DIR / "main.pdf"
+# pdfTeX: no creation or modification date, no trailer id, no pdfTeX info dictionary entry, so that
+# the PDF depends only on main.tex, the figures and the TeX installation (Phase E, D-E-1).
+DETERMINISTIC = r"\pdfinfoomitdate=1\pdftrailerid{}\pdfsuppressptexinfo=-1\input{main.tex}"
+
+
+def source_date_epoch() -> str:
+    """The commit date of the last commit that changed paper/paper.md (the source of main.tex)."""
+    r = subprocess.run(["git", "log", "-1", "--format=%ct", "--", "paper/paper.md"], cwd=ROOT, capture_output=True,
+                       text=True)
+    return r.stdout.strip() or "0"
+
+
+def build_pdf(engine: str, out: Path = MAIN_PDF) -> bool:
+    """Build main.pdf into `out`; aux files stay in a temporary directory. pdflatex runs twice (tables, refs)."""
+    with tempfile.TemporaryDirectory() as tmp:
+        if engine == "pdflatex":
+            cmds = [["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "-output-directory", tmp,
+                     "-jobname", "main", DETERMINISTIC]] * 2
+        else:
+            cmds = [{"tectonic": ["tectonic", "--outdir", tmp, "main.tex"],
+                     "latexmk": ["latexmk", "-pdf", "-interaction=nonstopmode", f"-outdir={tmp}", "main.tex"],
+                     "xelatex": ["xelatex", "-interaction=nonstopmode", "-output-directory", tmp, "main.tex"]}[engine]]
+        env = {**os.environ, "SOURCE_DATE_EPOCH": source_date_epoch(), "FORCE_SOURCE_DATE": "1"}
+        for cmd in cmds:
+            r = subprocess.run(cmd, cwd=TEX_DIR, capture_output=True, text=True, env=env)
+            if r.returncode != 0:
+                return False
+        built = Path(tmp) / "main.pdf"
+        if not built.exists():
+            return False
+        out.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(built, out)
+    return True
 
 
 def main() -> int:
