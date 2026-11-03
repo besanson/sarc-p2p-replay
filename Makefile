@@ -1,4 +1,4 @@
-.PHONY: help bootstrap siblings venv fetch-data check-data preflight bootstrap-paper test lint mutate gates gates-quick gates-ci package-smoke-test fill figures paper clean
+.PHONY: help bootstrap siblings venv fetch-data check-data preflight bootstrap-paper test lint mutate mutate-release gates gates-quick gates-ci package-smoke-test fill figures paper clean
 
 # Paper 7: sarc-p2p-replay. Apache License 2.0.
 # Target layout as paper 6 (gigo-jev-probe) and paper 5 (sarc-authority-derivation):
@@ -21,6 +21,7 @@ help:
 	@echo "test             pytest"
 	@echo "lint             terminology and proof-status lints"
 	@echo "mutate           mutation gate on src/ (kill score >= 0.85, no uncovered mutant)"
+	@echo "mutate-release   mutate, then record the result and the src/ tree in results/mutation-release.json"
 	@echo "gates            release gates G1 to G9 (out/gates/report.json); gates-quick skips the log replays"
 	@echo "gates-ci         the gates CI can run without the log, a TeX engine or mutation (G2, G5 to G8)"
 	@echo "package-smoke-test  sdist and wheel, fresh venv, replay of the fixtures outside the checkout (results/package-smoke.json)"
@@ -86,6 +87,9 @@ mutate:
 	$(VENV)/bin/mutmut run
 	$(VENV)/bin/mutmut export-cicd-stats
 	$(RUN) scripts/mutation_check.py
+
+mutate-release: mutate
+	$(RUN) scripts/mutation_check.py --out results/mutation-release.json
 
 clean:
 	rm -rf out mutants .pytest_cache build dist *.egg-info

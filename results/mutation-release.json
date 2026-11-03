@@ -1,0 +1,12 @@
+{
+  "commit": "78a22e38ab4dfaba384fb600ac0a164db051a328",
+  "kill_score": 0.9384010484927916,
+  "killed": 1432,
+  "no_tests": 0,
+  "passes": true,
+  "src_clean": true,
+  "src_tree": "1a2b49fc6b3708e6ec3ca07b1fd400f2ca6a83e6",
+  "survived": 94,
+  "threshold": 0.85,
+  "total": 1526
+}

@@ -90,10 +90,20 @@ def g2_lints() -> dict:
 
 
 def g3_mutation() -> dict:
+    """The release record (results/mutation-release.json, D-E-2) when present: it passes and its src/ tree is
+    the current one. Otherwise the Phase B/C record (results/mutation.json): src/ unchanged since its commit."""
+    release = ROOT / "results" / "mutation-release.json"
+    clean_tree = sh("git", "diff", "--quiet", "HEAD", "--", "src/").returncode == 0
+    if release.exists():
+        m = json.loads(release.read_text(encoding="utf-8"))
+        same_src = m["src_tree"] == sh("git", "rev-parse", "HEAD:src").stdout.strip()
+        ok = m["passes"] and clean_tree and same_src
+        return gate("pass" if ok else "fail", {"record": "results/mutation-release.json", "kill_score": m["kill_score"],
+                                               "threshold": m["threshold"], "no_tests": m["no_tests"],
+                                               "src_tree_is_current": same_src and clean_tree})
     m = json.loads((ROOT / "results" / "mutation.json").read_text(encoding="utf-8"))
     mut_commit = sh("git", "log", "-1", "--format=%H", "--", "results/mutation.json").stdout.strip()
     src_commit = sh("git", "log", "-1", "--format=%H", "--", "src/").stdout.strip()
-    clean_tree = sh("git", "diff", "--quiet", "HEAD", "--", "src/").returncode == 0
     src_before = bool(mut_commit) and sh("git", "merge-base", "--is-ancestor", src_commit, mut_commit).returncode == 0
     ok = m["passes"] and clean_tree and src_before
     return gate("pass" if ok else "fail", {"kill_score": m["kill_score"], "threshold": m["threshold"],
