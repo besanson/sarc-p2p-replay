@@ -1,4 +1,4 @@
-.PHONY: help bootstrap siblings venv fetch-data check-data preflight bootstrap-paper test lint mutate mutate-release gates gates-quick gates-ci package-smoke-test fill figures paper clean
+.PHONY: help bootstrap siblings venv fetch-data check-data preflight bootstrap-paper test lint mutate mutate-release gates gates-quick gates-ci package-smoke-test reproduce fill figures paper clean
 
 # Paper 7: sarc-p2p-replay. Apache License 2.0.
 # Target layout as paper 6 (gigo-jev-probe) and paper 5 (sarc-authority-derivation):
@@ -24,6 +24,7 @@ help:
 	@echo "mutate-release   mutate, then record the result and the src/ tree in results/mutation-release.json"
 	@echo "gates            release gates G1 to G9 (out/gates/report.json); gates-quick skips the log replays"
 	@echo "gates-ci         the gates CI can run without the log, a TeX engine or mutation (G2, G5 to G8)"
+	@echo "reproduce        regenerate every deterministic result into out/reproduce/ and compare SHA-256 (REPRODUCE.md)"
 	@echo "package-smoke-test  sdist and wheel, fresh venv, replay of the fixtures outside the checkout (results/package-smoke.json)"
 	@echo "fill             paper/paper.md and paper/filled-template.json from paper/template.md and the slots"
 	@echo "figures          paper/figures/ (SVG and PDF) from the slots"
@@ -72,6 +73,9 @@ gates-ci:
 
 package-smoke-test:
 	$(RUN) scripts/package_smoke.py --record
+
+reproduce:
+	$(RUN) scripts/reproduce.py
 
 fill:
 	$(RUN) scripts/fill_paper.py
