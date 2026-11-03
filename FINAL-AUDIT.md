@@ -10,7 +10,7 @@ with prose.
 | 1 | Latest CI on 3.11 and 3.12 green | GitHub Actions run ids on the release commit | closed: `results/ci-runs.json` (runs on 3.11 and 3.12, green); the release commit's runs are added at release |
 | 2 | Package builds (sdist and wheel) and installs in a fresh venv | `make package-smoke-test` log | closed: `results/package-smoke.json` |
 | 3 | The replay runs outside the repository root on an arbitrary XES or CSV log with `prereg/column-mapping.yaml` | smoke test on a fixture log from a temp directory | closed: `results/package-smoke.json` (checks `xes: replay runs outside the repository`, `csv: replay runs outside the repository`) |
-| 4 | Mutation score on `src/` at least 0.85 | mutation report | open (Phase B run: 0.9389, `DECISIONS.md` D-B-2, `results/mutation.json`; re-run on the release commit) |
+| 4 | Mutation score on `src/` at least 0.85 | mutation report | closed: `results/mutation-release.json` (release tree; `results/mutation.json` is the Phase B/C record) |
 | 5 | Paper centred on the registered hypotheses H1 to H4 and exposure, every number from a slot | typed-numerals lint, slot files | closed: `lint/typed_numerals.py`, `paper/filled-template.json` |
 | 6 | README shows the replay, the exposure table and the gate column immediately | README at release commit | closed: `README.md` headline block, generated from `paper/readme-headline.md` (`paper/filled-template.json`, `readme_headline`) |
 | 7 | Negative or null results retained as registered (any H not supported is reported) | `results/` slots, `CLAIMS.md` status | closed: `CLAIMS.md` (C6 not supported, C5 and C11 inconclusive, C9 not supported, all retained); `results/e4/h4.json`, `results/e2/hypotheses.json`, `results/e7/comparisons.json`, `results/e5/derivation.json` |
@@ -22,4 +22,4 @@ with prose.
 
 ## Summary
 
-10 of 12 items met. Open: 4 (mutation re-run on the release commit) and 11 (external reproduction, Phase F).
+11 of 12 items met. Open: 11 (external reproduction, Phase F).

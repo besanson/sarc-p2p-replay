@@ -63,6 +63,68 @@
           "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41110135191"
         }
       ]
+    },
+    {
+      "commit": "1767dffbe07c2e14050e21405e525f9b1177cd5e",
+      "green": true,
+      "green_on": [
+        "3.11",
+        "3.12"
+      ],
+      "runs": [
+        {
+          "conclusion": "success",
+          "event": "push",
+          "jobs": [
+            {
+              "conclusion": "success",
+              "job_id": 124290209009,
+              "name": "test (3.11)",
+              "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41122026008/job/124290209009"
+            },
+            {
+              "conclusion": "success",
+              "job_id": 124290208278,
+              "name": "test (3.12)",
+              "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41122026008/job/124290208278"
+            }
+          ],
+          "run_id": 41122026008,
+          "status": "completed",
+          "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41122026008"
+        }
+      ]
+    },
+    {
+      "commit": "631994efadce5bb92a0fe642c8a19fbe5985d2db",
+      "green": true,
+      "green_on": [
+        "3.11",
+        "3.12"
+      ],
+      "runs": [
+        {
+          "conclusion": "success",
+          "event": "push",
+          "jobs": [
+            {
+              "conclusion": "success",
+              "job_id": 126187885104,
+              "name": "test (3.11)",
+              "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41713647077/job/126187885104"
+            },
+            {
+              "conclusion": "success",
+              "job_id": 126187885558,
+              "name": "test (3.12)",
+              "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41713647077/job/126187885558"
+            }
+          ],
+          "run_id": 41713647077,
+          "status": "completed",
+          "url": "https://github.com/besanson/sarc-p2p-replay/actions/runs/41713647077"
+        }
+      ]
     }
   ],
   "gate": "G1",

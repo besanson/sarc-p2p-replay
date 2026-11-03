@@ -1211,3 +1211,67 @@ longtable, wrapping the cells), so that no table runs past the margin. The Markd
 template are unchanged. pdflatex now reports 0 overfull hboxes, 0
 wider than 10pt (widest 0.0pt). The build stays deterministic: G9 rebuilds twice and compares both
 with the committed `paper-tex/main.pdf`.
+
+## D-E-2 Release 1.0.0 (2026-11-03)
+
+**Version.** `pyproject.toml` 1.0.0; `CITATION.cff` version 1.0.0, date-released
+2026-11-03, the repository URL and the three event logs as data references, no `doi`
+field. The DOI is minted by Zenodo's GitHub integration when the author publishes the GitHub
+release of the tag; it is stamped afterwards, in the stamp commit. The README's status line and its
+"Cite" block (generated from `CITATION.cff` by `scripts/fill_paper.py`, checked by the typed-numeral
+lint as the headline block is) follow.
+
+**Mutation** (FINAL-AUDIT item 4). `make mutate-release` on the release tree: kill score
+0.9384 (1432 of 1526 killed, 0 without a covering test),
+threshold 0.85: pass. Recorded with the `src/` tree id
+`1a2b49fc6b37` in `results/mutation-release.json` (new); `results/mutation.json` stays as the
+Phase B/C record. G3 now checks the release record against the current `src/` tree.
+
+**Reproduction.** `REPRODUCE.md` (clone at the tag, `make bootstrap`, `make test`, `make gates`,
+`make reproduce`) and `scripts/reproduce.py`, which regenerates every deterministic result into
+`out/reproduce/` and compares SHA-256 with the committed files. Run at `279c0d5` (the commits after it
+change no result, paper or figure): REPRODUCED: all 58 compared files match.
+For information: `paper-tex/main.pdf` built with pdflatex: identical to the committed PDF (its bytes depend on the TeX installation; the committed one used TeX Live 2023, pdfTeX 1.40.25).
+
+Excluded by name as machine-dependent:
+
+  - `results/e0/run-2/e0-timing.json`: wall time of the E0 passes
+  - `results/e6/timing-e1.json`: wall time and hardware of the E1 replay
+  - `results/reproducibility.json`: run times of the internal double run
+  - `results/ci-runs.json`: GitHub Actions runs
+  - `results/package-smoke.json`: Python version of the smoke test
+  - `results/gates-report.json`: gate report of the release machine
+  - `results/data-check.json`: check of the data files on the release machine
+  - `results/mutation.json`: mutation run (Phase B/C)
+  - `results/mutation-release.json`: mutation run (release)
+
+Not regenerated, verification records of earlier runs that a reproduction replaces:
+
+  - `results/README.md`: index of the slot files
+  - `results/checks-d-c-2.json`: D-C-2 re-run record
+  - `results/round1-double-run.json`: double-run record
+  - `results/round2-double-run.json`: double-run record
+  - `results/round3-double-run.json`: double-run record
+  - `results/e4/double-run.json`: double-run record
+  - `results/e4-exploratory/double-run.json`: double-run record
+  - `results/e5/double-run.json`: double-run record
+  - `results/e7/double-run.json`: double-run record
+  - `results/e0/run-1/`: E0 run 1 under p7-v1, stopped and superseded by run 2
+
+**CI.** The run on the release commit cannot be recorded inside that commit; it is recorded in the
+stamp commit. Recorded now (`results/ci-runs.json`, `scripts/ci_runs.py`):
+
+- `25281ea`: [41109377073](https://github.com/besanson/sarc-p2p-replay/actions/runs/41109377073) success
+- `d00b776`: [41110135191](https://github.com/besanson/sarc-p2p-replay/actions/runs/41110135191) success
+- `1767dff`: [41122026008](https://github.com/besanson/sarc-p2p-replay/actions/runs/41122026008) success
+- `631994e`: [41713647077](https://github.com/besanson/sarc-p2p-replay/actions/runs/41713647077) success
+
+**FINAL-AUDIT.** Item 4 closed with `results/mutation-release.json`. 11 of 12 items met. Open: 11 (external reproduction, Phase F).
+
+The author tags v1.0.0 on the commit that adds this entry ("paper 7: D-E-2, release 1.0.0"); a
+commit cannot name its own hash, so the builder's report gives it.
+
+**The stamp commit** (after the GitHub release and the arXiv submission) will carry: the Zenodo DOI
+(`CITATION.cff`, the README's Cite block and status line), the arXiv id, the CI run of the release
+commit (`results/ci-runs.json`), the reproduction issue once an external reproducer opens it, and
+then C13's status, FINAL-AUDIT item 11 and Appendix C's sentence on external reproduction.
