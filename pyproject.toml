@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sarc-p2p-replay"
-version = "0.0.1"
+version = "1.0.0"
 description = "Registered replay of a real purchase-to-pay event log through a deterministic min() evidence gate (SARC paper 7)"
 requires-python = ">=3.11"
 readme = "README.md"

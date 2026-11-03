@@ -57,3 +57,12 @@ def test_formats_and_value_lookup():
     assert fill_paper.walk({"a": [{"b": 3}]}, ["a", "0", "b"]) == 3
     refs = json.loads((ROOT / "verified-citations.json").read_text(encoding="utf-8"))["citations"]
     assert fill_paper.cite_text("pesic-declare-2007") == "Pesic et al. 2007" and refs
+
+
+def test_readme_cite_block_follows_citation_cff():
+    import yaml
+
+    c = yaml.safe_load((ROOT / "CITATION.cff").read_text(encoding="utf-8"))
+    block = fill_paper.readme_cite()
+    text = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert block in text and f"version = {{{c['version']}}}" in block and str(c["date-released"]) in block
