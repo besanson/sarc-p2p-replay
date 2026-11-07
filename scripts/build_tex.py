@@ -3,8 +3,9 @@
 As paper 5 (sarc-authority-derivation, paper-tex/): the typeset paper is generated from the
 markdown source, never edited by hand. Here pandoc writes a standalone LaTeX file; figures are
 referenced as the PDF versions in paper/figures/. Paper 5's canonical engine is Tectonic, with
-latexmk as the supported alternative; this script uses the first of tectonic, latexmk, pdflatex,
-xelatex that is installed. With none installed it writes main.tex and says so: the PDF waits for
+latexmk as the supported alternative; this script uses the first of pdflatex, tectonic, latexmk,
+xelatex, lualatex that is installed. The committed PDF is a pdflatex build: its bytes depend on the
+engine and the TeX installation, so another engine's PDF is built but cannot be compared with it. With none installed it writes main.tex and says so: the PDF waits for
 an environment with a LaTeX engine.
 
 Usage: python scripts/build_tex.py
@@ -25,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PAPER = ROOT / "paper" / "paper.md"
 TEX_DIR = ROOT / "paper-tex"
 MAIN_TEX = TEX_DIR / "main.tex"
-ENGINES = ("tectonic", "latexmk", "pdflatex", "xelatex")
+ENGINES = ("pdflatex", "tectonic", "latexmk", "xelatex", "lualatex")  # the committed PDF is pdflatex's
 
 
 def _markdown_for_tex(text: str) -> str:
@@ -104,10 +105,15 @@ def source_date_epoch() -> str:
 OVERFULL = ROOT / "out" / "paper-tex" / "overfull.json"
 
 
-def _record_overfull(log: str) -> None:
-    widths = [float(w) for w in re.findall(r"Overfull \\hbox \(([\d.]+)pt too wide\)", log)]
+def _record_overfull(engine: str, log: str | None) -> None:
+    """The overfull boxes of a pdflatex build; with another engine (no main.log read) only the engine."""
     OVERFULL.parent.mkdir(parents=True, exist_ok=True)
-    OVERFULL.write_text(json.dumps({"overfull_hboxes": len(widths),
+    if log is None:
+        OVERFULL.write_text(json.dumps({"engine": engine, "overfull_hboxes": None,
+                                        "note": "counted for pdflatex builds only"}, indent=2) + "\n", encoding="utf-8")
+        return
+    widths = [float(w) for w in re.findall(r"Overfull \\hbox \(([\d.]+)pt too wide\)", log)]
+    OVERFULL.write_text(json.dumps({"engine": engine, "overfull_hboxes": len(widths),
                                     "overfull_hboxes_over_10pt": sum(w > 10 for w in widths),
                                     "widest_pt": max(widths, default=0.0)}, indent=2) + "\n", encoding="utf-8")
 
@@ -121,7 +127,8 @@ def build_pdf(engine: str, out: Path = MAIN_PDF) -> bool:
         else:
             cmds = [{"tectonic": ["tectonic", "--outdir", tmp, "main.tex"],
                      "latexmk": ["latexmk", "-pdf", "-interaction=nonstopmode", f"-outdir={tmp}", "main.tex"],
-                     "xelatex": ["xelatex", "-interaction=nonstopmode", "-output-directory", tmp, "main.tex"]}[engine]]
+                     "xelatex": ["xelatex", "-interaction=nonstopmode", "-output-directory", tmp, "main.tex"],
+                     "lualatex": ["lualatex", "-interaction=nonstopmode", "-output-directory", tmp, "main.tex"]}[engine]]
         env = {**os.environ, "SOURCE_DATE_EPOCH": source_date_epoch(), "FORCE_SOURCE_DATE": "1"}
         for cmd in cmds:
             r = subprocess.run(cmd, cwd=TEX_DIR, capture_output=True, text=True, env=env)
@@ -130,7 +137,8 @@ def build_pdf(engine: str, out: Path = MAIN_PDF) -> bool:
         built = Path(tmp) / "main.pdf"
         if not built.exists():
             return False
-        _record_overfull((Path(tmp) / "main.log").read_text(encoding="latin-1"))
+        log = Path(tmp) / "main.log"
+        _record_overfull(engine, log.read_text(encoding="latin-1") if engine == "pdflatex" and log.exists() else None)
         out.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(built, out)
     return True

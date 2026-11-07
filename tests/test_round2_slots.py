@@ -95,3 +95,10 @@ def test_unknown_overlap(tmp_path):
     d = round2_slots.unknown_overlap_doc(tmp_path)["logs"]["domestic"]
     assert d["with_a_predicate_unknown"] == 2 and d["with_a_predicate_unknown_and_another_failing"] == 1
     assert d["every_predicate_passing"] == 1 and d["unknown_per_predicate"]["D3'"] == 2
+
+
+def test_git_timestamps_are_normalised_to_utc_offset_form():
+    # Apple Git writes "Z", other git versions "+00:00": the slot must carry one form (D-F-1).
+    assert round2_slots.utc_iso("2026-10-25T18:21:56Z") == "2026-10-25T18:21:56+00:00"
+    assert round2_slots.utc_iso("2026-10-25T18:21:56+00:00") == "2026-10-25T18:21:56+00:00"
+    assert round2_slots.utc_iso("2026-10-25T20:21:56+02:00") == "2026-10-25T18:21:56+00:00"

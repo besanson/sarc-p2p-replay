@@ -1,4 +1,4 @@
-.PHONY: help bootstrap siblings venv fetch-data check-data preflight bootstrap-paper test lint mutate mutate-release gates gates-quick gates-ci package-smoke-test reproduce fill figures paper clean
+.PHONY: help bootstrap siblings venv fetch-data check-data preflight bootstrap-paper test lint mutate mutate-release gates gates-record gates-quick gates-ci package-smoke-test reproduce fill figures paper clean
 
 # Paper 7: sarc-p2p-replay. Apache License 2.0.
 # Target layout as paper 6 (gigo-jev-probe) and paper 5 (sarc-authority-derivation):
@@ -22,7 +22,9 @@ help:
 	@echo "lint             terminology and proof-status lints"
 	@echo "mutate           mutation gate on src/ (kill score >= 0.85, no uncovered mutant)"
 	@echo "mutate-release   mutate, then record the result and the src/ tree in results/mutation-release.json"
-	@echo "gates            release gates G1 to G9 (out/gates/report.json); gates-quick skips the log replays"
+	@echo "gates            release gates G1 to G9 (report in out/gates/report.json; the checkout stays clean)"
+	@echo "gates-record     gates, and the report also to results/gates-report.json (the builder's release record)"
+	@echo "gates-quick      gates without the log replays of G4"
 	@echo "gates-ci         the gates CI can run without the log, a TeX engine or mutation (G2, G5 to G8)"
 	@echo "reproduce        regenerate every deterministic result into out/reproduce/ and compare SHA-256 (REPRODUCE.md)"
 	@echo "package-smoke-test  sdist and wheel, fresh venv, replay of the fixtures outside the checkout (results/package-smoke.json)"
@@ -63,6 +65,9 @@ lint:
 	$(RUN) -m lint.typed_numerals
 
 gates:
+	$(RUN) scripts/gates.py
+
+gates-record:
 	$(RUN) scripts/gates.py --record
 
 gates-quick:

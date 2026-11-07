@@ -32,7 +32,7 @@ import json
 import subprocess
 import sys
 from collections import Counter
-from datetime import timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -130,10 +130,16 @@ def _git(root: Path, *args: str) -> str:
     return subprocess.run(["git", "-C", str(root), *args], capture_output=True, text=True, check=True).stdout.strip()
 
 
+def utc_iso(stamp: str) -> str:
+    """A git date as ISO 8601 in UTC with "+00:00": git versions write the same instant as "Z" or "+00:00"
+    (Apple Git writes "Z"; D-F-1), and the slot must not depend on which."""
+    return datetime.fromisoformat(stamp.replace("Z", "+00:00")).astimezone(timezone.utc).isoformat()
+
+
 def _commit(root: Path, rev: str) -> dict[str, str]:
     full, committed, authored, subject = _git(root, "log", "-1", "--format=%H%n%cI%n%aI%n%s", rev).split("\n")
-    return {"commit": full[:7], "commit_full": full, "committer_utc": committed, "author_utc": authored,
-            "subject": subject}
+    return {"commit": full[:7], "commit_full": full, "committer_utc": utc_iso(committed),
+            "author_utc": utc_iso(authored), "subject": subject}
 
 
 def _first_commit(root: Path, path: str) -> dict[str, str]:

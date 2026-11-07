@@ -10,7 +10,9 @@
                       (results/e3/verdict-by-outcome.json)
 
 Determinism: the SVG hash salt is fixed, no date or creator metadata is written, and fonts are
-embedded as paths (svg.fonttype none is not used), so regeneration is byte-identical.
+embedded as paths (svg.fonttype none is not used), so regeneration is byte-identical on one machine.
+Across machines the SVG and PDF bytes depend on font embedding (D-F-1); so the numbers every figure
+plots are also written to paper/figures/figure-data.json, which is what a reproduction compares.
 
 Usage: python scripts/figures.py
 """
@@ -51,6 +53,9 @@ def _style() -> None:
     })
 
 
+DATA: dict[str, dict] = {}  # the numbers each figure plots, by figure, filled as the figures are drawn
+
+
 def _save(fig, out: Path, name: str) -> list[str]:
     out.mkdir(parents=True, exist_ok=True)
     fig.savefig(out / f"{name}.svg", format="svg", metadata={"Date": None, "Creator": None})
@@ -69,6 +74,8 @@ def fig_exposure(out: Path) -> list[str]:
         vals = [100 * e[c][key] for c in CLASSES]
         lo = [100 * (e[c][key] - e[c][iv][0]) for c in CLASSES]
         hi = [100 * (e[c][iv][1] - e[c][key]) for c in CLASSES]
+        DATA.setdefault("fig1-exposure", {})[label] = {"classes": list(CLASSES), "values_pct": vals,
+                                                        "error_low_pct": lo, "error_high_pct": hi}
         ax.bar([x + offset for x in xs], vals, width=0.36, color=color, label=label)
         ax.errorbar([x + offset for x in xs], vals, yerr=[lo, hi], fmt="none", ecolor=INK, elinewidth=0.8, capsize=2)
     ax.set_xticks(list(xs), [SHORT.get(c, c) for c in CLASSES])
@@ -86,6 +93,9 @@ def fig_hold_rates(out: Path) -> list[str]:
     for ax, data, keys, title in ((ax1, a, arms, "ERP view (registered)"),
                                   (ax2, x, arms[1:3], "timeline view (exploratory)")):
         xs = range(len(keys))
+        DATA.setdefault("fig2-hold-rates", {})[title] = {
+            k: {"defective_pct": 100 * data[k]["hold_rate_defective"], "clean_pct": 100 * data[k]["hold_rate_clean"]}
+            for k, _ in keys}
         ax.bar([i - 0.18 for i in xs], [100 * data[k]["hold_rate_defective"] for k, _ in keys], width=0.36,
                color=ACCENT, label="defective lines")
         ax.bar([i + 0.18 for i in xs], [100 * data[k]["hold_rate_clean"] for k, _ in keys], width=0.36,
@@ -103,6 +113,8 @@ def fig_lag_bands(out: Path) -> list[str]:
     lag = _load("e3/lag-bands.json")["bands"]
     keys = ("0-1", "1-7", "7-30", "over 30", "never")
     labels = ("[0, 1]", "(1, 7]", "(7, 30]", "> 30", "never")
+    DATA["fig3-lag-bands"] = {lab: {"clearings": lag[k]["clearings"], "cleared_value_eur": lag[k]["cleared_value_eur"]}
+                              for k, lab in zip(keys, labels)}
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(6.4, 2.6))
     ax1.bar(labels, [lag[k]["clearings"] for k in keys], color=ACCENT)
     ax1.set_title("clearings", fontsize=9)
@@ -127,6 +139,7 @@ def fig_verdict_outcome(out: Path) -> list[str]:
         for i, r in enumerate(rows):
             for j, c in enumerate(cols):
                 v = t[f"{r}_{c}_corrective"][key]
+                DATA.setdefault("fig4-verdict-outcome", {}).setdefault(key, {})[f"{r}_{c}_corrective"] = v
                 ax.add_patch(plt.Rectangle((j, 1 - i), 1, 1, fill=False, edgecolor=INK, linewidth=0.8))
                 ax.text(j + 0.5, 1.5 - i, f"{v:,.0f}", ha="center", va="center", fontsize=9)
         ax.text(0.5, 2.05, "corrective", ha="center", va="bottom", fontsize=8)
@@ -139,10 +152,12 @@ def fig_verdict_outcome(out: Path) -> list[str]:
 
 def run(out: Path = OUT) -> list[str]:
     _style()
+    DATA.clear()
     files = []
     for fn in (fig_exposure, fig_hold_rates, fig_lag_bands, fig_verdict_outcome):
         files += fn(out)
-    return files
+    (out / "figure-data.json").write_text(json.dumps(DATA, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return files + ["figure-data.json"]
 
 
 def main() -> int:

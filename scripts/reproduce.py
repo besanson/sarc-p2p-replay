@@ -10,13 +10,18 @@ model responses (no model is called) and paper 5's compiler at its engines.lock 
   then the paper, filled from the regenerated slots: paper/paper.md, paper/filled-template.json, the
   README's generated blocks, the figures and paper-tex/main.tex.
 
-Each regenerated file is compared by SHA-256 with the committed one. Every committed file under results/
-is accounted for: compared, excluded as machine-dependent (MACHINE), or a verification record of an
-earlier run that this reproduction replaces (RECORDS). paper-tex/main.pdf is built when a LaTeX engine is
-installed and reported for information only: its bytes depend on the TeX installation.
+Each regenerated file is compared with the committed one by SHA-256 and, for JSON and JSON lines, also
+within tolerance (scripts/tolerance.py: structures and strings equal, numbers within 1e-12 relative):
+floating-point last digits can differ across machines and architectures (D-F-1). Text files (the
+paper, its TeX, the README) are compared by bytes. The figures' SVG and PDF bytes depend on font
+embedding and are listed, not compared; the numbers they plot (paper/figures/figure-data.json) are.
+Every committed file under results/ is accounted for: compared, excluded as machine-dependent
+(MACHINE), or a verification record that this reproduction replaces (RECORDS). paper-tex/main.pdf is
+built when a LaTeX engine is installed and reported for information only; that optional step never
+stops the run.
 
-Writes out/reproduce/report.md (the table and the verdict, for a GitHub issue) and prints the same.
-Exit 0 when every compared file matches.
+Writes out/reproduce/report.md (the table and the verdict, for a GitHub issue), always, and prints the
+same. Exit 0 when every compared file is equal (byte-identical or within tolerance).
 
 Usage: python scripts/reproduce.py
 """
@@ -35,6 +40,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 OUT = ROOT / "out" / "reproduce"
+from tolerance import REL  # noqa: E402
 
 # Machine-dependent records: excluded by name, never compared.
 MACHINE = {
@@ -61,7 +67,16 @@ RECORDS = {
     "results/e5/double-run.json": "double-run record",
     "results/e7/double-run.json": "double-run record",
     "results/e0/run-1/": "E0 run 1 under p7-v1, stopped and superseded by run 2",
+    "results/reproduction/": "records of external reproduction attempts",
 }
+# The paper's generated files: text compared by bytes, JSON within tolerance. The figures' SVG and PDF
+# bytes depend on font embedding across machines (D-F-1): listed, not compared; figure-data.json, the
+# numbers they plot, is compared within tolerance.
+FIGURE_FILES = sorted(f"paper/figures/{p.name}" for p in (ROOT / "paper" / "figures").iterdir()
+                      if p.suffix in (".svg", ".pdf"))
+PAPER_FILES = [("paper/paper.md", "paper.md"), ("paper/filled-template.json", "filled-template.json"),
+               ("README.md", "README.md"), ("paper-tex/main.tex", "main.tex"),
+               ("paper/figures/figure-data.json", "figures/figure-data.json")]
 
 
 def sha(p: Path) -> str | None:
@@ -113,7 +128,10 @@ def regenerate_paper(res: Path, paper_dir: Path) -> None:
         build_tex.write_tex(paper_dir / "paper.md", paper_dir / "main.tex")
 
 
-def compare(res: Path, paper_dir: Path) -> tuple[list[dict], list[str], dict | None]:
+def compare(res: Path, paper_dir: Path) -> tuple[list[dict], list[str]]:
+    """Every compared file: byte identity, and for JSON and JSON lines equality within tolerance (scripts/tolerance.py)."""
+    import tolerance  # noqa: PLC0415
+
     rows, uncovered = [], []
     for committed in sorted((ROOT / "results").rglob("*")):
         if not committed.is_file():
@@ -125,61 +143,93 @@ def compare(res: Path, paper_dir: Path) -> tuple[list[dict], list[str], dict | N
         if not regen.exists():
             uncovered.append(rel)
             continue
-        rows.append({"file": rel, "committed": sha(committed), "regenerated": sha(regen)})
-    pairs = [("paper/paper.md", "paper.md"), ("paper/filled-template.json", "filled-template.json"),
-             ("README.md", "README.md"), ("paper-tex/main.tex", "main.tex")]
-    pairs += [(f"paper/figures/{p.name}", f"figures/{p.name}") for p in sorted((ROOT / "paper" / "figures").iterdir())]
-    for committed, regen in pairs:
+        rows.append({"file": rel, **tolerance.compare(committed, regen)})
+    for committed, regen in PAPER_FILES:
         if not (paper_dir / regen).exists():
             uncovered.append(committed + (" (pandoc not installed)" if regen == "main.tex" else ""))
             continue
-        rows.append({"file": committed, "committed": sha(ROOT / committed), "regenerated": sha(paper_dir / regen)})
-    for r in rows:
-        r["match"] = r["committed"] is not None and r["committed"] == r["regenerated"]
-    pdf = None
-    import build_tex  # noqa: PLC0415
+        rows.append({"file": committed, **tolerance.compare(ROOT / committed, paper_dir / regen)})
+    return rows, uncovered
 
-    engine = build_tex.latex_engine()
-    tex = paper_dir / "main.tex"
-    if engine and tex.exists() and tex.read_bytes() == (ROOT / "paper-tex" / "main.tex").read_bytes():
+
+def pdf_step(paper_dir: Path) -> str:
+    """The optional PDF build, for information only. Never raises: any failure is reported as a reason."""
+    try:
+        import build_tex  # noqa: PLC0415
+
+        engine = build_tex.latex_engine()
+        tex = paper_dir / "main.tex"
+        if engine is None:
+            return "PDF not built: no LaTeX engine (tectonic, latexmk, pdflatex, xelatex) installed"
+        if not tex.exists() or tex.read_bytes() != (ROOT / "paper-tex" / "main.tex").read_bytes():
+            return "PDF not built: the regenerated main.tex differs from the committed one, or was not written"
         print("reproduce: PDF (information only)", flush=True)
         built = paper_dir / "main.pdf"
-        if build_tex.build_pdf(engine, built):
-            pdf = {"engine": engine, "committed": sha(ROOT / "paper-tex" / "main.pdf"), "built": sha(built)}
-    return rows, uncovered, pdf
+        if not build_tex.build_pdf(engine, built):
+            return f"PDF not built: {engine} did not produce main.pdf"
+        same = sha(built) == sha(ROOT / "paper-tex" / "main.pdf")
+        return (f"`paper-tex/main.pdf` built with {engine}: {'identical to' if same else 'differs from'} the committed "
+                "PDF (its bytes depend on the TeX installation and engine; the committed one used pdflatex, TeX Live "
+                "2023, pdfTeX 1.40.25)")
+    except Exception as exc:  # noqa: BLE001 - the optional step must never stop the run
+        return f"PDF not built: {type(exc).__name__}: {exc}"
 
 
 def git(*args: str) -> str:
     return subprocess.run(["git", "-C", str(ROOT), *args], capture_output=True, text=True).stdout.strip()
 
 
-def report(rows: list[dict], uncovered: list[str], pdf: dict | None) -> tuple[str, bool]:
-    bad = [r for r in rows if not r["match"]]
+def _version() -> str:
+    import tomllib  # noqa: PLC0415
+
+    return tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]["version"]
+
+
+def report(rows: list[dict], uncovered: list[str], pdf: str | None) -> tuple[str, bool]:
+    bad = [r for r in rows if not r["equal"]]
     ok = not bad and not uncovered
-    verdict = (f"REPRODUCED: all {len(rows)} compared files match." if ok else
-               f"NOT REPRODUCED: {len(bad)} of {len(rows)} compared files differ"
-               + (f"; {len(uncovered)} committed files were not regenerated" if uncovered else "") + ".")
-    short = lambda h: h[:16] if h else "missing"  # noqa: E731
-    lines = ["# Reproduction of v1.0.0", "",
+    byte = sum(r["byte_identical"] for r in rows)
+    diffs = [r["max_abs_difference"] for r in rows if r["max_abs_difference"] is not None]
+    worst = max(diffs, default=0.0)
+    if ok:
+        verdict = (f"REPRODUCED: {len(rows)} files equal ({byte} byte-identical, {len(rows) - byte} within tolerance, "
+                   f"max difference {worst:.3g})")
+    else:
+        verdict = ("NOT REPRODUCED: " + "; ".join(
+            [f"{len(bad)} of {len(rows)} compared files not equal: " + ", ".join(r["file"] for r in bad)] if bad else [])
+            + ("; " if bad and uncovered else "")
+            + (f"{len(uncovered)} committed files not regenerated: " + ", ".join(uncovered) if uncovered else ""))
+    fmt = lambda r: "n/a" if r["max_abs_difference"] is None else f"{r['max_abs_difference']:.3g}"  # noqa: E731
+    lines = [f"# Reproduction of v{_version()}", "",
              f"Commit `{git('rev-parse', 'HEAD')}` ({git('describe', '--tags', '--always')}); "
              f"Python {platform.python_version()}; {platform.platform()}.", "",
-             "| file | committed SHA-256 | regenerated SHA-256 | match |", "|---|---|---|---|"]
-    lines += [f"| `{r['file']}` | `{short(r['committed'])}` | `{short(r['regenerated'])}` | {'yes' if r['match'] else 'NO'} |"
-              for r in rows]
+             "Byte-identical: the SHA-256 of the regenerated file equals the committed one. Within tolerance (JSON "
+             "and JSON lines only): the parsed structures and strings are equal and every number pair satisfies "
+             f"|a - b| <= {REL:g} x max(1, |a|, |b|); text files are compared by bytes only.", "",
+             "| file | byte-identical | within tolerance | max absolute difference |", "|---|---|---|---|"]
+    lines += [f"| `{r['file']}` | {'yes' if r['byte_identical'] else 'no'} | {'yes' if r['within_tolerance'] else 'NO'} | "
+              f"{fmt(r)} |" for r in rows]
     if uncovered:
         lines += ["", "Committed files not regenerated:", ""] + [f"- `{u}`" for u in uncovered]
     lines += ["", "Excluded as machine-dependent (not compared):", ""]
     lines += [f"- `{k}`: {v}" for k, v in MACHINE.items()]
+    lines += [f"- `{k}`: figure bytes (font embedding); its numbers are compared in `paper/figures/figure-data.json`"
+              for k in FIGURE_FILES]
     lines += ["", "Verification records of earlier runs (not regenerated; this reproduction replaces them):", ""]
     lines += [f"- `{k}`: {v}" for k, v in RECORDS.items()]
-    if pdf:
-        lines += ["", f"For information: `paper-tex/main.pdf` built with {pdf['engine']}: "
-                      f"{'identical to' if pdf['committed'] == pdf['built'] else 'differs from'} the committed PDF "
-                      "(its bytes depend on the TeX installation; the committed one used TeX Live 2023, pdfTeX 1.40.25)."]
-    else:
-        lines += ["", "For information: `paper-tex/main.pdf` was not built (no LaTeX engine, or main.tex differs)."]
-    lines += ["", f"**{verdict}**", ""]
+    lines += ["", f"For information: {pdf or 'PDF step not reached'}.", "", f"**{verdict}**", ""]
     return "\n".join(lines), ok
+
+
+def finish(res: Path, paper_dir: Path, out: Path = OUT) -> bool:
+    """Compare, run the optional PDF step and always write the report."""
+    rows, uncovered = compare(res, paper_dir)
+    text, ok = report(rows, uncovered, pdf_step(paper_dir))
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "report.md").write_text(text, encoding="utf-8")
+    print(text)
+    print(f"reproduce: report in {(out / 'report.md')}")
+    return ok
 
 
 def main() -> int:
@@ -190,12 +240,7 @@ def main() -> int:
     os.symlink(ROOT / "responses", root / "responses")
     regenerate_results(res, root)
     regenerate_paper(res, OUT / "paper")
-    rows, uncovered, pdf = compare(res, OUT / "paper")
-    text, ok = report(rows, uncovered, pdf)
-    (OUT / "report.md").write_text(text, encoding="utf-8")
-    print(text)
-    print(f"reproduce: report in {(OUT / 'report.md').relative_to(ROOT)}")
-    return 0 if ok else 1
+    return 0 if finish(res, OUT / "paper") else 1
 
 
 if __name__ == "__main__":

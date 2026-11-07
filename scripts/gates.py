@@ -10,9 +10,11 @@ token purity, number parity between source and typeset paper) sit inside G9.
   G3 mutation         results/mutation.json passes (>= 0.85, no uncovered mutant) and src/ has not
                       changed since the commit that recorded it
   G4 regeneration     every deterministic result regenerated from the log and the committed E4
-                      responses into out/gates/regen/ and compared byte for byte with results/;
-                      the paper, filled template and figures regenerated and compared; external
-                      reproduction waits on Phase F
+                      responses into out/gates/regen/ and compared with results/: byte identity, and
+                      for JSON and JSON lines equality within tolerance (scripts/tolerance.py, D-F-1);
+                      the paper and README by bytes, the filled template and the figures' numbers
+                      (paper/figures/figure-data.json) within tolerance, the SVG and PDF bytes for
+                      information; external reproduction waits on Phase F
   G5 claims           every CLAIMS.md status and evidence path equals what the slots give
                       (scripts/claim_statuses.py), every evidence file exists
   G6 secrets          no key, token or private key in any tracked file; .env untracked and ignored
@@ -28,7 +30,10 @@ token purity, number parity between source and typeset paper) sit inside G9.
 Each gate is "pass", "fail" or "waiting": waiting when every check it can run now passes and an
 item remains for a later phase or environment (named in the report). The run passes when no gate fails.
 
-Usage: python scripts/gates.py [--quick | --ci]
+The report goes to out/gates/report.json; with --record also to results/gates-report.json (the
+builder's release record), so that a reproducer's `make gates` leaves the checkout clean.
+
+Usage: python scripts/gates.py [--quick | --ci] [--record]
   --quick skips the log replays of G4; --ci runs only the gates that need neither the log nor a
   TeX engine nor the mutation run (G2, G5, G6, G7, G8) and marks the others "not run in CI"
   (report in out/gates/report-ci.json)
@@ -113,12 +118,14 @@ def g3_mutation() -> dict:
 
 
 def _compare(a: Path, b: Path, names: list[str]) -> list[dict]:
+    """Byte identity and, for JSON and JSON lines, equality within tolerance (scripts/tolerance.py, D-F-1)."""
+    import tolerance  # noqa: PLC0415
+
     rows = []
     for n in names:
-        fa, fb = a / n, b / n
-        ha = digest(fa) if fa.is_file() else None
-        hb = digest(fb) if fb.is_file() else None
-        rows.append({"file": n, "identical": ha is not None and ha == hb})
+        r = tolerance.compare(a / n, b / n)
+        rows.append({"file": n, "byte_identical": r["byte_identical"], "equal": r["equal"],
+                     "max_abs_difference": r["max_abs_difference"]})
     return rows
 
 
@@ -188,19 +195,28 @@ def g4_regeneration(quick: bool) -> dict:
         shutil.copyfile(ROOT / "README.md", paper_dir / "README.md")
         fill_paper.run(out_paper=paper_dir / "paper.md", out_filled=paper_dir / "filled-template.json",
                        readme=paper_dir / "README.md")
-        paper_rows += [{"file": "paper/paper.md", "identical": digest(ROOT / "paper" / "paper.md") == digest(paper_dir / "paper.md")},
-                       {"file": "paper/filled-template.json",
-                        "identical": digest(ROOT / "paper" / "filled-template.json") == digest(paper_dir / "filled-template.json")},
-                       {"file": "README.md", "identical": digest(ROOT / "README.md") == digest(paper_dir / "README.md")}]
+        for name in ("paper.md", "filled-template.json"):
+            paper_rows += [{**r, "file": f"paper/{name}"} for r in _compare(ROOT / "paper", paper_dir, [name])]
+        paper_rows += _compare(ROOT, paper_dir, ["README.md"])
         figures.run(paper_dir / "figures")
-        for f in sorted((paper_dir / "figures").iterdir()):
-            committed = ROOT / "paper" / "figures" / f.name
-            paper_rows.append({"file": f"paper/figures/{f.name}",
-                               "identical": committed.is_file() and digest(committed) == digest(f)})
-    ok = all(r["identical"] for r in rows + paper_rows) and bool(rows)
-    return gate("pass" if ok else "fail", {"results": rows, "paper": paper_rows,
-                                           "differing": [r["file"] for r in rows + paper_rows if not r["identical"]]},
-                waiting)
+        # Figures: the numbers they plot are compared; SVG and PDF bytes are machine-dependent (font
+        # embedding), reported for information.
+        paper_rows += [{**r, "file": "paper/figures/figure-data.json"}
+                       for r in _compare(ROOT / "paper" / "figures", paper_dir / "figures", ["figure-data.json"])]
+        figure_bytes = [{**r, "file": f"paper/figures/{r['file']}"} for r in _compare(
+            ROOT / "paper" / "figures", paper_dir / "figures",
+            sorted(f.name for f in (paper_dir / "figures").iterdir() if f.suffix in (".svg", ".pdf")))]
+    else:
+        figure_bytes = []
+    checked = rows + paper_rows
+    ok = all(r["equal"] for r in checked) and bool(rows)
+    diffs = [r["max_abs_difference"] for r in checked if r["max_abs_difference"] is not None]
+    return gate("pass" if ok else "fail", {
+        "results": rows, "paper": paper_rows, "figure_bytes_information_only": figure_bytes,
+        "byte_identical": sum(r["byte_identical"] for r in checked), "equal": sum(r["equal"] for r in checked),
+        "compared": len(checked), "max_abs_difference": max(diffs, default=0.0),
+        "not_equal": [r["file"] for r in checked if not r["equal"]],
+        "not_byte_identical": [r["file"] for r in checked if not r["byte_identical"]]}, waiting)
 
 
 def g5_claims() -> dict:
@@ -293,21 +309,32 @@ def g9_paper() -> dict:
     engine = build_tex.latex_engine()
     committed = build_tex.MAIN_PDF
     pdf_ok = True
+    # The PDF is checked only where it can be: a pdflatex build, twice, equal to the committed one. The
+    # engine's absence or kind, or another TeX installation, leaves G9 waiting, never failing (D-F-1).
     if engine is None:
-        waiting.append("PDF build: no LaTeX engine (tectonic, latexmk, pdflatex, xelatex) in this environment")
+        waiting.append("PDF build: no LaTeX engine (" + ", ".join(build_tex.ENGINES) + ") in this environment")
         detail["pdf"] = {"engine": None, "committed": committed.exists()}
     else:
-        # Two builds must give the same bytes; a committed PDF must equal them.
-        with tempfile.TemporaryDirectory() as tmp:
-            a, b = Path(tmp) / "a.pdf", Path(tmp) / "b.pdf"
-            built = build_tex.build_pdf(engine, a) and build_tex.build_pdf(engine, b)
-            same = built and digest(a) == digest(b)
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                a, b = Path(tmp) / "a.pdf", Path(tmp) / "b.pdf"
+                built = build_tex.build_pdf(engine, a) and build_tex.build_pdf(engine, b)
+                same = built and digest(a) == digest(b)
+                equals = committed.exists() and built and digest(committed) == digest(a)
             detail["pdf"] = {"engine": engine, "built": built, "two_builds_identical": same,
-                             "committed": committed.exists(),
-                             "committed_equals_build": committed.exists() and built and digest(committed) == digest(a)}
-        pdf_ok = built and (detail["pdf"]["committed_equals_build"] if committed.exists() else True)
-        if built and not committed.exists():
-            detail["pdf"]["note"] = "built locally; not committed" + ("" if same else " (two builds differ)")
+                             "committed": committed.exists(), "committed_equals_build": equals}
+            if engine != "pdflatex":
+                waiting.append(f"PDF: the committed PDF is a pdflatex build; built with {engine} it cannot be compared")
+            elif not built:
+                waiting.append("PDF: pdflatex did not produce main.pdf here")
+            elif not same:
+                pdf_ok = False  # pdflatex builds that differ from each other: the build is not deterministic
+            elif committed.exists() and not equals:
+                waiting.append("PDF: two pdflatex builds agree but differ from the committed PDF; the bytes depend on "
+                               "the TeX installation (committed: TeX Live 2023, pdfTeX 1.40.25)")
+        except Exception as exc:  # noqa: BLE001 - an optional engine's failure is reported, not failed
+            detail["pdf"] = {"engine": engine, "error": f"{type(exc).__name__}: {exc}"}
+            waiting.append(f"PDF: the build with {engine} raised {type(exc).__name__}")
     ok = (detail["tex_regenerated_identical"] and not detail["template_syntax_left_in_tex"]
           and not detail["numeral_multiset_md_minus_tex"] and not detail["unverified_references"] and pdf_ok)
     return gate("pass" if ok else "fail", detail, waiting)

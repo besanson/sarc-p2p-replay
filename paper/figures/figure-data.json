@@ -1,0 +1,154 @@
+{
+  "fig1-exposure": {
+    "share of cleared value": {
+      "classes": [
+        "D1 class (absent receipt)",
+        "D2 class (stale receipt)",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "at least one defect"
+      ],
+      "error_high_pct": [
+        0.050331281080702235,
+        0.1423763205555328,
+        0.0168316849174853,
+        3.6598129014340506,
+        0.0,
+        0.0716108018879683,
+        0.013846623650302215,
+        3.676627669874022
+      ],
+      "error_low_pct": [
+        0.03966461033363359,
+        0.09520662958605293,
+        0.0132576777417628,
+        3.3512132980935028,
+        0.0,
+        0.030308258122120207,
+        0.008712985382076306,
+        3.373088533824742
+      ],
+      "values_pct": [
+        0.11839738956422619,
+        0.1248318262815498,
+        0.029521440949247017,
+        19.235166235459804,
+        0.0,
+        0.030308258122120207,
+        0.010536518365673918,
+        19.40956999187072
+      ]
+    },
+    "share of clearings": {
+      "classes": [
+        "D1 class (absent receipt)",
+        "D2 class (stale receipt)",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "at least one defect"
+      ],
+      "error_high_pct": [
+        0.10328958698257365,
+        0.04434772827282765,
+        0.09950198852422443,
+        0.49401166056630696,
+        0.0,
+        0.0039005854742891113,
+        0.00954110779132152,
+        0.5042749949905543
+      ],
+      "error_low_pct": [
+        0.0917323728038042,
+        0.02976663481537531,
+        0.08425800953915016,
+        0.4760425253969358,
+        0.0,
+        0.002571784947342703,
+        0.007111580803127578,
+        0.47583802139626596
+      ],
+      "values_pct": [
+        0.39219720446976225,
+        0.05272159142052542,
+        0.23274653773451465,
+        11.03102858538969,
+        0.0,
+        0.002571784947342703,
+        0.012215978499877841,
+        11.411009811359573
+      ]
+    }
+  },
+  "fig2-hold-rates": {
+    "ERP view (registered)": {
+      "gate": {
+        "clean_pct": 0.0,
+        "defective_pct": 100.0
+      },
+      "haiku": {
+        "clean_pct": 57.3,
+        "defective_pct": 99.6
+      },
+      "jev": {
+        "clean_pct": 53.0,
+        "defective_pct": 100.0
+      },
+      "people": {
+        "clean_pct": 33.97435897435898,
+        "defective_pct": 33.00438596491228
+      }
+    },
+    "timeline view (exploratory)": {
+      "haiku": {
+        "clean_pct": 3.9,
+        "defective_pct": 9.5
+      },
+      "jev": {
+        "clean_pct": 3.8,
+        "defective_pct": 12.6
+      }
+    }
+  },
+  "fig3-lag-bands": {
+    "(1, 7]": {
+      "cleared_value_eur": 113119.0,
+      "clearings": 21
+    },
+    "(7, 30]": {
+      "cleared_value_eur": 803512.0,
+      "clearings": 11
+    },
+    "> 30": {
+      "cleared_value_eur": 44240.0,
+      "clearings": 39
+    },
+    "[0, 1]": {
+      "cleared_value_eur": 109886.0,
+      "clearings": 11
+    },
+    "never": {
+      "cleared_value_eur": 1015565.0,
+      "clearings": 610
+    }
+  },
+  "fig4-verdict-outcome": {
+    "cleared_value_eur": {
+      "allow_with_corrective": 106294821.0,
+      "allow_without_corrective": 584977346.0,
+      "hold_with_corrective": 21418557.0,
+      "hold_without_corrective": 145068897.0
+    },
+    "clearings": {
+      "allow_with_corrective": 1291,
+      "allow_without_corrective": 136495,
+      "hold_with_corrective": 368,
+      "hold_without_corrective": 17380
+    }
+  }
+}

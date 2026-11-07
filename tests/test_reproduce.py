@@ -16,9 +16,10 @@ def test_excluded_and_record_names_exist():
 
 
 def test_verdict():
-    rows = [{"file": "a", "committed": "x" * 64, "regenerated": "x" * 64, "match": True}]
-    text, ok = reproduce.report(rows, [], None)
-    assert ok and "REPRODUCED: all 1 compared files match." in text
-    rows.append({"file": "b", "committed": "x" * 64, "regenerated": "y" * 64, "match": False})
-    text, ok = reproduce.report(rows, ["c"], None)
-    assert not ok and "NOT REPRODUCED: 1 of 2 compared files differ; 1 committed files were not regenerated." in text
+    row = lambda f, byte, eq, d: {"file": f, "byte_identical": byte, "within_tolerance": eq, "equal": eq,  # noqa: E731
+                                  "max_abs_difference": d}
+    rows = [row("a", True, True, 0.0), row("b", False, True, 1.1e-16), row("c.md", True, True, None)]
+    text, ok = reproduce.report(rows, [], "PDF not built: no LaTeX engine")
+    assert ok and "REPRODUCED: 3 files equal (2 byte-identical, 1 within tolerance, max difference 1.1e-16)" in text
+    text, ok = reproduce.report(rows + [row("d", False, False, 1e-6)], ["e"], None)
+    assert not ok and "NOT REPRODUCED: 1 of 4 compared files not equal: d; 1 committed files not regenerated: e" in text
