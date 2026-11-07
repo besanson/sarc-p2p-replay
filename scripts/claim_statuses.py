@@ -71,8 +71,11 @@ def statuses() -> dict[str, tuple[str, str]]:
         "C10": ("supported", "`results/e6/timing-e1.json`, `results/e6/cost.json`"),
         "C11": (c11, "`results/e7/comparisons.json`"),
         "C12": ("supported; D5 class zero incidence", "`results/e1/coverage-check.json`"),
-        "C13": ("supported for the internal double runs; external reproduction pending (FINAL-AUDIT item 11)",
-                "`results/reproducibility.json`, `results/e4/double-run.json`"),
+        # D-F-1: external attempt 1 recorded; the re-run on 1.0.1 is pending.
+        "C13": ("supported for the internal double runs; external attempt 1 (issue #1): every reported number "
+                "regenerated, numeric slots equal within tolerance, run incomplete on a tooling defect corrected in "
+                "1.0.1; re-run pending",
+                "`results/reproducibility.json`, `results/e4/double-run.json`, `results/reproduction/attempt-1.json`"),
     }
 
 

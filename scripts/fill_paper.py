@@ -113,6 +113,8 @@ FORMATS: dict[str, Callable[[Any], str]] = {
     "str": lambda v: str(v),
     "date": lambda v: str(v)[:10],
     "utc": lambda v: f"{str(v)[:10]} {str(v)[11:19]} UTC",
+    "g": lambda v: f"{v:g}",
+    "g2": lambda v: f"{v:.2g}",
 }
 
 

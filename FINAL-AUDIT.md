@@ -17,7 +17,7 @@ with prose.
 | 8 | Data reproduces from the committed hash: `make bootstrap` fetches, the SHA-256 matches `prereg/data.lock` | bootstrap log | closed: `results/data-check.json` (`make check-data`: the three files at their registered SHA-256); fetch URLs in `prereg/data.lock`, used at A0 (`DECISIONS.md` D-A0-1) |
 | 9 | Byte-identical regeneration of every result from the hash and the E4 caches | double-run diff | closed: `results/round1-double-run.json`, `results/round2-double-run.json`, `results/round3-double-run.json`, `results/e4/double-run.json`, `results/e4-exploratory/double-run.json`, `results/e5/double-run.json`, `results/e7/double-run.json`, `results/reproducibility.json` |
 | 10 | Release gates G1 to G9 plus terminology, typed-numeral and proof-status lints green | gate report | closed: `results/gates-report.json` (G1 to G9: no gate fails; G4 waits only on item 11), `lint/terminology.py`, `lint/typed_numerals.py`, `lint/proof_status.py` |
-| 11 | External reproduction from a clean clone | issue with matching result hashes | open (Phase F) |
+| 11 | External reproduction from a clean clone | issue with matching result hashes | open (Phase F): attempt 1 recorded (`results/reproduction/attempt-1.json`, issue #1): incomplete on a tooling defect corrected in 1.0.1; re-run pending |
 | 12 | Claims never exceed evidence: no causal language, no loss figure, no company or vendor named, coverage honest | terminology lint, `COVERAGE.md`, review rounds | closed: `lint/terminology.py`, `COVERAGE.md`, `review-secondary/D1-review-*.md`, `review-secondary/D2-review-*.md`, `review-secondary/D3-review-*.md` |
 
 ## Summary

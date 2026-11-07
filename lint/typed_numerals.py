@@ -27,7 +27,8 @@ Allowlist, applied to what remains:
    L3, G1 to G9, CMF 3 style ids (letters plus digits, optional prime), and H4-Jev, H4-Haiku.
 4. Tag and version names (`p7-v1.1`, `v0.1`), category names (`3-way`, `2-way`), the
    table name `2 x 2`, the repository and package names (`sarc-p2p-replay`, `p2p_replay`) and
-   the licence's name (Apache License 2.0) and release versions (three-part, 1.0.0).
+   the licence's name (Apache License 2.0), release versions (three-part, 1.0.0), architecture
+   names (x86-64, arm64), GitHub issue numbers (issue #1) and attempt ordinals (attempt 1).
 5. Registered constants, by literal value, each citing the registration section that fixes it
    (REGISTERED below). A different bare numeral is still caught.
 
@@ -123,6 +124,8 @@ _ALLOWED: list[Pattern] = [
     re.compile(r"\bsarc-p2p-replay\b|\bp2p_replay\b"),  # the repository and package names
     re.compile(r"\bApache License 2\.0\b"),  # the licence's name (LICENSE)
     re.compile(r"\b\d+\.\d+\.\d+\b"),  # a release version (1.0.0); a data numeral never has two dots
+    re.compile(r"\b(?:x86-64|x86_64|arm64|aarch64)\b"),  # architecture names
+    re.compile(r"(?:\bissue )?#\d+\b|\battempt \d+\b"),  # a GitHub issue number, an attempt's ordinal
     # A registered constant may wrap across a line: its spaces match any whitespace.
     *[re.compile(p.replace(" ", r"\s+")) for p in REGISTERED],
 ]

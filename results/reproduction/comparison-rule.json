@@ -1,0 +1,9 @@
+{
+  "applies_to": "scripts/reproduce.py and gate G4, from release 1.0.1 (DECISIONS.md D-F-1, D-F-2)",
+  "builder": {
+    "architecture": "x86_64",
+    "system": "Linux"
+  },
+  "relative_tolerance": 1e-12,
+  "rule": "parsed structures and strings equal; every number pair a, b with |a - b| <= relative_tolerance x max(1, |a|, |b|); text files (paper, TeX, README) by bytes; figure SVG and PDF bytes not compared, the plotted numbers (paper/figures/figure-data.json) within tolerance"
+}

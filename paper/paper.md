@@ -695,7 +695,7 @@ Claim statuses, each set from its slot file:
 | C10 | supported | `results/e6/timing-e1.json`, `results/e6/cost.json` |
 | C11 | inconclusive | `results/e7/comparisons.json` |
 | C12 | supported; D5 class zero incidence | `results/e1/coverage-check.json` |
-| C13 | supported for the internal double runs; external reproduction from a clean clone is pending | `results/reproducibility.json`, `results/e4/double-run.json` |
+| C13 | supported for the internal double runs; external attempt 1 (issue #1): every reported number regenerated, numeric slots equal within tolerance, run incomplete on a tooling defect corrected in 1.0.1; re-run pending | `results/reproducibility.json`, `results/e4/double-run.json`, `results/reproduction/attempt-1.json` |
 
 Reading notes, as in the claims file. C1's "(paper 5)" refers to paper 5's contract construct, whose sufficiency for the
 declared losses over the observed states E5 checks with paper 5's own function, per category and per loss
@@ -712,9 +712,14 @@ the tagged registration is in its deviations file (Section 4).
 
 `make bootstrap` clones the sibling repositories at their pins, creates the environment, fetches the logs and checks their
 hashes; `make test` and `make lint` run the tests and the lints; `make gates` runs the release gates G1 to G9; the experiment
-runners regenerate every slot under `results/`, and `make paper` regenerates this paper and its figures from the slots. The
-internal double runs were byte-identical (16 files for E1 to E3); external
-reproduction from a clean clone is pending.
+runners regenerate every slot under `results/`, and `make paper` regenerates this paper and its figures from the slots.
+Internal double runs on one machine are byte-identical (16 files for E1 to E3).
+Across machines and architectures (x86-64 Linux at the builder; arm64 macOS in the first external attempt, issue
+#1), every result file is equal to within 1e-12 relative; the
+last floating-point digits can differ (maximum observed absolute difference
+1.1e-16); figure bytes differ by font embedding; the paper text, its TeX source and the README
+regenerate byte-identically. External reproduction: attempt 1 on v1.0.0 did not
+complete because of a tooling error in the optional PDF step, corrected in 1.0.1; the re-run is pending.
 
 ## Appendix D: Exposure by stratum
 

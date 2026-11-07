@@ -494,9 +494,14 @@ the tagged registration is in its deviations file (Section 4).
 
 `make bootstrap` clones the sibling repositories at their pins, creates the environment, fetches the logs and checks their
 hashes; `make test` and `make lint` run the tests and the lints; `make gates` runs the release gates G1 to G9; the experiment
-runners regenerate every slot under `results/`, and `make paper` regenerates this paper and its figures from the slots. The
-internal double runs were byte-identical ({{reproducibility.json>files_compared|int}} files for E1 to E3); external
-reproduction from a clean clone is pending.
+runners regenerate every slot under `results/`, and `make paper` regenerates this paper and its figures from the slots.
+Internal double runs on one machine are byte-identical ({{reproducibility.json>files_compared|int}} files for E1 to E3).
+Across machines and architectures (x86-64 Linux at the builder; arm64 macOS in the first external attempt, issue
+#{{reproduction/attempt-1.json>issue|int}}), every result file is equal to within {{reproduction/comparison-rule.json>relative_tolerance|g}} relative; the
+last floating-point digits can differ (maximum observed absolute difference
+{{reproduction/attempt-1.json>max_abs_numeric_difference|g2}}); figure bytes differ by font embedding; the paper text, its TeX source and the README
+regenerate byte-identically. External reproduction: attempt {{reproduction/attempt-1.json>attempt|int}} on {{reproduction/attempt-1.json>environment>release}} did not
+complete because of a tooling error in the optional PDF step, corrected in 1.0.1; the re-run is pending.
 
 ## Appendix D: Exposure by stratum
 
