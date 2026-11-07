@@ -1,0 +1,516 @@
+{
+  "attempt": 1,
+  "body": "review-secondary/F1-reproduction-issue-1.md",
+  "body_sha256": "44cecf5166b1db6289a22ce909ad2b969df8cc4c2203c0495c435c44dc3de0c6",
+  "commands": {
+    "Clone at v1.0.0": "Completed; exact commit above",
+    "make bootstrap": "Initial primary-log SHA-256 mismatch; downloaded file deleted automatically. Retried once with the same command, URL and registered hashes; all three logs then passed",
+    "make gates": "6 passed, 3 failed: G1 tests, G4 regeneration, G9 paper; make exit code 2",
+    "make reproduce": "Regenerated results and paper, then raised FileNotFoundError during the optional PDF step; make exit code 2. No standard report or verdict line was written",
+    "make test": "157 passed, 1 failed; make exit code 2"
+  },
+  "created_at": "2026-11-07T13:52:42Z",
+  "data_as_verified": [
+    {
+      "bytes": 728558522,
+      "file": "BPI_Challenge_2019.xes",
+      "sha256": "af63bc687fc4152f2123b05c3af7772b37ef3fce2d3f67f812666c9e356baae7"
+    },
+    {
+      "bytes": 1581144,
+      "file": "InternationalDeclarations.xes.gz",
+      "sha256": "b527c8d06255f4312c6ce8f36f7f4110243d84fd6ca48583cd9b80896c601494"
+    },
+    {
+      "bytes": 933930,
+      "file": "DomesticDeclarations.xes.gz",
+      "sha256": "0bc3312acf0b9ee5ae6f4ebe9df204005ef11665d62f2d21dd04995161d7532b"
+    }
+  ],
+  "dates": {
+    "initial_run_and_dataset_verification": "2026-11-04 UTC; successful dataset verification: 2026-11-05 UTC",
+    "supplemental_checks": "machine clock reported 2026-11-07 UTC. Dates are recorded from the machine clock, not independently verified."
+  },
+  "environment": {
+    "architecture": "arm64",
+    "commit": "eb5ce3dd4a5c33a80a52320657ea74d3b982de6f",
+    "git": "2.54.0 (Apple Git-157)",
+    "operating_system": "macOS 26.7.2, build 25G332, arm64",
+    "pandoc": "3.1.3, downloaded from its official release and used locally",
+    "python": "3.13.16",
+    "release": "v1.0.0",
+    "tex_engine": "Tectonic 0.17.0"
+  },
+  "first_download": {
+    "deleted": true,
+    "file": "BPI_Challenge_2019.xes",
+    "retried_and_passed": true,
+    "sha256_got": "d4b8ce105ae360a650fa6526e4d4a63205c72f20b11d61a0b69d432ba774edff",
+    "sha256_registered": "af63bc687fc4152f2123b05c3af7772b37ef3fce2d3f67f812666c9e356baae7"
+  },
+  "g4_differing": {
+    "figure_files": 8,
+    "result_json_files": 5,
+    "result_json_names": [
+      "e1/exposure-by-stratum.json",
+      "e1/exposure.json",
+      "e2/hypotheses.json",
+      "e4/h4.json",
+      "e4/timeline.json"
+    ]
+  },
+  "g9_exception": "FileNotFoundError",
+  "gates": {
+    "G1 tests": "fail",
+    "G2 lints": "pass",
+    "G3 mutation": "pass",
+    "G4 regeneration": "fail",
+    "G5 claims": "pass",
+    "G6 secrets": "pass",
+    "G7 data and pins": "pass",
+    "G8 package": "pass",
+    "G9 paper": "fail"
+  },
+  "issue": 1,
+  "json_differences": [
+    {
+      "differing_values": 309,
+      "file": "results/e1/exposure-by-stratum.json",
+      "kind": "Numeric values only",
+      "max_abs_difference": 1.1102230246251565e-16
+    },
+    {
+      "differing_values": 5,
+      "file": "results/e1/exposure.json",
+      "kind": "Numeric values only",
+      "max_abs_difference": 2.710505431213761e-20
+    },
+    {
+      "differing_values": 6,
+      "file": "results/e2/hypotheses.json",
+      "kind": "Numeric values only",
+      "max_abs_difference": 5.421010862427522e-20
+    },
+    {
+      "differing_values": 6,
+      "file": "results/e4/h4.json",
+      "kind": "Numeric values only",
+      "max_abs_difference": 5.421010862427522e-20
+    },
+    {
+      "differing_values": 10,
+      "file": "results/e4/timeline.json",
+      "kind": "UTC timestamp strings only",
+      "max_abs_difference": null
+    }
+  ],
+  "max_abs_numeric_difference": 1.1102230246251565e-16,
+  "opened_by": "arananet",
+  "report_written": false,
+  "reproduce_exception": "FileNotFoundError",
+  "reproduce_traceback": [
+    {
+      "file": "scripts/reproduce.py",
+      "function": "main",
+      "line": 193
+    },
+    {
+      "file": "scripts/reproduce.py",
+      "function": "compare",
+      "line": 147
+    },
+    {
+      "file": "scripts/build_tex.py",
+      "function": "build_pdf",
+      "line": 133
+    }
+  ],
+  "reproducer": "Eduardo Arana, Independent Researcher",
+  "reproducer_request": "keep the reproduction status pending",
+  "state": "open",
+  "supplemental_comparison": {
+    "compared": 58,
+    "differed": 14,
+    "differing_figure_files": [
+      "paper/figures/fig1-exposure.pdf",
+      "paper/figures/fig1-exposure.svg",
+      "paper/figures/fig2-hold-rates.pdf",
+      "paper/figures/fig2-hold-rates.svg",
+      "paper/figures/fig3-lag-bands.pdf",
+      "paper/figures/fig3-lag-bands.svg",
+      "paper/figures/fig4-verdict-outcome.pdf",
+      "paper/figures/fig4-verdict-outcome.svg"
+    ],
+    "differing_other_files": [
+      "results/e1/exposure-by-stratum.json",
+      "results/e1/exposure.json",
+      "results/e2/hypotheses.json",
+      "results/e4/h4.json",
+      "results/e4/timeline.json",
+      "paper/filled-template.json"
+    ],
+    "files": [
+      {
+        "committed_sha256_prefix": "04d93ca4e249cd21",
+        "file": "results/e0/run-2/e0-lines.txt",
+        "match": true,
+        "regenerated_sha256_prefix": "04d93ca4e249cd21"
+      },
+      {
+        "committed_sha256_prefix": "a7738f0ceb8458ec",
+        "file": "results/e0/run-2/e0-report.json",
+        "match": true,
+        "regenerated_sha256_prefix": "a7738f0ceb8458ec"
+      },
+      {
+        "committed_sha256_prefix": "14688b2c9b1e61ad",
+        "file": "results/e1/actors.json",
+        "match": true,
+        "regenerated_sha256_prefix": "14688b2c9b1e61ad"
+      },
+      {
+        "committed_sha256_prefix": "fbb5e153b6bb530f",
+        "file": "results/e1/analysed-clearing-actors.json",
+        "match": true,
+        "regenerated_sha256_prefix": "fbb5e153b6bb530f"
+      },
+      {
+        "committed_sha256_prefix": "eb5de0194d80d7ae",
+        "file": "results/e1/category-crosscheck.json",
+        "match": true,
+        "regenerated_sha256_prefix": "eb5de0194d80d7ae"
+      },
+      {
+        "committed_sha256_prefix": "d413839bdbd9079b",
+        "file": "results/e1/coverage-check.json",
+        "match": true,
+        "regenerated_sha256_prefix": "d413839bdbd9079b"
+      },
+      {
+        "committed_sha256_prefix": "dad7d9ecbee9af14",
+        "file": "results/e1/evidence-sample.jsonl",
+        "match": true,
+        "regenerated_sha256_prefix": "dad7d9ecbee9af14"
+      },
+      {
+        "committed_sha256_prefix": "98b55e8024238f6a",
+        "file": "results/e1/evidence-set.jsonl.gz",
+        "match": true,
+        "regenerated_sha256_prefix": "98b55e8024238f6a"
+      },
+      {
+        "committed_sha256_prefix": "e77ba0a504e36d5f",
+        "file": "results/e1/exclusions.json",
+        "match": true,
+        "regenerated_sha256_prefix": "e77ba0a504e36d5f"
+      },
+      {
+        "committed_sha256_prefix": "69e40a99b444e8f2",
+        "file": "results/e1/exposure-by-stratum.json",
+        "match": false,
+        "regenerated_sha256_prefix": "2fea6793afadf7d8"
+      },
+      {
+        "committed_sha256_prefix": "25594ef8804c3508",
+        "file": "results/e1/exposure.json",
+        "match": false,
+        "regenerated_sha256_prefix": "f0cf909bb7124e8d"
+      },
+      {
+        "committed_sha256_prefix": "5ee75c46632418de",
+        "file": "results/e1/lines-t-star-amended.jsonl.gz",
+        "match": true,
+        "regenerated_sha256_prefix": "5ee75c46632418de"
+      },
+      {
+        "committed_sha256_prefix": "d19d1717db9e7d19",
+        "file": "results/e1/lines.jsonl.gz",
+        "match": true,
+        "regenerated_sha256_prefix": "d19d1717db9e7d19"
+      },
+      {
+        "committed_sha256_prefix": "99ec4a5fabcdc4af",
+        "file": "results/e1/predicate-unknowns.json",
+        "match": true,
+        "regenerated_sha256_prefix": "99ec4a5fabcdc4af"
+      },
+      {
+        "committed_sha256_prefix": "12a5ba137b63dd65",
+        "file": "results/e1/value-fallback.json",
+        "match": true,
+        "regenerated_sha256_prefix": "12a5ba137b63dd65"
+      },
+      {
+        "committed_sha256_prefix": "99afde938fd681fe",
+        "file": "results/e2/confounders.json",
+        "match": true,
+        "regenerated_sha256_prefix": "99afde938fd681fe"
+      },
+      {
+        "committed_sha256_prefix": "eb43d763e5ee882f",
+        "file": "results/e2/hypotheses.json",
+        "match": false,
+        "regenerated_sha256_prefix": "94ecc3631ca37812"
+      },
+      {
+        "committed_sha256_prefix": "a17d465c04962c1b",
+        "file": "results/e3/confounders.json",
+        "match": true,
+        "regenerated_sha256_prefix": "a17d465c04962c1b"
+      },
+      {
+        "committed_sha256_prefix": "67daeeca5d8a5453",
+        "file": "results/e3/gate-held.json",
+        "match": true,
+        "regenerated_sha256_prefix": "67daeeca5d8a5453"
+      },
+      {
+        "committed_sha256_prefix": "5823edd3b29a1691",
+        "file": "results/e3/human-hold-composition.json",
+        "match": true,
+        "regenerated_sha256_prefix": "5823edd3b29a1691"
+      },
+      {
+        "committed_sha256_prefix": "9524d1d4544471d7",
+        "file": "results/e3/human-hold.json",
+        "match": true,
+        "regenerated_sha256_prefix": "9524d1d4544471d7"
+      },
+      {
+        "committed_sha256_prefix": "561b9f8fe62e64ae",
+        "file": "results/e3/lag-bands.json",
+        "match": true,
+        "regenerated_sha256_prefix": "561b9f8fe62e64ae"
+      },
+      {
+        "committed_sha256_prefix": "1a6a50ed6a649937",
+        "file": "results/e3/verdict-by-outcome.json",
+        "match": true,
+        "regenerated_sha256_prefix": "1a6a50ed6a649937"
+      },
+      {
+        "committed_sha256_prefix": "287a2d1951c1df6b",
+        "file": "results/e4/arms-classified-lines.json",
+        "match": true,
+        "regenerated_sha256_prefix": "287a2d1951c1df6b"
+      },
+      {
+        "committed_sha256_prefix": "c24c34aa5dc2ebd4",
+        "file": "results/e4/arms.json",
+        "match": true,
+        "regenerated_sha256_prefix": "c24c34aa5dc2ebd4"
+      },
+      {
+        "committed_sha256_prefix": "1c3e0400258cae6e",
+        "file": "results/e4/h4.json",
+        "match": false,
+        "regenerated_sha256_prefix": "4760effd6807ed01"
+      },
+      {
+        "committed_sha256_prefix": "95a410a21d867552",
+        "file": "results/e4/sample-frame.json",
+        "match": true,
+        "regenerated_sha256_prefix": "95a410a21d867552"
+      },
+      {
+        "committed_sha256_prefix": "def21c85339f8a26",
+        "file": "results/e4/sample.json",
+        "match": true,
+        "regenerated_sha256_prefix": "def21c85339f8a26"
+      },
+      {
+        "committed_sha256_prefix": "d8f39eb8f902bf7e",
+        "file": "results/e4/timeline.json",
+        "match": false,
+        "regenerated_sha256_prefix": "453c69c8487b69e5"
+      },
+      {
+        "committed_sha256_prefix": "dc92705897db922c",
+        "file": "results/e4/views-timeline.jsonl",
+        "match": true,
+        "regenerated_sha256_prefix": "dc92705897db922c"
+      },
+      {
+        "committed_sha256_prefix": "74c51af5febe1e06",
+        "file": "results/e4/views.jsonl",
+        "match": true,
+        "regenerated_sha256_prefix": "74c51af5febe1e06"
+      },
+      {
+        "committed_sha256_prefix": "18489fdad1523161",
+        "file": "results/e4-exploratory/arms-exploratory.json",
+        "match": true,
+        "regenerated_sha256_prefix": "18489fdad1523161"
+      },
+      {
+        "committed_sha256_prefix": "aeb62b2a9197d225",
+        "file": "results/e4-exploratory/h4-exploratory.json",
+        "match": true,
+        "regenerated_sha256_prefix": "aeb62b2a9197d225"
+      },
+      {
+        "committed_sha256_prefix": "3cbf9d9b0adc76cf",
+        "file": "results/e5/derivation.json",
+        "match": true,
+        "regenerated_sha256_prefix": "3cbf9d9b0adc76cf"
+      },
+      {
+        "committed_sha256_prefix": "2bc621ab99434259",
+        "file": "results/e5/sufficiency.json",
+        "match": true,
+        "regenerated_sha256_prefix": "2bc621ab99434259"
+      },
+      {
+        "committed_sha256_prefix": "5affb9165555f897",
+        "file": "results/e5/trace-2-way.json",
+        "match": true,
+        "regenerated_sha256_prefix": "5affb9165555f897"
+      },
+      {
+        "committed_sha256_prefix": "b526262dba4228b2",
+        "file": "results/e5/trace-3-way-invoice-after-receipt.json",
+        "match": true,
+        "regenerated_sha256_prefix": "b526262dba4228b2"
+      },
+      {
+        "committed_sha256_prefix": "adc1fc3880e0f933",
+        "file": "results/e5/trace-3-way-invoice-before-receipt.json",
+        "match": true,
+        "regenerated_sha256_prefix": "adc1fc3880e0f933"
+      },
+      {
+        "committed_sha256_prefix": "473e71f251d67e09",
+        "file": "results/e6/cost.json",
+        "match": true,
+        "regenerated_sha256_prefix": "473e71f251d67e09"
+      },
+      {
+        "committed_sha256_prefix": "3eb78536a1aea74e",
+        "file": "results/e7/comparisons.json",
+        "match": true,
+        "regenerated_sha256_prefix": "3eb78536a1aea74e"
+      },
+      {
+        "committed_sha256_prefix": "0d0b09caceebd1c8",
+        "file": "results/e7/evidence-set.jsonl.gz",
+        "match": true,
+        "regenerated_sha256_prefix": "0d0b09caceebd1c8"
+      },
+      {
+        "committed_sha256_prefix": "d81ee233499642fa",
+        "file": "results/e7/exposure.json",
+        "match": true,
+        "regenerated_sha256_prefix": "d81ee233499642fa"
+      },
+      {
+        "committed_sha256_prefix": "4a5239dfc1022152",
+        "file": "results/e7/predicates.json",
+        "match": true,
+        "regenerated_sha256_prefix": "4a5239dfc1022152"
+      },
+      {
+        "committed_sha256_prefix": "69703a41567fe00c",
+        "file": "results/e7/units.json",
+        "match": true,
+        "regenerated_sha256_prefix": "69703a41567fe00c"
+      },
+      {
+        "committed_sha256_prefix": "fefbaee64501d20f",
+        "file": "results/e7/unknown-overlap.json",
+        "match": true,
+        "regenerated_sha256_prefix": "fefbaee64501d20f"
+      },
+      {
+        "committed_sha256_prefix": "e85cc2204600d2ed",
+        "file": "results/e7/vocabulary.json",
+        "match": true,
+        "regenerated_sha256_prefix": "e85cc2204600d2ed"
+      },
+      {
+        "committed_sha256_prefix": "58c3e7e173568ea2",
+        "file": "paper/paper.md",
+        "match": true,
+        "regenerated_sha256_prefix": "58c3e7e173568ea2"
+      },
+      {
+        "committed_sha256_prefix": "317df03a12925a39",
+        "file": "paper/filled-template.json",
+        "match": false,
+        "regenerated_sha256_prefix": "08fb355f738ac7aa"
+      },
+      {
+        "committed_sha256_prefix": "f53a38c0b81f5e66",
+        "file": "README.md",
+        "match": true,
+        "regenerated_sha256_prefix": "f53a38c0b81f5e66"
+      },
+      {
+        "committed_sha256_prefix": "9b15b0a5e1d26719",
+        "file": "paper-tex/main.tex",
+        "match": true,
+        "regenerated_sha256_prefix": "9b15b0a5e1d26719"
+      },
+      {
+        "committed_sha256_prefix": "682bee99c4d210a1",
+        "file": "paper/figures/fig1-exposure.pdf",
+        "match": false,
+        "regenerated_sha256_prefix": "32edfeba5d2e3583"
+      },
+      {
+        "committed_sha256_prefix": "9f8af9656ec4bc35",
+        "file": "paper/figures/fig1-exposure.svg",
+        "match": false,
+        "regenerated_sha256_prefix": "740df62d35d19b8f"
+      },
+      {
+        "committed_sha256_prefix": "9ab743e26726f1c6",
+        "file": "paper/figures/fig2-hold-rates.pdf",
+        "match": false,
+        "regenerated_sha256_prefix": "2a47aa85a0eb39d2"
+      },
+      {
+        "committed_sha256_prefix": "c64ee1d1aa701986",
+        "file": "paper/figures/fig2-hold-rates.svg",
+        "match": false,
+        "regenerated_sha256_prefix": "a95c5ced82e18d32"
+      },
+      {
+        "committed_sha256_prefix": "c94a270fde1231b7",
+        "file": "paper/figures/fig3-lag-bands.pdf",
+        "match": false,
+        "regenerated_sha256_prefix": "4aa81894dd046a9a"
+      },
+      {
+        "committed_sha256_prefix": "06d6c08af9ef1622",
+        "file": "paper/figures/fig3-lag-bands.svg",
+        "match": false,
+        "regenerated_sha256_prefix": "6c6c31ea58184a61"
+      },
+      {
+        "committed_sha256_prefix": "cde97e311a1b72d3",
+        "file": "paper/figures/fig4-verdict-outcome.pdf",
+        "match": false,
+        "regenerated_sha256_prefix": "90e7d43ec09b50dc"
+      },
+      {
+        "committed_sha256_prefix": "6017bf321f2f4935",
+        "file": "paper/figures/fig4-verdict-outcome.svg",
+        "match": false,
+        "regenerated_sha256_prefix": "5992315bd669d363"
+      }
+    ],
+    "matched": 44
+  },
+  "tests": {
+    "failed": 1,
+    "failing_test": "tests/test_round2_slots.py::test_timeline_from_the_committed_logs",
+    "passed": 157
+  },
+  "timeline_timestamps": {
+    "committed_form": "2026-10-25T18:21:56+00:00",
+    "differing_fields": 10,
+    "regenerated_form": "2026-10-25T18:21:56Z"
+  },
+  "title": "Reproduction of v1.0.0",
+  "url": "https://github.com/besanson/sarc-p2p-replay/issues/1"
+}
