@@ -1327,3 +1327,38 @@ one machine, and equal within tolerance across machines, with the paper text, it
 byte-identical everywhere. The tooling is corrected in 1.0.1 (tolerance comparison beside the byte
 comparison, timestamp normalisation, a guarded PDF step, the gate report kept out of the checkout, a
 fetch retry), and the attempt is re-run on it. FINAL-AUDIT item 11 stays open.
+
+## D-F-2 Release 1.0.1 (2026-11-07)
+
+**What changed** (tooling after external attempt 1, D-F-1):
+
+- Timestamps: the git dates of the timeline slot are parsed and written as ISO 8601 with "+00:00", so
+  "Z" (Apple Git) and "+00:00" give the same string; the committed `results/e4/timeline.json` is
+  unchanged, and a test feeds both forms.
+- `scripts/reproduce.py` and gate G4: beside the byte comparison, JSON and JSON lines are compared
+  within tolerance (`scripts/tolerance.py`; rule recorded in `results/reproduction/comparison-rule.json`);
+  text files by bytes; the figures by the numbers they plot (`paper/figures/figure-data.json`, new),
+  their SVG and PDF bytes listed as machine-dependent. The verdict distinguishes byte-identical from
+  within tolerance. The optional PDF step cannot stop the run; the report is always written.
+- `scripts/build_tex.py`: pdflatex is preferred (the committed PDF is a pdflatex build); with another
+  engine the overfull count is skipped and the engine recorded; G9 waits, never fails, when the PDF
+  cannot be checked.
+- `make gates` writes its report to `out/gates/` only; `make gates-record` also writes
+  `results/gates-report.json`, so a reproducer's checkout stays clean.
+- `scripts/fetch_data.py`: size before hash; a size or hash mismatch is deleted and fetched once more,
+  resuming where the server allows; every attempt logged.
+- Wording (D-F-1): Appendix C, C13's status (Appendix B) and FINAL-AUDIT item 11 state the result of
+  attempt 1 and the claim's new form; README status.
+
+**What did not change.** No experiment slot under `results/` changed since v1.0.0 (git: changed there
+only `results/package-smoke.json`, `results/reproduction/attempt-1.json`, `results/reproduction/comparison-rule.json`; experiment slots among them: 0). No number in the
+paper changed: the paper differs from v1.0.0 only in Appendix C's wording and C13's status
+(1 file changed, 9 insertions(+), 4 deletions(-)). On this tree `make reproduce` gives: REPRODUCED: 51 files equal (51 byte-identical, 0 within tolerance, max difference 0)
+
+**Version and DOI.** `pyproject.toml` and `CITATION.cff` 1.0.1, date-released
+2026-11-07; `doi` 10.5281/zenodo.23931810, the concept DOI of the GitHub-linked Zenodo record, which
+resolves to its latest version. Each GitHub release also gets its own version DOI from Zenodo; the
+stamp commit can add v1.0.1's.
+
+The author tags v1.0.1 on the commit that adds this entry ("paper 7: D-F-2, release 1.0.1"); a
+commit cannot name its own hash, so the builder's report gives it.
