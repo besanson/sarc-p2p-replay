@@ -53,7 +53,8 @@ code and pass on 1.0.2: `tests/test_reproduce_fill.py::test_every_paper_source_i
 `tests/test_reproduce_fill.py::test_paper_fills_from_regenerated_files_plus_copied_records` (the fill
 succeeds on a tree of the regenerated files plus the copied ones, and gives the committed paper).
 
-**New rule.** No release is pushed before the fresh-clone check passes on the exact tree pushed: a clone
+**New rule.** No release is pushed before the fresh-clone check passes on the tree pushed (the only
+later change allowed is the decision entry that records the check, in `DECISIONS.md`): a clone
 of the local checkout at HEAD, the three data files linked in, then REPRODUCE.md's commands in order
 (`make bootstrap`, `make test`, `make gates`, `make reproduce`); `make reproduce` must write its report
 with the verdict REPRODUCED, and `make gates` must leave the clone's tracked files unchanged

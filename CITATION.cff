@@ -12,8 +12,8 @@ authors:
     affiliation: Universidad Torcuato Di Tella
 repository-code: https://github.com/besanson/sarc-p2p-replay
 license: Apache-2.0
-version: 1.0.1
-date-released: "2026-11-07"
+version: 1.0.2
+date-released: "2026-11-10"
 doi: 10.5281/zenodo.23931810
 references:
   - type: data
