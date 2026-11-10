@@ -125,7 +125,7 @@ _ALLOWED: list[Pattern] = [
     re.compile(r"\bApache License 2\.0\b"),  # the licence's name (LICENSE)
     re.compile(r"\b\d+\.\d+\.\d+\b"),  # a release version (1.0.0); a data numeral never has two dots
     re.compile(r"\b(?:x86-64|x86_64|arm64|aarch64)\b"),  # architecture names
-    re.compile(r"(?:\bissue )?#\d+\b|\battempt \d+\b"),  # a GitHub issue number, an attempt's ordinal
+    re.compile(r"(?:\bissue )?#\d+\b|\battempts? \d+(?: and \d+)?\b"),  # a GitHub issue number, attempt ordinals
     # A registered constant may wrap across a line: its spaces match any whitespace.
     *[re.compile(p.replace(" ", r"\s+")) for p in REGISTERED],
 ]

@@ -695,7 +695,7 @@ Claim statuses, each set from its slot file:
 | C10 | supported | `results/e6/timing-e1.json`, `results/e6/cost.json` |
 | C11 | inconclusive | `results/e7/comparisons.json` |
 | C12 | supported; D5 class zero incidence | `results/e1/coverage-check.json` |
-| C13 | supported for the internal double runs; external attempt 1 (issue #1): every reported number regenerated, numeric slots equal within tolerance, run incomplete on a tooling defect corrected in 1.0.1; re-run pending | `results/reproducibility.json`, `results/e4/double-run.json`, `results/reproduction/attempt-1.json` |
+| C13 | supported for the internal double runs; external attempts 1 (v1.0.0) and 2 (v1.0.1), issue #1: in attempt 1 every reported number regenerated and the numeric slots were equal within tolerance; both runs incomplete on tooling defects in the reproduction script, corrected in 1.0.1 and 1.0.2; re-run pending | `results/reproducibility.json`, `results/e4/double-run.json`, `results/reproduction/attempt-1.json`, `results/reproduction/attempt-2.json` |
 
 Reading notes, as in the claims file. C1's "(paper 5)" refers to paper 5's contract construct, whose sufficiency for the
 declared losses over the observed states E5 checks with paper 5's own function, per category and per loss
@@ -718,8 +718,9 @@ Across machines and architectures (x86-64 Linux at the builder; arm64 macOS in t
 #1), every result file is equal to within 1e-12 relative; the
 last floating-point digits can differ (maximum observed absolute difference
 1.1e-16); figure bytes differ by font embedding; the paper text, its TeX source and the README
-regenerate byte-identically. External reproduction: attempt 1 on v1.0.0 did not
-complete because of a tooling error in the optional PDF step, corrected in 1.0.1; the re-run is pending.
+regenerate byte-identically. External reproduction: attempts 1 (v1.0.0) and
+2 (v1.0.1) did not complete because of tooling errors in the reproduction script, corrected in 1.0.1
+and 1.0.2; the re-run is pending.
 
 ## Appendix D: Exposure by stratum
 

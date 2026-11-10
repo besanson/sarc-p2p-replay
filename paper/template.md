@@ -500,8 +500,9 @@ Across machines and architectures (x86-64 Linux at the builder; arm64 macOS in t
 #{{reproduction/attempt-1.json>issue|int}}), every result file is equal to within {{reproduction/comparison-rule.json>relative_tolerance|g}} relative; the
 last floating-point digits can differ (maximum observed absolute difference
 {{reproduction/attempt-1.json>max_abs_numeric_difference|g2}}); figure bytes differ by font embedding; the paper text, its TeX source and the README
-regenerate byte-identically. External reproduction: attempt {{reproduction/attempt-1.json>attempt|int}} on {{reproduction/attempt-1.json>environment>release}} did not
-complete because of a tooling error in the optional PDF step, corrected in 1.0.1; the re-run is pending.
+regenerate byte-identically. External reproduction: attempts {{reproduction/attempt-1.json>attempt|int}} ({{reproduction/attempt-1.json>environment>release}}) and
+{{reproduction/attempt-2.json>attempt|int}} ({{reproduction/attempt-2.json>tag}}) did not complete because of tooling errors in the reproduction script, corrected in 1.0.1
+and 1.0.2; the re-run is pending.
 
 ## Appendix D: Exposure by stratum
 

@@ -9,6 +9,7 @@ difference, the test and gate failures, the class of the exception in the PDF st
 download's mismatch and retry. Nothing is typed by hand; a figure the body does not state is null.
 
 Usage: python scripts/reproduction_attempts.py --issue 1 --attempt 1 [--from-file BODY.md]
+       python scripts/reproduction_attempts.py --issue 1 --attempt 2 --comment ID   (a re-run reported in a comment)
 """
 
 from __future__ import annotations
@@ -124,13 +125,65 @@ def parse(body: str) -> dict[str, Any]:
     }
 
 
+def fetch_comment(comment: int) -> dict[str, Any]:
+    r = subprocess.run(["gh", "api", f"repos/{REPO}/issues/comments/{comment}"], capture_output=True, text=True,
+                       check=True)
+    return json.loads(r.stdout)
+
+
+def parse_comment(body: str) -> dict[str, Any]:
+    """A re-run reported in an issue comment (attempt 2 on, D-F-3): what was run, where it stopped, why."""
+    body = body.replace("\r\n", "\n")
+    tag = re.search(r"^## Reproduction attempt: (v[\d.]+)", body, re.M)
+    commit = re.search(r"tag resolved to `([0-9a-f]{40})`", body)
+    command = re.search(r"```sh\n(.+?)\n```", body, re.S)
+    env = re.search(r"- Environment: ([^;]+), (arm64|x86_64|x86-64|aarch64); Python ([\d.]+)\.", body)
+    date = re.search(r"- Run date: (\S+ UTC)", body)
+    reproducer = re.search(r"- Reproduction attempted by ([^.\n]+?)\.\s*$", body, re.M)
+    steps = re.findall(r"^reproduce: (.+)$", body, re.M)
+    exc = re.findall(r"^(\w+Error): (?:\[Errno \d+\] [^:]+: )?'?([^'\n]*)'?$", body, re.M)
+    frames = re.findall(r'File "<checkout>/(\S+)", line (\d+), in (\w+)', body)
+    code = re.search(r"exited with code (\d+)", body)
+    return {
+        "reproducer": reproducer.group(1).strip() if reproducer else None,
+        "tag": tag.group(1) if tag else None,
+        "commit": commit.group(1) if commit else None,
+        "command": command.group(1).strip() if command else None,
+        "environment": {"operating_system": env.group(1) if env else None,
+                        "architecture": env.group(2) if env else None, "python": env.group(3) if env else None},
+        "run_date": date.group(1) if date else None,
+        "steps_completed": steps[:-1] if steps else [],
+        "stopped_in_step": steps[-1] if steps else None,
+        "exception": exc[-1][0] if exc else None,
+        "missing_path": exc[-1][1] if exc else None,
+        "traceback": [{"file": f, "line": int(n), "function": fn} for f, n, fn in frames],
+        "exit_code": int(code.group(1)) if code else None,
+        "report_written": not bool(re.search(r"No `out/reproduce/report\.md` was written", body)),
+        "comparison_reached": "comparison stage was not reached" not in body,
+    }
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="reproduction_attempts")
     parser.add_argument("--issue", type=int, required=True)
     parser.add_argument("--attempt", type=int, required=True)
     parser.add_argument("--from-file", type=Path, default=None, help="parse a saved body instead of fetching")
+    parser.add_argument("--comment", type=int, default=None, help="the attempt is reported in this issue comment")
     args = parser.parse_args(argv)
     OUT.mkdir(parents=True, exist_ok=True)
+    if args.comment is not None:
+        c = fetch_comment(args.comment)
+        path = ROOT / "review-secondary" / f"F{args.attempt}-reproduction-issue-{args.issue}-comment-{args.comment}.md"
+        path.write_text(c["body"], encoding="utf-8")
+        record = {"attempt": args.attempt, "issue": args.issue, "comment": args.comment,
+                  "commented_by": c["user"]["login"], "created_at": c["created_at"], "url": c["html_url"],
+                  "body": str(path.relative_to(ROOT)),
+                  "body_sha256": hashlib.sha256(c["body"].encode("utf-8")).hexdigest(), **parse_comment(c["body"])}
+        out = OUT / f"attempt-{args.attempt}.json"
+        out.write_text(json.dumps(record, indent=2, sort_keys=True, ensure_ascii=False) + "\n", encoding="utf-8")
+        print(f"attempt {args.attempt}: {record['tag']} stopped in {record['stopped_in_step']!r} on "
+              f"{record['exception']}; report written: {record['report_written']}")
+        return 0
     # The body is an unedited external text, kept with the other unedited reports.
     body_path = ROOT / "review-secondary" / f"F{args.attempt}-reproduction-issue-{args.issue}.md"
     if args.from_file:

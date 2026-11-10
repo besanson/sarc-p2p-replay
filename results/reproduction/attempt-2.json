@@ -1,0 +1,67 @@
+{
+  "attempt": 2,
+  "body": "review-secondary/F2-reproduction-issue-1-comment-6758099328.md",
+  "body_sha256": "7d66899bf7acf17c3f31f439235eda0778bcaa912e04fa027afcbf5eb5e17c48",
+  "command": "git fetch --tags && git checkout v1.0.1 && make reproduce",
+  "comment": 6758099328,
+  "commented_by": "arananet",
+  "commit": "5be6cd6dc3a332e1fe4cd808541a9b31af50c107",
+  "comparison_reached": false,
+  "created_at": "2026-11-10T03:25:58Z",
+  "environment": {
+    "architecture": "arm64",
+    "operating_system": "macOS 26.7.2 (build 25G332)",
+    "python": "3.13.16"
+  },
+  "exception": "FileNotFoundError",
+  "exit_code": 2,
+  "issue": 1,
+  "missing_path": "<checkout>/out/reproduce/root/results/reproduction/attempt-1.json",
+  "report_written": false,
+  "reproducer": "Eduardo Arana, Independent Researcher",
+  "run_date": "2026-11-10 UTC",
+  "steps_completed": [
+    "E0 run 2",
+    "E1",
+    "E2",
+    "E3",
+    "E4 sample draw",
+    "E4 analysis",
+    "E5",
+    "E7",
+    "E6 cost",
+    "round-1 slots",
+    "round-2 slots",
+    "round-3 slots"
+  ],
+  "stopped_in_step": "paper",
+  "tag": "v1.0.1",
+  "traceback": [
+    {
+      "file": "scripts/reproduce.py",
+      "function": "main",
+      "line": 242
+    },
+    {
+      "file": "scripts/reproduce.py",
+      "function": "regenerate_paper",
+      "line": 124
+    },
+    {
+      "file": "scripts/fill_paper.py",
+      "function": "run",
+      "line": 645
+    },
+    {
+      "file": "scripts/fill_paper.py",
+      "function": "fill",
+      "line": 565
+    },
+    {
+      "file": "scripts/fill_paper.py",
+      "function": "load",
+      "line": 77
+    }
+  ],
+  "url": "https://github.com/besanson/sarc-p2p-replay/issues/1#issuecomment-6758099328"
+}

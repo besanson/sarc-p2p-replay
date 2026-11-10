@@ -1362,3 +1362,41 @@ stamp commit can add v1.0.1's.
 
 The author tags v1.0.1 on the commit that adds this entry ("paper 7: D-F-2, release 1.0.1"); a
 commit cannot name its own hash, so the builder's report gives it.
+
+## D-F-3 External reproduction attempt 2 (issue #1, v1.0.1) (2026-11-10)
+
+**The record, as found** (`review-secondary/F2-reproduction-issue-1-comment-6758099328.md`, the comment unedited, SHA-256 `7d66899bf7acf17c3f31f439235eda0778bcaa912e04fa027afcbf5eb5e17c48`;
+`results/reproduction/attempt-2.json`, parsed by `scripts/reproduction_attempts.py --comment`).
+Reproducer: Eduardo Arana, Independent Researcher (comment by `arananet`, 2026-11-10T03:25:58Z). In the same clone as
+attempt 1, data kept: `git fetch --tags && git checkout v1.0.1 && make reproduce`; the tag resolved to `5be6cd6`. macOS 26.7.2 (build 25G332),
+arm64; Python 3.13.16; run date 2026-11-10 UTC. Every regeneration step ran
+(E0 run 2, E1, E2, E3, E4 sample draw, E4 analysis, E5, E7, E6 cost, round-1 slots, round-2 slots, round-3 slots); the run stopped in the step "paper" on
+`FileNotFoundError` (`scripts/reproduce.py` main -> `scripts/reproduce.py` regenerate_paper -> `scripts/fill_paper.py` run -> `scripts/fill_paper.py` fill -> `scripts/fill_paper.py` load) for `<checkout>/out/reproduce/root/results/reproduction/attempt-1.json`; exit code 2. Report written:
+no; comparison reached: no.
+
+**Why.** `scripts/reproduce.py` regenerates the experiment results into `out/reproduce/root/results/`
+and fills the paper from there. Before filling, it copied the machine-dependent records (`MACHINE`)
+into that tree, but not the other committed files it does not regenerate (`RECORDS`). In 1.0.1 the
+paper's Appendix C gained two sources that are records, `results/reproduction/attempt-1.json` and
+`results/reproduction/comparison-rule.json`; the fill read them from the regenerated tree, where they
+were absent.
+
+**Two process gaps.** (1) The records were not copied: the copy covered one class of non-regenerated
+files, not all of them. (2) The end-to-end check was not repeated after the template changed: release
+1.0.1's `make reproduce` ran in its step 2, before step 3 added those sources, and was not run again on
+the tree that was tagged.
+
+**The fix** (1.0.2). Before filling, `regenerate_paper` copies from the commit every file under
+`results/` that the regeneration did not produce, each with its reason (machine-dependent record,
+verification record, record of an external attempt); the report lists them under "Copied from the
+commit, not regenerated", and a copied file is never counted as reproduced. Two tests fail on the 1.0.1
+code and pass on 1.0.2: `tests/test_reproduce_fill.py::test_every_paper_source_is_regenerated_or_copied`
+(every source the paper, the README's blocks and the figures read is either regenerated or copied) and
+`tests/test_reproduce_fill.py::test_paper_fills_from_regenerated_files_plus_copied_records` (the fill
+succeeds on a tree of the regenerated files plus the copied ones, and gives the committed paper).
+
+**New rule.** No release is pushed before the fresh-clone check passes on the exact tree pushed: a clone
+of the local checkout at HEAD, the three data files linked in, then REPRODUCE.md's commands in order
+(`make bootstrap`, `make test`, `make gates`, `make reproduce`); `make reproduce` must write its report
+with the verdict REPRODUCED, and `make gates` must leave the clone's tracked files unchanged
+(`make fresh-clone-check`, D-F-4; FINAL-AUDIT item 9).
