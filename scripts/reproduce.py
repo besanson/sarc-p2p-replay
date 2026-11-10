@@ -67,7 +67,7 @@ RECORDS = {
     "results/e5/double-run.json": "double-run record",
     "results/e7/double-run.json": "double-run record",
     "results/e0/run-1/": "E0 run 1 under p7-v1, stopped and superseded by run 2",
-    "results/reproduction/": "records of external reproduction attempts",
+    "results/reproduction/": "records of external reproduction attempts and the comparison rule",
 }
 # The paper's generated files: text compared by bytes, JSON within tolerance. The figures' SVG and PDF
 # bytes depend on font embedding across machines (D-F-1): listed, not compared; figure-data.json, the
@@ -106,32 +106,66 @@ def regenerate_results(res: Path, root: Path) -> None:
     step("round-3 slots"); round3_slots.run(e1_dir=res / "e1", out=res)
 
 
-def regenerate_paper(res: Path, paper_dir: Path) -> None:
+def reason(rel: str) -> str:
+    """Why a committed file under results/ is not regenerated."""
+    if rel in MACHINE:
+        return f"machine-dependent record ({MACHINE[rel]})"
+    for key, why in RECORDS.items():
+        if rel == key or (key.endswith("/") and rel.startswith(key)):
+            kind = ("record of an external attempt" if rel.startswith("results/reproduction/attempt-")
+                    else "verification record")
+            return f"{kind} ({why})"
+    return "not produced by any regeneration step"
+
+
+def committed_results() -> list[str]:
+    return sorted(p.relative_to(ROOT).as_posix() for p in (ROOT / "results").rglob("*") if p.is_file())
+
+
+def missing(regenerated: set[str]) -> dict[str, str]:
+    """Every committed file under results/ that the regeneration did not produce, with its reason (D-F-3)."""
+    return {rel: reason(rel) for rel in committed_results() if rel not in regenerated}
+
+
+def copy_committed(res: Path) -> dict[str, str]:
+    """Copy from the commit every file under results/ absent from the regenerated tree, so that the paper,
+    which also cites records (E6 timing, the external attempts), can be filled. A copied file is never
+    counted as reproduced."""
+    present = {"results/" + p.relative_to(res).as_posix() for p in res.rglob("*") if p.is_file()}
+    copied = missing(present)
+    for rel in copied:
+        dst = res / rel.removeprefix("results/")
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / rel, dst)
+    return copied
+
+
+def regenerate_paper(res: Path, paper_dir: Path) -> dict[str, str]:
+    """Fill the paper, the README's blocks, the figures and main.tex from the regenerated tree; returns the
+    files copied from the commit into it (D-F-3)."""
     import build_tex  # noqa: PLC0415
     import figures  # noqa: PLC0415
     import fill_paper  # noqa: PLC0415
 
-    # The paper also cites machine-dependent records (E6 timing); they are copied from the commit.
-    for rel in MACHINE:
-        src, dst = ROOT / rel, res / rel.removeprefix("results/")
-        if src.is_file() and not dst.exists():
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(src, dst)
+    copied = copy_committed(res)
     fill_paper.RESULTS = figures.RESULTS = res
     paper_dir.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(ROOT / "README.md", paper_dir / "README.md")
-    print("reproduce: paper", flush=True)
+    print(f"reproduce: paper ({len(copied)} committed records copied, not regenerated)", flush=True)
     fill_paper.run(out_paper=paper_dir / "paper.md", out_filled=paper_dir / "filled-template.json",
                    readme=paper_dir / "README.md")
     figures.run(paper_dir / "figures")
     if shutil.which("pandoc"):
         build_tex.write_tex(paper_dir / "paper.md", paper_dir / "main.tex")
+    return copied
 
 
-def compare(res: Path, paper_dir: Path) -> tuple[list[dict], list[str]]:
-    """Every compared file: byte identity, and for JSON and JSON lines equality within tolerance (scripts/tolerance.py)."""
+def compare(res: Path, paper_dir: Path, copied: dict[str, str] | None = None) -> tuple[list[dict], list[str]]:
+    """Every compared file: byte identity, and for JSON and JSON lines equality within tolerance (scripts/tolerance.py).
+    A file copied from the commit is never compared: if it should have been regenerated, it is uncovered."""
     import tolerance  # noqa: PLC0415
 
+    copied = copied or {}
     rows, uncovered = [], []
     for committed in sorted((ROOT / "results").rglob("*")):
         if not committed.is_file():
@@ -140,7 +174,7 @@ def compare(res: Path, paper_dir: Path) -> tuple[list[dict], list[str]]:
         if rel in MACHINE or rel in RECORDS or any(rel.startswith(k) for k in RECORDS if k.endswith("/")):
             continue
         regen = res / committed.relative_to(ROOT / "results")
-        if not regen.exists():
+        if rel in copied or not regen.exists():
             uncovered.append(rel)
             continue
         rows.append({"file": rel, **tolerance.compare(committed, regen)})
@@ -185,7 +219,8 @@ def _version() -> str:
     return tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]["version"]
 
 
-def report(rows: list[dict], uncovered: list[str], pdf: str | None) -> tuple[str, bool]:
+def report(rows: list[dict], uncovered: list[str], pdf: str | None,
+           copied: dict[str, str] | None = None) -> tuple[str, bool]:
     bad = [r for r in rows if not r["equal"]]
     ok = not bad and not uncovered
     byte = sum(r["byte_identical"] for r in rows)
@@ -211,6 +246,9 @@ def report(rows: list[dict], uncovered: list[str], pdf: str | None) -> tuple[str
               f"{fmt(r)} |" for r in rows]
     if uncovered:
         lines += ["", "Committed files not regenerated:", ""] + [f"- `{u}`" for u in uncovered]
+    if copied:
+        lines += ["", "Copied from the commit, not regenerated (never counted as reproduced; the paper cites some of "
+                      "them):", ""] + [f"- `{k}`: {v}" for k, v in copied.items()]
     lines += ["", "Excluded as machine-dependent (not compared):", ""]
     lines += [f"- `{k}`: {v}" for k, v in MACHINE.items()]
     lines += [f"- `{k}`: figure bytes (font embedding); its numbers are compared in `paper/figures/figure-data.json`"
@@ -221,10 +259,10 @@ def report(rows: list[dict], uncovered: list[str], pdf: str | None) -> tuple[str
     return "\n".join(lines), ok
 
 
-def finish(res: Path, paper_dir: Path, out: Path = OUT) -> bool:
+def finish(res: Path, paper_dir: Path, out: Path = OUT, copied: dict[str, str] | None = None) -> bool:
     """Compare, run the optional PDF step and always write the report."""
-    rows, uncovered = compare(res, paper_dir)
-    text, ok = report(rows, uncovered, pdf_step(paper_dir))
+    rows, uncovered = compare(res, paper_dir, copied)
+    text, ok = report(rows, uncovered, pdf_step(paper_dir), copied)
     out.mkdir(parents=True, exist_ok=True)
     (out / "report.md").write_text(text, encoding="utf-8")
     print(text)
@@ -239,8 +277,8 @@ def main() -> int:
     res.mkdir(parents=True)
     os.symlink(ROOT / "responses", root / "responses")
     regenerate_results(res, root)
-    regenerate_paper(res, OUT / "paper")
-    return 0 if finish(res, OUT / "paper") else 1
+    copied = regenerate_paper(res, OUT / "paper")
+    return 0 if finish(res, OUT / "paper", copied=copied) else 1
 
 
 if __name__ == "__main__":
