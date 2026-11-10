@@ -1401,3 +1401,39 @@ of the local checkout at HEAD, the three data files linked in, then REPRODUCE.md
 (`make bootstrap`, `make test`, `make gates`, `make reproduce`); `make reproduce` must write its report
 with the verdict REPRODUCED, and `make gates` must leave the clone's tracked files unchanged
 (`make fresh-clone-check`, D-F-4; FINAL-AUDIT item 9).
+
+## D-F-4 Release 1.0.2 (2026-11-10)
+
+**What changed** since 1.0.1 (D-F-3): `scripts/reproduce.py` copies every committed file it does not
+regenerate into the regenerated tree before filling the paper, lists them in the report and never
+counts them as reproduced; two tests; attempt 2 recorded; Appendix C, C13 (Appendix B), FINAL-AUDIT
+item 11 and the README status; the fresh-clone check (`make fresh-clone-check`,
+`scripts/fresh_clone_check.py`), now part of FINAL-AUDIT item 9's evidence. No experiment slot and no
+number in the paper changed. `pyproject.toml` and `CITATION.cff` 1.0.2, date-released
+2026-11-10, `doi` 10.5281/zenodo.23931810 (the concept DOI); REPRODUCE.md re-runs with
+`git fetch --tags && git checkout v1.0.2 && make reproduce`.
+
+**The fresh-clone check**, before the push: a clone of the local checkout (file:// URL) at
+`637e26246c08eaa32a98d36bac4503a8fa561b76`, the three data files linked into its `data/` (bootstrap verified them by size and
+SHA-256 and downloaded nothing), then REPRODUCE.md's commands in order:
+
+| command | exit | time and result |
+|---|---:|---|
+| `make bootstrap` | 0 | 29 s |
+| `make test` | 0 | 20 s; 172 passed, 0 skipped |
+| `make gates` | 0 | 1352 s; {'pass': 8, 'fail': 0, 'waiting': 1, 'not run in CI': 0}; passed: True; tracked files unchanged: yes |
+| `make reproduce` | 0 | 1448 s |
+
+`make reproduce` wrote `out/reproduce/report.md`: 51 files compared, 0 not equal;
+24 committed records copied into the regenerated tree, not regenerated. Verdict line:
+
+> REPRODUCED: 51 files equal (51 byte-identical, 0 within tolerance, max difference 0)
+
+For information: `paper-tex/main.pdf` built with pdflatex: identical to the committed PDF (its bytes depend on the TeX installation and engine; the committed one used pdflatex, TeX Live 2023, pdfTeX 1.40.25).
+
+The check ran on `637e262`. The commit that adds this entry changes `DECISIONS.md` (this
+entry) and adds `scripts/d_f_4.py`, the script that writes it from the check's output; no make target,
+test or gate runs that script, so the checked tree and the pushed tree run the same code.
+
+The author tags v1.0.2 on the commit that adds this entry ("paper 7: D-F-4, release 1.0.2 after
+fresh-clone check"); a commit cannot name its own hash, so the builder's report gives it.
