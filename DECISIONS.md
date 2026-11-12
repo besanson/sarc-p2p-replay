@@ -1542,3 +1542,13 @@ keep), runs twice byte-identically, and is a step of `make reproduce` and of gat
   - D4 failures restricted to an observable relative change above 1%: 741 clearings, 0.48% [0.38%, 0.59%]; 0.36% of cleared value [0.21%, 0.56%]
   - D4 failures restricted to an observable relative change above 5%: 741 clearings, 0.48% [0.38%, 0.59%]; 0.36% of cleared value [0.21%, 0.56%]
   - D4 failures restricted to an observable relative change above 10%: 741 clearings, 0.48% [0.38%, 0.59%]; 0.36% of cleared value [0.21%, 0.56%]
+
+**X2, standardised H1 and H2 (exploratory)** (`results/exploratory/adjusted-h1-h2.json`, `experiments/exploratory/x2_adjusted_h1_h2.py`):
+  - H1: registered unadjusted difference 0.0470
+    - by category x line-value quartile: standardised difference 0.0662 [0.0378, 0.0984]
+    - by month of t_c: standardised difference 0.0507 [0.0290, 0.0824]
+    - by spend area: standardised difference 0.0778 [0.0461, 0.1125]
+  - H2: registered unadjusted difference 0.0094
+    - by category x line-value quartile: standardised difference 0.0031 [0.0008, 0.0054]
+    - by month of t_c: standardised difference 0.0094 [0.0060, 0.0132]
+    - by spend area: standardised difference 0.0103 [0.0070, 0.0137]

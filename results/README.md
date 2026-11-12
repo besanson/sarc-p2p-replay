@@ -113,6 +113,7 @@ Not registered; no p-value; never in the Holm family. Each is a step of `make re
 | file | holds | decision |
 |---|---|---|
 | `exploratory/d4-sensitivity.json` | X1: exposure (count and value, Wilson and clustered intervals) as registered, with D4 counting only changes after an explicit approval or release event, and the D4 failures anchored on the creation only; H2 under the explicit anchor, descriptive; the value differences the changes carry, and exposure under unregistered relative-change thresholds (`x1_d4_sensitivity.py`) | D-G-1 a |
+| `exploratory/adjusted-h1-h2.json` | X2: H1 and H2 at W = 60 directly standardised to the comparison group's stratum distribution, by category x line-value quartile, spend area and month of t_c, with stratum rates, excluded strata and their weights, clustered intervals, the registered unadjusted difference beside (`x2_adjusted_h1_h2.py`) | D-G-1 e |
 | `exploratory/double-run.json` | the exploratory analyses run twice: byte comparison with each other and with the committed files (`double_run.py`) | D-G-1 |
 
 ## Checks

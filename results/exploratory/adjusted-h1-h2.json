@@ -1,0 +1,1110 @@
+{
+  "W": 60,
+  "bootstrap": {
+    "B": 10000,
+    "cluster": "purchase document, sorted by its hashed id",
+    "clusters": 42346,
+    "generator": "numpy PCG64",
+    "interval": "percentile 2.5 to 97.5",
+    "seed": 20261201
+  },
+  "cutpoints": {
+    "line_value_quartile_cutpoints_eur": [
+      184.0,
+      573.0,
+      2223.0
+    ],
+    "rule": "Q1 <= first cutpoint < Q2 <= second < Q3 <= third < Q4; numpy linear quantiles over framed lines",
+    "vendor_activity_quartile_cutpoints_lines": [
+      319.0,
+      1117.0,
+      3276.0
+    ]
+  },
+  "decision": "DECISIONS.md D-G-1 e",
+  "exploratory": true,
+  "exploratory_estimates": {
+    "H1": {
+      "comparison": "3-way clearings with every applicable predicate passing",
+      "defect": "3-way clearings with D1/D2 fail",
+      "registered_unadjusted_difference": 0.04701258711036681,
+      "standardised": {
+        "category x line-value quartile": {
+          "bootstrap95": [
+            0.03775331447874096,
+            0.09841099228703414
+          ],
+          "bootstrap_resamples_used": 10000,
+          "excluded_comparison_weight": 0.0584875219836921,
+          "excluded_strata": {
+            "2-way | Q1": 0.0,
+            "2-way | Q2": 0.0,
+            "2-way | Q3": 0.0,
+            "2-way | Q4": 0.0,
+            "3-way, invoice after receipt | Q1": 0.014011424252554468,
+            "3-way, invoice after receipt | Q2": 0.012543422333977703,
+            "3-way, invoice after receipt | Q3": 0.01363352276856441,
+            "3-way, invoice after receipt | Q4": 0.018299152628595515
+          },
+          "standardised_difference": 0.06620324253933198,
+          "strata": {
+            "2-way | Q1": {
+              "comparison_O_rate": null,
+              "comparison_clearings": 0,
+              "comparison_weight": 0.0,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "2-way | Q2": {
+              "comparison_O_rate": null,
+              "comparison_clearings": 0,
+              "comparison_weight": 0.0,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "2-way | Q3": {
+              "comparison_O_rate": null,
+              "comparison_clearings": 0,
+              "comparison_weight": 0.0,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "2-way | Q4": {
+              "comparison_O_rate": null,
+              "comparison_clearings": 0,
+              "comparison_weight": 0.0,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "3-way, invoice after receipt | Q1": {
+              "comparison_O_rate": 0.007780082987551867,
+              "comparison_clearings": 1928,
+              "comparison_weight": 0.014011424252554468,
+              "comparison_with_O": 15,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "3-way, invoice after receipt | Q2": {
+              "comparison_O_rate": 0.013904982618771726,
+              "comparison_clearings": 1726,
+              "comparison_weight": 0.012543422333977703,
+              "comparison_with_O": 24,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "3-way, invoice after receipt | Q3": {
+              "comparison_O_rate": 0.03411513859275053,
+              "comparison_clearings": 1876,
+              "comparison_weight": 0.01363352276856441,
+              "comparison_with_O": 64,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "3-way, invoice after receipt | Q4": {
+              "comparison_O_rate": 0.10881652104845115,
+              "comparison_clearings": 2518,
+              "comparison_weight": 0.018299152628595515,
+              "comparison_with_O": 274,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "3-way, invoice before receipt | Q1": {
+              "comparison_O_rate": 0.005483927425471093,
+              "comparison_clearings": 34282,
+              "comparison_weight": 0.2491388206566765,
+              "comparison_with_O": 188,
+              "defect_O_rate": 0.025906735751295335,
+              "defect_clearings": 386,
+              "defect_with_O": 10,
+              "difference": 0.020422808325824243,
+              "kept": true
+            },
+            "3-way, invoice before receipt | Q2": {
+              "comparison_O_rate": 0.0054694621695533276,
+              "comparison_clearings": 34007,
+              "comparison_weight": 0.24714030319326755,
+              "comparison_with_O": 186,
+              "defect_O_rate": 0.08256880733944955,
+              "defect_clearings": 109,
+              "defect_with_O": 9,
+              "difference": 0.07709934516989622,
+              "kept": true
+            },
+            "3-way, invoice before receipt | Q3": {
+              "comparison_O_rate": 0.007137143911893189,
+              "comparison_clearings": 32506,
+              "comparison_weight": 0.2362320315111699,
+              "comparison_with_O": 232,
+              "defect_O_rate": 0.05747126436781609,
+              "defect_clearings": 87,
+              "defect_with_O": 5,
+              "difference": 0.0503341204559229,
+              "kept": true
+            },
+            "3-way, invoice before receipt | Q4": {
+              "comparison_O_rate": 0.010535832261205188,
+              "comparison_clearings": 28759,
+              "comparison_weight": 0.20900132265519397,
+              "comparison_with_O": 303,
+              "defect_O_rate": 0.13636363636363635,
+              "defect_clearings": 110,
+              "defect_with_O": 15,
+              "difference": 0.12582780410243116,
+              "kept": true
+            }
+          }
+        },
+        "month of t_c": {
+          "bootstrap95": [
+            0.02900894346587907,
+            0.0823552856704734
+          ],
+          "bootstrap_resamples_used": 10000,
+          "excluded_comparison_weight": 0,
+          "excluded_strata": {},
+          "standardised_difference": 0.050704370907959775,
+          "strata": {
+            "2018-01": {
+              "comparison_O_rate": 0.0,
+              "comparison_clearings": 238,
+              "comparison_weight": 0.0017296260228775744,
+              "comparison_with_O": 0,
+              "defect_O_rate": 0.0,
+              "defect_clearings": 1,
+              "defect_with_O": 0,
+              "difference": 0.0,
+              "kept": true
+            },
+            "2018-02": {
+              "comparison_O_rate": 0.0029596744358120607,
+              "comparison_clearings": 2703,
+              "comparison_weight": 0.01964360983125245,
+              "comparison_with_O": 8,
+              "defect_O_rate": 0.0,
+              "defect_clearings": 6,
+              "defect_with_O": 0,
+              "difference": -0.0029596744358120607,
+              "kept": true
+            },
+            "2018-03": {
+              "comparison_O_rate": 0.008762075937991463,
+              "comparison_clearings": 8902,
+              "comparison_weight": 0.06469382712460575,
+              "comparison_with_O": 78,
+              "defect_O_rate": 0.13043478260869565,
+              "defect_clearings": 23,
+              "defect_with_O": 3,
+              "difference": 0.12167270667070418,
+              "kept": true
+            },
+            "2018-04": {
+              "comparison_O_rate": 0.005747561067836346,
+              "comparison_clearings": 13223,
+              "comparison_weight": 0.09609598697693347,
+              "comparison_with_O": 76,
+              "defect_O_rate": 0.03225806451612903,
+              "defect_clearings": 93,
+              "defect_with_O": 3,
+              "difference": 0.026510503448292685,
+              "kept": true
+            },
+            "2018-05": {
+              "comparison_O_rate": 0.008199138795493423,
+              "comparison_clearings": 16953,
+              "comparison_weight": 0.12320315111698958,
+              "comparison_with_O": 139,
+              "defect_O_rate": 0.04411764705882353,
+              "defect_clearings": 68,
+              "defect_with_O": 3,
+              "difference": 0.03591850826333011,
+              "kept": true
+            },
+            "2018-06": {
+              "comparison_O_rate": 0.01132183908045977,
+              "comparison_clearings": 17400,
+              "comparison_weight": 0.12645165041205797,
+              "comparison_with_O": 197,
+              "defect_O_rate": 0.02531645569620253,
+              "defect_clearings": 79,
+              "defect_with_O": 2,
+              "difference": 0.013994616615742762,
+              "kept": true
+            },
+            "2018-07": {
+              "comparison_O_rate": 0.012042818911685994,
+              "comparison_clearings": 17936,
+              "comparison_weight": 0.13034694263164778,
+              "comparison_with_O": 216,
+              "defect_O_rate": 0.12,
+              "defect_clearings": 75,
+              "defect_with_O": 9,
+              "difference": 0.10795718108831401,
+              "kept": true
+            },
+            "2018-08": {
+              "comparison_O_rate": 0.009761729820510129,
+              "comparison_clearings": 19054,
+              "comparison_weight": 0.13847182453743404,
+              "comparison_with_O": 186,
+              "defect_O_rate": 0.0625,
+              "defect_clearings": 96,
+              "defect_with_O": 6,
+              "difference": 0.05273827017948987,
+              "kept": true
+            },
+            "2018-09": {
+              "comparison_O_rate": 0.00870295900606206,
+              "comparison_clearings": 16661,
+              "comparison_weight": 0.12108108893766079,
+              "comparison_with_O": 145,
+              "defect_O_rate": 0.02564102564102564,
+              "defect_clearings": 78,
+              "defect_with_O": 2,
+              "difference": 0.01693806663496358,
+              "kept": true
+            },
+            "2018-10": {
+              "comparison_O_rate": 0.009171012407840316,
+              "comparison_clearings": 16683,
+              "comparison_weight": 0.12124097033473351,
+              "comparison_with_O": 153,
+              "defect_O_rate": 0.09,
+              "defect_clearings": 100,
+              "defect_with_O": 9,
+              "difference": 0.08082898759215967,
+              "kept": true
+            },
+            "2018-11": {
+              "comparison_O_rate": 0.011211619314562365,
+              "comparison_clearings": 7849,
+              "comparison_weight": 0.05704132207380707,
+              "comparison_with_O": 88,
+              "defect_O_rate": 0.0273972602739726,
+              "defect_clearings": 73,
+              "defect_with_O": 2,
+              "difference": 0.016185640959410236,
+              "kept": true
+            }
+          }
+        },
+        "spend area": {
+          "bootstrap95": [
+            0.0461024798784865,
+            0.1125026026142778
+          ],
+          "bootstrap_resamples_used": 10000,
+          "excluded_comparison_weight": 0.03351695469542594,
+          "excluded_strata": {
+            "Chemicals & Intermediates": 7.267336230578044e-06,
+            "Energy": 0.0,
+            "Logistics": 0.014207642330780076,
+            "Real Estate": 7.267336230578044e-06,
+            "Solvents": 0.009839973256202672,
+            "Specialty Resins": 0.007754247758026773,
+            "Spend Area Unidentified": 0.00010901004345867066,
+            "Workforce Services": 0.0015915466344965917
+          },
+          "standardised_difference": 0.0778288175026541,
+          "strata": {
+            "Additives": {
+              "comparison_O_rate": 0.010237009013018805,
+              "comparison_clearings": 8987,
+              "comparison_weight": 0.06531155070420488,
+              "comparison_with_O": 92,
+              "defect_O_rate": 0.07692307692307693,
+              "defect_clearings": 13,
+              "defect_with_O": 1,
+              "difference": 0.06668606791005813,
+              "kept": true
+            },
+            "CAPEX & SOCS": {
+              "comparison_O_rate": 0.01454629415839298,
+              "comparison_clearings": 4331,
+              "comparison_weight": 0.031474833214633506,
+              "comparison_with_O": 63,
+              "defect_O_rate": 0.01818181818181818,
+              "defect_clearings": 55,
+              "defect_with_O": 1,
+              "difference": 0.0036355240234252004,
+              "kept": true
+            },
+            "Chemicals & Intermediates": {
+              "comparison_O_rate": 0.0,
+              "comparison_clearings": 1,
+              "comparison_weight": 7.267336230578044e-06,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "Commodity Resins": {
+              "comparison_O_rate": 0.022222222222222223,
+              "comparison_clearings": 225,
+              "comparison_weight": 0.0016351506518800598,
+              "comparison_with_O": 5,
+              "defect_O_rate": 0.0,
+              "defect_clearings": 1,
+              "defect_with_O": 0,
+              "difference": -0.022222222222222223,
+              "kept": true
+            },
+            "Energy": {
+              "comparison_O_rate": null,
+              "comparison_clearings": 0,
+              "comparison_weight": 0.0,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "Enterprise Services": {
+              "comparison_O_rate": 0.02046783625730994,
+              "comparison_clearings": 342,
+              "comparison_weight": 0.002485428990857691,
+              "comparison_with_O": 7,
+              "defect_O_rate": 0.0,
+              "defect_clearings": 2,
+              "defect_with_O": 0,
+              "difference": -0.02046783625730994,
+              "kept": true
+            },
+            "Latex & Monomers": {
+              "comparison_O_rate": 0.019561068702290078,
+              "comparison_clearings": 2096,
+              "comparison_weight": 0.01523233673929158,
+              "comparison_with_O": 41,
+              "defect_O_rate": 0.3,
+              "defect_clearings": 10,
+              "defect_with_O": 3,
+              "difference": 0.2804389312977099,
+              "kept": true
+            },
+            "Logistics": {
+              "comparison_O_rate": 0.10485933503836317,
+              "comparison_clearings": 1955,
+              "comparison_weight": 0.014207642330780076,
+              "comparison_with_O": 205,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "Marketing": {
+              "comparison_O_rate": 0.029837251356238697,
+              "comparison_clearings": 1106,
+              "comparison_weight": 0.008037673871019316,
+              "comparison_with_O": 33,
+              "defect_O_rate": 0.16666666666666666,
+              "defect_clearings": 6,
+              "defect_with_O": 1,
+              "difference": 0.13682941531042797,
+              "kept": true
+            },
+            "Others": {
+              "comparison_O_rate": 0.014431749849669273,
+              "comparison_clearings": 1663,
+              "comparison_weight": 0.012085580151451288,
+              "comparison_with_O": 24,
+              "defect_O_rate": 0.0,
+              "defect_clearings": 8,
+              "defect_with_O": 0,
+              "difference": -0.014431749849669273,
+              "kept": true
+            },
+            "Packaging": {
+              "comparison_O_rate": 0.004493507412518133,
+              "comparison_clearings": 56526,
+              "comparison_weight": 0.4107934477696545,
+              "comparison_with_O": 254,
+              "defect_O_rate": 0.052941176470588235,
+              "defect_clearings": 170,
+              "defect_with_O": 9,
+              "difference": 0.0484476690580701,
+              "kept": true
+            },
+            "Pigments & Colorants": {
+              "comparison_O_rate": 0.012168933428775949,
+              "comparison_clearings": 1397,
+              "comparison_weight": 0.010152468714117527,
+              "comparison_with_O": 17,
+              "defect_O_rate": 0.4,
+              "defect_clearings": 5,
+              "defect_with_O": 2,
+              "difference": 0.38783106657122407,
+              "kept": true
+            },
+            "Real Estate": {
+              "comparison_O_rate": 0.0,
+              "comparison_clearings": 1,
+              "comparison_weight": 7.267336230578044e-06,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "Sales": {
+              "comparison_O_rate": 0.0073084967019834066,
+              "comparison_clearings": 43511,
+              "comparison_weight": 0.31620906672868127,
+              "comparison_with_O": 318,
+              "defect_O_rate": 0.1357142857142857,
+              "defect_clearings": 140,
+              "defect_with_O": 19,
+              "difference": 0.1284057890123023,
+              "kept": true
+            },
+            "Solvents": {
+              "comparison_O_rate": 0.0155096011816839,
+              "comparison_clearings": 1354,
+              "comparison_weight": 0.009839973256202672,
+              "comparison_with_O": 21,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "Specialty Resins": {
+              "comparison_O_rate": 0.010309278350515464,
+              "comparison_clearings": 1067,
+              "comparison_weight": 0.007754247758026773,
+              "comparison_with_O": 11,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "Spend Area Unidentified": {
+              "comparison_O_rate": 0.0,
+              "comparison_clearings": 15,
+              "comparison_weight": 0.00010901004345867066,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "Titanium Dioxides": {
+              "comparison_O_rate": 0.02622950819672131,
+              "comparison_clearings": 305,
+              "comparison_weight": 0.0022165375503263034,
+              "comparison_with_O": 8,
+              "defect_O_rate": 0.0,
+              "defect_clearings": 5,
+              "defect_with_O": 0,
+              "difference": -0.02622950819672131,
+              "kept": true
+            },
+            "Trading & End Products": {
+              "comparison_O_rate": 0.012209906477312089,
+              "comparison_clearings": 11548,
+              "comparison_weight": 0.08392319879071525,
+              "comparison_with_O": 141,
+              "defect_O_rate": 0.007326007326007326,
+              "defect_clearings": 273,
+              "defect_with_O": 2,
+              "difference": -0.004883899151304763,
+              "kept": true
+            },
+            "Workforce Services": {
+              "comparison_O_rate": 0.1689497716894977,
+              "comparison_clearings": 219,
+              "comparison_weight": 0.0015915466344965917,
+              "comparison_with_O": 37,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "missing": {
+              "comparison_O_rate": 0.00944386149003148,
+              "comparison_clearings": 953,
+              "comparison_weight": 0.0069257714277408755,
+              "comparison_with_O": 9,
+              "defect_O_rate": 0.25,
+              "defect_clearings": 4,
+              "defect_with_O": 1,
+              "difference": 0.24055613850996851,
+              "kept": true
+            }
+          }
+        }
+      }
+    },
+    "H2": {
+      "comparison": "D4 pass, all categories",
+      "defect": "D4 fail, all categories",
+      "registered_unadjusted_difference": 0.009433398964459293,
+      "standardised": {
+        "category x line-value quartile": {
+          "bootstrap95": [
+            0.0008051227079379314,
+            0.005399087374258497
+          ],
+          "bootstrap_resamples_used": 10000,
+          "excluded_comparison_weight": 0.0006359438345967899,
+          "excluded_strata": {
+            "2-way | Q1": 3.613317242027215e-05,
+            "2-way | Q2": 0.00017343922761730635,
+            "2-way | Q3": 0.0004263714345592114
+          },
+          "standardised_difference": 0.0030899069518599007,
+          "strata": {
+            "2-way | Q1": {
+              "comparison_O_rate": 0.0,
+              "comparison_clearings": 5,
+              "comparison_weight": 3.613317242027215e-05,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "2-way | Q2": {
+              "comparison_O_rate": 0.0,
+              "comparison_clearings": 24,
+              "comparison_weight": 0.00017343922761730635,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "2-way | Q3": {
+              "comparison_O_rate": 0.0,
+              "comparison_clearings": 59,
+              "comparison_weight": 0.0004263714345592114,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "2-way | Q4": {
+              "comparison_O_rate": 0.052083333333333336,
+              "comparison_clearings": 96,
+              "comparison_weight": 0.0006937569104692254,
+              "comparison_with_O": 5,
+              "defect_O_rate": 0.0,
+              "defect_clearings": 4,
+              "defect_with_O": 0,
+              "difference": -0.052083333333333336,
+              "kept": true
+            },
+            "3-way, invoice after receipt | Q1": {
+              "comparison_O_rate": 0.007772020725388601,
+              "comparison_clearings": 1930,
+              "comparison_weight": 0.013947404554225051,
+              "comparison_with_O": 15,
+              "defect_O_rate": 0.002932551319648094,
+              "defect_clearings": 341,
+              "defect_with_O": 1,
+              "difference": -0.004839469405740507,
+              "kept": true
+            },
+            "3-way, invoice after receipt | Q2": {
+              "comparison_O_rate": 0.013904982618771726,
+              "comparison_clearings": 1726,
+              "comparison_weight": 0.012473171119477948,
+              "comparison_with_O": 24,
+              "defect_O_rate": 0.0036231884057971015,
+              "defect_clearings": 276,
+              "defect_with_O": 1,
+              "difference": -0.010281794212974624,
+              "kept": true
+            },
+            "3-way, invoice after receipt | Q3": {
+              "comparison_O_rate": 0.03411513859275053,
+              "comparison_clearings": 1876,
+              "comparison_weight": 0.013557166292086113,
+              "comparison_with_O": 64,
+              "defect_O_rate": 0.016,
+              "defect_clearings": 250,
+              "defect_with_O": 4,
+              "difference": -0.018115138592750532,
+              "kept": true
+            },
+            "3-way, invoice after receipt | Q4": {
+              "comparison_O_rate": 0.10899722552516845,
+              "comparison_clearings": 2523,
+              "comparison_weight": 0.01823279880326933,
+              "comparison_with_O": 275,
+              "defect_O_rate": 0.14206128133704735,
+              "defect_clearings": 718,
+              "defect_with_O": 102,
+              "difference": 0.03306405581187889,
+              "kept": true
+            },
+            "3-way, invoice before receipt | Q1": {
+              "comparison_O_rate": 0.0056933125252875555,
+              "comparison_clearings": 34602,
+              "comparison_weight": 0.2500560064172514,
+              "comparison_with_O": 197,
+              "defect_O_rate": 0.005984440454817474,
+              "defect_clearings": 1671,
+              "defect_with_O": 10,
+              "difference": 0.0002911279295299187,
+              "kept": true
+            },
+            "3-way, invoice before receipt | Q2": {
+              "comparison_O_rate": 0.005718139698551405,
+              "comparison_clearings": 34102,
+              "comparison_weight": 0.24644268917522422,
+              "comparison_with_O": 195,
+              "defect_O_rate": 0.006374840628984276,
+              "defect_clearings": 2353,
+              "defect_with_O": 15,
+              "difference": 0.000656700930432871,
+              "kept": true
+            },
+            "3-way, invoice before receipt | Q3": {
+              "comparison_O_rate": 0.007274178202019582,
+              "comparison_clearings": 32581,
+              "comparison_weight": 0.23545097812497742,
+              "comparison_with_O": 237,
+              "defect_O_rate": 0.010721944245889922,
+              "defect_clearings": 4197,
+              "defect_with_O": 45,
+              "difference": 0.00344776604387034,
+              "kept": true
+            },
+            "3-way, invoice before receipt | Q4": {
+              "comparison_O_rate": 0.01109070114026271,
+              "comparison_clearings": 28853,
+              "comparison_weight": 0.2085100847684225,
+              "comparison_with_O": 320,
+              "defect_O_rate": 0.020280386552334287,
+              "defect_clearings": 7347,
+              "defect_with_O": 149,
+              "difference": 0.009189685412071576,
+              "kept": true
+            }
+          }
+        },
+        "month of t_c": {
+          "bootstrap95": [
+            0.0060089903837620496,
+            0.013178648686529553
+          ],
+          "bootstrap_resamples_used": 10000,
+          "excluded_comparison_weight": 0,
+          "excluded_strata": {},
+          "standardised_difference": 0.009428813740372783,
+          "strata": {
+            "2018-01": {
+              "comparison_O_rate": 0.0,
+              "comparison_clearings": 247,
+              "comparison_weight": 0.0017849787175614445,
+              "comparison_with_O": 0,
+              "defect_O_rate": 0.0,
+              "defect_clearings": 8,
+              "defect_with_O": 0,
+              "difference": 0.0,
+              "kept": true
+            },
+            "2018-02": {
+              "comparison_O_rate": 0.0029455081001472753,
+              "comparison_clearings": 2716,
+              "comparison_weight": 0.019627539258691835,
+              "comparison_with_O": 8,
+              "defect_O_rate": 0.020833333333333332,
+              "defect_clearings": 96,
+              "defect_with_O": 2,
+              "difference": 0.017887825233186057,
+              "kept": true
+            },
+            "2018-03": {
+              "comparison_O_rate": 0.00906547285954113,
+              "comparison_clearings": 8935,
+              "comparison_weight": 0.06456997911502634,
+              "comparison_with_O": 81,
+              "defect_O_rate": 0.029239766081871343,
+              "defect_clearings": 855,
+              "defect_with_O": 25,
+              "difference": 0.020174293222330213,
+              "kept": true
+            },
+            "2018-04": {
+              "comparison_O_rate": 0.00585321927059883,
+              "comparison_clearings": 13326,
+              "comparison_weight": 0.09630213113450935,
+              "comparison_with_O": 78,
+              "defect_O_rate": 0.009211283822682787,
+              "defect_clearings": 1737,
+              "defect_with_O": 16,
+              "difference": 0.0033580645520839576,
+              "kept": true
+            },
+            "2018-05": {
+              "comparison_O_rate": 0.008455666470933647,
+              "comparison_clearings": 17030,
+              "comparison_weight": 0.12306958526344695,
+              "comparison_with_O": 144,
+              "defect_O_rate": 0.013619696176008382,
+              "defect_clearings": 1909,
+              "defect_with_O": 26,
+              "difference": 0.005164029705074735,
+              "kept": true
+            },
+            "2018-06": {
+              "comparison_O_rate": 0.011379882198204381,
+              "comparison_clearings": 17487,
+              "comparison_weight": 0.12637215722265985,
+              "comparison_with_O": 199,
+              "defect_O_rate": 0.021229544449358692,
+              "defect_clearings": 2261,
+              "defect_with_O": 48,
+              "difference": 0.009849662251154311,
+              "kept": true
+            },
+            "2018-07": {
+              "comparison_O_rate": 0.012480585755491458,
+              "comparison_clearings": 18028,
+              "comparison_weight": 0.1302817664785333,
+              "comparison_with_O": 225,
+              "defect_O_rate": 0.01808136614766449,
+              "defect_clearings": 1991,
+              "defect_with_O": 36,
+              "difference": 0.0056007803921730315,
+              "kept": true
+            },
+            "2018-08": {
+              "comparison_O_rate": 0.009964524207011686,
+              "comparison_clearings": 19168,
+              "comparison_weight": 0.13852012979035533,
+              "comparison_with_O": 191,
+              "defect_O_rate": 0.018018018018018018,
+              "defect_clearings": 2442,
+              "defect_with_O": 44,
+              "difference": 0.008053493811006332,
+              "kept": true
+            },
+            "2018-09": {
+              "comparison_O_rate": 0.009015463609767748,
+              "comparison_clearings": 16749,
+              "comparison_weight": 0.12103890097342766,
+              "comparison_with_O": 151,
+              "defect_O_rate": 0.024411895250776743,
+              "defect_clearings": 2253,
+              "defect_with_O": 55,
+              "difference": 0.015396431641008995,
+              "kept": true
+            },
+            "2018-10": {
+              "comparison_O_rate": 0.009758419612043318,
+              "comparison_clearings": 16806,
+              "comparison_weight": 0.12145081913901877,
+              "comparison_with_O": 164,
+              "defect_O_rate": 0.020108923334729786,
+              "defect_clearings": 2387,
+              "defect_with_O": 48,
+              "difference": 0.010350503722686468,
+              "kept": true
+            },
+            "2018-11": {
+              "comparison_O_rate": 0.011540900443880786,
+              "comparison_clearings": 7885,
+              "comparison_weight": 0.056982012906769186,
+              "comparison_with_O": 91,
+              "defect_O_rate": 0.022167487684729065,
+              "defect_clearings": 1218,
+              "defect_with_O": 27,
+              "difference": 0.010626587240848279,
+              "kept": true
+            }
+          }
+        },
+        "spend area": {
+          "bootstrap95": [
+            0.007014140793606773,
+            0.013658791056917802
+          ],
+          "bootstrap_resamples_used": 10000,
+          "excluded_comparison_weight": 2.8906537936217724e-05,
+          "excluded_strata": {
+            "Chemicals & Intermediates": 7.226634484054431e-06,
+            "Energy": 2.1679903452163294e-05
+          },
+          "standardised_difference": 0.010278278511881376,
+          "strata": {
+            "Additives": {
+              "comparison_O_rate": 0.010334481609067674,
+              "comparison_clearings": 8999,
+              "comparison_weight": 0.06503248372200582,
+              "comparison_with_O": 93,
+              "defect_O_rate": 0.018227009113504555,
+              "defect_clearings": 1207,
+              "defect_with_O": 22,
+              "difference": 0.007892527504436881,
+              "kept": true
+            },
+            "CAPEX & SOCS": {
+              "comparison_O_rate": 0.01456531634046427,
+              "comparison_clearings": 4394,
+              "comparison_weight": 0.03175383192293517,
+              "comparison_with_O": 64,
+              "defect_O_rate": 0.02158273381294964,
+              "defect_clearings": 278,
+              "defect_with_O": 6,
+              "difference": 0.007017417472485372,
+              "kept": true
+            },
+            "Chemicals & Intermediates": {
+              "comparison_O_rate": 0.0,
+              "comparison_clearings": 1,
+              "comparison_weight": 7.226634484054431e-06,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "Commodity Resins": {
+              "comparison_O_rate": 0.022123893805309734,
+              "comparison_clearings": 226,
+              "comparison_weight": 0.0016332193933963014,
+              "comparison_with_O": 5,
+              "defect_O_rate": 0.0125,
+              "defect_clearings": 80,
+              "defect_with_O": 1,
+              "difference": -0.009623893805309734,
+              "kept": true
+            },
+            "Energy": {
+              "comparison_O_rate": 0.0,
+              "comparison_clearings": 3,
+              "comparison_weight": 2.1679903452163294e-05,
+              "comparison_with_O": 0,
+              "defect_O_rate": null,
+              "defect_clearings": 0,
+              "defect_with_O": 0,
+              "difference": null,
+              "kept": false
+            },
+            "Enterprise Services": {
+              "comparison_O_rate": 0.02,
+              "comparison_clearings": 350,
+              "comparison_weight": 0.002529322069419051,
+              "comparison_with_O": 7,
+              "defect_O_rate": 0.0,
+              "defect_clearings": 20,
+              "defect_with_O": 0,
+              "difference": -0.02,
+              "kept": true
+            },
+            "Latex & Monomers": {
+              "comparison_O_rate": 0.020902612826603325,
+              "comparison_clearings": 2105,
+              "comparison_weight": 0.015212065588934577,
+              "comparison_with_O": 44,
+              "defect_O_rate": 0.018789144050104383,
+              "defect_clearings": 479,
+              "defect_with_O": 9,
+              "difference": -0.002113468776498942,
+              "kept": true
+            },
+            "Logistics": {
+              "comparison_O_rate": 0.10485933503836317,
+              "comparison_clearings": 1955,
+              "comparison_weight": 0.014128070416326412,
+              "comparison_with_O": 205,
+              "defect_O_rate": 0.35964912280701755,
+              "defect_clearings": 114,
+              "defect_with_O": 41,
+              "difference": 0.25478978776865435,
+              "kept": true
+            },
+            "Marketing": {
+              "comparison_O_rate": 0.030575539568345324,
+              "comparison_clearings": 1112,
+              "comparison_weight": 0.008036017546268528,
+              "comparison_with_O": 34,
+              "defect_O_rate": 0.12037037037037036,
+              "defect_clearings": 108,
+              "defect_with_O": 13,
+              "difference": 0.08979483080202504,
+              "kept": true
+            },
+            "Others": {
+              "comparison_O_rate": 0.015384615384615385,
+              "comparison_clearings": 1690,
+              "comparison_weight": 0.012213012278051988,
+              "comparison_with_O": 26,
+              "defect_O_rate": 0.05813953488372093,
+              "defect_clearings": 86,
+              "defect_with_O": 5,
+              "difference": 0.042754919499105544,
+              "kept": true
+            },
+            "Packaging": {
+              "comparison_O_rate": 0.004641722555594776,
+              "comparison_clearings": 56660,
+              "comparison_weight": 0.40946110986652406,
+              "comparison_with_O": 263,
+              "defect_O_rate": 0.011012896681640343,
+              "defect_clearings": 6901,
+              "defect_with_O": 76,
+              "difference": 0.006371174126045567,
+              "kept": true
+            },
+            "Pigments & Colorants": {
+              "comparison_O_rate": 0.012866333095067906,
+              "comparison_clearings": 1399,
+              "comparison_weight": 0.010110061643192149,
+              "comparison_with_O": 18,
+              "defect_O_rate": 0.02711864406779661,
+              "defect_clearings": 295,
+              "defect_with_O": 8,
+              "difference": 0.014252310972728704,
+              "kept": true
+            },
+            "Real Estate": {
+              "comparison_O_rate": 0.02054794520547945,
+              "comparison_clearings": 146,
+              "comparison_weight": 0.001055088634671947,
+              "comparison_with_O": 3,
+              "defect_O_rate": 0.0,
+              "defect_clearings": 5,
+              "defect_with_O": 0,
+              "difference": -0.02054794520547945,
+              "kept": true
+            },
+            "Sales": {
+              "comparison_O_rate": 0.007789767910738424,
+              "comparison_clearings": 43647,
+              "comparison_weight": 0.31542091532552374,
+              "comparison_with_O": 340,
+              "defect_O_rate": 0.010172626387176326,
+              "defect_clearings": 3244,
+              "defect_with_O": 33,
+              "difference": 0.002382858476437902,
+              "kept": true
+            },
+            "Solvents": {
+              "comparison_O_rate": 0.015475313190862197,
+              "comparison_clearings": 1357,
+              "comparison_weight": 0.009806542994861863,
+              "comparison_with_O": 21,
+              "defect_O_rate": 0.032407407407407406,
+              "defect_clearings": 216,
+              "defect_with_O": 7,
+              "difference": 0.016932094216545207,
+              "kept": true
+            },
+            "Specialty Resins": {
+              "comparison_O_rate": 0.010309278350515464,
+              "comparison_clearings": 1067,
+              "comparison_weight": 0.007710818994486078,
+              "comparison_with_O": 11,
+              "defect_O_rate": 0.03508771929824561,
+              "defect_clearings": 228,
+              "defect_with_O": 8,
+              "difference": 0.02477844094773015,
+              "kept": true
+            },
+            "Spend Area Unidentified": {
+              "comparison_O_rate": 0.0,
+              "comparison_clearings": 15,
+              "comparison_weight": 0.00010839951726081647,
+              "comparison_with_O": 0,
+              "defect_O_rate": 0.0,
+              "defect_clearings": 3,
+              "defect_with_O": 0,
+              "difference": 0.0,
+              "kept": true
+            },
+            "Titanium Dioxides": {
+              "comparison_O_rate": 0.025806451612903226,
+              "comparison_clearings": 310,
+              "comparison_weight": 0.0022402566900568736,
+              "comparison_with_O": 8,
+              "defect_O_rate": 0.07563025210084033,
+              "defect_clearings": 119,
+              "defect_with_O": 9,
+              "difference": 0.04982380048793711,
+              "kept": true
+            },
+            "Trading & End Products": {
+              "comparison_O_rate": 0.012154696132596685,
+              "comparison_clearings": 11765,
+              "comparison_weight": 0.08502135470490038,
+              "comparison_with_O": 143,
+              "defect_O_rate": 0.021263851452530697,
+              "defect_clearings": 3339,
+              "defect_with_O": 71,
+              "difference": 0.009109155319934012,
+              "kept": true
+            },
+            "Workforce Services": {
+              "comparison_O_rate": 0.1689497716894977,
+              "comparison_clearings": 219,
+              "comparison_weight": 0.0015826329520079205,
+              "comparison_with_O": 37,
+              "defect_O_rate": 0.1774193548387097,
+              "defect_clearings": 62,
+              "defect_with_O": 11,
+              "difference": 0.008469583149211979,
+              "kept": true
+            },
+            "missing": {
+              "comparison_O_rate": 0.01044932079414838,
+              "comparison_clearings": 957,
+              "comparison_weight": 0.00691588920124009,
+              "comparison_with_O": 10,
+              "defect_O_rate": 0.01876675603217158,
+              "defect_clearings": 373,
+              "defect_with_O": 7,
+              "difference": 0.0083174352380232,
+              "kept": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "label": "exploratory, not registered; no p-value; not in the Holm family; no regression",
+  "method": "direct standardisation to the comparison group's stratum distribution, over the strata with defect and comparison clearings, weights renormalised; excluded strata listed with their weight",
+  "registration": "p7-v1.1"
+}

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+
 import pytest
 
 from conftest import FIXTURES
@@ -38,4 +40,19 @@ def test_x1_partitions_d4_and_runs_twice_identically(results, tmp_path):
     assert "p_one_sided_raw" not in doc["exploratory_h2_explicit_only"]
     assert [t["label"] for t in doc["exploratory_materiality"]["thresholds"]] == ["0", "1%", "5%", "10%"]
     x1.run(XES, results, tmp_path / "b.json", **kw)
+    assert (tmp_path / "a.json").read_bytes() == (tmp_path / "b.json").read_bytes()
+
+
+def test_x2_standardisation(results, tmp_path):
+    from experiments.exploratory import x2_adjusted_h1_h2 as x2
+
+    # Two strata: the standardised difference weights stratum differences by the comparison distribution.
+    rates = {"s1": (2, 1, 8, 2), "s2": (1, 0, 2, 1), "s3": (0, 0, 10, 1)}
+    diff, kept, weights = x2.standardise(rates)
+    assert kept == ["s1", "s2"] and weights["s3"] == 0.5
+    assert diff == pytest.approx(0.8 * (0.5 - 0.25) + 0.2 * (0.0 - 0.5))
+    doc = x2.run(results, tmp_path / "a.json", b=B)
+    assert set(doc["exploratory_estimates"]) == {"H1", "H2"} and doc["exploratory"] is True
+    assert "p_one_sided_raw" not in json.dumps(doc)
+    x2.run(results, tmp_path / "b.json", b=B)
     assert (tmp_path / "a.json").read_bytes() == (tmp_path / "b.json").read_bytes()

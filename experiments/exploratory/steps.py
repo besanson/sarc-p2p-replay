@@ -19,7 +19,14 @@ def x1(log: Path, results_dir: Path, out: Path, paper_dir: Path, e0_path: Path, 
     return ["exploratory/d4-sensitivity.json"]
 
 
-STEPS = {"X1": x1}
+def x2(log: Path, results_dir: Path, out: Path, paper_dir: Path, e0_path: Path, min_month_events: int, b: int) -> list[str]:
+    from experiments.exploratory import x2_adjusted_h1_h2  # noqa: PLC0415
+
+    x2_adjusted_h1_h2.run(results_dir, out / "exploratory" / "adjusted-h1-h2.json", b)
+    return ["exploratory/adjusted-h1-h2.json"]
+
+
+STEPS = {"X1": x1, "X2": x2}
 
 
 def run_all(log: Path, results_dir: Path, out: Path, paper_dir: Path, e0_path: Path = E0_LINES,

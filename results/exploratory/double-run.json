@@ -8,10 +8,18 @@
       "sha256_committed": "9197bd56766a628d6969b43e7a6f72861dc25546f9adfd132a00971bb4dcef2f",
       "sha256_run_a": "9197bd56766a628d6969b43e7a6f72861dc25546f9adfd132a00971bb4dcef2f",
       "sha256_run_b": "9197bd56766a628d6969b43e7a6f72861dc25546f9adfd132a00971bb4dcef2f"
+    },
+    {
+      "file": "results/exploratory/adjusted-h1-h2.json",
+      "identical": true,
+      "sha256_committed": "4656fa8435792802177c85585e68d74f6ca8ce8a8035d77e40d0dcfdb90e0bf8",
+      "sha256_run_a": "4656fa8435792802177c85585e68d74f6ca8ce8a8035d77e40d0dcfdb90e0bf8",
+      "sha256_run_b": "4656fa8435792802177c85585e68d74f6ca8ce8a8035d77e40d0dcfdb90e0bf8"
     }
   ],
   "runs": "two runs into out/exploratory-double-run/{a,b}",
   "steps": [
-    "X1"
+    "X1",
+    "X2"
   ]
 }
