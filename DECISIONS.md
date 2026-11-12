@@ -1494,3 +1494,37 @@ changed, except those filled from the new attempt slot.
 
 The author tags v1.0.3 on the commit that adds this entry ("paper 7: D-F-6, release 1.0.3"); a commit
 cannot name its own hash, so the builder's report gives it.
+
+## D-G-1 Author's final verification of 1.0.3 (2026-11-12)
+
+The author read the released paper (1.0.3, tag v1.0.3, externally reproduced) and decided on
+each observation below. Every addition is exploratory or wording: none changes a registered file, a
+committed experiment slot, `CLAIMS.md`, the Holm family or a registered estimate. Exploratory slots live
+under `results/exploratory/`, are labelled exploratory in every file name, field and heading, carry no
+p-value and never enter the Holm family.
+
+a. D4 accounts for most clearings with a failed predicate, and the headline exposure rests on one
+   predicate whose "last approval-bearing event" is often the line's creation. Decision: an exploratory
+   sensitivity analysis (X1) and, in session 2, a sentence distinguishing a failed registered predicate
+   from a confirmed violation of the company's approval policy.
+b. The people column measures observed non-release within W, not a decision; it must be named and tabled
+   as such, at the top of 5.4. Decision: wording and table changes in session 2.
+c. D-C-2 B needs its conceptual justification in the paper: "not applicable" (no clearing actor exists)
+   is not "unknown" (an actor field is empty); with the list of what is invariant to it and what depends
+   on it. Decision: a Section 3 paragraph in session 2.
+d. The model comparison must be auditable: the registered ERP view template, one synthetic example of
+   both views, both request formats including the Jev deviation, and the statement that the design does
+   not separate wording, structure and information content. Decision: X4, and an appendix in session 2.
+e. H1 and H2 are unadjusted; an exploratory standardised estimate shows whether the associations survive
+   observed composition. Decision: X2.
+f. The compiler's negative result is a contribution: incomplete loss specification against insufficient
+   observables, minimal against normative contract, losses absent from history. Decision: discussion in
+   session 2.
+g. Holds with no corrective within W are an operational cost worth stating in proportions. Decision: X3.
+   Hypothetical review-cost or resolution-time scenarios are declined: the log carries no parameter for
+   them, and every figure would be assumed.
+h. E7 shows that the procedure applies to another log, not external validity; the characteristics an
+   informative replication needs are listed. Decision: wording in session 2.
+i. Editorial: figure numbering and captions checked; the AI disclosure shortened; confirmatory,
+   exploratory and secondary labels on every result heading; the abstract observational. Decision:
+   session 2.
