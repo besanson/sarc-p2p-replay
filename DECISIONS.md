@@ -1708,3 +1708,17 @@ Three presentation items; no model call, no registered file, committed slot or r
    terminology lint's defect rule holds; it passes.
 
 The paper, figures, `main.tex` and `main.pdf` regenerate byte-identically twice; CLAIMS.md is unchanged.
+
+## D-G-6 Release 1.1.2 (2026-11-12)
+
+1.1.0 and 1.1.1 were not tagged and are superseded by this release.
+
+**What changed** since 1.1.1: the three presentation items of D-G-5 (the hold-rates figure's exploratory panel title and
+the tight figure export; the strict-D4 sentences in 5.4 and Section 7; the introduction sentence); Appendix C names the
+release. No model call; no registered file, committed slot or registered estimate changed; CLAIMS.md unchanged.
+
+`pyproject.toml` and `CITATION.cff` 1.1.2, date-released 2026-11-12; README status; REPRODUCE.md
+`git checkout v1.1.2`. The fresh-clone check (D-F-3) runs on this commit before it is pushed.
+
+The author tags v1.1.2 on <sha>, the commit that adds this entry ("paper 7: D-G-6, release 1.1.2"); a commit cannot
+name its own hash, so the builder's report gives it.
