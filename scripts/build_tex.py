@@ -76,6 +76,8 @@ def _cells(body: str) -> str:
 
 def _layout(tex: str) -> str:
     tex = tex.replace("\\begin{document}", TABLE_SETUP + "\\begin{document}", 1)
+    # LaTeX numbers the figures itself; the markdown caption's own "Figure n:" would print twice.
+    tex = re.sub(r"\\caption\{Figure \d+:\s*", r"\\caption{", tex)
     tex = tex.replace("\\begin{verbatim}", "\\begin{Verbatim}[breaklines,breakanywhere,fontsize=\\footnotesize]")
     tex = tex.replace("\\end{verbatim}", "\\end{Verbatim}")
     # A hash in running text (a SHA-256 in \texttt) may also break anywhere.
