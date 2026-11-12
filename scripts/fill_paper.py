@@ -287,7 +287,7 @@ def _arms_rows(a: dict) -> list[str]:
     rows = [_row(["arm", "held, lines with a failed predicate", "held, clean lines", "kappa with gate",
                   "value released on lines with a failed predicate", "expected correctives"]),
             _row(["---", "---:", "---:", "---:", "---:", "---:"])]
-    for key, label in (("people", "people (from the log)"), ("jev", "Jev"), ("haiku", "Haiku"), ("gate", "gate")):
+    for key, label in (("people", "people (observed non-release within W)"), ("jev", "Jev"), ("haiku", "Haiku"), ("gate", "gate")):
         x = a[key]
         rows.append(_row([label,
                           f"{fmt(x['defective']['held'], 'int')} of {fmt(x['defective']['lines'], 'int')} ({fmt(x['hold_rate_defective'], 'pct1')})",
@@ -480,6 +480,108 @@ def block_confounders() -> tuple[str, list[str]]:
     return "\n\n".join(parts), ["e2/confounders.json", "e3/confounders.json"]
 
 
+X1 = "exploratory/d4-sensitivity.json"
+X2 = "exploratory/adjusted-h1-h2.json"
+X3 = "exploratory/hold-friction.json"
+X1_ROWS = (("registered", "(a) registered: at least one failed predicate"),
+           ("explicit_only", "(b) D4 counts only changes after an explicit approval or release event"),
+           ("creation_only_d4", "(c) D4 failures with the creation as the only approval-bearing event"))
+
+
+def _x1_table(classes: dict, n: int) -> list[str]:
+    rows = [_row(["reading (exploratory)", "clearings", "share", "Wilson 95%", "clustered 95%", "share of value",
+                  "clustered 95%"]), _row(["---", "---:", "---:", "---", "---", "---:", "---"])]
+    for key, label in X1_ROWS:
+        c = classes[key]
+        rows.append(_row([label, f"{fmt(c['clearings'], 'int')} of {fmt(n, 'int')}", fmt(c["share_of_clearings"], "pct"),
+                          fmt(c["wilson95"], "ivpct"), fmt(c["bootstrap95"], "ivpct"), fmt(c["share_of_value"], "pct"),
+                          fmt(c["value_bootstrap95"], "ivpct")]))
+    return rows
+
+
+def block_x1_d4() -> tuple[str, list[str]]:
+    """5.1, exploratory (D-G-1 a): the registered exposure, the explicit-anchor reading and its complement."""
+    a = load(X1)["exploratory_all"]
+    rows = _x1_table(a, a["analysed_clearings"]) + ["", f"Source: `results/{X1}` (exploratory)."]
+    return "\n".join(rows), [X1]
+
+
+def block_x2_adjusted() -> tuple[str, list[str]]:
+    """5.2, exploratory (D-G-1 e): standardised differences beside the registered unadjusted ones."""
+    e = load(X2)["exploratory_estimates"]
+    reg = load("e2/hypotheses.json")["estimates"]
+    rows = [_row(["test", "estimate", "difference", "clustered 95%", "excluded comparison weight"]),
+            _row(["---", "---", "---:", "---", "---:"])]
+    for test, block in e.items():
+        r = reg[test]["W60"]
+        rows.append(_row([test, "registered, unadjusted", fmt(r["difference"], "prop"), fmt(r["bootstrap95"], "iv"), ""]))
+        for name, s in block["standardised"].items():
+            rows.append(_row([test, f"exploratory, standardised by {name}", fmt(s["standardised_difference"], "prop"),
+                              fmt(s["bootstrap95"], "iv"), fmt(s["excluded_comparison_weight"], "pct")]))
+    rows += ["", f"Sources: `results/e2/hypotheses.json` (registered), `results/{X2}` (exploratory)."]
+    return "\n".join(rows), ["e2/hypotheses.json", X2]
+
+
+def _x3_rows(cells: dict, first: str) -> list[str]:
+    rows = [_row([first, "gate holds", "without a corrective", "clustered 95%", "share of held value", "clustered 95%"]),
+            _row(["---", "---:", "---:", "---", "---:", "---"])]
+    for label, c in cells.items():
+        rows.append(_row([label, fmt(c["holds"], "int"), fmt(c["share_without_corrective"], "pct"),
+                          fmt(c["bootstrap95"], "ivpct"), fmt(c["value_share_without_corrective"], "pct"),
+                          fmt(c["value_bootstrap95"], "ivpct")]))
+    return rows
+
+
+def block_x3_friction() -> tuple[str, list[str]]:
+    """5.3, exploratory (D-G-1 g): gate holds with no corrective within W, at both windows."""
+    o = load(X3)["exploratory_overall"]
+    rows = _x3_rows({f"W = {w[1:]} days": c for w, c in o.items()}, "window")
+    rows += ["", f"Source: `results/{X3}` (exploratory)."]
+    return "\n".join(rows), [X3]
+
+
+def block_appendix_g() -> tuple[str, list[str]]:
+    """Appendix G (D-G-2): the full exploratory tables of X1, X2 and X3."""
+    parts = []
+    x1 = load(X1)
+    for cat, block in x1["exploratory_by_category"].items():
+        parts.append(f"**X1, {cat}**\n\n" + "\n".join(_x1_table(block["classes"], block["analysed_clearings"])))
+    h2 = x1["exploratory_h2_explicit_only"]
+    parts.append("**X1, H2 under the explicit-anchor reading (W = 60 days)**\n\n" + "\n".join([
+        _row(["", "defect group", "comparison group", "difference", "clustered 95%"]), _row(["---", "---:", "---:", "---:", "---"]),
+        _row(["exploratory (b)", f"{fmt(h2['defect_group']['O_rate'], 'pct')} ({fmt(h2['defect_group']['with_O'], 'int')} of "
+              f"{fmt(h2['defect_group']['clearings'], 'int')})", f"{fmt(h2['comparison_group']['O_rate'], 'pct')} "
+              f"({fmt(h2['comparison_group']['with_O'], 'int')} of {fmt(h2['comparison_group']['clearings'], 'int')})",
+              fmt(h2["difference"], "prop"), fmt(h2["bootstrap95"], "iv")]),
+        _row(["registered", fmt(h2["registered_h2"]["defect_O_rate"], "pct"), fmt(h2["registered_h2"]["comparison_O_rate"], "pct"),
+              fmt(h2["registered_h2"]["difference"], "prop"), ""])]))
+    for test, block in load(X2)["exploratory_estimates"].items():
+        for name, s in block["standardised"].items():
+            rows = [_row(["stratum", "defect O rate", "comparison O rate", "difference", "comparison weight", "kept"]),
+                    _row(["---", "---:", "---:", "---:", "---:", "---"])]
+            for label, c in s["strata"].items():
+                rows.append(_row([label, f"{fmt(c['defect_O_rate'], 'pct')} ({fmt(c['defect_with_O'], 'int')} of "
+                                  f"{fmt(c['defect_clearings'], 'int')})", f"{fmt(c['comparison_O_rate'], 'pct')} "
+                                  f"({fmt(c['comparison_with_O'], 'int')} of {fmt(c['comparison_clearings'], 'int')})",
+                                  fmt(c["difference"], "prop"), fmt(c["comparison_weight"], "pct"), "yes" if c["kept"] else "no"]))
+            parts.append(f"**X2, {test} by {name}** (standardised difference {fmt(s['standardised_difference'], 'prop')}, "
+                         f"{fmt(s['bootstrap95'], 'iv')})\n\n" + "\n".join(rows))
+    x3 = load(X3)
+    for w, cells in x3["exploratory_by_category"].items():
+        parts.append(f"**X3, W = {w[1:]} days, by item category**\n\n" + "\n".join(_x3_rows(cells, "category")))
+    for w, cells in x3["exploratory_by_line_value_quartile"].items():
+        parts.append(f"**X3, W = {w[1:]} days, by line-value quartile**\n\n" + "\n".join(_x3_rows(cells, "quartile")))
+    parts.append(f"Sources: `results/{X1}`, `results/{X2}`, `results/{X3}` (exploratory).")
+    return "\n\n".join(parts), [X1, X2, X3]
+
+
+def block_appendix_f() -> tuple[str, list[str]]:
+    """Appendix F (D-G-2): paper/appendix-prompts.md, generated by X4, without its comment and heading."""
+    text = (ROOT / "paper" / "appendix-prompts.md").read_text(encoding="utf-8")
+    body = re.sub(r"\A<!--.*?-->\n## [^\n]*\n\n", "", text, flags=re.DOTALL)
+    return body.rstrip(), ["paper/appendix-prompts.md", "exploratory/prompt-examples.json"]
+
+
 def block_registered_numbers() -> tuple[str, list[str]]:
     text = (ROOT / "prereg" / "p7-v1.1.md").read_text(encoding="utf-8")
     section = text.split("## 9. Registered numbers", 1)[1].split("\n## ", 1)[0]
@@ -508,6 +610,8 @@ BLOCKS: dict[str, Callable[[], tuple[str, list[str]]]] = {
     "datasets": block_datasets, "arms_classified": block_arms_classified,
     "hold_composition": block_hold_composition, "coverage_status": block_coverage_status,
     "confounders": block_confounders,
+    "x1_d4": block_x1_d4, "x2_adjusted": block_x2_adjusted, "x3_friction": block_x3_friction,
+    "appendix_g": block_appendix_g, "appendix_f": block_appendix_f,
 }
 
 

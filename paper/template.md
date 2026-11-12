@@ -13,7 +13,12 @@ registered exclusions),
 {{e1/exposure.json>classes>at least one defect>clearings|int}} ({{e1/exposure.json>classes>at least one defect>share_of_clearings|pct}},
 clustered bootstrap 95% interval {{e1/exposure.json>classes>at least one defect>bootstrap95|ivpct}}) were made on evidence that
 failed at least one of seven registered predicates, carrying {{e1/exposure.json>classes>at least one defect>share_of_value|pct}}
-of the cleared value ({{e1/exposure.json>classes>at least one defect>value_bootstrap95|ivpct}}). We replay every analysed clearing
+of the cleared value ({{e1/exposure.json>classes>at least one defect>value_bootstrap95|ivpct}}). Of the clearings with a failed
+predicate, {{exploratory/d4-sensitivity.json>exploratory_all>creation_only_d4>clearings|int}} fail D4 with the line's creation as the last approval-bearing event,
+no explicit approval or release event being recorded on the line before the clearing; counting only changes after an explicit
+approval, an exploratory reading, exposure is {{exploratory/d4-sensitivity.json>exploratory_all>explicit_only>share_of_clearings|pct}} of clearings
+{{exploratory/d4-sensitivity.json>exploratory_all>explicit_only>bootstrap95|ivpct}} and {{exploratory/d4-sensitivity.json>exploratory_all>explicit_only>share_of_value|pct}} of value
+{{exploratory/d4-sensitivity.json>exploratory_all>explicit_only>value_bootstrap95|ivpct}}. We replay every analysed clearing
 of the BPI Challenge 2019 log through a deterministic min() gate declared before the data were read, over the evidence
 reconstructed from the log at clearing time. Clearings made on evidence that failed on the goods receipt (absent or late, D1/D2)
 were followed by a corrective event within
@@ -146,6 +151,12 @@ category.
 | D6 | block respected | scope | payment blocks set minus blocks removed greater than zero |
 | D7 | not deleted | validity | deletions plus blocks minus reactivations of the line greater than zero |
 
+Under the registered reading of D4, the line's earliest creation (`Create Purchase Order Item`) is an approval-bearing event,
+so D4 flags any later price or quantity change on a line with no later approval or release event. The paper reports the
+registered reading as primary, and a strict reading, which anchors D4 on explicit approval or release events only, as
+exploratory (Section 5.1). A failed registered predicate is not a confirmed violation of the company's approval policy:
+whether a change after creation required re-approval is not recorded in the log.
+
 At t_c, D1 and D2 have the same truth value; they are kept apart because they carry two dimensions. For reporting only, a
 D1/D2 failure is assigned to a defect class by what the log records later: the stale receipt (D2 class) if an uncancelled
 receipt is recorded after t_c and by the observation end, the absent receipt (D1 class) otherwise.
@@ -157,6 +168,12 @@ separately. "Defect" is used only for a failed predicate.
 
 **Human hold.** A line is held by people if a payment block is recorded before its first clearing, or if no clearing is
 recorded within W days of its first invoice receipt; a clearing before the first invoice receipt counts as a release.
+
+**D5 at a decision point that is not a clearing.** D5 compares the actor of the clearing with an actor of the line's earliest
+creation. At a decision point with no clearing there is no clearing actor: the predicate has no argument and is not
+applicable (decision D-C-2 B), which is not the "unknown" of an empty actor field on a recorded clearing. Invariant to this
+reading: E1, E2, every registered test and the Holm table, all computed at actual clearings. Dependent on it: the E3
+human-hold slot and the E4 sample, which classify lines at t*. Both readings are reported (Section 5.3).
 
 **Outcome proxy and lag bands.** O = 1 for a clearing if a registered corrective activity (an invoice receipt or goods receipt
 cancelled, a price or quantity changed, the line deleted, a vendor debit memo, a subsequent invoice) is recorded on the line
@@ -222,6 +239,26 @@ the cleared-value sources and the exported sample.
 
 ![Figure 1: share of analysed clearings and of cleared value per defect class, with clustered bootstrap 95% intervals.](figures/fig1-exposure.svg)
 
+**D4 sensitivity (exploratory).** The registered reading of D4 counts the creation as approval-bearing (Section 3). Of the
+{{exploratory/d4-sensitivity.json>exploratory_materiality>d4_failures|int}} D4 failures, {{exploratory/d4-sensitivity.json>exploratory_all>creation_only_d4>clearings|int}} have no explicit
+approval or release event before the clearing; {{exploratory/d4-sensitivity.json>exploratory_h2_explicit_only>defect_group>clearings|int}} clearings fail D4 after
+an explicit approval or release event. Exposure under the three readings:
+
+{{#x1_d4}}
+
+Under the strict reading, H2's O rates at W = 60 days are {{exploratory/d4-sensitivity.json>exploratory_h2_explicit_only>defect_group>O_rate|pct}} against
+{{exploratory/d4-sensitivity.json>exploratory_h2_explicit_only>comparison_group>O_rate|pct}} (difference {{exploratory/d4-sensitivity.json>exploratory_h2_explicit_only>difference|prop}}, clustered 95%
+{{exploratory/d4-sensitivity.json>exploratory_h2_explicit_only>bootstrap95|iv}}), beside the registered difference
+{{exploratory/d4-sensitivity.json>exploratory_h2_explicit_only>registered_h2>difference|prop}} (Section 5.2); exploratory, no p-value. Materiality: the
+`Cumulative net worth (EUR)` value is repeated on every event of a line, so the magnitude of a counted change is observable on
+{{exploratory/d4-sensitivity.json>exploratory_materiality>d4_failures_with_an_observable_nonzero_change|int}} of {{exploratory/d4-sensitivity.json>exploratory_materiality>d4_failures|int}} D4
+failures only. Restricting D4 failures to observable relative changes above the unregistered thresholds
+{{exploratory/d4-sensitivity.json>exploratory_materiality>thresholds>0>label}}, {{exploratory/d4-sensitivity.json>exploratory_materiality>thresholds>1>label}},
+{{exploratory/d4-sensitivity.json>exploratory_materiality>thresholds>2>label}} and {{exploratory/d4-sensitivity.json>exploratory_materiality>thresholds>3>label}} gives the same
+{{exploratory/d4-sensitivity.json>exploratory_materiality>thresholds>0>exposure>clearings|int}} clearings
+({{exploratory/d4-sensitivity.json>exploratory_materiality>thresholds>0>exposure>share_of_clearings|pct}}) at every threshold: the clearings that fail a predicate
+other than D4. The magnitude of a change is therefore an undetected class (Section 6).
+
 ### 5.2 Consequence (E2)
 
 {{#hypotheses}}
@@ -248,6 +285,14 @@ committed at {{e4/timeline.json>commits>D-C-2 decision (D5 reading, H3 conventio
 for H1 and {{e2/hypotheses.json>estimates>H2>W30>difference|prop}} for H2, descriptively. Appendix E gives H1 and H2 per item
 category, spend area, value quartile, vendor activity quartile and month, descriptively and never modelled in.
 
+**Standardised H1 and H2 (exploratory).** Each registered difference beside the difference standardised to the comparison
+group's stratum distribution, for three stratifications; strata with no clearings in the failing group are excluded and their weight in the
+comparison group is shown. No regression, no p-value:
+
+{{#x2_adjusted}}
+
+H1 holds under every stratification; H2 holds, by category and value quartile at about a third of its unadjusted size.
+
 ### 5.3 Gate effect and hold cost (E3)
 
 The gate would have held {{e3/gate-held.json>held>clearings|int}} of {{e3/gate-held.json>analysed_clearings|int}} analysed clearings
@@ -257,6 +302,14 @@ of them were held on an unknown predicate value alone. Against the corrective at
 {{#two_by_two}}
 
 Appendix E gives the same table per stratum.
+
+**Hold friction (exploratory).** The share of the gate's holds followed by no corrective within W, in count and in cleared
+value:
+
+{{#x3_friction}}
+
+A hold with no corrective within W is not shown to be a false hold: the proxy is what it is. The share is the review load the
+contract would create, stated as a proportion and nothing more.
 
 ![Figure 4: gate verdict against the corrective within W = 60 days, in clearings and in cleared value.](figures/fig4-verdict-outcome.svg)
 
@@ -282,6 +335,11 @@ lines.
 
 ### 5.4 People, models and the gate on the same lines (E4)
 
+**Measurement asymmetry.** The models and the gate decide at t*; the people column is observed non-release within W. Of the
+{{e3/human-hold-composition.json>held_by_people|int}} framed lines held by people, {{e3/human-hold-composition.json>by_reason>no_clearing_within_W_of_first_invoice|int}} are
+non-clearance within W alone, {{e3/human-hold-composition.json>by_reason>payment_block_before_first_clearing|int}} a payment block alone and
+{{e3/human-hold-composition.json>by_reason>both|int}} both (`results/e3/human-hold-composition.json`). The tables name the column accordingly.
+
 **Sample and arms.** From the framed lines with an invoice receipt, {{e4/sample-frame.json>groups>defective>eligible_lines|int}} had at least
 one failed predicate at t* and {{e4/sample-frame.json>groups>clean>eligible_lines|int}} were clean, under D-C-2 B (`results/e4/sample-frame.json`).
 These differ from the {{e3/human-hold.json>amended_reading_D-C-2>by_gate_status_at_t_star>defective>classified_lines|int}} and
@@ -301,6 +359,10 @@ its denominators are smaller. The gate's verdict holds every line with a failed 
 construction.
 
 {{#arms}}
+
+People: observed non-release within W ({{e3/human-hold-composition.json>by_reason>no_clearing_within_W_of_first_invoice|int}} non-clearance alone,
+{{e3/human-hold-composition.json>by_reason>payment_block_before_first_clearing|int}} payment block alone, {{e3/human-hold-composition.json>by_reason>both|int}} both, among the framed
+lines held by people; Section 5.3).
 
 ![Figure 2: hold rate on lines with a failed predicate and on clean lines, per arm; the exploratory timeline arm in its own panel.](figures/fig2-hold-rates.svg)
 
@@ -329,6 +391,10 @@ primary:
 
 {{#arms_classified}}
 
+People: observed non-release within W ({{e3/human-hold-composition.json>by_reason>no_clearing_within_W_of_first_invoice|int}} non-clearance alone,
+{{e3/human-hold-composition.json>by_reason>payment_block_before_first_clearing|int}} payment block alone, {{e3/human-hold-composition.json>by_reason>both|int}} both, among the framed
+lines held by people; Section 5.3).
+
 **What the people arm measures.** The log records no hold decision except a payment block. "Held by people" (section 3.6)
 is a payment block before the first clearing, or no clearing within W of the first invoice receipt: an inferred non-release,
 not the same act as a model's hold verdict at t*. Of the {{e3/human-hold-composition.json>held_by_people|int}} framed lines held by
@@ -343,7 +409,11 @@ the same families and rules, with the line's events up to t* (date, activity, va
 
 {{#exploratory}}
 
-Under the timeline view the same models held far fewer lines with a failed predicate (exploratory, no interval). Spend for
+Under the timeline view the same models held far fewer lines with a failed predicate (exploratory, no interval). The
+experiment does not separate instruction wording, field structure and information content: the timeline view was sent with
+the template's opening paragraph, which says "Using only the ERP record below", followed by the timeline, as Appendix F
+shows. The gate's column follows from the predicates by construction: it is exact contract enforcement, not decision
+accuracy. Spend for
 both families and both views together was USD {{e6/cost.json>spend_usd_total|usd}} against the registered cap of USD 60
 (`results/e6/cost.json`).
 
@@ -376,6 +446,13 @@ The registered contract is sufficient, not derived: sufficient for the three dec
 the three-way categories for L1 and L3 but not for L2, for the reason above; minimal in no category (C1). The compiler's
 contract is smaller in every category, and so C9, which asks whether it equals the registered one, is not supported.
 
+**What the negative result shows.** For each predicate the compiler did not derive, the reason is one of two. D5, D6 and D7
+read observations that no declared loss reads: the reason is a loss not declared. Pay twice (L2) needs an observable the
+registered contract does not carry, the clearing's position on its line. A minimum-cardinality sufficient contract over the
+observed states is not the normative contract: a loss that never occurs in the history yields no predicate (L1 in the
+after-receipt category). For paper 5's method to carry such controls, each needs a declared loss and a declared observable,
+not history.
+
 ### 5.6 Governance cost (E6)
 
 The full replay of every line, from reading the log to the written evidence set, took a median of
@@ -383,7 +460,11 @@ The full replay of every line, from reading the log to the written evidence set,
 {{e6/timing-e1.json>seconds_per_decision|f6}} seconds per gate decision. A model decision cost USD
 {{e6/cost.json>arms>e4>jev>usd_per_decision|usd6}} with Jev and USD {{e6/cost.json>arms>e4>haiku>usd_per_decision|usd6}} with Haiku.
 
-### 5.7 Replication on travel declarations (E7)
+### 5.7 Applicability to another log: travel declarations (E7)
+
+E7 tests whether the procedure applies to another log, not external validity. An informative replication needs recorded
+approvals, explicit decision events, reliable actor identities, enough failed predicates, and a downstream outcome within the
+window.
 
 The unit is a payment on a declaration case at least W before the latest timestamp of its log; D1' approval present, D2'
 approval by the required role and D3' unchanged after approval are evaluated before the payment, and O' is a rejection or
@@ -448,7 +529,12 @@ the evidence set; the expressions are recorded with the result. One company's pr
 clearings in this process were made on evidence that failed at least one registered predicate, carrying
 {{e1/exposure.json>classes>at least one defect>share_of_value|pct}} of the cleared value; those made with an absent or late receipt
 (D1/D2) were followed by a corrective at a higher rate than three-way clearings with every applicable predicate passing, and
-those made after a change since approval (D4 fail) at a higher rate than D4-pass clearings. The sufficiency check adds that
+those made after a change since approval (D4 fail) at a higher rate than D4-pass clearings. Counting only changes after an
+explicit approval, an exploratory reading, exposure is {{exploratory/d4-sensitivity.json>exploratory_all>explicit_only>share_of_clearings|pct}} of clearings and
+{{exploratory/d4-sensitivity.json>exploratory_all>explicit_only>share_of_value|pct}} of cleared value, beside the registered
+{{e1/exposure.json>classes>at least one defect>share_of_clearings|pct}} and {{e1/exposure.json>classes>at least one defect>share_of_value|pct}}.
+A failed registered predicate is not a confirmed violation of the company's approval policy; whether a change after creation
+required re-approval is not recorded in the log. The sufficiency check adds that
 the registered contract is sufficient for "goods not received" and "changed amount", and not for "pay twice" in the
 three-way categories, because no registered predicate reads the clearing's position on its line.
 

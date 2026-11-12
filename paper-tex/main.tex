@@ -99,30 +99,36 @@ Of the 155,534 analysed invoice clearings of a real purchase-to-pay
 event log (Section 4 gives the registered exclusions), 17,748 (11.41\%,
 clustered bootstrap 95\% interval {[}10.94\%, 11.92\%{]}) were made on
 evidence that failed at least one of seven registered predicates,
-carrying 19.41\% of the cleared value ({[}16.04\%, 23.09\%{]}). We
-replay every analysed clearing of the BPI Challenge 2019 log through a
-deterministic min() gate declared before the data were read, over the
-evidence reconstructed from the log at clearing time. Clearings made on
-evidence that failed on the goods receipt (absent or late, D1/D2) were
-followed by a corrective event within 60 days at a rate of 5.64\%,
-against 0.93\% for three-way clearings with every applicable predicate
-passing (difference 0.0470, Holm-adjusted p = \(4.53 \times 10^{-4}\));
-clearings made after a change of price or quantity since approval (D4
-fail), at 1.91\% against 0.96\% for D4-pass clearings (difference
-0.0094, Holm-adjusted p = \(3.48 \times 10^{-7}\)). On a registered
-sample of lines with a failed predicate and of clean lines, two model
-families shown the ERP view held 100.0\% and 99.6\% of the first and
-53.0\% and 57.3\% of the second; on the sample lines the log lets us
-classify, people held 33.0\% and 34.0\%, where a hold is a recorded
-payment block or, in nearly every case, an inferred non-release within
-60 days, not a recorded decision; the gate's verdict holds the first and
-allows the second by construction. A line's status at the decision point
-follows a reading of D5 (decision D-C-2 B) that the author fixed after
-E3 and before any model call (Section 4). Paper 5's compiler, given the
-three declared losses of the registration, does not reproduce the
-registered contract in any item category. The coverage matrix states
-which defect classes this log cannot expose; the authority defect class
-(D5) has zero incidence here. No causal claim is made.
+carrying 19.41\% of the cleared value ({[}16.04\%, 23.09\%{]}). Of the
+clearings with a failed predicate, 16,478 fail D4 with the line's
+creation as the last approval-bearing event, no explicit approval or
+release event being recorded on the line before the clearing; counting
+only changes after an explicit approval, an exploratory reading,
+exposure is 0.90\% of clearings {[}0.67\%, 1.19\%{]} and 5.65\% of value
+{[}3.67\%, 8.13\%{]}. We replay every analysed clearing of the BPI
+Challenge 2019 log through a deterministic min() gate declared before
+the data were read, over the evidence reconstructed from the log at
+clearing time. Clearings made on evidence that failed on the goods
+receipt (absent or late, D1/D2) were followed by a corrective event
+within 60 days at a rate of 5.64\%, against 0.93\% for three-way
+clearings with every applicable predicate passing (difference 0.0470,
+Holm-adjusted p = \(4.53 \times 10^{-4}\)); clearings made after a
+change of price or quantity since approval (D4 fail), at 1.91\% against
+0.96\% for D4-pass clearings (difference 0.0094, Holm-adjusted p =
+\(3.48 \times 10^{-7}\)). On a registered sample of lines with a failed
+predicate and of clean lines, two model families shown the ERP view held
+100.0\% and 99.6\% of the first and 53.0\% and 57.3\% of the second; on
+the sample lines the log lets us classify, people held 33.0\% and
+34.0\%, where a hold is a recorded payment block or, in nearly every
+case, an inferred non-release within 60 days, not a recorded decision;
+the gate's verdict holds the first and allows the second by
+construction. A line's status at the decision point follows a reading of
+D5 (decision D-C-2 B) that the author fixed after E3 and before any
+model call (Section 4). Paper 5's compiler, given the three declared
+losses of the registration, does not reproduce the registered contract
+in any item category. The coverage matrix states which defect classes
+this log cannot expose; the authority defect class (D5) has zero
+incidence here. No causal claim is made.
 
 \hypertarget{introduction}{%
 \subsection{1 Introduction}\label{introduction}}
@@ -339,6 +345,16 @@ D7 & not deleted & validity & deletions plus blocks minus reactivations
 of the line greater than zero \\
 \end{longtable}
 
+Under the registered reading of D4, the line's earliest creation
+(\texttt{Create\ Purchase\ Order\ Item}) is an approval-bearing event,
+so D4 flags any later price or quantity change on a line with no later
+approval or release event. The paper reports the registered reading as
+primary, and a strict reading, which anchors D4 on explicit approval or
+release events only, as exploratory (Section 5.1). A failed registered
+predicate is not a confirmed violation of the company's approval policy:
+whether a change after creation required re-approval is not recorded in
+the log.
+
 At t\_c, D1 and D2 have the same truth value; they are kept apart
 because they carry two dimensions. For reporting only, a D1/D2 failure
 is assigned to a defect class by what the log records later: the stale
@@ -357,6 +373,16 @@ failed predicate.
 recorded before its first clearing, or if no clearing is recorded within
 W days of its first invoice receipt; a clearing before the first invoice
 receipt counts as a release.
+
+\textbf{D5 at a decision point that is not a clearing.} D5 compares the
+actor of the clearing with an actor of the line's earliest creation. At
+a decision point with no clearing there is no clearing actor: the
+predicate has no argument and is not applicable (decision D-C-2 B),
+which is not the ``unknown'' of an empty actor field on a recorded
+clearing. Invariant to this reading: E1, E2, every registered test and
+the Holm table, all computed at actual clearings. Dependent on it: the
+E3 human-hold slot and the E4 sample, which classify lines at t*. Both
+readings are reported (Section 5.3).
 
 \textbf{Outcome proxy and lag bands.} O = 1 for a clearing if a
 registered corrective activity (an invoice receipt or goods receipt
@@ -582,6 +608,64 @@ and the exported sample.
 defect class, with clustered bootstrap 95\% intervals.}
 \end{figure}
 
+\textbf{D4 sensitivity (exploratory).} The registered reading of D4
+counts the creation as approval-bearing (Section 3). Of the 17,157 D4
+failures, 16,478 have no explicit approval or release event before the
+clearing; 679 clearings fail D4 after an explicit approval or release
+event. Exposure under the three readings:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1250}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1250}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1250}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+reading (exploratory)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+clearings
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+share
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Wilson 95\%
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+clustered 95\%
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+share of value
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+clustered 95\%
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+(a) registered: at least one failed predicate & 17,748 of 155,534 &
+11.41\% & {[}11.25\%, 11.57\%{]} & {[}10.94\%, 11.92\%{]} & 19.41\% &
+{[}16.04\%, 23.09\%{]} \\
+(b) D4 counts only changes after an explicit approval or release event &
+1,405 of 155,534 & 0.90\% & {[}0.86\%, 0.95\%{]} & {[}0.67\%, 1.19\%{]}
+& 5.65\% & {[}3.67\%, 8.13\%{]} \\
+(c) D4 failures with the creation as the only approval-bearing event &
+16,478 of 155,534 & 10.59\% & {[}10.44\%, 10.75\%{]} & {[}10.17\%,
+11.04\%{]} & 13.79\% & {[}11.49\%, 16.49\%{]} \\
+\end{longtable}
+
+Source: \texttt{results/exploratory/d4-sensitivity.json} (exploratory).
+
+Under the strict reading, H2's O rates at W = 60 days are 4.42\% against
+1.05\% (difference 0.0337, clustered 95\% {[}0.0129, 0.0736{]}), beside
+the registered difference 0.0094 (Section 5.2); exploratory, no p-value.
+Materiality: the \texttt{Cumulative\ net\ worth\ (EUR)} value is
+repeated on every event of a line, so the magnitude of a counted change
+is observable on 13 of 17,157 D4 failures only. Restricting D4 failures
+to observable relative changes above the unregistered thresholds 0, 1\%,
+5\% and 10\% gives the same 741 clearings (0.48\%) at every threshold:
+the clearings that fail a predicate other than D4. The magnitude of a
+change is therefore an undetected class (Section 6).
+
 \hypertarget{consequence-e2}{%
 \subsubsection{5.2 Consequence (E2)}\label{consequence-e2}}
 
@@ -664,6 +748,56 @@ model request at 2026-10-25 18:42:18 UTC
 H2 per item category, spend area, value quartile, vendor activity
 quartile and month, descriptively and never modelled in.
 
+\textbf{Standardised H1 and H2 (exploratory).} Each registered
+difference beside the difference standardised to the comparison group's
+stratum distribution, for three stratifications; strata with no
+clearings in the failing group are excluded and their weight in the
+comparison group is shown. No regression, no p-value:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1765}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1765}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2353}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1765}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2353}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+test
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+estimate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+difference
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+clustered 95\%
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+excluded comparison weight
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+H1 & registered, unadjusted & 0.0470 & {[}0.0246, 0.0747{]} & \\
+H1 & exploratory, standardised by category x line-value quartile &
+0.0662 & {[}0.0378, 0.0984{]} & 5.85\% \\
+H1 & exploratory, standardised by month of t\_c & 0.0507 & {[}0.0290,
+0.0824{]} & 0.00\% \\
+H1 & exploratory, standardised by spend area & 0.0778 & {[}0.0461,
+0.1125{]} & 3.35\% \\
+H2 & registered, unadjusted & 0.0094 & {[}0.0061, 0.0130{]} & \\
+H2 & exploratory, standardised by category x line-value quartile &
+0.0031 & {[}0.0008, 0.0054{]} & 0.06\% \\
+H2 & exploratory, standardised by month of t\_c & 0.0094 & {[}0.0060,
+0.0132{]} & 0.00\% \\
+H2 & exploratory, standardised by spend area & 0.0103 & {[}0.0070,
+0.0137{]} & 0.00\% \\
+\end{longtable}
+
+Sources: \texttt{results/e2/hypotheses.json} (registered),
+\texttt{results/exploratory/adjusted-h1-h2.json} (exploratory).
+
+H1 holds under every stratification; H2 holds, by category and value
+quartile at about a third of its unadjusted size.
+
 \hypertarget{gate-effect-and-hold-cost-e3}{%
 \subsubsection{5.3 Gate effect and hold cost
 (E3)}\label{gate-effect-and-hold-cost-e3}}
@@ -685,6 +819,46 @@ would have allowed & 1,291 (106,294,821) & 136,495 (584,977,346) \\
 \end{longtable}
 
 Appendix E gives the same table per stratum.
+
+\textbf{Hold friction (exploratory).} The share of the gate's holds
+followed by no corrective within W, in count and in cleared value:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1905}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1905}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1429}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1905}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1429}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+window
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+gate holds
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+without a corrective
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+clustered 95\%
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+share of held value
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+clustered 95\%
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+W = 30 days & 17,748 & 98.65\% & {[}98.37\%, 98.90\%{]} & 92.07\% &
+{[}86.68\%, 96.07\%{]} \\
+W = 60 days & 17,748 & 97.93\% & {[}97.57\%, 98.26\%{]} & 87.14\% &
+{[}81.88\%, 91.93\%{]} \\
+\end{longtable}
+
+Source: \texttt{results/exploratory/hold-friction.json} (exploratory).
+
+A hold with no corrective within W is not shown to be a false hold: the
+proxy is what it is. The share is the review load the contract would
+create, stated as a proportion and nothing more.
 
 \begin{figure}
 \centering
@@ -766,6 +940,13 @@ predicate at t* and 34.30\% of clean lines.
 \subsubsection{5.4 People, models and the gate on the same lines
 (E4)}\label{people-models-and-the-gate-on-the-same-lines-e4}}
 
+\textbf{Measurement asymmetry.} The models and the gate decide at t*;
+the people column is observed non-release within W. Of the 53,262 framed
+lines held by people, 53,182 are non-clearance within W alone, 10 a
+payment block alone and 70 both
+(\texttt{results/e3/human-hold-composition.json}). The tables name the
+column accordingly.
+
 \textbf{Sample and arms.} From the framed lines with an invoice receipt,
 18,006 had at least one failed predicate at t* and 147,240 were clean,
 under D-C-2 B (\texttt{results/e4/sample-frame.json}). These differ from
@@ -817,8 +998,8 @@ expected correctives
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-people (from the log) & 301 of 912 (33.0\%) & 318 of 936 (34.0\%) & n/a
-& 4,759,520 & 12.260 \\
+people (observed non-release within W) & 301 of 912 (33.0\%) & 318 of
+936 (34.0\%) & n/a & 4,759,520 & 12.260 \\
 Jev & 1,000 of 1,000 (100.0\%) & 530 of 1,000 (53.0\%) & 0.470 & 0 &
 0.000 \\
 Haiku & 996 of 1,000 (99.6\%) & 573 of 1,000 (57.3\%) & 0.423 & 7,307 &
@@ -857,6 +1038,10 @@ H4-Haiku & 0.423 & 0.0158 & \(5.54 \times 10^{-198}\) & 1 & 1 \\
 \end{longtable}
 
 Source: \texttt{results/e4/arms.json}, \texttt{results/e4/h4.json}.
+
+People: observed non-release within W (53,182 non-clearance alone, 10
+payment block alone, 70 both, among the framed lines held by people;
+Section 5.3).
 
 \begin{figure}
 \centering
@@ -916,8 +1101,8 @@ expected correctives
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-people (from the log) & 301 of 912 (33.0\%) & 318 of 936 (34.0\%) & n/a
-& 4,759,520 & 12.260 \\
+people (observed non-release within W) & 301 of 912 (33.0\%) & 318 of
+936 (34.0\%) & n/a & 4,759,520 & 12.260 \\
 Jev & 912 of 912 (100.0\%) & 491 of 936 (52.5\%) & 0.472 & 0 & 0.000 \\
 Haiku & 908 of 912 (99.6\%) & 524 of 936 (56.0\%) & 0.433 & 7,307 &
 0.076 \\
@@ -926,6 +1111,10 @@ gate & 912 of 912 (100.0\%) & 0 of 936 (0.0\%) & n/a & 0 & 0.000 \\
 
 Source: \texttt{results/e4/arms-classified-lines.json}; a re-tabulation
 on the lines the people arm classifies.
+
+People: observed non-release within W (53,182 non-clearance alone, 10
+payment block alone, 70 both, among the framed lines held by people;
+Section 5.3).
 
 \textbf{What the people arm measures.} The log records no hold decision
 except a payment block. ``Held by people'' (section 3.6) is a payment
@@ -1005,9 +1194,14 @@ Source: \texttt{results/e4-exploratory/arms-exploratory.json};
 exploratory, no interval, outside the Holm family.
 
 Under the timeline view the same models held far fewer lines with a
-failed predicate (exploratory, no interval). Spend for both families and
-both views together was USD 1.57 against the registered cap of USD 60
-(\texttt{results/e6/cost.json}).
+failed predicate (exploratory, no interval). The experiment does not
+separate instruction wording, field structure and information content:
+the timeline view was sent with the template's opening paragraph, which
+says ``Using only the ERP record below'', followed by the timeline, as
+Appendix F shows. The gate's column follows from the predicates by
+construction: it is exact contract enforcement, not decision accuracy.
+Spend for both families and both views together was USD 1.57 against the
+registered cap of USD 60 (\texttt{results/e6/cost.json}).
 
 \hypertarget{derivation-e5}{%
 \subsubsection{5.5 Derivation (E5)}\label{derivation-e5}}
@@ -1133,6 +1327,17 @@ in no category (C1). The compiler's contract is smaller in every
 category, and so C9, which asks whether it equals the registered one, is
 not supported.
 
+\textbf{What the negative result shows.} For each predicate the compiler
+did not derive, the reason is one of two. D5, D6 and D7 read
+observations that no declared loss reads: the reason is a loss not
+declared. Pay twice (L2) needs an observable the registered contract
+does not carry, the clearing's position on its line. A
+minimum-cardinality sufficient contract over the observed states is not
+the normative contract: a loss that never occurs in the history yields
+no predicate (L1 in the after-receipt category). For paper 5's method to
+carry such controls, each needs a declared loss and a declared
+observable, not history.
+
 \hypertarget{governance-cost-e6}{%
 \subsubsection{5.6 Governance cost (E6)}\label{governance-cost-e6}}
 
@@ -1141,9 +1346,14 @@ evidence set, took a median of 153.5 seconds over three runs on a 4-core
 machine, 0.000987 seconds per gate decision. A model decision cost USD
 0.000022 with Jev and USD 0.000368 with Haiku.
 
-\hypertarget{replication-on-travel-declarations-e7}{%
-\subsubsection{5.7 Replication on travel declarations
-(E7)}\label{replication-on-travel-declarations-e7}}
+\hypertarget{applicability-to-another-log-travel-declarations-e7}{%
+\subsubsection{5.7 Applicability to another log: travel declarations
+(E7)}\label{applicability-to-another-log-travel-declarations-e7}}
+
+E7 tests whether the procedure applies to another log, not external
+validity. An informative replication needs recorded approvals, explicit
+decision events, reliable actor identities, enough failed predicates,
+and a downstream outcome within the window.
 
 The unit is a payment on a declaration case at least W before the latest
 timestamp of its log; D1' approval present, D2' approval by the required
@@ -1418,10 +1628,15 @@ made on evidence that failed at least one registered predicate, carrying
 (D1/D2) were followed by a corrective at a higher rate than three-way
 clearings with every applicable predicate passing, and those made after
 a change since approval (D4 fail) at a higher rate than D4-pass
-clearings. The sufficiency check adds that the registered contract is
-sufficient for ``goods not received'' and ``changed amount'', and not
-for ``pay twice'' in the three-way categories, because no registered
-predicate reads the clearing's position on its line.
+clearings. Counting only changes after an explicit approval, an
+exploratory reading, exposure is 0.90\% of clearings and 5.65\% of
+cleared value, beside the registered 11.41\% and 19.41\%. A failed
+registered predicate is not a confirmed violation of the company's
+approval policy; whether a change after creation required re-approval is
+not recorded in the log. The sufficiency check adds that the registered
+contract is sufficient for ``goods not received'' and ``changed
+amount'', and not for ``pay twice'' in the three-way categories, because
+no registered predicate reads the clearing's position on its line.
 
 \hypertarget{acknowledgements}{%
 \subsection{Acknowledgements}\label{acknowledgements}}
