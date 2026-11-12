@@ -56,3 +56,29 @@ def test_x2_standardisation(results, tmp_path):
     assert "p_one_sided_raw" not in json.dumps(doc)
     x2.run(results, tmp_path / "b.json", b=B)
     assert (tmp_path / "a.json").read_bytes() == (tmp_path / "b.json").read_bytes()
+
+
+def test_x3_hold_friction(results, tmp_path):
+    from experiments.exploratory import x3_hold_friction as x3
+
+    doc = x3.run(results, tmp_path / "a.json", b=B)
+    for w, e in doc["exploratory_overall"].items():
+        assert e["with_corrective"] + e["without_corrective"] == e["holds"]
+    assert "cost" not in json.dumps(doc["exploratory_overall"])
+    x3.run(results, tmp_path / "b.json", b=B)
+    assert (tmp_path / "a.json").read_bytes() == (tmp_path / "b.json").read_bytes()
+
+
+def test_x4_renders_both_views_of_a_synthetic_line(tmp_path):
+    from experiments.exploratory import x4_prompt_examples as x4
+
+    doc = x4.run(tmp_path / "a.json", tmp_path / "a.md")
+    assert doc["renders"] == {"erp_view": True, "timeline_view": True}
+    assert doc["synthetic_line"]["source"] == "tests/fixtures/mini2019.xes"
+    erp = doc["views"]["erp_view"]
+    assert "ERP record as of" in erp and "{" + "category}" not in erp
+    assert doc["requests"]["haiku"]["messages"][0]["content"] == erp
+    assert "Reply with only a JSON object" not in doc["requests"]["jev"]["state"]["context"]  # the Jev deviation
+    x4.run(tmp_path / "b.json", tmp_path / "b.md")
+    assert (tmp_path / "a.json").read_bytes() == (tmp_path / "b.json").read_bytes()
+    assert (tmp_path / "a.md").read_bytes() == (tmp_path / "b.md").read_bytes()

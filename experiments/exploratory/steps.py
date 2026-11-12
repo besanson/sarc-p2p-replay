@@ -26,7 +26,22 @@ def x2(log: Path, results_dir: Path, out: Path, paper_dir: Path, e0_path: Path, 
     return ["exploratory/adjusted-h1-h2.json"]
 
 
-STEPS = {"X1": x1, "X2": x2}
+def x3(log: Path, results_dir: Path, out: Path, paper_dir: Path, e0_path: Path, min_month_events: int, b: int) -> list[str]:
+    from experiments.exploratory import x3_hold_friction  # noqa: PLC0415
+
+    x3_hold_friction.run(results_dir, out / "exploratory" / "hold-friction.json", b)
+    return ["exploratory/hold-friction.json"]
+
+
+def x4(log: Path, results_dir: Path, out: Path, paper_dir: Path, e0_path: Path, min_month_events: int, b: int) -> list[str]:
+    from experiments.exploratory import x4_prompt_examples  # noqa: PLC0415
+
+    paper_dir.mkdir(parents=True, exist_ok=True)
+    x4_prompt_examples.run(out / "exploratory" / "prompt-examples.json", paper_dir / "appendix-prompts.md")
+    return ["exploratory/prompt-examples.json", "paper/appendix-prompts.md"]
+
+
+STEPS = {"X1": x1, "X2": x2, "X3": x3, "X4": x4}
 
 
 def run_all(log: Path, results_dir: Path, out: Path, paper_dir: Path, e0_path: Path = E0_LINES,

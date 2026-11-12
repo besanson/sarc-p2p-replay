@@ -189,8 +189,13 @@ def g4_regeneration(quick: bool) -> dict:
         produced += list(round3_slots.run(e1_dir=res / "e1", out=res))
         from experiments.exploratory import steps  # noqa: PLC0415
 
-        produced += [f for f in steps.run_all(log, res, res, OUT / "paper-regen-exploratory") if not f.startswith("paper/")]
+        written = steps.run_all(log, res, res, OUT / "paper-regen-exploratory")
+        produced += [f for f in written if not f.startswith("paper/")]
+        exploratory_paper = [f for f in written if f.startswith("paper/")]
     rows = _compare(ROOT / "results", res, sorted(set(produced)))
+    if not quick and log.exists():  # the exploratory appendix the X4 step writes beside the paper
+        rows += [{**r, "file": f"paper/{r['file']}"} for r in _compare(
+            ROOT / "paper", OUT / "paper-regen-exploratory", [f.removeprefix("paper/") for f in exploratory_paper])]
 
     import fill_paper  # noqa: PLC0415
     import figures  # noqa: PLC0415

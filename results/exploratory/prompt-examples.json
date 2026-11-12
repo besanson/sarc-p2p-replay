@@ -1,0 +1,99 @@
+{
+  "decision": "DECISIONS.md D-G-1 d",
+  "exploratory": true,
+  "fields": {
+    "erp_view_exposes": [
+      "approved_price",
+      "approved_quantity",
+      "category",
+      "changes",
+      "decision_date",
+      "gr_based_iv",
+      "gr_date",
+      "gr_recorded",
+      "gr_required",
+      "invoice_date",
+      "invoice_received",
+      "invoice_value",
+      "payment_block"
+    ],
+    "erp_view_omits": [
+      "the event timeline",
+      "actor names",
+      "line, document, company and vendor identifiers"
+    ],
+    "timeline_view_exposes": [
+      "the template's task paragraph",
+      "event date",
+      "activity",
+      "value in EUR"
+    ],
+    "timeline_view_omits": [
+      "the ERP record's derived fields (approved price, invoice and receipt status, changes since approval, payment block)",
+      "actor names",
+      "line, document, company and vendor identifiers"
+    ]
+  },
+  "label": "exploratory, not registered; a synthetic fixture line, no real line",
+  "not_separated": "the design does not separate wording, structure and information content: the two views differ in all three at once",
+  "registration": "p7-v1.1",
+  "renders": {
+    "erp_view": true,
+    "timeline_view": true
+  },
+  "requests": {
+    "haiku": {
+      "max_tokens": 48,
+      "messages": [
+        {
+          "content": "You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {\"decision\": \"clear\" or \"hold\", \"p_hold\": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.\n\nERP record as of 2018-03-10\nItem category: 3-way match, invoice before goods receipt\nGR-based invoice verification: no\nGoods receipt required: yes\nApproved price (EUR): 200.00\nApproved quantity: not recorded in this system\nInvoice received: yes\nInvoice date: 2018-03-05\nInvoice value (EUR): 200.00\nGoods receipt recorded: no\nGoods receipt date: none\nChanges since approval: none\nPayment block: not set",
+          "role": "user"
+        },
+        {
+          "content": "{",
+          "role": "assistant"
+        }
+      ],
+      "model": "claude-haiku-4-5-20251001",
+      "temperature": 0.0
+    },
+    "jev": {
+      "model": "jev-latest",
+      "questions": {
+        "Q_clear_or_hold": {
+          "criteria": {
+            "clear": "Clear the invoice for payment now.",
+            "hold": "Hold the invoice; do not pay it now."
+          },
+          "instructions": "Decide whether to clear the invoice for payment now or to hold it.",
+          "type": "choice"
+        }
+      },
+      "state": {
+        "context": "You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it.",
+        "record": "ERP record as of 2018-03-10\nItem category: 3-way match, invoice before goods receipt\nGR-based invoice verification: no\nGoods receipt required: yes\nApproved price (EUR): 200.00\nApproved quantity: not recorded in this system\nInvoice received: yes\nInvoice date: 2018-03-05\nInvoice value (EUR): 200.00\nGoods receipt recorded: no\nGoods receipt date: none\nChanges since approval: none\nPayment block: not set"
+      }
+    },
+    "jev_deviation": "the template's closing reply-format sentence (a JSON decision and hold probability) is omitted from the Jev context and replaced by a typed choice with the labels clear and hold (prereg/DEVIATIONS.md, E4 Jev request format)"
+  },
+  "synthetic_line": {
+    "case_id": "B_stale_receipt_3way_before",
+    "category": "3-way, invoice before receipt",
+    "failed_predicates": [
+      "D1",
+      "D2"
+    ],
+    "gate_verdict": "hold",
+    "source": "tests/fixtures/mini2019.xes",
+    "t_star": "2018-03-10T09:00:00+00:00"
+  },
+  "template": {
+    "path": "prereg/erp-view-template.txt",
+    "sha256": "11726f914f3d0ea79ae374f0bd2ba71c6e75ea60ec88ae13745b717ca563b48a",
+    "text": "# prereg/erp-view-template.txt: registered serialisation of the ERP view for E4.\n# Everything above the line \"=== REQUEST ===\" is documentation and is never sent.\n# The request is the block between \"=== REQUEST ===\" and \"=== END ===\", sent\n# verbatim as the single user message after substituting each {placeholder}.\n#\n# The view is the state of the line at the decision point t* (prereg/p7-v1.md\n# section 7), built only from events at or before t*. It carries no event\n# timeline, no company, no vendor, no actor name and no line id.\n#\n# Placeholders:\n#   {category}            one of: 3-way match, invoice after goods receipt |\n#                         3-way match, invoice before goods receipt | 2-way match\n#   {gr_based_iv}         yes | no\n#   {gr_required}         yes | no\n#   {approved_price}      value on the last approval-bearing event (fallback: line value),\n#                         anonymised EUR, 2 decimals\n#   {approved_quantity}   the quantity field if the column mapping names one; the registered\n#                         mapping names none, so the literal \"not recorded in this system\"\n#   {invoice_received}    yes | no\n#   {invoice_date}        YYYY-MM-DD of the latest Record Invoice Receipt, or \"none\"\n#   {invoice_value}       value on that event, anonymised EUR, 2 decimals, or \"none\"\n#   {gr_recorded}         yes | no   (uncancelled goods receipt count > 0)\n#   {gr_date}             YYYY-MM-DD of the latest uncancelled Record Goods Receipt, or \"none\"\n#   {changes}             \"none\", or a comma-separated list in time order of\n#                         \"price changed on YYYY-MM-DD\" / \"quantity changed on YYYY-MM-DD\"\n#                         for changes after the last approval-bearing event\n#   {payment_block}       set | not set\n#   {decision_date}       YYYY-MM-DD of t*\n#\n# The model's reply is parsed as paper 6 jev-v3 section 3b, with the prefill \"{\".\n# Fields: decision in {\"clear\", \"hold\"}; p_hold a number in [0, 1].\n=== REQUEST ===\nYou are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {\"decision\": \"clear\" or \"hold\", \"p_hold\": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.\n\nERP record as of {decision_date}\nItem category: {category}\nGR-based invoice verification: {gr_based_iv}\nGoods receipt required: {gr_required}\nApproved price (EUR): {approved_price}\nApproved quantity: {approved_quantity}\nInvoice received: {invoice_received}\nInvoice date: {invoice_date}\nInvoice value (EUR): {invoice_value}\nGoods receipt recorded: {gr_recorded}\nGoods receipt date: {gr_date}\nChanges since approval: {changes}\nPayment block: {payment_block}\n=== END ===\n"
+  },
+  "views": {
+    "erp_view": "You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {\"decision\": \"clear\" or \"hold\", \"p_hold\": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.\n\nERP record as of 2018-03-10\nItem category: 3-way match, invoice before goods receipt\nGR-based invoice verification: no\nGoods receipt required: yes\nApproved price (EUR): 200.00\nApproved quantity: not recorded in this system\nInvoice received: yes\nInvoice date: 2018-03-05\nInvoice value (EUR): 200.00\nGoods receipt recorded: no\nGoods receipt date: none\nChanges since approval: none\nPayment block: not set",
+    "timeline_view_exploratory": "You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {\"decision\": \"clear\" or \"hold\", \"p_hold\": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.\n\nEvent timeline up to 2018-03-10 (date, activity, value in EUR)\n2018-03-01, Create Purchase Order Item, 200.00\n2018-03-05, Record Invoice Receipt, 200.00\n2018-03-10, Clear Invoice, 200.00"
+  }
+}

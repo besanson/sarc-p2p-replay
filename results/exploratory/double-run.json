@@ -15,11 +15,34 @@
       "sha256_committed": "4656fa8435792802177c85585e68d74f6ca8ce8a8035d77e40d0dcfdb90e0bf8",
       "sha256_run_a": "4656fa8435792802177c85585e68d74f6ca8ce8a8035d77e40d0dcfdb90e0bf8",
       "sha256_run_b": "4656fa8435792802177c85585e68d74f6ca8ce8a8035d77e40d0dcfdb90e0bf8"
+    },
+    {
+      "file": "results/exploratory/hold-friction.json",
+      "identical": true,
+      "sha256_committed": "df998f5d6e67e676ea86db1ab83ed953d0ec9afad9588e8f9d248ee2c3df606d",
+      "sha256_run_a": "df998f5d6e67e676ea86db1ab83ed953d0ec9afad9588e8f9d248ee2c3df606d",
+      "sha256_run_b": "df998f5d6e67e676ea86db1ab83ed953d0ec9afad9588e8f9d248ee2c3df606d"
+    },
+    {
+      "file": "results/exploratory/prompt-examples.json",
+      "identical": true,
+      "sha256_committed": "4f288e79331993138ba48da4e3385d272e317dfb405a42fe3ac6e9941117bd5e",
+      "sha256_run_a": "4f288e79331993138ba48da4e3385d272e317dfb405a42fe3ac6e9941117bd5e",
+      "sha256_run_b": "4f288e79331993138ba48da4e3385d272e317dfb405a42fe3ac6e9941117bd5e"
+    },
+    {
+      "file": "paper/appendix-prompts.md",
+      "identical": true,
+      "sha256_committed": "371b1056ce89597ec23abc23f5ba9e97d145906cda51ced3177dce797eea63ad",
+      "sha256_run_a": "371b1056ce89597ec23abc23f5ba9e97d145906cda51ced3177dce797eea63ad",
+      "sha256_run_b": "371b1056ce89597ec23abc23f5ba9e97d145906cda51ced3177dce797eea63ad"
     }
   ],
   "runs": "two runs into out/exploratory-double-run/{a,b}",
   "steps": [
     "X1",
-    "X2"
+    "X2",
+    "X3",
+    "X4"
   ]
 }

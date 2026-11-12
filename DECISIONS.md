@@ -1552,3 +1552,9 @@ keep), runs twice byte-identically, and is a step of `make reproduce` and of gat
     - by category x line-value quartile: standardised difference 0.0031 [0.0008, 0.0054]
     - by month of t_c: standardised difference 0.0094 [0.0060, 0.0132]
     - by spend area: standardised difference 0.0103 [0.0070, 0.0137]
+
+**X3, hold friction (exploratory)** (`results/exploratory/hold-friction.json`, `experiments/exploratory/x3_hold_friction.py`):
+  - W30: of 17,748 gate holds, 98.65% [98.37%, 98.90%] had no corrective; 92.07% [86.68%, 96.07%] of their cleared value
+  - W60: of 17,748 gate holds, 97.93% [97.57%, 98.26%] had no corrective; 87.14% [81.88%, 91.93%] of their cleared value
+
+**X4, prompt examples (exploratory)** (`results/exploratory/prompt-examples.json`, `paper/appendix-prompts.md`, `experiments/exploratory/x4_prompt_examples.py`): the registered template verbatim; the synthetic fixture line `B_stale_receipt_3way_before` rendered as the ERP view (yes) and as the timeline view (yes) by the code E4 used; both request bodies; the fields each view exposes and omits. Nothing from a real line.

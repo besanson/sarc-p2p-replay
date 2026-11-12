@@ -73,5 +73,7 @@ def test_paper_fills_from_regenerated_files_plus_copied_records(monkeypatch, tmp
     assert (paper_dir / "paper.md").read_bytes() == (ROOT / "paper" / "paper.md").read_bytes()
     assert "results/reproduction/attempt-1.json" in copied and "results/e6/timing-e1.json" in copied
     rows, uncovered = reproduce.compare(res, paper_dir, copied)
-    assert all("pandoc not installed" in u for u in uncovered) and all(r["equal"] for r in rows)
+    # main.tex needs pandoc; the exploratory appendix is written by the X4 step of regenerate_results, not here.
+    assert all("pandoc not installed" in u or u == "paper/appendix-prompts.md" for u in uncovered)
+    assert all(r["equal"] for r in rows)
     assert not {r["file"] for r in rows} & set(copied)  # a copied record is never counted as reproduced

@@ -77,7 +77,8 @@ FIGURE_FILES = sorted(f"paper/figures/{p.name}" for p in (ROOT / "paper" / "figu
                       if p.suffix in (".svg", ".pdf"))
 PAPER_FILES = [("paper/paper.md", "paper.md"), ("paper/filled-template.json", "filled-template.json"),
                ("README.md", "README.md"), ("paper-tex/main.tex", "main.tex"),
-               ("paper/figures/figure-data.json", "figures/figure-data.json")]
+               ("paper/figures/figure-data.json", "figures/figure-data.json"),
+               ("paper/appendix-prompts.md", "appendix-prompts.md")]
 
 
 def sha(p: Path) -> str | None:
