@@ -61,3 +61,66 @@ def test_sample_and_views_on_fixture(e1_dir, tmp_path):
     timelines = [json.loads(l) for l in (out / "views-timeline.jsonl").read_text().splitlines()]
     assert all(t["label"] == "exploratory" and "Event timeline up to" in t["view"] for t in timelines)
     assert "user_" not in "\n".join(t["view"] for t in timelines)
+
+
+# DECISIONS.md D-G-3: the timeline view shows the evidence before the decision, not the decision's own clearing.
+
+def _fixture_case(case_id):
+    from p2p_replay.config import load_mapping
+    from p2p_replay.reader import read_log
+    return next(c for c in read_log(XES, load_mapping("bpi2019")) if c.case_id == case_id)
+
+
+def _rows(view):
+    return view.split("\n\n", 1)[1].splitlines()[1:]
+
+
+def test_timeline_view_drops_the_decisions_own_clearing():
+    from p2p_replay.config import W_DAYS, load_patterns
+    from p2p_replay.replay import decision_point
+    p, _ = load_patterns()
+    case = _fixture_case("B_stale_receipt_3way_before")  # t* is its first Clear Invoice
+    t_star = decision_point(case, p, W_DAYS)
+    assert [e.activity for e in case.upto(t_star)][-1] == "Clear Invoice"
+    original = e4_sample.timeline_view(case, t_star, p, with_own_clearing=True)
+    corrected = e4_sample.timeline_view(case, t_star, p)
+    assert _rows(original)[-1] == "2018-03-10, Clear Invoice, 200.00"
+    assert _rows(corrected) == _rows(original)[:-1]
+    assert not any("Clear Invoice" in r for r in _rows(corrected))
+    assert corrected.split("\n\n", 1)[0] == original.split("\n\n", 1)[0]
+    assert "Using only the ERP record below" in corrected.split("\n\n", 1)[0]
+
+
+def test_timeline_view_keeps_other_events_at_a_clearing_t_star():
+    from datetime import datetime, timezone
+    from p2p_replay.config import load_patterns
+    from p2p_replay.model import Case, Event
+    p, _ = load_patterns()
+    t = lambda d: datetime(2018, 3, d, 9, tzinfo=timezone.utc)  # noqa: E731
+    case = Case.build("x", {}, [Event("Create Purchase Order Item", t(1), None, 10.0),
+                                Event("Record Invoice Receipt", t(2), None, 10.0),
+                                Event("Clear Invoice", t(5), None, 10.0), Event("Change Price", t(5), None, 10.0)])
+    rows = _rows(e4_sample.timeline_view(case, t(5), p))
+    assert rows[-1] == "2018-03-05, Change Price, 10.00" and not any("Clear Invoice" in r for r in rows)
+    # two indistinguishable clearing records at t*: both are the decision's clearing and both go
+    twice = Case.build("z", {}, [*case.events, Event("Clear Invoice", t(5), None, 10.0)])
+    rows = _rows(e4_sample.timeline_view(twice, t(5), p))
+    assert len(rows) == 3 and not any("Clear Invoice" in r for r in rows)
+
+
+def test_timeline_view_unchanged_at_receipt_plus_w():
+    from datetime import datetime, timezone
+    from p2p_replay.config import W_DAYS, load_patterns
+    from p2p_replay.model import Case, Event
+    from p2p_replay.replay import decision_point
+    p, _ = load_patterns()
+    d = lambda m, day: datetime(2018, m, day, 9, tzinfo=timezone.utc)  # noqa: E731
+    case = Case.build("y", {}, [Event("Create Purchase Order Item", d(1, 1), None, 10.0),
+                                Event("Record Goods Receipt", d(1, 5), None, 10.0),
+                                Event("Record Invoice Receipt", d(1, 10), None, 10.0),
+                                Event("Clear Invoice", d(6, 1), None, 10.0)])
+    t_star = decision_point(case, p, W_DAYS)
+    assert t_star < d(6, 1)  # receipt + W, before the first clearing
+    corrected = e4_sample.timeline_view(case, t_star, p)
+    assert corrected == e4_sample.timeline_view(case, t_star, p, with_own_clearing=True)
+    assert len(_rows(corrected)) == 3

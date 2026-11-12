@@ -1603,3 +1603,47 @@ every registered estimate, the Holm family and table; every claim status in CLAI
 
 The author tags v1.1.0 on the commit that adds this entry ("paper 7: D-G-2, release 1.1.0"); a commit cannot name its
 own hash, so the builder's report gives it.
+
+## D-G-3 Exploratory timeline arm: the clearing event at t* was shown (pipeline defect) (2026-11-12)
+
+**What happened.** The registration (prereg/p7-v1.1.md section 2) defines the evidence as recorded before t_c. The
+exploratory timeline view (`experiments/e4_sample.py` `timeline_view`, 1.1.0) listed the events of `case.upto(t_star)`,
+which includes events at t*; on a sample line whose decision point is its first clearing, the view therefore showed
+that `Clear Invoice`, the decision being asked for. The registered ERP view is unaffected.
+
+**Audit** (`results/exploratory/timeline-leakage.json`, no call). Of 2,000 committed timeline views,
+1,231 contain a `Clear Invoice` dated t* (every line whose t* is a clearing:
+1,231); in 1,230 a clearing is the last row, and in
+1 another event at t* follows the first clearing row
+(5 views carry two clearing records at t*). By status and
+decision-point kind: defective 613 of
+613 at a first clearing and 0
+of 387 at receipt + W; clean 618
+of 618 and 0 of
+382. The committed exploratory hold rates split by view (invalid replies
+count as neither; not a stratified comparison):
+  - haiku: defective 0.0783 (48/613) with the clearing, 0.1214 (47/387) without; clean 0.0388 (24/618) with, 0.0393 (15/382) without
+  - jev: defective 0.1158 (71/613) with the clearing, 0.1421 (55/387) without; clean 0.0453 (28/618) with, 0.0262 (10/382) without
+
+ERP view: 0 of 2,000 contain a clearing, and the
+1,231 lines whose t* is a clearing re-render byte-identical without
+it (1,231); the registered arm is not re-run.
+
+**Correction.** `timeline_view` now omits the clearing records at t* when t* is the line's first clearing; every other
+event at t* stays (one line has a `Record Invoice Receipt` at t* after the clearing). Reading of the session's wording
+("the decision's own Clear Invoice"): 5 lines carry two `Clear Invoice`
+records at the same t* with the same value, which nothing distinguishes; both are the clearing at the decision point,
+and both are omitted, so that no corrected view shows a clearing (0
+of 2,000 do). The opening paragraph is the template's, unchanged: it still says "Using only the ERP record below" before a
+timeline, as in the original run. Fixture tests: a line whose t* is its first clearing loses that row; a line whose t*
+is receipt + W is unchanged. The corrected views are in `results/e4-exploratory/views-timeline-corrected.jsonl`; the
+committed `results/e4/views-timeline.jsonl` stays and regenerates byte-identical (`with_own_clearing=True`). Appendix F's
+synthetic example (X4) is regenerated from the corrected code. `prereg/DEVIATIONS.md` records the departure.
+
+**Re-run.** Not yet run: the corrected arm is run after this entry is first committed (no call before it).
+
+**Strict-D4 re-tabulation.** Not yet written.
+
+**Unchanged.** Every registered file except the logged DEVIATIONS entry; every committed slot, the original exploratory
+run's views, responses and slots; the registered ERP arm, which is not re-run; every registered estimate and the Holm
+family.

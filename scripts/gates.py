@@ -148,16 +148,23 @@ def g4_regeneration(quick: bool) -> dict:
     if quick or not log.exists():
         shutil.copytree(ROOT / "results" / "e1", res / "e1")
         shutil.copytree(ROOT / "results" / "e4", res / "e4")
+        (res / "e4-exploratory").mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / "results" / "e4-exploratory" / "views-timeline-corrected.jsonl",
+                        res / "e4-exploratory" / "views-timeline-corrected.jsonl")
         waiting.append("E1 replay and E4 sample draw from the log: skipped (--quick or no data)")
     else:
         e1.run(log, res / "e1")
         e4_sample.run(log, res / "e1", res / "e4")
         produced += [f"e1/{p.name}" for p in (res / "e1").iterdir()]
         produced += [f"e4/{n}" for n in ("sample.json", "sample-frame.json", "views.jsonl", "views-timeline.jsonl")]
+        produced.append("e4-exploratory/views-timeline-corrected.jsonl")
     e2.run(res / "e1", res / "e2")
     e3.run(res / "e1", res / "e3")
     e4.run("e4", root=regen)
     e4.run("e4-exploratory", root=regen)
+    if (ROOT / "responses" / "e4-exploratory-corrected").is_dir():  # the corrected arm (D-G-3), once run
+        e4.run("e4-exploratory-corrected", root=regen)
+        produced += ["e4-exploratory/arms-exploratory-corrected.json", "e4-exploratory/h4-exploratory-corrected.json"]
     produced += [f"e2/{n}" for n in ("hypotheses.json", "confounders.json")]
     produced += [f"e3/{p.name}" for p in (res / "e3").iterdir()]
     produced += ["e4/arms.json", "e4/h4.json", "e4-exploratory/arms-exploratory.json",

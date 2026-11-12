@@ -82,3 +82,23 @@ def test_x4_renders_both_views_of_a_synthetic_line(tmp_path):
     x4.run(tmp_path / "b.json", tmp_path / "b.md")
     assert (tmp_path / "a.json").read_bytes() == (tmp_path / "b.json").read_bytes()
     assert (tmp_path / "a.md").read_bytes() == (tmp_path / "b.md").read_bytes()
+
+
+def test_x5_audit_counts_the_clearing_at_t_star():
+    from experiments.exploratory import x5_timeline_leakage as x5
+
+    head = "Task.\n\nEvent timeline up to 2018-03-10 (date, activity, value in EUR)\n"
+    sample = [{"order": 1, "status": "defective", "t_star": "2018-03-10T09:00:00+00:00", "t_star_is_clearing": True},
+              {"order": 2, "status": "clean", "t_star": "2018-03-10T09:00:00+00:00", "t_star_is_clearing": False}]
+    timeline = {1: {"view": head + "2018-03-01, Create Purchase Order Item, 1.00\n2018-03-10, Clear Invoice, 1.00"},
+                2: {"view": head + "2018-03-01, Create Purchase Order Item, 1.00"}}
+    corrected = {1: {"view": head + "2018-03-01, Create Purchase Order Item, 1.00"}, 2: timeline[2]}
+    erp = {1: {"view": "ERP record"}, 2: {"view": "ERP record"}}
+    calls = {f: {1: {"status": "ok", "decision": "hold"}, 2: {"status": "ok", "decision": "clear"}} for f in ("jev", "haiku")}
+    doc = x5.analyse(sample, timeline, corrected, erp, calls, {"lines_rerendered": 1, "identical_to_committed": 1})
+    assert doc["views_with_the_clearing"] == 1 and doc["views_with_the_clearing_as_last_row"] == 1
+    assert doc["erp_view_check"]["unaffected"] and doc["corrected_views_check"]["views_containing_a_clearing"] == 0
+    assert doc["committed_exploratory_hold_rates"]["jev"]["views_with_the_clearing"]["defective"]["hold_rate"] == 1.0
+    bad = {1: timeline[1], 2: timeline[2]}  # a corrected view that still shows the clearing is refused
+    with pytest.raises(RuntimeError):
+        x5.analyse(sample, timeline, bad, erp, calls, {"lines_rerendered": 1, "identical_to_committed": 1})

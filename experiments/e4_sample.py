@@ -18,7 +18,11 @@ Writes to results/e4/:
                          cleared or line value, the human arm's hold or release from the log (3.6)
   sample-frame.json      eligible lines per status and stratum, the allocation, the drawn counts
   views.jsonl            the ERP view of each line (prereg/erp-view-template.txt), keyed by order
-  views-timeline.jsonl   the exploratory timeline view of each line, keyed by order
+  views-timeline.jsonl   the exploratory timeline view of each line, keyed by order, as the 1.1.0 pipeline
+                         built it: with the decision's own clearing when t* is a clearing (DECISIONS.md D-G-3)
+
+and to results/e4-exploratory/:
+  views-timeline-corrected.jsonl   the timeline view without the decision's own clearing (D-G-3)
 
 Usage: python -m experiments.e4_sample [--log data/BPI_Challenge_2019.xes] [--e1 results/e1] [--out results/e4]
 """
@@ -37,9 +41,9 @@ from typing import Any, Sequence
 from experiments.common import E0_LINES, Strata, read_e0_lines, write_json, write_jsonl
 from experiments.e1 import DEFAULT_LOG, hashed, load, load_amended
 from p2p_replay.category import Category
-from p2p_replay.config import REGISTRATION, ROOT, SEED, W_DAYS, load_mapping, load_patterns
+from p2p_replay.config import REGISTRATION, ROOT, SEED, W_DAYS, P2PPatterns, load_mapping, load_patterns
 from p2p_replay.frame import cleared_value, clearings, line_value
-from p2p_replay.model import Case, parse_timestamp
+from p2p_replay.model import Case, Event, parse_timestamp
 from p2p_replay.reader import read_log
 from p2p_replay.replay import line_status, verdict_at_decision_point
 from p2p_replay.view import load_request_template, render
@@ -95,18 +99,41 @@ def draw(eligible: Sequence[dict], strata: Strata, seed: int = SEED,
     return sorted(taken, key=lambda l: l["case_id"]), frame
 
 
-def timeline_view(case: Case, t_star: datetime) -> str:
-    """Exploratory: the template's instruction with the line's event timeline up to t* instead of the
-    ERP view; dates, activities and values only (no actor, id, company or vendor)."""
+def timeline_events(case: Case, t_star: datetime, p: P2PPatterns | None = None, *,
+                    with_own_clearing: bool = False) -> tuple[Event, ...]:
+    """The events the timeline view shows: those at or before t*, without the decision's own clearing.
+
+    When t* is the line's first `Clear Invoice`, that clearing is the decision being asked for and is not
+    evidence before t_c (prereg/p7-v1.1.md section 2), so it is removed; a line can carry more than one
+    `Clear Invoice` at that same timestamp (indistinguishable records of the clearing at t*), and all of
+    them are removed. Every other event at t* stays. `with_own_clearing=True` keeps them: the 1.1.0
+    pipeline, which showed them (DECISIONS.md D-G-3), kept only to regenerate the committed
+    views-timeline.jsonl of the original exploratory run."""
+    events = case.upto(t_star)
+    if with_own_clearing:
+        return events
+    p = p or load_patterns()[0]
+    first = clearings(case, p)
+    if not first or first[0].ts != t_star:
+        return events
+    return tuple(e for e in events if not (e.activity == p.clearing and e.ts == t_star))
+
+
+def timeline_view(case: Case, t_star: datetime, p: P2PPatterns | None = None, *,
+                  with_own_clearing: bool = False) -> str:
+    """Exploratory: the template's instruction with the line's event timeline before the decision instead
+    of the ERP view; dates, activities and values only (no actor, id, company or vendor). The opening
+    paragraph is the template's, unchanged ("Using only the ERP record below")."""
     lines = load_request_template().splitlines()
     head = lines[0]
     rows = [f"{e.ts.date().isoformat()}, {e.activity}, " + (f"{e.value:.2f}" if e.value is not None else "none")
-            for e in case.upto(t_star)]
+            for e in timeline_events(case, t_star, p, with_own_clearing=with_own_clearing)]
     return "\n".join([head, "", TIMELINE_HEADER.format(decision_date=t_star.date().isoformat()), *rows])
 
 
 def run(log: Path, e1_dir: Path, out: Path, e0_path: Path = E0_LINES,
-        n_per_group: dict[str, int] = N_PER_GROUP) -> dict[str, Any]:
+        n_per_group: dict[str, int] = N_PER_GROUP, corrected_out: Path | None = None) -> dict[str, Any]:
+    """corrected_out: where views-timeline-corrected.jsonl goes (default: out's sibling e4-exploratory/)."""
     _, lines = load(e1_dir)
     amended = load_amended(e1_dir)
     strata = Strata(lines)
@@ -124,6 +151,7 @@ def run(log: Path, e1_dir: Path, out: Path, e0_path: Path = E0_LINES,
     rows: list[dict | None] = [None] * len(sample)
     views: list[dict | None] = [None] * len(sample)
     timelines: list[dict | None] = [None] * len(sample)
+    corrected: list[dict | None] = [None] * len(sample)
     for case in read_log(log, mapping):
         if case.case_id in e0_ids:
             continue
@@ -157,7 +185,10 @@ def run(log: Path, e1_dir: Path, out: Path, e0_path: Path = E0_LINES,
             "human_arm": "unclassified" if human is None else ("hold" if human else "release"),
         }
         views[i] = {"order": i + 1, "view": render(case, t_star, p2p, flag_true)}
-        timelines[i] = {"order": i + 1, "label": "exploratory", "view": timeline_view(case, t_star)}
+        timelines[i] = {"order": i + 1, "label": "exploratory",
+                        "view": timeline_view(case, t_star, p2p, with_own_clearing=True)}
+        corrected[i] = {"order": i + 1, "label": "exploratory, corrected (DECISIONS.md D-G-3)",
+                        "view": timeline_view(case, t_star, p2p)}
     if any(r is None for r in rows):
         raise RuntimeError("a sampled line was not found in the log")
 
@@ -188,6 +219,7 @@ def run(log: Path, e1_dir: Path, out: Path, e0_path: Path = E0_LINES,
     write_json(out / "sample-frame.json", frame_doc)
     write_jsonl(out / "views.jsonl", views)
     write_jsonl(out / "views-timeline.jsonl", timelines)
+    write_jsonl((corrected_out or out.parent / "e4-exploratory") / "views-timeline-corrected.jsonl", corrected)
     return {"sample": sample_doc, "frame": frame_doc}
 
 

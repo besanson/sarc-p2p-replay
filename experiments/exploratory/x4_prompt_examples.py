@@ -3,7 +3,7 @@
 The registered ERP view template (prereg/erp-view-template.txt) verbatim, with its SHA-256; one synthetic
 line from the test fixtures (tests/fixtures/mini2019.xes) rendered at its decision point t* as the ERP view
 and as the exploratory timeline view, by the code E4 used (p2p_replay.view.render,
-experiments.e4_sample.timeline_view); the Haiku request body and the Jev request, built for that line by
+experiments.e4_sample.timeline_view, corrected in 1.1.1, DECISIONS.md D-G-3); the Haiku request body and the Jev request, built for that line by
 the E4 request code (experiments.e4_run.haiku_params, jev_wire), the Jev one with the template's
 reply-format sentence replaced by a typed choice (the deviation "E4 Jev request format"); and the fields
 each view exposes and omits. Nothing from a real line. No model is called.
@@ -70,6 +70,8 @@ def build(fixture: Path = FIXTURE, line: str = LINE) -> dict[str, Any]:
             "erp_view_exposes": sorted(view_fields(case, t_star, p, flag_true)),
             "erp_view_omits": OMITTED,
             "timeline_view_exposes": ["the template's task paragraph", "event date", "activity", "value in EUR"],
+            "timeline_view_rule": "events at or before t*, without the decision's own clearing when t* is a clearing "
+                                  "(DECISIONS.md D-G-3; the 1.1.0 view showed it)",
             "timeline_view_omits": ["the ERP record's derived fields (approved price, invoice and receipt status, "
                                     "changes since approval, payment block)", "actor names",
                                     "line, document, company and vendor identifiers"],
@@ -95,7 +97,9 @@ def appendix(doc: dict[str, Any]) -> str:
         f"The synthetic line `{line['case_id']}` ({line['category']}) at its decision point {line['t_star']}, "
         f"gate verdict {line['gate_verdict']}, failed predicates {', '.join(line['failed_predicates']) or 'none'}.", "",
         "The ERP view (registered):", "", fence(doc["views"]["erp_view"]), "",
-        "The timeline view (exploratory):", "", fence(doc["views"]["timeline_view_exploratory"]), "",
+        "The timeline view (exploratory), as corrected in 1.1.1: the events up to the decision point without the "
+        "decision's own clearing; the opening paragraph is the template's, unchanged:", "",
+        fence(doc["views"]["timeline_view_exploratory"]), "",
         "The Haiku request body:", "", fence(json.dumps(req["haiku"], indent=2, ensure_ascii=False), "json"), "",
         f"The Jev request ({req['jev_deviation']}):", "", fence(json.dumps(req["jev"], indent=2, ensure_ascii=False), "json"), "",
         "| view | exposes | omits |", "|---|---|---|",

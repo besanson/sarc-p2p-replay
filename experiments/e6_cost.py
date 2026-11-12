@@ -1,6 +1,7 @@
 """E6, cost part (prereg/p7-v1.1.md section 6, E6): USD per decision per family, from the responses.
 
-Reads every responses file under responses/e4/ and responses/e4-exploratory/ and the manifest,
+Reads every responses file under responses/e4/, responses/e4-exploratory/ and
+responses/e4-exploratory-corrected/ and the manifests,
 and writes results/e6/cost.json: per arm and family the decisions made (lines with a final call
 record), attempts, tokens, spend and USD per decision; the total against the cap.
 

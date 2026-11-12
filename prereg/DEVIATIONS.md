@@ -100,3 +100,18 @@ before the first Jev request: the first Jev decision request already carries the
 arm, the gate, the people arm or any BPI 2019 estimate outside E4. Results it changes: none; every
 committed response and slot is as it was.
 
+
+### Exploratory timeline arm: the clearing at t* was shown (2026-11-12)
+
+Found in the author's verification of 1.1.0 (`DECISIONS.md` D-G-3). The registration defines the evidence as what
+is recorded before t_c (section 2). The exploratory timeline view of E4 (`experiments/e4_sample.py`,
+`results/e4/views-timeline.jsonl`, run on 2026-10-25) listed every event at or before the decision point t*, so on a
+sample line whose t* is its first `Clear Invoice` it showed that clearing, the decision the model was asked to make:
+1,231 of the 2,000 views (`results/exploratory/timeline-leakage.json`). The exploratory arm therefore departed from
+"before t_c". Corrected in 1.1.1: the timeline view omits the clearing records at t* when t* is a clearing (every
+other event at t* stays), the corrected views are in `results/e4-exploratory/views-timeline-corrected.jsonl`, and the
+exploratory arm is re-run on them (`responses/e4-exploratory-corrected/`). The original run is kept: its views,
+responses and slots are as committed and are reported beside the corrected run. Touches: the exploratory timeline
+arm only, which is not registered and never in Holm. Does not touch the registered ERP view (no ERP view contains a
+clearing; each re-renders byte-identical without it), the registered E4 arm, the gate, the people arm or any
+registered estimate. Results it changes: none of the committed slots; the corrected run adds new files.

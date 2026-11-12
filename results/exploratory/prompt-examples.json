@@ -32,7 +32,8 @@
       "the ERP record's derived fields (approved price, invoice and receipt status, changes since approval, payment block)",
       "actor names",
       "line, document, company and vendor identifiers"
-    ]
+    ],
+    "timeline_view_rule": "events at or before t*, without the decision's own clearing when t* is a clearing (DECISIONS.md D-G-3; the 1.1.0 view showed it)"
   },
   "label": "exploratory, not registered; a synthetic fixture line, no real line",
   "not_separated": "the design does not separate wording, structure and information content: the two views differ in all three at once",
@@ -94,6 +95,6 @@
   },
   "views": {
     "erp_view": "You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {\"decision\": \"clear\" or \"hold\", \"p_hold\": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.\n\nERP record as of 2018-03-10\nItem category: 3-way match, invoice before goods receipt\nGR-based invoice verification: no\nGoods receipt required: yes\nApproved price (EUR): 200.00\nApproved quantity: not recorded in this system\nInvoice received: yes\nInvoice date: 2018-03-05\nInvoice value (EUR): 200.00\nGoods receipt recorded: no\nGoods receipt date: none\nChanges since approval: none\nPayment block: not set",
-    "timeline_view_exploratory": "You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {\"decision\": \"clear\" or \"hold\", \"p_hold\": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.\n\nEvent timeline up to 2018-03-10 (date, activity, value in EUR)\n2018-03-01, Create Purchase Order Item, 200.00\n2018-03-05, Record Invoice Receipt, 200.00\n2018-03-10, Clear Invoice, 200.00"
+    "timeline_view_exploratory": "You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {\"decision\": \"clear\" or \"hold\", \"p_hold\": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.\n\nEvent timeline up to 2018-03-10 (date, activity, value in EUR)\n2018-03-01, Create Purchase Order Item, 200.00\n2018-03-05, Record Invoice Receipt, 200.00"
   }
 }

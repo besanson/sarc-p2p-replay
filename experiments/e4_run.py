@@ -19,8 +19,9 @@ the registered sample order.
   responses/<arm>/<family>/responses.jsonl from the HTTP hook, before parsing, with the
   hashed line id, timestamps, token counts and cost. Nothing is overwritten; no header,
   key or environment value is written.
-- Cap: USD 60 across E4 and the exploratory arm, retries included. Before every attempt,
-  committed spend (every responses file under responses/e4 and responses/e4-exploratory)
+- Cap: USD 60 across E4 and the exploratory arms, retries included. Before every attempt,
+  committed spend (every responses file under responses/e4, responses/e4-exploratory and
+  responses/e4-exploratory-corrected)
   plus the attempt's worst-case cost (paper 6's bound: request bytes as input tokens,
   max_tokens as output tokens) must not exceed the cap, or the family stops CAP_TRUNCATED.
 - One re-request on an invalid reply, then the line is scored `invalid`.
@@ -37,7 +38,7 @@ than PAUSED is final.
 Keys are read from the process environment only (JEV_API_KEY, JEV_BASE_URL,
 ANTHROPIC_API_KEY) and passed to the SDK constructors; they are never printed or written.
 
-Usage: python -m experiments.e4_run --family jev|haiku [--arm e4|e4-exploratory] [--limit N]
+Usage: python -m experiments.e4_run --family jev|haiku [--arm e4|e4-exploratory|e4-exploratory-corrected] [--limit N]
 """
 
 from __future__ import annotations
@@ -86,7 +87,12 @@ HAIKU_MAX_TOKENS, HAIKU_TEMPERATURE, HAIKU_PREFILL = 48, 0.0, "{"
 HAIKU_USD_IN, HAIKU_USD_OUT = 1.00 / 1e6, 5.00 / 1e6
 
 FAMILIES = ("jev", "haiku")
-ARMS = {"e4": ("responses/e4", "views.jsonl"), "e4-exploratory": ("responses/e4-exploratory", "views-timeline.jsonl")}
+# arm: (responses directory, views file under results/). The corrected exploratory arm (DECISIONS.md D-G-3)
+# reads the timeline views without the decision's own clearing event; the original arm's files stay as run.
+ARMS = {"e4": ("responses/e4", "e4/views.jsonl"),
+        "e4-exploratory": ("responses/e4-exploratory", "e4/views-timeline.jsonl"),
+        "e4-exploratory-corrected": ("responses/e4-exploratory-corrected",
+                                     "e4-exploratory/views-timeline-corrected.jsonl")}
 SAMPLE_PATH = ROOT / "results" / "e4" / "sample.json"
 FENCE_RE = re.compile(r"```[A-Za-z0-9_-]*")
 DECISIONS = ("clear", "hold")
@@ -489,17 +495,20 @@ def resolve_jev_root(base_url: str) -> str:
 
 def load_inputs(arm: str, root: Path = ROOT) -> list[tuple[int, str, str]]:
     sample = json.loads((root / "results" / "e4" / "sample.json").read_text(encoding="utf-8"))["lines"]
-    views_file = root / "results" / "e4" / ARMS[arm][1]
+    views_file = root / "results" / ARMS[arm][1]
     views = {r["order"]: r["view"] for r in (json.loads(l) for l in views_file.read_text(encoding="utf-8").splitlines())}
     return [(r["order"], r["case_id"], views[r["order"]]) for r in sorted(sample, key=lambda r: r["order"])]
 
 
-def manifest_path(root: Path = ROOT) -> Path:
+def manifest_path(root: Path = ROOT, arm: str = "e4") -> Path:
+    """The corrected exploratory arm keeps its own manifest; the two arms run in 1.0 share manifest-e4.json."""
+    if arm == "e4-exploratory-corrected":
+        return root / ARMS[arm][0] / "manifest.json"
     return root / "responses" / "e4" / "manifest-e4.json"
 
 
 def update_manifest(arm: str, family: str, entry: dict[str, Any], root: Path = ROOT) -> None:
-    path = manifest_path(root)
+    path = manifest_path(root, arm)
     data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {
         "registration": REGISTRATION, "cap_usd": CAP_USD, "families": {}}
     data["families"].setdefault(arm, {})[family] = entry

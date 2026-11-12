@@ -99,6 +99,8 @@ def regenerate_results(res: Path, root: Path) -> None:
     step("E3"); e3.run(res / "e1", res / "e3")
     step("E4 sample draw"); e4_sample.run(log, res / "e1", res / "e4", e0_lines)
     step("E4 analysis"); e4.run("e4", root=root); e4.run("e4-exploratory", root=root)
+    if (ROOT / "responses" / "e4-exploratory-corrected").is_dir():  # the corrected arm (D-G-3), once run
+        e4.run("e4-exploratory-corrected", root=root)
     step("E5"); e5.run(res / "e1", res / "e5")
     step("E7"); e7_check.run(res / "e7"); e7.run(res / "e7")
     step("E6 cost"); e6_cost.run(root=root, out=res / "e6")

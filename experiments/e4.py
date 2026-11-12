@@ -13,11 +13,12 @@ and results/e2/hypotheses.json, and writes:
   results/e2/hypotheses.json   its `holm` field (the rest of the file is unchanged)
 
 The exploratory arm (--arm e4-exploratory) writes results/e4-exploratory/ with the same
-measures, labelled exploratory, and never enters Holm.
+measures, labelled exploratory, and never enters Holm; the arm re-run on the corrected timeline views
+(--arm e4-exploratory-corrected, DECISIONS.md D-G-3) writes arms- and h4-exploratory-corrected.json there.
 
 A family stopped before the full sample is reported on its completed lines and marked truncated.
 
-Usage: python -m experiments.e4 [--arm e4|e4-exploratory]
+Usage: python -m experiments.e4 [--arm e4|e4-exploratory|e4-exploratory-corrected]
 """
 
 from __future__ import annotations
@@ -36,6 +37,7 @@ from p2p_replay.config import REGISTRATION, ROOT
 MARGIN = 0.05
 ALPHA = 0.05
 FAMILY_LABEL = {"jev": "H4-Jev", "haiku": "H4-Haiku"}
+SUFFIX = {"e4": "", "e4-exploratory": "-exploratory", "e4-exploratory-corrected": "-exploratory-corrected"}
 
 
 def tost(k_d: int, n_d: int, k_c: int, n_c: int, m: float = MARGIN) -> dict[str, Any]:
@@ -179,17 +181,19 @@ def analyse(arm: str = "e4", root: Path = ROOT) -> dict[str, Any]:
         a["hold_rate_clean"] = ratio(a["clean"]["held"], a["clean"]["lines"])
 
     label = "exploratory" if arm != "e4" else "primary"
+    corrected = {"views": "results/e4-exploratory/views-timeline-corrected.jsonl",
+                 "decision": "DECISIONS.md D-G-3"} if arm == "e4-exploratory-corrected" else None
     arms_doc = {"registration": REGISTRATION, "section": "7 (E4)", "arm": arm, "label": label,
                 "amendment": "DECISIONS.md D-C-2 B", "sample_lines": n_total,
                 "expected_correctives_rule": "released defective lines x the E2 O rate at W = 60 of their defect "
                                              "group: the H1 defect group if D1/D2 fails, else the H2 defect group "
                                              "if D4 fails; lines failing neither have no E2 group and are counted",
                 "e2_o_rate_w60": o_rate, "defective_lines_without_e2_group": no_group,
-                "arms": arms}
+                "arms": arms} | ({"corrected_views": corrected} if corrected else {})
     h4_doc: dict[str, Any] = {"registration": REGISTRATION, "section": "4 (H4)", "arm": arm, "label": label,
                               "test": "TOST, two one-sided z-tests with unpooled SE against -m and +m; "
                                       "p_TOST = max of the two",
-                              "margin": MARGIN, "families": h4}
+                              "margin": MARGIN, "families": h4} | ({"corrected_views": corrected} if corrected else {})
     holm_doc = None
     if arm == "e4":
         p = {"H1": hyp["estimates"]["H1"]["W60"]["p_one_sided_raw"],
@@ -212,7 +216,7 @@ def analyse(arm: str = "e4", root: Path = ROOT) -> dict[str, Any]:
 def run(arm: str = "e4", root: Path = ROOT, out: Path | None = None, hypotheses: Path | None = None) -> dict[str, Any]:
     result = analyse(arm, root)
     out = out or (root / "results" / ("e4" if arm == "e4" else "e4-exploratory"))
-    suffix = "" if arm == "e4" else "-exploratory"
+    suffix = SUFFIX[arm]
     write_json(out / f"arms{suffix}.json", result["arms"])
     write_json(out / f"h4{suffix}.json", result["h4"])
     if result["holm"] is not None:

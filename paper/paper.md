@@ -240,6 +240,7 @@ pilot was drawn again, before any estimate. Every deviation, with the decision t
 - Under p7-v1.1: Description corrections in COVERAGE.md, no predicate changes.
 - Under p7-v1.1: E7 bootstrap replicates with an empty group discarded.
 - Under p7-v1.1: E4 Jev request format.
+- Under p7-v1.1: Exploratory timeline arm: the clearing at t* was shown.
 
 The H3 convention and the D5 reading were the author's decisions after E2 and E3 and before any model call (decision D-C-2 in
 the decision log). The response logs date the calls: D-C-2 was committed at 2026-10-25 18:21:56 UTC (`7aea13f`) and the E4 sample drawn at
@@ -1298,7 +1299,7 @@ Changes since approval: none
 Payment block: not set
 ```
 
-The timeline view (exploratory):
+The timeline view (exploratory), as corrected in 1.1.1: the events up to the decision point without the decision's own clearing; the opening paragraph is the template's, unchanged:
 
 ```
 You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {"decision": "clear" or "hold", "p_hold": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.
@@ -1306,7 +1307,6 @@ You are the accounts-payable control for one purchase-order line. The invoice on
 Event timeline up to 2018-03-10 (date, activity, value in EUR)
 2018-03-01, Create Purchase Order Item, 200.00
 2018-03-05, Record Invoice Receipt, 200.00
-2018-03-10, Clear Invoice, 200.00
 ```
 
 The Haiku request body:
