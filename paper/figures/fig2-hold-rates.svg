@@ -1016,32 +1016,32 @@ z
    <g id="patch_14">
     <path d="M 326.701136 165.3455 
 L 351.494265 165.3455 
-L 351.494265 148.24364 
-L 326.701136 148.24364 
+L 351.494265 146.75062 
+L 326.701136 146.75062 
 z
 " clip-path="url(#pff2f908e76)" style="fill: #2563eb"/>
    </g>
    <g id="patch_15">
     <path d="M 395.570939 165.3455 
 L 420.364068 165.3455 
-L 420.364068 152.45124 
-L 395.570939 152.45124 
+L 420.364068 147.157808 
+L 395.570939 147.157808 
 z
 " clip-path="url(#pff2f908e76)" style="fill: #2563eb"/>
    </g>
    <g id="patch_16">
     <path d="M 351.494265 165.3455 
 L 376.287394 165.3455 
-L 376.287394 160.187796 
-L 351.494265 160.187796 
+L 376.287394 159.101964 
+L 351.494265 159.101964 
 z
 " clip-path="url(#pff2f908e76)" style="fill: #9ca3af"/>
    </g>
    <g id="patch_17">
     <path d="M 420.364068 165.3455 
 L 445.157197 165.3455 
-L 445.157197 160.052067 
-L 420.364068 160.052067 
+L 445.157197 157.880402 
+L 420.364068 157.880402 
 z
 " clip-path="url(#pff2f908e76)" style="fill: #9ca3af"/>
    </g>
@@ -1134,8 +1134,8 @@ L 451.08 165.3455
 " style="fill: none; stroke: #1f2937; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_15">
-    <!-- timeline view (exploratory) -->
-    <g transform="translate(325.054714 16.83) scale(0.09 -0.09)">
+    <!-- timeline view (exploratory, corrected) -->
+    <g transform="translate(300.813776 16.83) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-6d" d="M 3328 2828 
 Q 3544 3216 3844 3400 
@@ -1218,6 +1218,27 @@ L 3597 3500
 L 2059 -325 
 z
 " transform="scale(0.015625)"/>
+      <path id="DejaVuSans-63" d="M 3122 3366 
+L 3122 2828 
+Q 2878 2963 2633 3030 
+Q 2388 3097 2138 3097 
+Q 1578 3097 1268 2742 
+Q 959 2388 959 1747 
+Q 959 1106 1268 751 
+Q 1578 397 2138 397 
+Q 2388 397 2633 464 
+Q 2878 531 3122 666 
+L 3122 134 
+Q 2881 22 2623 -34 
+Q 2366 -91 2075 -91 
+Q 1284 -91 818 406 
+Q 353 903 353 1747 
+Q 353 2603 823 3093 
+Q 1294 3584 2113 3584 
+Q 2378 3584 2631 3529 
+Q 2884 3475 3122 3366 
+z
+" transform="scale(0.015625)"/>
      </defs>
      <use xlink:href="#DejaVuSans-74"/>
      <use xlink:href="#DejaVuSans-69" transform="translate(39.208984 0)"/>
@@ -1245,7 +1266,18 @@ z
      <use xlink:href="#DejaVuSans-6f" transform="translate(1152.253906 0)"/>
      <use xlink:href="#DejaVuSans-72" transform="translate(1213.435547 0)"/>
      <use xlink:href="#DejaVuSans-79" transform="translate(1254.548828 0)"/>
-     <use xlink:href="#DejaVuSans-29" transform="translate(1313.728516 0)"/>
+     <use xlink:href="#DejaVuSans-2c" transform="translate(1313.728516 0)"/>
+     <use xlink:href="#DejaVuSans-20" transform="translate(1345.515625 0)"/>
+     <use xlink:href="#DejaVuSans-63" transform="translate(1377.302734 0)"/>
+     <use xlink:href="#DejaVuSans-6f" transform="translate(1432.283203 0)"/>
+     <use xlink:href="#DejaVuSans-72" transform="translate(1493.464844 0)"/>
+     <use xlink:href="#DejaVuSans-72" transform="translate(1532.828125 0)"/>
+     <use xlink:href="#DejaVuSans-65" transform="translate(1571.691406 0)"/>
+     <use xlink:href="#DejaVuSans-63" transform="translate(1633.214844 0)"/>
+     <use xlink:href="#DejaVuSans-74" transform="translate(1688.195312 0)"/>
+     <use xlink:href="#DejaVuSans-65" transform="translate(1727.404297 0)"/>
+     <use xlink:href="#DejaVuSans-64" transform="translate(1788.927734 0)"/>
+     <use xlink:href="#DejaVuSans-29" transform="translate(1852.404297 0)"/>
     </g>
    </g>
    <g id="legend_1">
@@ -1280,27 +1312,6 @@ L 697 3744
 Q 697 4328 969 4595 
 Q 1241 4863 1831 4863 
 L 2375 4863 
-z
-" transform="scale(0.015625)"/>
-       <path id="DejaVuSans-63" d="M 3122 3366 
-L 3122 2828 
-Q 2878 2963 2633 3030 
-Q 2388 3097 2138 3097 
-Q 1578 3097 1268 2742 
-Q 959 2388 959 1747 
-Q 959 1106 1268 751 
-Q 1578 397 2138 397 
-Q 2388 397 2633 464 
-Q 2878 531 3122 666 
-L 3122 134 
-Q 2881 22 2623 -34 
-Q 2366 -91 2075 -91 
-Q 1284 -91 818 406 
-Q 353 903 353 1747 
-Q 353 2603 823 3093 
-Q 1294 3584 2113 3584 
-Q 2378 3584 2631 3529 
-Q 2884 3475 3122 3366 
 z
 " transform="scale(0.015625)"/>
       </defs>

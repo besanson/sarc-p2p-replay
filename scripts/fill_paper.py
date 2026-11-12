@@ -270,17 +270,22 @@ def block_arms() -> tuple[str, list[str]]:
 
 
 def block_exploratory() -> tuple[str, list[str]]:
-    a = load("e4-exploratory/arms-exploratory.json")["arms"]
-    rows = [_row(["family (timeline view, exploratory)", "held, lines with a failed predicate", "held, clean lines",
+    """5.4, exploratory: the timeline arm re-run on the corrected views (D-G-3) beside the original run."""
+    c = load("e4-exploratory/arms-exploratory-corrected.json")["arms"]
+    o = load("e4-exploratory/arms-exploratory.json")["arms"]
+    rows = [_row(["family, timeline view (exploratory)", "held, lines with a failed predicate", "held, clean lines",
                   "kappa with gate", "invalid replies"]), _row(["---", "---:", "---:", "---:", "---:"])]
-    for key, label in (("jev", "Jev"), ("haiku", "Haiku")):
-        x = a[key]
-        rows.append(_row([label,
-                          f"{fmt(x['defective']['held'], 'int')} of {fmt(x['defective']['lines'], 'int')} ({fmt(x['hold_rate_defective'], 'pct1')})",
-                          f"{fmt(x['clean']['held'], 'int')} of {fmt(x['clean']['lines'], 'int')} ({fmt(x['hold_rate_clean'], 'pct1')})",
-                          fmt(x["kappa_with_gate"], "prop3"), fmt(x["invalid"], "int")]))
-    rows += ["", "Source: `results/e4-exploratory/arms-exploratory.json`; exploratory, no interval, outside the Holm family."]
-    return "\n".join(rows), ["e4-exploratory/arms-exploratory.json"]
+    for run, a in (("corrected views", c), ("original run, clearing at t* shown", o)):
+        for key, label in (("jev", "Jev"), ("haiku", "Haiku")):
+            x = a[key]
+            rows.append(_row([f"{label}, {run}",
+                              f"{fmt(x['defective']['held'], 'int')} of {fmt(x['defective']['lines'], 'int')} ({fmt(x['hold_rate_defective'], 'pct1')})",
+                              f"{fmt(x['clean']['held'], 'int')} of {fmt(x['clean']['lines'], 'int')} ({fmt(x['hold_rate_clean'], 'pct1')})",
+                              fmt(x["kappa_with_gate"], "prop3"), fmt(x["invalid"], "int")]))
+    rows += ["", "Source: `results/e4-exploratory/arms-exploratory-corrected.json` (the exploratory result) and "
+             "`results/e4-exploratory/arms-exploratory.json` (the original run, kept); exploratory, no interval, "
+             "outside the Holm family."]
+    return "\n".join(rows), ["e4-exploratory/arms-exploratory-corrected.json", "e4-exploratory/arms-exploratory.json"]
 
 
 def _arms_rows(a: dict) -> list[str]:
@@ -483,6 +488,9 @@ def block_confounders() -> tuple[str, list[str]]:
 X1 = "exploratory/d4-sensitivity.json"
 X2 = "exploratory/adjusted-h1-h2.json"
 X3 = "exploratory/hold-friction.json"
+X5 = "exploratory/timeline-leakage.json"
+X6 = "exploratory/e4-strict-d4.json"
+STATUS_LABEL = {"defective": "failed predicate", "clean": "clean", "held_unknown": "held unknown"}
 X1_ROWS = (("registered", "(a) registered: at least one failed predicate"),
            ("explicit_only", "(b) D4 counts only changes after an explicit approval or release event"),
            ("creation_only_d4", "(c) D4 failures with the creation as the only approval-bearing event"))
@@ -572,7 +580,72 @@ def block_appendix_g() -> tuple[str, list[str]]:
     for w, cells in x3["exploratory_by_line_value_quartile"].items():
         parts.append(f"**X3, W = {w[1:]} days, by line-value quartile**\n\n" + "\n".join(_x3_rows(cells, "quartile")))
     parts.append(f"Sources: `results/{X1}`, `results/{X2}`, `results/{X3}` (exploratory).")
-    return "\n\n".join(parts), [X1, X2, X3]
+    parts += _appendix_g_timeline()
+    return "\n\n".join(parts), [X1, X2, X3, X5, X6, "e4-exploratory/h4-exploratory.json",
+                                 "e4-exploratory/h4-exploratory-corrected.json"]
+
+
+def _rate(c: dict) -> str:
+    return f"{fmt(c['held'], 'int')} of {fmt(c['lines'], 'int')} ({fmt(c['hold_rate'], 'pct1')})"
+
+
+def _appendix_g_timeline() -> list[str]:
+    """Appendix G (D-G-3): the timeline-view audit, the corrected run beside the original, the strict-D4 table."""
+    a = load(X5)
+    by = a["by_status_and_decision_point_kind"]
+    parts = ["**Audit of the original timeline views** (decision D-G-3). "
+             f"Of {fmt(a['sample_lines'], 'int')} timeline views, {fmt(a['views_with_the_clearing'], 'int')} show the "
+             f"`Clear Invoice` at the decision point: every line whose decision point is its first clearing. In "
+             f"{fmt(a['views_with_the_clearing_as_last_row'], 'int')} a clearing is the last row; "
+             f"{fmt(a['views_with_more_than_one_clearing_row_at_t_star'], 'int')} carry two clearing records at that "
+             f"timestamp. No ERP view shows a clearing ({fmt(a['erp_view_check']['views_containing_a_clearing'], 'int')} of "
+             f"{fmt(a['erp_view_check']['views'], 'int')}), and each of the "
+             f"{fmt(a['erp_view_check']['rerendered_without_the_clearing']['lines_rerendered'], 'int')} affected lines "
+             "renders the same ERP view without it.\n\n" + "\n".join(
+                 [_row(["line status at t*", "decision point: first clearing", "decision point: receipt + W"]),
+                  _row(["---", "---:", "---:"])] +
+                 [_row([STATUS_LABEL[s], f"{fmt(by[s]['first clearing']['views_with_the_clearing'], 'int')} of "
+                           f"{fmt(by[s]['first clearing']['lines'], 'int')}",
+                        f"{fmt(by[s]['first invoice receipt + W']['views_with_the_clearing'], 'int')} of "
+                        f"{fmt(by[s]['first invoice receipt + W']['lines'], 'int')}"]) for s in ("defective", "clean")])]
+    rows = [_row(["family, original run", "views", "held, lines with a failed predicate", "held, clean lines"]),
+            _row(["---", "---", "---:", "---:"])]
+    for f, label in (("jev", "Jev"), ("haiku", "Haiku")):
+        for k, name in (("views_with_the_clearing", "clearing shown"), ("views_without_the_clearing", "no clearing")):
+            cell = a["committed_exploratory_hold_rates"][f][k]
+            rows.append(_row([label, name, _rate(cell["defective"]), _rate(cell["clean"])]))
+    parts.append("**Original run, by view.** The lines with and without the clearing differ in decision-point kind; "
+                 "the split is not a stratified comparison.\n\n" + "\n".join(rows))
+    o = load("e4-exploratory/h4-exploratory.json")["families"]
+    c = load("e4-exploratory/h4-exploratory-corrected.json")["families"]
+    rows = [_row(["family", "run", "held, lines with a failed predicate", "held, clean lines", "difference"]),
+            _row(["---", "---", "---:", "---:", "---:"])]
+    for key, label in (("H4-Jev", "Jev"), ("H4-Haiku", "Haiku")):
+        for run, h in (("corrected views", c), ("original, clearing shown", o)):
+            x = h[key]
+            rows.append(_row([label, run, f"{fmt(x['defective']['held'], 'int')} of {fmt(x['defective']['lines'], 'int')} "
+                              f"({fmt(x['hold_rate_defective'], 'pct1')})", f"{fmt(x['clean']['held'], 'int')} of "
+                              f"{fmt(x['clean']['lines'], 'int')} ({fmt(x['hold_rate_clean'], 'pct1')})", fmt(x["d"], "prop3")]))
+    parts.append("**Timeline view, corrected run beside the original.** No p-value; outside the Holm family.\n\n"
+                 + "\n".join(rows))
+    x6 = load(X6)
+    cells = list(x6["registered_x_strict"])
+    cell_label = lambda k: " to ".join(STATUS_LABEL[x] for x in k.split(" -> "))  # noqa: E731
+    rows = [_row(["arm", "strict: failed predicate", "strict: clean", *[f"registered {cell_label(k)}" for k in cells]]),
+            _row(["---", "---:", "---:", *["---:" for _ in cells]])]
+    for name, label in (("people", "people (observed non-release within W)"), ("jev", "Jev"), ("haiku", "Haiku"),
+                        ("gate (registered)", "gate (registered)")):
+        v = x6["arms"][name]
+        rows.append(_row([label, _rate(v["strict_groups"]["defective"]), _rate(v["strict_groups"]["clean"]),
+                          *[_rate(v["cells"][k]) for k in cells]]))
+    parts.append("**The E4 sample under the strict reading of D4** (X1 reading (b), at the decision point; ERP view). "
+                 f"Registered status to strict status: " + ", ".join(
+                     f"{cell_label(k)} {fmt(n, 'int')}" for k, n in x6["registered_x_strict"].items())
+                 + ". The sample was stratified by the registered status; the reclassified groups are not a stratified "
+                 "sample, and their rates describe these lines only.\n\n" + "\n".join(rows))
+    parts.append(f"Sources: `results/{X5}`, `results/e4-exploratory/h4-exploratory.json`, "
+                 f"`results/e4-exploratory/h4-exploratory-corrected.json`, `results/{X6}` (exploratory).")
+    return parts
 
 
 def block_appendix_f() -> tuple[str, list[str]]:

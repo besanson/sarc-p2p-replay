@@ -517,21 +517,27 @@ people, 10 were held by a payment block alone,
 Source: `results/e3/human-hold-composition.json`.
 
 **Exploratory: the event timeline instead of the ERP view.** Labelled exploratory and outside the Holm family: the same lines,
-the same families and rules, with the line's events up to t* (date, activity, value) in place of the ERP view.
+the same families and rules, with the line's events before the decision (date, activity, value) in place of the ERP view.
+The original run also showed the decision's own `Clear Invoice` on the 1,231 of 2,000 lines
+whose decision point is their first clearing, an error of the exploratory pipeline that departed from the registered evidence
+before t_c; it is kept beside the run on the corrected views, which is the exploratory result (decision D-G-3, Appendix G).
 
-| family (timeline view, exploratory) | held, lines with a failed predicate | held, clean lines | kappa with gate | invalid replies |
+| family, timeline view (exploratory) | held, lines with a failed predicate | held, clean lines | kappa with gate | invalid replies |
 | --- | ---: | ---: | ---: | ---: |
-| Jev | 126 of 1,000 (12.6%) | 38 of 1,000 (3.8%) | 0.088 | 0 |
-| Haiku | 95 of 1,000 (9.5%) | 39 of 1,000 (3.9%) | 0.056 | 0 |
+| Jev, corrected views | 137 of 1,000 (13.7%) | 46 of 1,000 (4.6%) | 0.091 | 0 |
+| Haiku, corrected views | 134 of 1,000 (13.4%) | 55 of 1,000 (5.5%) | 0.079 | 0 |
+| Jev, original run, clearing at t* shown | 126 of 1,000 (12.6%) | 38 of 1,000 (3.8%) | 0.088 | 0 |
+| Haiku, original run, clearing at t* shown | 95 of 1,000 (9.5%) | 39 of 1,000 (3.9%) | 0.056 | 0 |
 
-Source: `results/e4-exploratory/arms-exploratory.json`; exploratory, no interval, outside the Holm family.
+Source: `results/e4-exploratory/arms-exploratory-corrected.json` (the exploratory result) and `results/e4-exploratory/arms-exploratory.json` (the original run, kept); exploratory, no interval, outside the Holm family.
 
-Under the timeline view the same models held far fewer lines with a failed predicate (exploratory, no interval). The
+On the corrected views the same models held far fewer lines with a failed predicate than on the ERP view
+(13.7% and 13.4%; exploratory, no interval). The
 experiment does not separate instruction wording, field structure and information content: the timeline view was sent with
 the template's opening paragraph, which says "Using only the ERP record below", followed by the timeline, as Appendix F
 shows. The gate's column follows from the predicates by construction: it is exact contract enforcement, not decision
 accuracy. Spend for
-both families and both views together was USD 2.34 against the registered cap of USD 60
+both families, the ERP view and both timeline runs together was USD 2.34 against the registered cap of USD 60
 (`results/e6/cost.json`).
 
 ### 5.5 Derivation (E5, registered)
@@ -708,7 +714,8 @@ held nearly every line with a failed predicate (100.0% and
 57.3% on all 2,000 sample lines); the gate held exactly the lines with a failed predicate. No decision quality is
 inferred for people, whose column is a process outcome. The ERP view hands the model the
 inputs of the predicates; under the timeline view the same models held far fewer lines (exploratory, no interval), which is
-a statement about views, not about the models alone. The derivation depends on how the three declared losses are expressed over
+a statement about views, not about the models alone. The timeline arm was first run on views that showed the decision's own
+clearing and was re-run on corrected views; both runs are reported (Section 5.4, decision D-G-3). The derivation depends on how the three declared losses are expressed over
 the evidence set; the expressions are recorded with the result. One company's process, one year.
 
 ## 8 Conclusion
@@ -735,7 +742,8 @@ ChatGPT and on Perplexity Computer; and six machine reviews of drafts v0.1 to v0
 names are unverified in-chat self-reports of the platforms: for the second sweep a later session reported its own model as
 `Claude Opus 5.5` and said it produced the sweep, then named the sweep's model `DeepSeek V4 Pro`; the Perplexity reviews of
 v0.1 and v0.2 state `Claude Opus 5.5`, that of v0.3 none. All are committed unedited. The author is solely responsible for
-every claim. We thank the organisers of the BPI Challenges and 4TU.ResearchData for the logs.
+every claim. The correction of the exploratory timeline arm in release 1.1.1 was made in a further builder session with Claude
+(decision D-G-3). We thank the organisers of the BPI Challenges and 4TU.ResearchData for the logs.
 
 ## References
 
@@ -834,9 +842,9 @@ regenerate byte-identically. External reproduction: Eduardo Arana, Independent R
 release (the clone of attempt 1) on macOS arm64 (issue #1, attempt 3): 51 files equal,
 46 byte-identical, 5 within tolerance, maximum difference
 1.11e-16; attempts 1 and 2 failed on tooling errors corrected in 1.0.1 and 1.0.2
-and are recorded. The reproduced release is V1.0.2, whose registered results 1.0.3 and 1.1.0 carry unchanged; the
-exploratory slots added in 1.1.0 are regenerated by the same `make reproduce` and were byte-identical in the fresh-clone check
-of 1.1.0.
+and are recorded. The reproduced release is V1.0.2, whose registered results 1.0.3, 1.1.0 and 1.1.1 carry unchanged; the
+exploratory slots added in 1.1.0 and 1.1.1 are regenerated by the same `make reproduce` and were byte-identical in the
+fresh-clone check of 1.1.1.
 
 ## Appendix D: Exposure by stratum
 
@@ -1360,7 +1368,8 @@ The Jev request (the template's closing reply-format sentence (a JSON decision a
 
 The full tables of the exploratory analyses of Sections 5.1 to 5.3 (decision D-G-1): X1 by item category and H2 under the
 strict reading of D4; X2 per stratum, with each stratum's comparison weight and whether it is kept; X3 by item category and
-line-value quartile at both windows. Not registered; no p-value; outside the Holm family.
+line-value quartile at both windows; then the audit of the exploratory timeline views, the corrected run beside the original
+and the E4 sample under the strict reading of D4 (decision D-G-3). Not registered; no p-value; outside the Holm family.
 
 **X1, 2-way**
 
@@ -1546,3 +1555,39 @@ line-value quartile at both windows. Not registered; no p-value; outside the Hol
 | Q4 | 8,168 | 96.71% | [96.02%, 97.35%] | 86.63% | [81.19%, 91.60%] |
 
 Sources: `results/exploratory/d4-sensitivity.json`, `results/exploratory/adjusted-h1-h2.json`, `results/exploratory/hold-friction.json` (exploratory).
+
+**Audit of the original timeline views** (decision D-G-3). Of 2,000 timeline views, 1,231 show the `Clear Invoice` at the decision point: every line whose decision point is its first clearing. In 1,230 a clearing is the last row; 5 carry two clearing records at that timestamp. No ERP view shows a clearing (0 of 2,000), and each of the 1,231 affected lines renders the same ERP view without it.
+
+| line status at t* | decision point: first clearing | decision point: receipt + W |
+| --- | ---: | ---: |
+| failed predicate | 613 of 613 | 0 of 387 |
+| clean | 618 of 618 | 0 of 382 |
+
+**Original run, by view.** The lines with and without the clearing differ in decision-point kind; the split is not a stratified comparison.
+
+| family, original run | views | held, lines with a failed predicate | held, clean lines |
+| --- | --- | ---: | ---: |
+| Jev | clearing shown | 71 of 613 (11.6%) | 28 of 618 (4.5%) |
+| Jev | no clearing | 55 of 387 (14.2%) | 10 of 382 (2.6%) |
+| Haiku | clearing shown | 48 of 613 (7.8%) | 24 of 618 (3.9%) |
+| Haiku | no clearing | 47 of 387 (12.1%) | 15 of 382 (3.9%) |
+
+**Timeline view, corrected run beside the original.** No p-value; outside the Holm family.
+
+| family | run | held, lines with a failed predicate | held, clean lines | difference |
+| --- | --- | ---: | ---: | ---: |
+| Jev | corrected views | 137 of 1,000 (13.7%) | 46 of 1,000 (4.6%) | 0.091 |
+| Jev | original, clearing shown | 126 of 1,000 (12.6%) | 38 of 1,000 (3.8%) | 0.088 |
+| Haiku | corrected views | 134 of 1,000 (13.4%) | 55 of 1,000 (5.5%) | 0.079 |
+| Haiku | original, clearing shown | 95 of 1,000 (9.5%) | 39 of 1,000 (3.9%) | 0.056 |
+
+**The E4 sample under the strict reading of D4** (X1 reading (b), at the decision point; ERP view). Registered status to strict status: clean to clean 1,000, failed predicate to clean 947, failed predicate to failed predicate 53. The sample was stratified by the registered status; the reclassified groups are not a stratified sample, and their rates describe these lines only.
+
+| arm | strict: failed predicate | strict: clean | registered clean to clean | registered failed predicate to clean | registered failed predicate to failed predicate |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| people (observed non-release within W) | 14 of 42 (33.3%) | 605 of 1,806 (33.5%) | 318 of 936 (34.0%) | 287 of 870 (33.0%) | 14 of 42 (33.3%) |
+| Jev | 53 of 53 (100.0%) | 1,477 of 1,947 (75.9%) | 530 of 1,000 (53.0%) | 947 of 947 (100.0%) | 53 of 53 (100.0%) |
+| Haiku | 53 of 53 (100.0%) | 1,516 of 1,947 (77.9%) | 573 of 1,000 (57.3%) | 943 of 947 (99.6%) | 53 of 53 (100.0%) |
+| gate (registered) | 53 of 53 (100.0%) | 947 of 1,947 (48.6%) | 0 of 1,000 (0.0%) | 947 of 947 (100.0%) | 53 of 53 (100.0%) |
+
+Sources: `results/exploratory/timeline-leakage.json`, `results/e4-exploratory/h4-exploratory.json`, `results/e4-exploratory/h4-exploratory-corrected.json`, `results/exploratory/e4-strict-d4.json` (exploratory).

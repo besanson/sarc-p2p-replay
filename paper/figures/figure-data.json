@@ -104,14 +104,14 @@
         "defective_pct": 33.00438596491228
       }
     },
-    "timeline view (exploratory)": {
+    "timeline view (exploratory, corrected)": {
       "haiku": {
-        "clean_pct": 3.9,
-        "defective_pct": 9.5
+        "clean_pct": 5.5,
+        "defective_pct": 13.4
       },
       "jev": {
-        "clean_pct": 3.8,
-        "defective_pct": 12.6
+        "clean_pct": 4.6,
+        "defective_pct": 13.700000000000001
       }
     }
   },

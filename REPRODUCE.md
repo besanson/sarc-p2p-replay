@@ -1,4 +1,4 @@
-# Reproducing paper 7 (v1.1.0)
+# Reproducing paper 7 (v1.1.1)
 
 For an external reproducer. You need Python 3.11 or later, git, network access to github.com,
 pypi.org and data.4tu.nl, and about 2 GB of free disk. pandoc is needed to regenerate
@@ -7,7 +7,7 @@ different bytes). A LaTeX engine is optional: the PDF is built and compared for 
 No API key is needed: the model responses are committed and no model is called.
 
 ```
-git clone --branch v1.1.0 https://github.com/besanson/sarc-p2p-replay.git
+git clone --branch v1.1.1 https://github.com/besanson/sarc-p2p-replay.git
 ```
 Clones the repository at the release tag.
 
@@ -51,7 +51,7 @@ comparisons, the superseded E0 run 1) are listed in the report by name and not c
 ## Re-running on a later tag in the same clone
 
 ```
-git fetch --tags && git checkout v1.1.0 && make reproduce
+git fetch --tags && git checkout v1.1.1 && make reproduce
 ```
 Keeps `data/`, `.venv` and the siblings; run `make bootstrap` again only if `data/` is missing.
 
@@ -60,4 +60,4 @@ one) and "within tolerance" (JSON and JSON lines only: structures and strings eq
 within 1e-12 relative, with the largest absolute difference shown); text files are compared by bytes,
 and the figures by the numbers they plot (`paper/figures/figure-data.json`), not by their SVG and PDF bytes.
 
-Open an issue titled 'Reproduction of v1.1.0' (or of the tag you ran) with the contents of out/reproduce/report.md, your operating system, Python version and the date.
+Open an issue titled 'Reproduction of v1.1.1' (or of the tag you ran) with the contents of out/reproduce/report.md, your operating system, Python version and the date.

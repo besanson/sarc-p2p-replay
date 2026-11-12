@@ -1654,3 +1654,31 @@ synthetic example (X4) is regenerated from the corrected code. `prereg/DEVIATION
 **Unchanged.** Every registered file except the logged DEVIATIONS entry; every committed slot, the original exploratory
 run's views, responses and slots; the registered ERP arm, which is not re-run; every registered estimate and the Holm
 family.
+
+## D-G-4 Release 1.1.1 (2026-11-12)
+
+1.1.0 was not tagged and is superseded by this release.
+
+**What changed** since 1.1.0 (decision D-G-3): the exploratory timeline view omits the decision's own clearing; the
+audit of the original views (`results/exploratory/timeline-leakage.json`); the corrected views
+(`results/e4-exploratory/views-timeline-corrected.jsonl`); the exploratory arm re-run on them, both families
+(haiku COMPLETE, jev COMPLETE, USD 0.7696; total since E4 USD
+2.3394 of the USD 60 cap), analysed in
+`results/e4-exploratory/h4-exploratory-corrected.json` and `arms-exploratory-corrected.json` (double run byte-identical,
+`results/e4-exploratory/double-run-corrected.json`); the E4 sample under the strict reading of D4
+(`results/exploratory/e4-strict-d4.json`); the exploratory double run over X1 to X6
+(`results/exploratory/double-run.json`); `results/e6/cost.json` with the corrected arm's spend.
+
+Paper: 5.4 reports both runs, the original with the error stated in one sentence and the corrected run as the
+exploratory result; Figure 4's exploratory panel plots the corrected run; Appendix F's synthetic timeline is regenerated
+from the corrected code; Appendix G adds the audit, the corrected tables and the strict-D4 re-tabulation; Section 7 and
+the Acknowledgements gain one sentence each; Appendix C names the release. The TeX build strips the markdown caption's own
+"Figure n:" (the figure number printed twice). CLAIMS.md is unchanged.
+
+`pyproject.toml` and `CITATION.cff` 1.1.1, date-released 2026-11-12; README status; REPRODUCE.md
+`git checkout v1.1.1`. Unchanged: every registered file except the logged DEVIATIONS entry; every committed slot of the
+registered experiments; the original exploratory run's views, responses and slots; every registered estimate and the
+Holm family. The fresh-clone check (D-F-3) runs on this commit before it is pushed.
+
+The author tags v1.1.1 on <sha>, the commit that adds this entry ("paper 7: paper v1.1.1, caption fix, D-G-4"); a
+commit cannot name its own hash, so the builder's report gives it.

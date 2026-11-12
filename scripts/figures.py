@@ -3,8 +3,9 @@
   fig1-exposure       share of analysed clearings and of cleared value per defect class, with the
                       clustered bootstrap 95% intervals (results/e1/exposure.json)
   fig2-hold-rates     hold rate on defective and on clean lines for people (from the log), Jev,
-                      Haiku and the gate (results/e4/arms.json); the exploratory timeline arm in a
-                      separate, labelled panel (results/e4-exploratory/arms-exploratory.json)
+                      Haiku and the gate (results/e4/arms.json); the exploratory timeline arm, as re-run on
+                      the corrected views (D-G-3), in a separate, labelled panel
+                      (results/e4-exploratory/arms-exploratory-corrected.json)
   fig3-lag-bands      D1/D2 failures by lag band, in count and cleared value (results/e3/lag-bands.json)
   fig4-verdict-outcome the 2 x 2 gate verdict x corrective table at W = 60, in count and cleared value
                       (results/e3/verdict-by-outcome.json)
@@ -87,11 +88,11 @@ def fig_exposure(out: Path) -> list[str]:
 
 def fig_hold_rates(out: Path) -> list[str]:
     a = _load("e4/arms.json")["arms"]
-    x = _load("e4-exploratory/arms-exploratory.json")["arms"]
+    x = _load("e4-exploratory/arms-exploratory-corrected.json")["arms"]
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(6.4, 2.8), gridspec_kw={"width_ratios": [4, 2]}, sharey=True)
     arms = (("people", "people\n(log)"), ("jev", "Jev"), ("haiku", "Haiku"), ("gate", "gate"))
     for ax, data, keys, title in ((ax1, a, arms, "ERP view (registered)"),
-                                  (ax2, x, arms[1:3], "timeline view (exploratory)")):
+                                  (ax2, x, arms[1:3], "timeline view (exploratory, corrected)")):
         xs = range(len(keys))
         DATA.setdefault("fig2-hold-rates", {})[title] = {
             k: {"defective_pct": 100 * data[k]["hold_rate_defective"], "clean_pct": 100 * data[k]["hold_rate_clean"]}
