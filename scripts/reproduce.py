@@ -68,6 +68,7 @@ RECORDS = {
     "results/e7/double-run.json": "double-run record",
     "results/e0/run-1/": "E0 run 1 under p7-v1, stopped and superseded by run 2",
     "results/reproduction/": "records of external reproduction attempts and the comparison rule",
+    "results/exploratory/double-run.json": "double-run record of the exploratory analyses",
 }
 # The paper's generated files: text compared by bytes, JSON within tolerance. The figures' SVG and PDF
 # bytes depend on font embedding across machines (D-F-1): listed, not compared; figure-data.json, the
@@ -104,6 +105,12 @@ def regenerate_results(res: Path, root: Path) -> None:
     step("round-2 slots"); round2_slots.run(log, e1_dir=res / "e1", e5_dir=res / "e5", e7_dir=res / "e7",
                                             e0_path=e0_lines, out=res)
     step("round-3 slots"); round3_slots.run(e1_dir=res / "e1", out=res)
+    from experiments.common import BOOTSTRAP_B  # noqa: PLC0415
+    from experiments.exploratory import steps  # noqa: PLC0415
+    from p2p_replay.config import T_END_MONTH_MIN_EVENTS  # noqa: PLC0415
+
+    for name, run_step in steps.STEPS.items():
+        step(f"{name} (exploratory)"); run_step(log, res, res, OUT / "paper", e0_lines, T_END_MONTH_MIN_EVENTS, BOOTSTRAP_B)
 
 
 def reason(rel: str) -> str:

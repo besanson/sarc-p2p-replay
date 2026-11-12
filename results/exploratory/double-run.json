@@ -1,0 +1,17 @@
+{
+  "all_identical": true,
+  "exploratory": true,
+  "files": [
+    {
+      "file": "results/exploratory/d4-sensitivity.json",
+      "identical": true,
+      "sha256_committed": "9197bd56766a628d6969b43e7a6f72861dc25546f9adfd132a00971bb4dcef2f",
+      "sha256_run_a": "9197bd56766a628d6969b43e7a6f72861dc25546f9adfd132a00971bb4dcef2f",
+      "sha256_run_b": "9197bd56766a628d6969b43e7a6f72861dc25546f9adfd132a00971bb4dcef2f"
+    }
+  ],
+  "runs": "two runs into out/exploratory-double-run/{a,b}",
+  "steps": [
+    "X1"
+  ]
+}

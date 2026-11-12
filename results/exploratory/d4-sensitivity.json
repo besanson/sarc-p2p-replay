@@ -1,0 +1,701 @@
+{
+  "bootstrap": {
+    "B": 10000,
+    "cluster": "purchase document, sorted by its hashed id",
+    "clusters": 42346,
+    "generator": "numpy PCG64",
+    "interval": "percentile 2.5 to 97.5",
+    "seed": 20261201
+  },
+  "d4_failures_by_anchor_kind": {
+    "creation": 16482,
+    "explicit": 675
+  },
+  "decision": "DECISIONS.md D-G-1 a",
+  "definitions": {
+    "creation_only_d4": "D4 failures with no explicit approval or release event before t_c: the creation is the only approval-bearing event",
+    "explicit_only": "as registered, but D4 fails only for a change after the last explicit approval or release event (the registered approval-bearing list minus the creation) before t_c",
+    "registered": "at least one failed applicable predicate, as committed (results/e1/exposure.json)",
+    "threshold_X": "as registered, but a D4 failure counts only if a change D4 counts carries an observable relative value difference above X (unregistered thresholds)"
+  },
+  "exploratory": true,
+  "exploratory_all": {
+    "analysed_clearings": 155534,
+    "creation_only_d4": {
+      "bootstrap95": [
+        0.10170327296698199,
+        0.11039667869315169
+      ],
+      "cleared_value_eur": 118271808.0,
+      "clearings": 16478,
+      "share_of_clearings": 0.10594468090578266,
+      "share_of_value": 0.13788456008469532,
+      "value_bootstrap95": [
+        0.11494287426381761,
+        0.16489541043682857
+      ],
+      "wilson95": [
+        0.10442487400621035,
+        0.10748395248696786
+      ]
+    },
+    "explicit_only": {
+      "bootstrap95": [
+        0.006696386227742553,
+        0.011872696207853676
+      ],
+      "cleared_value_eur": 48487070.0,
+      "clearings": 1405,
+      "share_of_clearings": 0.009033394627541245,
+      "share_of_value": 0.05652757347504004,
+      "value_bootstrap95": [
+        0.03668804941189245,
+        0.08134371278323188
+      ],
+      "wilson95": [
+        0.008575161511175076,
+        0.009515879436989748
+      ]
+    },
+    "registered": {
+      "bootstrap95": [
+        0.10935171789963308,
+        0.11915284806350128
+      ],
+      "cleared_value_eur": 166487454.0,
+      "clearings": 17748,
+      "share_of_clearings": 0.11411009811359574,
+      "share_of_value": 0.19409569991870718,
+      "value_bootstrap95": [
+        0.16036481458045976,
+        0.2308619766174474
+      ],
+      "wilson95": [
+        0.11253950950531999,
+        0.11569974806608863
+      ]
+    },
+    "threshold_0": {
+      "bootstrap95": [
+        0.003769474987206277,
+        0.005863225805655974
+      ],
+      "cleared_value_eur": 3072851.0,
+      "clearings": 741,
+      "share_of_clearings": 0.004764231614952358,
+      "share_of_value": 0.0035824150785013463,
+      "value_bootstrap95": [
+        0.0020512232240870476,
+        0.0056312645753663305
+      ],
+      "wilson95": [
+        0.004434036918832967,
+        0.00511888888291848
+      ]
+    },
+    "threshold_1%": {
+      "bootstrap95": [
+        0.003769474987206277,
+        0.005863225805655974
+      ],
+      "cleared_value_eur": 3072851.0,
+      "clearings": 741,
+      "share_of_clearings": 0.004764231614952358,
+      "share_of_value": 0.0035824150785013463,
+      "value_bootstrap95": [
+        0.0020512232240870476,
+        0.0056312645753663305
+      ],
+      "wilson95": [
+        0.004434036918832967,
+        0.00511888888291848
+      ]
+    },
+    "threshold_10%": {
+      "bootstrap95": [
+        0.003769474987206277,
+        0.005863225805655974
+      ],
+      "cleared_value_eur": 3072851.0,
+      "clearings": 741,
+      "share_of_clearings": 0.004764231614952358,
+      "share_of_value": 0.0035824150785013463,
+      "value_bootstrap95": [
+        0.0020512232240870476,
+        0.0056312645753663305
+      ],
+      "wilson95": [
+        0.004434036918832967,
+        0.00511888888291848
+      ]
+    },
+    "threshold_5%": {
+      "bootstrap95": [
+        0.003769474987206277,
+        0.005863225805655974
+      ],
+      "cleared_value_eur": 3072851.0,
+      "clearings": 741,
+      "share_of_clearings": 0.004764231614952358,
+      "share_of_value": 0.0035824150785013463,
+      "value_bootstrap95": [
+        0.0020512232240870476,
+        0.0056312645753663305
+      ],
+      "wilson95": [
+        0.004434036918832967,
+        0.00511888888291848
+      ]
+    }
+  },
+  "exploratory_by_category": {
+    "2-way": {
+      "analysed_clearings": 188,
+      "classes": {
+        "creation_only_d4": {
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "cleared_value_eur": 0.0,
+          "clearings": 0,
+          "share_of_clearings": 0.0,
+          "share_of_value": 0.0,
+          "value_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "wilson95": [
+            0.0,
+            0.020024132657813914
+          ]
+        },
+        "explicit_only": {
+          "bootstrap95": [
+            0.0,
+            0.04938441188441186
+          ],
+          "cleared_value_eur": 45790.0,
+          "clearings": 4,
+          "share_of_clearings": 0.02127659574468085,
+          "share_of_value": 0.02676794721003047,
+          "value_bootstrap95": [
+            0.0,
+            0.08712368967522016
+          ],
+          "wilson95": [
+            0.008304416898572642,
+            0.05342081649720664
+          ]
+        },
+        "registered": {
+          "bootstrap95": [
+            0.0,
+            0.04938441188441186
+          ],
+          "cleared_value_eur": 45790.0,
+          "clearings": 4,
+          "share_of_clearings": 0.02127659574468085,
+          "share_of_value": 0.02676794721003047,
+          "value_bootstrap95": [
+            0.0,
+            0.08712368967522016
+          ],
+          "wilson95": [
+            0.008304416898572642,
+            0.05342081649720664
+          ]
+        },
+        "threshold_0": {
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "cleared_value_eur": 0.0,
+          "clearings": 0,
+          "share_of_clearings": 0.0,
+          "share_of_value": 0.0,
+          "value_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "wilson95": [
+            0.0,
+            0.020024132657813914
+          ]
+        },
+        "threshold_1%": {
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "cleared_value_eur": 0.0,
+          "clearings": 0,
+          "share_of_clearings": 0.0,
+          "share_of_value": 0.0,
+          "value_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "wilson95": [
+            0.0,
+            0.020024132657813914
+          ]
+        },
+        "threshold_10%": {
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "cleared_value_eur": 0.0,
+          "clearings": 0,
+          "share_of_clearings": 0.0,
+          "share_of_value": 0.0,
+          "value_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "wilson95": [
+            0.0,
+            0.020024132657813914
+          ]
+        },
+        "threshold_5%": {
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "cleared_value_eur": 0.0,
+          "clearings": 0,
+          "share_of_clearings": 0.0,
+          "share_of_value": 0.0,
+          "value_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "wilson95": [
+            0.0,
+            0.020024132657813914
+          ]
+        }
+      },
+      "cleared_value_eur": 1710628.0
+    },
+    "3-way, invoice after receipt": {
+      "analysed_clearings": 9640,
+      "classes": {
+        "creation_only_d4": {
+          "bootstrap95": [
+            0.13074310019750637,
+            0.17471435417403275
+          ],
+          "cleared_value_eur": 22446410.0,
+          "clearings": 1461,
+          "share_of_clearings": 0.15155601659751036,
+          "share_of_value": 0.06196677191246005,
+          "value_bootstrap95": [
+            0.032757604682028665,
+            0.1100471039146105
+          ],
+          "wilson95": [
+            0.1445366286797455,
+            0.15885299788287152
+          ]
+        },
+        "explicit_only": {
+          "bootstrap95": [
+            0.009890411775946961,
+            0.01813013201827959
+          ],
+          "cleared_value_eur": 34324074.0,
+          "clearings": 133,
+          "share_of_clearings": 0.01379668049792531,
+          "share_of_value": 0.09475689273538175,
+          "value_bootstrap95": [
+            0.04851330291822103,
+            0.16388634379519668
+          ],
+          "wilson95": [
+            0.011654252502335646,
+            0.016326449998106736
+          ]
+        },
+        "registered": {
+          "bootstrap95": [
+            0.14423501247268353,
+            0.18791202032401566
+          ],
+          "cleared_value_eur": 56768100.0,
+          "clearings": 1592,
+          "share_of_clearings": 0.16514522821576763,
+          "share_of_value": 0.15671708324866754,
+          "value_bootstrap95": [
+            0.09504077250542667,
+            0.24659344018019683
+          ],
+          "wilson95": [
+            0.15786667219934358,
+            0.17269055154109342
+          ]
+        },
+        "threshold_0": {
+          "bootstrap95": [
+            0.0008479067302596715,
+            0.003770917753256152
+          ],
+          "cleared_value_eur": 658381.0,
+          "clearings": 21,
+          "share_of_clearings": 0.002178423236514523,
+          "share_of_value": 0.0018175621517426332,
+          "value_bootstrap95": [
+            0.0002404548367585195,
+            0.005038356886451244
+          ],
+          "wilson95": [
+            0.0014253179081472108,
+            0.003328125936449119
+          ]
+        },
+        "threshold_1%": {
+          "bootstrap95": [
+            0.0008479067302596715,
+            0.003770917753256152
+          ],
+          "cleared_value_eur": 658381.0,
+          "clearings": 21,
+          "share_of_clearings": 0.002178423236514523,
+          "share_of_value": 0.0018175621517426332,
+          "value_bootstrap95": [
+            0.0002404548367585195,
+            0.005038356886451244
+          ],
+          "wilson95": [
+            0.0014253179081472108,
+            0.003328125936449119
+          ]
+        },
+        "threshold_10%": {
+          "bootstrap95": [
+            0.0008479067302596715,
+            0.003770917753256152
+          ],
+          "cleared_value_eur": 658381.0,
+          "clearings": 21,
+          "share_of_clearings": 0.002178423236514523,
+          "share_of_value": 0.0018175621517426332,
+          "value_bootstrap95": [
+            0.0002404548367585195,
+            0.005038356886451244
+          ],
+          "wilson95": [
+            0.0014253179081472108,
+            0.003328125936449119
+          ]
+        },
+        "threshold_5%": {
+          "bootstrap95": [
+            0.0008479067302596715,
+            0.003770917753256152
+          ],
+          "cleared_value_eur": 658381.0,
+          "clearings": 21,
+          "share_of_clearings": 0.002178423236514523,
+          "share_of_value": 0.0018175621517426332,
+          "value_bootstrap95": [
+            0.0002404548367585195,
+            0.005038356886451244
+          ],
+          "wilson95": [
+            0.0014253179081472108,
+            0.003328125936449119
+          ]
+        }
+      },
+      "cleared_value_eur": 362233005.0
+    },
+    "3-way, invoice before receipt": {
+      "analysed_clearings": 145706,
+      "classes": {
+        "creation_only_d4": {
+          "bootstrap95": [
+            0.09877063729880181,
+            0.10754403142912639
+          ],
+          "cleared_value_eur": 95825398.0,
+          "clearings": 15017,
+          "share_of_clearings": 0.10306370362236283,
+          "share_of_value": 0.1940508212139944,
+          "value_bootstrap95": [
+            0.18472785524952196,
+            0.20364782953295388
+          ],
+          "wilson95": [
+            0.10151300956902931,
+            0.10463532713964618
+          ]
+        },
+        "explicit_only": {
+          "bootstrap95": [
+            0.00622347837751159,
+            0.011702800491810874
+          ],
+          "cleared_value_eur": 14117206.0,
+          "clearings": 1268,
+          "share_of_clearings": 0.00870245562982993,
+          "share_of_value": 0.028587988933238023,
+          "value_bootstrap95": [
+            0.018945199761664595,
+            0.03992998842795657
+          ],
+          "wilson95": [
+            0.008238333042591497,
+            0.009192483115001284
+          ]
+        },
+        "registered": {
+          "bootstrap95": [
+            0.10603600035393165,
+            0.11600049717314953
+          ],
+          "cleared_value_eur": 109673564.0,
+          "clearings": 16152,
+          "share_of_clearings": 0.1108533622500103,
+          "share_of_value": 0.22209399182109915,
+          "value_bootstrap95": [
+            0.21004812721900543,
+            0.23484840384160957
+          ],
+          "wilson95": [
+            0.10925158993160801,
+            0.11247565330303151
+          ]
+        },
+        "threshold_0": {
+          "bootstrap95": [
+            0.003886255679289531,
+            0.006104126472449218
+          ],
+          "cleared_value_eur": 2414470.0,
+          "clearings": 720,
+          "share_of_clearings": 0.004941457455423936,
+          "share_of_value": 0.004889412369532272,
+          "value_bootstrap95": [
+            0.0027970729897260683,
+            0.007609825320490549
+          ],
+          "wilson95": [
+            0.004594228644621351,
+            0.005314789472241681
+          ]
+        },
+        "threshold_1%": {
+          "bootstrap95": [
+            0.003886255679289531,
+            0.006104126472449218
+          ],
+          "cleared_value_eur": 2414470.0,
+          "clearings": 720,
+          "share_of_clearings": 0.004941457455423936,
+          "share_of_value": 0.004889412369532272,
+          "value_bootstrap95": [
+            0.0027970729897260683,
+            0.007609825320490549
+          ],
+          "wilson95": [
+            0.004594228644621351,
+            0.005314789472241681
+          ]
+        },
+        "threshold_10%": {
+          "bootstrap95": [
+            0.003886255679289531,
+            0.006104126472449218
+          ],
+          "cleared_value_eur": 2414470.0,
+          "clearings": 720,
+          "share_of_clearings": 0.004941457455423936,
+          "share_of_value": 0.004889412369532272,
+          "value_bootstrap95": [
+            0.0027970729897260683,
+            0.007609825320490549
+          ],
+          "wilson95": [
+            0.004594228644621351,
+            0.005314789472241681
+          ]
+        },
+        "threshold_5%": {
+          "bootstrap95": [
+            0.003886255679289531,
+            0.006104126472449218
+          ],
+          "cleared_value_eur": 2414470.0,
+          "clearings": 720,
+          "share_of_clearings": 0.004941457455423936,
+          "share_of_value": 0.004889412369532272,
+          "value_bootstrap95": [
+            0.0027970729897260683,
+            0.007609825320490549
+          ],
+          "wilson95": [
+            0.004594228644621351,
+            0.005314789472241681
+          ]
+        }
+      },
+      "cleared_value_eur": 493815988.0
+    }
+  },
+  "exploratory_h2_explicit_only": {
+    "W": 60,
+    "bootstrap95": [
+      0.0129346137362003,
+      0.07362961554454231
+    ],
+    "bootstrap_resamples_used": 10000,
+    "bootstrap_se": 0.015761130531635758,
+    "comparison_group": {
+      "O_rate": 0.0105195182590165,
+      "clearings": 154855,
+      "with_O": 1629
+    },
+    "defect_group": {
+      "O_rate": 0.044182621502209134,
+      "clearings": 679,
+      "with_O": 30
+    },
+    "difference": 0.03366310324319263,
+    "registered_h2": {
+      "comparison_O_rate": 0.009625877132760502,
+      "defect_O_rate": 0.019059276097219795,
+      "difference": 0.009433398964459293
+    }
+  },
+  "exploratory_materiality": {
+    "abs_change_eur_quantiles_over_observable": {
+      "p10": 8998.400000000001,
+      "p25": 11236.0,
+      "p50": 34641.0,
+      "p75": 104185.0,
+      "p90": 138564.0,
+      "p99": 138564.0
+    },
+    "d4_failures": 17157,
+    "d4_failures_with_an_observable_nonzero_change": 13,
+    "d4_failures_with_values_on_counted_changes": 17157,
+    "per_clearing": "the largest absolute and relative difference over the changes D4 counts",
+    "quantiles": [
+      10,
+      25,
+      50,
+      75,
+      90,
+      99
+    ],
+    "rel_change_quantiles_over_observable": {
+      "p10": 0.5,
+      "p25": 0.5,
+      "p50": 0.5,
+      "p75": 0.5000194984986156,
+      "p90": 0.5000918174289596,
+      "p99": 0.8520136440177288
+    },
+    "thresholds": [
+      {
+        "exposure": {
+          "bootstrap95": [
+            0.003769474987206277,
+            0.005863225805655974
+          ],
+          "cleared_value_eur": 3072851.0,
+          "clearings": 741,
+          "share_of_clearings": 0.004764231614952358,
+          "share_of_value": 0.0035824150785013463,
+          "value_bootstrap95": [
+            0.0020512232240870476,
+            0.0056312645753663305
+          ],
+          "wilson95": [
+            0.004434036918832967,
+            0.00511888888291848
+          ]
+        },
+        "label": "0",
+        "relative_change_above": 0.0,
+        "unregistered": true
+      },
+      {
+        "exposure": {
+          "bootstrap95": [
+            0.003769474987206277,
+            0.005863225805655974
+          ],
+          "cleared_value_eur": 3072851.0,
+          "clearings": 741,
+          "share_of_clearings": 0.004764231614952358,
+          "share_of_value": 0.0035824150785013463,
+          "value_bootstrap95": [
+            0.0020512232240870476,
+            0.0056312645753663305
+          ],
+          "wilson95": [
+            0.004434036918832967,
+            0.00511888888291848
+          ]
+        },
+        "label": "1%",
+        "relative_change_above": 0.01,
+        "unregistered": true
+      },
+      {
+        "exposure": {
+          "bootstrap95": [
+            0.003769474987206277,
+            0.005863225805655974
+          ],
+          "cleared_value_eur": 3072851.0,
+          "clearings": 741,
+          "share_of_clearings": 0.004764231614952358,
+          "share_of_value": 0.0035824150785013463,
+          "value_bootstrap95": [
+            0.0020512232240870476,
+            0.0056312645753663305
+          ],
+          "wilson95": [
+            0.004434036918832967,
+            0.00511888888291848
+          ]
+        },
+        "label": "5%",
+        "relative_change_above": 0.05,
+        "unregistered": true
+      },
+      {
+        "exposure": {
+          "bootstrap95": [
+            0.003769474987206277,
+            0.005863225805655974
+          ],
+          "cleared_value_eur": 3072851.0,
+          "clearings": 741,
+          "share_of_clearings": 0.004764231614952358,
+          "share_of_value": 0.0035824150785013463,
+          "value_bootstrap95": [
+            0.0020512232240870476,
+            0.0056312645753663305
+          ],
+          "wilson95": [
+            0.004434036918832967,
+            0.00511888888291848
+          ]
+        },
+        "label": "10%",
+        "relative_change_above": 0.1,
+        "unregistered": true
+      }
+    ],
+    "what_the_values_allow": "the value field is in effect a line attribute repeated on every event: of 17,157 D4 failures, 13 have a counted change whose value differs from the event before it; for the other 17,144 no per-change difference is observable, and they count as not above any threshold"
+  },
+  "label": "exploratory, not registered; no p-value; not in the Holm family",
+  "registration": "p7-v1.1"
+}

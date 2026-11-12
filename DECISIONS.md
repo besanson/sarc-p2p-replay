@@ -1528,3 +1528,17 @@ h. E7 shows that the procedure applies to another log, not external validity; th
 i. Editorial: figure numbering and captions checked; the AI disclosure shortened; confirmatory,
    exploratory and secondary labels on every result heading; the abstract observational. Decision:
    session 2.
+
+**Exploratory analyses (records).** Each is computed from the committed evidence set, lines table,
+responses and slots (X1 also from the log, for the event kinds and values the evidence set does not
+keep), runs twice byte-identically, and is a step of `make reproduce` and of gate G4.
+
+**X1, D4 sensitivity (exploratory)** (`results/exploratory/d4-sensitivity.json`, `experiments/exploratory/x1_d4_sensitivity.py`):
+  - (a) registered, at least one failed predicate: 17,748 clearings, 11.41% [10.94%, 11.92%]; 19.41% of cleared value [16.04%, 23.09%]
+  - (b) D4 counting only changes after an explicit approval or release event: 1,405 clearings, 0.90% [0.67%, 1.19%]; 5.65% of cleared value [3.67%, 8.13%]
+  - (c) D4 failures whose only approval-bearing event is the creation: 16,478 clearings, 10.59% [10.17%, 11.04%]; 13.79% of cleared value [11.49%, 16.49%]
+  - materiality: the value field is in effect a line attribute repeated on every event: of 17,157 D4 failures, 13 have a counted change whose value differs from the event before it; for the other 17,144 no per-change difference is observable, and they count as not above any threshold
+  - D4 failures restricted to an observable relative change above 0: 741 clearings, 0.48% [0.38%, 0.59%]; 0.36% of cleared value [0.21%, 0.56%]
+  - D4 failures restricted to an observable relative change above 1%: 741 clearings, 0.48% [0.38%, 0.59%]; 0.36% of cleared value [0.21%, 0.56%]
+  - D4 failures restricted to an observable relative change above 5%: 741 clearings, 0.48% [0.38%, 0.59%]; 0.36% of cleared value [0.21%, 0.56%]
+  - D4 failures restricted to an observable relative change above 10%: 741 clearings, 0.48% [0.38%, 0.59%]; 0.36% of cleared value [0.21%, 0.56%]

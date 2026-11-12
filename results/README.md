@@ -106,6 +106,15 @@ refer to `prereg/p7-v1.1.md`.
 | `e7/double-run.json` | E7 vocabulary check and replication run twice: byte comparison | 8 |
 | `e7/unknown-overlap.json` | per log: payments with a predicate unknown, how many of them fail another predicate, and payments with every predicate passing (`experiments/round2_slots.py`, D-D-3) | 8 |
 
+## exploratory/ (exploratory analyses, DECISIONS.md D-G-1: `experiments/exploratory/`)
+
+Not registered; no p-value; never in the Holm family. Each is a step of `make reproduce` and of gate G4.
+
+| file | holds | decision |
+|---|---|---|
+| `exploratory/d4-sensitivity.json` | X1: exposure (count and value, Wilson and clustered intervals) as registered, with D4 counting only changes after an explicit approval or release event, and the D4 failures anchored on the creation only; H2 under the explicit anchor, descriptive; the value differences the changes carry, and exposure under unregistered relative-change thresholds (`x1_d4_sensitivity.py`) | D-G-1 a |
+| `exploratory/double-run.json` | the exploratory analyses run twice: byte comparison with each other and with the committed files (`double_run.py`) | D-G-1 |
+
 ## Checks
 
 | file | holds | section |
