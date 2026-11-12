@@ -1,0 +1,60 @@
+{
+  "arm": "e4-exploratory-corrected",
+  "corrected_views": {
+    "decision": "DECISIONS.md D-G-3",
+    "views": "results/e4-exploratory/views-timeline-corrected.jsonl"
+  },
+  "families": {
+    "H4-Haiku": {
+      "clean": {
+        "held": 55,
+        "lines": 1000
+      },
+      "d": 0.07900000000000001,
+      "defective": {
+        "held": 134,
+        "lines": 1000
+      },
+      "family": "haiku",
+      "hold_rate_clean": 0.055,
+      "hold_rate_defective": 0.134,
+      "margin": 0.05,
+      "p_lower": 1.2357844440619696e-23,
+      "p_tost": 0.9873657181037883,
+      "p_upper": 0.9873657181037883,
+      "se": 0.01296221431700618,
+      "status": "COMPLETE",
+      "truncated": false,
+      "z_lower": 9.952003326372598,
+      "z_upper": -2.237272065618647
+    },
+    "H4-Jev": {
+      "clean": {
+        "held": 46,
+        "lines": 1000
+      },
+      "d": 0.09100000000000001,
+      "defective": {
+        "held": 137,
+        "lines": 1000
+      },
+      "family": "jev",
+      "hold_rate_clean": 0.046,
+      "hold_rate_defective": 0.137,
+      "margin": 0.05,
+      "p_lower": 8.379973016850865e-29,
+      "p_tost": 0.9993593185815298,
+      "p_upper": 0.9993593185815298,
+      "se": 0.012732438886560579,
+      "status": "COMPLETE",
+      "truncated": false,
+      "z_lower": 11.074076322394856,
+      "z_upper": -3.220121483816944
+    }
+  },
+  "label": "exploratory",
+  "margin": 0.05,
+  "registration": "p7-v1.1",
+  "section": "4 (H4)",
+  "test": "TOST, two one-sided z-tests with unpooled SE against -m and +m; p_TOST = max of the two"
+}

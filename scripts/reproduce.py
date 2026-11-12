@@ -64,6 +64,7 @@ RECORDS = {
     "results/round3-double-run.json": "double-run record",
     "results/e4/double-run.json": "double-run record",
     "results/e4-exploratory/double-run.json": "double-run record",
+    "results/e4-exploratory/double-run-corrected.json": "double-run record",
     "results/e5/double-run.json": "double-run record",
     "results/e7/double-run.json": "double-run record",
     "results/e0/run-1/": "E0 run 1 under p7-v1, stopped and superseded by run 2",

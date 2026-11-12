@@ -1,6 +1,6 @@
 {
   "paper": "paper/paper.md",
-  "paper_sha256": "07fd85ff636cfaeb9745e21134f6fbb09bd6424251d04a1e5f9fed01119acb91",
+  "paper_sha256": "550ed0344d8a2b8563b116361f12b09a75826c521cd639136b6e45c7309ed598",
   "placeholders": [
     {
       "end": 392,
@@ -2042,8 +2042,8 @@
       "placeholder": "e6/cost.json>spend_usd_total|usd",
       "source": "results/e6/cost.json",
       "start": 37276,
-      "text": "1.57",
-      "value": 1.569800242
+      "text": "2.34",
+      "value": 2.339407204
     },
     {
       "end": 38702,

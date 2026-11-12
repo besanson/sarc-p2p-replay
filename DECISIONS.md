@@ -1640,9 +1640,16 @@ is receipt + W is unchanged. The corrected views are in `results/e4-exploratory/
 committed `results/e4/views-timeline.jsonl` stays and regenerates byte-identical (`with_own_clearing=True`). Appendix F's
 synthetic example (X4) is regenerated from the corrected code. `prereg/DEVIATIONS.md` records the departure.
 
-**Re-run.** Not yet run: the corrected arm is run after this entry is first committed (no call before it).
+**Re-run.** The exploratory arm re-run on the corrected views, same 2,000 lines, both families, the same request shapes and the same arm health rule; responses append-only in `responses/e4-exploratory-corrected/<family>/responses.jsonl`, cap accounting in `responses/e4-exploratory-corrected/manifest.json`; analysis in `results/e4-exploratory/h4-exploratory-corrected.json` and `arms-exploratory-corrected.json`:
+  - H4-Haiku: status COMPLETE; hold rate defective 0.1340 (original 0.0950), clean 0.0550 (original 0.0390), d = 0.0790 (original 0.0560)
+  - H4-Jev: status COMPLETE; hold rate defective 0.1370 (original 0.1260), clean 0.0460 (original 0.0380), d = 0.0910 (original 0.0880)
 
-**Strict-D4 re-tabulation.** Not yet written.
+**Strict-D4 re-tabulation.** `results/exploratory/e4-strict-d4.json`: the 2,000 sample lines reclassified at t* under the strict reading of D4 (X1 reading (b)); registered -> strict: clean -> clean: 1,000, defective -> clean: 947, defective -> defective: 53. The four arms' hold rates on the registered ERP view:
+  - gate (registered): strict defective 1.0000 (53/53), strict clean 0.4864 (947/1,947)
+  - haiku: strict defective 1.0000 (53/53), strict clean 0.7786 (1,516/1,947)
+  - jev: strict defective 1.0000 (53/53), strict clean 0.7586 (1,477/1,947)
+  - people: strict defective 0.3333 (14/42), strict clean 0.3350 (605/1,806)
+  Statement: the sample was stratified by the registered status at t*; the groups reclassified under the strict D4 reading are not a stratified sample, and their hold rates describe these 2,000 lines only.
 
 **Unchanged.** Every registered file except the logged DEVIATIONS entry; every committed slot, the original exploratory
 run's views, responses and slots; the registered ERP arm, which is not re-run; every registered estimate and the Holm

@@ -531,7 +531,7 @@ experiment does not separate instruction wording, field structure and informatio
 the template's opening paragraph, which says "Using only the ERP record below", followed by the timeline, as Appendix F
 shows. The gate's column follows from the predicates by construction: it is exact contract enforcement, not decision
 accuracy. Spend for
-both families and both views together was USD 1.57 against the registered cap of USD 60
+both families and both views together was USD 2.34 against the registered cap of USD 60
 (`results/e6/cost.json`).
 
 ### 5.5 Derivation (E5, registered)

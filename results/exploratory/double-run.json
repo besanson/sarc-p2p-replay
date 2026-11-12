@@ -26,16 +26,30 @@
     {
       "file": "results/exploratory/prompt-examples.json",
       "identical": true,
-      "sha256_committed": "4f288e79331993138ba48da4e3385d272e317dfb405a42fe3ac6e9941117bd5e",
-      "sha256_run_a": "4f288e79331993138ba48da4e3385d272e317dfb405a42fe3ac6e9941117bd5e",
-      "sha256_run_b": "4f288e79331993138ba48da4e3385d272e317dfb405a42fe3ac6e9941117bd5e"
+      "sha256_committed": "ae31039bab1d8f31cadb3cc857d5179e6871da040d724ca80ccc1e8974880052",
+      "sha256_run_a": "ae31039bab1d8f31cadb3cc857d5179e6871da040d724ca80ccc1e8974880052",
+      "sha256_run_b": "ae31039bab1d8f31cadb3cc857d5179e6871da040d724ca80ccc1e8974880052"
     },
     {
       "file": "paper/appendix-prompts.md",
       "identical": true,
-      "sha256_committed": "371b1056ce89597ec23abc23f5ba9e97d145906cda51ced3177dce797eea63ad",
-      "sha256_run_a": "371b1056ce89597ec23abc23f5ba9e97d145906cda51ced3177dce797eea63ad",
-      "sha256_run_b": "371b1056ce89597ec23abc23f5ba9e97d145906cda51ced3177dce797eea63ad"
+      "sha256_committed": "8b40f112a5c6f4b74ef50e98a88490ef0ef010025dbec285e2245d6fb1aaa4ad",
+      "sha256_run_a": "8b40f112a5c6f4b74ef50e98a88490ef0ef010025dbec285e2245d6fb1aaa4ad",
+      "sha256_run_b": "8b40f112a5c6f4b74ef50e98a88490ef0ef010025dbec285e2245d6fb1aaa4ad"
+    },
+    {
+      "file": "results/exploratory/timeline-leakage.json",
+      "identical": true,
+      "sha256_committed": "3b10ece9fbc4be100a8d1967e0de898b8108a535ce1b441e94a8afbac6944e90",
+      "sha256_run_a": "3b10ece9fbc4be100a8d1967e0de898b8108a535ce1b441e94a8afbac6944e90",
+      "sha256_run_b": "3b10ece9fbc4be100a8d1967e0de898b8108a535ce1b441e94a8afbac6944e90"
+    },
+    {
+      "file": "results/exploratory/e4-strict-d4.json",
+      "identical": true,
+      "sha256_committed": "ba5663b771f74ed85cd66d4b2601677e5551539becac51464c599ccfc416e9b1",
+      "sha256_run_a": "ba5663b771f74ed85cd66d4b2601677e5551539becac51464c599ccfc416e9b1",
+      "sha256_run_b": "ba5663b771f74ed85cd66d4b2601677e5551539becac51464c599ccfc416e9b1"
     }
   ],
   "runs": "two runs into out/exploratory-double-run/{a,b}",
@@ -43,6 +57,8 @@
     "X1",
     "X2",
     "X3",
-    "X4"
+    "X4",
+    "X5",
+    "X6"
   ]
 }

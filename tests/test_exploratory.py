@@ -102,3 +102,13 @@ def test_x5_audit_counts_the_clearing_at_t_star():
     bad = {1: timeline[1], 2: timeline[2]}  # a corrected view that still shows the clearing is refused
     with pytest.raises(RuntimeError):
         x5.analyse(sample, timeline, bad, erp, calls, {"lines_rerendered": 1, "identical_to_committed": 1})
+
+
+def test_x6_strict_status():
+    from experiments.exploratory.x6_e4_strict_d4 import strict_status
+
+    base = {"failed": ["D4"], "unknown": [], "d4_applicable": True, "explicit_before_t_star": False}
+    assert strict_status(base | {"d4_strict_fail": False}) == ("clean", [])
+    assert strict_status(base | {"d4_strict_fail": True}) == ("defective", ["D4"])
+    assert strict_status(base | {"failed": ["D1", "D4"], "d4_strict_fail": False}) == ("defective", ["D1"])
+    assert strict_status(base | {"unknown": ["D6"], "d4_strict_fail": False}) == ("held_unknown", [])

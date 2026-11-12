@@ -1,0 +1,18 @@
+{
+  "all_identical": true,
+  "arm": "e4-exploratory-corrected",
+  "files": [
+    {
+      "file": "results/e4-exploratory/arms-exploratory-corrected.json",
+      "identical": true,
+      "sha256_committed": "da6fea5af11f34ed3efe012752d59c3de2de70c1383a66f5adc35342583c1aef",
+      "sha256_rerun": "da6fea5af11f34ed3efe012752d59c3de2de70c1383a66f5adc35342583c1aef"
+    },
+    {
+      "file": "results/e4-exploratory/h4-exploratory-corrected.json",
+      "identical": true,
+      "sha256_committed": "b9f1bd87e276c9b056b68d9e4032cdd6f545b4fb117929b02456b3eea56d28f1",
+      "sha256_rerun": "b9f1bd87e276c9b056b68d9e4032cdd6f545b4fb117929b02456b3eea56d28f1"
+    }
+  ]
+}
