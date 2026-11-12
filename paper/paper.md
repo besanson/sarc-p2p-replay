@@ -45,7 +45,7 @@ metadata-borne predicate, on constructed domains, and made no prevalence claim. 
 on whether the agent may act (Besanson 2026a); paper 2, Green SARC, on its budget (Besanson 2026b);
 paper 3, SARC-DQ, on the evidence it admits (Besanson 2026c); paper 4 on composing several gates on one action
 (Besanson 2026d); paper 5 on deriving the contract, the compiler (Besanson 2026e); and paper 6
-on facts read from documents (Besanson 2026f). This paper is the number, on one real process.
+on facts read from documents (Besanson 2026f). This paper measures those defects on one real process.
 
 The unit is an invoice clearing in the BPI Challenge 2019 purchase-to-pay log. For each of the
 155,534 analysed clearings (the exclusion table of Section 4) we reconstruct the evidence
@@ -536,7 +536,11 @@ On the corrected views the same models held far fewer lines with a failed predic
 experiment does not separate instruction wording, field structure and information content: the timeline view was sent with
 the template's opening paragraph, which says "Using only the ERP record below", followed by the timeline, as Appendix F
 shows. The gate's column follows from the predicates by construction: it is exact contract enforcement, not decision
-accuracy. Spend for
+accuracy. Under the strict reading of D4 (Section 5.1), 947 of the 1,000 sample lines with a failed registered
+predicate become clean, and the models held nearly all of them on the ERP view (Jev 947, Haiku 943), so on the reclassified
+sample their hold rates on strict-clean lines are 75.9% and 77.9% (`results/exploratory/e4-strict-d4.json`; exploratory). The apparent
+selectivity of a model-based decision depends on the contract it is measured against, and the sample was stratified under
+the registered contract, not the strict one. Spend for
 both families, the ERP view and both timeline runs together was USD 2.34 against the registered cap of USD 60
 (`results/e6/cost.json`).
 
@@ -715,7 +719,10 @@ held nearly every line with a failed predicate (100.0% and
 inferred for people, whose column is a process outcome. The ERP view hands the model the
 inputs of the predicates; under the timeline view the same models held far fewer lines (exploratory, no interval), which is
 a statement about views, not about the models alone. The timeline arm was first run on views that showed the decision's own
-clearing and was re-run on corrected views; both runs are reported (Section 5.4, decision D-G-3). The derivation depends on how the three declared losses are expressed over
+clearing and was re-run on corrected views; both runs are reported (Section 5.4, decision D-G-3). Measured against the strict
+reading of D4, 947 of the 1,000 sample lines with a failed registered predicate become clean, and the models' hold rates on strict-clean
+lines are 75.9% (Jev) and 77.9% (Haiku): how selective a model looks depends on the contract it is measured against, on a sample
+stratified under the registered one (exploratory). The derivation depends on how the three declared losses are expressed over
 the evidence set; the expressions are recorded with the result. One company's process, one year.
 
 ## 8 Conclusion

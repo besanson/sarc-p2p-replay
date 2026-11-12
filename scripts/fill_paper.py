@@ -733,7 +733,8 @@ def fill(template: str) -> tuple[str, dict[str, Any]]:
             rec = {"placeholder": body, "kind": "block", "sources": sources}
         else:
             spec, _, f = body.partition("|")
-            source, *keys = spec.split(">")
+            # " -> " inside a key (the strict-D4 slot's cells, "defective -> clean") is not a path separator.
+            source, *keys = (k.replace("\0", " -> ") for k in spec.replace(" -> ", "\0").split(">"))
             if source == "@cite":
                 text = cite_text(keys[0])
                 cited.append(keys[0])

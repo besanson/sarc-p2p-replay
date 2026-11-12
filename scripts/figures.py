@@ -59,9 +59,12 @@ DATA: dict[str, dict] = {}  # the numbers each figure plots, by figure, filled a
 
 def _save(fig, out: Path, name: str) -> list[str]:
     out.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out / f"{name}.svg", format="svg", metadata={"Date": None, "Creator": None})
+    # bbox_inches="tight" fits the saved figure to its drawn extent (panel titles included); it is computed from the
+    # drawn text, so on one machine the bytes are the same on every run.
+    tight = {"bbox_inches": "tight", "pad_inches": 0.04}
+    fig.savefig(out / f"{name}.svg", format="svg", metadata={"Date": None, "Creator": None}, **tight)
     fig.savefig(out / f"{name}.pdf", format="pdf", metadata={"CreationDate": None, "ModDate": None,
-                                                             "Creator": None, "Producer": None})
+                                                             "Creator": None, "Producer": None}, **tight)
     plt.close(fig)
     return [f"{name}.svg", f"{name}.pdf"]
 
@@ -92,7 +95,7 @@ def fig_hold_rates(out: Path) -> list[str]:
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(6.4, 2.8), gridspec_kw={"width_ratios": [4, 2]}, sharey=True)
     arms = (("people", "people\n(log)"), ("jev", "Jev"), ("haiku", "Haiku"), ("gate", "gate"))
     for ax, data, keys, title in ((ax1, a, arms, "ERP view (registered)"),
-                                  (ax2, x, arms[1:3], "timeline view (exploratory, corrected)")):
+                                  (ax2, x, arms[1:3], "timeline view (corrected)")):
         xs = range(len(keys))
         DATA.setdefault("fig2-hold-rates", {})[title] = {
             k: {"defective_pct": 100 * data[k]["hold_rate_defective"], "clean_pct": 100 * data[k]["hold_rate_clean"]}

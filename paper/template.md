@@ -45,7 +45,7 @@ metadata-borne predicate, on constructed domains, and made no prevalence claim. 
 on whether the agent may act ({{@cite>besanson-paper1-2026}}); paper 2, Green SARC, on its budget ({{@cite>besanson-paper2-2026}});
 paper 3, SARC-DQ, on the evidence it admits ({{@cite>besanson-paper3-2026}}); paper 4 on composing several gates on one action
 ({{@cite>besanson-paper4-2026}}); paper 5 on deriving the contract, the compiler ({{@cite>besanson-paper5-2026}}); and paper 6
-on facts read from documents ({{@cite>besanson-paper6-2026}}). This paper is the number, on one real process.
+on facts read from documents ({{@cite>besanson-paper6-2026}}). This paper measures those defects on one real process.
 
 The unit is an invoice clearing in the BPI Challenge 2019 purchase-to-pay log. For each of the
 {{e1/exclusions.json>analysed_clearings|int}} analysed clearings (the exclusion table of Section 4) we reconstruct the evidence
@@ -417,7 +417,11 @@ On the corrected views the same models held far fewer lines with a failed predic
 experiment does not separate instruction wording, field structure and information content: the timeline view was sent with
 the template's opening paragraph, which says "Using only the ERP record below", followed by the timeline, as Appendix F
 shows. The gate's column follows from the predicates by construction: it is exact contract enforcement, not decision
-accuracy. Spend for
+accuracy. Under the strict reading of D4 (Section 5.1), {{exploratory/e4-strict-d4.json>registered_x_strict>defective -> clean|int}} of the {{exploratory/e4-strict-d4.json>arms>gate (registered)>registered_groups>defective>lines|int}} sample lines with a failed registered
+predicate become clean, and the models held nearly all of them on the ERP view (Jev {{exploratory/e4-strict-d4.json>arms>jev>cells>defective -> clean>held|int}}, Haiku {{exploratory/e4-strict-d4.json>arms>haiku>cells>defective -> clean>held|int}}), so on the reclassified
+sample their hold rates on strict-clean lines are {{exploratory/e4-strict-d4.json>arms>jev>strict_groups>clean>hold_rate|pct1}} and {{exploratory/e4-strict-d4.json>arms>haiku>strict_groups>clean>hold_rate|pct1}} (`results/exploratory/e4-strict-d4.json`; exploratory). The apparent
+selectivity of a model-based decision depends on the contract it is measured against, and the sample was stratified under
+the registered contract, not the strict one. Spend for
 both families, the ERP view and both timeline runs together was USD {{e6/cost.json>spend_usd_total|usd}} against the registered cap of USD 60
 (`results/e6/cost.json`).
 
@@ -525,7 +529,10 @@ held nearly every line with a failed predicate ({{e4/arms-classified-lines.json>
 inferred for people, whose column is a process outcome. The ERP view hands the model the
 inputs of the predicates; under the timeline view the same models held far fewer lines (exploratory, no interval), which is
 a statement about views, not about the models alone. The timeline arm was first run on views that showed the decision's own
-clearing and was re-run on corrected views; both runs are reported (Section 5.4, decision D-G-3). The derivation depends on how the three declared losses are expressed over
+clearing and was re-run on corrected views; both runs are reported (Section 5.4, decision D-G-3). Measured against the strict
+reading of D4, {{exploratory/e4-strict-d4.json>registered_x_strict>defective -> clean|int}} of the {{exploratory/e4-strict-d4.json>arms>gate (registered)>registered_groups>defective>lines|int}} sample lines with a failed registered predicate become clean, and the models' hold rates on strict-clean
+lines are {{exploratory/e4-strict-d4.json>arms>jev>strict_groups>clean>hold_rate|pct1}} (Jev) and {{exploratory/e4-strict-d4.json>arms>haiku>strict_groups>clean>hold_rate|pct1}} (Haiku): how selective a model looks depends on the contract it is measured against, on a sample
+stratified under the registered one (exploratory). The derivation depends on how the three declared losses are expressed over
 the evidence set; the expressions are recorded with the result. One company's process, one year.
 
 ## 8 Conclusion

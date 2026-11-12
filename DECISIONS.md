@@ -1682,3 +1682,29 @@ Holm family. The fresh-clone check (D-F-3) runs on this commit before it is push
 
 The author tags v1.1.1 on <sha>, the commit that adds this entry ("paper 7: paper v1.1.1, caption fix, D-G-4"); a
 commit cannot name its own hash, so the builder's report gives it.
+
+## D-G-5 Author's final verification of 1.1.1 (2026-11-12)
+
+Three presentation items; no model call, no registered file, committed slot or registered estimate changes.
+
+1. **Figure panel title.** The hold-rates figure's exploratory panel title, "timeline view (exploratory, corrected)",
+   was cut off in the PDF. Applied: the title is "timeline view (corrected)" (`scripts/figures.py`), and every figure is
+   saved with `bbox_inches="tight"` (pad 0.04 in), which fits the saved figure to its drawn extent. That extent is
+   computed from the drawn text, so a second run gives the same bytes. The SVG, PDF and `figure-data.json` files are
+   regenerated, and two runs are byte-identical. In the rebuilt PDF every panel title of the four figures is fully
+   visible (checked by rendering the pages).
+2. **Strict-D4 sentences.** 5.4 (exploratory paragraph) and Section 7 state, from
+   `results/exploratory/e4-strict-d4.json` and through the template, that under the strict reading of D4
+   947 of the 1,000 sample lines
+   with a failed registered predicate become clean; that the models held nearly all of them (Jev
+   947, Haiku 943); that their hold rates on strict-clean lines
+   are 75.9% and 77.9%;
+   that the apparent selectivity of a model-based decision depends on the contract it is measured against; and that the
+   sample was stratified under the registered contract, not the strict one. Both are labelled exploratory.
+   `scripts/fill_paper.py` now reads " -> " inside a placeholder key as part of the key, not as a path separator, so that
+   the slot's cell keys can be addressed.
+3. **Introduction sentence.** "This paper is the number, on one real process." becomes "This paper measures those defects
+   on one real process." The paragraph defines the defect as a decision on evidence that fails a predicate, so the
+   terminology lint's defect rule holds; it passes.
+
+The paper, figures, `main.tex` and `main.pdf` regenerate byte-identically twice; CLAIMS.md is unchanged.
