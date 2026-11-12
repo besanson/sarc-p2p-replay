@@ -1,7 +1,7 @@
 {
   "artefacts": {
-    "sdist": "sarc_p2p_replay-1.0.2.tar.gz",
-    "wheel": "sarc_p2p_replay-1.0.2-py3-none-any.whl"
+    "sdist": "sarc_p2p_replay-1.0.3.tar.gz",
+    "wheel": "sarc_p2p_replay-1.0.3-py3-none-any.whl"
   },
   "audit_items": [
     2,
@@ -23,5 +23,5 @@
   "gate": "G8",
   "log": "out/package-smoke/log.txt (not committed)",
   "passed": true,
-  "python": "3.13.16"
+  "python": "3.13.18"
 }

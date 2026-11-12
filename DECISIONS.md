@@ -1476,3 +1476,21 @@ builder's x86_64): byte-identical except 4 bootstrap outputs
 which records their raw values beside the paper text, is equal within the same tolerance; the paper text,
 its TeX and the README are byte-identical. FINAL-AUDIT item 11 is closed with
 `results/reproduction/attempt-3.json` and https://github.com/besanson/sarc-p2p-replay/issues/1; C13 is supported.
+
+## D-F-6 Release 1.0.3 (2026-11-12)
+
+**What changed** since 1.0.2: the external reproduction is recorded (D-F-5; `results/reproduction/attempt-3.json`);
+C13 is supported, with that record and issue #1 as evidence (Appendix B); Appendix C states the
+reproduction with its counts, filled from the attempt slot; the Acknowledgements thank the reproducer;
+FINAL-AUDIT item 11 is closed (12 of 12 items met); gate G4 is met by a recorded attempt with the verdict
+REPRODUCED; the README status. Under `results/` only records changed (`results/package-smoke.json`, `results/reproduction/attempt-3.json`:
+the new attempt and the smoke test of the 1.0.3 wheel); no experiment slot and no number in the paper
+changed, except those filled from the new attempt slot.
+`pyproject.toml` and `CITATION.cff` 1.0.3, date-released 2026-11-12, `doi` 10.5281/zenodo.23931810
+(the concept DOI); REPRODUCE.md: `git fetch --tags && git checkout v1.0.3 && make reproduce`.
+
+**The arXiv stamp**, after the submission, will add the arXiv id to the README's status line and to
+`CITATION.cff` (and so to the README's generated Cite block), and change nothing else.
+
+The author tags v1.0.3 on the commit that adds this entry ("paper 7: D-F-6, release 1.0.3"); a commit
+cannot name its own hash, so the builder's report gives it.
