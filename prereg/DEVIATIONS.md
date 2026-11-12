@@ -70,6 +70,11 @@ receipt" (it described a temporal rule, "every one cancelled by a later `Cancel 
 class label: "paid without an approval event" (it read "paid without final approval", which is D2').
 No predicate, pattern, template, mapping or threshold changes, and no result changes.
 
+Addendum (2026-11-12). Found in the author's final verification (`DECISIONS.md` D-G-1 a, D-G-2). A row added under
+"Undetected, with reason": the magnitude of a price or quantity change, which the log's value field does not carry
+(`results/exploratory/d4-sensitivity.json`, exploratory). A description addition: no predicate, pattern, template, mapping or
+threshold changes, and no result changes.
+
 ### E7 bootstrap replicates with an empty group discarded (2026-10-25)
 
 Found in review round 1 and recorded then as a pipeline reading (`DECISIONS.md` D-D-2); entered here

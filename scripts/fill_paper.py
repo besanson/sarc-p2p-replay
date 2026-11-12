@@ -548,7 +548,7 @@ def block_appendix_g() -> tuple[str, list[str]]:
         parts.append(f"**X1, {cat}**\n\n" + "\n".join(_x1_table(block["classes"], block["analysed_clearings"])))
     h2 = x1["exploratory_h2_explicit_only"]
     parts.append("**X1, H2 under the explicit-anchor reading (W = 60 days)**\n\n" + "\n".join([
-        _row(["", "defect group", "comparison group", "difference", "clustered 95%"]), _row(["---", "---:", "---:", "---:", "---"]),
+        _row(["", "failing group", "comparison group", "difference", "clustered 95%"]), _row(["---", "---:", "---:", "---:", "---"]),
         _row(["exploratory (b)", f"{fmt(h2['defect_group']['O_rate'], 'pct')} ({fmt(h2['defect_group']['with_O'], 'int')} of "
               f"{fmt(h2['defect_group']['clearings'], 'int')})", f"{fmt(h2['comparison_group']['O_rate'], 'pct')} "
               f"({fmt(h2['comparison_group']['with_O'], 'int')} of {fmt(h2['comparison_group']['clearings'], 'int')})",
@@ -557,10 +557,10 @@ def block_appendix_g() -> tuple[str, list[str]]:
               fmt(h2["registered_h2"]["difference"], "prop"), ""])]))
     for test, block in load(X2)["exploratory_estimates"].items():
         for name, s in block["standardised"].items():
-            rows = [_row(["stratum", "defect O rate", "comparison O rate", "difference", "comparison weight", "kept"]),
+            rows = [_row(["stratum", "failing-group O rate", "comparison O rate", "difference", "comparison weight", "kept"]),
                     _row(["---", "---:", "---:", "---:", "---:", "---"])]
             for label, c in s["strata"].items():
-                rows.append(_row([label, f"{fmt(c['defect_O_rate'], 'pct')} ({fmt(c['defect_with_O'], 'int')} of "
+                rows.append(_row([label.replace(" | ", ", "), f"{fmt(c['defect_O_rate'], 'pct')} ({fmt(c['defect_with_O'], 'int')} of "
                                   f"{fmt(c['defect_clearings'], 'int')})", f"{fmt(c['comparison_O_rate'], 'pct')} "
                                   f"({fmt(c['comparison_with_O'], 'int')} of {fmt(c['comparison_clearings'], 'int')})",
                                   fmt(c["difference"], "prop"), fmt(c["comparison_weight"], "pct"), "yes" if c["kept"] else "no"]))

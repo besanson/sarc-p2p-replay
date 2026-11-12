@@ -28,7 +28,9 @@ sufficient for every declared loss in 2-way, and for L1 and L3 but not L2 in the
 minimal in none. C2's "relied on" is read as "made on evidence that failed". C9's "per-category matching
 rule" is the category contract of section 3.1, the comparator the registration's E5 row fixes; the
 before-receipt category recovers the narrow three-way match (D1 to D4), and the status "not supported"
-refers to the registered comparison.
+refers to the registered comparison. C2's exposure is the registered predicate set; its D4 component
+depends on the registered reading of the creation as approval-bearing; the strict reading is reported as exploratory
+(paper, Section 5.1; `results/exploratory/d4-sensitivity.json`).
 
 ## Non-claims (stated in the paper)
 

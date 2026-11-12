@@ -249,7 +249,7 @@ after two machine sweeps whose output is committed unedited.
 
 ## 5 Results
 
-### 5.1 Exposure (E1)
+### 5.1 Exposure (E1, registered)
 
 | defect class | clearings | share | Wilson 95% | bootstrap 95% | share of value | bootstrap 95% |
 | --- | ---: | ---: | --- | --- | ---: | --- |
@@ -300,7 +300,7 @@ failures only. Restricting D4 failures to observable relative changes above the 
 (0.48%) at every threshold: the clearings that fail a predicate
 other than D4. The magnitude of a change is therefore an undetected class (Section 6).
 
-### 5.2 Consequence (E2)
+### 5.2 Consequence (E2, registered)
 
 | test | defect group (failed predicate): O rate | comparison: O rate | difference | bootstrap SE | z | p (raw, one-sided) | p (Holm) |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
@@ -355,11 +355,11 @@ Sources: `results/e2/hypotheses.json` (registered), `results/exploratory/adjuste
 
 H1 holds under every stratification; H2 holds, by category and value quartile at about a third of its unadjusted size.
 
-### 5.3 Gate effect and hold cost (E3)
+### 5.3 Gate effect and hold cost (E3, registered)
 
 The gate would have held 17,748 of 155,534 analysed clearings
 (11.41%, 19.41% of cleared value); 0
-of them were held on an unknown predicate value alone. Against the corrective at W = 60 days, in clearings and anonymised EUR (Figure 4):
+of them were held on an unknown predicate value alone. Against the corrective at W = 60 days, in clearings and anonymised EUR (Figure 2):
 
 | gate verdict | corrective within W | no corrective within W |
 | --- | ---: | ---: |
@@ -381,7 +381,7 @@ Source: `results/exploratory/hold-friction.json` (exploratory).
 A hold with no corrective within W is not shown to be a false hold: the proxy is what it is. The share is the review load the
 contract would create, stated as a proportion and nothing more.
 
-![Figure 4: gate verdict against the corrective within W = 60 days, in clearings and in cleared value.](figures/fig4-verdict-outcome.svg)
+![Figure 2: gate verdict against the corrective within W = 60 days, in clearings and in cleared value.](figures/fig4-verdict-outcome.svg)
 
 For D1/D2 failures, the time from clearing to the first uncancelled receipt (Figure 3):
 
@@ -395,7 +395,7 @@ For D1/D2 failures, the time from clearing to the first uncancelled receipt (Fig
 
 ![Figure 3: D1/D2 failures by lag band, in clearings and cleared value.](figures/fig3-lag-bands.svg)
 
-**Human hold.** Of 180,664 framed lines, people held 53,262 and
+**Human hold (registered).** Of 180,664 framed lines, people held 53,262 and
 released 101,777; 25,625 had no invoice
 receipt by T_end − W and are not classified. The status of a line is the gate verdict at the decision point t* of the agent
 replay: the first clearing if it came within W of the first invoice receipt, otherwise that receipt plus W. The registered
@@ -416,7 +416,7 @@ Under the amended reading, people held 34.83% of
 lines with a failed predicate at t* and 34.30% of clean
 lines.
 
-### 5.4 People, models and the gate on the same lines (E4)
+### 5.4 People, models and the gate on the same lines (E4, registered)
 
 **Measurement asymmetry.** The models and the gate decide at t*; the people column is observed non-release within W. Of the
 53,262 framed lines held by people, 53,182 are
@@ -459,7 +459,7 @@ People: observed non-release within W (53,182 non-clearance alone,
 10 payment block alone, 70 both, among the framed
 lines held by people; Section 5.3).
 
-![Figure 2: hold rate on lines with a failed predicate and on clean lines, per arm; the exploratory timeline arm in its own panel.](figures/fig2-hold-rates.svg)
+![Figure 4: hold rate on lines with a failed predicate and on clean lines, per arm; the exploratory timeline arm in its own panel.](figures/fig2-hold-rates.svg)
 
 H4 asks whether each family's hold rate on defective lines (a failed predicate) is within m = 0.05 of its rate on clean lines.
 Neither is: Jev held 100.0% and 53.0%, Haiku held
@@ -480,7 +480,7 @@ inputs of the predicates; this result is about the view as much as about the mod
 number of corrective events the E2 rates would predict for the lines each arm released, under the stated assignment: a
 projection from observed rates onto the sample, not an observed count.
 
-**On the lines the people arm classifies.** The same four arms, re-tabulated on the
+**On the lines the people arm classifies (exploratory re-tabulation).** The same four arms, re-tabulated on the
 1,848 sample lines the people arm classifies; the table above, on all sample lines, stays
 primary:
 
@@ -533,7 +533,7 @@ accuracy. Spend for
 both families and both views together was USD 1.57 against the registered cap of USD 60
 (`results/e6/cost.json`).
 
-### 5.5 Derivation (E5)
+### 5.5 Derivation (E5, registered)
 
 Paper 5's compiler, at the pinned commit and unmodified, was given per category the observed states of the evidence set and
 the three declared losses of the registration: L1, pay for goods not received (the category requires a goods receipt and none
@@ -570,21 +570,21 @@ The registered contract is sufficient, not derived: sufficient for the three dec
 the three-way categories for L1 and L3 but not for L2, for the reason above; minimal in no category (C1). The compiler's
 contract is smaller in every category, and so C9, which asks whether it equals the registered one, is not supported.
 
-**What the negative result shows.** For each predicate the compiler did not derive, the reason is one of two. D5, D6 and D7
+**What the negative result shows (discussion of the registered result).** For each predicate the compiler did not derive, the reason is one of two. D5, D6 and D7
 read observations that no declared loss reads: the reason is a loss not declared. Pay twice (L2) needs an observable the
 registered contract does not carry, the clearing's position on its line. A minimum-cardinality sufficient contract over the
 observed states is not the normative contract: a loss that never occurs in the history yields no predicate (L1 in the
 after-receipt category). For paper 5's method to carry such controls, each needs a declared loss and a declared observable,
 not history.
 
-### 5.6 Governance cost (E6)
+### 5.6 Governance cost (E6, registered)
 
 The full replay of every line, from reading the log to the written evidence set, took a median of
 153.5 seconds over three runs on a 4-core machine,
 0.000987 seconds per gate decision. A model decision cost USD
 0.000022 with Jev and USD 0.000368 with Haiku.
 
-### 5.7 Applicability to another log: travel declarations (E7)
+### 5.7 Applicability to another log: travel declarations (E7, secondary)
 
 E7 tests whether the procedure applies to another log, not external validity. An informative replication needs recorded
 approvals, explicit decision events, reliable actor identities, enough failed predicates, and a downstream outcome within the
@@ -656,6 +656,7 @@ What the replay can and cannot see, as registered:
 | vendor identity (wrong, duplicate or fictitious vendor) | vendor names and ids are anonymised consistently; the log carries no master-data change history or bank details |
 | recovery of corrected payments | the log records the corrective event and nothing about recovery; whether money was returned, offset or written off is not recorded |
 | what a held line becomes | a gate hold is a replay verdict; the log records the human path only, so the fate of a line the gate would have held is not observable |
+| magnitude of a price or quantity change | the value field is cumulative and repeated on every event of a line, so the size of a counted change is observable on 13 of 17,157 D4 failures (`results/exploratory/d4-sensitivity.json`) |
 | approvals outside the log | approvals given by e-mail, in another system or verbally leave no event; D4's "last approval-bearing event" sees only logged approvals |
 | partial receipt and value mismatch per receipt | the replay checks presence and order of the receipt, not the matched values; values are anonymised and the registered mapping reads no per-receipt quantity |
 | duplicate invoice across lines | the case is one purchase-order line and the registered mapping carries no invoice document id, so an invoice cleared on two lines is not linked |
@@ -726,14 +727,14 @@ three-way categories, because no registered predicate reads the clearing's posit
 
 ## Acknowledgements
 
-The prior-art fence was reviewed externally by Eduardo Arana after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`, and
-he reviewed drafts v0.1 to v0.3; we also thank him for the independent reproduction of the release (Appendix C). AI tools were used as support: builder sessions with Claude for the code, the runs and the
-drafting from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for the second, the platform made two
-statements, unverified in-chat self-reports of the platforms, in this order: a later session reported its own model as `Claude Opus 5.5` and stated that it produced the sweep,
-and the same session then identified the sweep's model as `DeepSeek V4 Pro`); and machine reviews of drafts v0.1 to v0.3, on
-ChatGPT and on Perplexity (the Perplexity reviews of v0.1 and v0.2 state their model as `Claude Opus 5.5`; that of v0.3 names
-no serving model). All are committed unedited. The author is solely responsible for every claim. We thank the organisers of the BPI
-Challenges and 4TU.ResearchData for the logs.
+The prior-art fence was reviewed externally by Eduardo Arana after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`; he
+reviewed drafts v0.1 to v0.3, and we thank him for the independent reproduction of the release (Appendix C). AI tools were used
+as support: builder sessions with Claude for the code, the runs and the drafting from slots; two machine prior-art sweeps, on
+ChatGPT and on Perplexity Computer; and six machine reviews of drafts v0.1 to v0.3, on ChatGPT and on Perplexity. Their model
+names are unverified in-chat self-reports of the platforms: for the second sweep a later session reported its own model as
+`Claude Opus 5.5` and said it produced the sweep, then named the sweep's model `DeepSeek V4 Pro`; the Perplexity reviews of
+v0.1 and v0.2 state `Claude Opus 5.5`, that of v0.3 none. All are committed unedited. The author is solely responsible for
+every claim. We thank the organisers of the BPI Challenges and 4TU.ResearchData for the logs.
 
 ## References
 
@@ -811,9 +812,11 @@ declared losses over the observed states E5 checks with paper 5's own function, 
 three-way categories; minimal in none; each predicate checks one SARC-DQ dimension (Section 3). C2's "relied on" is read as
 "made on evidence that failed". C9's "per-category matching rule" is the category contract of section 3.1, the comparator the
 registration's E5 row fixes; the before-receipt category recovers the narrow three-way match (D1 to D4), and the status "not
-supported" refers to the registered comparison (Section 5.5).
+supported" refers to the registered comparison (Section 5.5). C2's exposure is the registered predicate set; its D4
+component depends on the registered reading of the creation as approval-bearing; the strict reading is reported as
+exploratory (Section 5.1).
 
-Every decision taken while the work ran is in the repository's decision log, from D-A0-1 to D-D-4, and every deviation from
+Every decision taken while the work ran is in the repository's decision log, from D-A0-1 to D-G-2, and every deviation from
 the tagged registration is in its deviations file (Section 4).
 
 ## Appendix C: Reproduction
@@ -830,7 +833,9 @@ regenerate byte-identically. External reproduction: Eduardo Arana, Independent R
 release (the clone of attempt 1) on macOS arm64 (issue #1, attempt 3): 51 files equal,
 46 byte-identical, 5 within tolerance, maximum difference
 1.11e-16; attempts 1 and 2 failed on tooling errors corrected in 1.0.1 and 1.0.2
-and are recorded.
+and are recorded. The reproduced release is V1.0.2, whose registered results 1.0.3 and 1.1.0 carry unchanged; the
+exploratory slots added in 1.1.0 are regenerated by the same `make reproduce` and were byte-identical in the fresh-clone check
+of 1.1.0.
 
 ## Appendix D: Exposure by stratum
 
@@ -1213,3 +1218,331 @@ files only, as hashed labels.
 | Q4 | 34,371 | 2,334 (6.79%) | 17 | 2,317 | 71 | 31,966 |
 
 Sources: `results/e2/confounders.json`, `results/e3/confounders.json`.
+
+## Appendix F: Model inputs (exploratory)
+
+Exploratory and illustrative. A synthetic line from the test fixtures, never a real line, rendered by the code the agent replay used. The design does not separate wording, structure and information content: the two views differ in all three at once.
+
+The registered template, `prereg/erp-view-template.txt`, verbatim (SHA-256 `11726f914f3d0ea79ae374f0bd2ba71c6e75ea60ec88ae13745b717ca563b48a`):
+
+```
+# prereg/erp-view-template.txt: registered serialisation of the ERP view for E4.
+# Everything above the line "=== REQUEST ===" is documentation and is never sent.
+# The request is the block between "=== REQUEST ===" and "=== END ===", sent
+# verbatim as the single user message after substituting each {placeholder}.
+#
+# The view is the state of the line at the decision point t* (prereg/p7-v1.md
+# section 7), built only from events at or before t*. It carries no event
+# timeline, no company, no vendor, no actor name and no line id.
+#
+# Placeholders:
+#   {category}            one of: 3-way match, invoice after goods receipt |
+#                         3-way match, invoice before goods receipt | 2-way match
+#   {gr_based_iv}         yes | no
+#   {gr_required}         yes | no
+#   {approved_price}      value on the last approval-bearing event (fallback: line value),
+#                         anonymised EUR, 2 decimals
+#   {approved_quantity}   the quantity field if the column mapping names one; the registered
+#                         mapping names none, so the literal "not recorded in this system"
+#   {invoice_received}    yes | no
+#   {invoice_date}        YYYY-MM-DD of the latest Record Invoice Receipt, or "none"
+#   {invoice_value}       value on that event, anonymised EUR, 2 decimals, or "none"
+#   {gr_recorded}         yes | no   (uncancelled goods receipt count > 0)
+#   {gr_date}             YYYY-MM-DD of the latest uncancelled Record Goods Receipt, or "none"
+#   {changes}             "none", or a comma-separated list in time order of
+#                         "price changed on YYYY-MM-DD" / "quantity changed on YYYY-MM-DD"
+#                         for changes after the last approval-bearing event
+#   {payment_block}       set | not set
+#   {decision_date}       YYYY-MM-DD of t*
+#
+# The model's reply is parsed as paper 6 jev-v3 section 3b, with the prefill "{".
+# Fields: decision in {"clear", "hold"}; p_hold a number in [0, 1].
+=== REQUEST ===
+You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {"decision": "clear" or "hold", "p_hold": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.
+
+ERP record as of {decision_date}
+Item category: {category}
+GR-based invoice verification: {gr_based_iv}
+Goods receipt required: {gr_required}
+Approved price (EUR): {approved_price}
+Approved quantity: {approved_quantity}
+Invoice received: {invoice_received}
+Invoice date: {invoice_date}
+Invoice value (EUR): {invoice_value}
+Goods receipt recorded: {gr_recorded}
+Goods receipt date: {gr_date}
+Changes since approval: {changes}
+Payment block: {payment_block}
+=== END ===
+```
+
+The synthetic line `B_stale_receipt_3way_before` (3-way, invoice before receipt) at its decision point 2018-03-10T09:00:00+00:00, gate verdict hold, failed predicates D1, D2.
+
+The ERP view (registered):
+
+```
+You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {"decision": "clear" or "hold", "p_hold": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.
+
+ERP record as of 2018-03-10
+Item category: 3-way match, invoice before goods receipt
+GR-based invoice verification: no
+Goods receipt required: yes
+Approved price (EUR): 200.00
+Approved quantity: not recorded in this system
+Invoice received: yes
+Invoice date: 2018-03-05
+Invoice value (EUR): 200.00
+Goods receipt recorded: no
+Goods receipt date: none
+Changes since approval: none
+Payment block: not set
+```
+
+The timeline view (exploratory):
+
+```
+You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {"decision": "clear" or "hold", "p_hold": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.
+
+Event timeline up to 2018-03-10 (date, activity, value in EUR)
+2018-03-01, Create Purchase Order Item, 200.00
+2018-03-05, Record Invoice Receipt, 200.00
+2018-03-10, Clear Invoice, 200.00
+```
+
+The Haiku request body:
+
+```json
+{
+  "model": "claude-haiku-4-5-20251001",
+  "max_tokens": 48,
+  "temperature": 0.0,
+  "messages": [
+    {
+      "role": "user",
+      "content": "You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it. Reply with only a JSON object of the form {\"decision\": \"clear\" or \"hold\", \"p_hold\": <number between 0 and 1>}, where p_hold is your probability that the invoice should be held. No code fences. No text after the object.\n\nERP record as of 2018-03-10\nItem category: 3-way match, invoice before goods receipt\nGR-based invoice verification: no\nGoods receipt required: yes\nApproved price (EUR): 200.00\nApproved quantity: not recorded in this system\nInvoice received: yes\nInvoice date: 2018-03-05\nInvoice value (EUR): 200.00\nGoods receipt recorded: no\nGoods receipt date: none\nChanges since approval: none\nPayment block: not set"
+    },
+    {
+      "role": "assistant",
+      "content": "{"
+    }
+  ]
+}
+```
+
+The Jev request (the template's closing reply-format sentence (a JSON decision and hold probability) is omitted from the Jev context and replaced by a typed choice with the labels clear and hold (prereg/DEVIATIONS.md, E4 Jev request format)):
+
+```json
+{
+  "state": {
+    "context": "You are the accounts-payable control for one purchase-order line. The invoice on this line is ready to be cleared for payment today. Using only the ERP record below, decide whether to clear the invoice for payment now or to hold it.",
+    "record": "ERP record as of 2018-03-10\nItem category: 3-way match, invoice before goods receipt\nGR-based invoice verification: no\nGoods receipt required: yes\nApproved price (EUR): 200.00\nApproved quantity: not recorded in this system\nInvoice received: yes\nInvoice date: 2018-03-05\nInvoice value (EUR): 200.00\nGoods receipt recorded: no\nGoods receipt date: none\nChanges since approval: none\nPayment block: not set"
+  },
+  "model": "jev-latest",
+  "questions": {
+    "Q_clear_or_hold": {
+      "type": "choice",
+      "instructions": "Decide whether to clear the invoice for payment now or to hold it.",
+      "criteria": {
+        "clear": "Clear the invoice for payment now.",
+        "hold": "Hold the invoice; do not pay it now."
+      }
+    }
+  }
+}
+```
+
+| view | exposes | omits |
+|---|---|---|
+| ERP view | approved_price, approved_quantity, category, changes, decision_date, gr_based_iv, gr_date, gr_recorded, gr_required, invoice_date, invoice_received, invoice_value, payment_block | the event timeline; actor names; line, document, company and vendor identifiers |
+| timeline view | the template's task paragraph, event date, activity, value in EUR | the ERP record's derived fields (approved price, invoice and receipt status, changes since approval, payment block); actor names; line, document, company and vendor identifiers |
+
+## Appendix G: Exploratory analyses
+
+The full tables of the exploratory analyses of Sections 5.1 to 5.3 (decision D-G-1): X1 by item category and H2 under the
+strict reading of D4; X2 per stratum, with each stratum's comparison weight and whether it is kept; X3 by item category and
+line-value quartile at both windows. Not registered; no p-value; outside the Holm family.
+
+**X1, 2-way**
+
+| reading (exploratory) | clearings | share | Wilson 95% | clustered 95% | share of value | clustered 95% |
+| --- | ---: | ---: | --- | --- | ---: | --- |
+| (a) registered: at least one failed predicate | 4 of 188 | 2.13% | [0.83%, 5.34%] | [0.00%, 4.94%] | 2.68% | [0.00%, 8.71%] |
+| (b) D4 counts only changes after an explicit approval or release event | 4 of 188 | 2.13% | [0.83%, 5.34%] | [0.00%, 4.94%] | 2.68% | [0.00%, 8.71%] |
+| (c) D4 failures with the creation as the only approval-bearing event | 0 of 188 | 0.00% | [0.00%, 2.00%] | [0.00%, 0.00%] | 0.00% | [0.00%, 0.00%] |
+
+**X1, 3-way, invoice after receipt**
+
+| reading (exploratory) | clearings | share | Wilson 95% | clustered 95% | share of value | clustered 95% |
+| --- | ---: | ---: | --- | --- | ---: | --- |
+| (a) registered: at least one failed predicate | 1,592 of 9,640 | 16.51% | [15.79%, 17.27%] | [14.42%, 18.79%] | 15.67% | [9.50%, 24.66%] |
+| (b) D4 counts only changes after an explicit approval or release event | 133 of 9,640 | 1.38% | [1.17%, 1.63%] | [0.99%, 1.81%] | 9.48% | [4.85%, 16.39%] |
+| (c) D4 failures with the creation as the only approval-bearing event | 1,461 of 9,640 | 15.16% | [14.45%, 15.89%] | [13.07%, 17.47%] | 6.20% | [3.28%, 11.00%] |
+
+**X1, 3-way, invoice before receipt**
+
+| reading (exploratory) | clearings | share | Wilson 95% | clustered 95% | share of value | clustered 95% |
+| --- | ---: | ---: | --- | --- | ---: | --- |
+| (a) registered: at least one failed predicate | 16,152 of 145,706 | 11.09% | [10.93%, 11.25%] | [10.60%, 11.60%] | 22.21% | [21.00%, 23.48%] |
+| (b) D4 counts only changes after an explicit approval or release event | 1,268 of 145,706 | 0.87% | [0.82%, 0.92%] | [0.62%, 1.17%] | 2.86% | [1.89%, 3.99%] |
+| (c) D4 failures with the creation as the only approval-bearing event | 15,017 of 145,706 | 10.31% | [10.15%, 10.46%] | [9.88%, 10.75%] | 19.41% | [18.47%, 20.36%] |
+
+**X1, H2 under the explicit-anchor reading (W = 60 days)**
+
+|  | failing group | comparison group | difference | clustered 95% |
+| --- | ---: | ---: | ---: | --- |
+| exploratory (b) | 4.42% (30 of 679) | 1.05% (1,629 of 154,855) | 0.0337 | [0.0129, 0.0736] |
+| registered | 1.91% | 0.96% | 0.0094 |  |
+
+**X2, H1 by category x line-value quartile** (standardised difference 0.0662, [0.0378, 0.0984])
+
+| stratum | failing-group O rate | comparison O rate | difference | comparison weight | kept |
+| --- | ---: | ---: | ---: | ---: | --- |
+| 2-way, Q1 | n/a (0 of 0) | n/a (0 of 0) | n/a | 0.00% | no |
+| 2-way, Q2 | n/a (0 of 0) | n/a (0 of 0) | n/a | 0.00% | no |
+| 2-way, Q3 | n/a (0 of 0) | n/a (0 of 0) | n/a | 0.00% | no |
+| 2-way, Q4 | n/a (0 of 0) | n/a (0 of 0) | n/a | 0.00% | no |
+| 3-way, invoice after receipt, Q1 | n/a (0 of 0) | 0.78% (15 of 1,928) | n/a | 1.40% | no |
+| 3-way, invoice after receipt, Q2 | n/a (0 of 0) | 1.39% (24 of 1,726) | n/a | 1.25% | no |
+| 3-way, invoice after receipt, Q3 | n/a (0 of 0) | 3.41% (64 of 1,876) | n/a | 1.36% | no |
+| 3-way, invoice after receipt, Q4 | n/a (0 of 0) | 10.88% (274 of 2,518) | n/a | 1.83% | no |
+| 3-way, invoice before receipt, Q1 | 2.59% (10 of 386) | 0.55% (188 of 34,282) | 0.0204 | 24.91% | yes |
+| 3-way, invoice before receipt, Q2 | 8.26% (9 of 109) | 0.55% (186 of 34,007) | 0.0771 | 24.71% | yes |
+| 3-way, invoice before receipt, Q3 | 5.75% (5 of 87) | 0.71% (232 of 32,506) | 0.0503 | 23.62% | yes |
+| 3-way, invoice before receipt, Q4 | 13.64% (15 of 110) | 1.05% (303 of 28,759) | 0.1258 | 20.90% | yes |
+
+**X2, H1 by month of t_c** (standardised difference 0.0507, [0.0290, 0.0824])
+
+| stratum | failing-group O rate | comparison O rate | difference | comparison weight | kept |
+| --- | ---: | ---: | ---: | ---: | --- |
+| 2018-01 | 0.00% (0 of 1) | 0.00% (0 of 238) | 0.0000 | 0.17% | yes |
+| 2018-02 | 0.00% (0 of 6) | 0.30% (8 of 2,703) | -0.0030 | 1.96% | yes |
+| 2018-03 | 13.04% (3 of 23) | 0.88% (78 of 8,902) | 0.1217 | 6.47% | yes |
+| 2018-04 | 3.23% (3 of 93) | 0.57% (76 of 13,223) | 0.0265 | 9.61% | yes |
+| 2018-05 | 4.41% (3 of 68) | 0.82% (139 of 16,953) | 0.0359 | 12.32% | yes |
+| 2018-06 | 2.53% (2 of 79) | 1.13% (197 of 17,400) | 0.0140 | 12.65% | yes |
+| 2018-07 | 12.00% (9 of 75) | 1.20% (216 of 17,936) | 0.1080 | 13.03% | yes |
+| 2018-08 | 6.25% (6 of 96) | 0.98% (186 of 19,054) | 0.0527 | 13.85% | yes |
+| 2018-09 | 2.56% (2 of 78) | 0.87% (145 of 16,661) | 0.0169 | 12.11% | yes |
+| 2018-10 | 9.00% (9 of 100) | 0.92% (153 of 16,683) | 0.0808 | 12.12% | yes |
+| 2018-11 | 2.74% (2 of 73) | 1.12% (88 of 7,849) | 0.0162 | 5.70% | yes |
+
+**X2, H1 by spend area** (standardised difference 0.0778, [0.0461, 0.1125])
+
+| stratum | failing-group O rate | comparison O rate | difference | comparison weight | kept |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Additives | 7.69% (1 of 13) | 1.02% (92 of 8,987) | 0.0667 | 6.53% | yes |
+| CAPEX & SOCS | 1.82% (1 of 55) | 1.45% (63 of 4,331) | 0.0036 | 3.15% | yes |
+| Chemicals & Intermediates | n/a (0 of 0) | 0.00% (0 of 1) | n/a | 0.00% | no |
+| Commodity Resins | 0.00% (0 of 1) | 2.22% (5 of 225) | -0.0222 | 0.16% | yes |
+| Energy | n/a (0 of 0) | n/a (0 of 0) | n/a | 0.00% | no |
+| Enterprise Services | 0.00% (0 of 2) | 2.05% (7 of 342) | -0.0205 | 0.25% | yes |
+| Latex & Monomers | 30.00% (3 of 10) | 1.96% (41 of 2,096) | 0.2804 | 1.52% | yes |
+| Logistics | n/a (0 of 0) | 10.49% (205 of 1,955) | n/a | 1.42% | no |
+| Marketing | 16.67% (1 of 6) | 2.98% (33 of 1,106) | 0.1368 | 0.80% | yes |
+| Others | 0.00% (0 of 8) | 1.44% (24 of 1,663) | -0.0144 | 1.21% | yes |
+| Packaging | 5.29% (9 of 170) | 0.45% (254 of 56,526) | 0.0484 | 41.08% | yes |
+| Pigments & Colorants | 40.00% (2 of 5) | 1.22% (17 of 1,397) | 0.3878 | 1.02% | yes |
+| Real Estate | n/a (0 of 0) | 0.00% (0 of 1) | n/a | 0.00% | no |
+| Sales | 13.57% (19 of 140) | 0.73% (318 of 43,511) | 0.1284 | 31.62% | yes |
+| Solvents | n/a (0 of 0) | 1.55% (21 of 1,354) | n/a | 0.98% | no |
+| Specialty Resins | n/a (0 of 0) | 1.03% (11 of 1,067) | n/a | 0.78% | no |
+| Spend Area Unidentified | n/a (0 of 0) | 0.00% (0 of 15) | n/a | 0.01% | no |
+| Titanium Dioxides | 0.00% (0 of 5) | 2.62% (8 of 305) | -0.0262 | 0.22% | yes |
+| Trading & End Products | 0.73% (2 of 273) | 1.22% (141 of 11,548) | -0.0049 | 8.39% | yes |
+| Workforce Services | n/a (0 of 0) | 16.89% (37 of 219) | n/a | 0.16% | no |
+| missing | 25.00% (1 of 4) | 0.94% (9 of 953) | 0.2406 | 0.69% | yes |
+
+**X2, H2 by category x line-value quartile** (standardised difference 0.0031, [0.0008, 0.0054])
+
+| stratum | failing-group O rate | comparison O rate | difference | comparison weight | kept |
+| --- | ---: | ---: | ---: | ---: | --- |
+| 2-way, Q1 | n/a (0 of 0) | 0.00% (0 of 5) | n/a | 0.00% | no |
+| 2-way, Q2 | n/a (0 of 0) | 0.00% (0 of 24) | n/a | 0.02% | no |
+| 2-way, Q3 | n/a (0 of 0) | 0.00% (0 of 59) | n/a | 0.04% | no |
+| 2-way, Q4 | 0.00% (0 of 4) | 5.21% (5 of 96) | -0.0521 | 0.07% | yes |
+| 3-way, invoice after receipt, Q1 | 0.29% (1 of 341) | 0.78% (15 of 1,930) | -0.0048 | 1.39% | yes |
+| 3-way, invoice after receipt, Q2 | 0.36% (1 of 276) | 1.39% (24 of 1,726) | -0.0103 | 1.25% | yes |
+| 3-way, invoice after receipt, Q3 | 1.60% (4 of 250) | 3.41% (64 of 1,876) | -0.0181 | 1.36% | yes |
+| 3-way, invoice after receipt, Q4 | 14.21% (102 of 718) | 10.90% (275 of 2,523) | 0.0331 | 1.82% | yes |
+| 3-way, invoice before receipt, Q1 | 0.60% (10 of 1,671) | 0.57% (197 of 34,602) | 0.0003 | 25.01% | yes |
+| 3-way, invoice before receipt, Q2 | 0.64% (15 of 2,353) | 0.57% (195 of 34,102) | 0.0007 | 24.64% | yes |
+| 3-way, invoice before receipt, Q3 | 1.07% (45 of 4,197) | 0.73% (237 of 32,581) | 0.0034 | 23.55% | yes |
+| 3-way, invoice before receipt, Q4 | 2.03% (149 of 7,347) | 1.11% (320 of 28,853) | 0.0092 | 20.85% | yes |
+
+**X2, H2 by month of t_c** (standardised difference 0.0094, [0.0060, 0.0132])
+
+| stratum | failing-group O rate | comparison O rate | difference | comparison weight | kept |
+| --- | ---: | ---: | ---: | ---: | --- |
+| 2018-01 | 0.00% (0 of 8) | 0.00% (0 of 247) | 0.0000 | 0.18% | yes |
+| 2018-02 | 2.08% (2 of 96) | 0.29% (8 of 2,716) | 0.0179 | 1.96% | yes |
+| 2018-03 | 2.92% (25 of 855) | 0.91% (81 of 8,935) | 0.0202 | 6.46% | yes |
+| 2018-04 | 0.92% (16 of 1,737) | 0.59% (78 of 13,326) | 0.0034 | 9.63% | yes |
+| 2018-05 | 1.36% (26 of 1,909) | 0.85% (144 of 17,030) | 0.0052 | 12.31% | yes |
+| 2018-06 | 2.12% (48 of 2,261) | 1.14% (199 of 17,487) | 0.0098 | 12.64% | yes |
+| 2018-07 | 1.81% (36 of 1,991) | 1.25% (225 of 18,028) | 0.0056 | 13.03% | yes |
+| 2018-08 | 1.80% (44 of 2,442) | 1.00% (191 of 19,168) | 0.0081 | 13.85% | yes |
+| 2018-09 | 2.44% (55 of 2,253) | 0.90% (151 of 16,749) | 0.0154 | 12.10% | yes |
+| 2018-10 | 2.01% (48 of 2,387) | 0.98% (164 of 16,806) | 0.0104 | 12.15% | yes |
+| 2018-11 | 2.22% (27 of 1,218) | 1.15% (91 of 7,885) | 0.0106 | 5.70% | yes |
+
+**X2, H2 by spend area** (standardised difference 0.0103, [0.0070, 0.0137])
+
+| stratum | failing-group O rate | comparison O rate | difference | comparison weight | kept |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Additives | 1.82% (22 of 1,207) | 1.03% (93 of 8,999) | 0.0079 | 6.50% | yes |
+| CAPEX & SOCS | 2.16% (6 of 278) | 1.46% (64 of 4,394) | 0.0070 | 3.18% | yes |
+| Chemicals & Intermediates | n/a (0 of 0) | 0.00% (0 of 1) | n/a | 0.00% | no |
+| Commodity Resins | 1.25% (1 of 80) | 2.21% (5 of 226) | -0.0096 | 0.16% | yes |
+| Energy | n/a (0 of 0) | 0.00% (0 of 3) | n/a | 0.00% | no |
+| Enterprise Services | 0.00% (0 of 20) | 2.00% (7 of 350) | -0.0200 | 0.25% | yes |
+| Latex & Monomers | 1.88% (9 of 479) | 2.09% (44 of 2,105) | -0.0021 | 1.52% | yes |
+| Logistics | 35.96% (41 of 114) | 10.49% (205 of 1,955) | 0.2548 | 1.41% | yes |
+| Marketing | 12.04% (13 of 108) | 3.06% (34 of 1,112) | 0.0898 | 0.80% | yes |
+| Others | 5.81% (5 of 86) | 1.54% (26 of 1,690) | 0.0428 | 1.22% | yes |
+| Packaging | 1.10% (76 of 6,901) | 0.46% (263 of 56,660) | 0.0064 | 40.95% | yes |
+| Pigments & Colorants | 2.71% (8 of 295) | 1.29% (18 of 1,399) | 0.0143 | 1.01% | yes |
+| Real Estate | 0.00% (0 of 5) | 2.05% (3 of 146) | -0.0205 | 0.11% | yes |
+| Sales | 1.02% (33 of 3,244) | 0.78% (340 of 43,647) | 0.0024 | 31.54% | yes |
+| Solvents | 3.24% (7 of 216) | 1.55% (21 of 1,357) | 0.0169 | 0.98% | yes |
+| Specialty Resins | 3.51% (8 of 228) | 1.03% (11 of 1,067) | 0.0248 | 0.77% | yes |
+| Spend Area Unidentified | 0.00% (0 of 3) | 0.00% (0 of 15) | 0.0000 | 0.01% | yes |
+| Titanium Dioxides | 7.56% (9 of 119) | 2.58% (8 of 310) | 0.0498 | 0.22% | yes |
+| Trading & End Products | 2.13% (71 of 3,339) | 1.22% (143 of 11,765) | 0.0091 | 8.50% | yes |
+| Workforce Services | 17.74% (11 of 62) | 16.89% (37 of 219) | 0.0085 | 0.16% | yes |
+| missing | 1.88% (7 of 373) | 1.04% (10 of 957) | 0.0083 | 0.69% | yes |
+
+**X3, W = 30 days, by item category**
+
+| category | gate holds | without a corrective | clustered 95% | share of held value | clustered 95% |
+| --- | ---: | ---: | --- | ---: | --- |
+| 2-way | 4 | 100.00% | [100.00%, 100.00%] | 100.00% | [100.00%, 100.00%] |
+| 3-way, invoice after receipt | 1,592 | 96.11% | [94.22%, 97.86%] | 81.29% | [69.13%, 92.04%] |
+| 3-way, invoice before receipt | 16,152 | 98.90% | [98.69%, 99.10%] | 97.64% | [96.49%, 98.58%] |
+
+**X3, W = 60 days, by item category**
+
+| category | gate holds | without a corrective | clustered 95% | share of held value | clustered 95% |
+| --- | ---: | ---: | --- | ---: | --- |
+| 2-way | 4 | 100.00% | [100.00%, 100.00%] | 100.00% | [100.00%, 100.00%] |
+| 3-way, invoice after receipt | 1,592 | 93.15% | [90.64%, 95.59%] | 68.86% | [58.57%, 80.18%] |
+| 3-way, invoice before receipt | 16,152 | 98.40% | [98.13%, 98.65%] | 96.59% | [95.31%, 97.68%] |
+
+**X3, W = 30 days, by line-value quartile**
+
+| quartile | gate holds | without a corrective | clustered 95% | share of held value | clustered 95% |
+| --- | ---: | ---: | --- | ---: | --- |
+| Q1 | 2,334 | 99.44% | [99.03%, 99.78%] | 99.32% | [98.69%, 99.81%] |
+| Q2 | 2,724 | 99.45% | [99.14%, 99.73%] | 99.45% | [99.13%, 99.74%] |
+| Q3 | 4,522 | 99.12% | [98.77%, 99.43%] | 99.08% | [98.72%, 99.41%] |
+| Q4 | 8,168 | 97.89% | [97.38%, 98.37%] | 91.76% | [86.19%, 95.93%] |
+
+**X3, W = 60 days, by line-value quartile**
+
+| quartile | gate holds | without a corrective | clustered 95% | share of held value | clustered 95% |
+| --- | ---: | ---: | --- | ---: | --- |
+| Q1 | 2,334 | 99.14% | [98.65%, 99.56%] | 98.94% | [98.22%, 99.55%] |
+| Q2 | 2,724 | 99.08% | [98.62%, 99.49%] | 99.03% | [98.52%, 99.48%] |
+| Q3 | 4,522 | 98.81% | [98.41%, 99.16%] | 98.73% | [98.30%, 99.12%] |
+| Q4 | 8,168 | 96.71% | [96.02%, 97.35%] | 86.63% | [81.19%, 91.60%] |
+
+Sources: `results/exploratory/d4-sensitivity.json`, `results/exploratory/adjusted-h1-h2.json`, `results/exploratory/hold-friction.json` (exploratory).

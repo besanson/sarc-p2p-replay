@@ -55,7 +55,11 @@ def write_tex(paper: Path = PAPER, out: Path = MAIN_TEX) -> None:
 # long unbroken strings in table cells (hashes, DOIs, file names, identifiers) may break anywhere;
 # bare URLs become \url, which xurl (loaded by pandoc's template) breaks anywhere.
 TABLE_SETUP = ("\\usepackage{seqsplit}\n"
-               "\\AtBeginEnvironment{longtable}{\\footnotesize\\setlength{\\tabcolsep}{3pt}}\n")
+               "\\AtBeginEnvironment{longtable}{\\footnotesize\\setlength{\\tabcolsep}{3pt}}\n"
+               # Code blocks (Appendix F) wrap at the margin: fvextra's Verbatim with line breaks anywhere.
+               "\\usepackage{fvextra}\n"
+               "\\DefineVerbatimEnvironment{Highlighting}{Verbatim}"
+               "{commandchars=\\\\\\{\\},breaklines,breakanywhere,fontsize=\\footnotesize}\n")
 LONG_TOKEN = re.compile(r"(?<!\S)([A-Za-z0-9][^\s\\{}&]{17,}[^\s\\{}&.,;)])")
 TEXTTT = re.compile(r"(\\texttt\{[^{}]*\})")
 
@@ -72,6 +76,10 @@ def _cells(body: str) -> str:
 
 def _layout(tex: str) -> str:
     tex = tex.replace("\\begin{document}", TABLE_SETUP + "\\begin{document}", 1)
+    tex = tex.replace("\\begin{verbatim}", "\\begin{Verbatim}[breaklines,breakanywhere,fontsize=\\footnotesize]")
+    tex = tex.replace("\\end{verbatim}", "\\end{Verbatim}")
+    # A hash in running text (a SHA-256 in \texttt) may also break anywhere.
+    tex = re.sub(r"\\texttt\{([0-9a-f]{40,})\}", r"\\texttt{\\seqsplit{\1}}", tex)
     # The affiliation as a footnote on the author's name, not beside it; the PDF metadata carries the name only.
     tex = re.sub(r"\\author\{([^,{}]+), ([^{}]+)\}", r"\\author{\1\\thanks{\2}}", tex, count=1)
     tex = re.sub(r"pdfauthor=\{([^,{}]+), [^{}]+\}", r"pdfauthor={\1}", tex, count=1)

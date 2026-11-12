@@ -224,7 +224,7 @@ after two machine sweeps whose output is committed unedited.
 
 ## 5 Results
 
-### 5.1 Exposure (E1)
+### 5.1 Exposure (E1, registered)
 
 {{#exposure}}
 
@@ -259,7 +259,7 @@ failures only. Restricting D4 failures to observable relative changes above the 
 ({{exploratory/d4-sensitivity.json>exploratory_materiality>thresholds>0>exposure>share_of_clearings|pct}}) at every threshold: the clearings that fail a predicate
 other than D4. The magnitude of a change is therefore an undetected class (Section 6).
 
-### 5.2 Consequence (E2)
+### 5.2 Consequence (E2, registered)
 
 {{#hypotheses}}
 
@@ -293,11 +293,11 @@ comparison group is shown. No regression, no p-value:
 
 H1 holds under every stratification; H2 holds, by category and value quartile at about a third of its unadjusted size.
 
-### 5.3 Gate effect and hold cost (E3)
+### 5.3 Gate effect and hold cost (E3, registered)
 
 The gate would have held {{e3/gate-held.json>held>clearings|int}} of {{e3/gate-held.json>analysed_clearings|int}} analysed clearings
 ({{e3/gate-held.json>held>share_of_clearings|pct}}, {{e3/gate-held.json>held>share_of_value|pct}} of cleared value); {{e3/gate-held.json>held_unknown_only|int}}
-of them were held on an unknown predicate value alone. Against the corrective at W = 60 days, in clearings and anonymised EUR (Figure 4):
+of them were held on an unknown predicate value alone. Against the corrective at W = 60 days, in clearings and anonymised EUR (Figure 2):
 
 {{#two_by_two}}
 
@@ -311,7 +311,7 @@ value:
 A hold with no corrective within W is not shown to be a false hold: the proxy is what it is. The share is the review load the
 contract would create, stated as a proportion and nothing more.
 
-![Figure 4: gate verdict against the corrective within W = 60 days, in clearings and in cleared value.](figures/fig4-verdict-outcome.svg)
+![Figure 2: gate verdict against the corrective within W = 60 days, in clearings and in cleared value.](figures/fig4-verdict-outcome.svg)
 
 For D1/D2 failures, the time from clearing to the first uncancelled receipt (Figure 3):
 
@@ -319,7 +319,7 @@ For D1/D2 failures, the time from clearing to the first uncancelled receipt (Fig
 
 ![Figure 3: D1/D2 failures by lag band, in clearings and cleared value.](figures/fig3-lag-bands.svg)
 
-**Human hold.** Of {{e3/human-hold.json>framed_lines|int}} framed lines, people held {{e3/human-hold.json>held_by_people|int}} and
+**Human hold (registered).** Of {{e3/human-hold.json>framed_lines|int}} framed lines, people held {{e3/human-hold.json>held_by_people|int}} and
 released {{e3/human-hold.json>released_by_people|int}}; {{e3/human-hold.json>unclassified_no_invoice_receipt_by_t_end_minus_w|int}} had no invoice
 receipt by T_end − W and are not classified. The status of a line is the gate verdict at the decision point t* of the agent
 replay: the first clearing if it came within W of the first invoice receipt, otherwise that receipt plus W. The registered
@@ -333,7 +333,7 @@ Under the amended reading, people held {{e3/human-hold.json>amended_reading_D-C-
 lines with a failed predicate at t* and {{e3/human-hold.json>amended_reading_D-C-2>by_gate_status_at_t_star>clean>human_hold_rate|pct}} of clean
 lines.
 
-### 5.4 People, models and the gate on the same lines (E4)
+### 5.4 People, models and the gate on the same lines (E4, registered)
 
 **Measurement asymmetry.** The models and the gate decide at t*; the people column is observed non-release within W. Of the
 {{e3/human-hold-composition.json>held_by_people|int}} framed lines held by people, {{e3/human-hold-composition.json>by_reason>no_clearing_within_W_of_first_invoice|int}} are
@@ -364,7 +364,7 @@ People: observed non-release within W ({{e3/human-hold-composition.json>by_reaso
 {{e3/human-hold-composition.json>by_reason>payment_block_before_first_clearing|int}} payment block alone, {{e3/human-hold-composition.json>by_reason>both|int}} both, among the framed
 lines held by people; Section 5.3).
 
-![Figure 2: hold rate on lines with a failed predicate and on clean lines, per arm; the exploratory timeline arm in its own panel.](figures/fig2-hold-rates.svg)
+![Figure 4: hold rate on lines with a failed predicate and on clean lines, per arm; the exploratory timeline arm in its own panel.](figures/fig2-hold-rates.svg)
 
 H4 asks whether each family's hold rate on defective lines (a failed predicate) is within m = 0.05 of its rate on clean lines.
 Neither is: Jev held {{e4/arms.json>arms>jev>hold_rate_defective|pct1}} and {{e4/arms.json>arms>jev>hold_rate_clean|pct1}}, Haiku held
@@ -385,7 +385,7 @@ inputs of the predicates; this result is about the view as much as about the mod
 number of corrective events the E2 rates would predict for the lines each arm released, under the stated assignment: a
 projection from observed rates onto the sample, not an observed count.
 
-**On the lines the people arm classifies.** The same four arms, re-tabulated on the
+**On the lines the people arm classifies (exploratory re-tabulation).** The same four arms, re-tabulated on the
 {{e4/arms-classified-lines.json>classified_lines|int}} sample lines the people arm classifies; the table above, on all sample lines, stays
 primary:
 
@@ -417,7 +417,7 @@ accuracy. Spend for
 both families and both views together was USD {{e6/cost.json>spend_usd_total|usd}} against the registered cap of USD 60
 (`results/e6/cost.json`).
 
-### 5.5 Derivation (E5)
+### 5.5 Derivation (E5, registered)
 
 Paper 5's compiler, at the pinned commit and unmodified, was given per category the observed states of the evidence set and
 the three declared losses of the registration: L1, pay for goods not received (the category requires a goods receipt and none
@@ -446,21 +446,21 @@ The registered contract is sufficient, not derived: sufficient for the three dec
 the three-way categories for L1 and L3 but not for L2, for the reason above; minimal in no category (C1). The compiler's
 contract is smaller in every category, and so C9, which asks whether it equals the registered one, is not supported.
 
-**What the negative result shows.** For each predicate the compiler did not derive, the reason is one of two. D5, D6 and D7
+**What the negative result shows (discussion of the registered result).** For each predicate the compiler did not derive, the reason is one of two. D5, D6 and D7
 read observations that no declared loss reads: the reason is a loss not declared. Pay twice (L2) needs an observable the
 registered contract does not carry, the clearing's position on its line. A minimum-cardinality sufficient contract over the
 observed states is not the normative contract: a loss that never occurs in the history yields no predicate (L1 in the
 after-receipt category). For paper 5's method to carry such controls, each needs a declared loss and a declared observable,
 not history.
 
-### 5.6 Governance cost (E6)
+### 5.6 Governance cost (E6, registered)
 
 The full replay of every line, from reading the log to the written evidence set, took a median of
 {{e6/timing-e1.json>median_replay_seconds|sec}} seconds over three runs on a {{e6/timing-e1.json>hardware>cpu_cores|int}}-core machine,
 {{e6/timing-e1.json>seconds_per_decision|f6}} seconds per gate decision. A model decision cost USD
 {{e6/cost.json>arms>e4>jev>usd_per_decision|usd6}} with Jev and USD {{e6/cost.json>arms>e4>haiku>usd_per_decision|usd6}} with Haiku.
 
-### 5.7 Applicability to another log: travel declarations (E7)
+### 5.7 Applicability to another log: travel declarations (E7, secondary)
 
 E7 tests whether the procedure applies to another log, not external validity. An informative replication needs recorded
 approvals, explicit decision events, reliable actor identities, enough failed predicates, and a downstream outcome within the
@@ -540,14 +540,14 @@ three-way categories, because no registered predicate reads the clearing's posit
 
 ## Acknowledgements
 
-The prior-art fence was reviewed externally by Eduardo Arana after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`, and
-he reviewed drafts v0.1 to v0.3; we also thank him for the independent reproduction of the release (Appendix C). AI tools were used as support: builder sessions with Claude for the code, the runs and the
-drafting from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for the second, the platform made two
-statements, unverified in-chat self-reports of the platforms, in this order: a later session reported its own model as `Claude Opus 5.5` and stated that it produced the sweep,
-and the same session then identified the sweep's model as `DeepSeek V4 Pro`); and machine reviews of drafts v0.1 to v0.3, on
-ChatGPT and on Perplexity (the Perplexity reviews of v0.1 and v0.2 state their model as `Claude Opus 5.5`; that of v0.3 names
-no serving model). All are committed unedited. The author is solely responsible for every claim. We thank the organisers of the BPI
-Challenges and 4TU.ResearchData for the logs.
+The prior-art fence was reviewed externally by Eduardo Arana after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`; he
+reviewed drafts v0.1 to v0.3, and we thank him for the independent reproduction of the release (Appendix C). AI tools were used
+as support: builder sessions with Claude for the code, the runs and the drafting from slots; two machine prior-art sweeps, on
+ChatGPT and on Perplexity Computer; and six machine reviews of drafts v0.1 to v0.3, on ChatGPT and on Perplexity. Their model
+names are unverified in-chat self-reports of the platforms: for the second sweep a later session reported its own model as
+`Claude Opus 5.5` and said it produced the sweep, then named the sweep's model `DeepSeek V4 Pro`; the Perplexity reviews of
+v0.1 and v0.2 state `Claude Opus 5.5`, that of v0.3 none. All are committed unedited. The author is solely responsible for
+every claim. We thank the organisers of the BPI Challenges and 4TU.ResearchData for the logs.
 
 ## References
 
@@ -571,9 +571,11 @@ declared losses over the observed states E5 checks with paper 5's own function, 
 three-way categories; minimal in none; each predicate checks one SARC-DQ dimension (Section 3). C2's "relied on" is read as
 "made on evidence that failed". C9's "per-category matching rule" is the category contract of section 3.1, the comparator the
 registration's E5 row fixes; the before-receipt category recovers the narrow three-way match (D1 to D4), and the status "not
-supported" refers to the registered comparison (Section 5.5).
+supported" refers to the registered comparison (Section 5.5). C2's exposure is the registered predicate set; its D4
+component depends on the registered reading of the creation as approval-bearing; the strict reading is reported as
+exploratory (Section 5.1).
 
-Every decision taken while the work ran is in the repository's decision log, from D-A0-1 to D-D-4, and every deviation from
+Every decision taken while the work ran is in the repository's decision log, from D-A0-1 to D-G-2, and every deviation from
 the tagged registration is in its deviations file (Section 4).
 
 ## Appendix C: Reproduction
@@ -590,7 +592,9 @@ regenerate byte-identically. External reproduction: {{reproduction/attempt-3.jso
 release (the clone of attempt {{reproduction/attempt-1.json>attempt|int}}) on macOS {{reproduction/attempt-3.json>environment>architecture}} (issue #{{reproduction/attempt-3.json>issue|int}}, attempt {{reproduction/attempt-3.json>attempt|int}}): {{reproduction/attempt-3.json>files_equal|int}} files equal,
 {{reproduction/attempt-3.json>byte_identical|int}} byte-identical, {{reproduction/attempt-3.json>within_tolerance|int}} within tolerance, maximum difference
 {{reproduction/attempt-3.json>max_abs_difference|g}}; attempts {{reproduction/attempt-1.json>attempt|int}} and {{reproduction/attempt-2.json>attempt|int}} failed on tooling errors corrected in 1.0.1 and 1.0.2
-and are recorded.
+and are recorded. The reproduced release is {{reproduction/attempt-3.json>tag}}, whose registered results 1.0.3 and 1.1.0 carry unchanged; the
+exploratory slots added in 1.1.0 are regenerated by the same `make reproduce` and were byte-identical in the fresh-clone check
+of 1.1.0.
 
 ## Appendix D: Exposure by stratum
 
@@ -609,3 +613,15 @@ descriptive: the strata are reported beside the estimates and never modelled in.
 files only, as hashed labels.
 
 {{#confounders}}
+
+## Appendix F: Model inputs (exploratory)
+
+{{#appendix_f}}
+
+## Appendix G: Exploratory analyses
+
+The full tables of the exploratory analyses of Sections 5.1 to 5.3 (decision D-G-1): X1 by item category and H2 under the
+strict reading of D4; X2 per stratum, with each stratum's comparison weight and whether it is kept; X3 by item category and
+line-value quartile at both windows. Not registered; no p-value; outside the Holm family.
+
+{{#appendix_g}}
