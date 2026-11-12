@@ -1,6 +1,6 @@
 """The exploratory analyses (DECISIONS.md D-G-1) as steps, run in order by `make reproduce`, gate G4 and
 the exploratory double run. Each step reads the e1/ to e3/ slots of `results_dir` (the committed ones or a
-reproduction's regenerated ones; X5 also its e4/ and e4-exploratory/ views, and the committed
+reproduction's regenerated ones; X5 and X6 also its e4/ and e4-exploratory/ views, and the committed
 responses) and writes under `out`/exploratory/; X4 also writes the paper's
 generated appendix into `paper_dir`. Returns the paths written, relative to `out` (results files) or as
 `paper/...` (the appendix)."""
@@ -49,7 +49,14 @@ def x5(log: Path, results_dir: Path, out: Path, paper_dir: Path, e0_path: Path, 
     return ["exploratory/timeline-leakage.json"]
 
 
-STEPS = {"X1": x1, "X2": x2, "X3": x3, "X4": x4, "X5": x5}
+def x6(log: Path, results_dir: Path, out: Path, paper_dir: Path, e0_path: Path, min_month_events: int, b: int) -> list[str]:
+    from experiments.exploratory import x6_e4_strict_d4  # noqa: PLC0415
+
+    x6_e4_strict_d4.run(log, results_dir, out / "exploratory" / "e4-strict-d4.json", e0_path)
+    return ["exploratory/e4-strict-d4.json"]
+
+
+STEPS = {"X1": x1, "X2": x2, "X3": x3, "X4": x4, "X5": x5, "X6": x6}
 
 
 def run_all(log: Path, results_dir: Path, out: Path, paper_dir: Path, e0_path: Path = E0_LINES,
