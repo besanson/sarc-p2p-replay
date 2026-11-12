@@ -1428,18 +1428,19 @@ predicate reads the clearing's position on its line.
 
 The prior-art fence was reviewed externally by Eduardo Arana after the
 tag \texttt{prereg-p7-v1} and before \texttt{prereg-p7-v1.1}, and he
-reviewed drafts v0.1 to v0.3. AI tools were used as support: builder
-sessions with Claude for the code, the runs and the drafting from slots;
-two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for
-the second, the platform made two statements, unverified in-chat
-self-reports of the platforms, in this order: a later session reported
-its own model as \texttt{Claude\ Opus\ 5.5} and stated that it produced
-the sweep, and the same session then identified the sweep's model as
-\texttt{DeepSeek\ V4\ Pro}); and machine reviews of drafts v0.1 to v0.3,
-on ChatGPT and on Perplexity (the Perplexity reviews of v0.1 and v0.2
-state their model as \texttt{Claude\ Opus\ 5.5}; that of v0.3 names no
-serving model). All are committed unedited. The author is solely
-responsible for every claim. We thank the organisers of the BPI
+reviewed drafts v0.1 to v0.3; we also thank him for the independent
+reproduction of the release (Appendix C). AI tools were used as support:
+builder sessions with Claude for the code, the runs and the drafting
+from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity
+Computer (for the second, the platform made two statements, unverified
+in-chat self-reports of the platforms, in this order: a later session
+reported its own model as \texttt{Claude\ Opus\ 5.5} and stated that it
+produced the sweep, and the same session then identified the sweep's
+model as \texttt{DeepSeek\ V4\ Pro}); and machine reviews of drafts v0.1
+to v0.3, on ChatGPT and on Perplexity (the Perplexity reviews of v0.1
+and v0.2 state their model as \texttt{Claude\ Opus\ 5.5}; that of v0.3
+names no serving model). All are committed unedited. The author is
+solely responsible for every claim. We thank the organisers of the BPI
 Challenges and 4TU.ResearchData for the logs.
 
 \hypertarget{references}{%
@@ -1664,14 +1665,10 @@ C10 & supported & \texttt{\seqsplit{results/e6/timing-e1.json}},
 C11 & inconclusive & \texttt{\seqsplit{results/e7/comparisons.json}} \\
 C12 & supported; D5 class zero incidence &
 \texttt{\seqsplit{results/e1/coverage-check.json}} \\
-C13 & supported for the internal double runs; external attempts 1
-(v1.0.0) and 2 (v1.0.1), issue \#1: in attempt 1 every reported number
-regenerated and the numeric slots were equal within tolerance; both runs
-incomplete on tooling defects in the reproduction script, corrected in
-1.0.1 and 1.0.2; re-run pending & \texttt{\seqsplit{results/reproducibility.json}},
+C13 & supported & \texttt{\seqsplit{results/reproducibility.json}},
 \texttt{\seqsplit{results/e4/double-run.json}},
-\texttt{\seqsplit{results/reproduction/attempt-1.json}},
-\texttt{\seqsplit{results/reproduction/attempt-2.json}} \\
+\texttt{\seqsplit{results/reproduction/attempt-3.json}}, issue
+\seqsplit{https://github.com/besanson/sarc-p2p-replay/issues/1} \\
 \end{longtable}
 
 Reading notes, as in the claims file. C1's ``(paper 5)'' refers to paper
@@ -1706,10 +1703,12 @@ builder; arm64 macOS in the first external attempt, issue \#1), every
 result file is equal to within 1e-12 relative; the last floating-point
 digits can differ (maximum observed absolute difference 1.1e-16); figure
 bytes differ by font embedding; the paper text, its TeX source and the
-README regenerate byte-identically. External reproduction: attempts 1
-(v1.0.0) and 2 (v1.0.1) did not complete because of tooling errors in
-the reproduction script, corrected in 1.0.1 and 1.0.2; the re-run is
-pending.
+README regenerate byte-identically. External reproduction: Eduardo
+Arana, Independent Researcher, on 2026-11-12, in a clean checkout of the
+release (the clone of attempt 1) on macOS arm64 (issue \#1, attempt 3):
+51 files equal, 46 byte-identical, 5 within tolerance, maximum
+difference 1.11e-16; attempts 1 and 2 failed on tooling errors corrected
+in 1.0.1 and 1.0.2 and are recorded.
 
 \hypertarget{appendix-d-exposure-by-stratum}{%
 \subsection{Appendix D: Exposure by

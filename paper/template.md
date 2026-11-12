@@ -455,7 +455,7 @@ three-way categories, because no registered predicate reads the clearing's posit
 ## Acknowledgements
 
 The prior-art fence was reviewed externally by Eduardo Arana after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`, and
-he reviewed drafts v0.1 to v0.3. AI tools were used as support: builder sessions with Claude for the code, the runs and the
+he reviewed drafts v0.1 to v0.3; we also thank him for the independent reproduction of the release (Appendix C). AI tools were used as support: builder sessions with Claude for the code, the runs and the
 drafting from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for the second, the platform made two
 statements, unverified in-chat self-reports of the platforms, in this order: a later session reported its own model as `Claude Opus 5.5` and stated that it produced the sweep,
 and the same session then identified the sweep's model as `DeepSeek V4 Pro`); and machine reviews of drafts v0.1 to v0.3, on
@@ -500,9 +500,11 @@ Across machines and architectures (x86-64 Linux at the builder; arm64 macOS in t
 #{{reproduction/attempt-1.json>issue|int}}), every result file is equal to within {{reproduction/comparison-rule.json>relative_tolerance|g}} relative; the
 last floating-point digits can differ (maximum observed absolute difference
 {{reproduction/attempt-1.json>max_abs_numeric_difference|g2}}); figure bytes differ by font embedding; the paper text, its TeX source and the README
-regenerate byte-identically. External reproduction: attempts {{reproduction/attempt-1.json>attempt|int}} ({{reproduction/attempt-1.json>environment>release}}) and
-{{reproduction/attempt-2.json>attempt|int}} ({{reproduction/attempt-2.json>tag}}) did not complete because of tooling errors in the reproduction script, corrected in 1.0.1
-and 1.0.2; the re-run is pending.
+regenerate byte-identically. External reproduction: {{reproduction/attempt-3.json>reproducer}}, on {{reproduction/attempt-3.json>run_utc>date}}, in a clean checkout of the
+release (the clone of attempt {{reproduction/attempt-1.json>attempt|int}}) on macOS {{reproduction/attempt-3.json>environment>architecture}} (issue #{{reproduction/attempt-3.json>issue|int}}, attempt {{reproduction/attempt-3.json>attempt|int}}): {{reproduction/attempt-3.json>files_equal|int}} files equal,
+{{reproduction/attempt-3.json>byte_identical|int}} byte-identical, {{reproduction/attempt-3.json>within_tolerance|int}} within tolerance, maximum difference
+{{reproduction/attempt-3.json>max_abs_difference|g}}; attempts {{reproduction/attempt-1.json>attempt|int}} and {{reproduction/attempt-2.json>attempt|int}} failed on tooling errors corrected in 1.0.1 and 1.0.2
+and are recorded.
 
 ## Appendix D: Exposure by stratum
 

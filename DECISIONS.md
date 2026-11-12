@@ -1437,3 +1437,42 @@ test or gate runs that script, so the checked tree and the pushed tree run the s
 
 The author tags v1.0.2 on the commit that adds this entry ("paper 7: D-F-4, release 1.0.2 after
 fresh-clone check"); a commit cannot name its own hash, so the builder's report gives it.
+
+## D-F-5 External reproduction completed (issue #1, attempt 3) (2026-11-12)
+
+**The record, as found** (`review-secondary/F3-reproduction-issue-1-comment-6812857996.md`, the comment unedited, SHA-256 `167de0b08ed83b4fc240474b9953a5f43ee98df3ae24549ec66b880f252bd021`;
+`results/reproduction/attempt-3.json`, parsed by `scripts/reproduction_attempts.py --comment`).
+Reproducer: Eduardo Arana, Independent Researcher (comment by `arananet`, 2026-11-12T02:46:01Z; the comment names no
+person, so the name is taken from attempt 1's record, posted by the same account). Tag `V1.0.2`, commit
+`50aeeb8`; macOS 26.7.2 arm64 (`macOS-26.7.2-arm64-arm-64bit-Mach-O`), Python 3.13.16, pandoc
+3.1.3. `make reproduce` ran on 2026-11-12 from 02:32:51 to 02:44:50 UTC, in the clone of attempt 1
+with its data and environment kept and its tracked files clean before and after; only that command was
+run (tests and gates were not re-run there). Exit code 0; the report was written and is pasted
+unchanged in the comment. Verdict line:
+
+> REPRODUCED: 51 files equal (46 byte-identical, 5 within tolerance, max difference 1.11e-16)
+
+51 files compared: 51 equal, 46 byte-identical, 5 within
+tolerance (|a - b| <= 1e-12 x max(1, |a|, |b|)), none unequal; 24 committed records
+copied, not regenerated. The within-tolerance files and their largest absolute differences:
+
+| file | maximum absolute difference |
+|---|---:|
+| `results/e1/exposure-by-stratum.json` | 1.11e-16 |
+| `results/e1/exposure.json` | 2.71e-20 |
+| `results/e2/hypotheses.json` | 5.42e-20 |
+| `results/e4/h4.json` | 5.42e-20 |
+| `paper/filled-template.json` | 5.42e-20 |
+
+For information, as reported: `paper-tex/main.pdf` built with tectonic: differs from the committed PDF (its bytes depend on the TeX installation and engine; the committed one used pdflatex, TeX Live 2023, pdfTeX 1.40.25).
+
+**The tag.** The release tag of 1.0.2 is spelled `V1.0.2`, with a capital V: the author's tag. Git tags are
+case-sensitive; REPRODUCE.md and D-F-4 say `v1.0.2`. `V1.0.2` refers to commit `50aeeb8`, the commit D-F-4
+names; no second tag was added.
+
+**Conclusion.** Every experiment slot regenerated on another machine and architecture (arm64 against the
+builder's x86_64): byte-identical except 4 bootstrap outputs
+(`results/e1/exposure-by-stratum.json`, `results/e1/exposure.json`, `results/e2/hypotheses.json`, `results/e4/h4.json`), equal within 1e-12; `paper/filled-template.json`,
+which records their raw values beside the paper text, is equal within the same tolerance; the paper text,
+its TeX and the README are byte-identical. FINAL-AUDIT item 11 is closed with
+`results/reproduction/attempt-3.json` and https://github.com/besanson/sarc-p2p-replay/issues/1; C13 is supported.

@@ -17,9 +17,9 @@ with prose.
 | 8 | Data reproduces from the committed hash: `make bootstrap` fetches, the SHA-256 matches `prereg/data.lock` | bootstrap log | closed: `results/data-check.json` (`make check-data`: the three files at their registered SHA-256); fetch URLs in `prereg/data.lock`, used at A0 (`DECISIONS.md` D-A0-1) |
 | 9 | Byte-identical regeneration of every result from the hash and the E4 caches | double-run diff | closed: `results/round1-double-run.json`, `results/round2-double-run.json`, `results/round3-double-run.json`, `results/e4/double-run.json`, `results/e4-exploratory/double-run.json`, `results/e5/double-run.json`, `results/e7/double-run.json`, `results/reproducibility.json`, and from 1.0.2 `make fresh-clone-check` before every release push (`DECISIONS.md` D-F-4) |
 | 10 | Release gates G1 to G9 plus terminology, typed-numeral and proof-status lints green | gate report | closed: `results/gates-report.json` (G1 to G9: no gate fails; G4 waits only on item 11), `lint/terminology.py`, `lint/typed_numerals.py`, `lint/proof_status.py` |
-| 11 | External reproduction from a clean clone | issue with matching result hashes | open (Phase F): attempts 1 and 2 recorded (`results/reproduction/attempt-1.json`, `results/reproduction/attempt-2.json`, issue #1): incomplete on tooling defects in the reproduction script, corrected in 1.0.1 and 1.0.2; re-run pending |
+| 11 | External reproduction from a clean clone | issue with matching result hashes | closed: `results/reproduction/attempt-3.json`, https://github.com/besanson/sarc-p2p-replay/issues/1 (attempt 3, V1.0.2: REPRODUCED; attempts 1 and 2 recorded in `results/reproduction/attempt-1.json`, `results/reproduction/attempt-2.json`) |
 | 12 | Claims never exceed evidence: no causal language, no loss figure, no company or vendor named, coverage honest | terminology lint, `COVERAGE.md`, review rounds | closed: `lint/terminology.py`, `COVERAGE.md`, `review-secondary/D1-review-*.md`, `review-secondary/D2-review-*.md`, `review-secondary/D3-review-*.md` |
 
 ## Summary
 
-11 of 12 items met. Open: 11 (external reproduction, Phase F).
+12 of 12 items met.

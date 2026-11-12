@@ -14,7 +14,8 @@ token purity, number parity between source and typeset paper) sit inside G9.
                       for JSON and JSON lines equality within tolerance (scripts/tolerance.py, D-F-1);
                       the paper and README by bytes, the filled template and the figures' numbers
                       (paper/figures/figure-data.json) within tolerance, the SVG and PDF bytes for
-                      information; external reproduction waits on Phase F
+                      information; external reproduction is met by a recorded attempt with the verdict
+                      REPRODUCED (results/reproduction/attempt-*.json)
   G5 claims           every CLAIMS.md status and evidence path equals what the slots give
                       (scripts/claim_statuses.py), every evidence file exists
   G6 secrets          no key, token or private key in any tracked file; .env untracked and ignored
@@ -139,7 +140,11 @@ def g4_regeneration(quick: bool) -> dict:
     os.symlink(ROOT / "responses", regen / "responses")
     log = ROOT / "data" / "BPI_Challenge_2019.xes"
     produced: list[str] = []
-    waiting = ["external reproduction from a clean clone (FINAL-AUDIT item 11): waiting on Phase F"]
+    # External reproduction (FINAL-AUDIT item 11) is met once an attempt is recorded with the verdict REPRODUCED.
+    attempts = sorted((ROOT / "results" / "reproduction").glob("attempt-*.json"))
+    external = [a.name for a in attempts
+                if str(json.loads(a.read_text(encoding="utf-8")).get("verdict", "")).startswith("REPRODUCED")]
+    waiting = [] if external else ["external reproduction from a clean clone (FINAL-AUDIT item 11): waiting on Phase F"]
     if quick or not log.exists():
         shutil.copytree(ROOT / "results" / "e1", res / "e1")
         shutil.copytree(ROOT / "results" / "e4", res / "e4")
@@ -213,6 +218,7 @@ def g4_regeneration(quick: bool) -> dict:
     diffs = [r["max_abs_difference"] for r in checked if r["max_abs_difference"] is not None]
     return gate("pass" if ok else "fail", {
         "results": rows, "paper": paper_rows, "figure_bytes_information_only": figure_bytes,
+        "external_reproduction": external,
         "byte_identical": sum(r["byte_identical"] for r in checked), "equal": sum(r["equal"] for r in checked),
         "compared": len(checked), "max_abs_difference": max(diffs, default=0.0),
         "not_equal": [r["file"] for r in checked if not r["equal"]],

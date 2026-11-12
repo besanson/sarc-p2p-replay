@@ -163,6 +163,48 @@ def parse_comment(body: str) -> dict[str, Any]:
     }
 
 
+def parse_report_comment(body: str) -> dict[str, Any]:
+    """A completed re-run whose comment carries `make reproduce`'s report unchanged (attempt 3 on, D-F-5)."""
+    body = body.replace("\r\n", "\n")
+    head = re.search(r"^Commit `([0-9a-f]{40})` \(([^)]+)\); Python ([\d.]+); (\S+)\.$", body, re.M)
+    title = re.search(r"^# Reproduction of (v[\d.]+)$", body, re.M)
+    run = re.search(r"- Run: (\d{4}-\d{2}-\d{2}), (\d{2}:\d{2}:\d{2})\D+(\d{2}:\d{2}:\d{2}) UTC", body)
+    env = re.search(r"Pandoc ([\d.]+) on PATH, Python ([\d.]+), (macOS [\d.]+) (arm64|x86_64|x86-64)", body)
+    verdict = re.search(r"\*\*((?:NOT )?REPRODUCED[^*]*)\*\*", body)
+    counts = re.search(r"(\d+) files equal \((\d+) byte-identical, (\d+) within tolerance, max difference ([\d.e+-]+)\)",
+                       verdict.group(1)) if verdict else None
+    rows = re.findall(r"^\| `([^`]+)` \| (yes|no) \| (yes|NO) \| ([^|]+) \|$", body, re.M)
+    code = re.search(r"exited with code (\d+)", body)
+    pdf = re.search(r"^For information: (.+)$", body, re.M)
+    copied = body.split("Copied from the commit", 1)[1].split("Excluded as", 1)[0] if "Copied from the commit" in body else ""
+    return {
+        "tag": head.group(2) if head else None,
+        "report_title_version": title.group(1) if title else None,
+        "commit": head.group(1) if head else None,
+        "command": "make reproduce",
+        "environment": {"platform": head.group(4) if head else None,
+                        "operating_system": env.group(3) if env else None,
+                        "architecture": env.group(4) if env else None,
+                        "python": env.group(2) if env else (head.group(3) if head else None),
+                        "pandoc": env.group(1) if env else None},
+        "run_utc": {"date": run.group(1), "start": run.group(2), "end": run.group(3)} if run else None,
+        "exit_code": int(code.group(1)) if code else None,
+        "report_written": verdict is not None,
+        "comparison_reached": bool(rows),
+        "verdict": verdict.group(1) if verdict else None,
+        "files_equal": int(counts.group(1)) if counts else None,
+        "byte_identical": int(counts.group(2)) if counts else None,
+        "within_tolerance": int(counts.group(3)) if counts else None,
+        "max_abs_difference": float(counts.group(4)) if counts else None,
+        "files_compared": len(rows),
+        "within_tolerance_files": [{"file": f, "max_abs_difference": float(d)} for f, b, w, d in rows
+                                   if b == "no" and w == "yes"],
+        "not_equal_files": [f for f, b, w, d in rows if w == "NO"],
+        "copied_records": len(re.findall(r"^- `results/", copied, re.M)),
+        "pdf": pdf.group(1) if pdf else None,
+    }
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="reproduction_attempts")
     parser.add_argument("--issue", type=int, required=True)
@@ -178,11 +220,21 @@ def main(argv: list[str] | None = None) -> int:
         record = {"attempt": args.attempt, "issue": args.issue, "comment": args.comment,
                   "commented_by": c["user"]["login"], "created_at": c["created_at"], "url": c["html_url"],
                   "body": str(path.relative_to(ROOT)),
-                  "body_sha256": hashlib.sha256(c["body"].encode("utf-8")).hexdigest(), **parse_comment(c["body"])}
+                  "body_sha256": hashlib.sha256(c["body"].encode("utf-8")).hexdigest()}
+        if "# Reproduction of v" in c["body"]:
+            record.update(parse_report_comment(c["body"]))
+            # The report names no person; the reproducer is the one attempt 1 names, when the same account posts.
+            first = json.loads((OUT / "attempt-1.json").read_text(encoding="utf-8"))
+            record["reproducer"] = first["reproducer"] if first.get("opened_by") == record["commented_by"] else None
+            record["reproducer_source"] = "results/reproduction/attempt-1.json (same GitHub account)"
+            summary = f"{record['tag']}: {record['verdict']}"
+        else:
+            record.update(parse_comment(c["body"]))
+            summary = (f"{record['tag']} stopped in {record['stopped_in_step']!r} on {record['exception']}; "
+                       f"report written: {record['report_written']}")
         out = OUT / f"attempt-{args.attempt}.json"
         out.write_text(json.dumps(record, indent=2, sort_keys=True, ensure_ascii=False) + "\n", encoding="utf-8")
-        print(f"attempt {args.attempt}: {record['tag']} stopped in {record['stopped_in_step']!r} on "
-              f"{record['exception']}; report written: {record['report_written']}")
+        print(f"attempt {args.attempt}: {summary}")
         return 0
     # The body is an unedited external text, kept with the other unedited reports.
     body_path = ROOT / "review-secondary" / f"F{args.attempt}-reproduction-issue-{args.issue}.md"

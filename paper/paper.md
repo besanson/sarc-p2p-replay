@@ -619,7 +619,7 @@ three-way categories, because no registered predicate reads the clearing's posit
 ## Acknowledgements
 
 The prior-art fence was reviewed externally by Eduardo Arana after the tag `prereg-p7-v1` and before `prereg-p7-v1.1`, and
-he reviewed drafts v0.1 to v0.3. AI tools were used as support: builder sessions with Claude for the code, the runs and the
+he reviewed drafts v0.1 to v0.3; we also thank him for the independent reproduction of the release (Appendix C). AI tools were used as support: builder sessions with Claude for the code, the runs and the
 drafting from slots; two machine prior-art sweeps, on ChatGPT and on Perplexity Computer (for the second, the platform made two
 statements, unverified in-chat self-reports of the platforms, in this order: a later session reported its own model as `Claude Opus 5.5` and stated that it produced the sweep,
 and the same session then identified the sweep's model as `DeepSeek V4 Pro`); and machine reviews of drafts v0.1 to v0.3, on
@@ -695,7 +695,7 @@ Claim statuses, each set from its slot file:
 | C10 | supported | `results/e6/timing-e1.json`, `results/e6/cost.json` |
 | C11 | inconclusive | `results/e7/comparisons.json` |
 | C12 | supported; D5 class zero incidence | `results/e1/coverage-check.json` |
-| C13 | supported for the internal double runs; external attempts 1 (v1.0.0) and 2 (v1.0.1), issue #1: in attempt 1 every reported number regenerated and the numeric slots were equal within tolerance; both runs incomplete on tooling defects in the reproduction script, corrected in 1.0.1 and 1.0.2; re-run pending | `results/reproducibility.json`, `results/e4/double-run.json`, `results/reproduction/attempt-1.json`, `results/reproduction/attempt-2.json` |
+| C13 | supported | `results/reproducibility.json`, `results/e4/double-run.json`, `results/reproduction/attempt-3.json`, issue https://github.com/besanson/sarc-p2p-replay/issues/1 |
 
 Reading notes, as in the claims file. C1's "(paper 5)" refers to paper 5's contract construct, whose sufficiency for the
 declared losses over the observed states E5 checks with paper 5's own function, per category and per loss
@@ -718,9 +718,11 @@ Across machines and architectures (x86-64 Linux at the builder; arm64 macOS in t
 #1), every result file is equal to within 1e-12 relative; the
 last floating-point digits can differ (maximum observed absolute difference
 1.1e-16); figure bytes differ by font embedding; the paper text, its TeX source and the README
-regenerate byte-identically. External reproduction: attempts 1 (v1.0.0) and
-2 (v1.0.1) did not complete because of tooling errors in the reproduction script, corrected in 1.0.1
-and 1.0.2; the re-run is pending.
+regenerate byte-identically. External reproduction: Eduardo Arana, Independent Researcher, on 2026-11-12, in a clean checkout of the
+release (the clone of attempt 1) on macOS arm64 (issue #1, attempt 3): 51 files equal,
+46 byte-identical, 5 within tolerance, maximum difference
+1.11e-16; attempts 1 and 2 failed on tooling errors corrected in 1.0.1 and 1.0.2
+and are recorded.
 
 ## Appendix D: Exposure by stratum
 
