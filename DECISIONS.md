@@ -1722,3 +1722,21 @@ release. No model call; no registered file, committed slot or registered estimat
 
 The author tags v1.1.2 on <sha>, the commit that adds this entry ("paper 7: D-G-6, release 1.1.2"); a commit cannot
 name its own hash, so the builder's report gives it.
+
+## D-H-1 Preprint (2026-11-19)
+
+**arXiv.** Paper v1.1.2 was submitted to arXiv on the submission date (the date was not supplied to the builder and is
+not recorded in this repository; the author adds it). On 2026-11-13 arXiv moderation declined it without review: "does not
+contain sufficient original or substantive scholarly research". An appeal is possible only after journal acceptance.
+
+**SSRN.** The same paper text, v1.1.2, unchanged between the two submissions, is posted on SSRN as abstract
+7701978 (https://ssrn.com/abstract=7701978), doi 10.2139/ssrn.7701978; the citation block dates it November 01, 2026 (2026-11-01). The
+record: SSRN page not machine-readable (403 to automated requests, 2026-11-19); citation block supplied by the author from the SSRN page on 2026-11-19. The block is committed byte for byte as `results/release/ssrn-suggested-citation.txt` (SHA-256 `3237c632f404886952e108ef25c39ca266f4ffdb2f3ee6109b14a38eb9eff4fa`) and parsed
+by `scripts/preprint_record.py` into `results/release/preprint.json`. Crossref answers 200 for `10.2139/ssrn.7701978` (checked 2026-11-19): registered title "Silent Evidence Defects in the Wild: A Registered Replay of a Real Purchase-to-Pay Process", deposited 2026-11-18T00:47:57Z. The record is in
+`verified-citations.json` (`besanson-paper7-ssrn-2026`, status author-supplied).
+
+**Stamp (1.1.3).** `CITATION.cff`: the SSRN DOI (preprint) and the Zenodo DOI 10.5281/zenodo.23931810 (code, data
+hashes, registration and reproduction record) as identifiers, and a preferred-citation pointing at the SSRN preprint; the
+README status and its generated Cite block (the preprint first, then the code record); a front-matter line in the paper,
+filled from `results/release/preprint.json`. Section 1's sentence that the six earlier papers are on arXiv is unchanged
+and still true. No registered file, committed slot or paper number changed.

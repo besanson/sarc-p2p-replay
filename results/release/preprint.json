@@ -1,0 +1,30 @@
+{
+  "code_and_reproduction_doi": "10.5281/zenodo.23931810",
+  "crossref": {
+    "checked_on": "2026-11-19",
+    "deposit_date": "2026-11-18T00:47:57Z",
+    "http_status": 200,
+    "registered_title": "Silent Evidence Defects in the Wild: A Registered Replay of a Real Purchase-to-Pay Process",
+    "result": "registered",
+    "url": "https://api.crossref.org/works/10.2139/ssrn.7701978"
+  },
+  "decision": "DECISIONS.md D-H-1",
+  "preprint": {
+    "abstract_id": "7701978",
+    "author": "Gaston Besanson",
+    "date": "2026-11-01",
+    "date_as_printed": "November 01, 2026",
+    "doi": "10.2139/ssrn.7701978",
+    "doi_url_as_printed": "http://dx.doi.org/10.2139/ssrn.7701978",
+    "family_name": "Besanson",
+    "given_name": "Gaston",
+    "server": "SSRN",
+    "title": "Silent Evidence Defects in the Wild: A Registered Replay of a Real Purchase-to-Pay Process",
+    "url": "https://ssrn.com/abstract=7701978"
+  },
+  "source": {
+    "attestation": "SSRN page not machine-readable (403 to automated requests, 2026-11-19); citation block supplied by the author from the SSRN page on 2026-11-19.",
+    "file": "results/release/ssrn-suggested-citation.txt",
+    "sha256": "3237c632f404886952e108ef25c39ca266f4ffdb2f3ee6109b14a38eb9eff4fa"
+  }
+}

@@ -12,9 +12,31 @@ authors:
     affiliation: Universidad Torcuato Di Tella
 repository-code: https://github.com/besanson/sarc-p2p-replay
 license: Apache-2.0
-version: 1.1.2
-date-released: "2026-11-12"
+version: 1.1.3
+date-released: "2026-11-19"
 doi: 10.5281/zenodo.23931810
+identifiers:
+  - type: doi
+    value: 10.2139/ssrn.7701978
+    description: preprint
+  - type: doi
+    value: 10.5281/zenodo.23931810
+    description: code, data hashes, registration and reproduction record
+preferred-citation:
+  type: article
+  status: preprint
+  title: >-
+    Silent Evidence Defects in the Wild: A Registered Replay of a Real
+    Purchase-to-Pay Process
+  authors:
+    - family-names: Besanson
+      given-names: Gaston
+      affiliation: Universidad Torcuato Di Tella
+  date-published: "2026-11-01"
+  publisher:
+    name: SSRN
+  doi: 10.2139/ssrn.7701978
+  url: https://ssrn.com/abstract=7701978
 references:
   - type: data
     title: BPI Challenge 2019

@@ -797,7 +797,20 @@ def readme_cite(citation: Path = CITATION) -> str:
     bib = [f"@software{{besanson_sarc_p2p_replay_{released[:4]},", f"  author  = {{{a['family-names']}, {a['given-names']}}},",
            f"  title   = {{{title}}},", f"  version = {{{c['version']}}},", f"  year    = {{{released[:4]}}},",
            f"  url     = {{{c['repository-code']}}},"] + ([f"  doi     = {{{c['doi']}}},"] if c.get("doi") else []) + ["}"]
-    text = (f"## Cite\n\n{a['given-names']} {a['family-names']}. *{title}*. Version {c['version']}, released {released}. "
+    pre = c.get("preferred-citation")
+    head = ""
+    if pre:  # the preprint first (CITATION.cff preferred-citation), then the code and reproduction record
+        pa = pre["authors"][0]
+        ptitle = " ".join(pre["title"].split())
+        pdate = str(pre["date-published"])
+        pbib = [f"@misc{{besanson_{pre['publisher']['name'].lower()}_{pdate[:4]},",
+                f"  author  = {{{pa['family-names']}, {pa['given-names']}}},", f"  title   = {{{ptitle}}},",
+                f"  howpublished = {{{pre['publisher']['name']}, {pre['status']}}},", f"  year    = {{{pdate[:4]}}},",
+                f"  url     = {{{pre['url']}}},", f"  doi     = {{{pre['doi']}}},", "}"]
+        head = (f"The paper ({pre['status']}): {pa['given-names']} {pa['family-names']}. *{ptitle}*. "
+                f"{pre['publisher']['name']}, posted {pdate}. doi:{pre['doi']}.\n\n```bibtex\n" + "\n".join(pbib)
+                + "\n```\n\nThe code, data hashes, registration and reproduction record: ")
+    text = (f"## Cite\n\n{head}{a['given-names']} {a['family-names']}. *{title}*. Version {c['version']}, released {released}. "
             f"{c['repository-code']}.{doi}\n\n```bibtex\n" + "\n".join(bib) + "\n```\n\n"
             f"Cite the event logs separately, by their DOIs:\n\n{data}")
     return f"{CITE_START}\n{text}\n{CITE_END}"

@@ -69,6 +69,7 @@ RECORDS = {
     "results/e7/double-run.json": "double-run record",
     "results/e0/run-1/": "E0 run 1 under p7-v1, stopped and superseded by run 2",
     "results/reproduction/": "records of external reproduction attempts and the comparison rule",
+    "results/release/": "the preprint record supplied by the author and its Crossref check (D-H-1)",
     "results/exploratory/double-run.json": "double-run record of the exploratory analyses",
 }
 # The paper's generated files: text compared by bytes, JSON within tolerance. The figures' SVG and PDF

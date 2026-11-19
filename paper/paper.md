@@ -6,6 +6,9 @@ author: "Gaston Besanson, Universidad Torcuato Di Tella"
 <!-- paper/template.md: the source of paper/paper.md. Every number reaches the paper through a
 placeholder filled by scripts/fill_paper.py from a slot file under results/. Draft v1.0-candidate. -->
 
+*Preprint: SSRN, doi 10.2139/ssrn.7701978; code, registration and reproduction: doi
+10.5281/zenodo.23931810.*
+
 ## Abstract
 
 Of the 155,534 analysed invoice clearings of a real purchase-to-pay event log (Section 4 gives the

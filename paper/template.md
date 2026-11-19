@@ -6,6 +6,9 @@ author: "Gaston Besanson, Universidad Torcuato Di Tella"
 <!-- paper/template.md: the source of paper/paper.md. Every number reaches the paper through a
 placeholder filled by scripts/fill_paper.py from a slot file under results/. Draft v1.0-candidate. -->
 
+*Preprint: SSRN, doi {{release/preprint.json>preprint>doi}}; code, registration and reproduction: doi
+{{release/preprint.json>code_and_reproduction_doi}}.*
+
 ## Abstract
 
 Of the {{e1/exposure.json>analysed_clearings|int}} analysed invoice clearings of a real purchase-to-pay event log (Section 4 gives the

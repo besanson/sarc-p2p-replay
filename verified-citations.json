@@ -1078,6 +1078,27 @@
       "status": "verified",
       "verified_via": "2026-10-30: arXiv search 'Besanson' (https://arxiv.org/search/?query=Besanson&searchtype=all&source=header, 10 results) lists it; curl of https://arxiv.org/abs/2610.10978 -> 200; citation_title, citation_author 'Besanson, Gaston' and citation_date 2026/10/07 read from the page metadata; v1 submitted Wed, 7 Oct 2026 23:02:20 UTC.",
       "note": "Cited for the SARC series (Section 1; D-E-0)."
+    },
+    {
+      "id": "besanson-paper7-ssrn-2026",
+      "entry_type": "misc",
+      "authors": [
+        "Gaston Besanson"
+      ],
+      "first_author": "Gaston Besanson",
+      "title": "Silent Evidence Defects in the Wild: A Registered Replay of a Real Purchase-to-Pay Process",
+      "year": 2026,
+      "venue": "SSRN, abstract 7701978, posted November 01, 2026",
+      "doi": "10.2139/ssrn.7701978",
+      "url": "https://ssrn.com/abstract=7701978",
+      "citation_as_written": null,
+      "http_status": 403,
+      "title_as_page_states": null,
+      "reached_on": "2026-11-19",
+      "status": "author-supplied",
+      "attestation": "SSRN page not machine-readable (403 to automated requests, 2026-11-19); citation block supplied by the author from the SSRN page on 2026-11-19.",
+      "verified_via": "2026-11-19: SSRN page https://ssrn.com/abstract=7701978 403 'Content Blocked' to automated requests; citation block supplied by the author (results/release/ssrn-suggested-citation.txt, sha256 3237c632f404886952e108ef25c39ca266f4ffdb2f3ee6109b14a38eb9eff4fa); Crossref API /works/10.2139/ssrn.7701978 200 (registered; title 'Silent Evidence Defects in the Wild: A Registered Replay of a Real Purchase-to-Pay Process', deposited 2026-11-18T00:47:57Z).",
+      "note": "This paper's own preprint (DECISIONS.md D-H-1); recorded, not cited in the paper text; the stamp line is filled from results/release/preprint.json."
     }
   ]
 }
