@@ -1740,3 +1740,18 @@ hashes, registration and reproduction record) as identifiers, and a preferred-ci
 README status and its generated Cite block (the preprint first, then the code record); a front-matter line in the paper,
 filled from `results/release/preprint.json`. Section 1's sentence that the six earlier papers are on arXiv is unchanged
 and still true. No registered file, committed slot or paper number changed.
+
+## D-H-2 Release 1.1.3 (2026-11-19)
+
+**What changed** since 1.1.2 (D-H-1): the preprint record (`results/release/`), the SSRN DOI 10.2139/ssrn.7701978 and the
+Zenodo DOI 10.5281/zenodo.23931810 as identifiers in `CITATION.cff` with a preferred-citation pointing at the preprint, the README
+status and Cite block, the paper's front-matter line, and Appendix C naming the release. `pyproject.toml` and
+`CITATION.cff` 1.1.3, date-released 2026-11-19; REPRODUCE.md `git checkout v1.1.3`. No model call; no
+registered file, committed slot or paper number changed. The fresh-clone check (D-F-3) runs on this commit before it is
+pushed.
+
+**What remains.** Journal submission, in Phase H session 2, to a venue of the author's choice; an arXiv appeal becomes
+possible after a journal acceptance.
+
+The author tags v1.1.3 on <sha>, the commit that adds this entry ("paper 7: D-H-2, release 1.1.3"); a commit cannot
+name its own hash, so the builder's report gives it.

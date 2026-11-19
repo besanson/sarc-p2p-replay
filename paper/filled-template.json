@@ -1,6 +1,6 @@
 {
   "paper": "paper/paper.md",
-  "paper_sha256": "8a8900035a195cf66cc501e9a3bb3d5915b76cacbabd38994ba3f4736d2fb33e",
+  "paper_sha256": "30a11bb34447fc27becda1b951c0206d19d2c4d43f970d9c7c1c01a298c4c930",
   "placeholders": [
     {
       "end": 406,
@@ -4173,5 +4173,5 @@
     }
   ],
   "template": "paper/template.md",
-  "template_sha256": "46980c38e42bb348e9271395bd4b781e526314dd12d9a649d275906109e77d65"
+  "template_sha256": "e3f8e2eeed8f971451dd82472252bc369785facbaceac317444a1de23c0e0431"
 }
